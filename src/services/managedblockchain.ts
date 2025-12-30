@@ -125,13 +125,13 @@ export class TooManyTagsException extends S.TaggedError<TooManyTagsException>()(
  * 
  * 
  * For more information about tags, see Tagging Resources in the *Amazon Managed Blockchain Ethereum Developer Guide*, or Tagging Resources in the *Amazon Managed Blockchain Hyperledger Fabric Developer Guide*.
- */export const untagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-24", uri: "/tags/{ResourceArn}", method: "DELETE", sdkId: "ManagedBlockchain", sigV4ServiceName: "managedblockchain", name: "TaigaWebService.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [InternalServiceErrorException, InvalidRequestException, ResourceNotFoundException, ResourceNotReadyException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-24", uri: "/tags/{ResourceArn}", method: "DELETE", sdkId: "ManagedBlockchain", sigV4ServiceName: "managedblockchain", name: "TaigaWebService.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [InternalServiceErrorException, InvalidRequestException, ResourceNotFoundException, ResourceNotReadyException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Casts a vote for a specified `ProposalId` on behalf of a member. The member to vote as, specified by `VoterMemberId`, must be in the same Amazon Web Services account as the principal that calls the action.
  * 
  * 
  * Applies only to Hyperledger Fabric.
- */export const voteOnProposal = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-24", uri: "/networks/{NetworkId}/proposals/{ProposalId}/votes", method: "POST", sdkId: "ManagedBlockchain", sigV4ServiceName: "managedblockchain", name: "TaigaWebService.VoteOnProposal" }, VoteOnProposalInput, VoteOnProposalOutput, [AccessDeniedException, IllegalActionException, InternalServiceErrorException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const voteOnProposal = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-24", uri: "/networks/{NetworkId}/proposals/{ProposalId}/votes", method: "POST", sdkId: "ManagedBlockchain", sigV4ServiceName: "managedblockchain", name: "TaigaWebService.VoteOnProposal" }, VoteOnProposalInput, VoteOnProposalOutput, [AccessDeniedException, IllegalActionException, InternalServiceErrorException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes an accessor that your Amazon Web Services account owns. An accessor object is a container that has the
  * information required for token based access to your Ethereum nodes including, the
@@ -140,81 +140,81 @@ export class TooManyTagsException extends S.TaggedError<TooManyTagsException>()(
  * `PENDING_DELETION` state can’t be used for new WebSocket requests or
  * HTTP requests. However, WebSocket connections that were initiated while the accessor was in the
  * `AVAILABLE` state remain open until they expire (up to 2 hours).
- */export const deleteAccessor = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-24", uri: "/accessors/{AccessorId}", method: "DELETE", sdkId: "ManagedBlockchain", sigV4ServiceName: "managedblockchain", name: "TaigaWebService.DeleteAccessor" }, DeleteAccessorInput, DeleteAccessorOutput, [AccessDeniedException, InternalServiceErrorException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteAccessor = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-24", uri: "/accessors/{AccessorId}", method: "DELETE", sdkId: "ManagedBlockchain", sigV4ServiceName: "managedblockchain", name: "TaigaWebService.DeleteAccessor" }, DeleteAccessorInput, DeleteAccessorOutput, [AccessDeniedException, InternalServiceErrorException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a member. Deleting a member removes the member and all associated resources from the network. `DeleteMember` can only be called for a specified `MemberId` if the principal performing the action is associated with the Amazon Web Services account that owns the member. In all other cases, the `DeleteMember` action is carried out as the result of an approved proposal to remove a member. If `MemberId` is the last member in a network specified by the last Amazon Web Services account, the network is deleted also.
  * 
  * 
  * Applies only to Hyperledger Fabric.
- */export const deleteMember = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-24", uri: "/networks/{NetworkId}/members/{MemberId}", method: "DELETE", sdkId: "ManagedBlockchain", sigV4ServiceName: "managedblockchain", name: "TaigaWebService.DeleteMember" }, DeleteMemberInput, DeleteMemberOutput, [AccessDeniedException, InternalServiceErrorException, InvalidRequestException, ResourceNotFoundException, ResourceNotReadyException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteMember = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-24", uri: "/networks/{NetworkId}/members/{MemberId}", method: "DELETE", sdkId: "ManagedBlockchain", sigV4ServiceName: "managedblockchain", name: "TaigaWebService.DeleteMember" }, DeleteMemberInput, DeleteMemberOutput, [AccessDeniedException, InternalServiceErrorException, InvalidRequestException, ResourceNotFoundException, ResourceNotReadyException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a node that your Amazon Web Services account owns. All data on the node is lost and cannot be recovered.
  * 
  * 
  * Applies to Hyperledger Fabric and Ethereum.
- */export const deleteNode = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-24", uri: "/networks/{NetworkId}/nodes/{NodeId}", method: "DELETE", sdkId: "ManagedBlockchain", sigV4ServiceName: "managedblockchain", name: "TaigaWebService.DeleteNode" }, DeleteNodeInput, DeleteNodeOutput, [AccessDeniedException, InternalServiceErrorException, InvalidRequestException, ResourceNotFoundException, ResourceNotReadyException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteNode = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-24", uri: "/networks/{NetworkId}/nodes/{NodeId}", method: "DELETE", sdkId: "ManagedBlockchain", sigV4ServiceName: "managedblockchain", name: "TaigaWebService.DeleteNode" }, DeleteNodeInput, DeleteNodeOutput, [AccessDeniedException, InternalServiceErrorException, InvalidRequestException, ResourceNotFoundException, ResourceNotReadyException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Rejects an invitation to join a network. This action can be called by a principal in an Amazon Web Services account that has received an invitation to create a member and join a network.
  * 
  * 
  * Applies only to Hyperledger Fabric.
- */export const rejectInvitation = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-24", uri: "/invitations/{InvitationId}", method: "DELETE", sdkId: "ManagedBlockchain", sigV4ServiceName: "managedblockchain", name: "TaigaWebService.RejectInvitation" }, RejectInvitationInput, RejectInvitationOutput, [AccessDeniedException, IllegalActionException, InternalServiceErrorException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const rejectInvitation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-24", uri: "/invitations/{InvitationId}", method: "DELETE", sdkId: "ManagedBlockchain", sigV4ServiceName: "managedblockchain", name: "TaigaWebService.RejectInvitation" }, RejectInvitationInput, RejectInvitationOutput, [AccessDeniedException, IllegalActionException, InternalServiceErrorException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns detailed information about an accessor. An accessor object is a container that has the
  * information required for token based access to your Ethereum nodes.
- */export const getAccessor = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-24", uri: "/accessors/{AccessorId}", method: "GET", sdkId: "ManagedBlockchain", sigV4ServiceName: "managedblockchain", name: "TaigaWebService.GetAccessor" }, GetAccessorInput, GetAccessorOutput, [AccessDeniedException, InternalServiceErrorException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getAccessor = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-24", uri: "/accessors/{AccessorId}", method: "GET", sdkId: "ManagedBlockchain", sigV4ServiceName: "managedblockchain", name: "TaigaWebService.GetAccessor" }, GetAccessorInput, GetAccessorOutput, [AccessDeniedException, InternalServiceErrorException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns detailed information about a proposal.
  * 
  * 
  * Applies only to Hyperledger Fabric.
- */export const getProposal = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-24", uri: "/networks/{NetworkId}/proposals/{ProposalId}", method: "GET", sdkId: "ManagedBlockchain", sigV4ServiceName: "managedblockchain", name: "TaigaWebService.GetProposal" }, GetProposalInput, GetProposalOutput, [AccessDeniedException, InternalServiceErrorException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getProposal = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-24", uri: "/networks/{NetworkId}/proposals/{ProposalId}", method: "GET", sdkId: "ManagedBlockchain", sigV4ServiceName: "managedblockchain", name: "TaigaWebService.GetProposal" }, GetProposalInput, GetProposalOutput, [AccessDeniedException, InternalServiceErrorException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of the accessors and their properties. Accessor objects are containers that have the
  * information required for token based access to your Ethereum nodes.
- */export const listAccessors = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-24", uri: "/accessors", method: "GET", sdkId: "ManagedBlockchain", sigV4ServiceName: "managedblockchain", name: "TaigaWebService.ListAccessors" }, ListAccessorsInput, ListAccessorsOutput, [AccessDeniedException, InternalServiceErrorException, InvalidRequestException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listAccessors = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-24", uri: "/accessors", method: "GET", sdkId: "ManagedBlockchain", sigV4ServiceName: "managedblockchain", name: "TaigaWebService.ListAccessors" }, ListAccessorsInput, ListAccessorsOutput, [AccessDeniedException, InternalServiceErrorException, InvalidRequestException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of all invitations for the current Amazon Web Services account.
  * 
  * 
  * Applies only to Hyperledger Fabric.
- */export const listInvitations = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-24", uri: "/invitations", method: "GET", sdkId: "ManagedBlockchain", sigV4ServiceName: "managedblockchain", name: "TaigaWebService.ListInvitations" }, ListInvitationsInput, ListInvitationsOutput, [AccessDeniedException, InternalServiceErrorException, InvalidRequestException, ResourceLimitExceededException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listInvitations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-24", uri: "/invitations", method: "GET", sdkId: "ManagedBlockchain", sigV4ServiceName: "managedblockchain", name: "TaigaWebService.ListInvitations" }, ListInvitationsInput, ListInvitationsOutput, [AccessDeniedException, InternalServiceErrorException, InvalidRequestException, ResourceLimitExceededException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of the members in a network and properties of their configurations.
  * 
  * 
  * Applies only to Hyperledger Fabric.
- */export const listMembers = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-24", uri: "/networks/{NetworkId}/members", method: "GET", sdkId: "ManagedBlockchain", sigV4ServiceName: "managedblockchain", name: "TaigaWebService.ListMembers" }, ListMembersInput, ListMembersOutput, [AccessDeniedException, InternalServiceErrorException, InvalidRequestException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listMembers = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-24", uri: "/networks/{NetworkId}/members", method: "GET", sdkId: "ManagedBlockchain", sigV4ServiceName: "managedblockchain", name: "TaigaWebService.ListMembers" }, ListMembersInput, ListMembersOutput, [AccessDeniedException, InternalServiceErrorException, InvalidRequestException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about the networks in which the current Amazon Web Services account participates.
  * 
  * 
  * Applies to Hyperledger Fabric and Ethereum.
- */export const listNetworks = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-24", uri: "/networks", method: "GET", sdkId: "ManagedBlockchain", sigV4ServiceName: "managedblockchain", name: "TaigaWebService.ListNetworks" }, ListNetworksInput, ListNetworksOutput, [AccessDeniedException, InternalServiceErrorException, InvalidRequestException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listNetworks = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-24", uri: "/networks", method: "GET", sdkId: "ManagedBlockchain", sigV4ServiceName: "managedblockchain", name: "TaigaWebService.ListNetworks" }, ListNetworksInput, ListNetworksOutput, [AccessDeniedException, InternalServiceErrorException, InvalidRequestException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about the nodes within a network.
  * 
  * 
  * Applies to Hyperledger Fabric and Ethereum.
- */export const listNodes = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-24", uri: "/networks/{NetworkId}/nodes", method: "GET", sdkId: "ManagedBlockchain", sigV4ServiceName: "managedblockchain", name: "TaigaWebService.ListNodes" }, ListNodesInput, ListNodesOutput, [AccessDeniedException, InternalServiceErrorException, InvalidRequestException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listNodes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-24", uri: "/networks/{NetworkId}/nodes", method: "GET", sdkId: "ManagedBlockchain", sigV4ServiceName: "managedblockchain", name: "TaigaWebService.ListNodes" }, ListNodesInput, ListNodesOutput, [AccessDeniedException, InternalServiceErrorException, InvalidRequestException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of proposals for the network.
  * 
  * 
  * Applies only to Hyperledger Fabric.
- */export const listProposals = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-24", uri: "/networks/{NetworkId}/proposals", method: "GET", sdkId: "ManagedBlockchain", sigV4ServiceName: "managedblockchain", name: "TaigaWebService.ListProposals" }, ListProposalsInput, ListProposalsOutput, [AccessDeniedException, InternalServiceErrorException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listProposals = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-24", uri: "/networks/{NetworkId}/proposals", method: "GET", sdkId: "ManagedBlockchain", sigV4ServiceName: "managedblockchain", name: "TaigaWebService.ListProposals" }, ListProposalsInput, ListProposalsOutput, [AccessDeniedException, InternalServiceErrorException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the list of votes for a specified proposal, including the value of each vote and the unique identifier of the member that cast the vote.
  * 
  * 
  * Applies only to Hyperledger Fabric.
- */export const listProposalVotes = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-24", uri: "/networks/{NetworkId}/proposals/{ProposalId}/votes", method: "GET", sdkId: "ManagedBlockchain", sigV4ServiceName: "managedblockchain", name: "TaigaWebService.ListProposalVotes" }, ListProposalVotesInput, ListProposalVotesOutput, [AccessDeniedException, InternalServiceErrorException, InvalidRequestException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listProposalVotes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-24", uri: "/networks/{NetworkId}/proposals/{ProposalId}/votes", method: "GET", sdkId: "ManagedBlockchain", sigV4ServiceName: "managedblockchain", name: "TaigaWebService.ListProposalVotes" }, ListProposalVotesInput, ListProposalVotesOutput, [AccessDeniedException, InternalServiceErrorException, InvalidRequestException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of tags for the specified resource. Each tag consists of a key and optional value.
  * 
  * 
  * For more information about tags, see Tagging Resources in the *Amazon Managed Blockchain Ethereum Developer Guide*, or Tagging Resources in the *Amazon Managed Blockchain Hyperledger Fabric Developer Guide*.
- */export const listTagsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-24", uri: "/tags/{ResourceArn}", method: "GET", sdkId: "ManagedBlockchain", sigV4ServiceName: "managedblockchain", name: "TaigaWebService.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [InternalServiceErrorException, InvalidRequestException, ResourceNotFoundException, ResourceNotReadyException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-24", uri: "/tags/{ResourceArn}", method: "GET", sdkId: "ManagedBlockchain", sigV4ServiceName: "managedblockchain", name: "TaigaWebService.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [InternalServiceErrorException, InvalidRequestException, ResourceNotFoundException, ResourceNotReadyException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Adds or overwrites the specified tags for the specified Amazon Managed Blockchain resource. Each tag consists of a key and optional value.
  * 
@@ -226,62 +226,62 @@ export class TooManyTagsException extends S.TaggedError<TooManyTagsException>()(
  * 
  * 
  * For more information about tags, see Tagging Resources in the *Amazon Managed Blockchain Ethereum Developer Guide*, or Tagging Resources in the *Amazon Managed Blockchain Hyperledger Fabric Developer Guide*.
- */export const tagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-24", uri: "/tags/{ResourceArn}", method: "POST", sdkId: "ManagedBlockchain", sigV4ServiceName: "managedblockchain", name: "TaigaWebService.TagResource" }, TagResourceRequest, TagResourceResponse, [InternalServiceErrorException, InvalidRequestException, ResourceNotFoundException, ResourceNotReadyException, TooManyTagsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-24", uri: "/tags/{ResourceArn}", method: "POST", sdkId: "ManagedBlockchain", sigV4ServiceName: "managedblockchain", name: "TaigaWebService.TagResource" }, TagResourceRequest, TagResourceResponse, [InternalServiceErrorException, InvalidRequestException, ResourceNotFoundException, ResourceNotReadyException, TooManyTagsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates a node configuration with new parameters.
  * 
  * 
  * Applies only to Hyperledger Fabric.
- */export const updateNode = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-24", uri: "/networks/{NetworkId}/nodes/{NodeId}", method: "PATCH", sdkId: "ManagedBlockchain", sigV4ServiceName: "managedblockchain", name: "TaigaWebService.UpdateNode" }, UpdateNodeInput, UpdateNodeOutput, [AccessDeniedException, InternalServiceErrorException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateNode = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-24", uri: "/networks/{NetworkId}/nodes/{NodeId}", method: "PATCH", sdkId: "ManagedBlockchain", sigV4ServiceName: "managedblockchain", name: "TaigaWebService.UpdateNode" }, UpdateNodeInput, UpdateNodeOutput, [AccessDeniedException, InternalServiceErrorException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new accessor for use with Amazon Managed Blockchain service that supports token based access.
  * The accessor contains information required for token based access.
- */export const createAccessor = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-24", uri: "/accessors", method: "POST", sdkId: "ManagedBlockchain", sigV4ServiceName: "managedblockchain", name: "TaigaWebService.CreateAccessor" }, CreateAccessorInput, CreateAccessorOutput, [AccessDeniedException, InternalServiceErrorException, InvalidRequestException, ResourceAlreadyExistsException, ResourceLimitExceededException, ThrottlingException, TooManyTagsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createAccessor = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-24", uri: "/accessors", method: "POST", sdkId: "ManagedBlockchain", sigV4ServiceName: "managedblockchain", name: "TaigaWebService.CreateAccessor" }, CreateAccessorInput, CreateAccessorOutput, [AccessDeniedException, InternalServiceErrorException, InvalidRequestException, ResourceAlreadyExistsException, ResourceLimitExceededException, ThrottlingException, TooManyTagsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new blockchain network using Amazon Managed Blockchain.
  * 
  * 
  * Applies only to Hyperledger Fabric.
- */export const createNetwork = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-24", uri: "/networks", method: "POST", sdkId: "ManagedBlockchain", sigV4ServiceName: "managedblockchain", name: "TaigaWebService.CreateNetwork" }, CreateNetworkInput, CreateNetworkOutput, [AccessDeniedException, InternalServiceErrorException, InvalidRequestException, ResourceAlreadyExistsException, ResourceLimitExceededException, ThrottlingException, TooManyTagsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createNetwork = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-24", uri: "/networks", method: "POST", sdkId: "ManagedBlockchain", sigV4ServiceName: "managedblockchain", name: "TaigaWebService.CreateNetwork" }, CreateNetworkInput, CreateNetworkOutput, [AccessDeniedException, InternalServiceErrorException, InvalidRequestException, ResourceAlreadyExistsException, ResourceLimitExceededException, ThrottlingException, TooManyTagsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a node on the specified blockchain network.
  * 
  * 
  * Applies to Hyperledger Fabric and Ethereum.
- */export const createNode = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-24", uri: "/networks/{NetworkId}/nodes", method: "POST", sdkId: "ManagedBlockchain", sigV4ServiceName: "managedblockchain", name: "TaigaWebService.CreateNode" }, CreateNodeInput, CreateNodeOutput, [AccessDeniedException, InternalServiceErrorException, InvalidRequestException, ResourceAlreadyExistsException, ResourceLimitExceededException, ResourceNotFoundException, ResourceNotReadyException, ThrottlingException, TooManyTagsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createNode = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-24", uri: "/networks/{NetworkId}/nodes", method: "POST", sdkId: "ManagedBlockchain", sigV4ServiceName: "managedblockchain", name: "TaigaWebService.CreateNode" }, CreateNodeInput, CreateNodeOutput, [AccessDeniedException, InternalServiceErrorException, InvalidRequestException, ResourceAlreadyExistsException, ResourceLimitExceededException, ResourceNotFoundException, ResourceNotReadyException, ThrottlingException, TooManyTagsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a proposal for a change to the network that other members of the network can vote on, for example, a proposal to add a new member to the network. Any member can create a proposal.
  * 
  * 
  * Applies only to Hyperledger Fabric.
- */export const createProposal = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-24", uri: "/networks/{NetworkId}/proposals", method: "POST", sdkId: "ManagedBlockchain", sigV4ServiceName: "managedblockchain", name: "TaigaWebService.CreateProposal" }, CreateProposalInput, CreateProposalOutput, [AccessDeniedException, InternalServiceErrorException, InvalidRequestException, ResourceNotFoundException, ResourceNotReadyException, ThrottlingException, TooManyTagsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createProposal = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-24", uri: "/networks/{NetworkId}/proposals", method: "POST", sdkId: "ManagedBlockchain", sigV4ServiceName: "managedblockchain", name: "TaigaWebService.CreateProposal" }, CreateProposalInput, CreateProposalOutput, [AccessDeniedException, InternalServiceErrorException, InvalidRequestException, ResourceNotFoundException, ResourceNotReadyException, ThrottlingException, TooManyTagsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a member within a Managed Blockchain network.
  * 
  * 
  * Applies only to Hyperledger Fabric.
- */export const createMember = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-24", uri: "/networks/{NetworkId}/members", method: "POST", sdkId: "ManagedBlockchain", sigV4ServiceName: "managedblockchain", name: "TaigaWebService.CreateMember" }, CreateMemberInput, CreateMemberOutput, [AccessDeniedException, InternalServiceErrorException, InvalidRequestException, ResourceAlreadyExistsException, ResourceLimitExceededException, ResourceNotFoundException, ResourceNotReadyException, ThrottlingException, TooManyTagsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createMember = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-24", uri: "/networks/{NetworkId}/members", method: "POST", sdkId: "ManagedBlockchain", sigV4ServiceName: "managedblockchain", name: "TaigaWebService.CreateMember" }, CreateMemberInput, CreateMemberOutput, [AccessDeniedException, InternalServiceErrorException, InvalidRequestException, ResourceAlreadyExistsException, ResourceLimitExceededException, ResourceNotFoundException, ResourceNotReadyException, ThrottlingException, TooManyTagsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns detailed information about a member.
  * 
  * 
  * Applies only to Hyperledger Fabric.
- */export const getMember = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-24", uri: "/networks/{NetworkId}/members/{MemberId}", method: "GET", sdkId: "ManagedBlockchain", sigV4ServiceName: "managedblockchain", name: "TaigaWebService.GetMember" }, GetMemberInput, GetMemberOutput, [AccessDeniedException, InternalServiceErrorException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getMember = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-24", uri: "/networks/{NetworkId}/members/{MemberId}", method: "GET", sdkId: "ManagedBlockchain", sigV4ServiceName: "managedblockchain", name: "TaigaWebService.GetMember" }, GetMemberInput, GetMemberOutput, [AccessDeniedException, InternalServiceErrorException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns detailed information about a network.
  * 
  * 
  * Applies to Hyperledger Fabric and Ethereum.
- */export const getNetwork = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-24", uri: "/networks/{NetworkId}", method: "GET", sdkId: "ManagedBlockchain", sigV4ServiceName: "managedblockchain", name: "TaigaWebService.GetNetwork" }, GetNetworkInput, GetNetworkOutput, [AccessDeniedException, InternalServiceErrorException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getNetwork = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-24", uri: "/networks/{NetworkId}", method: "GET", sdkId: "ManagedBlockchain", sigV4ServiceName: "managedblockchain", name: "TaigaWebService.GetNetwork" }, GetNetworkInput, GetNetworkOutput, [AccessDeniedException, InternalServiceErrorException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns detailed information about a node.
  * 
  * 
  * Applies to Hyperledger Fabric and Ethereum.
- */export const getNode = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-24", uri: "/networks/{NetworkId}/nodes/{NodeId}", method: "GET", sdkId: "ManagedBlockchain", sigV4ServiceName: "managedblockchain", name: "TaigaWebService.GetNode" }, GetNodeInput, GetNodeOutput, [AccessDeniedException, InternalServiceErrorException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getNode = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-24", uri: "/networks/{NetworkId}/nodes/{NodeId}", method: "GET", sdkId: "ManagedBlockchain", sigV4ServiceName: "managedblockchain", name: "TaigaWebService.GetNode" }, GetNodeInput, GetNodeOutput, [AccessDeniedException, InternalServiceErrorException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates a member configuration with new parameters.
  * 
  * 
  * Applies only to Hyperledger Fabric.
- */export const updateMember = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-24", uri: "/networks/{NetworkId}/members/{MemberId}", method: "PATCH", sdkId: "ManagedBlockchain", sigV4ServiceName: "managedblockchain", name: "TaigaWebService.UpdateMember" }, UpdateMemberInput, UpdateMemberOutput, [AccessDeniedException, InternalServiceErrorException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateMember = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-24", uri: "/networks/{NetworkId}/members/{MemberId}", method: "PATCH", sdkId: "ManagedBlockchain", sigV4ServiceName: "managedblockchain", name: "TaigaWebService.UpdateMember" }, UpdateMemberInput, UpdateMemberOutput, [AccessDeniedException, InternalServiceErrorException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

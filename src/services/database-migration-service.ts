@@ -460,7 +460,7 @@ export class SNSNoAuthorizationFault extends S.TaggedError<SNSNoAuthorizationFau
  * 
  * 
  * Runs large-scale assessment (LSA) analysis on every Fleet Advisor collector in your account.
- */export const runFleetAdvisorLsaAnalysis = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.RunFleetAdvisorLsaAnalysis" }, S.Struct({}), RunFleetAdvisorLsaAnalysisResponse, [InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const runFleetAdvisorLsaAnalysis = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.RunFleetAdvisorLsaAnalysis" }, S.Struct({}), RunFleetAdvisorLsaAnalysisResponse, [InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Adds metadata tags to an DMS resource, including replication instance, endpoint,
  * subnet group, and migration task. These tags can also be used with cost allocation
@@ -469,19 +469,19 @@ export class SNSNoAuthorizationFault extends S.TaggedError<SNSNoAuthorizationFau
  * `Tag`
  * data type
  * description.
- */export const addTagsToResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.AddTagsToResource" }, AddTagsToResourceMessage, AddTagsToResourceResponse, [InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const addTagsToResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.AddTagsToResource" }, AddTagsToResourceMessage, AddTagsToResourceResponse, [InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Cancels a single metadata model creation operation that was started with `StartMetadataModelCreation`.
- */export const cancelMetadataModelCreation = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.CancelMetadataModelCreation" }, CancelMetadataModelCreationMessage, CancelMetadataModelCreationResponse, [AccessDeniedFault, InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const cancelMetadataModelCreation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.CancelMetadataModelCreation" }, CancelMetadataModelCreationMessage, CancelMetadataModelCreationResponse, [AccessDeniedFault, InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes an DMS event subscription.
- */export const deleteEventSubscription = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DeleteEventSubscription" }, DeleteEventSubscriptionMessage, DeleteEventSubscriptionResponse, [AccessDeniedFault, InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteEventSubscription = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DeleteEventSubscription" }, DeleteEventSubscriptionMessage, DeleteEventSubscriptionResponse, [AccessDeniedFault, InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a subnet group.
- */export const deleteReplicationSubnetGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DeleteReplicationSubnetGroup" }, DeleteReplicationSubnetGroupMessage, DeleteReplicationSubnetGroupResponse, [AccessDeniedFault, InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteReplicationSubnetGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DeleteReplicationSubnetGroup" }, DeleteReplicationSubnetGroupMessage, DeleteReplicationSubnetGroupResponse, [AccessDeniedFault, InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the specified replication task.
- */export const deleteReplicationTask = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DeleteReplicationTask" }, DeleteReplicationTaskMessage, DeleteReplicationTaskResponse, [InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteReplicationTask = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DeleteReplicationTask" }, DeleteReplicationTaskMessage, DeleteReplicationTaskResponse, [InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the record of a single premigration assessment run.
  * 
@@ -489,7 +489,7 @@ export class SNSNoAuthorizationFault extends S.TaggedError<SNSNoAuthorizationFau
  * This operation removes all metadata that DMS maintains about this assessment run.
  * However, the operation leaves untouched all information about this assessment run that is
  * stored in your Amazon S3 bucket.
- */export const deleteReplicationTaskAssessmentRun = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DeleteReplicationTaskAssessmentRun" }, DeleteReplicationTaskAssessmentRunMessage, DeleteReplicationTaskAssessmentRunResponse, [AccessDeniedFault, InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteReplicationTaskAssessmentRun = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DeleteReplicationTaskAssessmentRun" }, DeleteReplicationTaskAssessmentRunMessage, DeleteReplicationTaskAssessmentRunResponse, [AccessDeniedFault, InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists all of the DMS attributes for a customer account. These attributes include DMS
  * quotas for the account and a unique account identifier in a particular DMS region. DMS
@@ -500,7 +500,7 @@ export class SNSNoAuthorizationFault extends S.TaggedError<SNSNoAuthorizationFau
  * 
  * 
  * This command does not take any parameters.
- */export const describeAccountAttributes = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeAccountAttributes" }, DescribeAccountAttributesMessage, DescribeAccountAttributesResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeAccountAttributes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeAccountAttributes" }, DescribeAccountAttributesMessage, DescribeAccountAttributesResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Provides a list of individual assessments that you can specify for a new premigration
  * assessment run, given one or more parameters.
@@ -524,24 +524,24 @@ export class SNSNoAuthorizationFault extends S.TaggedError<SNSNoAuthorizationFau
  * individual assessments. The only parameter that you can specify alone is for an existing
  * migration task. The specified task definition then determines the default list of
  * individual assessments that you can specify in an assessment run for the task.
- */export const describeApplicableIndividualAssessments = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeApplicableIndividualAssessments" }, DescribeApplicableIndividualAssessmentsMessage, DescribeApplicableIndividualAssessmentsResponse, [AccessDeniedFault, InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeApplicableIndividualAssessments = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeApplicableIndividualAssessments" }, DescribeApplicableIndividualAssessmentsMessage, DescribeApplicableIndividualAssessmentsResponse, [AccessDeniedFault, InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes the status of the connections that have been made between the replication
  * instance and an endpoint. Connections are created when you test an endpoint.
- */export const describeConnections = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeConnections" }, DescribeConnectionsMessage, DescribeConnectionsResponse, [ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeConnections = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeConnections" }, DescribeConnectionsMessage, DescribeConnectionsResponse, [ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns configuration parameters for a schema conversion project.
- */export const describeConversionConfiguration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeConversionConfiguration" }, DescribeConversionConfigurationMessage, DescribeConversionConfigurationResponse, [ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeConversionConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeConversionConfiguration" }, DescribeConversionConfigurationMessage, DescribeConversionConfigurationResponse, [ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about data migrations.
- */export const describeDataMigrations = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeDataMigrations" }, DescribeDataMigrationsMessage, DescribeDataMigrationsResponse, [FailedDependencyFault, InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeDataMigrations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeDataMigrations" }, DescribeDataMigrationsMessage, DescribeDataMigrationsResponse, [FailedDependencyFault, InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a paginated list of data providers for your account in the current
  * region.
- */export const describeDataProviders = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeDataProviders" }, DescribeDataProvidersMessage, DescribeDataProvidersResponse, [AccessDeniedFault, FailedDependencyFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeDataProviders = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeDataProviders" }, DescribeDataProvidersMessage, DescribeDataProvidersResponse, [AccessDeniedFault, FailedDependencyFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about the endpoints for your account in the current region.
- */export const describeEndpoints = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeEndpoints" }, DescribeEndpointsMessage, DescribeEndpointsResponse, [ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeEndpoints = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeEndpoints" }, DescribeEndpointsMessage, DescribeEndpointsResponse, [ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists all the event subscriptions for a customer account. The description of a
  * subscription includes `SubscriptionName`, `SNSTopicARN`,
@@ -551,57 +551,57 @@ export class SNSNoAuthorizationFault extends S.TaggedError<SNSNoAuthorizationFau
  * 
  * If you specify `SubscriptionName`, this action lists the description for that
  * subscription.
- */export const describeEventSubscriptions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeEventSubscriptions" }, DescribeEventSubscriptionsMessage, DescribeEventSubscriptionsResponse, [ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeEventSubscriptions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeEventSubscriptions" }, DescribeEventSubscriptionsMessage, DescribeEventSubscriptionsResponse, [ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a paginated list of extension pack associations for the specified migration
  * project. An extension pack is an add-on module that emulates functions present in a source
  * database that are required when converting objects to the target database.
- */export const describeExtensionPackAssociations = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeExtensionPackAssociations" }, DescribeExtensionPackAssociationsMessage, DescribeExtensionPackAssociationsResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeExtensionPackAssociations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeExtensionPackAssociations" }, DescribeExtensionPackAssociationsMessage, DescribeExtensionPackAssociationsResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a paginated list of instance profiles for your account in the current
  * region.
- */export const describeInstanceProfiles = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeInstanceProfiles" }, DescribeInstanceProfilesMessage, DescribeInstanceProfilesResponse, [AccessDeniedFault, FailedDependencyFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeInstanceProfiles = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeInstanceProfiles" }, DescribeInstanceProfilesMessage, DescribeInstanceProfilesResponse, [AccessDeniedFault, FailedDependencyFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a paginated list of metadata model assessments for your account in the current
  * region.
- */export const describeMetadataModelAssessments = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeMetadataModelAssessments" }, DescribeMetadataModelAssessmentsMessage, DescribeMetadataModelAssessmentsResponse, [ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeMetadataModelAssessments = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeMetadataModelAssessments" }, DescribeMetadataModelAssessmentsMessage, DescribeMetadataModelAssessmentsResponse, [ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets a list of child metadata models for the specified metadata model in the database hierarchy.
- */export const describeMetadataModelChildren = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeMetadataModelChildren" }, DescribeMetadataModelChildrenMessage, DescribeMetadataModelChildrenResponse, [AccessDeniedFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeMetadataModelChildren = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeMetadataModelChildren" }, DescribeMetadataModelChildrenMessage, DescribeMetadataModelChildrenResponse, [AccessDeniedFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a paginated list of metadata model conversions for a migration project.
- */export const describeMetadataModelConversions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeMetadataModelConversions" }, DescribeMetadataModelConversionsMessage, DescribeMetadataModelConversionsResponse, [ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeMetadataModelConversions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeMetadataModelConversions" }, DescribeMetadataModelConversionsMessage, DescribeMetadataModelConversionsResponse, [ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a paginated list of metadata model creation requests for a migration project.
- */export const describeMetadataModelCreations = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeMetadataModelCreations" }, DescribeMetadataModelCreationsMessage, DescribeMetadataModelCreationsResponse, [AccessDeniedFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeMetadataModelCreations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeMetadataModelCreations" }, DescribeMetadataModelCreationsMessage, DescribeMetadataModelCreationsResponse, [AccessDeniedFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a paginated list of metadata model exports.
- */export const describeMetadataModelExportsAsScript = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeMetadataModelExportsAsScript" }, DescribeMetadataModelExportsAsScriptMessage, DescribeMetadataModelExportsAsScriptResponse, [ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeMetadataModelExportsAsScript = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeMetadataModelExportsAsScript" }, DescribeMetadataModelExportsAsScriptMessage, DescribeMetadataModelExportsAsScriptResponse, [ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a paginated list of metadata model exports.
- */export const describeMetadataModelExportsToTarget = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeMetadataModelExportsToTarget" }, DescribeMetadataModelExportsToTargetMessage, DescribeMetadataModelExportsToTargetResponse, [ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeMetadataModelExportsToTarget = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeMetadataModelExportsToTarget" }, DescribeMetadataModelExportsToTargetMessage, DescribeMetadataModelExportsToTargetResponse, [ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a paginated list of metadata model imports.
- */export const describeMetadataModelImports = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeMetadataModelImports" }, DescribeMetadataModelImportsMessage, DescribeMetadataModelImportsResponse, [ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeMetadataModelImports = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeMetadataModelImports" }, DescribeMetadataModelImportsMessage, DescribeMetadataModelImportsResponse, [ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a paginated list of migration projects for your account in the current
  * region.
- */export const describeMigrationProjects = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeMigrationProjects" }, DescribeMigrationProjectsMessage, DescribeMigrationProjectsResponse, [AccessDeniedFault, FailedDependencyFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeMigrationProjects = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeMigrationProjects" }, DescribeMigrationProjectsMessage, DescribeMigrationProjectsResponse, [AccessDeniedFault, FailedDependencyFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of upcoming maintenance events for replication instances in your account
  * in the current Region.
- */export const describePendingMaintenanceActions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribePendingMaintenanceActions" }, DescribePendingMaintenanceActionsMessage, DescribePendingMaintenanceActionsResponse, [ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describePendingMaintenanceActions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribePendingMaintenanceActions" }, DescribePendingMaintenanceActionsMessage, DescribePendingMaintenanceActionsResponse, [ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns one or more existing DMS Serverless replication configurations as a list of
  * structures.
- */export const describeReplicationConfigs = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeReplicationConfigs" }, DescribeReplicationConfigsMessage, DescribeReplicationConfigsResponse, [ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeReplicationConfigs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeReplicationConfigs" }, DescribeReplicationConfigsMessage, DescribeReplicationConfigsResponse, [ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about replication instances for your account in the current
  * region.
- */export const describeReplicationInstances = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeReplicationInstances" }, DescribeReplicationInstancesMessage, DescribeReplicationInstancesResponse, [ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeReplicationInstances = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeReplicationInstances" }, DescribeReplicationInstancesMessage, DescribeReplicationInstancesResponse, [ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about the replication subnet groups.
- */export const describeReplicationSubnetGroups = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeReplicationSubnetGroups" }, DescribeReplicationSubnetGroupsMessage, DescribeReplicationSubnetGroupsResponse, [ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeReplicationSubnetGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeReplicationSubnetGroups" }, DescribeReplicationSubnetGroupsMessage, DescribeReplicationSubnetGroupsResponse, [ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a paginated list of premigration assessment runs based on filter
  * settings.
@@ -616,14 +616,14 @@ export class SNSNoAuthorizationFault extends S.TaggedError<SNSNoAuthorizationFau
  * This operation doesn't return information about individual assessments. For this
  * information, see the `DescribeReplicationTaskIndividualAssessments`
  * operation.
- */export const describeReplicationTaskAssessmentRuns = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeReplicationTaskAssessmentRuns" }, DescribeReplicationTaskAssessmentRunsMessage, DescribeReplicationTaskAssessmentRunsResponse, [ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeReplicationTaskAssessmentRuns = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeReplicationTaskAssessmentRuns" }, DescribeReplicationTaskAssessmentRunsMessage, DescribeReplicationTaskAssessmentRunsResponse, [ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about replication tasks for your account in the current
  * region.
- */export const describeReplicationTasks = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeReplicationTasks" }, DescribeReplicationTasksMessage, DescribeReplicationTasksResponse, [ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeReplicationTasks = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeReplicationTasks" }, DescribeReplicationTasksMessage, DescribeReplicationTasksResponse, [ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about the schema for the specified endpoint.
- */export const describeSchemas = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeSchemas" }, DescribeSchemasMessage, DescribeSchemasResponse, [InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeSchemas = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeSchemas" }, DescribeSchemasMessage, DescribeSchemasResponse, [InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns table statistics on the database migration task, including table name, rows
  * inserted, rows updated, and rows deleted.
@@ -632,23 +632,23 @@ export class SNSNoAuthorizationFault extends S.TaggedError<SNSNoAuthorizationFau
  * Note that the "last updated" column the DMS console only indicates the time that DMS
  * last updated the table statistics record for a table. It does not indicate the time of the
  * last update to the table.
- */export const describeTableStatistics = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeTableStatistics" }, DescribeTableStatisticsMessage, DescribeTableStatisticsResponse, [AccessDeniedFault, InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeTableStatistics = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeTableStatistics" }, DescribeTableStatisticsMessage, DescribeTableStatisticsResponse, [AccessDeniedFault, InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Converts source selection rules into their target counterparts for schema conversion operations.
- */export const getTargetSelectionRules = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.GetTargetSelectionRules" }, GetTargetSelectionRulesMessage, GetTargetSelectionRulesResponse, [AccessDeniedFault, InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getTargetSelectionRules = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.GetTargetSelectionRules" }, GetTargetSelectionRulesMessage, GetTargetSelectionRulesResponse, [AccessDeniedFault, InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists all metadata tags attached to an DMS resource, including replication instance,
  * endpoint, subnet group, and migration task. For more information, see
  * `Tag`
  * 
  * data type description.
- */export const listTagsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.ListTagsForResource" }, ListTagsForResourceMessage, ListTagsForResourceResponse, [InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.ListTagsForResource" }, ListTagsForResourceMessage, ListTagsForResourceResponse, [InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Modifies the specified schema conversion configuration using the provided parameters.
- */export const modifyConversionConfiguration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.ModifyConversionConfiguration" }, ModifyConversionConfigurationMessage, ModifyConversionConfigurationResponse, [InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const modifyConversionConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.ModifyConversionConfiguration" }, ModifyConversionConfigurationMessage, ModifyConversionConfigurationResponse, [InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Modifies an existing DMS data migration.
- */export const modifyDataMigration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.ModifyDataMigration" }, ModifyDataMigrationMessage, ModifyDataMigrationResponse, [FailedDependencyFault, InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const modifyDataMigration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.ModifyDataMigration" }, ModifyDataMigrationMessage, ModifyDataMigrationResponse, [FailedDependencyFault, InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Modifies the specified data provider using the provided settings.
  * 
@@ -657,66 +657,66 @@ export class SNSNoAuthorizationFault extends S.TaggedError<SNSNoAuthorizationFau
  * 
  * You must remove the data provider from all migration projects before you can modify
  * it.
- */export const modifyDataProvider = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.ModifyDataProvider" }, ModifyDataProviderMessage, ModifyDataProviderResponse, [AccessDeniedFault, FailedDependencyFault, InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const modifyDataProvider = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.ModifyDataProvider" }, ModifyDataProviderMessage, ModifyDataProviderResponse, [AccessDeniedFault, FailedDependencyFault, InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Moves a replication task from its current replication instance to a different target
  * replication instance using the specified parameters. The target replication instance must
  * be created with the same or later DMS version as the current replication instance.
- */export const moveReplicationTask = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.MoveReplicationTask" }, MoveReplicationTaskMessage, MoveReplicationTaskResponse, [AccessDeniedFault, InvalidResourceStateFault, KMSKeyNotAccessibleFault, ResourceNotFoundFault, ResourceQuotaExceededFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const moveReplicationTask = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.MoveReplicationTask" }, MoveReplicationTaskMessage, MoveReplicationTaskResponse, [AccessDeniedFault, InvalidResourceStateFault, KMSKeyNotAccessibleFault, ResourceNotFoundFault, ResourceQuotaExceededFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Reboots a replication instance. Rebooting results in a momentary outage, until the
  * replication instance becomes available again.
- */export const rebootReplicationInstance = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.RebootReplicationInstance" }, RebootReplicationInstanceMessage, RebootReplicationInstanceResponse, [InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const rebootReplicationInstance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.RebootReplicationInstance" }, RebootReplicationInstanceMessage, RebootReplicationInstanceResponse, [InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Populates the schema for the specified endpoint. This is an asynchronous operation and
  * can take several minutes. You can check the status of this operation by calling the
  * DescribeRefreshSchemasStatus operation.
- */export const refreshSchemas = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.RefreshSchemas" }, RefreshSchemasMessage, RefreshSchemasResponse, [InvalidResourceStateFault, KMSKeyNotAccessibleFault, ResourceNotFoundFault, ResourceQuotaExceededFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const refreshSchemas = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.RefreshSchemas" }, RefreshSchemasMessage, RefreshSchemasResponse, [InvalidResourceStateFault, KMSKeyNotAccessibleFault, ResourceNotFoundFault, ResourceQuotaExceededFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Reloads the target database table with the source data.
  * 
  * 
  * You can only use this operation with a task in the `RUNNING` state, otherwise
  * the service will throw an `InvalidResourceStateFault` exception.
- */export const reloadTables = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.ReloadTables" }, ReloadTablesMessage, ReloadTablesResponse, [InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const reloadTables = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.ReloadTables" }, ReloadTablesMessage, ReloadTablesResponse, [InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes metadata tags from an DMS resource, including replication instance, endpoint,
  * subnet group, and migration task. For more information, see
  * `Tag`
  * data type
  * description.
- */export const removeTagsFromResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.RemoveTagsFromResource" }, RemoveTagsFromResourceMessage, RemoveTagsFromResourceResponse, [InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const removeTagsFromResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.RemoveTagsFromResource" }, RemoveTagsFromResourceMessage, RemoveTagsFromResourceResponse, [InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts the specified data migration.
- */export const startDataMigration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.StartDataMigration" }, StartDataMigrationMessage, StartDataMigrationResponse, [FailedDependencyFault, InvalidOperationFault, InvalidResourceStateFault, ResourceNotFoundFault, ResourceQuotaExceededFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startDataMigration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.StartDataMigration" }, StartDataMigrationMessage, StartDataMigrationResponse, [FailedDependencyFault, InvalidOperationFault, InvalidResourceStateFault, ResourceNotFoundFault, ResourceQuotaExceededFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Applies the extension pack to your target database. An extension pack is an add-on
  * module that emulates functions present in a source database that are required when
  * converting objects to the target database.
- */export const startExtensionPackAssociation = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.StartExtensionPackAssociation" }, StartExtensionPackAssociationMessage, StartExtensionPackAssociationResponse, [AccessDeniedFault, InvalidResourceStateFault, KMSKeyNotAccessibleFault, ResourceAlreadyExistsFault, ResourceNotFoundFault, ResourceQuotaExceededFault, S3AccessDeniedFault, S3ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startExtensionPackAssociation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.StartExtensionPackAssociation" }, StartExtensionPackAssociationMessage, StartExtensionPackAssociationResponse, [AccessDeniedFault, InvalidResourceStateFault, KMSKeyNotAccessibleFault, ResourceAlreadyExistsFault, ResourceNotFoundFault, ResourceQuotaExceededFault, S3AccessDeniedFault, S3ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a database migration assessment report by assessing the migration complexity for
  * your source database. A database migration assessment report summarizes all of the schema
  * conversion tasks. It also details the action items for database objects that can't be
  * converted to the database engine of your target database instance.
- */export const startMetadataModelAssessment = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.StartMetadataModelAssessment" }, StartMetadataModelAssessmentMessage, StartMetadataModelAssessmentResponse, [AccessDeniedFault, InvalidResourceStateFault, KMSKeyNotAccessibleFault, ResourceAlreadyExistsFault, ResourceNotFoundFault, ResourceQuotaExceededFault, S3AccessDeniedFault, S3ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startMetadataModelAssessment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.StartMetadataModelAssessment" }, StartMetadataModelAssessmentMessage, StartMetadataModelAssessmentResponse, [AccessDeniedFault, InvalidResourceStateFault, KMSKeyNotAccessibleFault, ResourceAlreadyExistsFault, ResourceNotFoundFault, ResourceQuotaExceededFault, S3AccessDeniedFault, S3ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Converts your source database objects to a format compatible with the target database.
- */export const startMetadataModelConversion = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.StartMetadataModelConversion" }, StartMetadataModelConversionMessage, StartMetadataModelConversionResponse, [AccessDeniedFault, InvalidResourceStateFault, KMSKeyNotAccessibleFault, ResourceAlreadyExistsFault, ResourceNotFoundFault, ResourceQuotaExceededFault, S3AccessDeniedFault, S3ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startMetadataModelConversion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.StartMetadataModelConversion" }, StartMetadataModelConversionMessage, StartMetadataModelConversionResponse, [AccessDeniedFault, InvalidResourceStateFault, KMSKeyNotAccessibleFault, ResourceAlreadyExistsFault, ResourceNotFoundFault, ResourceQuotaExceededFault, S3AccessDeniedFault, S3ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Saves your converted code to a file as a SQL script, and stores this file on your Amazon S3
  * bucket.
- */export const startMetadataModelExportAsScript = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.StartMetadataModelExportAsScript" }, StartMetadataModelExportAsScriptMessage, StartMetadataModelExportAsScriptResponse, [AccessDeniedFault, InvalidResourceStateFault, KMSKeyNotAccessibleFault, ResourceAlreadyExistsFault, ResourceNotFoundFault, ResourceQuotaExceededFault, S3AccessDeniedFault, S3ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startMetadataModelExportAsScript = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.StartMetadataModelExportAsScript" }, StartMetadataModelExportAsScriptMessage, StartMetadataModelExportAsScriptResponse, [AccessDeniedFault, InvalidResourceStateFault, KMSKeyNotAccessibleFault, ResourceAlreadyExistsFault, ResourceNotFoundFault, ResourceQuotaExceededFault, S3AccessDeniedFault, S3ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Applies converted database objects to your target database.
- */export const startMetadataModelExportToTarget = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.StartMetadataModelExportToTarget" }, StartMetadataModelExportToTargetMessage, StartMetadataModelExportToTargetResponse, [AccessDeniedFault, InvalidResourceStateFault, KMSKeyNotAccessibleFault, ResourceAlreadyExistsFault, ResourceNotFoundFault, ResourceQuotaExceededFault, S3AccessDeniedFault, S3ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startMetadataModelExportToTarget = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.StartMetadataModelExportToTarget" }, StartMetadataModelExportToTargetMessage, StartMetadataModelExportToTargetResponse, [AccessDeniedFault, InvalidResourceStateFault, KMSKeyNotAccessibleFault, ResourceAlreadyExistsFault, ResourceNotFoundFault, ResourceQuotaExceededFault, S3AccessDeniedFault, S3ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Loads the metadata for all the dependent database objects of the parent object.
  * 
  * 
  * This operation uses your project's Amazon S3 bucket as a metadata cache to improve
  * performance.
- */export const startMetadataModelImport = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.StartMetadataModelImport" }, StartMetadataModelImportMessage, StartMetadataModelImportResponse, [AccessDeniedFault, InvalidResourceStateFault, KMSKeyNotAccessibleFault, ResourceAlreadyExistsFault, ResourceNotFoundFault, ResourceQuotaExceededFault, S3AccessDeniedFault, S3ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startMetadataModelImport = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.StartMetadataModelImport" }, StartMetadataModelImportMessage, StartMetadataModelImportResponse, [AccessDeniedFault, InvalidResourceStateFault, KMSKeyNotAccessibleFault, ResourceAlreadyExistsFault, ResourceNotFoundFault, ResourceQuotaExceededFault, S3AccessDeniedFault, S3ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * End of support notice: On May 20, 2026, Amazon Web Services will end support for Amazon Web Services DMS Fleet Advisor;. After May 20, 2026, you will no longer be able to access the Amazon Web Services DMS Fleet Advisor; console or Amazon Web Services DMS Fleet Advisor; resources. For more information, see Amazon Web Services DMS Fleet Advisor end of support.
  * 
@@ -728,21 +728,21 @@ export class SNSNoAuthorizationFault extends S.TaggedError<SNSNoAuthorizationFau
  * 
  * 
  * You can create recommendations for multiple source databases using BatchStartRecommendations.
- */export const startRecommendations = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.StartRecommendations" }, StartRecommendationsRequest, S.Struct({}), [AccessDeniedFault, InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startRecommendations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.StartRecommendations" }, StartRecommendationsRequest, S.Struct({}), [AccessDeniedFault, InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * For a given DMS Serverless replication configuration, DMS connects to the source
  * endpoint and collects the metadata to analyze the replication workload. Using this
  * metadata, DMS then computes and provisions the required capacity and starts replicating
  * to the target endpoint using the server resources that DMS has provisioned for the DMS
  * Serverless replication.
- */export const startReplication = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.StartReplication" }, StartReplicationMessage, StartReplicationResponse, [AccessDeniedFault, InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startReplication = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.StartReplication" }, StartReplicationMessage, StartReplicationResponse, [AccessDeniedFault, InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts the replication task.
  * 
  * 
  * For more information about DMS tasks, see Working with Migration Tasks in the
  * *Database Migration Service User Guide.*
- */export const startReplicationTask = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.StartReplicationTask" }, StartReplicationTaskMessage, StartReplicationTaskResponse, [AccessDeniedFault, InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startReplicationTask = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.StartReplicationTask" }, StartReplicationTaskMessage, StartReplicationTaskResponse, [AccessDeniedFault, InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts the replication task assessment for unsupported data types in the source
  * database.
@@ -768,21 +768,21 @@ export class SNSNoAuthorizationFault extends S.TaggedError<SNSNoAuthorizationFau
  * 
  * For information about DMS task assessments, see Creating a task assessment report in the Database Migration Service User
  * Guide.
- */export const startReplicationTaskAssessment = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.StartReplicationTaskAssessment" }, StartReplicationTaskAssessmentMessage, StartReplicationTaskAssessmentResponse, [InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startReplicationTaskAssessment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.StartReplicationTaskAssessment" }, StartReplicationTaskAssessmentMessage, StartReplicationTaskAssessmentResponse, [InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Stops the specified data migration.
- */export const stopDataMigration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.StopDataMigration" }, StopDataMigrationMessage, StopDataMigrationResponse, [FailedDependencyFault, InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const stopDataMigration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.StopDataMigration" }, StopDataMigrationMessage, StopDataMigrationResponse, [FailedDependencyFault, InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * For a given DMS Serverless replication configuration, DMS stops any and all ongoing
  * DMS Serverless replications. This command doesn't deprovision the stopped
  * replications.
- */export const stopReplication = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.StopReplication" }, StopReplicationMessage, StopReplicationResponse, [AccessDeniedFault, InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const stopReplication = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.StopReplication" }, StopReplicationMessage, StopReplicationResponse, [AccessDeniedFault, InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Stops the replication task.
- */export const stopReplicationTask = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.StopReplicationTask" }, StopReplicationTaskMessage, StopReplicationTaskResponse, [InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const stopReplicationTask = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.StopReplicationTask" }, StopReplicationTaskMessage, StopReplicationTaskResponse, [InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Tests the connection between the replication instance and the endpoint.
- */export const testConnection = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.TestConnection" }, TestConnectionMessage, TestConnectionResponse, [AccessDeniedFault, InvalidResourceStateFault, KMSKeyNotAccessibleFault, ResourceNotFoundFault, ResourceQuotaExceededFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const testConnection = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.TestConnection" }, TestConnectionMessage, TestConnectionResponse, [AccessDeniedFault, InvalidResourceStateFault, KMSKeyNotAccessibleFault, ResourceNotFoundFault, ResourceQuotaExceededFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Migrates 10 active and enabled Amazon SNS subscriptions at a time and converts them to
  * corresponding Amazon EventBridge rules. By default, this operation migrates subscriptions
@@ -797,10 +797,10 @@ export class SNSNoAuthorizationFault extends S.TaggedError<SNSNoAuthorizationFau
  * To call this operation, make sure that you have certain permissions added to your user
  * account. For more information, see Migrating event subscriptions to Amazon EventBridge in the
  * *Amazon Web Services Database Migration Service User Guide*.
- */export const updateSubscriptionsToEventBridge = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.UpdateSubscriptionsToEventBridge" }, UpdateSubscriptionsToEventBridgeMessage, UpdateSubscriptionsToEventBridgeResponse, [AccessDeniedFault, InvalidResourceStateFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateSubscriptionsToEventBridge = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.UpdateSubscriptionsToEventBridge" }, UpdateSubscriptionsToEventBridgeMessage, UpdateSubscriptionsToEventBridgeResponse, [AccessDeniedFault, InvalidResourceStateFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a data migration using the provided settings.
- */export const createDataMigration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.CreateDataMigration" }, CreateDataMigrationMessage, CreateDataMigrationResponse, [FailedDependencyFault, InvalidOperationFault, ResourceAlreadyExistsFault, ResourceNotFoundFault, ResourceQuotaExceededFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createDataMigration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.CreateDataMigration" }, CreateDataMigrationMessage, CreateDataMigrationResponse, [FailedDependencyFault, InvalidOperationFault, ResourceAlreadyExistsFault, ResourceNotFoundFault, ResourceQuotaExceededFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an endpoint using the provided settings.
  * 
@@ -813,7 +813,7 @@ export class SNSNoAuthorizationFault extends S.TaggedError<SNSNoAuthorizationFau
  * all the task tables to this single database. For MySQL endpoints, you specify the
  * database only when you specify the schema in the table-mapping rules of the DMS
  * task.
- */export const createEndpoint = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.CreateEndpoint" }, CreateEndpointMessage, CreateEndpointResponse, [AccessDeniedFault, InvalidResourceStateFault, KMSKeyNotAccessibleFault, ResourceAlreadyExistsFault, ResourceNotFoundFault, ResourceQuotaExceededFault, S3AccessDeniedFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createEndpoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.CreateEndpoint" }, CreateEndpointMessage, CreateEndpointResponse, [AccessDeniedFault, InvalidResourceStateFault, KMSKeyNotAccessibleFault, ResourceAlreadyExistsFault, ResourceNotFoundFault, ResourceQuotaExceededFault, S3AccessDeniedFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * End of support notice: On May 20, 2026, Amazon Web Services will end support for Amazon Web Services DMS Fleet Advisor;. After May 20, 2026, you will no longer be able to access the Amazon Web Services DMS Fleet Advisor; console or Amazon Web Services DMS Fleet Advisor; resources. For more information, see Amazon Web Services DMS Fleet Advisor end of support.
  * 
@@ -821,28 +821,28 @@ export class SNSNoAuthorizationFault extends S.TaggedError<SNSNoAuthorizationFau
  * 
  * 
  * Creates a Fleet Advisor collector using the specified parameters.
- */export const createFleetAdvisorCollector = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.CreateFleetAdvisorCollector" }, CreateFleetAdvisorCollectorRequest, CreateFleetAdvisorCollectorResponse, [AccessDeniedFault, InvalidResourceStateFault, ResourceQuotaExceededFault, S3AccessDeniedFault, S3ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createFleetAdvisorCollector = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.CreateFleetAdvisorCollector" }, CreateFleetAdvisorCollectorRequest, CreateFleetAdvisorCollectorResponse, [AccessDeniedFault, InvalidResourceStateFault, ResourceQuotaExceededFault, S3AccessDeniedFault, S3ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates the instance profile using the specified parameters.
- */export const createInstanceProfile = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.CreateInstanceProfile" }, CreateInstanceProfileMessage, CreateInstanceProfileResponse, [AccessDeniedFault, FailedDependencyFault, InvalidResourceStateFault, KMSKeyNotAccessibleFault, ResourceAlreadyExistsFault, ResourceNotFoundFault, ResourceQuotaExceededFault, S3AccessDeniedFault, S3ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createInstanceProfile = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.CreateInstanceProfile" }, CreateInstanceProfileMessage, CreateInstanceProfileResponse, [AccessDeniedFault, FailedDependencyFault, InvalidResourceStateFault, KMSKeyNotAccessibleFault, ResourceAlreadyExistsFault, ResourceNotFoundFault, ResourceQuotaExceededFault, S3AccessDeniedFault, S3ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates the migration project using the specified parameters.
  * 
  * 
  * You can run this action only after you create an instance profile and data providers
  * using CreateInstanceProfile and CreateDataProvider.
- */export const createMigrationProject = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.CreateMigrationProject" }, CreateMigrationProjectMessage, CreateMigrationProjectResponse, [AccessDeniedFault, FailedDependencyFault, ResourceAlreadyExistsFault, ResourceNotFoundFault, ResourceQuotaExceededFault, S3AccessDeniedFault, S3ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createMigrationProject = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.CreateMigrationProject" }, CreateMigrationProjectMessage, CreateMigrationProjectResponse, [AccessDeniedFault, FailedDependencyFault, ResourceAlreadyExistsFault, ResourceNotFoundFault, ResourceQuotaExceededFault, S3AccessDeniedFault, S3ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a configuration that you can later provide to configure and start an DMS
  * Serverless replication. You can also provide options to validate the configuration inputs
  * before you start the replication.
- */export const createReplicationConfig = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.CreateReplicationConfig" }, CreateReplicationConfigMessage, CreateReplicationConfigResponse, [AccessDeniedFault, InvalidResourceStateFault, InvalidSubnet, KMSKeyNotAccessibleFault, ReplicationSubnetGroupDoesNotCoverEnoughAZs, ResourceAlreadyExistsFault, ResourceNotFoundFault, ResourceQuotaExceededFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createReplicationConfig = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.CreateReplicationConfig" }, CreateReplicationConfigMessage, CreateReplicationConfigResponse, [AccessDeniedFault, InvalidResourceStateFault, InvalidSubnet, KMSKeyNotAccessibleFault, ReplicationSubnetGroupDoesNotCoverEnoughAZs, ResourceAlreadyExistsFault, ResourceNotFoundFault, ResourceQuotaExceededFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the specified certificate.
- */export const deleteCertificate = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DeleteCertificate" }, DeleteCertificateMessage, DeleteCertificateResponse, [InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteCertificate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DeleteCertificate" }, DeleteCertificateMessage, DeleteCertificateResponse, [InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the connection between a replication instance and an endpoint.
- */export const deleteConnection = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DeleteConnection" }, DeleteConnectionMessage, DeleteConnectionResponse, [AccessDeniedFault, InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteConnection = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DeleteConnection" }, DeleteConnectionMessage, DeleteConnectionResponse, [AccessDeniedFault, InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the specified data provider.
  * 
@@ -851,7 +851,7 @@ export class SNSNoAuthorizationFault extends S.TaggedError<SNSNoAuthorizationFau
  * 
  * All migration projects associated with the data provider must be deleted or modified
  * before you can delete the data provider.
- */export const deleteDataProvider = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DeleteDataProvider" }, DeleteDataProviderMessage, DeleteDataProviderResponse, [AccessDeniedFault, FailedDependencyFault, InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteDataProvider = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DeleteDataProvider" }, DeleteDataProviderMessage, DeleteDataProviderResponse, [AccessDeniedFault, FailedDependencyFault, InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * End of support notice: On May 20, 2026, Amazon Web Services will end support for Amazon Web Services DMS Fleet Advisor;. After May 20, 2026, you will no longer be able to access the Amazon Web Services DMS Fleet Advisor; console or Amazon Web Services DMS Fleet Advisor; resources. For more information, see Amazon Web Services DMS Fleet Advisor end of support.
  * 
@@ -859,7 +859,7 @@ export class SNSNoAuthorizationFault extends S.TaggedError<SNSNoAuthorizationFau
  * 
  * 
  * Deletes the specified Fleet Advisor collector.
- */export const deleteFleetAdvisorCollector = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DeleteFleetAdvisorCollector" }, DeleteCollectorRequest, S.Struct({}), [AccessDeniedFault, CollectorNotFoundFault, InvalidResourceStateFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteFleetAdvisorCollector = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DeleteFleetAdvisorCollector" }, DeleteCollectorRequest, S.Struct({}), [AccessDeniedFault, CollectorNotFoundFault, InvalidResourceStateFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * End of support notice: On May 20, 2026, Amazon Web Services will end support for Amazon Web Services DMS Fleet Advisor;. After May 20, 2026, you will no longer be able to access the Amazon Web Services DMS Fleet Advisor; console or Amazon Web Services DMS Fleet Advisor; resources. For more information, see Amazon Web Services DMS Fleet Advisor end of support.
  * 
@@ -867,7 +867,7 @@ export class SNSNoAuthorizationFault extends S.TaggedError<SNSNoAuthorizationFau
  * 
  * 
  * Deletes the specified Fleet Advisor collector databases.
- */export const deleteFleetAdvisorDatabases = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DeleteFleetAdvisorDatabases" }, DeleteFleetAdvisorDatabasesRequest, DeleteFleetAdvisorDatabasesResponse, [AccessDeniedFault, InvalidOperationFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteFleetAdvisorDatabases = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DeleteFleetAdvisorDatabases" }, DeleteFleetAdvisorDatabasesRequest, DeleteFleetAdvisorDatabasesResponse, [AccessDeniedFault, InvalidOperationFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the specified instance profile.
  * 
@@ -876,36 +876,36 @@ export class SNSNoAuthorizationFault extends S.TaggedError<SNSNoAuthorizationFau
  * 
  * All migration projects associated with the instance profile must be deleted or
  * modified before you can delete the instance profile.
- */export const deleteInstanceProfile = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DeleteInstanceProfile" }, DeleteInstanceProfileMessage, DeleteInstanceProfileResponse, [AccessDeniedFault, FailedDependencyFault, InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteInstanceProfile = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DeleteInstanceProfile" }, DeleteInstanceProfileMessage, DeleteInstanceProfileResponse, [AccessDeniedFault, FailedDependencyFault, InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes an DMS Serverless replication configuration. This effectively deprovisions any
  * and all replications that use this configuration. You can't delete the configuration for an
  * DMS Serverless replication that is ongoing. You can delete the configuration when the
  * replication is in a non-RUNNING and non-STARTING state.
- */export const deleteReplicationConfig = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DeleteReplicationConfig" }, DeleteReplicationConfigMessage, DeleteReplicationConfigResponse, [AccessDeniedFault, InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteReplicationConfig = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DeleteReplicationConfig" }, DeleteReplicationConfigMessage, DeleteReplicationConfigResponse, [AccessDeniedFault, InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Provides a description of the certificate.
- */export const describeCertificates = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeCertificates" }, DescribeCertificatesMessage, DescribeCertificatesResponse, [ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeCertificates = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeCertificates" }, DescribeCertificatesMessage, DescribeCertificatesResponse, [ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about the possible endpoint settings available when you create an
  * endpoint for a specific database engine.
- */export const describeEndpointSettings = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeEndpointSettings" }, DescribeEndpointSettingsMessage, DescribeEndpointSettingsResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeEndpointSettings = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeEndpointSettings" }, DescribeEndpointSettingsMessage, DescribeEndpointSettingsResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about the type of endpoints available.
- */export const describeEndpointTypes = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeEndpointTypes" }, DescribeEndpointTypesMessage, DescribeEndpointTypesResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeEndpointTypes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeEndpointTypes" }, DescribeEndpointTypesMessage, DescribeEndpointTypesResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about the replication instance versions used in the project.
- */export const describeEngineVersions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeEngineVersions" }, DescribeEngineVersionsMessage, DescribeEngineVersionsResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeEngineVersions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeEngineVersions" }, DescribeEngineVersionsMessage, DescribeEngineVersionsResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists categories for all event source types, or, if specified, for a specified source
  * type. You can see a list of the event categories and source types in Working with Events
  * and Notifications in the *Database Migration Service User Guide.*
- */export const describeEventCategories = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeEventCategories" }, DescribeEventCategoriesMessage, DescribeEventCategoriesResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeEventCategories = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeEventCategories" }, DescribeEventCategoriesMessage, DescribeEventCategoriesResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists events for a given source identifier and source type. You can also specify a
  * start and end time. For more information on DMS events, see Working with Events and
  * Notifications in the *Database Migration Service User Guide.*
- */export const describeEvents = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeEvents" }, DescribeEventsMessage, DescribeEventsResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeEvents = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeEvents" }, DescribeEventsMessage, DescribeEventsResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * End of support notice: On May 20, 2026, Amazon Web Services will end support for Amazon Web Services DMS Fleet Advisor;. After May 20, 2026, you will no longer be able to access the Amazon Web Services DMS Fleet Advisor; console or Amazon Web Services DMS Fleet Advisor; resources. For more information, see Amazon Web Services DMS Fleet Advisor end of support.
  * 
@@ -914,7 +914,7 @@ export class SNSNoAuthorizationFault extends S.TaggedError<SNSNoAuthorizationFau
  * 
  * Provides descriptions of large-scale assessment (LSA) analyses produced by your Fleet
  * Advisor collectors.
- */export const describeFleetAdvisorLsaAnalysis = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeFleetAdvisorLsaAnalysis" }, DescribeFleetAdvisorLsaAnalysisRequest, DescribeFleetAdvisorLsaAnalysisResponse, [InvalidResourceStateFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeFleetAdvisorLsaAnalysis = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeFleetAdvisorLsaAnalysis" }, DescribeFleetAdvisorLsaAnalysisRequest, DescribeFleetAdvisorLsaAnalysisResponse, [InvalidResourceStateFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * End of support notice: On May 20, 2026, Amazon Web Services will end support for Amazon Web Services DMS Fleet Advisor;. After May 20, 2026, you will no longer be able to access the Amazon Web Services DMS Fleet Advisor; console or Amazon Web Services DMS Fleet Advisor; resources. For more information, see Amazon Web Services DMS Fleet Advisor end of support.
  * 
@@ -923,14 +923,14 @@ export class SNSNoAuthorizationFault extends S.TaggedError<SNSNoAuthorizationFau
  * 
  * Provides descriptions of the schemas discovered by your Fleet Advisor
  * collectors.
- */export const describeFleetAdvisorSchemaObjectSummary = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeFleetAdvisorSchemaObjectSummary" }, DescribeFleetAdvisorSchemaObjectSummaryRequest, DescribeFleetAdvisorSchemaObjectSummaryResponse, [InvalidResourceStateFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeFleetAdvisorSchemaObjectSummary = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeFleetAdvisorSchemaObjectSummary" }, DescribeFleetAdvisorSchemaObjectSummaryRequest, DescribeFleetAdvisorSchemaObjectSummaryResponse, [InvalidResourceStateFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets detailed information about the specified metadata model, including its definition and corresponding converted objects in the target database if applicable.
- */export const describeMetadataModel = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeMetadataModel" }, DescribeMetadataModelMessage, DescribeMetadataModelResponse, [AccessDeniedFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeMetadataModel = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeMetadataModel" }, DescribeMetadataModelMessage, DescribeMetadataModelResponse, [AccessDeniedFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about the replication instance types that can be created in the
  * specified region.
- */export const describeOrderableReplicationInstances = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeOrderableReplicationInstances" }, DescribeOrderableReplicationInstancesMessage, DescribeOrderableReplicationInstancesResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeOrderableReplicationInstances = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeOrderableReplicationInstances" }, DescribeOrderableReplicationInstancesMessage, DescribeOrderableReplicationInstancesResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * End of support notice: On May 20, 2026, Amazon Web Services will end support for Amazon Web Services DMS Fleet Advisor;. After May 20, 2026, you will no longer be able to access the Amazon Web Services DMS Fleet Advisor; console or Amazon Web Services DMS Fleet Advisor; resources. For more information, see Amazon Web Services DMS Fleet Advisor end of support.
  * 
@@ -939,17 +939,17 @@ export class SNSNoAuthorizationFault extends S.TaggedError<SNSNoAuthorizationFau
  * 
  * Returns a paginated list of limitations for recommendations of target Amazon Web Services
  * engines.
- */export const describeRecommendationLimitations = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeRecommendationLimitations" }, DescribeRecommendationLimitationsRequest, DescribeRecommendationLimitationsResponse, [AccessDeniedFault, InvalidResourceStateFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeRecommendationLimitations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeRecommendationLimitations" }, DescribeRecommendationLimitationsRequest, DescribeRecommendationLimitationsResponse, [AccessDeniedFault, InvalidResourceStateFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the status of the RefreshSchemas operation.
- */export const describeRefreshSchemasStatus = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeRefreshSchemasStatus" }, DescribeRefreshSchemasStatusMessage, DescribeRefreshSchemasStatusResponse, [InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeRefreshSchemasStatus = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeRefreshSchemasStatus" }, DescribeRefreshSchemasStatusMessage, DescribeRefreshSchemasStatusResponse, [InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about the task logs for the specified task.
- */export const describeReplicationInstanceTaskLogs = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeReplicationInstanceTaskLogs" }, DescribeReplicationInstanceTaskLogsMessage, DescribeReplicationInstanceTaskLogsResponse, [InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeReplicationInstanceTaskLogs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeReplicationInstanceTaskLogs" }, DescribeReplicationInstanceTaskLogsMessage, DescribeReplicationInstanceTaskLogsResponse, [InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns table and schema statistics for one or more provisioned replications that use a
  * given DMS Serverless replication configuration.
- */export const describeReplicationTableStatistics = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeReplicationTableStatistics" }, DescribeReplicationTableStatisticsMessage, DescribeReplicationTableStatisticsResponse, [InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeReplicationTableStatistics = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeReplicationTableStatistics" }, DescribeReplicationTableStatisticsMessage, DescribeReplicationTableStatisticsResponse, [InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the task assessment results from the Amazon S3 bucket that DMS creates in your
  * Amazon Web Services account. This action always returns the latest results.
@@ -957,21 +957,21 @@ export class SNSNoAuthorizationFault extends S.TaggedError<SNSNoAuthorizationFau
  * 
  * For more information about DMS task assessments, see Creating a task assessment
  * report in the *Database Migration Service User Guide*.
- */export const describeReplicationTaskAssessmentResults = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeReplicationTaskAssessmentResults" }, DescribeReplicationTaskAssessmentResultsMessage, DescribeReplicationTaskAssessmentResultsResponse, [ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeReplicationTaskAssessmentResults = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeReplicationTaskAssessmentResults" }, DescribeReplicationTaskAssessmentResultsMessage, DescribeReplicationTaskAssessmentResultsResponse, [ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a paginated list of individual assessments based on filter settings.
  * 
  * 
  * These filter settings can specify a combination of premigration assessment runs,
  * migration tasks, and assessment status values.
- */export const describeReplicationTaskIndividualAssessments = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeReplicationTaskIndividualAssessments" }, DescribeReplicationTaskIndividualAssessmentsMessage, DescribeReplicationTaskIndividualAssessmentsResponse, [ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeReplicationTaskIndividualAssessments = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeReplicationTaskIndividualAssessments" }, DescribeReplicationTaskIndividualAssessmentsMessage, DescribeReplicationTaskIndividualAssessmentsResponse, [ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Saves a copy of a database migration assessment report to your Amazon S3 bucket. DMS can
  * save your assessment report as a comma-separated value (CSV) or a PDF file.
- */export const exportMetadataModelAssessment = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.ExportMetadataModelAssessment" }, ExportMetadataModelAssessmentMessage, ExportMetadataModelAssessmentResponse, [ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const exportMetadataModelAssessment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.ExportMetadataModelAssessment" }, ExportMetadataModelAssessmentMessage, ExportMetadataModelAssessmentResponse, [ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Uploads the specified certificate.
- */export const importCertificate = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.ImportCertificate" }, ImportCertificateMessage, ImportCertificateResponse, [InvalidCertificateFault, KMSKeyNotAccessibleFault, ResourceAlreadyExistsFault, ResourceQuotaExceededFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const importCertificate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.ImportCertificate" }, ImportCertificateMessage, ImportCertificateResponse, [InvalidCertificateFault, KMSKeyNotAccessibleFault, ResourceAlreadyExistsFault, ResourceQuotaExceededFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Modifies the specified endpoint.
  * 
@@ -984,7 +984,7 @@ export class SNSNoAuthorizationFault extends S.TaggedError<SNSNoAuthorizationFau
  * all the task tables to this single database. For MySQL endpoints, you specify the
  * database only when you specify the schema in the table-mapping rules of the DMS
  * task.
- */export const modifyEndpoint = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.ModifyEndpoint" }, ModifyEndpointMessage, ModifyEndpointResponse, [AccessDeniedFault, InvalidResourceStateFault, KMSKeyNotAccessibleFault, ResourceAlreadyExistsFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const modifyEndpoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.ModifyEndpoint" }, ModifyEndpointMessage, ModifyEndpointResponse, [AccessDeniedFault, InvalidResourceStateFault, KMSKeyNotAccessibleFault, ResourceAlreadyExistsFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Modifies the specified instance profile using the provided parameters.
  * 
@@ -993,7 +993,7 @@ export class SNSNoAuthorizationFault extends S.TaggedError<SNSNoAuthorizationFau
  * 
  * All migration projects associated with the instance profile must be deleted or
  * modified before you can modify the instance profile.
- */export const modifyInstanceProfile = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.ModifyInstanceProfile" }, ModifyInstanceProfileMessage, ModifyInstanceProfileResponse, [AccessDeniedFault, FailedDependencyFault, InvalidResourceStateFault, KMSKeyNotAccessibleFault, ResourceNotFoundFault, S3AccessDeniedFault, S3ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const modifyInstanceProfile = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.ModifyInstanceProfile" }, ModifyInstanceProfileMessage, ModifyInstanceProfileResponse, [AccessDeniedFault, FailedDependencyFault, InvalidResourceStateFault, KMSKeyNotAccessibleFault, ResourceNotFoundFault, S3AccessDeniedFault, S3ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Modifies the specified migration project using the provided parameters.
  * 
@@ -1001,7 +1001,7 @@ export class SNSNoAuthorizationFault extends S.TaggedError<SNSNoAuthorizationFau
  * 
  * 
  * The migration project must be closed before you can modify it.
- */export const modifyMigrationProject = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.ModifyMigrationProject" }, ModifyMigrationProjectMessage, ModifyMigrationProjectResponse, [AccessDeniedFault, FailedDependencyFault, InvalidResourceStateFault, ResourceNotFoundFault, S3AccessDeniedFault, S3ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const modifyMigrationProject = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.ModifyMigrationProject" }, ModifyMigrationProjectMessage, ModifyMigrationProjectResponse, [AccessDeniedFault, FailedDependencyFault, InvalidResourceStateFault, ResourceNotFoundFault, S3AccessDeniedFault, S3ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Modifies an existing DMS Serverless replication configuration that you can use to
  * start a replication. This command includes input validation and logic to check the state of
@@ -1013,7 +1013,7 @@ export class SNSNoAuthorizationFault extends S.TaggedError<SNSNoAuthorizationFau
  * 
  * Other run statuses that allow you to run this command include FAILED and CREATED. A
  * provisioning state that allows you to run this command is FAILED_PROVISION.
- */export const modifyReplicationConfig = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.ModifyReplicationConfig" }, ModifyReplicationConfigMessage, ModifyReplicationConfigResponse, [AccessDeniedFault, InvalidResourceStateFault, InvalidSubnet, KMSKeyNotAccessibleFault, ReplicationSubnetGroupDoesNotCoverEnoughAZs, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const modifyReplicationConfig = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.ModifyReplicationConfig" }, ModifyReplicationConfigMessage, ModifyReplicationConfigResponse, [AccessDeniedFault, InvalidResourceStateFault, InvalidSubnet, KMSKeyNotAccessibleFault, ReplicationSubnetGroupDoesNotCoverEnoughAZs, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Modifies the specified replication task.
  * 
@@ -1023,7 +1023,7 @@ export class SNSNoAuthorizationFault extends S.TaggedError<SNSNoAuthorizationFau
  * 
  * For more information about DMS tasks, see Working with Migration Tasks in the
  * *Database Migration Service User Guide*.
- */export const modifyReplicationTask = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.ModifyReplicationTask" }, ModifyReplicationTaskMessage, ModifyReplicationTaskResponse, [InvalidResourceStateFault, KMSKeyNotAccessibleFault, ResourceAlreadyExistsFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const modifyReplicationTask = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.ModifyReplicationTask" }, ModifyReplicationTaskMessage, ModifyReplicationTaskResponse, [InvalidResourceStateFault, KMSKeyNotAccessibleFault, ResourceAlreadyExistsFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Reloads the target database table with the source data for a given DMS Serverless
  * replication configuration.
@@ -1031,11 +1031,11 @@ export class SNSNoAuthorizationFault extends S.TaggedError<SNSNoAuthorizationFau
  * 
  * You can only use this operation with a task in the RUNNING state, otherwise the service
  * will throw an `InvalidResourceStateFault` exception.
- */export const reloadReplicationTables = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.ReloadReplicationTables" }, ReloadReplicationTablesMessage, ReloadReplicationTablesResponse, [InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const reloadReplicationTables = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.ReloadReplicationTables" }, ReloadReplicationTablesMessage, ReloadReplicationTablesResponse, [InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Applies a pending maintenance action to a resource (for example, to a replication
  * instance).
- */export const applyPendingMaintenanceAction = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.ApplyPendingMaintenanceAction" }, ApplyPendingMaintenanceActionMessage, ApplyPendingMaintenanceActionResponse, [ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const applyPendingMaintenanceAction = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.ApplyPendingMaintenanceAction" }, ApplyPendingMaintenanceActionMessage, ApplyPendingMaintenanceActionResponse, [ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * End of support notice: On May 20, 2026, Amazon Web Services will end support for Amazon Web Services DMS Fleet Advisor;. After May 20, 2026, you will no longer be able to access the Amazon Web Services DMS Fleet Advisor; console or Amazon Web Services DMS Fleet Advisor; resources. For more information, see Amazon Web Services DMS Fleet Advisor end of support.
  * 
@@ -1050,7 +1050,7 @@ export class SNSNoAuthorizationFault extends S.TaggedError<SNSNoAuthorizationFau
  * response. Because the batch request can result in a combination of successful and
  * unsuccessful actions, you should check for batch errors even when the call returns an
  * HTTP status code of `200`.
- */export const batchStartRecommendations = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.BatchStartRecommendations" }, BatchStartRecommendationsRequest, BatchStartRecommendationsResponse, [AccessDeniedFault, InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const batchStartRecommendations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.BatchStartRecommendations" }, BatchStartRecommendationsRequest, BatchStartRecommendationsResponse, [AccessDeniedFault, InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Cancels a single premigration assessment run.
  * 
@@ -1058,11 +1058,11 @@ export class SNSNoAuthorizationFault extends S.TaggedError<SNSNoAuthorizationFau
  * This operation prevents any individual assessments from running if they haven't started
  * running. It also attempts to cancel any individual assessments that are currently
  * running.
- */export const cancelReplicationTaskAssessmentRun = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.CancelReplicationTaskAssessmentRun" }, CancelReplicationTaskAssessmentRunMessage, CancelReplicationTaskAssessmentRunResponse, [AccessDeniedFault, InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const cancelReplicationTaskAssessmentRun = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.CancelReplicationTaskAssessmentRun" }, CancelReplicationTaskAssessmentRunMessage, CancelReplicationTaskAssessmentRunResponse, [AccessDeniedFault, InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a data provider using the provided settings. A data provider stores a data store
  * type and location information about your database.
- */export const createDataProvider = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.CreateDataProvider" }, CreateDataProviderMessage, CreateDataProviderResponse, [AccessDeniedFault, FailedDependencyFault, ResourceAlreadyExistsFault, ResourceQuotaExceededFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createDataProvider = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.CreateDataProvider" }, CreateDataProviderMessage, CreateDataProviderResponse, [AccessDeniedFault, FailedDependencyFault, ResourceAlreadyExistsFault, ResourceQuotaExceededFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates the replication instance using the specified parameters.
  * 
@@ -1078,13 +1078,13 @@ export class SNSNoAuthorizationFault extends S.TaggedError<SNSNoAuthorizationFau
  * If you don't specify a version when creating a replication instance, DMS will
  * create the instance using the default engine version. For information about the default
  * engine version, see Release Notes.
- */export const createReplicationInstance = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.CreateReplicationInstance" }, CreateReplicationInstanceMessage, CreateReplicationInstanceResponse, [AccessDeniedFault, InsufficientResourceCapacityFault, InvalidResourceStateFault, InvalidSubnet, KMSKeyNotAccessibleFault, ReplicationSubnetGroupDoesNotCoverEnoughAZs, ResourceAlreadyExistsFault, ResourceNotFoundFault, ResourceQuotaExceededFault, StorageQuotaExceededFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createReplicationInstance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.CreateReplicationInstance" }, CreateReplicationInstanceMessage, CreateReplicationInstanceResponse, [AccessDeniedFault, InsufficientResourceCapacityFault, InvalidResourceStateFault, InvalidSubnet, KMSKeyNotAccessibleFault, ReplicationSubnetGroupDoesNotCoverEnoughAZs, ResourceAlreadyExistsFault, ResourceNotFoundFault, ResourceQuotaExceededFault, StorageQuotaExceededFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a replication task using the specified parameters.
- */export const createReplicationTask = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.CreateReplicationTask" }, CreateReplicationTaskMessage, CreateReplicationTaskResponse, [AccessDeniedFault, InvalidResourceStateFault, KMSKeyNotAccessibleFault, ResourceAlreadyExistsFault, ResourceNotFoundFault, ResourceQuotaExceededFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createReplicationTask = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.CreateReplicationTask" }, CreateReplicationTaskMessage, CreateReplicationTaskResponse, [AccessDeniedFault, InvalidResourceStateFault, KMSKeyNotAccessibleFault, ResourceAlreadyExistsFault, ResourceNotFoundFault, ResourceQuotaExceededFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the specified data migration.
- */export const deleteDataMigration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DeleteDataMigration" }, DeleteDataMigrationMessage, DeleteDataMigrationResponse, [FailedDependencyFault, InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteDataMigration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DeleteDataMigration" }, DeleteDataMigrationMessage, DeleteDataMigrationResponse, [FailedDependencyFault, InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the specified endpoint.
  * 
@@ -1093,7 +1093,7 @@ export class SNSNoAuthorizationFault extends S.TaggedError<SNSNoAuthorizationFau
  * 
  * All tasks associated with the endpoint must be deleted before you can delete the
  * endpoint.
- */export const deleteEndpoint = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DeleteEndpoint" }, DeleteEndpointMessage, DeleteEndpointResponse, [InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteEndpoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DeleteEndpoint" }, DeleteEndpointMessage, DeleteEndpointResponse, [InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the specified migration project.
  * 
@@ -1101,7 +1101,7 @@ export class SNSNoAuthorizationFault extends S.TaggedError<SNSNoAuthorizationFau
  * 
  * 
  * The migration project must be closed before you can delete it.
- */export const deleteMigrationProject = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DeleteMigrationProject" }, DeleteMigrationProjectMessage, DeleteMigrationProjectResponse, [AccessDeniedFault, FailedDependencyFault, InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteMigrationProject = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DeleteMigrationProject" }, DeleteMigrationProjectMessage, DeleteMigrationProjectResponse, [AccessDeniedFault, FailedDependencyFault, InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the specified replication instance.
  * 
@@ -1110,7 +1110,7 @@ export class SNSNoAuthorizationFault extends S.TaggedError<SNSNoAuthorizationFau
  * 
  * You must delete any migration tasks that are associated with the replication instance
  * before you can delete it.
- */export const deleteReplicationInstance = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DeleteReplicationInstance" }, DeleteReplicationInstanceMessage, DeleteReplicationInstanceResponse, [InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteReplicationInstance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DeleteReplicationInstance" }, DeleteReplicationInstanceMessage, DeleteReplicationInstanceResponse, [InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * End of support notice: On May 20, 2026, Amazon Web Services will end support for Amazon Web Services DMS Fleet Advisor;. After May 20, 2026, you will no longer be able to access the Amazon Web Services DMS Fleet Advisor; console or Amazon Web Services DMS Fleet Advisor; resources. For more information, see Amazon Web Services DMS Fleet Advisor end of support.
  * 
@@ -1118,7 +1118,7 @@ export class SNSNoAuthorizationFault extends S.TaggedError<SNSNoAuthorizationFau
  * 
  * 
  * Returns a list of the Fleet Advisor collectors in your account.
- */export const describeFleetAdvisorCollectors = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeFleetAdvisorCollectors" }, DescribeFleetAdvisorCollectorsRequest, DescribeFleetAdvisorCollectorsResponse, [InvalidResourceStateFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeFleetAdvisorCollectors = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeFleetAdvisorCollectors" }, DescribeFleetAdvisorCollectorsRequest, DescribeFleetAdvisorCollectorsResponse, [InvalidResourceStateFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * End of support notice: On May 20, 2026, Amazon Web Services will end support for Amazon Web Services DMS Fleet Advisor;. After May 20, 2026, you will no longer be able to access the Amazon Web Services DMS Fleet Advisor; console or Amazon Web Services DMS Fleet Advisor; resources. For more information, see Amazon Web Services DMS Fleet Advisor end of support.
  * 
@@ -1126,7 +1126,7 @@ export class SNSNoAuthorizationFault extends S.TaggedError<SNSNoAuthorizationFau
  * 
  * 
  * Returns a list of Fleet Advisor databases in your account.
- */export const describeFleetAdvisorDatabases = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeFleetAdvisorDatabases" }, DescribeFleetAdvisorDatabasesRequest, DescribeFleetAdvisorDatabasesResponse, [InvalidResourceStateFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeFleetAdvisorDatabases = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeFleetAdvisorDatabases" }, DescribeFleetAdvisorDatabasesRequest, DescribeFleetAdvisorDatabasesResponse, [InvalidResourceStateFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * End of support notice: On May 20, 2026, Amazon Web Services will end support for Amazon Web Services DMS Fleet Advisor;. After May 20, 2026, you will no longer be able to access the Amazon Web Services DMS Fleet Advisor; console or Amazon Web Services DMS Fleet Advisor; resources. For more information, see Amazon Web Services DMS Fleet Advisor end of support.
  * 
@@ -1134,21 +1134,21 @@ export class SNSNoAuthorizationFault extends S.TaggedError<SNSNoAuthorizationFau
  * 
  * 
  * Returns a list of schemas detected by Fleet Advisor Collectors in your account.
- */export const describeFleetAdvisorSchemas = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeFleetAdvisorSchemas" }, DescribeFleetAdvisorSchemasRequest, DescribeFleetAdvisorSchemasResponse, [InvalidResourceStateFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeFleetAdvisorSchemas = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeFleetAdvisorSchemas" }, DescribeFleetAdvisorSchemasRequest, DescribeFleetAdvisorSchemasResponse, [InvalidResourceStateFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Provides details on replication progress by returning status information for one or more
  * provisioned DMS Serverless replications.
- */export const describeReplications = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeReplications" }, DescribeReplicationsMessage, DescribeReplicationsResponse, [ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeReplications = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeReplications" }, DescribeReplicationsMessage, DescribeReplicationsResponse, [ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Modifies the replication instance to apply new settings. You can change one or more
  * parameters by specifying these parameters and the new values in the request.
  * 
  * 
  * Some settings are applied during the maintenance window.
- */export const modifyReplicationInstance = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.ModifyReplicationInstance" }, ModifyReplicationInstanceMessage, ModifyReplicationInstanceResponse, [AccessDeniedFault, InsufficientResourceCapacityFault, InvalidResourceStateFault, ResourceAlreadyExistsFault, ResourceNotFoundFault, StorageQuotaExceededFault, UpgradeDependencyFailureFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const modifyReplicationInstance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.ModifyReplicationInstance" }, ModifyReplicationInstanceMessage, ModifyReplicationInstanceResponse, [AccessDeniedFault, InsufficientResourceCapacityFault, InvalidResourceStateFault, ResourceAlreadyExistsFault, ResourceNotFoundFault, StorageQuotaExceededFault, UpgradeDependencyFailureFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Modifies the settings for the specified replication subnet group.
- */export const modifyReplicationSubnetGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.ModifyReplicationSubnetGroup" }, ModifyReplicationSubnetGroupMessage, ModifyReplicationSubnetGroupResponse, [AccessDeniedFault, InvalidSubnet, ReplicationSubnetGroupDoesNotCoverEnoughAZs, ResourceNotFoundFault, ResourceQuotaExceededFault, SubnetAlreadyInUse]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const modifyReplicationSubnetGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.ModifyReplicationSubnetGroup" }, ModifyReplicationSubnetGroupMessage, ModifyReplicationSubnetGroupResponse, [AccessDeniedFault, InvalidSubnet, ReplicationSubnetGroupDoesNotCoverEnoughAZs, ResourceNotFoundFault, ResourceQuotaExceededFault, SubnetAlreadyInUse]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates source metadata model of the given type with the specified properties for schema conversion operations.
  * 
@@ -1156,7 +1156,7 @@ export class SNSNoAuthorizationFault extends S.TaggedError<SNSNoAuthorizationFau
  * 
  * 
  * This action supports only these directions: from SQL Server to Aurora PostgreSQL, or from SQL Server to RDS for PostgreSQL.
- */export const startMetadataModelCreation = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.StartMetadataModelCreation" }, StartMetadataModelCreationMessage, StartMetadataModelCreationResponse, [AccessDeniedFault, ResourceAlreadyExistsFault, ResourceNotFoundFault, ResourceQuotaExceededFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startMetadataModelCreation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.StartMetadataModelCreation" }, StartMetadataModelCreationMessage, StartMetadataModelCreationResponse, [AccessDeniedFault, ResourceAlreadyExistsFault, ResourceNotFoundFault, ResourceQuotaExceededFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts a new premigration assessment run for one or more individual assessments of a
  * migration task.
@@ -1167,10 +1167,10 @@ export class SNSNoAuthorizationFault extends S.TaggedError<SNSNoAuthorizationFau
  * must already be created. After you run this operation, you can review the status of each
  * individual assessment. You can also run the migration task manually after the assessment
  * run and its individual assessments complete.
- */export const startReplicationTaskAssessmentRun = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.StartReplicationTaskAssessmentRun" }, StartReplicationTaskAssessmentRunMessage, StartReplicationTaskAssessmentRunResponse, [AccessDeniedFault, InvalidResourceStateFault, KMSAccessDeniedFault, KMSDisabledFault, KMSFault, KMSInvalidStateFault, KMSKeyNotAccessibleFault, KMSNotFoundFault, ResourceAlreadyExistsFault, ResourceNotFoundFault, S3AccessDeniedFault, S3ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startReplicationTaskAssessmentRun = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.StartReplicationTaskAssessmentRun" }, StartReplicationTaskAssessmentRunMessage, StartReplicationTaskAssessmentRunResponse, [AccessDeniedFault, InvalidResourceStateFault, KMSAccessDeniedFault, KMSDisabledFault, KMSFault, KMSInvalidStateFault, KMSKeyNotAccessibleFault, KMSNotFoundFault, ResourceAlreadyExistsFault, ResourceNotFoundFault, S3AccessDeniedFault, S3ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Cancels a single metadata model conversion operation that was started with `StartMetadataModelConversion`.
- */export const cancelMetadataModelConversion = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.CancelMetadataModelConversion" }, CancelMetadataModelConversionMessage, CancelMetadataModelConversionResponse, [AccessDeniedFault, InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const cancelMetadataModelConversion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.CancelMetadataModelConversion" }, CancelMetadataModelConversionMessage, CancelMetadataModelConversionResponse, [AccessDeniedFault, InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a replication subnet group given a list of the subnet IDs in a VPC.
  * 
@@ -1185,10 +1185,10 @@ export class SNSNoAuthorizationFault extends S.TaggedError<SNSNoAuthorizationFau
  * Subnet Group already exists. In this case, delete the existing replication subnet group. To
  * do so, use the DeleteReplicationSubnetGroup action. Optionally, choose Subnet groups in the
  * DMS console, then choose your subnet group. Next, choose Delete from Actions.
- */export const createReplicationSubnetGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.CreateReplicationSubnetGroup" }, CreateReplicationSubnetGroupMessage, CreateReplicationSubnetGroupResponse, [AccessDeniedFault, InvalidSubnet, ReplicationSubnetGroupDoesNotCoverEnoughAZs, ResourceAlreadyExistsFault, ResourceNotFoundFault, ResourceQuotaExceededFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createReplicationSubnetGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.CreateReplicationSubnetGroup" }, CreateReplicationSubnetGroupMessage, CreateReplicationSubnetGroupResponse, [AccessDeniedFault, InvalidSubnet, ReplicationSubnetGroupDoesNotCoverEnoughAZs, ResourceAlreadyExistsFault, ResourceNotFoundFault, ResourceQuotaExceededFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Modifies an existing DMS event notification subscription.
- */export const modifyEventSubscription = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.ModifyEventSubscription" }, ModifyEventSubscriptionMessage, ModifyEventSubscriptionResponse, [AccessDeniedFault, KMSAccessDeniedFault, KMSDisabledFault, KMSInvalidStateFault, KMSNotFoundFault, KMSThrottlingFault, ResourceNotFoundFault, ResourceQuotaExceededFault, SNSInvalidTopicFault, SNSNoAuthorizationFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const modifyEventSubscription = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.ModifyEventSubscription" }, ModifyEventSubscriptionMessage, ModifyEventSubscriptionResponse, [AccessDeniedFault, KMSAccessDeniedFault, KMSDisabledFault, KMSInvalidStateFault, KMSNotFoundFault, KMSThrottlingFault, ResourceNotFoundFault, ResourceQuotaExceededFault, SNSInvalidTopicFault, SNSNoAuthorizationFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an DMS event notification subscription.
  * 
@@ -1208,7 +1208,7 @@ export class SNSNoAuthorizationFault extends S.TaggedError<SNSNoAuthorizationFau
  * 
  * For more information about DMS events, see Working with Events and
  * Notifications in the *Database Migration Service User Guide.*
- */export const createEventSubscription = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.CreateEventSubscription" }, CreateEventSubscriptionMessage, CreateEventSubscriptionResponse, [KMSAccessDeniedFault, KMSDisabledFault, KMSInvalidStateFault, KMSNotFoundFault, KMSThrottlingFault, ResourceAlreadyExistsFault, ResourceNotFoundFault, ResourceQuotaExceededFault, SNSInvalidTopicFault, SNSNoAuthorizationFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createEventSubscription = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.CreateEventSubscription" }, CreateEventSubscriptionMessage, CreateEventSubscriptionResponse, [KMSAccessDeniedFault, KMSDisabledFault, KMSInvalidStateFault, KMSNotFoundFault, KMSThrottlingFault, ResourceAlreadyExistsFault, ResourceNotFoundFault, ResourceQuotaExceededFault, SNSInvalidTopicFault, SNSNoAuthorizationFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * End of support notice: On May 20, 2026, Amazon Web Services will end support for Amazon Web Services DMS Fleet Advisor;. After May 20, 2026, you will no longer be able to access the Amazon Web Services DMS Fleet Advisor; console or Amazon Web Services DMS Fleet Advisor; resources. For more information, see Amazon Web Services DMS Fleet Advisor end of support.
  * 
@@ -1217,4 +1217,4 @@ export class SNSNoAuthorizationFault extends S.TaggedError<SNSNoAuthorizationFau
  * 
  * Returns a paginated list of target engine recommendations for your source
  * databases.
- */export const describeRecommendations = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeRecommendations" }, DescribeRecommendationsRequest, DescribeRecommendationsResponse, [AccessDeniedFault, InvalidResourceStateFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeRecommendations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", uri: "/", method: "POST", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeRecommendations" }, DescribeRecommendationsRequest, DescribeRecommendationsResponse, [AccessDeniedFault, InvalidResourceStateFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

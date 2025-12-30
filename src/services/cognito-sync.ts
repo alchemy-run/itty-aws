@@ -127,7 +127,7 @@ export class LimitExceededException extends S.TaggedError<LimitExceededException
  * },
  * "Version": "1.0"
  * }
- */export const listDatasets = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-06-30", uri: "/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets", method: "GET", sdkId: "Cognito Sync", sigV4ServiceName: "cognito-sync", name: "AWSCognitoSyncService.ListDatasets" }, ListDatasetsRequest, ListDatasetsResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listDatasets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-06-30", uri: "/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets", method: "GET", sdkId: "Cognito Sync", sigV4ServiceName: "cognito-sync", name: "AWSCognitoSyncService.ListDatasets" }, ListDatasetsRequest, ListDatasetsResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets a list of identity pools registered with Cognito.
  * 
@@ -188,7 +188,7 @@ export class LimitExceededException extends S.TaggedError<LimitExceededException
  * },
  * "Version": "1.0"
  * }
- */export const listIdentityPoolUsage = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-06-30", uri: "/identitypools", method: "GET", sdkId: "Cognito Sync", sigV4ServiceName: "cognito-sync", name: "AWSCognitoSyncService.ListIdentityPoolUsage" }, ListIdentityPoolUsageRequest, ListIdentityPoolUsageResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listIdentityPoolUsage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-06-30", uri: "/identitypools", method: "GET", sdkId: "Cognito Sync", sigV4ServiceName: "cognito-sync", name: "AWSCognitoSyncService.ListIdentityPoolUsage" }, ListIdentityPoolUsageRequest, ListIdentityPoolUsageResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Registers a device to receive push sync notifications.
  * 
@@ -235,12 +235,12 @@ export class LimitExceededException extends S.TaggedError<LimitExceededException
  * },
  * "Version": "1.0"
  * }
- */export const registerDevice = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-06-30", uri: "/identitypools/{IdentityPoolId}/identity/{IdentityId}/device", method: "POST", sdkId: "Cognito Sync", sigV4ServiceName: "cognito-sync", name: "AWSCognitoSyncService.RegisterDevice" }, RegisterDeviceRequest, RegisterDeviceResponse, [InternalErrorException, InvalidConfigurationException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const registerDevice = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-06-30", uri: "/identitypools/{IdentityPoolId}/identity/{IdentityId}/device", method: "POST", sdkId: "Cognito Sync", sigV4ServiceName: "cognito-sync", name: "AWSCognitoSyncService.RegisterDevice" }, RegisterDeviceRequest, RegisterDeviceResponse, [InternalErrorException, InvalidConfigurationException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Sets the AWS Lambda function for a given event type for an identity pool. This request only updates the key/value pair specified. Other key/values pairs are not updated. To remove a key value pair, pass a empty value for the particular key.
  * 
  * This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.
- */export const setCognitoEvents = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-06-30", uri: "/identitypools/{IdentityPoolId}/events", method: "POST", sdkId: "Cognito Sync", sigV4ServiceName: "cognito-sync", name: "AWSCognitoSyncService.SetCognitoEvents" }, SetCognitoEventsRequest, S.Struct({}), [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const setCognitoEvents = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-06-30", uri: "/identitypools/{IdentityPoolId}/events", method: "POST", sdkId: "Cognito Sync", sigV4ServiceName: "cognito-sync", name: "AWSCognitoSyncService.SetCognitoEvents" }, SetCognitoEventsRequest, S.Struct({}), [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Subscribes to receive notifications when a dataset is modified by another device.
  * 
@@ -286,7 +286,7 @@ export class LimitExceededException extends S.TaggedError<LimitExceededException
  * },
  * "Version": "1.0"
  * }
- */export const subscribeToDataset = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-06-30", uri: "/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}/subscriptions/{DeviceId}", method: "POST", sdkId: "Cognito Sync", sigV4ServiceName: "cognito-sync", name: "AWSCognitoSyncService.SubscribeToDataset" }, SubscribeToDatasetRequest, SubscribeToDatasetResponse, [InternalErrorException, InvalidConfigurationException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const subscribeToDataset = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-06-30", uri: "/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}/subscriptions/{DeviceId}", method: "POST", sdkId: "Cognito Sync", sigV4ServiceName: "cognito-sync", name: "AWSCognitoSyncService.SubscribeToDataset" }, SubscribeToDatasetRequest, SubscribeToDatasetResponse, [InternalErrorException, InvalidConfigurationException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Unsubscribes from receiving notifications when a dataset is modified by another device.
  * 
@@ -333,7 +333,7 @@ export class LimitExceededException extends S.TaggedError<LimitExceededException
  * },
  * "Version": "1.0"
  * }
- */export const unsubscribeFromDataset = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-06-30", uri: "/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}/subscriptions/{DeviceId}", method: "DELETE", sdkId: "Cognito Sync", sigV4ServiceName: "cognito-sync", name: "AWSCognitoSyncService.UnsubscribeFromDataset" }, UnsubscribeFromDatasetRequest, UnsubscribeFromDatasetResponse, [InternalErrorException, InvalidConfigurationException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const unsubscribeFromDataset = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-06-30", uri: "/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}/subscriptions/{DeviceId}", method: "DELETE", sdkId: "Cognito Sync", sigV4ServiceName: "cognito-sync", name: "AWSCognitoSyncService.UnsubscribeFromDataset" }, UnsubscribeFromDatasetRequest, UnsubscribeFromDatasetResponse, [InternalErrorException, InvalidConfigurationException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets meta data about a dataset by identity and dataset name. With Amazon Cognito Sync, each
  * identity has access only to its own data. Thus, the credentials used to make this API call
@@ -341,7 +341,7 @@ export class LimitExceededException extends S.TaggedError<LimitExceededException
  * 
  * 
  * This API can be called with temporary user credentials provided by Cognito Identity or with developer credentials. You should use Cognito Identity credentials to make this API call.
- */export const describeDataset = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-06-30", uri: "/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}", method: "GET", sdkId: "Cognito Sync", sigV4ServiceName: "cognito-sync", name: "AWSCognitoSyncService.DescribeDataset" }, DescribeDatasetRequest, DescribeDatasetResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeDataset = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-06-30", uri: "/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}", method: "GET", sdkId: "Cognito Sync", sigV4ServiceName: "cognito-sync", name: "AWSCognitoSyncService.DescribeDataset" }, DescribeDatasetRequest, DescribeDatasetResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets usage details (for example, data storage) about a particular identity pool.
  * 
@@ -391,7 +391,7 @@ export class LimitExceededException extends S.TaggedError<LimitExceededException
  * },
  * "Version": "1.0"
  * }
- */export const describeIdentityPoolUsage = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-06-30", uri: "/identitypools/{IdentityPoolId}", method: "GET", sdkId: "Cognito Sync", sigV4ServiceName: "cognito-sync", name: "AWSCognitoSyncService.DescribeIdentityPoolUsage" }, DescribeIdentityPoolUsageRequest, DescribeIdentityPoolUsageResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeIdentityPoolUsage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-06-30", uri: "/identitypools/{IdentityPoolId}", method: "GET", sdkId: "Cognito Sync", sigV4ServiceName: "cognito-sync", name: "AWSCognitoSyncService.DescribeIdentityPoolUsage" }, DescribeIdentityPoolUsageRequest, DescribeIdentityPoolUsageResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets usage information for an identity, including number of datasets and data usage.
  * 
@@ -443,17 +443,17 @@ export class LimitExceededException extends S.TaggedError<LimitExceededException
  * },
  * "Version": "1.0"
  * }
- */export const describeIdentityUsage = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-06-30", uri: "/identitypools/{IdentityPoolId}/identities/{IdentityId}", method: "GET", sdkId: "Cognito Sync", sigV4ServiceName: "cognito-sync", name: "AWSCognitoSyncService.DescribeIdentityUsage" }, DescribeIdentityUsageRequest, DescribeIdentityUsageResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeIdentityUsage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-06-30", uri: "/identitypools/{IdentityPoolId}/identities/{IdentityId}", method: "GET", sdkId: "Cognito Sync", sigV4ServiceName: "cognito-sync", name: "AWSCognitoSyncService.DescribeIdentityUsage" }, DescribeIdentityUsageRequest, DescribeIdentityUsageResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Get the status of the last BulkPublish operation for an identity pool.
  * 
  * This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.
- */export const getBulkPublishDetails = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-06-30", uri: "/identitypools/{IdentityPoolId}/getBulkPublishDetails", method: "POST", sdkId: "Cognito Sync", sigV4ServiceName: "cognito-sync", name: "AWSCognitoSyncService.GetBulkPublishDetails" }, GetBulkPublishDetailsRequest, GetBulkPublishDetailsResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getBulkPublishDetails = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-06-30", uri: "/identitypools/{IdentityPoolId}/getBulkPublishDetails", method: "POST", sdkId: "Cognito Sync", sigV4ServiceName: "cognito-sync", name: "AWSCognitoSyncService.GetBulkPublishDetails" }, GetBulkPublishDetailsRequest, GetBulkPublishDetailsResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets the events and the corresponding Lambda functions associated with an identity pool.
  * 
  * This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.
- */export const getCognitoEvents = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-06-30", uri: "/identitypools/{IdentityPoolId}/events", method: "GET", sdkId: "Cognito Sync", sigV4ServiceName: "cognito-sync", name: "AWSCognitoSyncService.GetCognitoEvents" }, GetCognitoEventsRequest, GetCognitoEventsResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getCognitoEvents = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-06-30", uri: "/identitypools/{IdentityPoolId}/events", method: "GET", sdkId: "Cognito Sync", sigV4ServiceName: "cognito-sync", name: "AWSCognitoSyncService.GetCognitoEvents" }, GetCognitoEventsRequest, GetCognitoEventsResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets the configuration settings of an identity pool.
  * 
@@ -502,7 +502,7 @@ export class LimitExceededException extends S.TaggedError<LimitExceededException
  * },
  * "Version": "1.0"
  * }
- */export const getIdentityPoolConfiguration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-06-30", uri: "/identitypools/{IdentityPoolId}/configuration", method: "GET", sdkId: "Cognito Sync", sigV4ServiceName: "cognito-sync", name: "AWSCognitoSyncService.GetIdentityPoolConfiguration" }, GetIdentityPoolConfigurationRequest, GetIdentityPoolConfigurationResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getIdentityPoolConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-06-30", uri: "/identitypools/{IdentityPoolId}/configuration", method: "GET", sdkId: "Cognito Sync", sigV4ServiceName: "cognito-sync", name: "AWSCognitoSyncService.GetIdentityPoolConfiguration" }, GetIdentityPoolConfigurationRequest, GetIdentityPoolConfigurationResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets paginated records, optionally changed after a particular sync count for a dataset and
  * identity. With Amazon Cognito Sync, each identity has access only to its own data. Thus,
@@ -560,12 +560,12 @@ export class LimitExceededException extends S.TaggedError<LimitExceededException
  * },
  * "Version": "1.0"
  * }
- */export const listRecords = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-06-30", uri: "/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}/records", method: "GET", sdkId: "Cognito Sync", sigV4ServiceName: "cognito-sync", name: "AWSCognitoSyncService.ListRecords" }, ListRecordsRequest, ListRecordsResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listRecords = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-06-30", uri: "/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}/records", method: "GET", sdkId: "Cognito Sync", sigV4ServiceName: "cognito-sync", name: "AWSCognitoSyncService.ListRecords" }, ListRecordsRequest, ListRecordsResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Initiates a bulk publish of all existing datasets for an Identity Pool to the configured stream. Customers are limited to one successful bulk publish per 24 hours. Bulk publish is an asynchronous request, customers can see the status of the request via the GetBulkPublishDetails operation.
  * 
  * This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.
- */export const bulkPublish = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-06-30", uri: "/identitypools/{IdentityPoolId}/bulkpublish", method: "POST", sdkId: "Cognito Sync", sigV4ServiceName: "cognito-sync", name: "AWSCognitoSyncService.BulkPublish" }, BulkPublishRequest, BulkPublishResponse, [AlreadyStreamedException, DuplicateRequestException, InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const bulkPublish = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-06-30", uri: "/identitypools/{IdentityPoolId}/bulkpublish", method: "POST", sdkId: "Cognito Sync", sigV4ServiceName: "cognito-sync", name: "AWSCognitoSyncService.BulkPublish" }, BulkPublishRequest, BulkPublishResponse, [AlreadyStreamedException, DuplicateRequestException, InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the specific dataset. The dataset will be deleted permanently, and the action can't
  * be undone. Datasets that this dataset was merged with will no longer report the merge. Any
@@ -574,7 +574,7 @@ export class LimitExceededException extends S.TaggedError<LimitExceededException
  * 
  * 
  * This API can be called with temporary user credentials provided by Cognito Identity or with developer credentials.
- */export const deleteDataset = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-06-30", uri: "/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}", method: "DELETE", sdkId: "Cognito Sync", sigV4ServiceName: "cognito-sync", name: "AWSCognitoSyncService.DeleteDataset" }, DeleteDatasetRequest, DeleteDatasetResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceConflictException, ResourceNotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteDataset = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-06-30", uri: "/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}", method: "DELETE", sdkId: "Cognito Sync", sigV4ServiceName: "cognito-sync", name: "AWSCognitoSyncService.DeleteDataset" }, DeleteDatasetRequest, DeleteDatasetResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceConflictException, ResourceNotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Sets the necessary configuration for push sync.
  * 
@@ -627,7 +627,7 @@ export class LimitExceededException extends S.TaggedError<LimitExceededException
  * },
  * "Version": "1.0"
  * }
- */export const setIdentityPoolConfiguration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-06-30", uri: "/identitypools/{IdentityPoolId}/configuration", method: "POST", sdkId: "Cognito Sync", sigV4ServiceName: "cognito-sync", name: "AWSCognitoSyncService.SetIdentityPoolConfiguration" }, SetIdentityPoolConfigurationRequest, SetIdentityPoolConfigurationResponse, [ConcurrentModificationException, InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const setIdentityPoolConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-06-30", uri: "/identitypools/{IdentityPoolId}/configuration", method: "POST", sdkId: "Cognito Sync", sigV4ServiceName: "cognito-sync", name: "AWSCognitoSyncService.SetIdentityPoolConfiguration" }, SetIdentityPoolConfigurationRequest, SetIdentityPoolConfigurationResponse, [ConcurrentModificationException, InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Posts updates to records and adds and deletes records for a dataset and user.
  * 
@@ -638,4 +638,4 @@ export class LimitExceededException extends S.TaggedError<LimitExceededException
  * 
  * 
  * This API can be called with temporary user credentials provided by Cognito Identity or with developer credentials.
- */export const updateRecords = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-06-30", uri: "/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}", method: "POST", sdkId: "Cognito Sync", sigV4ServiceName: "cognito-sync", name: "AWSCognitoSyncService.UpdateRecords" }, UpdateRecordsRequest, UpdateRecordsResponse, [InternalErrorException, InvalidLambdaFunctionOutputException, InvalidParameterException, LambdaThrottledException, LimitExceededException, NotAuthorizedException, ResourceConflictException, ResourceNotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateRecords = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-06-30", uri: "/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}", method: "POST", sdkId: "Cognito Sync", sigV4ServiceName: "cognito-sync", name: "AWSCognitoSyncService.UpdateRecords" }, UpdateRecordsRequest, UpdateRecordsResponse, [InternalErrorException, InvalidLambdaFunctionOutputException, InvalidParameterException, LambdaThrottledException, LimitExceededException, NotAuthorizedException, ResourceConflictException, ResourceNotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

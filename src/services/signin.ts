@@ -45,4 +45,4 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
  * 
  * Note: This operation cannot be marked as @idempotent because it handles both idempotent
  * (token refresh) and non-idempotent (auth code redemption) flows in a single endpoint.
- */export const createOAuth2Token = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-01-01", uri: "/v1/token", method: "POST", sdkId: "Signin", sigV4ServiceName: "signin", name: "Signin.CreateOAuth2Token" }, CreateOAuth2TokenRequest, CreateOAuth2TokenResponse, [AccessDeniedException, InternalServerException, TooManyRequestsError, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createOAuth2Token = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-01-01", uri: "/v1/token", method: "POST", sdkId: "Signin", sigV4ServiceName: "signin", name: "Signin.CreateOAuth2Token" }, CreateOAuth2TokenRequest, CreateOAuth2TokenResponse, [AccessDeniedException, InternalServerException, TooManyRequestsError, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

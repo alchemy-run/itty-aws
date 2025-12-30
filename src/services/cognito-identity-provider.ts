@@ -451,7 +451,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
- */export const adminUpdateDeviceStatus = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminUpdateDeviceStatus" }, AdminUpdateDeviceStatusRequest, AdminUpdateDeviceStatusResponse, [InternalErrorException, InvalidParameterException, InvalidUserPoolConfigurationException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const adminUpdateDeviceStatus = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminUpdateDeviceStatus" }, AdminUpdateDeviceStatusRequest, AdminUpdateDeviceStatusResponse, [InternalErrorException, InvalidParameterException, InvalidUserPoolConfigurationException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Invalidates the identity, access, and refresh tokens that Amazon Cognito issued to a user. Call
  * this operation with your administrative credentials when your user signs out of your
@@ -508,7 +508,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
- */export const adminUserGlobalSignOut = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminUserGlobalSignOut" }, AdminUserGlobalSignOutRequest, AdminUserGlobalSignOutResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const adminUserGlobalSignOut = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminUserGlobalSignOut" }, AdminUserGlobalSignOutRequest, AdminUserGlobalSignOutResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a group from the specified user pool. When you delete a group, that group no
  * longer contributes to users' `cognito:preferred_group` or
@@ -535,7 +535,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
- */export const deleteGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DeleteGroup" }, DeleteGroupRequest, S.Struct({}), [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DeleteGroup" }, DeleteGroupRequest, S.Struct({}), [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a managed login branding style. When you delete a style, you delete the
  * branding association for an app client. When an app client doesn't have a style
@@ -561,7 +561,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
- */export const deleteManagedLoginBranding = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DeleteManagedLoginBranding" }, DeleteManagedLoginBrandingRequest, S.Struct({}), [ConcurrentModificationException, InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteManagedLoginBranding = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DeleteManagedLoginBranding" }, DeleteManagedLoginBrandingRequest, S.Struct({}), [ConcurrentModificationException, InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a resource server. After you delete a resource server, users can no longer
  * generate access tokens with scopes that are associate with that resource server.
@@ -589,7 +589,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
- */export const deleteResourceServer = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DeleteResourceServer" }, DeleteResourceServerRequest, S.Struct({}), [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteResourceServer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DeleteResourceServer" }, DeleteResourceServerRequest, S.Struct({}), [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the terms documents with the requested ID from your app client.
  * 
@@ -612,16 +612,16 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
- */export const deleteTerms = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DeleteTerms" }, DeleteTermsRequest, S.Struct({}), [ConcurrentModificationException, InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteTerms = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DeleteTerms" }, DeleteTermsRequest, S.Struct({}), [ConcurrentModificationException, InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a user pool app client. After you delete an app client, users can no longer
  * sign in to the associated application.
- */export const deleteUserPoolClient = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DeleteUserPoolClient" }, DeleteUserPoolClientRequest, S.Struct({}), [ConcurrentModificationException, InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteUserPoolClient = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DeleteUserPoolClient" }, DeleteUserPoolClientRequest, S.Struct({}), [ConcurrentModificationException, InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Given a user pool ID and domain identifier, deletes a user pool domain. After you
  * delete a user pool domain, your managed login pages and authorization server are no
  * longer available.
- */export const deleteUserPoolDomain = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DeleteUserPoolDomain" }, DeleteUserPoolDomainRequest, DeleteUserPoolDomainResponse, [ConcurrentModificationException, InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteUserPoolDomain = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DeleteUserPoolDomain" }, DeleteUserPoolDomainRequest, DeleteUserPoolDomainResponse, [ConcurrentModificationException, InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a registered passkey, or WebAuthn, authenticator for the currently signed-in
  * user.
@@ -636,7 +636,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * this operation, you can't use IAM credentials to authorize requests, and you can't
  * grant IAM permissions in policies. For more information about authorization models in
  * Amazon Cognito, see Using the Amazon Cognito user pools API and user pool endpoints.
- */export const deleteWebAuthnCredential = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DeleteWebAuthnCredential" }, DeleteWebAuthnCredentialRequest, DeleteWebAuthnCredentialResponse, [ForbiddenException, InternalErrorException, InvalidParameterException, LimitExceededException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteWebAuthnCredential = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DeleteWebAuthnCredential" }, DeleteWebAuthnCredentialRequest, DeleteWebAuthnCredentialResponse, [ForbiddenException, InternalErrorException, InvalidParameterException, LimitExceededException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Given a device key, deletes a remembered device as the currently signed-in user. For
  * more information about device authentication, see Working with user devices in your user pool.
@@ -651,7 +651,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * this operation, you can't use IAM credentials to authorize requests, and you can't
  * grant IAM permissions in policies. For more information about authorization models in
  * Amazon Cognito, see Using the Amazon Cognito user pools API and user pool endpoints.
- */export const forgetDevice = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.ForgetDevice" }, ForgetDeviceRequest, S.Struct({}), [ForbiddenException, InternalErrorException, InvalidParameterException, InvalidUserPoolConfigurationException, NotAuthorizedException, PasswordResetRequiredException, ResourceNotFoundException, TooManyRequestsException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const forgetDevice = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.ForgetDevice" }, ForgetDeviceRequest, S.Struct({}), [ForbiddenException, InternalErrorException, InvalidParameterException, InvalidUserPoolConfigurationException, NotAuthorizedException, PasswordResetRequiredException, ResourceNotFoundException, TooManyRequestsException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Invalidates the identity, access, and refresh tokens that Amazon Cognito issued to a user. Call
  * this operation when your user signs out of your app. This results in the following
@@ -699,7 +699,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * this operation, you can't use IAM credentials to authorize requests, and you can't
  * grant IAM permissions in policies. For more information about authorization models in
  * Amazon Cognito, see Using the Amazon Cognito user pools API and user pool endpoints.
- */export const globalSignOut = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.GlobalSignOut" }, GlobalSignOutRequest, GlobalSignOutResponse, [ForbiddenException, InternalErrorException, InvalidParameterException, NotAuthorizedException, PasswordResetRequiredException, ResourceNotFoundException, TooManyRequestsException, UserNotConfirmedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const globalSignOut = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.GlobalSignOut" }, GlobalSignOutRequest, GlobalSignOutResponse, [ForbiddenException, InternalErrorException, InvalidParameterException, NotAuthorizedException, PasswordResetRequiredException, ResourceNotFoundException, TooManyRequestsException, UserNotConfirmedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Set the user's multi-factor authentication (MFA) method preference, including which
  * MFA factors are activated and if any are preferred. Only one factor can be set as
@@ -721,7 +721,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * this operation, you can't use IAM credentials to authorize requests, and you can't
  * grant IAM permissions in policies. For more information about authorization models in
  * Amazon Cognito, see Using the Amazon Cognito user pools API and user pool endpoints.
- */export const setUserMFAPreference = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.SetUserMFAPreference" }, SetUserMFAPreferenceRequest, SetUserMFAPreferenceResponse, [ForbiddenException, InternalErrorException, InvalidParameterException, NotAuthorizedException, PasswordResetRequiredException, ResourceNotFoundException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const setUserMFAPreference = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.SetUserMFAPreference" }, SetUserMFAPreferenceRequest, SetUserMFAPreferenceResponse, [ForbiddenException, InternalErrorException, InvalidParameterException, NotAuthorizedException, PasswordResetRequiredException, ResourceNotFoundException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * *This action is no longer supported.* You can use it to configure
  * only SMS MFA. You can't use it to configure time-based one-time password (TOTP) software
@@ -737,7 +737,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * this operation, you can't use IAM credentials to authorize requests, and you can't
  * grant IAM permissions in policies. For more information about authorization models in
  * Amazon Cognito, see Using the Amazon Cognito user pools API and user pool endpoints.
- */export const setUserSettings = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.SetUserSettings" }, SetUserSettingsRequest, SetUserSettingsResponse, [ForbiddenException, InternalErrorException, InvalidParameterException, NotAuthorizedException, PasswordResetRequiredException, ResourceNotFoundException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const setUserSettings = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.SetUserSettings" }, SetUserSettingsRequest, SetUserSettingsResponse, [ForbiddenException, InternalErrorException, InvalidParameterException, NotAuthorizedException, PasswordResetRequiredException, ResourceNotFoundException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Assigns a set of tags to an Amazon Cognito user pool. A tag is a label that you can use to
  * categorize and manage user pools in different ways, such as by purpose, owner,
@@ -759,10 +759,10 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * 
  * You can use this action up to 5 times per second, per account. A user pool can have as
  * many as 50 tags.
- */export const tagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.TagResource" }, TagResourceRequest, TagResourceResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.TagResource" }, TagResourceRequest, TagResourceResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Given tag IDs that you previously assigned to a user pool, removes them.
- */export const untagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Provides the feedback for an authentication event generated by threat protection
  * features. The user's response indicates that you think that the event either was from a
@@ -787,7 +787,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * this operation, you can't use IAM credentials to authorize requests, and you can't
  * grant IAM permissions in policies. For more information about authorization models in
  * Amazon Cognito, see Using the Amazon Cognito user pools API and user pool endpoints.
- */export const updateAuthEventFeedback = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.UpdateAuthEventFeedback" }, UpdateAuthEventFeedbackRequest, UpdateAuthEventFeedbackResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserNotFoundException, UserPoolAddOnNotEnabledException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateAuthEventFeedback = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.UpdateAuthEventFeedback" }, UpdateAuthEventFeedbackRequest, UpdateAuthEventFeedbackResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserNotFoundException, UserPoolAddOnNotEnabledException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the status of a the currently signed-in user's device so that it is
  * marked as remembered or not remembered for the purpose of device authentication. Device
@@ -806,7 +806,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * this operation, you can't use IAM credentials to authorize requests, and you can't
  * grant IAM permissions in policies. For more information about authorization models in
  * Amazon Cognito, see Using the Amazon Cognito user pools API and user pool endpoints.
- */export const updateDeviceStatus = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.UpdateDeviceStatus" }, UpdateDeviceStatusRequest, UpdateDeviceStatusResponse, [ForbiddenException, InternalErrorException, InvalidParameterException, InvalidUserPoolConfigurationException, NotAuthorizedException, PasswordResetRequiredException, ResourceNotFoundException, TooManyRequestsException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateDeviceStatus = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.UpdateDeviceStatus" }, UpdateDeviceStatusRequest, UpdateDeviceStatusResponse, [ForbiddenException, InternalErrorException, InvalidParameterException, InvalidUserPoolConfigurationException, NotAuthorizedException, PasswordResetRequiredException, ResourceNotFoundException, TooManyRequestsException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Adds a user to a group. A user who is in a group can present a preferred-role claim to
  * an identity pool, and populates a `cognito:groups` claim to their access and
@@ -831,7 +831,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
- */export const adminAddUserToGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminAddUserToGroup" }, AdminAddUserToGroupRequest, S.Struct({}), [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const adminAddUserToGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminAddUserToGroup" }, AdminAddUserToGroupRequest, S.Struct({}), [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a user profile in your user pool.
  * 
@@ -854,7 +854,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
- */export const adminDeleteUser = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminDeleteUser" }, AdminDeleteUserRequest, S.Struct({}), [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const adminDeleteUser = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminDeleteUser" }, AdminDeleteUserRequest, S.Struct({}), [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes attribute values from a user. This operation doesn't affect tokens for
  * existing user sessions. The next ID token that the user receives will no longer have the
@@ -879,7 +879,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
- */export const adminDeleteUserAttributes = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminDeleteUserAttributes" }, AdminDeleteUserAttributesRequest, AdminDeleteUserAttributesResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const adminDeleteUserAttributes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminDeleteUserAttributes" }, AdminDeleteUserAttributesRequest, AdminDeleteUserAttributesResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Prevents the user from signing in with the specified external (SAML or social)
  * identity provider (IdP). If the user that you want to deactivate is a Amazon Cognito user pools
@@ -932,7 +932,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
- */export const adminDisableProviderForUser = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminDisableProviderForUser" }, AdminDisableProviderForUserRequest, AdminDisableProviderForUserResponse, [AliasExistsException, InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const adminDisableProviderForUser = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminDisableProviderForUser" }, AdminDisableProviderForUserRequest, AdminDisableProviderForUserResponse, [AliasExistsException, InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deactivates a user profile and revokes all access tokens for the user. A deactivated
  * user can't sign in, but still appears in the responses to `ListUsers`
@@ -957,7 +957,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
- */export const adminDisableUser = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminDisableUser" }, AdminDisableUserRequest, AdminDisableUserResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const adminDisableUser = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminDisableUser" }, AdminDisableUserRequest, AdminDisableUserResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Activates sign-in for a user profile that previously had sign-in access
  * disabled.
@@ -981,7 +981,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
- */export const adminEnableUser = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminEnableUser" }, AdminEnableUserRequest, AdminEnableUserResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const adminEnableUser = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminEnableUser" }, AdminEnableUserRequest, AdminEnableUserResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Forgets, or deletes, a remembered device from a user's profile. After you forget
  * the device, the user can no longer complete device authentication with that device and
@@ -1006,7 +1006,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
- */export const adminForgetDevice = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminForgetDevice" }, AdminForgetDeviceRequest, S.Struct({}), [InternalErrorException, InvalidParameterException, InvalidUserPoolConfigurationException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const adminForgetDevice = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminForgetDevice" }, AdminForgetDeviceRequest, S.Struct({}), [InternalErrorException, InvalidParameterException, InvalidUserPoolConfigurationException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Given a username, returns details about a user profile in a user pool. You can specify
  * alias attributes in the `Username` request parameter.
@@ -1034,7 +1034,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
- */export const adminGetUser = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminGetUser" }, AdminGetUserRequest, AdminGetUserResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const adminGetUser = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminGetUser" }, AdminGetUserRequest, AdminGetUserResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Links an existing user account in a user pool, or `DestinationUser`, to an
  * identity from an external IdP, or `SourceUser`, based on a specified
@@ -1082,7 +1082,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
- */export const adminLinkProviderForUser = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminLinkProviderForUser" }, AdminLinkProviderForUserRequest, AdminLinkProviderForUserResponse, [AliasExistsException, InternalErrorException, InvalidParameterException, LimitExceededException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const adminLinkProviderForUser = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminLinkProviderForUser" }, AdminLinkProviderForUserRequest, AdminLinkProviderForUserResponse, [AliasExistsException, InternalErrorException, InvalidParameterException, LimitExceededException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists a user's registered devices. Remembered devices are used in authentication
  * services where you offer a "Remember me" option for users who you want to permit to sign
@@ -1108,7 +1108,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
- */export const adminListDevices = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminListDevices" }, AdminListDevicesRequest, AdminListDevicesResponse, [InternalErrorException, InvalidParameterException, InvalidUserPoolConfigurationException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const adminListDevices = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminListDevices" }, AdminListDevicesRequest, AdminListDevicesResponse, [InternalErrorException, InvalidParameterException, InvalidUserPoolConfigurationException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Given a username and a group name, removes them from the group. User pool groups are
  * identifiers that you can reference from the contents of ID and access tokens, and set
@@ -1133,7 +1133,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
- */export const adminRemoveUserFromGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminRemoveUserFromGroup" }, AdminRemoveUserFromGroupRequest, S.Struct({}), [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const adminRemoveUserFromGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminRemoveUserFromGroup" }, AdminRemoveUserFromGroupRequest, S.Struct({}), [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Sets the user's multi-factor authentication (MFA) preference, including which MFA
  * options are activated, and if any are preferred. Only one factor can be set as
@@ -1160,7 +1160,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
- */export const adminSetUserMFAPreference = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminSetUserMFAPreference" }, AdminSetUserMFAPreferenceRequest, AdminSetUserMFAPreferenceResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, PasswordResetRequiredException, ResourceNotFoundException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const adminSetUserMFAPreference = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminSetUserMFAPreference" }, AdminSetUserMFAPreferenceRequest, AdminSetUserMFAPreferenceResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, PasswordResetRequiredException, ResourceNotFoundException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * *This action is no longer supported.* You can use it to configure
  * only SMS MFA. You can't use it to configure time-based one-time password (TOTP) software
@@ -1185,7 +1185,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
- */export const adminSetUserSettings = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminSetUserSettings" }, AdminSetUserSettingsRequest, AdminSetUserSettingsResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const adminSetUserSettings = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminSetUserSettings" }, AdminSetUserSettingsRequest, AdminSetUserSettingsResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Provides the feedback for an authentication event generated by threat protection
  * features. Your response indicates that you think that the event either was from a valid
@@ -1219,7 +1219,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
- */export const adminUpdateAuthEventFeedback = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminUpdateAuthEventFeedback" }, AdminUpdateAuthEventFeedbackRequest, AdminUpdateAuthEventFeedbackResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserNotFoundException, UserPoolAddOnNotEnabledException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const adminUpdateAuthEventFeedback = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminUpdateAuthEventFeedback" }, AdminUpdateAuthEventFeedbackRequest, AdminUpdateAuthEventFeedbackResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserNotFoundException, UserPoolAddOnNotEnabledException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Changes the password for the currently signed-in user.
  * 
@@ -1233,7 +1233,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * this operation, you can't use IAM credentials to authorize requests, and you can't
  * grant IAM permissions in policies. For more information about authorization models in
  * Amazon Cognito, see Using the Amazon Cognito user pools API and user pool endpoints.
- */export const changePassword = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.ChangePassword" }, ChangePasswordRequest, ChangePasswordResponse, [ForbiddenException, InternalErrorException, InvalidParameterException, InvalidPasswordException, LimitExceededException, NotAuthorizedException, PasswordHistoryPolicyViolationException, PasswordResetRequiredException, ResourceNotFoundException, TooManyRequestsException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const changePassword = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.ChangePassword" }, ChangePasswordRequest, ChangePasswordResponse, [ForbiddenException, InternalErrorException, InvalidParameterException, InvalidPasswordException, LimitExceededException, NotAuthorizedException, PasswordHistoryPolicyViolationException, PasswordResetRequiredException, ResourceNotFoundException, TooManyRequestsException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the profile of the currently signed-in user. A deleted user profile can no
  * longer be used to sign in and can't be restored.
@@ -1248,7 +1248,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * this operation, you can't use IAM credentials to authorize requests, and you can't
  * grant IAM permissions in policies. For more information about authorization models in
  * Amazon Cognito, see Using the Amazon Cognito user pools API and user pool endpoints.
- */export const deleteUser = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DeleteUser" }, DeleteUserRequest, S.Struct({}), [ForbiddenException, InternalErrorException, InvalidParameterException, NotAuthorizedException, PasswordResetRequiredException, ResourceNotFoundException, TooManyRequestsException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteUser = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DeleteUser" }, DeleteUserRequest, S.Struct({}), [ForbiddenException, InternalErrorException, InvalidParameterException, NotAuthorizedException, PasswordResetRequiredException, ResourceNotFoundException, TooManyRequestsException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes attributes from the currently signed-in user. For example, your application
  * can submit a request to this operation when a user wants to remove their
@@ -1264,7 +1264,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * this operation, you can't use IAM credentials to authorize requests, and you can't
  * grant IAM permissions in policies. For more information about authorization models in
  * Amazon Cognito, see Using the Amazon Cognito user pools API and user pool endpoints.
- */export const deleteUserAttributes = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DeleteUserAttributes" }, DeleteUserAttributesRequest, DeleteUserAttributesResponse, [ForbiddenException, InternalErrorException, InvalidParameterException, NotAuthorizedException, PasswordResetRequiredException, ResourceNotFoundException, TooManyRequestsException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteUserAttributes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DeleteUserAttributes" }, DeleteUserAttributesRequest, DeleteUserAttributesResponse, [ForbiddenException, InternalErrorException, InvalidParameterException, NotAuthorizedException, PasswordResetRequiredException, ResourceNotFoundException, TooManyRequestsException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a user pool. After you delete a user pool, users can no longer sign in to any
  * associated applications.
@@ -1279,14 +1279,14 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * Amazon Cognito begins full deletion of all resources from deleted user pools after 14 days. In
  * the case of large user pools, the cleanup process might take significant additional time
  * before all user data is permanently deleted.
- */export const deleteUserPool = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DeleteUserPool" }, DeleteUserPoolRequest, S.Struct({}), [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserImportInProgressException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteUserPool = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DeleteUserPool" }, DeleteUserPoolRequest, S.Struct({}), [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserImportInProgressException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Given the ID of a user pool app client, returns detailed information about the style
  * assigned to the app client.
- */export const describeManagedLoginBrandingByClient = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DescribeManagedLoginBrandingByClient" }, DescribeManagedLoginBrandingByClientRequest, DescribeManagedLoginBrandingByClientResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeManagedLoginBrandingByClient = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DescribeManagedLoginBrandingByClient" }, DescribeManagedLoginBrandingByClientRequest, DescribeManagedLoginBrandingByClientResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes a user import job. For more information about user CSV import, see Importing users from a CSV file.
- */export const describeUserImportJob = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DescribeUserImportJob" }, DescribeUserImportJobRequest, DescribeUserImportJobResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeUserImportJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DescribeUserImportJob" }, DescribeUserImportJobRequest, DescribeUserImportJobResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Given a user pool ID, generates a comma-separated value (CSV) list populated with
  * available user attributes in the user pool. This list is the header for the CSV file
@@ -1314,7 +1314,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
- */export const getCSVHeader = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.GetCSVHeader" }, GetCSVHeaderRequest, GetCSVHeaderResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getCSVHeader = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.GetCSVHeader" }, GetCSVHeaderRequest, GetCSVHeaderResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Given a device key, returns information about a remembered device for the current
  * user. For more information about device authentication, see Working with user devices in your user pool.
@@ -1329,7 +1329,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * this operation, you can't use IAM credentials to authorize requests, and you can't
  * grant IAM permissions in policies. For more information about authorization models in
  * Amazon Cognito, see Using the Amazon Cognito user pools API and user pool endpoints.
- */export const getDevice = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.GetDevice" }, GetDeviceRequest, GetDeviceResponse, [ForbiddenException, InternalErrorException, InvalidParameterException, InvalidUserPoolConfigurationException, NotAuthorizedException, PasswordResetRequiredException, ResourceNotFoundException, TooManyRequestsException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getDevice = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.GetDevice" }, GetDeviceRequest, GetDeviceResponse, [ForbiddenException, InternalErrorException, InvalidParameterException, InvalidUserPoolConfigurationException, NotAuthorizedException, PasswordResetRequiredException, ResourceNotFoundException, TooManyRequestsException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Given a user pool ID and a group name, returns information about the user
  * group.
@@ -1356,12 +1356,12 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
- */export const getGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.GetGroup" }, GetGroupRequest, GetGroupResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.GetGroup" }, GetGroupRequest, GetGroupResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Given the identifier of an identity provider (IdP), for example
  * `examplecorp`, returns information about the user pool configuration for
  * that IdP. For more information about IdPs, see Third-party IdP sign-in.
- */export const getIdentityProviderByIdentifier = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.GetIdentityProviderByIdentifier" }, GetIdentityProviderByIdentifierRequest, GetIdentityProviderByIdentifierResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getIdentityProviderByIdentifier = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.GetIdentityProviderByIdentifier" }, GetIdentityProviderByIdentifierRequest, GetIdentityProviderByIdentifierResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Given a user pool ID, returns the signing certificate for SAML 2.0 federation.
  * 
@@ -1393,7 +1393,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
- */export const getSigningCertificate = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.GetSigningCertificate" }, GetSigningCertificateRequest, GetSigningCertificateResponse, [InternalErrorException, InvalidParameterException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getSigningCertificate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.GetSigningCertificate" }, GetSigningCertificateRequest, GetSigningCertificateResponse, [InternalErrorException, InvalidParameterException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets user attributes and and MFA settings for the currently signed-in user.
  * 
@@ -1407,7 +1407,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * this operation, you can't use IAM credentials to authorize requests, and you can't
  * grant IAM permissions in policies. For more information about authorization models in
  * Amazon Cognito, see Using the Amazon Cognito user pools API and user pool endpoints.
- */export const getUser = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.GetUser" }, GetUserRequest, GetUserResponse, [ForbiddenException, InternalErrorException, InvalidParameterException, NotAuthorizedException, PasswordResetRequiredException, ResourceNotFoundException, TooManyRequestsException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getUser = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.GetUser" }, GetUserRequest, GetUserResponse, [ForbiddenException, InternalErrorException, InvalidParameterException, NotAuthorizedException, PasswordResetRequiredException, ResourceNotFoundException, TooManyRequestsException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the authentication options for the currently signed-in user. Returns the
  * following:
@@ -1433,7 +1433,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * this operation, you can't use IAM credentials to authorize requests, and you can't
  * grant IAM permissions in policies. For more information about authorization models in
  * Amazon Cognito, see Using the Amazon Cognito user pools API and user pool endpoints.
- */export const getUserAuthFactors = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.GetUserAuthFactors" }, GetUserAuthFactorsRequest, GetUserAuthFactorsResponse, [ForbiddenException, InternalErrorException, InvalidParameterException, NotAuthorizedException, PasswordResetRequiredException, ResourceNotFoundException, TooManyRequestsException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getUserAuthFactors = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.GetUserAuthFactors" }, GetUserAuthFactorsRequest, GetUserAuthFactorsResponse, [ForbiddenException, InternalErrorException, InvalidParameterException, NotAuthorizedException, PasswordResetRequiredException, ResourceNotFoundException, TooManyRequestsException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Given a user pool ID, returns configuration for sign-in with WebAuthn authenticators
  * and for multi-factor authentication (MFA). This operation describes the
@@ -1479,7 +1479,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
- */export const getUserPoolMfaConfig = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.GetUserPoolMfaConfig" }, GetUserPoolMfaConfigRequest, GetUserPoolMfaConfigResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getUserPoolMfaConfig = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.GetUserPoolMfaConfig" }, GetUserPoolMfaConfigRequest, GetUserPoolMfaConfigResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the devices that Amazon Cognito has registered to the currently signed-in user. For more
  * information about device authentication, see Working with user devices in your user pool.
@@ -1494,7 +1494,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * this operation, you can't use IAM credentials to authorize requests, and you can't
  * grant IAM permissions in policies. For more information about authorization models in
  * Amazon Cognito, see Using the Amazon Cognito user pools API and user pool endpoints.
- */export const listDevices = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.ListDevices" }, ListDevicesRequest, ListDevicesResponse, [ForbiddenException, InternalErrorException, InvalidParameterException, InvalidUserPoolConfigurationException, NotAuthorizedException, PasswordResetRequiredException, ResourceNotFoundException, TooManyRequestsException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listDevices = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.ListDevices" }, ListDevicesRequest, ListDevicesResponse, [ForbiddenException, InternalErrorException, InvalidParameterException, InvalidUserPoolConfigurationException, NotAuthorizedException, PasswordResetRequiredException, ResourceNotFoundException, TooManyRequestsException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Given a user pool ID, returns user pool groups and their details.
  * 
@@ -1517,7 +1517,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
- */export const listGroups = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.ListGroups" }, ListGroupsRequest, ListGroupsResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.ListGroups" }, ListGroupsRequest, ListGroupsResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Given a user pool ID, returns all resource servers and their details. For more
  * information about resource servers, see Access control with resource servers.
@@ -1541,12 +1541,12 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
- */export const listResourceServers = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.ListResourceServers" }, ListResourceServersRequest, ListResourceServersResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listResourceServers = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.ListResourceServers" }, ListResourceServersRequest, ListResourceServersResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the tags that are assigned to an Amazon Cognito user pool. For more information, see
  * Tagging
  * resources.
- */export const listTagsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Given a user pool ID, returns user import jobs and their details. Import jobs are
  * retained in user pool configuration so that you can stage, stop, start, review, and
@@ -1571,7 +1571,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
- */export const listUserImportJobs = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.ListUserImportJobs" }, ListUserImportJobsRequest, ListUserImportJobsResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listUserImportJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.ListUserImportJobs" }, ListUserImportJobsRequest, ListUserImportJobsResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Given a user pool ID and a group name, returns a list of users in the group. For more
  * information about user pool groups, see Adding groups to a user pool.
@@ -1595,7 +1595,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
- */export const listUsersInGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.ListUsersInGroup" }, ListUsersInGroupRequest, ListUsersInGroupResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listUsersInGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.ListUsersInGroup" }, ListUsersInGroupRequest, ListUsersInGroupResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Configures UI branding settings for domains with the hosted UI (classic) branding
  * version. Your user pool must have a domain. Configure a domain with .
@@ -1625,12 +1625,12 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
- */export const setUICustomization = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.SetUICustomization" }, SetUICustomizationRequest, SetUICustomizationResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const setUICustomization = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.SetUICustomization" }, SetUICustomizationRequest, SetUICustomizationResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Instructs your user pool to stop a running job that's importing users from a CSV
  * file that contains their usernames and attributes. For more information about importing
  * users from a CSV file, see Importing users from a CSV file.
- */export const stopUserImportJob = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.StopUserImportJob" }, StopUserImportJobRequest, StopUserImportJobResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, PreconditionNotMetException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const stopUserImportJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.StopUserImportJob" }, StopUserImportJobRequest, StopUserImportJobResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, PreconditionNotMetException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Given the name of a user pool group, updates any of the properties for precedence,
  * IAM role, or description. For more information about user pool groups, see Adding groups to a user pool.
@@ -1654,7 +1654,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
- */export const updateGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.UpdateGroup" }, UpdateGroupRequest, UpdateGroupResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.UpdateGroup" }, UpdateGroupRequest, UpdateGroupResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Modifies the configuration and trust relationship between a third-party identity
  * provider (IdP) and a user pool. Amazon Cognito accepts sign-in with third-party identity
@@ -1680,7 +1680,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
- */export const updateIdentityProvider = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.UpdateIdentityProvider" }, UpdateIdentityProviderRequest, UpdateIdentityProviderResponse, [ConcurrentModificationException, InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UnsupportedIdentityProviderException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateIdentityProvider = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.UpdateIdentityProvider" }, UpdateIdentityProviderRequest, UpdateIdentityProviderResponse, [ConcurrentModificationException, InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UnsupportedIdentityProviderException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Configures the branding settings for a user pool style. This operation is the
  * programmatic option for the configuration of a style in the branding editor.
@@ -1715,7 +1715,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
- */export const updateManagedLoginBranding = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.UpdateManagedLoginBranding" }, UpdateManagedLoginBrandingRequest, UpdateManagedLoginBrandingResponse, [ConcurrentModificationException, InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateManagedLoginBranding = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.UpdateManagedLoginBranding" }, UpdateManagedLoginBrandingRequest, UpdateManagedLoginBrandingResponse, [ConcurrentModificationException, InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the name and scopes of a resource server. All other fields are read-only. For
  * more information about resource servers, see Access control with resource servers.
@@ -1747,7 +1747,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
- */export const updateResourceServer = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.UpdateResourceServer" }, UpdateResourceServerRequest, UpdateResourceServerResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateResourceServer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.UpdateResourceServer" }, UpdateResourceServerRequest, UpdateResourceServerResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the currently signed-in user's attributes. To delete an attribute from
  * the user, submit the attribute in your API request with a blank value.
@@ -1789,7 +1789,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * numbers. After you test your app while in the sandbox environment, you can move out
  * of the sandbox and into production. For more information, see SMS message settings for Amazon Cognito user pools in the Amazon Cognito
  * Developer Guide.
- */export const updateUserAttributes = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.UpdateUserAttributes" }, UpdateUserAttributesRequest, UpdateUserAttributesResponse, [AliasExistsException, CodeDeliveryFailureException, CodeMismatchException, ExpiredCodeException, ForbiddenException, InternalErrorException, InvalidEmailRoleAccessPolicyException, InvalidLambdaResponseException, InvalidParameterException, InvalidSmsRoleAccessPolicyException, InvalidSmsRoleTrustRelationshipException, NotAuthorizedException, PasswordResetRequiredException, ResourceNotFoundException, TooManyRequestsException, UnexpectedLambdaException, UserLambdaValidationException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateUserAttributes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.UpdateUserAttributes" }, UpdateUserAttributesRequest, UpdateUserAttributesResponse, [AliasExistsException, CodeDeliveryFailureException, CodeMismatchException, ExpiredCodeException, ForbiddenException, InternalErrorException, InvalidEmailRoleAccessPolicyException, InvalidLambdaResponseException, InvalidParameterException, InvalidSmsRoleAccessPolicyException, InvalidSmsRoleTrustRelationshipException, NotAuthorizedException, PasswordResetRequiredException, ResourceNotFoundException, TooManyRequestsException, UnexpectedLambdaException, UserLambdaValidationException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * A user pool domain hosts managed login, an authorization server and web server for
  * authentication in your application. This operation updates the branding version for user
@@ -1838,7 +1838,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
- */export const updateUserPoolDomain = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.UpdateUserPoolDomain" }, UpdateUserPoolDomainRequest, UpdateUserPoolDomainResponse, [ConcurrentModificationException, FeatureUnavailableInTierException, InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateUserPoolDomain = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.UpdateUserPoolDomain" }, UpdateUserPoolDomainRequest, UpdateUserPoolDomainResponse, [ConcurrentModificationException, FeatureUnavailableInTierException, InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Submits a verification code for a signed-in user who has added or changed a value of
  * an auto-verified attribute. When successful, the user's attribute becomes verified
@@ -1859,7 +1859,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * this operation, you can't use IAM credentials to authorize requests, and you can't
  * grant IAM permissions in policies. For more information about authorization models in
  * Amazon Cognito, see Using the Amazon Cognito user pools API and user pool endpoints.
- */export const verifyUserAttribute = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.VerifyUserAttribute" }, VerifyUserAttributeRequest, VerifyUserAttributeResponse, [AliasExistsException, CodeMismatchException, ExpiredCodeException, ForbiddenException, InternalErrorException, InvalidParameterException, LimitExceededException, NotAuthorizedException, PasswordResetRequiredException, ResourceNotFoundException, TooManyRequestsException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const verifyUserAttribute = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.VerifyUserAttribute" }, VerifyUserAttributeRequest, VerifyUserAttributeResponse, [AliasExistsException, CodeMismatchException, ExpiredCodeException, ForbiddenException, InternalErrorException, InvalidParameterException, LimitExceededException, NotAuthorizedException, PasswordResetRequiredException, ResourceNotFoundException, TooManyRequestsException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Adds additional user attributes to the user pool schema. Custom attributes can be
  * mutable or immutable and have a `custom:` or `dev:` prefix. For
@@ -1884,7 +1884,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
- */export const addCustomAttributes = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AddCustomAttributes" }, AddCustomAttributesRequest, AddCustomAttributesResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserImportInProgressException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const addCustomAttributes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AddCustomAttributes" }, AddCustomAttributesRequest, AddCustomAttributesResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserImportInProgressException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Confirms user sign-up as an administrator.
  * 
@@ -1923,7 +1923,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * To configure your user pool to require administrative confirmation of users, set
  * `AllowAdminCreateUserOnly` to `true` in a
  * `CreateUserPool` or `UpdateUserPool` request.
- */export const adminConfirmSignUp = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminConfirmSignUp" }, AdminConfirmSignUpRequest, AdminConfirmSignUpResponse, [InternalErrorException, InvalidLambdaResponseException, InvalidParameterException, LimitExceededException, NotAuthorizedException, ResourceNotFoundException, TooManyFailedAttemptsException, TooManyRequestsException, UnexpectedLambdaException, UserLambdaValidationException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const adminConfirmSignUp = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminConfirmSignUp" }, AdminConfirmSignUpRequest, AdminConfirmSignUpResponse, [InternalErrorException, InvalidLambdaResponseException, InvalidParameterException, LimitExceededException, NotAuthorizedException, ResourceNotFoundException, TooManyFailedAttemptsException, TooManyRequestsException, UnexpectedLambdaException, UserLambdaValidationException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Given the device key, returns details for a user's device. For more information,
  * see Working with devices.
@@ -1947,7 +1947,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
- */export const adminGetDevice = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminGetDevice" }, AdminGetDeviceRequest, AdminGetDeviceResponse, [InternalErrorException, InvalidParameterException, InvalidUserPoolConfigurationException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const adminGetDevice = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminGetDevice" }, AdminGetDeviceRequest, AdminGetDeviceResponse, [InternalErrorException, InvalidParameterException, InvalidUserPoolConfigurationException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the groups that a user belongs to. User pool groups are identifiers that you can
  * reference from the contents of ID and access tokens, and set preferred IAM roles for
@@ -1972,7 +1972,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
- */export const adminListGroupsForUser = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminListGroupsForUser" }, AdminListGroupsForUserRequest, AdminListGroupsForUserResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const adminListGroupsForUser = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminListGroupsForUser" }, AdminListGroupsForUserRequest, AdminListGroupsForUserResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Begins the password reset process. Sets the requested user’s account into a
  * `RESET_REQUIRED` status, and sends them a password-reset code. Your user
@@ -2027,7 +2027,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
- */export const adminResetUserPassword = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminResetUserPassword" }, AdminResetUserPasswordRequest, AdminResetUserPasswordResponse, [InternalErrorException, InvalidEmailRoleAccessPolicyException, InvalidLambdaResponseException, InvalidParameterException, InvalidSmsRoleAccessPolicyException, InvalidSmsRoleTrustRelationshipException, LimitExceededException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UnexpectedLambdaException, UserLambdaValidationException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const adminResetUserPassword = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminResetUserPassword" }, AdminResetUserPasswordRequest, AdminResetUserPasswordResponse, [InternalErrorException, InvalidEmailRoleAccessPolicyException, InvalidLambdaResponseException, InvalidParameterException, InvalidSmsRoleAccessPolicyException, InvalidSmsRoleTrustRelationshipException, LimitExceededException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UnexpectedLambdaException, UserLambdaValidationException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Some API operations in a user pool generate a challenge, like a prompt for an MFA
  * code, for device authentication that bypasses MFA, or for a custom authentication
@@ -2081,7 +2081,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
- */export const adminRespondToAuthChallenge = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminRespondToAuthChallenge" }, AdminRespondToAuthChallengeRequest, AdminRespondToAuthChallengeResponse, [AliasExistsException, CodeMismatchException, ExpiredCodeException, InternalErrorException, InvalidEmailRoleAccessPolicyException, InvalidLambdaResponseException, InvalidParameterException, InvalidPasswordException, InvalidSmsRoleAccessPolicyException, InvalidSmsRoleTrustRelationshipException, InvalidUserPoolConfigurationException, MFAMethodNotFoundException, NotAuthorizedException, PasswordHistoryPolicyViolationException, PasswordResetRequiredException, ResourceNotFoundException, SoftwareTokenMFANotFoundException, TooManyRequestsException, UnexpectedLambdaException, UserLambdaValidationException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const adminRespondToAuthChallenge = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminRespondToAuthChallenge" }, AdminRespondToAuthChallengeRequest, AdminRespondToAuthChallengeResponse, [AliasExistsException, CodeMismatchException, ExpiredCodeException, InternalErrorException, InvalidEmailRoleAccessPolicyException, InvalidLambdaResponseException, InvalidParameterException, InvalidPasswordException, InvalidSmsRoleAccessPolicyException, InvalidSmsRoleTrustRelationshipException, InvalidUserPoolConfigurationException, MFAMethodNotFoundException, NotAuthorizedException, PasswordHistoryPolicyViolationException, PasswordResetRequiredException, ResourceNotFoundException, SoftwareTokenMFANotFoundException, TooManyRequestsException, UnexpectedLambdaException, UserLambdaValidationException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Sets the specified user's password in a user pool. This operation administratively
  * sets a temporary or permanent password for a user. With this operation, you can bypass
@@ -2137,7 +2137,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
- */export const adminSetUserPassword = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminSetUserPassword" }, AdminSetUserPasswordRequest, AdminSetUserPasswordResponse, [InternalErrorException, InvalidParameterException, InvalidPasswordException, NotAuthorizedException, PasswordHistoryPolicyViolationException, ResourceNotFoundException, TooManyRequestsException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const adminSetUserPassword = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminSetUserPassword" }, AdminSetUserPasswordRequest, AdminSetUserPasswordResponse, [InternalErrorException, InvalidParameterException, InvalidPasswordException, NotAuthorizedException, PasswordHistoryPolicyViolationException, ResourceNotFoundException, TooManyRequestsException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the specified user's attributes. To delete an attribute from your user,
  * submit the attribute in your API request with a blank value.
@@ -2198,7 +2198,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * numbers. After you test your app while in the sandbox environment, you can move out
  * of the sandbox and into production. For more information, see SMS message settings for Amazon Cognito user pools in the Amazon Cognito
  * Developer Guide.
- */export const adminUpdateUserAttributes = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminUpdateUserAttributes" }, AdminUpdateUserAttributesRequest, AdminUpdateUserAttributesResponse, [AliasExistsException, InternalErrorException, InvalidEmailRoleAccessPolicyException, InvalidLambdaResponseException, InvalidParameterException, InvalidSmsRoleAccessPolicyException, InvalidSmsRoleTrustRelationshipException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UnexpectedLambdaException, UserLambdaValidationException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const adminUpdateUserAttributes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminUpdateUserAttributes" }, AdminUpdateUserAttributesRequest, AdminUpdateUserAttributesResponse, [AliasExistsException, InternalErrorException, InvalidEmailRoleAccessPolicyException, InvalidLambdaResponseException, InvalidParameterException, InvalidSmsRoleAccessPolicyException, InvalidSmsRoleTrustRelationshipException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UnexpectedLambdaException, UserLambdaValidationException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Begins setup of time-based one-time password (TOTP) multi-factor authentication (MFA)
  * for a user, with a unique private key that Amazon Cognito generates and returns in the API
@@ -2218,7 +2218,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * 
  * 
  * Authorize this action with a signed-in user's access token. It must include the scope `aws.cognito.signin.user.admin`.
- */export const associateSoftwareToken = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AssociateSoftwareToken" }, AssociateSoftwareTokenRequest, AssociateSoftwareTokenResponse, [ConcurrentModificationException, ForbiddenException, InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, SoftwareTokenMFANotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const associateSoftwareToken = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AssociateSoftwareToken" }, AssociateSoftwareTokenRequest, AssociateSoftwareTokenResponse, [ConcurrentModificationException, ForbiddenException, InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, SoftwareTokenMFANotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This public API operation accepts a confirmation code that Amazon Cognito sent to a user and
  * accepts a new password for that user.
@@ -2230,7 +2230,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * this operation, you can't use IAM credentials to authorize requests, and you can't
  * grant IAM permissions in policies. For more information about authorization models in
  * Amazon Cognito, see Using the Amazon Cognito user pools API and user pool endpoints.
- */export const confirmForgotPassword = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.ConfirmForgotPassword" }, ConfirmForgotPasswordRequest, ConfirmForgotPasswordResponse, [CodeMismatchException, ExpiredCodeException, ForbiddenException, InternalErrorException, InvalidLambdaResponseException, InvalidParameterException, InvalidPasswordException, LimitExceededException, NotAuthorizedException, PasswordHistoryPolicyViolationException, ResourceNotFoundException, TooManyFailedAttemptsException, TooManyRequestsException, UnexpectedLambdaException, UserLambdaValidationException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const confirmForgotPassword = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.ConfirmForgotPassword" }, ConfirmForgotPasswordRequest, ConfirmForgotPasswordResponse, [CodeMismatchException, ExpiredCodeException, ForbiddenException, InternalErrorException, InvalidLambdaResponseException, InvalidParameterException, InvalidPasswordException, LimitExceededException, NotAuthorizedException, PasswordHistoryPolicyViolationException, ResourceNotFoundException, TooManyFailedAttemptsException, TooManyRequestsException, UnexpectedLambdaException, UserLambdaValidationException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Confirms the account of a new user. This public API operation submits a code that
  * Amazon Cognito sent to your user when they signed up in your user pool. After your user enters
@@ -2251,7 +2251,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * this operation, you can't use IAM credentials to authorize requests, and you can't
  * grant IAM permissions in policies. For more information about authorization models in
  * Amazon Cognito, see Using the Amazon Cognito user pools API and user pool endpoints.
- */export const confirmSignUp = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.ConfirmSignUp" }, ConfirmSignUpRequest, ConfirmSignUpResponse, [AliasExistsException, CodeMismatchException, ExpiredCodeException, ForbiddenException, InternalErrorException, InvalidLambdaResponseException, InvalidParameterException, LimitExceededException, NotAuthorizedException, ResourceNotFoundException, TooManyFailedAttemptsException, TooManyRequestsException, UnexpectedLambdaException, UserLambdaValidationException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const confirmSignUp = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.ConfirmSignUp" }, ConfirmSignUpRequest, ConfirmSignUpResponse, [AliasExistsException, CodeMismatchException, ExpiredCodeException, ForbiddenException, InternalErrorException, InvalidLambdaResponseException, InvalidParameterException, LimitExceededException, NotAuthorizedException, ResourceNotFoundException, TooManyFailedAttemptsException, TooManyRequestsException, UnexpectedLambdaException, UserLambdaValidationException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new group in the specified user pool. For more information about user pool
  * groups, see Adding groups to a user pool.
@@ -2275,7 +2275,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
- */export const createGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.CreateGroup" }, CreateGroupRequest, CreateGroupResponse, [GroupExistsException, InternalErrorException, InvalidParameterException, LimitExceededException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.CreateGroup" }, CreateGroupRequest, CreateGroupResponse, [GroupExistsException, InternalErrorException, InvalidParameterException, LimitExceededException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new OAuth2.0 resource server and defines custom scopes within it. Resource
  * servers are associated with custom scopes and machine-to-machine (M2M) authorization.
@@ -2300,7 +2300,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
- */export const createResourceServer = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.CreateResourceServer" }, CreateResourceServerRequest, CreateResourceServerResponse, [InternalErrorException, InvalidParameterException, LimitExceededException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createResourceServer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.CreateResourceServer" }, CreateResourceServerRequest, CreateResourceServerResponse, [InternalErrorException, InvalidParameterException, LimitExceededException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates terms documents for the requested app client. When Terms and conditions and
  * Privacy policy documents are configured, the app client displays links to them in the
@@ -2339,7 +2339,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
- */export const createTerms = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.CreateTerms" }, CreateTermsRequest, CreateTermsResponse, [ConcurrentModificationException, InternalErrorException, InvalidParameterException, LimitExceededException, NotAuthorizedException, ResourceNotFoundException, TermsExistsException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createTerms = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.CreateTerms" }, CreateTermsRequest, CreateTermsResponse, [ConcurrentModificationException, InternalErrorException, InvalidParameterException, LimitExceededException, NotAuthorizedException, ResourceNotFoundException, TermsExistsException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a user import job. You can import users into user pools from a comma-separated
  * values (CSV) file without adding Amazon Cognito MAU costs to your Amazon Web Services bill.
@@ -2363,7 +2363,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
- */export const createUserImportJob = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.CreateUserImportJob" }, CreateUserImportJobRequest, CreateUserImportJobResponse, [InternalErrorException, InvalidParameterException, LimitExceededException, NotAuthorizedException, PreconditionNotMetException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createUserImportJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.CreateUserImportJob" }, CreateUserImportJobRequest, CreateUserImportJobResponse, [InternalErrorException, InvalidParameterException, LimitExceededException, NotAuthorizedException, PreconditionNotMetException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * A user pool domain hosts managed login, an authorization server and web server for
  * authentication in your application. This operation creates a new user pool prefix domain
@@ -2399,7 +2399,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
- */export const createUserPoolDomain = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.CreateUserPoolDomain" }, CreateUserPoolDomainRequest, CreateUserPoolDomainResponse, [ConcurrentModificationException, FeatureUnavailableInTierException, InternalErrorException, InvalidParameterException, LimitExceededException, NotAuthorizedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createUserPoolDomain = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.CreateUserPoolDomain" }, CreateUserPoolDomainRequest, CreateUserPoolDomainResponse, [ConcurrentModificationException, FeatureUnavailableInTierException, InternalErrorException, InvalidParameterException, LimitExceededException, NotAuthorizedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a user pool identity provider (IdP). After you delete an IdP, users can no
  * longer sign in to your user pool through that IdP. For more information about user pool
@@ -2424,24 +2424,24 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
- */export const deleteIdentityProvider = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DeleteIdentityProvider" }, DeleteIdentityProviderRequest, S.Struct({}), [ConcurrentModificationException, InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UnsupportedIdentityProviderException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteIdentityProvider = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DeleteIdentityProvider" }, DeleteIdentityProviderRequest, S.Struct({}), [ConcurrentModificationException, InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UnsupportedIdentityProviderException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Given a user pool ID and identity provider (IdP) name, returns details about the
  * IdP.
- */export const describeIdentityProvider = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DescribeIdentityProvider" }, DescribeIdentityProviderRequest, DescribeIdentityProviderResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeIdentityProvider = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DescribeIdentityProvider" }, DescribeIdentityProviderRequest, DescribeIdentityProviderResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Given the ID of a managed login branding style, returns detailed information about the
  * style.
- */export const describeManagedLoginBranding = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DescribeManagedLoginBranding" }, DescribeManagedLoginBrandingRequest, DescribeManagedLoginBrandingResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeManagedLoginBranding = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DescribeManagedLoginBranding" }, DescribeManagedLoginBrandingRequest, DescribeManagedLoginBrandingResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes a resource server. For more information about resource servers, see Access control with resource servers.
- */export const describeResourceServer = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DescribeResourceServer" }, DescribeResourceServerRequest, DescribeResourceServerResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeResourceServer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DescribeResourceServer" }, DescribeResourceServerRequest, DescribeResourceServerResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Given an app client or user pool ID where threat protection is configured, describes
  * the risk configuration. This operation returns details about adaptive authentication,
  * compromised credentials, and IP-address allow- and denylists. For more information about
  * threat protection, see Threat protection.
- */export const describeRiskConfiguration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DescribeRiskConfiguration" }, DescribeRiskConfigurationRequest, DescribeRiskConfigurationResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserPoolAddOnNotEnabledException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeRiskConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DescribeRiskConfiguration" }, DescribeRiskConfigurationRequest, DescribeRiskConfigurationResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserPoolAddOnNotEnabledException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns details for the requested terms documents ID. For more information, see Terms documents.
  * 
@@ -2464,7 +2464,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
- */export const describeTerms = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DescribeTerms" }, DescribeTermsRequest, DescribeTermsResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeTerms = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DescribeTerms" }, DescribeTermsRequest, DescribeTermsResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Given an app client ID, returns configuration information. This operation is useful
  * when you want to inspect an existing app client and programmatically replicate the
@@ -2489,7 +2489,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
- */export const describeUserPoolClient = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DescribeUserPoolClient" }, DescribeUserPoolClientRequest, DescribeUserPoolClientResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeUserPoolClient = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DescribeUserPoolClient" }, DescribeUserPoolClientRequest, DescribeUserPoolClientResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Given a user pool domain name, returns information about the domain
  * configuration.
@@ -2513,7 +2513,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
- */export const describeUserPoolDomain = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DescribeUserPoolDomain" }, DescribeUserPoolDomainRequest, DescribeUserPoolDomainResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeUserPoolDomain = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DescribeUserPoolDomain" }, DescribeUserPoolDomainRequest, DescribeUserPoolDomainResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Sends a password-reset confirmation code to the email address or phone number of the
  * requested username. The message delivery method is determined by the user's
@@ -2560,7 +2560,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * numbers. After you test your app while in the sandbox environment, you can move out
  * of the sandbox and into production. For more information, see SMS message settings for Amazon Cognito user pools in the Amazon Cognito
  * Developer Guide.
- */export const forgotPassword = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.ForgotPassword" }, ForgotPasswordRequest, ForgotPasswordResponse, [CodeDeliveryFailureException, ForbiddenException, InternalErrorException, InvalidEmailRoleAccessPolicyException, InvalidLambdaResponseException, InvalidParameterException, InvalidSmsRoleAccessPolicyException, InvalidSmsRoleTrustRelationshipException, LimitExceededException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UnexpectedLambdaException, UserLambdaValidationException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const forgotPassword = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.ForgotPassword" }, ForgotPasswordRequest, ForgotPasswordResponse, [CodeDeliveryFailureException, ForbiddenException, InternalErrorException, InvalidEmailRoleAccessPolicyException, InvalidLambdaResponseException, InvalidParameterException, InvalidSmsRoleAccessPolicyException, InvalidSmsRoleTrustRelationshipException, LimitExceededException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UnexpectedLambdaException, UserLambdaValidationException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Given a user pool ID, returns the logging configuration. User pools can export
  * message-delivery error and threat-protection activity logs to external Amazon Web Services services. For more information, see Exporting user pool logs.
@@ -2584,14 +2584,14 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
- */export const getLogDeliveryConfiguration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.GetLogDeliveryConfiguration" }, GetLogDeliveryConfigurationRequest, GetLogDeliveryConfigurationResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getLogDeliveryConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.GetLogDeliveryConfiguration" }, GetLogDeliveryConfigurationRequest, GetLogDeliveryConfigurationResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Given a user pool ID or app client, returns information about classic hosted UI
  * branding that you applied, if any. Returns user-pool level branding information if no
  * app client branding is applied, or if you don't specify an app client ID. Returns
  * an empty object if you haven't applied hosted UI branding to either the client or
  * the user pool. For more information, see Hosted UI (classic) branding.
- */export const getUICustomization = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.GetUICustomization" }, GetUICustomizationRequest, GetUICustomizationResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getUICustomization = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.GetUICustomization" }, GetUICustomizationRequest, GetUICustomizationResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Given an attribute name, sends a user attribute verification code for the specified
  * attribute name to the currently signed-in user.
@@ -2629,7 +2629,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * numbers. After you test your app while in the sandbox environment, you can move out
  * of the sandbox and into production. For more information, see SMS message settings for Amazon Cognito user pools in the Amazon Cognito
  * Developer Guide.
- */export const getUserAttributeVerificationCode = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.GetUserAttributeVerificationCode" }, GetUserAttributeVerificationCodeRequest, GetUserAttributeVerificationCodeResponse, [CodeDeliveryFailureException, ForbiddenException, InternalErrorException, InvalidEmailRoleAccessPolicyException, InvalidLambdaResponseException, InvalidParameterException, InvalidSmsRoleAccessPolicyException, InvalidSmsRoleTrustRelationshipException, LimitExceededException, NotAuthorizedException, PasswordResetRequiredException, ResourceNotFoundException, TooManyRequestsException, UnexpectedLambdaException, UserLambdaValidationException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getUserAttributeVerificationCode = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.GetUserAttributeVerificationCode" }, GetUserAttributeVerificationCodeRequest, GetUserAttributeVerificationCodeResponse, [CodeDeliveryFailureException, ForbiddenException, InternalErrorException, InvalidEmailRoleAccessPolicyException, InvalidLambdaResponseException, InvalidParameterException, InvalidSmsRoleAccessPolicyException, InvalidSmsRoleTrustRelationshipException, LimitExceededException, NotAuthorizedException, PasswordResetRequiredException, ResourceNotFoundException, TooManyRequestsException, UnexpectedLambdaException, UserLambdaValidationException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Declares an authentication flow and initiates sign-in for a user in the Amazon Cognito user
  * directory. Amazon Cognito might respond with an additional challenge or an
@@ -2667,7 +2667,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * numbers. After you test your app while in the sandbox environment, you can move out
  * of the sandbox and into production. For more information, see SMS message settings for Amazon Cognito user pools in the Amazon Cognito
  * Developer Guide.
- */export const initiateAuth = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.InitiateAuth" }, InitiateAuthRequest, InitiateAuthResponse, [ForbiddenException, InternalErrorException, InvalidEmailRoleAccessPolicyException, InvalidLambdaResponseException, InvalidParameterException, InvalidSmsRoleAccessPolicyException, InvalidSmsRoleTrustRelationshipException, InvalidUserPoolConfigurationException, NotAuthorizedException, PasswordResetRequiredException, ResourceNotFoundException, TooManyRequestsException, UnexpectedLambdaException, UnsupportedOperationException, UserLambdaValidationException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const initiateAuth = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.InitiateAuth" }, InitiateAuthRequest, InitiateAuthResponse, [ForbiddenException, InternalErrorException, InvalidEmailRoleAccessPolicyException, InvalidLambdaResponseException, InvalidParameterException, InvalidSmsRoleAccessPolicyException, InvalidSmsRoleTrustRelationshipException, InvalidUserPoolConfigurationException, NotAuthorizedException, PasswordResetRequiredException, ResourceNotFoundException, TooManyRequestsException, UnexpectedLambdaException, UnsupportedOperationException, UserLambdaValidationException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Given a user pool ID, returns information about configured identity providers (IdPs).
  * For more information about IdPs, see Third-party IdP sign-in.
@@ -2691,7 +2691,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
- */export const listIdentityProviders = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.ListIdentityProviders" }, ListIdentityProvidersRequest, ListIdentityProvidersResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listIdentityProviders = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.ListIdentityProviders" }, ListIdentityProvidersRequest, ListIdentityProvidersResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns details about all terms documents for the requested user pool.
  * 
@@ -2714,7 +2714,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
- */export const listTerms = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.ListTerms" }, ListTermsRequest, ListTermsResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listTerms = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.ListTerms" }, ListTermsRequest, ListTermsResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Given a user pool ID, lists app clients. App clients are sets of rules for the access
  * that you want a user pool to grant to one application. For more information, see App clients.
@@ -2738,7 +2738,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
- */export const listUserPoolClients = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.ListUserPoolClients" }, ListUserPoolClientsRequest, ListUserPoolClientsResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listUserPoolClients = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.ListUserPoolClients" }, ListUserPoolClientsRequest, ListUserPoolClientsResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists user pools and their details in the current Amazon Web Services account.
  * 
@@ -2761,7 +2761,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
- */export const listUserPools = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.ListUserPools" }, ListUserPoolsRequest, ListUserPoolsResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listUserPools = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.ListUserPools" }, ListUserPoolsRequest, ListUserPoolsResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Given a user pool ID, returns a list of users and their basic details in a user
  * pool.
@@ -2785,7 +2785,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
- */export const listUsers = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.ListUsers" }, ListUsersRequest, ListUsersResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listUsers = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.ListUsers" }, ListUsersRequest, ListUsersResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Generates a list of the currently signed-in user's registered passkey, or
  * WebAuthn, credentials.
@@ -2800,7 +2800,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * this operation, you can't use IAM credentials to authorize requests, and you can't
  * grant IAM permissions in policies. For more information about authorization models in
  * Amazon Cognito, see Using the Amazon Cognito user pools API and user pool endpoints.
- */export const listWebAuthnCredentials = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.ListWebAuthnCredentials" }, ListWebAuthnCredentialsRequest, ListWebAuthnCredentialsResponse, [ForbiddenException, InternalErrorException, InvalidParameterException, LimitExceededException, NotAuthorizedException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listWebAuthnCredentials = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.ListWebAuthnCredentials" }, ListWebAuthnCredentialsRequest, ListWebAuthnCredentialsResponse, [ForbiddenException, InternalErrorException, InvalidParameterException, LimitExceededException, NotAuthorizedException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Resends the code that confirms a new account for a user who has signed up in your user
  * pool. Amazon Cognito sends confirmation codes to the user attribute in the
@@ -2838,7 +2838,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * numbers. After you test your app while in the sandbox environment, you can move out
  * of the sandbox and into production. For more information, see SMS message settings for Amazon Cognito user pools in the Amazon Cognito
  * Developer Guide.
- */export const resendConfirmationCode = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.ResendConfirmationCode" }, ResendConfirmationCodeRequest, ResendConfirmationCodeResponse, [CodeDeliveryFailureException, ForbiddenException, InternalErrorException, InvalidEmailRoleAccessPolicyException, InvalidLambdaResponseException, InvalidParameterException, InvalidSmsRoleAccessPolicyException, InvalidSmsRoleTrustRelationshipException, LimitExceededException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UnexpectedLambdaException, UserLambdaValidationException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const resendConfirmationCode = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.ResendConfirmationCode" }, ResendConfirmationCodeRequest, ResendConfirmationCodeResponse, [CodeDeliveryFailureException, ForbiddenException, InternalErrorException, InvalidEmailRoleAccessPolicyException, InvalidLambdaResponseException, InvalidParameterException, InvalidSmsRoleAccessPolicyException, InvalidSmsRoleTrustRelationshipException, LimitExceededException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UnexpectedLambdaException, UserLambdaValidationException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Some API operations in a user pool generate a challenge, like a prompt for an MFA
  * code, for device authentication that bypasses MFA, or for a custom authentication
@@ -2880,7 +2880,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * numbers. After you test your app while in the sandbox environment, you can move out
  * of the sandbox and into production. For more information, see SMS message settings for Amazon Cognito user pools in the Amazon Cognito
  * Developer Guide.
- */export const respondToAuthChallenge = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.RespondToAuthChallenge" }, RespondToAuthChallengeRequest, RespondToAuthChallengeResponse, [AliasExistsException, CodeMismatchException, ExpiredCodeException, ForbiddenException, InternalErrorException, InvalidEmailRoleAccessPolicyException, InvalidLambdaResponseException, InvalidParameterException, InvalidPasswordException, InvalidSmsRoleAccessPolicyException, InvalidSmsRoleTrustRelationshipException, InvalidUserPoolConfigurationException, MFAMethodNotFoundException, NotAuthorizedException, PasswordHistoryPolicyViolationException, PasswordResetRequiredException, ResourceNotFoundException, SoftwareTokenMFANotFoundException, TooManyRequestsException, UnexpectedLambdaException, UserLambdaValidationException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const respondToAuthChallenge = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.RespondToAuthChallenge" }, RespondToAuthChallengeRequest, RespondToAuthChallengeResponse, [AliasExistsException, CodeMismatchException, ExpiredCodeException, ForbiddenException, InternalErrorException, InvalidEmailRoleAccessPolicyException, InvalidLambdaResponseException, InvalidParameterException, InvalidPasswordException, InvalidSmsRoleAccessPolicyException, InvalidSmsRoleTrustRelationshipException, InvalidUserPoolConfigurationException, MFAMethodNotFoundException, NotAuthorizedException, PasswordHistoryPolicyViolationException, PasswordResetRequiredException, ResourceNotFoundException, SoftwareTokenMFANotFoundException, TooManyRequestsException, UnexpectedLambdaException, UserLambdaValidationException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Sets user pool multi-factor authentication (MFA) and passkey configuration. For more
  * information about user pool MFA, see Adding MFA. For more information about WebAuthn passkeys see Authentication flows.
@@ -2905,7 +2905,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * numbers. After you test your app while in the sandbox environment, you can move out
  * of the sandbox and into production. For more information, see SMS message settings for Amazon Cognito user pools in the Amazon Cognito
  * Developer Guide.
- */export const setUserPoolMfaConfig = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.SetUserPoolMfaConfig" }, SetUserPoolMfaConfigRequest, SetUserPoolMfaConfigResponse, [ConcurrentModificationException, FeatureUnavailableInTierException, InternalErrorException, InvalidParameterException, InvalidSmsRoleAccessPolicyException, InvalidSmsRoleTrustRelationshipException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const setUserPoolMfaConfig = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.SetUserPoolMfaConfig" }, SetUserPoolMfaConfigRequest, SetUserPoolMfaConfigResponse, [ConcurrentModificationException, FeatureUnavailableInTierException, InternalErrorException, InvalidParameterException, InvalidSmsRoleAccessPolicyException, InvalidSmsRoleTrustRelationshipException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Registers a user with an app client and requests a user name, password, and user
  * attributes in the user pool.
@@ -2949,12 +2949,12 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * automatically verifies email addresses or phone numbers. When you get this exception in
  * the response, the user is successfully created and is in an `UNCONFIRMED`
  * state.
- */export const signUp = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.SignUp" }, SignUpRequest, SignUpResponse, [CodeDeliveryFailureException, ForbiddenException, InternalErrorException, InvalidEmailRoleAccessPolicyException, InvalidLambdaResponseException, InvalidParameterException, InvalidPasswordException, InvalidSmsRoleAccessPolicyException, InvalidSmsRoleTrustRelationshipException, LimitExceededException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UnexpectedLambdaException, UserLambdaValidationException, UsernameExistsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const signUp = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.SignUp" }, SignUpRequest, SignUpResponse, [CodeDeliveryFailureException, ForbiddenException, InternalErrorException, InvalidEmailRoleAccessPolicyException, InvalidLambdaResponseException, InvalidParameterException, InvalidPasswordException, InvalidSmsRoleAccessPolicyException, InvalidSmsRoleTrustRelationshipException, LimitExceededException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UnexpectedLambdaException, UserLambdaValidationException, UsernameExistsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Instructs your user pool to start importing users from a CSV file that contains their
  * usernames and attributes. For more information about importing users from a CSV file,
  * see Importing users from a CSV file.
- */export const startUserImportJob = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.StartUserImportJob" }, StartUserImportJobRequest, StartUserImportJobResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, PreconditionNotMetException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startUserImportJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.StartUserImportJob" }, StartUserImportJobRequest, StartUserImportJobResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, PreconditionNotMetException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Modifies existing terms documents for the requested app client. When Terms and
  * conditions and Privacy policy documents are configured, the app client displays links to
@@ -2993,7 +2993,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
- */export const updateTerms = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.UpdateTerms" }, UpdateTermsRequest, UpdateTermsResponse, [ConcurrentModificationException, InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TermsExistsException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateTerms = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.UpdateTerms" }, UpdateTermsRequest, UpdateTermsResponse, [ConcurrentModificationException, InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TermsExistsException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the configuration of a user pool. To avoid setting parameters to Amazon Cognito
  * defaults, construct this API request to pass the existing configuration of your user
@@ -3048,7 +3048,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
- */export const updateUserPool = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.UpdateUserPool" }, UpdateUserPoolRequest, UpdateUserPoolResponse, [ConcurrentModificationException, FeatureUnavailableInTierException, InternalErrorException, InvalidEmailRoleAccessPolicyException, InvalidParameterException, InvalidSmsRoleAccessPolicyException, InvalidSmsRoleTrustRelationshipException, NotAuthorizedException, ResourceNotFoundException, TierChangeNotAllowedException, TooManyRequestsException, UserImportInProgressException, UserPoolTaggingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateUserPool = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.UpdateUserPool" }, UpdateUserPoolRequest, UpdateUserPoolResponse, [ConcurrentModificationException, FeatureUnavailableInTierException, InternalErrorException, InvalidEmailRoleAccessPolicyException, InvalidParameterException, InvalidSmsRoleAccessPolicyException, InvalidSmsRoleTrustRelationshipException, NotAuthorizedException, ResourceNotFoundException, TierChangeNotAllowedException, TooManyRequestsException, UserImportInProgressException, UserPoolTaggingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Given a user pool app client ID, updates the configuration. To avoid setting
  * parameters to Amazon Cognito defaults, construct this API request to pass the existing
@@ -3086,7 +3086,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
- */export const updateUserPoolClient = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.UpdateUserPoolClient" }, UpdateUserPoolClientRequest, UpdateUserPoolClientResponse, [ConcurrentModificationException, FeatureUnavailableInTierException, InternalErrorException, InvalidOAuthFlowException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, ScopeDoesNotExistException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateUserPoolClient = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.UpdateUserPoolClient" }, UpdateUserPoolClientRequest, UpdateUserPoolClientResponse, [ConcurrentModificationException, FeatureUnavailableInTierException, InternalErrorException, InvalidOAuthFlowException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, ScopeDoesNotExistException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Registers the current user's time-based one-time password (TOTP) authenticator
  * with a code generated in their authenticator app from a private key that's supplied
@@ -3100,7 +3100,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * this operation, you can't use IAM credentials to authorize requests, and you can't
  * grant IAM permissions in policies. For more information about authorization models in
  * Amazon Cognito, see Using the Amazon Cognito user pools API and user pool endpoints.
- */export const verifySoftwareToken = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.VerifySoftwareToken" }, VerifySoftwareTokenRequest, VerifySoftwareTokenResponse, [CodeMismatchException, EnableSoftwareTokenMFAException, ForbiddenException, InternalErrorException, InvalidParameterException, InvalidUserPoolConfigurationException, NotAuthorizedException, PasswordResetRequiredException, ResourceNotFoundException, SoftwareTokenMFANotFoundException, TooManyRequestsException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const verifySoftwareToken = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.VerifySoftwareToken" }, VerifySoftwareTokenRequest, VerifySoftwareTokenResponse, [CodeMismatchException, EnableSoftwareTokenMFAException, ForbiddenException, InternalErrorException, InvalidParameterException, InvalidUserPoolConfigurationException, NotAuthorizedException, PasswordResetRequiredException, ResourceNotFoundException, SoftwareTokenMFANotFoundException, TooManyRequestsException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new user in the specified user pool.
  * 
@@ -3168,7 +3168,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
- */export const adminCreateUser = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminCreateUser" }, AdminCreateUserRequest, AdminCreateUserResponse, [CodeDeliveryFailureException, InternalErrorException, InvalidLambdaResponseException, InvalidParameterException, InvalidPasswordException, InvalidSmsRoleAccessPolicyException, InvalidSmsRoleTrustRelationshipException, NotAuthorizedException, PreconditionNotMetException, ResourceNotFoundException, TooManyRequestsException, UnexpectedLambdaException, UnsupportedUserStateException, UserLambdaValidationException, UsernameExistsException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const adminCreateUser = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminCreateUser" }, AdminCreateUserRequest, AdminCreateUserResponse, [CodeDeliveryFailureException, InternalErrorException, InvalidLambdaResponseException, InvalidParameterException, InvalidPasswordException, InvalidSmsRoleAccessPolicyException, InvalidSmsRoleTrustRelationshipException, NotAuthorizedException, PreconditionNotMetException, ResourceNotFoundException, TooManyRequestsException, UnexpectedLambdaException, UnsupportedUserStateException, UserLambdaValidationException, UsernameExistsException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts sign-in for applications with a server-side component, for example a
  * traditional web application. This operation specifies the authentication flow that
@@ -3218,7 +3218,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
- */export const adminInitiateAuth = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminInitiateAuth" }, AdminInitiateAuthRequest, AdminInitiateAuthResponse, [InternalErrorException, InvalidEmailRoleAccessPolicyException, InvalidLambdaResponseException, InvalidParameterException, InvalidSmsRoleAccessPolicyException, InvalidSmsRoleTrustRelationshipException, InvalidUserPoolConfigurationException, MFAMethodNotFoundException, NotAuthorizedException, PasswordResetRequiredException, ResourceNotFoundException, TooManyRequestsException, UnexpectedLambdaException, UnsupportedOperationException, UserLambdaValidationException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const adminInitiateAuth = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminInitiateAuth" }, AdminInitiateAuthRequest, AdminInitiateAuthResponse, [InternalErrorException, InvalidEmailRoleAccessPolicyException, InvalidLambdaResponseException, InvalidParameterException, InvalidSmsRoleAccessPolicyException, InvalidSmsRoleTrustRelationshipException, InvalidUserPoolConfigurationException, MFAMethodNotFoundException, NotAuthorizedException, PasswordResetRequiredException, ResourceNotFoundException, TooManyRequestsException, UnexpectedLambdaException, UnsupportedOperationException, UserLambdaValidationException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Requests a history of user activity and any risks detected as part of Amazon Cognito threat
  * protection. For more information, see Viewing user event history.
@@ -3242,7 +3242,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
- */export const adminListUserAuthEvents = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminListUserAuthEvents" }, AdminListUserAuthEventsRequest, AdminListUserAuthEventsResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserNotFoundException, UserPoolAddOnNotEnabledException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const adminListUserAuthEvents = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminListUserAuthEvents" }, AdminListUserAuthEventsRequest, AdminListUserAuthEventsResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserNotFoundException, UserPoolAddOnNotEnabledException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Confirms a device that a user wants to remember. A remembered device is a "Remember me
  * on this device" option for user pools that perform authentication with the device key of
@@ -3259,7 +3259,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * this operation, you can't use IAM credentials to authorize requests, and you can't
  * grant IAM permissions in policies. For more information about authorization models in
  * Amazon Cognito, see Using the Amazon Cognito user pools API and user pool endpoints.
- */export const confirmDevice = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.ConfirmDevice" }, ConfirmDeviceRequest, ConfirmDeviceResponse, [DeviceKeyExistsException, ForbiddenException, InternalErrorException, InvalidLambdaResponseException, InvalidParameterException, InvalidPasswordException, InvalidUserPoolConfigurationException, NotAuthorizedException, PasswordResetRequiredException, ResourceNotFoundException, TooManyRequestsException, UsernameExistsException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const confirmDevice = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.ConfirmDevice" }, ConfirmDeviceRequest, ConfirmDeviceResponse, [DeviceKeyExistsException, ForbiddenException, InternalErrorException, InvalidLambdaResponseException, InvalidParameterException, InvalidPasswordException, InvalidUserPoolConfigurationException, NotAuthorizedException, PasswordResetRequiredException, ResourceNotFoundException, TooManyRequestsException, UsernameExistsException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Adds a configuration and trust relationship between a third-party identity provider
  * (IdP) and a user pool. Amazon Cognito accepts sign-in with third-party identity providers through
@@ -3284,7 +3284,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
- */export const createIdentityProvider = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.CreateIdentityProvider" }, CreateIdentityProviderRequest, CreateIdentityProviderResponse, [DuplicateProviderException, InternalErrorException, InvalidParameterException, LimitExceededException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createIdentityProvider = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.CreateIdentityProvider" }, CreateIdentityProviderRequest, CreateIdentityProviderResponse, [DuplicateProviderException, InternalErrorException, InvalidParameterException, LimitExceededException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new set of branding settings for a user pool style and associates it with an
  * app client. This operation is the programmatic option for the creation of a new style in
@@ -3324,7 +3324,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
- */export const createManagedLoginBranding = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.CreateManagedLoginBranding" }, CreateManagedLoginBrandingRequest, CreateManagedLoginBrandingResponse, [ConcurrentModificationException, InternalErrorException, InvalidParameterException, LimitExceededException, ManagedLoginBrandingExistsException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createManagedLoginBranding = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.CreateManagedLoginBranding" }, CreateManagedLoginBrandingRequest, CreateManagedLoginBrandingResponse, [ConcurrentModificationException, InternalErrorException, InvalidParameterException, LimitExceededException, ManagedLoginBrandingExistsException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new Amazon Cognito user pool. This operation sets basic and advanced configuration
  * options.
@@ -3378,7 +3378,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
- */export const createUserPool = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.CreateUserPool" }, CreateUserPoolRequest, CreateUserPoolResponse, [FeatureUnavailableInTierException, InternalErrorException, InvalidEmailRoleAccessPolicyException, InvalidParameterException, InvalidSmsRoleAccessPolicyException, InvalidSmsRoleTrustRelationshipException, LimitExceededException, NotAuthorizedException, TierChangeNotAllowedException, TooManyRequestsException, UserPoolTaggingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createUserPool = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.CreateUserPool" }, CreateUserPoolRequest, CreateUserPoolResponse, [FeatureUnavailableInTierException, InternalErrorException, InvalidEmailRoleAccessPolicyException, InvalidParameterException, InvalidSmsRoleAccessPolicyException, InvalidSmsRoleTrustRelationshipException, LimitExceededException, NotAuthorizedException, TierChangeNotAllowedException, TooManyRequestsException, UserPoolTaggingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an app client in a user pool. This operation sets basic and advanced
  * configuration options.
@@ -3414,7 +3414,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
- */export const createUserPoolClient = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.CreateUserPoolClient" }, CreateUserPoolClientRequest, CreateUserPoolClientResponse, [FeatureUnavailableInTierException, InternalErrorException, InvalidOAuthFlowException, InvalidParameterException, LimitExceededException, NotAuthorizedException, ResourceNotFoundException, ScopeDoesNotExistException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createUserPoolClient = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.CreateUserPoolClient" }, CreateUserPoolClientRequest, CreateUserPoolClientResponse, [FeatureUnavailableInTierException, InternalErrorException, InvalidOAuthFlowException, InvalidParameterException, LimitExceededException, NotAuthorizedException, ResourceNotFoundException, ScopeDoesNotExistException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Given a user pool ID, returns configuration information. This operation is useful when
  * you want to inspect an existing user pool and programmatically replicate the
@@ -3439,7 +3439,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
- */export const describeUserPool = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DescribeUserPool" }, DescribeUserPoolRequest, DescribeUserPoolResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserPoolTaggingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeUserPool = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DescribeUserPool" }, DescribeUserPoolRequest, DescribeUserPoolResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserPoolTaggingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Revokes all of the access tokens generated by, and at the same time as, the specified
  * refresh token. After a token is revoked, you can't use the revoked token to access Amazon Cognito
@@ -3452,13 +3452,13 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * this operation, you can't use IAM credentials to authorize requests, and you can't
  * grant IAM permissions in policies. For more information about authorization models in
  * Amazon Cognito, see Using the Amazon Cognito user pools API and user pool endpoints.
- */export const revokeToken = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.RevokeToken" }, RevokeTokenRequest, RevokeTokenResponse, [ForbiddenException, InternalErrorException, InvalidParameterException, TooManyRequestsException, UnauthorizedException, UnsupportedOperationException, UnsupportedTokenTypeException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const revokeToken = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.RevokeToken" }, RevokeTokenRequest, RevokeTokenResponse, [ForbiddenException, InternalErrorException, InvalidParameterException, TooManyRequestsException, UnauthorizedException, UnsupportedOperationException, UnsupportedTokenTypeException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Sets up or modifies the logging configuration of a user pool. User pools can export
  * user notification logs and, when threat protection is active, user-activity logs. For
  * more information, see Exporting user
  * pool logs.
- */export const setLogDeliveryConfiguration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.SetLogDeliveryConfiguration" }, SetLogDeliveryConfigurationRequest, SetLogDeliveryConfigurationResponse, [FeatureUnavailableInTierException, InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const setLogDeliveryConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.SetLogDeliveryConfiguration" }, SetLogDeliveryConfigurationRequest, SetLogDeliveryConfigurationResponse, [FeatureUnavailableInTierException, InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Requests credential creation options from your user pool for the currently signed-in
  * user. Returns information about the user pool, the user profile, and authentication
@@ -3467,14 +3467,14 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * 
  * 
  * Authorize this action with a signed-in user's access token. It must include the scope `aws.cognito.signin.user.admin`.
- */export const startWebAuthnRegistration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.StartWebAuthnRegistration" }, StartWebAuthnRegistrationRequest, StartWebAuthnRegistrationResponse, [ForbiddenException, InternalErrorException, InvalidParameterException, LimitExceededException, NotAuthorizedException, TooManyRequestsException, WebAuthnConfigurationMissingException, WebAuthnNotEnabledException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startWebAuthnRegistration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.StartWebAuthnRegistration" }, StartWebAuthnRegistrationRequest, StartWebAuthnRegistrationResponse, [ForbiddenException, InternalErrorException, InvalidParameterException, LimitExceededException, NotAuthorizedException, TooManyRequestsException, WebAuthnConfigurationMissingException, WebAuthnNotEnabledException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Given a refresh token, issues new ID, access, and optionally refresh tokens for the
  * user who owns the submitted token. This operation issues a new refresh token and
  * invalidates the original refresh token after an optional grace period when refresh token
  * rotation is enabled. If refresh token rotation is disabled, issues new ID and access
  * tokens only.
- */export const getTokensFromRefreshToken = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.GetTokensFromRefreshToken" }, GetTokensFromRefreshTokenRequest, GetTokensFromRefreshTokenResponse, [ForbiddenException, InternalErrorException, InvalidLambdaResponseException, InvalidParameterException, NotAuthorizedException, RefreshTokenReuseException, ResourceNotFoundException, TooManyRequestsException, UnexpectedLambdaException, UserLambdaValidationException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getTokensFromRefreshToken = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.GetTokensFromRefreshToken" }, GetTokensFromRefreshTokenRequest, GetTokensFromRefreshTokenResponse, [ForbiddenException, InternalErrorException, InvalidLambdaResponseException, InvalidParameterException, NotAuthorizedException, RefreshTokenReuseException, ResourceNotFoundException, TooManyRequestsException, UnexpectedLambdaException, UserLambdaValidationException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Configures threat protection for a user pool or app client. Sets configuration for the
  * following.
@@ -3507,11 +3507,11 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * off, update the value of `UserPoolAddOns` in an `UpdateUserPool`
  * request. To activate this setting, your user pool must be on the
  * Plus tier.
- */export const setRiskConfiguration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.SetRiskConfiguration" }, SetRiskConfigurationRequest, SetRiskConfigurationResponse, [CodeDeliveryFailureException, InternalErrorException, InvalidEmailRoleAccessPolicyException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserPoolAddOnNotEnabledException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const setRiskConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.SetRiskConfiguration" }, SetRiskConfigurationRequest, SetRiskConfigurationResponse, [CodeDeliveryFailureException, InternalErrorException, InvalidEmailRoleAccessPolicyException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserPoolAddOnNotEnabledException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Completes registration of a passkey authenticator for the currently signed-in
  * user.
  * 
  * 
  * Authorize this action with a signed-in user's access token. It must include the scope `aws.cognito.signin.user.admin`.
- */export const completeWebAuthnRegistration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.CompleteWebAuthnRegistration" }, CompleteWebAuthnRegistrationRequest, CompleteWebAuthnRegistrationResponse, [ForbiddenException, InternalErrorException, InvalidParameterException, LimitExceededException, NotAuthorizedException, TooManyRequestsException, WebAuthnChallengeNotFoundException, WebAuthnClientMismatchException, WebAuthnCredentialNotSupportedException, WebAuthnNotEnabledException, WebAuthnOriginNotAllowedException, WebAuthnRelyingPartyMismatchException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const completeWebAuthnRegistration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.CompleteWebAuthnRegistration" }, CompleteWebAuthnRegistrationRequest, CompleteWebAuthnRegistrationResponse, [ForbiddenException, InternalErrorException, InvalidParameterException, LimitExceededException, NotAuthorizedException, TooManyRequestsException, WebAuthnChallengeNotFoundException, WebAuthnClientMismatchException, WebAuthnCredentialNotSupportedException, WebAuthnNotEnabledException, WebAuthnOriginNotAllowedException, WebAuthnRelyingPartyMismatchException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

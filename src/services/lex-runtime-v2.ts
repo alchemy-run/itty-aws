@@ -98,7 +98,7 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
  * If the locale doesn't exist in the bot, or if the locale hasn't been
  * enables for the alias, you receive a
  * `BadRequestException`.
- */export const deleteSession = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/bots/{botId}/botAliases/{botAliasId}/botLocales/{localeId}/sessions/{sessionId}", method: "DELETE", sdkId: "Lex Runtime V2", sigV4ServiceName: "lex", name: "AWSDeepSenseRunTimeServiceApi2_0.DeleteSession" }, DeleteSessionRequest, DeleteSessionResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteSession = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/bots/{botId}/botAliases/{botAliasId}/botLocales/{localeId}/sessions/{sessionId}", method: "DELETE", sdkId: "Lex Runtime V2", sigV4ServiceName: "lex", name: "AWSDeepSenseRunTimeServiceApi2_0.DeleteSession" }, DeleteSessionRequest, DeleteSessionResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns session information for a specified bot, alias, and
  * user.
@@ -113,7 +113,7 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
  * returns a `BadRequestException`. If the locale doesn't exist
  * or is not enabled for the alias, you receive a
  * `BadRequestException`.
- */export const getSession = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/bots/{botId}/botAliases/{botAliasId}/botLocales/{localeId}/sessions/{sessionId}", method: "GET", sdkId: "Lex Runtime V2", sigV4ServiceName: "lex", name: "AWSDeepSenseRunTimeServiceApi2_0.GetSession" }, GetSessionRequest, GetSessionResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getSession = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/bots/{botId}/botAliases/{botAliasId}/botLocales/{localeId}/sessions/{sessionId}", method: "GET", sdkId: "Lex Runtime V2", sigV4ServiceName: "lex", name: "AWSDeepSenseRunTimeServiceApi2_0.GetSession" }, GetSessionRequest, GetSessionResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Sends user input to Amazon Lex V2. Client applications use this API to send
  * requests to Amazon Lex V2 at runtime. Amazon Lex V2 then interprets the user input
@@ -153,7 +153,7 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
  * 
  * 
  * For more information, see Completion message.
- */export const recognizeText = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/bots/{botId}/botAliases/{botAliasId}/botLocales/{localeId}/sessions/{sessionId}/text", method: "POST", sdkId: "Lex Runtime V2", sigV4ServiceName: "lex", name: "AWSDeepSenseRunTimeServiceApi2_0.RecognizeText" }, RecognizeTextRequest, RecognizeTextResponse, [AccessDeniedException, BadGatewayException, ConflictException, DependencyFailedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const recognizeText = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/bots/{botId}/botAliases/{botAliasId}/botLocales/{localeId}/sessions/{sessionId}/text", method: "POST", sdkId: "Lex Runtime V2", sigV4ServiceName: "lex", name: "AWSDeepSenseRunTimeServiceApi2_0.RecognizeText" }, RecognizeTextRequest, RecognizeTextResponse, [AccessDeniedException, BadGatewayException, ConflictException, DependencyFailedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Sends user input to Amazon Lex V2. You can send text or speech. Clients use
  * this API to send text and audio requests to Amazon Lex V2 at runtime. Amazon Lex V2
@@ -238,7 +238,7 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
  * 
  * 
  * For more information, see Completion message.
- */export const recognizeUtterance = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/bots/{botId}/botAliases/{botAliasId}/botLocales/{localeId}/sessions/{sessionId}/utterance", method: "POST", sdkId: "Lex Runtime V2", sigV4ServiceName: "lex", name: "AWSDeepSenseRunTimeServiceApi2_0.RecognizeUtterance" }, RecognizeUtteranceRequest, RecognizeUtteranceResponse, [AccessDeniedException, BadGatewayException, ConflictException, DependencyFailedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const recognizeUtterance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/bots/{botId}/botAliases/{botAliasId}/botLocales/{localeId}/sessions/{sessionId}/utterance", method: "POST", sdkId: "Lex Runtime V2", sigV4ServiceName: "lex", name: "AWSDeepSenseRunTimeServiceApi2_0.RecognizeUtterance" }, RecognizeUtteranceRequest, RecognizeUtteranceResponse, [AccessDeniedException, BadGatewayException, ConflictException, DependencyFailedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts an HTTP/2 bidirectional event stream that enables you to send
  * audio, text, or DTMF input in real time. After your application starts
@@ -310,9 +310,9 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
  * 
  * 
  * - AWS SDK for Ruby V3
- */export const startConversation = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/bots/{botId}/botAliases/{botAliasId}/botLocales/{localeId}/sessions/{sessionId}/conversation", method: "POST", sdkId: "Lex Runtime V2", sigV4ServiceName: "lex", name: "AWSDeepSenseRunTimeServiceApi2_0.StartConversation" }, StartConversationRequest, StartConversationResponse, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startConversation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/bots/{botId}/botAliases/{botAliasId}/botLocales/{localeId}/sessions/{sessionId}/conversation", method: "POST", sdkId: "Lex Runtime V2", sigV4ServiceName: "lex", name: "AWSDeepSenseRunTimeServiceApi2_0.StartConversation" }, StartConversationRequest, StartConversationResponse, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new session or modifies an existing session with an Amazon Lex V2
  * bot. Use this operation to enable your application to set the state of
  * the bot.
- */export const putSession = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/bots/{botId}/botAliases/{botAliasId}/botLocales/{localeId}/sessions/{sessionId}", method: "POST", sdkId: "Lex Runtime V2", sigV4ServiceName: "lex", name: "AWSDeepSenseRunTimeServiceApi2_0.PutSession" }, PutSessionRequest, PutSessionResponse, [AccessDeniedException, BadGatewayException, ConflictException, DependencyFailedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putSession = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/bots/{botId}/botAliases/{botAliasId}/botLocales/{localeId}/sessions/{sessionId}", method: "POST", sdkId: "Lex Runtime V2", sigV4ServiceName: "lex", name: "AWSDeepSenseRunTimeServiceApi2_0.PutSession" }, PutSessionRequest, PutSessionResponse, [AccessDeniedException, BadGatewayException, ConflictException, DependencyFailedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

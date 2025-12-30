@@ -207,7 +207,7 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
  * uses the associated operations role for permissions to downstream services during subsequent
  * calls acting on this environment. For more information, see Operations roles in the
  * *AWS Elastic Beanstalk Developer Guide*.
- */export const associateEnvironmentOperationsRole = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.AssociateEnvironmentOperationsRole" }, AssociateEnvironmentOperationsRoleMessage, S.Struct({}), [InsufficientPrivilegesException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const associateEnvironmentOperationsRole = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.AssociateEnvironmentOperationsRole" }, AssociateEnvironmentOperationsRoleMessage, S.Struct({}), [InsufficientPrivilegesException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes the specified configuration template.
  * 
@@ -217,7 +217,7 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
  * When you launch an environment using a configuration template, the environment gets a
  * copy of the template. You can delete or modify the environment's copy of the template
  * without affecting the running environment.
- */export const deleteConfigurationTemplate = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.DeleteConfigurationTemplate" }, DeleteConfigurationTemplateMessage, S.Struct({}), [OperationInProgressException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deleteConfigurationTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.DeleteConfigurationTemplate" }, DeleteConfigurationTemplateMessage, S.Struct({}), [OperationInProgressException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes the draft configuration associated with the running environment.
  * 
@@ -227,20 +227,20 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
  * fails. The `DeploymentStatus` for the draft configuration indicates whether the
  * deployment is in process or has failed. The draft configuration remains in existence until it
  * is deleted with this action.
- */export const deleteEnvironmentConfiguration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.DeleteEnvironmentConfiguration" }, DeleteEnvironmentConfigurationMessage, S.Struct({}), []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deleteEnvironmentConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.DeleteEnvironmentConfiguration" }, DeleteEnvironmentConfigurationMessage, S.Struct({}), []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns descriptions for existing environments.
- */export const describeEnvironments = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.DescribeEnvironments" }, DescribeEnvironmentsMessage, EnvironmentDescriptionsMessage, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeEnvironments = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.DescribeEnvironments" }, DescribeEnvironmentsMessage, EnvironmentDescriptionsMessage, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Disassociate the operations role from an environment. After this call is made, Elastic Beanstalk uses
  * the caller's permissions for permissions to downstream services during subsequent calls acting
  * on this environment. For more information, see Operations roles in the
  * *AWS Elastic Beanstalk Developer Guide*.
- */export const disassociateEnvironmentOperationsRole = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.DisassociateEnvironmentOperationsRole" }, DisassociateEnvironmentOperationsRoleMessage, S.Struct({}), [InsufficientPrivilegesException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const disassociateEnvironmentOperationsRole = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.DisassociateEnvironmentOperationsRole" }, DisassociateEnvironmentOperationsRoleMessage, S.Struct({}), [InsufficientPrivilegesException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes and recreates all of the AWS resources (for example: the Auto Scaling group,
  * load balancer, etc.) for a specified environment and forces a restart.
- */export const rebuildEnvironment = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.RebuildEnvironment" }, RebuildEnvironmentMessage, S.Struct({}), [InsufficientPrivilegesException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const rebuildEnvironment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.RebuildEnvironment" }, RebuildEnvironmentMessage, S.Struct({}), [InsufficientPrivilegesException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Initiates a request to compile the specified type of information of the deployed
  * environment.
@@ -263,32 +263,32 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
  * 
  * 
  * - RetrieveEnvironmentInfo
- */export const requestEnvironmentInfo = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.RequestEnvironmentInfo" }, RequestEnvironmentInfoMessage, S.Struct({}), []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const requestEnvironmentInfo = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.RequestEnvironmentInfo" }, RequestEnvironmentInfoMessage, S.Struct({}), []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Causes the environment to restart the application container server running on each
  * Amazon EC2 instance.
- */export const restartAppServer = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.RestartAppServer" }, RestartAppServerMessage, S.Struct({}), []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const restartAppServer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.RestartAppServer" }, RestartAppServerMessage, S.Struct({}), []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Swaps the CNAMEs of two environments.
- */export const swapEnvironmentCNAMEs = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.SwapEnvironmentCNAMEs" }, SwapEnvironmentCNAMEsMessage, S.Struct({}), []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const swapEnvironmentCNAMEs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.SwapEnvironmentCNAMEs" }, SwapEnvironmentCNAMEsMessage, S.Struct({}), []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Cancels in-progress environment configuration update or application version
  * deployment.
- */export const abortEnvironmentUpdate = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.AbortEnvironmentUpdate" }, AbortEnvironmentUpdateMessage, S.Struct({}), [InsufficientPrivilegesException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const abortEnvironmentUpdate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.AbortEnvironmentUpdate" }, AbortEnvironmentUpdateMessage, S.Struct({}), [InsufficientPrivilegesException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Checks if the specified CNAME is available.
- */export const checkDNSAvailability = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.CheckDNSAvailability" }, CheckDNSAvailabilityMessage, CheckDNSAvailabilityResultMessage, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const checkDNSAvailability = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.CheckDNSAvailability" }, CheckDNSAvailabilityMessage, CheckDNSAvailabilityResultMessage, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Launches an AWS Elastic Beanstalk environment for the specified application using the specified
  * configuration.
- */export const createEnvironment = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.CreateEnvironment" }, CreateEnvironmentMessage, EnvironmentDescription, [InsufficientPrivilegesException, TooManyEnvironmentsException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const createEnvironment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.CreateEnvironment" }, CreateEnvironmentMessage, EnvironmentDescription, [InsufficientPrivilegesException, TooManyEnvironmentsException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Creates a bucket in Amazon S3 to store application versions, logs, and other files used
  * by Elastic Beanstalk environments. The Elastic Beanstalk console and EB CLI call this API the
  * first time you create an environment in a region. If the storage location already exists,
  * `CreateStorageLocation` still returns the bucket name but does not create a new
  * bucket.
- */export const createStorageLocation = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.CreateStorageLocation" }, S.Struct({}), CreateStorageLocationResultMessage, [InsufficientPrivilegesException, S3SubscriptionRequiredException, TooManyBucketsException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const createStorageLocation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.CreateStorageLocation" }, S.Struct({}), CreateStorageLocationResultMessage, [InsufficientPrivilegesException, S3SubscriptionRequiredException, TooManyBucketsException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes the specified application along with all associated versions and
  * configurations. The application versions will not be deleted from your Amazon S3
@@ -298,7 +298,7 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
  * 
  * 
  * You cannot delete an application that has a running environment.
- */export const deleteApplication = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.DeleteApplication" }, DeleteApplicationMessage, S.Struct({}), [OperationInProgressException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deleteApplication = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.DeleteApplication" }, DeleteApplicationMessage, S.Struct({}), [OperationInProgressException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns a description of the settings for the specified configuration set, that is,
  * either a configuration template or the configuration set associated with a running
@@ -316,11 +316,11 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
  * 
  * 
  * - DeleteEnvironmentConfiguration
- */export const describeConfigurationSettings = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.DescribeConfigurationSettings" }, DescribeConfigurationSettingsMessage, ConfigurationSettingsDescriptions, [TooManyBucketsException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeConfigurationSettings = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.DescribeConfigurationSettings" }, DescribeConfigurationSettingsMessage, ConfigurationSettingsDescriptions, [TooManyBucketsException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns a list of the available solution stack names, with the public version first and
  * then in reverse chronological order.
- */export const listAvailableSolutionStacks = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.ListAvailableSolutionStacks" }, S.Struct({}), ListAvailableSolutionStacksResultMessage, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const listAvailableSolutionStacks = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.ListAvailableSolutionStacks" }, S.Struct({}), ListAvailableSolutionStacksResultMessage, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Updates the specified application to have the specified properties.
  * 
@@ -329,10 +329,10 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
  * 
  * If a property (for example, `description`) is not provided, the value
  * remains unchanged. To clear these properties, specify an empty string.
- */export const updateApplication = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.UpdateApplication" }, UpdateApplicationMessage, ApplicationDescriptionMessage, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const updateApplication = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.UpdateApplication" }, UpdateApplicationMessage, ApplicationDescriptionMessage, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Modifies lifecycle settings for an application.
- */export const updateApplicationResourceLifecycle = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.UpdateApplicationResourceLifecycle" }, UpdateApplicationResourceLifecycleMessage, ApplicationResourceLifecycleDescriptionMessage, [InsufficientPrivilegesException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const updateApplicationResourceLifecycle = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.UpdateApplicationResourceLifecycle" }, UpdateApplicationResourceLifecycleMessage, ApplicationResourceLifecycleDescriptionMessage, [InsufficientPrivilegesException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Updates the specified application version to have the specified properties.
  * 
@@ -341,7 +341,7 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
  * 
  * If a property (for example, `description`) is not provided, the value
  * remains unchanged. To clear properties, specify an empty string.
- */export const updateApplicationVersion = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.UpdateApplicationVersion" }, UpdateApplicationVersionMessage, ApplicationVersionDescriptionMessage, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const updateApplicationVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.UpdateApplicationVersion" }, UpdateApplicationVersionMessage, ApplicationVersionDescriptionMessage, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Updates the specified configuration template to have the specified properties or
  * configuration option values.
@@ -360,7 +360,7 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
  * 
  * 
  * - DescribeConfigurationOptions
- */export const updateConfigurationTemplate = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.UpdateConfigurationTemplate" }, UpdateConfigurationTemplateMessage, ConfigurationSettingsDescription, [InsufficientPrivilegesException, TooManyBucketsException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const updateConfigurationTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.UpdateConfigurationTemplate" }, UpdateConfigurationTemplateMessage, ConfigurationSettingsDescription, [InsufficientPrivilegesException, TooManyBucketsException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Updates the environment description, deploys a new application version, updates the
  * configuration settings to an entirely new configuration template, or updates select
@@ -375,7 +375,7 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
  * draft configuration is created and DescribeConfigurationSettings for this
  * environment returns two setting descriptions with different `DeploymentStatus`
  * values.
- */export const updateEnvironment = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.UpdateEnvironment" }, UpdateEnvironmentMessage, EnvironmentDescription, [InsufficientPrivilegesException, TooManyBucketsException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const updateEnvironment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.UpdateEnvironment" }, UpdateEnvironmentMessage, EnvironmentDescription, [InsufficientPrivilegesException, TooManyBucketsException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Create or update a group of environments that each run a separate component of a single
  * application. Takes a list of version labels that specify application source bundles for each
@@ -383,7 +383,7 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
  * information must be included in the source bundles in an environment manifest named
  * `env.yaml`. See Compose Environments
  * for details.
- */export const composeEnvironments = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.ComposeEnvironments" }, ComposeEnvironmentsMessage, EnvironmentDescriptionsMessage, [InsufficientPrivilegesException, TooManyEnvironmentsException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const composeEnvironments = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.ComposeEnvironments" }, ComposeEnvironmentsMessage, EnvironmentDescriptionsMessage, [InsufficientPrivilegesException, TooManyEnvironmentsException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Creates an AWS Elastic Beanstalk configuration template, associated with a specific Elastic Beanstalk
  * application. You define application configuration settings in a configuration template. You
@@ -410,7 +410,7 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
  * 
  * 
  * - ListAvailableSolutionStacks
- */export const createConfigurationTemplate = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.CreateConfigurationTemplate" }, CreateConfigurationTemplateMessage, ConfigurationSettingsDescription, [InsufficientPrivilegesException, TooManyBucketsException, TooManyConfigurationTemplatesException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const createConfigurationTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.CreateConfigurationTemplate" }, CreateConfigurationTemplateMessage, ConfigurationSettingsDescription, [InsufficientPrivilegesException, TooManyBucketsException, TooManyConfigurationTemplatesException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes the specified version from the specified application.
  * 
@@ -419,29 +419,29 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
  * 
  * You cannot delete an application version that is associated with a running
  * environment.
- */export const deleteApplicationVersion = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.DeleteApplicationVersion" }, DeleteApplicationVersionMessage, S.Struct({}), [InsufficientPrivilegesException, OperationInProgressException, S3LocationNotInServiceRegionException, SourceBundleDeletionException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deleteApplicationVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.DeleteApplicationVersion" }, DeleteApplicationVersionMessage, S.Struct({}), [InsufficientPrivilegesException, OperationInProgressException, S3LocationNotInServiceRegionException, SourceBundleDeletionException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes the specified version of a custom platform.
- */export const deletePlatformVersion = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.DeletePlatformVersion" }, DeletePlatformVersionRequest, DeletePlatformVersionResult, [ElasticBeanstalkServiceException, InsufficientPrivilegesException, OperationInProgressException, PlatformVersionStillReferencedException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deletePlatformVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.DeletePlatformVersion" }, DeletePlatformVersionRequest, DeletePlatformVersionResult, [ElasticBeanstalkServiceException, InsufficientPrivilegesException, OperationInProgressException, PlatformVersionStillReferencedException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns attributes related to AWS Elastic Beanstalk that are associated with the calling AWS
  * account.
  * 
  * 
  * The result currently has one set of attributes—resource quotas.
- */export const describeAccountAttributes = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.DescribeAccountAttributes" }, S.Struct({}), DescribeAccountAttributesResult, [InsufficientPrivilegesException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeAccountAttributes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.DescribeAccountAttributes" }, S.Struct({}), DescribeAccountAttributesResult, [InsufficientPrivilegesException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns the descriptions of existing applications.
- */export const describeApplications = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.DescribeApplications" }, DescribeApplicationsMessage, ApplicationDescriptionsMessage, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeApplications = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.DescribeApplications" }, DescribeApplicationsMessage, ApplicationDescriptionsMessage, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Retrieve a list of application versions.
- */export const describeApplicationVersions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.DescribeApplicationVersions" }, DescribeApplicationVersionsMessage, ApplicationVersionDescriptionsMessage, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeApplicationVersions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.DescribeApplicationVersions" }, DescribeApplicationVersionsMessage, ApplicationVersionDescriptionsMessage, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Lists an environment's completed and failed managed actions.
- */export const describeEnvironmentManagedActionHistory = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.DescribeEnvironmentManagedActionHistory" }, DescribeEnvironmentManagedActionHistoryRequest, DescribeEnvironmentManagedActionHistoryResult, [ElasticBeanstalkServiceException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeEnvironmentManagedActionHistory = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.DescribeEnvironmentManagedActionHistory" }, DescribeEnvironmentManagedActionHistoryRequest, DescribeEnvironmentManagedActionHistoryResult, [ElasticBeanstalkServiceException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Lists an environment's upcoming and in-progress managed actions.
- */export const describeEnvironmentManagedActions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.DescribeEnvironmentManagedActions" }, DescribeEnvironmentManagedActionsRequest, DescribeEnvironmentManagedActionsResult, [ElasticBeanstalkServiceException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeEnvironmentManagedActions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.DescribeEnvironmentManagedActions" }, DescribeEnvironmentManagedActionsRequest, DescribeEnvironmentManagedActionsResult, [ElasticBeanstalkServiceException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns list of event descriptions matching criteria up to the last 6 weeks.
  * 
@@ -450,7 +450,7 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
  * 
  * This action returns the most recent 1,000 events from the specified
  * `NextToken`.
- */export const describeEvents = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.DescribeEvents" }, DescribeEventsMessage, EventDescriptionsMessage, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeEvents = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.DescribeEvents" }, DescribeEventsMessage, EventDescriptionsMessage, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Lists the platform versions available for your account in an AWS Region. Provides
  * summary information about each platform version. Compare to DescribePlatformVersion, which provides full details about a single platform
@@ -459,7 +459,7 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
  * 
  * For definitions of platform version and other platform-related terms, see AWS Elastic Beanstalk
  * Platforms Glossary.
- */export const listPlatformVersions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.ListPlatformVersions" }, ListPlatformVersionsRequest, ListPlatformVersionsResult, [ElasticBeanstalkServiceException, InsufficientPrivilegesException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const listPlatformVersions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.ListPlatformVersions" }, ListPlatformVersionsRequest, ListPlatformVersionsResult, [ElasticBeanstalkServiceException, InsufficientPrivilegesException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Return the tags applied to an AWS Elastic Beanstalk resource. The response contains a list of tag key-value pairs.
  * 
@@ -467,7 +467,7 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
  * Elastic Beanstalk supports tagging of all of its resources. For details about resource tagging, see
  * Tagging Application
  * Resources.
- */export const listTagsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.ListTagsForResource" }, ListTagsForResourceMessage, ResourceTagsDescriptionMessage, [InsufficientPrivilegesException, ResourceNotFoundException, ResourceTypeNotSupportedException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.ListTagsForResource" }, ListTagsForResourceMessage, ResourceTagsDescriptionMessage, [InsufficientPrivilegesException, ResourceNotFoundException, ResourceTypeNotSupportedException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Retrieves the compiled information from a RequestEnvironmentInfo
  * request.
@@ -478,7 +478,7 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
  * 
  * 
  * - RequestEnvironmentInfo
- */export const retrieveEnvironmentInfo = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.RetrieveEnvironmentInfo" }, RetrieveEnvironmentInfoMessage, RetrieveEnvironmentInfoResultMessage, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const retrieveEnvironmentInfo = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.RetrieveEnvironmentInfo" }, RetrieveEnvironmentInfoMessage, RetrieveEnvironmentInfoResultMessage, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Update the list of tags applied to an AWS Elastic Beanstalk resource. Two lists can be passed: `TagsToAdd`
  * for tags to add or update, and `TagsToRemove`.
@@ -516,7 +516,7 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
  * 
  * 
  * For details about creating a custom user policy, see Creating a Custom User Policy.
- */export const updateTagsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.UpdateTagsForResource" }, UpdateTagsForResourceMessage, S.Struct({}), [InsufficientPrivilegesException, OperationInProgressException, ResourceNotFoundException, ResourceTypeNotSupportedException, TooManyTagsException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const updateTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.UpdateTagsForResource" }, UpdateTagsForResourceMessage, S.Struct({}), [InsufficientPrivilegesException, OperationInProgressException, ResourceNotFoundException, ResourceTypeNotSupportedException, TooManyTagsException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Takes a set of configuration settings and either a configuration template or
  * environment, and determines whether those values are valid.
@@ -524,28 +524,28 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
  * 
  * This action returns a list of messages indicating any errors or warnings associated
  * with the selection of option values.
- */export const validateConfigurationSettings = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.ValidateConfigurationSettings" }, ValidateConfigurationSettingsMessage, ConfigurationSettingsValidationMessages, [InsufficientPrivilegesException, TooManyBucketsException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const validateConfigurationSettings = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.ValidateConfigurationSettings" }, ValidateConfigurationSettingsMessage, ConfigurationSettingsValidationMessages, [InsufficientPrivilegesException, TooManyBucketsException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Applies a scheduled managed action immediately. A managed action can be applied only if
  * its status is `Scheduled`. Get the status and action ID of a managed action with
  * DescribeEnvironmentManagedActions.
- */export const applyEnvironmentManagedAction = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.ApplyEnvironmentManagedAction" }, ApplyEnvironmentManagedActionRequest, ApplyEnvironmentManagedActionResult, [ElasticBeanstalkServiceException, ManagedActionInvalidStateException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const applyEnvironmentManagedAction = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.ApplyEnvironmentManagedAction" }, ApplyEnvironmentManagedActionRequest, ApplyEnvironmentManagedActionResult, [ElasticBeanstalkServiceException, ManagedActionInvalidStateException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Creates an application that has one configuration template named `default`
  * and no application versions.
- */export const createApplication = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.CreateApplication" }, CreateApplicationMessage, ApplicationDescriptionMessage, [TooManyApplicationsException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const createApplication = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.CreateApplication" }, CreateApplicationMessage, ApplicationDescriptionMessage, [TooManyApplicationsException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Create a new version of your custom platform.
- */export const createPlatformVersion = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.CreatePlatformVersion" }, CreatePlatformVersionRequest, CreatePlatformVersionResult, [ElasticBeanstalkServiceException, InsufficientPrivilegesException, TooManyPlatformsException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const createPlatformVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.CreatePlatformVersion" }, CreatePlatformVersionRequest, CreatePlatformVersionResult, [ElasticBeanstalkServiceException, InsufficientPrivilegesException, TooManyPlatformsException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Describes the configuration options that are used in a particular configuration
  * template or environment, or that a specified solution stack defines. The description includes
  * the values the options, their default values, and an indication of the required action on a
  * running environment if an option value is changed.
- */export const describeConfigurationOptions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.DescribeConfigurationOptions" }, DescribeConfigurationOptionsMessage, ConfigurationOptionsDescription, [TooManyBucketsException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeConfigurationOptions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.DescribeConfigurationOptions" }, DescribeConfigurationOptionsMessage, ConfigurationOptionsDescription, [TooManyBucketsException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns AWS resources for this environment.
- */export const describeEnvironmentResources = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.DescribeEnvironmentResources" }, DescribeEnvironmentResourcesMessage, EnvironmentResourceDescriptionsMessage, [InsufficientPrivilegesException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeEnvironmentResources = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.DescribeEnvironmentResources" }, DescribeEnvironmentResourcesMessage, EnvironmentResourceDescriptionsMessage, [InsufficientPrivilegesException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Describes a platform version. Provides full details. Compare to ListPlatformVersions, which provides summary information about a list of
  * platform versions.
@@ -553,7 +553,7 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
  * 
  * For definitions of platform version and other platform-related terms, see AWS Elastic Beanstalk
  * Platforms Glossary.
- */export const describePlatformVersion = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.DescribePlatformVersion" }, DescribePlatformVersionRequest, DescribePlatformVersionResult, [ElasticBeanstalkServiceException, InsufficientPrivilegesException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describePlatformVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.DescribePlatformVersion" }, DescribePlatformVersionRequest, DescribePlatformVersionResult, [ElasticBeanstalkServiceException, InsufficientPrivilegesException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Lists the platform branches available for your account in an AWS Region. Provides
  * summary information about each platform branch.
@@ -561,7 +561,7 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
  * 
  * For definitions of platform branch and other platform-related terms, see AWS Elastic Beanstalk
  * Platforms Glossary.
- */export const listPlatformBranches = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.ListPlatformBranches" }, ListPlatformBranchesRequest, ListPlatformBranchesResult, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const listPlatformBranches = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.ListPlatformBranches" }, ListPlatformBranchesRequest, ListPlatformBranchesResult, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Creates an application version for the specified application. You can create an
  * application version from a source bundle in Amazon S3, a commit in AWS CodeCommit, or the
@@ -590,17 +590,17 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
  * location, you can't change that Amazon S3 location. If you change the Amazon S3 location,
  * you receive an exception when you attempt to launch an environment from the application
  * version.
- */export const createApplicationVersion = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.CreateApplicationVersion" }, CreateApplicationVersionMessage, ApplicationVersionDescriptionMessage, [CodeBuildNotInServiceRegionException, InsufficientPrivilegesException, S3LocationNotInServiceRegionException, TooManyApplicationsException, TooManyApplicationVersionsException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const createApplicationVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.CreateApplicationVersion" }, CreateApplicationVersionMessage, ApplicationVersionDescriptionMessage, [CodeBuildNotInServiceRegionException, InsufficientPrivilegesException, S3LocationNotInServiceRegionException, TooManyApplicationsException, TooManyApplicationVersionsException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns information about the overall health of the specified environment. The
  * **DescribeEnvironmentHealth** operation is only available with
  * AWS Elastic Beanstalk Enhanced Health.
- */export const describeEnvironmentHealth = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.DescribeEnvironmentHealth" }, DescribeEnvironmentHealthRequest, DescribeEnvironmentHealthResult, [ElasticBeanstalkServiceException, InvalidRequestException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeEnvironmentHealth = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.DescribeEnvironmentHealth" }, DescribeEnvironmentHealthRequest, DescribeEnvironmentHealthResult, [ElasticBeanstalkServiceException, InvalidRequestException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Retrieves detailed information about the health of instances in your AWS Elastic
  * Beanstalk. This operation requires enhanced health
  * reporting.
- */export const describeInstancesHealth = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.DescribeInstancesHealth" }, DescribeInstancesHealthRequest, DescribeInstancesHealthResult, [ElasticBeanstalkServiceException, InvalidRequestException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeInstancesHealth = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.DescribeInstancesHealth" }, DescribeInstancesHealthRequest, DescribeInstancesHealthResult, [ElasticBeanstalkServiceException, InvalidRequestException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Terminates the specified environment.
- */export const terminateEnvironment = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.TerminateEnvironment" }, TerminateEnvironmentMessage, EnvironmentDescription, [InsufficientPrivilegesException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const terminateEnvironment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.TerminateEnvironment" }, TerminateEnvironmentMessage, EnvironmentDescription, [InsufficientPrivilegesException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);

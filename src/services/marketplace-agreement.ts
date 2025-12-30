@@ -78,7 +78,7 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
  * 
  * 
  * - `Configuration` – The buyer/acceptor's selection at the time of agreement creation, such as the number of units purchased for a dimension or setting the `EnableAutoRenew` flag.
- */export const getAgreementTerms = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-03-01", uri: "/", method: "POST", sdkId: "Marketplace Agreement", sigV4ServiceName: "aws-marketplace", name: "AWSMPCommerceService_v20200301.GetAgreementTerms" }, GetAgreementTermsInput, GetAgreementTermsOutput, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getAgreementTerms = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-03-01", uri: "/", method: "POST", sdkId: "Marketplace Agreement", sigV4ServiceName: "aws-marketplace", name: "AWSMPCommerceService_v20200301.GetAgreementTerms" }, GetAgreementTermsInput, GetAgreementTermsOutput, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Searches across all agreements that a proposer has in AWS Marketplace. The search returns a list of agreements with basic agreement information.
  * 
@@ -159,7 +159,7 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
  * 
  * 
  * To filter by `EndTime`, you can use either `BeforeEndTime` or `AfterEndTime`. Only `EndTime` is supported for sorting.
- */export const searchAgreements = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-03-01", uri: "/", method: "POST", sdkId: "Marketplace Agreement", sigV4ServiceName: "aws-marketplace", name: "AWSMPCommerceService_v20200301.SearchAgreements" }, SearchAgreementsInput, SearchAgreementsOutput, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const searchAgreements = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-03-01", uri: "/", method: "POST", sdkId: "Marketplace Agreement", sigV4ServiceName: "aws-marketplace", name: "AWSMPCommerceService_v20200301.SearchAgreements" }, SearchAgreementsInput, SearchAgreementsOutput, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Provides details about an agreement, such as the proposer, acceptor, start date, and end date.
- */export const describeAgreement = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-03-01", uri: "/", method: "POST", sdkId: "Marketplace Agreement", sigV4ServiceName: "aws-marketplace", name: "AWSMPCommerceService_v20200301.DescribeAgreement" }, DescribeAgreementInput, DescribeAgreementOutput, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeAgreement = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-03-01", uri: "/", method: "POST", sdkId: "Marketplace Agreement", sigV4ServiceName: "aws-marketplace", name: "AWSMPCommerceService_v20200301.DescribeAgreement" }, DescribeAgreementInput, DescribeAgreementOutput, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);

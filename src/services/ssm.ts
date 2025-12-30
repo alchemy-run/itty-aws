@@ -811,7 +811,7 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  * Changes the Identity and Access Management (IAM) role that is assigned to the
  * on-premises server, edge device, or virtual machines (VM). IAM roles are first
  * assigned to these hybrid nodes during the activation process. For more information, see CreateActivation.
- */export const updateManagedInstanceRole = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.UpdateManagedInstanceRole" }, UpdateManagedInstanceRoleRequest, UpdateManagedInstanceRoleResult, [InternalServerError, InvalidInstanceId]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateManagedInstanceRole = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.UpdateManagedInstanceRole" }, UpdateManagedInstanceRoleRequest, UpdateManagedInstanceRoleResult, [InternalServerError, InvalidInstanceId]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Adds or overwrites one or more tags for the specified resource. *Tags*
  * are metadata that you can assign to your automations, documents, managed nodes, maintenance
@@ -867,11 +867,11 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  * 
  * For more information about using tags with Amazon Elastic Compute Cloud (Amazon EC2) instances, see Tag your Amazon EC2
  * resources in the *Amazon EC2 User Guide*.
- */export const addTagsToResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.AddTagsToResource" }, AddTagsToResourceRequest, AddTagsToResourceResult, [InternalServerError, InvalidResourceId, InvalidResourceType, TooManyTagsError, TooManyUpdates]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const addTagsToResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.AddTagsToResource" }, AddTagsToResourceRequest, AddTagsToResourceResult, [InternalServerError, InvalidResourceId, InvalidResourceType, TooManyTagsError, TooManyUpdates]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Attempts to cancel the command specified by the Command ID. There is no guarantee that the
  * command will be terminated and the underlying process stopped.
- */export const cancelCommand = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.CancelCommand" }, CancelCommandRequest, CancelCommandResult, [DuplicateInstanceId, InternalServerError, InvalidCommandId, InvalidInstanceId]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const cancelCommand = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.CancelCommand" }, CancelCommandRequest, CancelCommandResult, [DuplicateInstanceId, InternalServerError, InvalidCommandId, InvalidInstanceId]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Disassociates the specified Amazon Web Services Systems Manager document (SSM document) from the specified managed
  * node. If you created the association by using the `Targets` parameter, then you must
@@ -882,10 +882,10 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  * the node. To change the configuration state of a managed node after you disassociate a document,
  * you must create a new document with the desired configuration and associate it with the
  * node.
- */export const deleteAssociation = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DeleteAssociation" }, DeleteAssociationRequest, DeleteAssociationResult, [AssociationDoesNotExist, InternalServerError, InvalidDocument, InvalidInstanceId, TooManyUpdates]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteAssociation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DeleteAssociation" }, DeleteAssociationRequest, DeleteAssociationResult, [AssociationDoesNotExist, InternalServerError, InvalidDocument, InvalidInstanceId, TooManyUpdates]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a maintenance window.
- */export const deleteMaintenanceWindow = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DeleteMaintenanceWindow" }, DeleteMaintenanceWindowRequest, DeleteMaintenanceWindowResult, [InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteMaintenanceWindow = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DeleteMaintenanceWindow" }, DeleteMaintenanceWindowRequest, DeleteMaintenanceWindowResult, [InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Delete an OpsItem. You must have permission in Identity and Access Management (IAM) to
  * delete an OpsItem.
@@ -919,15 +919,15 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  * cross-account administration. For more information about cross-account administration, see
  * Setting up
  * OpsCenter to centrally manage OpsItems across accounts in the *Systems Manager User Guide*.
- */export const deleteOpsItem = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DeleteOpsItem" }, DeleteOpsItemRequest, DeleteOpsItemResponse, [InternalServerError, OpsItemInvalidParameterException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteOpsItem = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DeleteOpsItem" }, DeleteOpsItemRequest, DeleteOpsItemResponse, [InternalServerError, OpsItemInvalidParameterException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Delete a parameter from the system. After deleting a parameter, wait for at least 30 seconds
  * to create a parameter with the same name.
- */export const deleteParameter = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DeleteParameter" }, DeleteParameterRequest, DeleteParameterResult, [InternalServerError, ParameterNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteParameter = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DeleteParameter" }, DeleteParameterRequest, DeleteParameterResult, [InternalServerError, ParameterNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Delete a list of parameters. After deleting a parameter, wait for at least 30 seconds to
  * create a parameter with the same name.
- */export const deleteParameters = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DeleteParameters" }, DeleteParametersRequest, DeleteParametersResult, [InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteParameters = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DeleteParameters" }, DeleteParametersRequest, DeleteParametersResult, [InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes the server or virtual machine from the list of registered servers.
  * 
@@ -938,13 +938,13 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  * activations specified when they were created. For more information, see Deregistering
  * managed nodes in a hybrid and multicloud environment in the
  * *Amazon Web Services Systems Manager User Guide*.
- */export const deregisterManagedInstance = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DeregisterManagedInstance" }, DeregisterManagedInstanceRequest, DeregisterManagedInstanceResult, [InternalServerError, InvalidInstanceId]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deregisterManagedInstance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DeregisterManagedInstance" }, DeregisterManagedInstanceRequest, DeregisterManagedInstanceResult, [InternalServerError, InvalidInstanceId]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes a patch group from a patch baseline.
- */export const deregisterPatchBaselineForPatchGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DeregisterPatchBaselineForPatchGroup" }, DeregisterPatchBaselineForPatchGroupRequest, DeregisterPatchBaselineForPatchGroupResult, [InternalServerError, InvalidResourceId]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deregisterPatchBaselineForPatchGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DeregisterPatchBaselineForPatchGroup" }, DeregisterPatchBaselineForPatchGroupRequest, DeregisterPatchBaselineForPatchGroupResult, [InternalServerError, InvalidResourceId]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes a task from a maintenance window.
- */export const deregisterTaskFromMaintenanceWindow = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DeregisterTaskFromMaintenanceWindow" }, DeregisterTaskFromMaintenanceWindowRequest, DeregisterTaskFromMaintenanceWindowResult, [DoesNotExistException, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deregisterTaskFromMaintenanceWindow = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DeregisterTaskFromMaintenanceWindow" }, DeregisterTaskFromMaintenanceWindowRequest, DeregisterTaskFromMaintenanceWindowResult, [DoesNotExistException, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns detailed information about command execution for an invocation or plugin. The Run
  * Command API follows an eventual consistency model, due to the distributed nature of the system
@@ -958,11 +958,11 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  * `GetCommandInvocation` only gives the execution status of a plugin in a document.
  * To get the command execution status on a specific managed node, use ListCommandInvocations. To get the command execution status across managed nodes,
  * use ListCommands.
- */export const getCommandInvocation = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.GetCommandInvocation" }, GetCommandInvocationRequest, GetCommandInvocationResult, [InternalServerError, InvalidCommandId, InvalidInstanceId, InvalidPluginName, InvocationDoesNotExist]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getCommandInvocation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.GetCommandInvocation" }, GetCommandInvocationRequest, GetCommandInvocationResult, [InternalServerError, InvalidCommandId, InvalidInstanceId, InvalidPluginName, InvocationDoesNotExist]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the Session Manager connection status for a managed node to determine whether it is running
  * and ready to receive Session Manager connections.
- */export const getConnectionStatus = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.GetConnectionStatus" }, GetConnectionStatusRequest, GetConnectionStatusResponse, [InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getConnectionStatus = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.GetConnectionStatus" }, GetConnectionStatusRequest, GetConnectionStatusResponse, [InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the default patch baseline. Amazon Web Services Systems Manager supports creating multiple default patch
  * baselines. For example, you can create a default patch baseline for each operating system.
@@ -970,16 +970,16 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  * 
  * If you don't specify an operating system value, the default patch baseline for Windows is
  * returned.
- */export const getDefaultPatchBaseline = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.GetDefaultPatchBaseline" }, GetDefaultPatchBaselineRequest, GetDefaultPatchBaselineResult, [InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getDefaultPatchBaseline = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.GetDefaultPatchBaseline" }, GetDefaultPatchBaselineRequest, GetDefaultPatchBaselineResult, [InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves a maintenance window.
- */export const getMaintenanceWindow = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.GetMaintenanceWindow" }, GetMaintenanceWindowRequest, GetMaintenanceWindowResult, [DoesNotExistException, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getMaintenanceWindow = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.GetMaintenanceWindow" }, GetMaintenanceWindowRequest, GetMaintenanceWindowResult, [DoesNotExistException, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves details about a specific a maintenance window execution.
- */export const getMaintenanceWindowExecution = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.GetMaintenanceWindowExecution" }, GetMaintenanceWindowExecutionRequest, GetMaintenanceWindowExecutionResult, [DoesNotExistException, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getMaintenanceWindowExecution = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.GetMaintenanceWindowExecution" }, GetMaintenanceWindowExecutionRequest, GetMaintenanceWindowExecutionResult, [DoesNotExistException, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves information about a specific task running on a specific target.
- */export const getMaintenanceWindowExecutionTaskInvocation = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.GetMaintenanceWindowExecutionTaskInvocation" }, GetMaintenanceWindowExecutionTaskInvocationRequest, GetMaintenanceWindowExecutionTaskInvocationResult, [DoesNotExistException, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getMaintenanceWindowExecutionTaskInvocation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.GetMaintenanceWindowExecutionTaskInvocation" }, GetMaintenanceWindowExecutionTaskInvocationRequest, GetMaintenanceWindowExecutionTaskInvocationResult, [DoesNotExistException, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the details of a maintenance window task.
  * 
@@ -995,22 +995,22 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  * 
  * 
  * To retrieve a list of tasks in a maintenance window, instead use the DescribeMaintenanceWindowTasks command.
- */export const getMaintenanceWindowTask = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.GetMaintenanceWindowTask" }, GetMaintenanceWindowTaskRequest, GetMaintenanceWindowTaskResult, [DoesNotExistException, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getMaintenanceWindowTask = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.GetMaintenanceWindowTask" }, GetMaintenanceWindowTaskRequest, GetMaintenanceWindowTaskResult, [DoesNotExistException, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * View operational metadata related to an application in Application Manager.
- */export const getOpsMetadata = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.GetOpsMetadata" }, GetOpsMetadataRequest, GetOpsMetadataResult, [InternalServerError, OpsMetadataInvalidArgumentException, OpsMetadataNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getOpsMetadata = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.GetOpsMetadata" }, GetOpsMetadataRequest, GetOpsMetadataResult, [InternalServerError, OpsMetadataInvalidArgumentException, OpsMetadataNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves information about a patch baseline.
- */export const getPatchBaseline = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.GetPatchBaseline" }, GetPatchBaselineRequest, GetPatchBaselineResult, [DoesNotExistException, InternalServerError, InvalidResourceId]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getPatchBaseline = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.GetPatchBaseline" }, GetPatchBaselineRequest, GetPatchBaselineResult, [DoesNotExistException, InternalServerError, InvalidResourceId]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the patch baseline that should be used for the specified patch group.
- */export const getPatchBaselineForPatchGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.GetPatchBaselineForPatchGroup" }, GetPatchBaselineForPatchGroupRequest, GetPatchBaselineForPatchGroupResult, [InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getPatchBaselineForPatchGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.GetPatchBaselineForPatchGroup" }, GetPatchBaselineForPatchGroupRequest, GetPatchBaselineForPatchGroupResult, [InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of the tags assigned to the specified resource.
  * 
  * 
  * For information about the ID format for each supported resource type, see AddTagsToResource.
- */export const listTagsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResult, [InternalServerError, InvalidResourceId, InvalidResourceType]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResult, [InternalServerError, InvalidResourceId, InvalidResourceType]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Defines the default patch baseline for the relevant operating system.
  * 
@@ -1019,10 +1019,10 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  * Amazon Resource Name (ARN) as the baseline ID value. For example, for CentOS, specify
  * `arn:aws:ssm:us-east-2:733109147000:patchbaseline/pb-0574b43a65ea646ed` instead of
  * `pb-0574b43a65ea646ed`.
- */export const registerDefaultPatchBaseline = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.RegisterDefaultPatchBaseline" }, RegisterDefaultPatchBaselineRequest, RegisterDefaultPatchBaselineResult, [DoesNotExistException, InternalServerError, InvalidResourceId]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const registerDefaultPatchBaseline = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.RegisterDefaultPatchBaseline" }, RegisterDefaultPatchBaselineRequest, RegisterDefaultPatchBaselineResult, [DoesNotExistException, InternalServerError, InvalidResourceId]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes tag keys from the specified resource.
- */export const removeTagsFromResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.RemoveTagsFromResource" }, RemoveTagsFromResourceRequest, RemoveTagsFromResourceResult, [InternalServerError, InvalidResourceId, InvalidResourceType, TooManyUpdates]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const removeTagsFromResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.RemoveTagsFromResource" }, RemoveTagsFromResourceRequest, RemoveTagsFromResourceResult, [InternalServerError, InvalidResourceId, InvalidResourceType, TooManyUpdates]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * `ServiceSetting` is an account-level setting for an Amazon Web Services service. This setting
  * defines how a user interacts with or uses a service or a feature of a service. For example, if an
@@ -1042,7 +1042,7 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  * 
  * Reset the service setting for the account to the default value as provisioned by the Amazon Web Services
  * service team.
- */export const resetServiceSetting = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.ResetServiceSetting" }, ResetServiceSettingRequest, ResetServiceSettingResult, [InternalServerError, ServiceSettingNotFound, TooManyUpdates]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const resetServiceSetting = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.ResetServiceSetting" }, ResetServiceSettingRequest, ResetServiceSettingResult, [InternalServerError, ServiceSettingNotFound, TooManyUpdates]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Reconnects a session to a managed node after it has been disconnected. Connections can be
  * resumed for disconnected sessions, but not terminated sessions.
@@ -1052,15 +1052,15 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  * 
  * This command is primarily for use by client machines to automatically reconnect during
  * intermittent network issues. It isn't intended for any other use.
- */export const resumeSession = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.ResumeSession" }, ResumeSessionRequest, ResumeSessionResponse, [DoesNotExistException, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const resumeSession = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.ResumeSession" }, ResumeSessionRequest, ResumeSessionResponse, [DoesNotExistException, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Runs an association immediately and only one time. This operation can be helpful when
  * troubleshooting associations.
- */export const startAssociationsOnce = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.StartAssociationsOnce" }, StartAssociationsOnceRequest, StartAssociationsOnceResult, [AssociationDoesNotExist, InvalidAssociation]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startAssociationsOnce = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.StartAssociationsOnce" }, StartAssociationsOnceRequest, StartAssociationsOnceResult, [AssociationDoesNotExist, InvalidAssociation]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Permanently ends a session and closes the data connection between the Session Manager client and
  * SSM Agent on the managed node. A terminated session can't be resumed.
- */export const terminateSession = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.TerminateSession" }, TerminateSessionRequest, TerminateSessionResponse, [InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const terminateSession = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.TerminateSession" }, TerminateSessionRequest, TerminateSessionResponse, [InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates an existing maintenance window. Only specified parameters are modified.
  * 
@@ -1073,7 +1073,7 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  * For example, if the maintenance window starts at 3 PM, the duration is three hours, and the
  * value you specify for `Cutoff` is one hour, no maintenance window tasks can start
  * after 5 PM.
- */export const updateMaintenanceWindow = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.UpdateMaintenanceWindow" }, UpdateMaintenanceWindowRequest, UpdateMaintenanceWindowResult, [DoesNotExistException, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateMaintenanceWindow = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.UpdateMaintenanceWindow" }, UpdateMaintenanceWindowRequest, UpdateMaintenanceWindowResult, [DoesNotExistException, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Modifies the target of an existing maintenance window. You
  * can change the following:
@@ -1110,7 +1110,7 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  * 
  * 
  * If a parameter is null, then the corresponding field isn't modified.
- */export const updateMaintenanceWindowTarget = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.UpdateMaintenanceWindowTarget" }, UpdateMaintenanceWindowTargetRequest, UpdateMaintenanceWindowTargetResult, [DoesNotExistException, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateMaintenanceWindowTarget = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.UpdateMaintenanceWindowTarget" }, UpdateMaintenanceWindowTargetRequest, UpdateMaintenanceWindowTargetResult, [DoesNotExistException, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Modifies a task assigned to a maintenance window. You can't change the task type, but you
  * can change the following values:
@@ -1177,7 +1177,7 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  * `NotificationConfig`, and `OutputS3BucketName`. If you update the
  * maintenance window task and specify only a different `OutputS3BucketName` value, the
  * values for `Comment` and `NotificationConfig` are removed.
- */export const updateMaintenanceWindowTask = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.UpdateMaintenanceWindowTask" }, UpdateMaintenanceWindowTaskRequest, UpdateMaintenanceWindowTaskResult, [DoesNotExistException, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateMaintenanceWindowTask = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.UpdateMaintenanceWindowTask" }, UpdateMaintenanceWindowTaskRequest, UpdateMaintenanceWindowTaskResult, [DoesNotExistException, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Modifies an existing patch baseline. Fields not specified in the request are left
  * unchanged.
@@ -1187,7 +1187,7 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  * 
  * For information about valid key-value pairs in `PatchFilters` for each supported
  * operating system type, see PatchFilter.
- */export const updatePatchBaseline = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.UpdatePatchBaseline" }, UpdatePatchBaselineRequest, UpdatePatchBaselineResult, [DoesNotExistException, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updatePatchBaseline = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.UpdatePatchBaseline" }, UpdatePatchBaselineRequest, UpdatePatchBaselineResult, [DoesNotExistException, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Update a resource data sync. After you create a resource data sync for a Region, you can't
  * change the account options for that sync. For example, if you create a sync in the us-east-2
@@ -1201,7 +1201,7 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  * 
  * This API operation only supports a resource data sync that was created with a
  * SyncFromSource `SyncType`.
- */export const updateResourceDataSync = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.UpdateResourceDataSync" }, UpdateResourceDataSyncRequest, UpdateResourceDataSyncResult, [InternalServerError, ResourceDataSyncConflictException, ResourceDataSyncInvalidConfigurationException, ResourceDataSyncNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateResourceDataSync = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.UpdateResourceDataSync" }, UpdateResourceDataSyncRequest, UpdateResourceDataSyncResult, [InternalServerError, ResourceDataSyncConflictException, ResourceDataSyncInvalidConfigurationException, ResourceDataSyncNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * `ServiceSetting` is an account-level setting for an Amazon Web Services service. This setting
  * defines how a user interacts with or uses a service or a feature of a service. For example, if an
@@ -1220,12 +1220,12 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  * 
  * 
  * Update the service setting for the account.
- */export const updateServiceSetting = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.UpdateServiceSetting" }, UpdateServiceSettingRequest, UpdateServiceSettingResult, [InternalServerError, ServiceSettingNotFound, TooManyUpdates]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateServiceSetting = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.UpdateServiceSetting" }, UpdateServiceSettingRequest, UpdateServiceSettingResult, [InternalServerError, ServiceSettingNotFound, TooManyUpdates]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Stops a maintenance window execution that is already in progress and cancels any tasks in
  * the window that haven't already starting running. Tasks already in progress will continue to
  * completion.
- */export const cancelMaintenanceWindowExecution = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.CancelMaintenanceWindowExecution" }, CancelMaintenanceWindowExecutionRequest, CancelMaintenanceWindowExecutionResult, [DoesNotExistException, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const cancelMaintenanceWindowExecution = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.CancelMaintenanceWindowExecution" }, CancelMaintenanceWindowExecutionRequest, CancelMaintenanceWindowExecutionResult, [DoesNotExistException, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new maintenance window.
  * 
@@ -1238,33 +1238,33 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  * For example, if the maintenance window starts at 3 PM, the duration is three hours, and the
  * value you specify for `Cutoff` is one hour, no maintenance window tasks can start
  * after 5 PM.
- */export const createMaintenanceWindow = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.CreateMaintenanceWindow" }, CreateMaintenanceWindowRequest, CreateMaintenanceWindowResult, [IdempotentParameterMismatch, InternalServerError, ResourceLimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createMaintenanceWindow = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.CreateMaintenanceWindow" }, CreateMaintenanceWindowRequest, CreateMaintenanceWindowResult, [IdempotentParameterMismatch, InternalServerError, ResourceLimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes an activation. You aren't required to delete an activation. If you delete an
  * activation, you can no longer use it to register additional managed nodes. Deleting an activation
  * doesn't de-register managed nodes. You must manually de-register managed nodes.
- */export const deleteActivation = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DeleteActivation" }, DeleteActivationRequest, DeleteActivationResult, [InternalServerError, InvalidActivation, InvalidActivationId, TooManyUpdates]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteActivation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DeleteActivation" }, DeleteActivationRequest, DeleteActivationResult, [InternalServerError, InvalidActivation, InvalidActivationId, TooManyUpdates]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the Amazon Web Services Systems Manager document (SSM document) and all managed node associations to the
  * document.
  * 
  * 
  * Before you delete the document, we recommend that you use DeleteAssociation to disassociate all managed nodes that are associated with the document.
- */export const deleteDocument = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DeleteDocument" }, DeleteDocumentRequest, DeleteDocumentResult, [AssociatedInstances, InternalServerError, InvalidDocument, InvalidDocumentOperation, TooManyUpdates]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteDocument = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DeleteDocument" }, DeleteDocumentRequest, DeleteDocumentResult, [AssociatedInstances, InternalServerError, InvalidDocument, InvalidDocumentOperation, TooManyUpdates]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Delete OpsMetadata related to an application.
- */export const deleteOpsMetadata = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DeleteOpsMetadata" }, DeleteOpsMetadataRequest, DeleteOpsMetadataResult, [InternalServerError, OpsMetadataInvalidArgumentException, OpsMetadataNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteOpsMetadata = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DeleteOpsMetadata" }, DeleteOpsMetadataRequest, DeleteOpsMetadataResult, [InternalServerError, OpsMetadataInvalidArgumentException, OpsMetadataNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a patch baseline.
- */export const deletePatchBaseline = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DeletePatchBaseline" }, DeletePatchBaselineRequest, DeletePatchBaselineResult, [InternalServerError, ResourceInUseException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deletePatchBaseline = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DeletePatchBaseline" }, DeletePatchBaselineRequest, DeletePatchBaselineResult, [InternalServerError, ResourceInUseException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a resource data sync configuration. After the configuration is deleted, changes to
  * data on managed nodes are no longer synced to or from the target. Deleting a sync configuration
  * doesn't delete data.
- */export const deleteResourceDataSync = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DeleteResourceDataSync" }, DeleteResourceDataSyncRequest, DeleteResourceDataSyncResult, [InternalServerError, ResourceDataSyncInvalidConfigurationException, ResourceDataSyncNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteResourceDataSync = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DeleteResourceDataSync" }, DeleteResourceDataSyncRequest, DeleteResourceDataSyncResult, [InternalServerError, ResourceDataSyncInvalidConfigurationException, ResourceDataSyncNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes a target from a maintenance window.
- */export const deregisterTargetFromMaintenanceWindow = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DeregisterTargetFromMaintenanceWindow" }, DeregisterTargetFromMaintenanceWindowRequest, DeregisterTargetFromMaintenanceWindowResult, [DoesNotExistException, InternalServerError, TargetInUseException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deregisterTargetFromMaintenanceWindow = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DeregisterTargetFromMaintenanceWindow" }, DeregisterTargetFromMaintenanceWindowRequest, DeregisterTargetFromMaintenanceWindowResult, [DoesNotExistException, InternalServerError, TargetInUseException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists all patches eligible to be included in a patch baseline.
  * 
@@ -1273,41 +1273,41 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  * 
  * Currently, `DescribeAvailablePatches` supports only the Amazon Linux 1, Amazon
  * Linux 2, and Windows Server operating systems.
- */export const describeAvailablePatches = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DescribeAvailablePatches" }, DescribeAvailablePatchesRequest, DescribeAvailablePatchesResult, [InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeAvailablePatches = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DescribeAvailablePatches" }, DescribeAvailablePatchesRequest, DescribeAvailablePatchesResult, [InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * All associations for the managed nodes.
- */export const describeEffectiveInstanceAssociations = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DescribeEffectiveInstanceAssociations" }, DescribeEffectiveInstanceAssociationsRequest, DescribeEffectiveInstanceAssociationsResult, [InternalServerError, InvalidInstanceId, InvalidNextToken]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeEffectiveInstanceAssociations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DescribeEffectiveInstanceAssociations" }, DescribeEffectiveInstanceAssociationsRequest, DescribeEffectiveInstanceAssociationsResult, [InternalServerError, InvalidInstanceId, InvalidNextToken]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves information about the patches on the specified managed node and their state
  * relative to the patch baseline being used for the node.
- */export const describeInstancePatches = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DescribeInstancePatches" }, DescribeInstancePatchesRequest, DescribeInstancePatchesResult, [InternalServerError, InvalidFilter, InvalidInstanceId, InvalidNextToken]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeInstancePatches = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DescribeInstancePatches" }, DescribeInstancePatchesRequest, DescribeInstancePatchesResult, [InternalServerError, InvalidFilter, InvalidInstanceId, InvalidNextToken]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the high-level patch state of one or more managed nodes.
- */export const describeInstancePatchStates = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DescribeInstancePatchStates" }, DescribeInstancePatchStatesRequest, DescribeInstancePatchStatesResult, [InternalServerError, InvalidNextToken]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeInstancePatchStates = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DescribeInstancePatchStates" }, DescribeInstancePatchStatesRequest, DescribeInstancePatchStatesResult, [InternalServerError, InvalidNextToken]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the high-level patch state for the managed nodes in the specified patch
  * group.
- */export const describeInstancePatchStatesForPatchGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DescribeInstancePatchStatesForPatchGroup" }, DescribeInstancePatchStatesForPatchGroupRequest, DescribeInstancePatchStatesForPatchGroupResult, [InternalServerError, InvalidFilter, InvalidNextToken]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeInstancePatchStatesForPatchGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DescribeInstancePatchStatesForPatchGroup" }, DescribeInstancePatchStatesForPatchGroupRequest, DescribeInstancePatchStatesForPatchGroupResult, [InternalServerError, InvalidFilter, InvalidNextToken]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the individual task executions (one per target) for a particular task run as part
  * of a maintenance window execution.
- */export const describeMaintenanceWindowExecutionTaskInvocations = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DescribeMaintenanceWindowExecutionTaskInvocations" }, DescribeMaintenanceWindowExecutionTaskInvocationsRequest, DescribeMaintenanceWindowExecutionTaskInvocationsResult, [DoesNotExistException, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeMaintenanceWindowExecutionTaskInvocations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DescribeMaintenanceWindowExecutionTaskInvocations" }, DescribeMaintenanceWindowExecutionTaskInvocationsRequest, DescribeMaintenanceWindowExecutionTaskInvocationsResult, [DoesNotExistException, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * For a given maintenance window execution, lists the tasks that were run.
- */export const describeMaintenanceWindowExecutionTasks = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DescribeMaintenanceWindowExecutionTasks" }, DescribeMaintenanceWindowExecutionTasksRequest, DescribeMaintenanceWindowExecutionTasksResult, [DoesNotExistException, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeMaintenanceWindowExecutionTasks = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DescribeMaintenanceWindowExecutionTasks" }, DescribeMaintenanceWindowExecutionTasksRequest, DescribeMaintenanceWindowExecutionTasksResult, [DoesNotExistException, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the maintenance windows in an Amazon Web Services account.
- */export const describeMaintenanceWindows = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DescribeMaintenanceWindows" }, DescribeMaintenanceWindowsRequest, DescribeMaintenanceWindowsResult, [InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeMaintenanceWindows = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DescribeMaintenanceWindows" }, DescribeMaintenanceWindowsRequest, DescribeMaintenanceWindowsResult, [InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves information about upcoming executions of a maintenance window.
- */export const describeMaintenanceWindowSchedule = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DescribeMaintenanceWindowSchedule" }, DescribeMaintenanceWindowScheduleRequest, DescribeMaintenanceWindowScheduleResult, [DoesNotExistException, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeMaintenanceWindowSchedule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DescribeMaintenanceWindowSchedule" }, DescribeMaintenanceWindowScheduleRequest, DescribeMaintenanceWindowScheduleResult, [DoesNotExistException, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves information about the maintenance window targets or tasks that a managed node is
  * associated with.
- */export const describeMaintenanceWindowsForTarget = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DescribeMaintenanceWindowsForTarget" }, DescribeMaintenanceWindowsForTargetRequest, DescribeMaintenanceWindowsForTargetResult, [InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeMaintenanceWindowsForTarget = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DescribeMaintenanceWindowsForTarget" }, DescribeMaintenanceWindowsForTargetRequest, DescribeMaintenanceWindowsForTargetResult, [InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the targets registered with the maintenance window.
- */export const describeMaintenanceWindowTargets = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DescribeMaintenanceWindowTargets" }, DescribeMaintenanceWindowTargetsRequest, DescribeMaintenanceWindowTargetsResult, [DoesNotExistException, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeMaintenanceWindowTargets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DescribeMaintenanceWindowTargets" }, DescribeMaintenanceWindowTargetsRequest, DescribeMaintenanceWindowTargetsResult, [DoesNotExistException, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the tasks in a maintenance window.
  * 
@@ -1318,16 +1318,16 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  * `--max-errors` and `--max-concurrency`. Instead, the system inserts a
  * placeholder value of `1`, which may be reported in the response to this command.
  * These values don't affect the running of your task and can be ignored.
- */export const describeMaintenanceWindowTasks = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DescribeMaintenanceWindowTasks" }, DescribeMaintenanceWindowTasksRequest, DescribeMaintenanceWindowTasksResult, [DoesNotExistException, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeMaintenanceWindowTasks = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DescribeMaintenanceWindowTasks" }, DescribeMaintenanceWindowTasksRequest, DescribeMaintenanceWindowTasksResult, [DoesNotExistException, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the patch baselines in your Amazon Web Services account.
- */export const describePatchBaselines = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DescribePatchBaselines" }, DescribePatchBaselinesRequest, DescribePatchBaselinesResult, [InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describePatchBaselines = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DescribePatchBaselines" }, DescribePatchBaselinesRequest, DescribePatchBaselinesResult, [InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists all patch groups that have been registered with patch baselines.
- */export const describePatchGroups = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DescribePatchGroups" }, DescribePatchGroupsRequest, DescribePatchGroupsResult, [InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describePatchGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DescribePatchGroups" }, DescribePatchGroupsRequest, DescribePatchGroupsResult, [InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns high-level aggregated patch compliance state information for a patch group.
- */export const describePatchGroupState = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DescribePatchGroupState" }, DescribePatchGroupStateRequest, DescribePatchGroupStateResult, [InternalServerError, InvalidNextToken]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describePatchGroupState = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DescribePatchGroupState" }, DescribePatchGroupStateRequest, DescribePatchGroupStateResult, [InternalServerError, InvalidNextToken]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the properties of available patches organized by product, product family,
  * classification, severity, and other properties of available patches. You can use the reported
@@ -1452,11 +1452,11 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  * 
  * Valid properties: `PRODUCT` | `PRODUCT_FAMILY` |
  * `CLASSIFICATION` | `MSRC_SEVERITY`
- */export const describePatchProperties = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DescribePatchProperties" }, DescribePatchPropertiesRequest, DescribePatchPropertiesResult, [InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describePatchProperties = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DescribePatchProperties" }, DescribePatchPropertiesRequest, DescribePatchPropertiesResult, [InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the details about a specific task run as part of a maintenance window
  * execution.
- */export const getMaintenanceWindowExecutionTask = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.GetMaintenanceWindowExecutionTask" }, GetMaintenanceWindowExecutionTaskRequest, GetMaintenanceWindowExecutionTaskResult, [DoesNotExistException, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getMaintenanceWindowExecutionTask = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.GetMaintenanceWindowExecutionTask" }, GetMaintenanceWindowExecutionTaskRequest, GetMaintenanceWindowExecutionTaskResult, [DoesNotExistException, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Get information about an OpsItem by using the ID. You must have permission in Identity and Access Management (IAM) to view information about an OpsItem. For more information,
  * see Set
@@ -1467,7 +1467,7 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  * remediate operational issues impacting the performance and health of their Amazon Web Services resources. For
  * more information, see Amazon Web Services Systems Manager OpsCenter in the
  * *Amazon Web Services Systems Manager User Guide*.
- */export const getOpsItem = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.GetOpsItem" }, GetOpsItemRequest, GetOpsItemResponse, [InternalServerError, OpsItemAccessDeniedException, OpsItemNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getOpsItem = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.GetOpsItem" }, GetOpsItemRequest, GetOpsItemResponse, [InternalServerError, OpsItemAccessDeniedException, OpsItemNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Get information about a single parameter by specifying the parameter name.
  * 
@@ -1480,7 +1480,7 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  * 
  * 
  * To get information about more than one parameter at a time, use the GetParameters operation.
- */export const getParameter = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.GetParameter" }, GetParameterRequest, GetParameterResult, [InternalServerError, InvalidKeyId, ParameterNotFound, ParameterVersionNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getParameter = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.GetParameter" }, GetParameterRequest, GetParameterResult, [InternalServerError, InvalidKeyId, ParameterNotFound, ParameterVersionNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Get information about one or more parameters by specifying multiple parameter names.
  * 
@@ -1496,7 +1496,7 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  * Parameter names can't contain spaces. The service removes any spaces specified for the
  * beginning or end of a parameter name. If the specified name for a parameter contains spaces
  * between characters, the request fails with a `ValidationException` error.
- */export const getParameters = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.GetParameters" }, GetParametersRequest, GetParametersResult, [InternalServerError, InvalidKeyId]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getParameters = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.GetParameters" }, GetParametersRequest, GetParametersResult, [InternalServerError, InvalidKeyId]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieve information about one or more parameters under a specified level in a hierarchy.
  * 
@@ -1512,10 +1512,10 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  * Parameter names can't contain spaces. The service removes any spaces specified for the
  * beginning or end of a parameter name. If the specified name for a parameter contains spaces
  * between characters, the request fails with a `ValidationException` error.
- */export const getParametersByPath = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.GetParametersByPath" }, GetParametersByPathRequest, GetParametersByPathResult, [InternalServerError, InvalidFilterKey, InvalidFilterOption, InvalidFilterValue, InvalidKeyId, InvalidNextToken]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getParametersByPath = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.GetParametersByPath" }, GetParametersByPathRequest, GetParametersByPathResult, [InternalServerError, InvalidFilterKey, InvalidFilterOption, InvalidFilterValue, InvalidKeyId, InvalidNextToken]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns an array of the `Policy` object.
- */export const getResourcePolicies = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.GetResourcePolicies" }, GetResourcePoliciesRequest, GetResourcePoliciesResponse, [InternalServerError, ResourceNotFoundException, ResourcePolicyInvalidParameterException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getResourcePolicies = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.GetResourcePolicies" }, GetResourcePoliciesRequest, GetResourcePoliciesResponse, [InternalServerError, ResourceNotFoundException, ResourcePolicyInvalidParameterException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * `ServiceSetting` is an account-level setting for an Amazon Web Services service. This setting
  * defines how a user interacts with or uses a service or a feature of a service. For example, if an
@@ -1534,7 +1534,7 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  * 
  * 
  * Query the current service setting for the Amazon Web Services account.
- */export const getServiceSetting = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.GetServiceSetting" }, GetServiceSettingRequest, GetServiceSettingResult, [InternalServerError, ServiceSettingNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getServiceSetting = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.GetServiceSetting" }, GetServiceSettingRequest, GetServiceSettingResult, [InternalServerError, ServiceSettingNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * A parameter label is a user-defined alias to help you manage different versions of a
  * parameter. When you modify a parameter, Amazon Web Services Systems Manager automatically saves a new version and
@@ -1587,36 +1587,36 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  * - Parameter names can't contain spaces. The service removes any spaces specified for
  * the beginning or end of a parameter name. If the specified name for a parameter contains spaces
  * between characters, the request fails with a `ValidationException` error.
- */export const labelParameterVersion = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.LabelParameterVersion" }, LabelParameterVersionRequest, LabelParameterVersionResult, [InternalServerError, ParameterNotFound, ParameterVersionLabelLimitExceeded, ParameterVersionNotFound, TooManyUpdates]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const labelParameterVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.LabelParameterVersion" }, LabelParameterVersionRequest, LabelParameterVersionResult, [InternalServerError, ParameterNotFound, ParameterVersionLabelLimitExceeded, ParameterVersionNotFound, TooManyUpdates]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves all versions of an association for a specific association ID.
- */export const listAssociationVersions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.ListAssociationVersions" }, ListAssociationVersionsRequest, ListAssociationVersionsResult, [AssociationDoesNotExist, InternalServerError, InvalidNextToken]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listAssociationVersions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.ListAssociationVersions" }, ListAssociationVersionsRequest, ListAssociationVersionsResult, [AssociationDoesNotExist, InternalServerError, InvalidNextToken]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the commands requested by users of the Amazon Web Services account.
- */export const listCommands = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.ListCommands" }, ListCommandsRequest, ListCommandsResult, [InternalServerError, InvalidCommandId, InvalidFilterKey, InvalidInstanceId, InvalidNextToken]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listCommands = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.ListCommands" }, ListCommandsRequest, ListCommandsResult, [InternalServerError, InvalidCommandId, InvalidFilterKey, InvalidInstanceId, InvalidNextToken]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * List all versions for a document.
- */export const listDocumentVersions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.ListDocumentVersions" }, ListDocumentVersionsRequest, ListDocumentVersionsResult, [InternalServerError, InvalidDocument, InvalidNextToken]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listDocumentVersions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.ListDocumentVersions" }, ListDocumentVersionsRequest, ListDocumentVersionsResult, [InternalServerError, InvalidDocument, InvalidNextToken]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a resource-level summary count. The summary includes information about compliant and
  * non-compliant statuses and detailed compliance-item severity counts, according to the filter
  * criteria you specify.
- */export const listResourceComplianceSummaries = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.ListResourceComplianceSummaries" }, ListResourceComplianceSummariesRequest, ListResourceComplianceSummariesResult, [InternalServerError, InvalidFilter, InvalidNextToken]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listResourceComplianceSummaries = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.ListResourceComplianceSummaries" }, ListResourceComplianceSummariesRequest, ListResourceComplianceSummariesResult, [InternalServerError, InvalidFilter, InvalidNextToken]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Shares a Amazon Web Services Systems Manager document (SSM document)publicly or privately. If you share a document
  * privately, you must specify the Amazon Web Services user IDs for those people who can use the document. If
  * you share a document publicly, you must specify *All* as the account
  * ID.
- */export const modifyDocumentPermission = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.ModifyDocumentPermission" }, ModifyDocumentPermissionRequest, ModifyDocumentPermissionResponse, [DocumentLimitExceeded, DocumentPermissionLimit, InternalServerError, InvalidDocument, InvalidPermissionType]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const modifyDocumentPermission = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.ModifyDocumentPermission" }, ModifyDocumentPermissionRequest, ModifyDocumentPermissionResponse, [DocumentLimitExceeded, DocumentPermissionLimit, InternalServerError, InvalidDocument, InvalidPermissionType]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Registers a patch baseline for a patch group.
- */export const registerPatchBaselineForPatchGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.RegisterPatchBaselineForPatchGroup" }, RegisterPatchBaselineForPatchGroupRequest, RegisterPatchBaselineForPatchGroupResult, [AlreadyExistsException, DoesNotExistException, InternalServerError, InvalidResourceId, ResourceLimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const registerPatchBaselineForPatchGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.RegisterPatchBaselineForPatchGroup" }, RegisterPatchBaselineForPatchGroupRequest, RegisterPatchBaselineForPatchGroupResult, [AlreadyExistsException, DoesNotExistException, InternalServerError, InvalidResourceId, ResourceLimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Registers a target with a maintenance window.
- */export const registerTargetWithMaintenanceWindow = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.RegisterTargetWithMaintenanceWindow" }, RegisterTargetWithMaintenanceWindowRequest, RegisterTargetWithMaintenanceWindowResult, [DoesNotExistException, IdempotentParameterMismatch, InternalServerError, ResourceLimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const registerTargetWithMaintenanceWindow = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.RegisterTargetWithMaintenanceWindow" }, RegisterTargetWithMaintenanceWindowRequest, RegisterTargetWithMaintenanceWindowResult, [DoesNotExistException, IdempotentParameterMismatch, InternalServerError, ResourceLimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Stop an Automation that is currently running.
- */export const stopAutomationExecution = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.StopAutomationExecution" }, StopAutomationExecutionRequest, StopAutomationExecutionResult, [AutomationExecutionNotFoundException, InternalServerError, InvalidAutomationStatusUpdateException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const stopAutomationExecution = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.StopAutomationExecution" }, StopAutomationExecutionRequest, StopAutomationExecutionResult, [AutomationExecutionNotFoundException, InternalServerError, InvalidAutomationStatusUpdateException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Remove a label or labels from a parameter.
  * 
@@ -1624,7 +1624,7 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  * Parameter names can't contain spaces. The service removes any spaces specified for the
  * beginning or end of a parameter name. If the specified name for a parameter contains spaces
  * between characters, the request fails with a `ValidationException` error.
- */export const unlabelParameterVersion = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.UnlabelParameterVersion" }, UnlabelParameterVersionRequest, UnlabelParameterVersionResult, [InternalServerError, ParameterNotFound, ParameterVersionNotFound, TooManyUpdates]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const unlabelParameterVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.UnlabelParameterVersion" }, UnlabelParameterVersionRequest, UnlabelParameterVersionResult, [InternalServerError, ParameterNotFound, ParameterVersionNotFound, TooManyUpdates]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the status of the Amazon Web Services Systems Manager document (SSM document) associated with the specified
  * managed node.
@@ -1634,7 +1634,7 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  * `UpdateAssociationStatus` is primarily used by the Amazon Web Services Systems Manager Agent (SSM Agent) to
  * report status updates about your associations and is only used for associations created with the
  * `InstanceId` legacy parameter.
- */export const updateAssociationStatus = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.UpdateAssociationStatus" }, UpdateAssociationStatusRequest, UpdateAssociationStatusResult, [AssociationDoesNotExist, InternalServerError, InvalidDocument, InvalidInstanceId, StatusUnchanged, TooManyUpdates]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateAssociationStatus = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.UpdateAssociationStatus" }, UpdateAssociationStatusRequest, UpdateAssociationStatusResult, [AssociationDoesNotExist, InternalServerError, InvalidDocument, InvalidInstanceId, StatusUnchanged, TooManyUpdates]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Amazon Web Services Systems Manager Change Manager will no longer be open to new
  * customers starting November 7, 2025. If you would like to use Change Manager, sign up prior to that date. Existing customers can
@@ -1646,7 +1646,7 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  * 
  * Updates information related to approval reviews for a specific version of a change template
  * in Change Manager.
- */export const updateDocumentMetadata = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.UpdateDocumentMetadata" }, UpdateDocumentMetadataRequest, UpdateDocumentMetadataResponse, [InternalServerError, InvalidDocument, InvalidDocumentOperation, InvalidDocumentVersion, TooManyUpdates]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateDocumentMetadata = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.UpdateDocumentMetadata" }, UpdateDocumentMetadataRequest, UpdateDocumentMetadataResponse, [InternalServerError, InvalidDocument, InvalidDocumentOperation, InvalidDocumentVersion, TooManyUpdates]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Edit or change an OpsItem. You must have permission in Identity and Access Management (IAM) to update an OpsItem. For more information, see Set up OpsCenter in the
  * *Amazon Web Services Systems Manager User Guide*.
@@ -1656,12 +1656,12 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  * remediate operational issues impacting the performance and health of their Amazon Web Services resources. For
  * more information, see Amazon Web Services Systems Manager OpsCenter in the
  * *Amazon Web Services Systems Manager User Guide*.
- */export const updateOpsItem = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.UpdateOpsItem" }, UpdateOpsItemRequest, UpdateOpsItemResponse, [InternalServerError, OpsItemAccessDeniedException, OpsItemAlreadyExistsException, OpsItemConflictException, OpsItemInvalidParameterException, OpsItemLimitExceededException, OpsItemNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateOpsItem = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.UpdateOpsItem" }, UpdateOpsItemRequest, UpdateOpsItemResponse, [InternalServerError, OpsItemAccessDeniedException, OpsItemAlreadyExistsException, OpsItemConflictException, OpsItemInvalidParameterException, OpsItemLimitExceededException, OpsItemNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Associates a related item to a Systems Manager OpsCenter OpsItem. For example, you can associate an
  * Incident Manager incident or analysis with an OpsItem. Incident Manager and OpsCenter are tools in
  * Amazon Web Services Systems Manager.
- */export const associateOpsItemRelatedItem = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.AssociateOpsItemRelatedItem" }, AssociateOpsItemRelatedItemRequest, AssociateOpsItemRelatedItemResponse, [InternalServerError, OpsItemConflictException, OpsItemInvalidParameterException, OpsItemLimitExceededException, OpsItemNotFoundException, OpsItemRelatedItemAlreadyExistsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const associateOpsItemRelatedItem = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.AssociateOpsItemRelatedItem" }, AssociateOpsItemRelatedItemRequest, AssociateOpsItemRelatedItemResponse, [InternalServerError, OpsItemConflictException, OpsItemInvalidParameterException, OpsItemLimitExceededException, OpsItemNotFoundException, OpsItemRelatedItemAlreadyExistsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Generates an activation code and activation ID you can use to register your on-premises
  * servers, edge devices, or virtual machine (VM) with Amazon Web Services Systems Manager. Registering these machines with
@@ -1675,7 +1675,7 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  * 
  * Amazon Elastic Compute Cloud (Amazon EC2) instances, edge devices, and on-premises servers and VMs that are
  * configured for Systems Manager are all called *managed nodes*.
- */export const createActivation = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.CreateActivation" }, CreateActivationRequest, CreateActivationResult, [InternalServerError, InvalidParameters]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createActivation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.CreateActivation" }, CreateActivationRequest, CreateActivationResult, [InternalServerError, InvalidParameters]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new OpsItem. You must have permission in Identity and Access Management (IAM) to create a new OpsItem. For more information, see Set up OpsCenter in the
  * *Amazon Web Services Systems Manager User Guide*.
@@ -1685,7 +1685,7 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  * remediate operational issues impacting the performance and health of their Amazon Web Services resources. For
  * more information, see Amazon Web Services Systems Manager OpsCenter in the
  * *Amazon Web Services Systems Manager User Guide*.
- */export const createOpsItem = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.CreateOpsItem" }, CreateOpsItemRequest, CreateOpsItemResponse, [InternalServerError, OpsItemAccessDeniedException, OpsItemAlreadyExistsException, OpsItemInvalidParameterException, OpsItemLimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createOpsItem = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.CreateOpsItem" }, CreateOpsItemRequest, CreateOpsItemResponse, [InternalServerError, OpsItemAccessDeniedException, OpsItemAlreadyExistsException, OpsItemInvalidParameterException, OpsItemLimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a patch baseline.
  * 
@@ -1694,39 +1694,39 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  * 
  * For information about valid key-value pairs in `PatchFilters` for each supported
  * operating system type, see PatchFilter.
- */export const createPatchBaseline = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.CreatePatchBaseline" }, CreatePatchBaselineRequest, CreatePatchBaselineResult, [IdempotentParameterMismatch, InternalServerError, ResourceLimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createPatchBaseline = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.CreatePatchBaseline" }, CreatePatchBaselineRequest, CreatePatchBaselineResult, [IdempotentParameterMismatch, InternalServerError, ResourceLimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes details about the activation, such as the date and time the activation was
  * created, its expiration date, the Identity and Access Management (IAM) role assigned to
  * the managed nodes in the activation, and the number of nodes registered by using this
  * activation.
- */export const describeActivations = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DescribeActivations" }, DescribeActivationsRequest, DescribeActivationsResult, [InternalServerError, InvalidFilter, InvalidNextToken]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeActivations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DescribeActivations" }, DescribeActivationsRequest, DescribeActivationsResult, [InternalServerError, InvalidFilter, InvalidNextToken]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Views all executions for a specific association ID.
- */export const describeAssociationExecutions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DescribeAssociationExecutions" }, DescribeAssociationExecutionsRequest, DescribeAssociationExecutionsResult, [AssociationDoesNotExist, InternalServerError, InvalidNextToken]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeAssociationExecutions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DescribeAssociationExecutions" }, DescribeAssociationExecutionsRequest, DescribeAssociationExecutionsResult, [AssociationDoesNotExist, InternalServerError, InvalidNextToken]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Provides details about all active and terminated Automation executions.
- */export const describeAutomationExecutions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DescribeAutomationExecutions" }, DescribeAutomationExecutionsRequest, DescribeAutomationExecutionsResult, [InternalServerError, InvalidFilterKey, InvalidFilterValue, InvalidNextToken]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeAutomationExecutions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DescribeAutomationExecutions" }, DescribeAutomationExecutionsRequest, DescribeAutomationExecutionsResult, [InternalServerError, InvalidFilterKey, InvalidFilterValue, InvalidNextToken]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Information about all active and terminated step executions in an Automation
  * workflow.
- */export const describeAutomationStepExecutions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DescribeAutomationStepExecutions" }, DescribeAutomationStepExecutionsRequest, DescribeAutomationStepExecutionsResult, [AutomationExecutionNotFoundException, InternalServerError, InvalidFilterKey, InvalidFilterValue, InvalidNextToken]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeAutomationStepExecutions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DescribeAutomationStepExecutions" }, DescribeAutomationStepExecutionsRequest, DescribeAutomationStepExecutionsResult, [AutomationExecutionNotFoundException, InternalServerError, InvalidFilterKey, InvalidFilterValue, InvalidNextToken]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes the specified Amazon Web Services Systems Manager document (SSM document).
- */export const describeDocument = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DescribeDocument" }, DescribeDocumentRequest, DescribeDocumentResult, [InternalServerError, InvalidDocument, InvalidDocumentVersion]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeDocument = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DescribeDocument" }, DescribeDocumentRequest, DescribeDocumentResult, [InternalServerError, InvalidDocument, InvalidDocumentVersion]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes the permissions for a Amazon Web Services Systems Manager document (SSM document). If you created the
  * document, you are the owner. If a document is shared, it can either be shared privately (by
  * specifying a user's Amazon Web Services account ID) or publicly (*All*).
- */export const describeDocumentPermission = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DescribeDocumentPermission" }, DescribeDocumentPermissionRequest, DescribeDocumentPermissionResponse, [InternalServerError, InvalidDocument, InvalidDocumentOperation, InvalidNextToken, InvalidPermissionType]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeDocumentPermission = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DescribeDocumentPermission" }, DescribeDocumentPermissionRequest, DescribeDocumentPermissionResponse, [InternalServerError, InvalidDocument, InvalidDocumentOperation, InvalidNextToken, InvalidPermissionType]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes a specific delete inventory operation.
- */export const describeInventoryDeletions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DescribeInventoryDeletions" }, DescribeInventoryDeletionsRequest, DescribeInventoryDeletionsResult, [InternalServerError, InvalidDeletionIdException, InvalidNextToken]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeInventoryDeletions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DescribeInventoryDeletions" }, DescribeInventoryDeletionsRequest, DescribeInventoryDeletionsResult, [InternalServerError, InvalidDeletionIdException, InvalidNextToken]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the executions of a maintenance window. This includes information about when the
  * maintenance window was scheduled to be active, and information about tasks registered and run
  * with the maintenance window.
- */export const describeMaintenanceWindowExecutions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DescribeMaintenanceWindowExecutions" }, DescribeMaintenanceWindowExecutionsRequest, DescribeMaintenanceWindowExecutionsResult, [InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeMaintenanceWindowExecutions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DescribeMaintenanceWindowExecutions" }, DescribeMaintenanceWindowExecutionsRequest, DescribeMaintenanceWindowExecutionsResult, [InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Query a set of OpsItems. You must have permission in Identity and Access Management (IAM) to query a list of OpsItems. For more information, see Set up OpsCenter in the
  * *Amazon Web Services Systems Manager User Guide*.
@@ -1736,7 +1736,7 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  * remediate operational issues impacting the performance and health of their Amazon Web Services resources. For
  * more information, see Amazon Web Services Systems Manager OpsCenter in the
  * *Amazon Web Services Systems Manager User Guide*.
- */export const describeOpsItems = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DescribeOpsItems" }, DescribeOpsItemsRequest, DescribeOpsItemsResponse, [InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeOpsItems = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DescribeOpsItems" }, DescribeOpsItemsRequest, DescribeOpsItemsResponse, [InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the parameters in your Amazon Web Services account or the parameters shared with you when you enable
  * the Shared option.
@@ -1761,12 +1761,12 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  * then you must also update the key alias the parameter uses to reference KMS. Otherwise,
  * `DescribeParameters` retrieves whatever the original key alias was
  * referencing.
- */export const describeParameters = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DescribeParameters" }, DescribeParametersRequest, DescribeParametersResult, [InternalServerError, InvalidFilterKey, InvalidFilterOption, InvalidFilterValue, InvalidNextToken]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeParameters = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DescribeParameters" }, DescribeParametersRequest, DescribeParametersResult, [InternalServerError, InvalidFilterKey, InvalidFilterOption, InvalidFilterValue, InvalidNextToken]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the association between an OpsItem and a related item. For example, this API
  * operation can delete an Incident Manager incident from an OpsItem. Incident Manager is a tool in
  * Amazon Web Services Systems Manager.
- */export const disassociateOpsItemRelatedItem = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DisassociateOpsItemRelatedItem" }, DisassociateOpsItemRelatedItemRequest, DisassociateOpsItemRelatedItemResponse, [InternalServerError, OpsItemConflictException, OpsItemInvalidParameterException, OpsItemNotFoundException, OpsItemRelatedItemAssociationNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const disassociateOpsItemRelatedItem = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DisassociateOpsItemRelatedItem" }, DisassociateOpsItemRelatedItemRequest, DisassociateOpsItemRelatedItemResponse, [InternalServerError, OpsItemConflictException, OpsItemInvalidParameterException, OpsItemNotFoundException, OpsItemRelatedItemAssociationNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets the state of a Amazon Web Services Systems Manager change calendar at the current time or a specified time. If
  * you specify a time, `GetCalendarState` returns the state of the calendar at that
@@ -1781,7 +1781,7 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  * 
  * 
  * For more information about Change Calendar, a tool in Amazon Web Services Systems Manager, see Amazon Web Services Systems Manager Change Calendar in the *Amazon Web Services Systems Manager User Guide*.
- */export const getCalendarState = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.GetCalendarState" }, GetCalendarStateRequest, GetCalendarStateResponse, [InternalServerError, InvalidDocument, InvalidDocumentType, UnsupportedCalendarException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getCalendarState = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.GetCalendarState" }, GetCalendarStateRequest, GetCalendarStateResponse, [InternalServerError, InvalidDocument, InvalidDocumentType, UnsupportedCalendarException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the current snapshot for the patch baseline the managed node uses. This API is
  * primarily used by the `AWS-RunPatchBaseline` Systems Manager document (SSM document).
@@ -1794,14 +1794,14 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  * with an SSM document that enables you to target a managed node with a script or command. For
  * example, run the command using the `AWS-RunShellScript` document or the
  * `AWS-RunPowerShellScript` document.
- */export const getDeployablePatchSnapshotForInstance = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.GetDeployablePatchSnapshotForInstance" }, GetDeployablePatchSnapshotForInstanceRequest, GetDeployablePatchSnapshotForInstanceResult, [InternalServerError, UnsupportedFeatureRequiredException, UnsupportedOperatingSystem]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getDeployablePatchSnapshotForInstance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.GetDeployablePatchSnapshotForInstance" }, GetDeployablePatchSnapshotForInstanceRequest, GetDeployablePatchSnapshotForInstanceResult, [InternalServerError, UnsupportedFeatureRequiredException, UnsupportedOperatingSystem]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets the contents of the specified Amazon Web Services Systems Manager document (SSM document).
- */export const getDocument = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.GetDocument" }, GetDocumentRequest, GetDocumentResult, [InternalServerError, InvalidDocument, InvalidDocumentVersion]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getDocument = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.GetDocument" }, GetDocumentRequest, GetDocumentResult, [InternalServerError, InvalidDocument, InvalidDocumentVersion]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Return a list of inventory type names for the account, or return a list of attribute names
  * for a specific Inventory item type.
- */export const getInventorySchema = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.GetInventorySchema" }, GetInventorySchemaRequest, GetInventorySchemaResult, [InternalServerError, InvalidNextToken, InvalidTypeNameException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getInventorySchema = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.GetInventorySchema" }, GetInventorySchemaRequest, GetInventorySchemaResult, [InternalServerError, InvalidNextToken, InvalidTypeNameException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the history of all changes to a parameter.
  * 
@@ -1817,17 +1817,17 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  * then you must also update the key alias the parameter uses to reference KMS. Otherwise,
  * `GetParameterHistory` retrieves whatever the original key alias was
  * referencing.
- */export const getParameterHistory = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.GetParameterHistory" }, GetParameterHistoryRequest, GetParameterHistoryResult, [InternalServerError, InvalidKeyId, InvalidNextToken, ParameterNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getParameterHistory = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.GetParameterHistory" }, GetParameterHistoryRequest, GetParameterHistoryResult, [InternalServerError, InvalidKeyId, InvalidNextToken, ParameterNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns all State Manager associations in the current Amazon Web Services account and Amazon Web Services Region. You
  * can limit the results to a specific State Manager association document or managed node by
  * specifying a filter. State Manager is a tool in Amazon Web Services Systems Manager.
- */export const listAssociations = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.ListAssociations" }, ListAssociationsRequest, ListAssociationsResult, [InternalServerError, InvalidNextToken]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listAssociations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.ListAssociations" }, ListAssociationsRequest, ListAssociationsResult, [InternalServerError, InvalidNextToken]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * For a specified resource ID, this API operation returns a list of compliance statuses for
  * different resource types. Currently, you can only specify one resource ID per call. List results
  * depend on the criteria specified in the filter.
- */export const listComplianceItems = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.ListComplianceItems" }, ListComplianceItemsRequest, ListComplianceItemsResult, [InternalServerError, InvalidFilter, InvalidNextToken, InvalidResourceId, InvalidResourceType]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listComplianceItems = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.ListComplianceItems" }, ListComplianceItemsRequest, ListComplianceItemsResult, [InternalServerError, InvalidFilter, InvalidNextToken, InvalidResourceId, InvalidResourceType]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Amazon Web Services Systems Manager Change Manager will no longer be open to new
  * customers starting November 7, 2025. If you would like to use Change Manager, sign up prior to that date. Existing customers can
@@ -1838,22 +1838,22 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  * 
  * 
  * Information about approval reviews for a version of a change template in Change Manager.
- */export const listDocumentMetadataHistory = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.ListDocumentMetadataHistory" }, ListDocumentMetadataHistoryRequest, ListDocumentMetadataHistoryResponse, [InternalServerError, InvalidDocument, InvalidDocumentVersion, InvalidNextToken]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listDocumentMetadataHistory = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.ListDocumentMetadataHistory" }, ListDocumentMetadataHistoryRequest, ListDocumentMetadataHistoryResponse, [InternalServerError, InvalidDocument, InvalidDocumentVersion, InvalidNextToken]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns all Systems Manager (SSM) documents in the current Amazon Web Services account and Amazon Web Services Region. You can
  * limit the results of this request by using a filter.
- */export const listDocuments = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.ListDocuments" }, ListDocumentsRequest, ListDocumentsResult, [InternalServerError, InvalidFilterKey, InvalidNextToken]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listDocuments = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.ListDocuments" }, ListDocumentsRequest, ListDocumentsResult, [InternalServerError, InvalidFilterKey, InvalidNextToken]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * A list of inventory items returned by the request.
- */export const listInventoryEntries = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.ListInventoryEntries" }, ListInventoryEntriesRequest, ListInventoryEntriesResult, [InternalServerError, InvalidFilter, InvalidInstanceId, InvalidNextToken, InvalidTypeNameException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listInventoryEntries = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.ListInventoryEntries" }, ListInventoryEntriesRequest, ListInventoryEntriesResult, [InternalServerError, InvalidFilter, InvalidInstanceId, InvalidNextToken, InvalidTypeNameException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists all related-item resources associated with a Systems Manager OpsCenter OpsItem. OpsCenter is a
  * tool in Amazon Web Services Systems Manager.
- */export const listOpsItemRelatedItems = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.ListOpsItemRelatedItems" }, ListOpsItemRelatedItemsRequest, ListOpsItemRelatedItemsResponse, [InternalServerError, OpsItemInvalidParameterException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listOpsItemRelatedItems = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.ListOpsItemRelatedItems" }, ListOpsItemRelatedItemsRequest, ListOpsItemRelatedItemsResponse, [InternalServerError, OpsItemInvalidParameterException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Amazon Web Services Systems Manager calls this API operation when displaying all Application Manager OpsMetadata objects or
  * blobs.
- */export const listOpsMetadata = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.ListOpsMetadata" }, ListOpsMetadataRequest, ListOpsMetadataResult, [InternalServerError, OpsMetadataInvalidArgumentException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listOpsMetadata = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.ListOpsMetadata" }, ListOpsMetadataRequest, ListOpsMetadataResult, [InternalServerError, OpsMetadataInvalidArgumentException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists your resource data sync configurations. Includes information about the last time a
  * sync attempted to start, the last sync status, and the last time a sync successfully
@@ -1866,7 +1866,7 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  * configurations to list, check the value of `NextToken` in the output. If there are
  * more sync configurations to list, you can request them by specifying the `NextToken`
  * returned in the call to the parameter of a subsequent call.
- */export const listResourceDataSync = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.ListResourceDataSync" }, ListResourceDataSyncRequest, ListResourceDataSyncResult, [InternalServerError, InvalidNextToken, ResourceDataSyncInvalidConfigurationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listResourceDataSync = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.ListResourceDataSync" }, ListResourceDataSyncRequest, ListResourceDataSyncResult, [InternalServerError, InvalidNextToken, ResourceDataSyncInvalidConfigurationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates or updates a Systems Manager resource policy. A resource policy helps you to define the
  * IAM entity (for example, an Amazon Web Services account) that can manage your Systems Manager resources.
@@ -1905,18 +1905,18 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  * 
  * For more information, see Sharing a
  * parameter in the *Amazon Web Services Systems Manager User Guide*
- */export const putResourcePolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.PutResourcePolicy" }, PutResourcePolicyRequest, PutResourcePolicyResponse, [InternalServerError, MalformedResourcePolicyDocumentException, ResourceNotFoundException, ResourcePolicyConflictException, ResourcePolicyInvalidParameterException, ResourcePolicyLimitExceededException, ResourcePolicyNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putResourcePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.PutResourcePolicy" }, PutResourcePolicyRequest, PutResourcePolicyResponse, [InternalServerError, MalformedResourcePolicyDocumentException, ResourceNotFoundException, ResourcePolicyConflictException, ResourcePolicyInvalidParameterException, ResourcePolicyLimitExceededException, ResourcePolicyNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Sends a signal to an Automation execution to change the current behavior or status of the
  * execution.
- */export const sendAutomationSignal = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.SendAutomationSignal" }, SendAutomationSignalRequest, SendAutomationSignalResult, [AutomationExecutionNotFoundException, AutomationStepNotFoundException, InternalServerError, InvalidAutomationSignalException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const sendAutomationSignal = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.SendAutomationSignal" }, SendAutomationSignalRequest, SendAutomationSignalResult, [AutomationExecutionNotFoundException, AutomationStepNotFoundException, InternalServerError, InvalidAutomationSignalException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts the workflow for just-in-time node access sessions.
- */export const startAccessRequest = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.StartAccessRequest" }, StartAccessRequestRequest, StartAccessRequestResponse, [AccessDeniedException, InternalServerError, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startAccessRequest = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.StartAccessRequest" }, StartAccessRequestRequest, StartAccessRequestResponse, [AccessDeniedException, InternalServerError, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Initiates the process of creating a preview showing the effects that running a specified
  * Automation runbook would have on the targeted resources.
- */export const startExecutionPreview = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.StartExecutionPreview" }, StartExecutionPreviewRequest, StartExecutionPreviewResponse, [InternalServerError, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startExecutionPreview = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.StartExecutionPreview" }, StartExecutionPreviewRequest, StartExecutionPreviewResponse, [InternalServerError, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Initiates a connection to a target (for example, a managed node) for a Session Manager session.
  * Returns a URL and token that can be used to open a WebSocket connection for sending input and
@@ -1932,7 +1932,7 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  * 
  * Amazon Web Services Tools for PowerShell usage: Start-SSMSession isn't currently supported by Amazon Web Services Tools
  * for PowerShell on Windows local machines.
- */export const startSession = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.StartSession" }, StartSessionRequest, StartSessionResponse, [InternalServerError, InvalidDocument, TargetNotConnected]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startSession = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.StartSession" }, StartSessionRequest, StartSessionResponse, [InternalServerError, InvalidDocument, TargetNotConnected]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Set the default version of a document.
  * 
@@ -1942,10 +1942,10 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  * If you change a document version for a State Manager association, Systems Manager immediately runs
  * the association unless you previously specifed the `apply-only-at-cron-interval`
  * parameter.
- */export const updateDocumentDefaultVersion = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.UpdateDocumentDefaultVersion" }, UpdateDocumentDefaultVersionRequest, UpdateDocumentDefaultVersionResult, [InternalServerError, InvalidDocument, InvalidDocumentSchemaVersion, InvalidDocumentVersion]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateDocumentDefaultVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.UpdateDocumentDefaultVersion" }, UpdateDocumentDefaultVersionRequest, UpdateDocumentDefaultVersionResult, [InternalServerError, InvalidDocument, InvalidDocumentSchemaVersion, InvalidDocumentVersion]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Amazon Web Services Systems Manager calls this API operation when you edit OpsMetadata in Application Manager.
- */export const updateOpsMetadata = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.UpdateOpsMetadata" }, UpdateOpsMetadataRequest, UpdateOpsMetadataResult, [InternalServerError, OpsMetadataInvalidArgumentException, OpsMetadataKeyLimitExceededException, OpsMetadataNotFoundException, OpsMetadataTooManyUpdatesException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateOpsMetadata = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.UpdateOpsMetadata" }, UpdateOpsMetadataRequest, UpdateOpsMetadataResult, [InternalServerError, OpsMetadataInvalidArgumentException, OpsMetadataKeyLimitExceededException, OpsMetadataNotFoundException, OpsMetadataTooManyUpdatesException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a Systems Manager resource policy. A resource policy helps you to define the IAM entity (for example, an Amazon Web Services account) that can manage your Systems Manager resources. The following
  * resources support Systems Manager resource policies.
@@ -1961,65 +1961,65 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  * accounts using Resource Access Manager (RAM). For more information about
  * cross-account sharing of parameters, see Working with
  * shared parameters in the *Amazon Web Services Systems Manager User Guide*.
- */export const deleteResourcePolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DeleteResourcePolicy" }, DeleteResourcePolicyRequest, DeleteResourcePolicyResponse, [InternalServerError, MalformedResourcePolicyDocumentException, ResourceNotFoundException, ResourcePolicyConflictException, ResourcePolicyInvalidParameterException, ResourcePolicyNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteResourcePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DeleteResourcePolicy" }, DeleteResourcePolicyRequest, DeleteResourcePolicyResponse, [InternalServerError, MalformedResourcePolicyDocumentException, ResourceNotFoundException, ResourcePolicyConflictException, ResourcePolicyInvalidParameterException, ResourcePolicyNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes the association for the specified target or managed node. If you created the
  * association by using the `Targets` parameter, then you must retrieve the association
  * by using the association ID.
- */export const describeAssociation = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DescribeAssociation" }, DescribeAssociationRequest, DescribeAssociationResult, [AssociationDoesNotExist, InternalServerError, InvalidAssociationVersion, InvalidDocument, InvalidInstanceId]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeAssociation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DescribeAssociation" }, DescribeAssociationRequest, DescribeAssociationResult, [AssociationDoesNotExist, InternalServerError, InvalidAssociationVersion, InvalidDocument, InvalidInstanceId]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the current effective patches (the patch and the approval state) for the specified
  * patch baseline. Applies to patch baselines for Windows only.
- */export const describeEffectivePatchesForPatchBaseline = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DescribeEffectivePatchesForPatchBaseline" }, DescribeEffectivePatchesForPatchBaselineRequest, DescribeEffectivePatchesForPatchBaselineResult, [DoesNotExistException, InternalServerError, InvalidResourceId, UnsupportedOperatingSystem]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeEffectivePatchesForPatchBaseline = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DescribeEffectivePatchesForPatchBaseline" }, DescribeEffectivePatchesForPatchBaselineRequest, DescribeEffectivePatchesForPatchBaselineResult, [DoesNotExistException, InternalServerError, InvalidResourceId, UnsupportedOperatingSystem]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * The status of the associations for the managed nodes.
- */export const describeInstanceAssociationsStatus = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DescribeInstanceAssociationsStatus" }, DescribeInstanceAssociationsStatusRequest, DescribeInstanceAssociationsStatusResult, [InternalServerError, InvalidInstanceId, InvalidNextToken]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeInstanceAssociationsStatus = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DescribeInstanceAssociationsStatus" }, DescribeInstanceAssociationsStatusRequest, DescribeInstanceAssociationsStatusResult, [InternalServerError, InvalidInstanceId, InvalidNextToken]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * An API operation used by the Systems Manager console to display information about Systems Manager managed
  * nodes.
- */export const describeInstanceProperties = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DescribeInstanceProperties" }, DescribeInstancePropertiesRequest, DescribeInstancePropertiesResult, [InternalServerError, InvalidActivationId, InvalidDocument, InvalidFilterKey, InvalidInstanceId, InvalidInstancePropertyFilterValue, InvalidNextToken]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeInstanceProperties = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DescribeInstanceProperties" }, DescribeInstancePropertiesRequest, DescribeInstancePropertiesResult, [InternalServerError, InvalidActivationId, InvalidDocument, InvalidFilterKey, InvalidInstanceId, InvalidInstancePropertyFilterValue, InvalidNextToken]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves a list of all active sessions (both connected and disconnected) or terminated
  * sessions from the past 30 days.
- */export const describeSessions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DescribeSessions" }, DescribeSessionsRequest, DescribeSessionsResponse, [InternalServerError, InvalidFilterKey, InvalidNextToken]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeSessions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DescribeSessions" }, DescribeSessionsRequest, DescribeSessionsResponse, [InternalServerError, InvalidFilterKey, InvalidNextToken]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a credentials set to be used with just-in-time node access.
- */export const getAccessToken = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.GetAccessToken" }, GetAccessTokenRequest, GetAccessTokenResponse, [AccessDeniedException, InternalServerError, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getAccessToken = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.GetAccessToken" }, GetAccessTokenRequest, GetAccessTokenResponse, [AccessDeniedException, InternalServerError, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Get detailed information about a particular Automation execution.
- */export const getAutomationExecution = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.GetAutomationExecution" }, GetAutomationExecutionRequest, GetAutomationExecutionResult, [AutomationExecutionNotFoundException, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getAutomationExecution = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.GetAutomationExecution" }, GetAutomationExecutionRequest, GetAutomationExecutionResult, [AutomationExecutionNotFoundException, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Initiates the process of retrieving an existing preview that shows the effects that running
  * a specified Automation runbook would have on the targeted resources.
- */export const getExecutionPreview = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.GetExecutionPreview" }, GetExecutionPreviewRequest, GetExecutionPreviewResponse, [InternalServerError, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getExecutionPreview = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.GetExecutionPreview" }, GetExecutionPreviewRequest, GetExecutionPreviewResponse, [InternalServerError, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * An invocation is copy of a command sent to a specific managed node. A command can apply to
  * one or more managed nodes. A command invocation applies to one managed node. For example, if a
  * user runs `SendCommand` against three managed nodes, then a command invocation is
  * created for each requested managed node ID. `ListCommandInvocations` provide status
  * about command execution.
- */export const listCommandInvocations = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.ListCommandInvocations" }, ListCommandInvocationsRequest, ListCommandInvocationsResult, [InternalServerError, InvalidCommandId, InvalidFilterKey, InvalidInstanceId, InvalidNextToken]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listCommandInvocations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.ListCommandInvocations" }, ListCommandInvocationsRequest, ListCommandInvocationsResult, [InternalServerError, InvalidCommandId, InvalidFilterKey, InvalidInstanceId, InvalidNextToken]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a summary count of compliant and non-compliant resources for a compliance type. For
  * example, this call can return State Manager associations, patches, or custom compliance types
  * according to the filter criteria that you specify.
- */export const listComplianceSummaries = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.ListComplianceSummaries" }, ListComplianceSummariesRequest, ListComplianceSummariesResult, [InternalServerError, InvalidFilter, InvalidNextToken]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listComplianceSummaries = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.ListComplianceSummaries" }, ListComplianceSummariesRequest, ListComplianceSummariesResult, [InternalServerError, InvalidFilter, InvalidNextToken]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of all OpsItem events in the current Amazon Web Services Region and Amazon Web Services account. You can
  * limit the results to events associated with specific OpsItems by specifying a filter.
- */export const listOpsItemEvents = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.ListOpsItemEvents" }, ListOpsItemEventsRequest, ListOpsItemEventsResponse, [InternalServerError, OpsItemInvalidParameterException, OpsItemLimitExceededException, OpsItemNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listOpsItemEvents = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.ListOpsItemEvents" }, ListOpsItemEventsRequest, ListOpsItemEventsResponse, [InternalServerError, OpsItemInvalidParameterException, OpsItemLimitExceededException, OpsItemNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Adds a new task to a maintenance window.
- */export const registerTaskWithMaintenanceWindow = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.RegisterTaskWithMaintenanceWindow" }, RegisterTaskWithMaintenanceWindowRequest, RegisterTaskWithMaintenanceWindowResult, [DoesNotExistException, FeatureNotAvailableException, IdempotentParameterMismatch, InternalServerError, ResourceLimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const registerTaskWithMaintenanceWindow = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.RegisterTaskWithMaintenanceWindow" }, RegisterTaskWithMaintenanceWindowRequest, RegisterTaskWithMaintenanceWindowResult, [DoesNotExistException, FeatureNotAvailableException, IdempotentParameterMismatch, InternalServerError, ResourceLimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Runs commands on one or more managed nodes.
- */export const sendCommand = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.SendCommand" }, SendCommandRequest, SendCommandResult, [DuplicateInstanceId, InternalServerError, InvalidDocument, InvalidDocumentVersion, InvalidInstanceId, InvalidNotificationConfig, InvalidOutputFolder, InvalidParameters, InvalidRole, MaxDocumentSizeExceeded, UnsupportedPlatformType]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const sendCommand = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.SendCommand" }, SendCommandRequest, SendCommandResult, [DuplicateInstanceId, InternalServerError, InvalidDocument, InvalidDocumentVersion, InvalidInstanceId, InvalidNotificationConfig, InvalidOutputFolder, InvalidParameters, InvalidRole, MaxDocumentSizeExceeded, UnsupportedPlatformType]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Initiates execution of an Automation runbook.
- */export const startAutomationExecution = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.StartAutomationExecution" }, StartAutomationExecutionRequest, StartAutomationExecutionResult, [AutomationDefinitionNotFoundException, AutomationDefinitionVersionNotFoundException, AutomationExecutionLimitExceededException, IdempotentParameterMismatch, InternalServerError, InvalidAutomationExecutionParametersException, InvalidTarget]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startAutomationExecution = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.StartAutomationExecution" }, StartAutomationExecutionRequest, StartAutomationExecutionResult, [AutomationDefinitionNotFoundException, AutomationDefinitionVersionNotFoundException, AutomationExecutionLimitExceededException, IdempotentParameterMismatch, InternalServerError, InvalidAutomationExecutionParametersException, InvalidTarget]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates one or more values for an SSM document.
- */export const updateDocument = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.UpdateDocument" }, UpdateDocumentRequest, UpdateDocumentResult, [DocumentVersionLimitExceeded, DuplicateDocumentContent, DuplicateDocumentVersionName, InternalServerError, InvalidDocument, InvalidDocumentContent, InvalidDocumentOperation, InvalidDocumentSchemaVersion, InvalidDocumentVersion, MaxDocumentSizeExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateDocument = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.UpdateDocument" }, UpdateDocumentRequest, UpdateDocumentResult, [DocumentVersionLimitExceeded, DuplicateDocumentContent, DuplicateDocumentVersionName, InternalServerError, InvalidDocument, InvalidDocumentContent, InvalidDocumentOperation, InvalidDocumentSchemaVersion, InvalidDocumentVersion, MaxDocumentSizeExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * A State Manager association defines the state that you want to maintain on your managed
  * nodes. For example, an association can specify that anti-virus software must be installed and
@@ -2031,7 +2031,7 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  * anti-virus software might run once a day. If the software isn't installed, then State Manager
  * installs it. If the software is installed, but the service isn't running, then the association
  * might instruct State Manager to start the service.
- */export const createAssociation = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.CreateAssociation" }, CreateAssociationRequest, CreateAssociationResult, [AssociationAlreadyExists, AssociationLimitExceeded, InternalServerError, InvalidDocument, InvalidDocumentVersion, InvalidInstanceId, InvalidOutputLocation, InvalidParameters, InvalidSchedule, InvalidTag, InvalidTarget, InvalidTargetMaps, UnsupportedPlatformType]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createAssociation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.CreateAssociation" }, CreateAssociationRequest, CreateAssociationResult, [AssociationAlreadyExists, AssociationLimitExceeded, InternalServerError, InvalidDocument, InvalidDocumentVersion, InvalidInstanceId, InvalidOutputLocation, InvalidParameters, InvalidSchedule, InvalidTag, InvalidTarget, InvalidTargetMaps, UnsupportedPlatformType]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Associates the specified Amazon Web Services Systems Manager document (SSM document) with the specified managed nodes
  * or targets.
@@ -2044,17 +2044,17 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  * 
  * If you associate a document with a managed node that already has an associated document, the
  * system returns the AssociationAlreadyExists exception.
- */export const createAssociationBatch = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.CreateAssociationBatch" }, CreateAssociationBatchRequest, CreateAssociationBatchResult, [AssociationLimitExceeded, DuplicateInstanceId, InternalServerError, InvalidDocument, InvalidDocumentVersion, InvalidInstanceId, InvalidOutputLocation, InvalidParameters, InvalidSchedule, InvalidTarget, InvalidTargetMaps, UnsupportedPlatformType]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createAssociationBatch = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.CreateAssociationBatch" }, CreateAssociationBatchRequest, CreateAssociationBatchResult, [AssociationLimitExceeded, DuplicateInstanceId, InternalServerError, InvalidDocument, InvalidDocumentVersion, InvalidInstanceId, InvalidOutputLocation, InvalidParameters, InvalidSchedule, InvalidTarget, InvalidTargetMaps, UnsupportedPlatformType]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a Amazon Web Services Systems Manager (SSM document). An SSM document defines the actions that Systems Manager performs
  * on your managed nodes. For more information about SSM documents, including information about
  * supported schemas, features, and syntax, see Amazon Web Services Systems Manager Documents in the
  * *Amazon Web Services Systems Manager User Guide*.
- */export const createDocument = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.CreateDocument" }, CreateDocumentRequest, CreateDocumentResult, [DocumentAlreadyExists, DocumentLimitExceeded, InternalServerError, InvalidDocumentContent, InvalidDocumentSchemaVersion, MaxDocumentSizeExceeded, NoLongerSupportedException, TooManyUpdates]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createDocument = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.CreateDocument" }, CreateDocumentRequest, CreateDocumentResult, [DocumentAlreadyExists, DocumentLimitExceeded, InternalServerError, InvalidDocumentContent, InvalidDocumentSchemaVersion, MaxDocumentSizeExceeded, NoLongerSupportedException, TooManyUpdates]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * If you create a new application in Application Manager, Amazon Web Services Systems Manager calls this API operation to specify
  * information about the new application, including the application type.
- */export const createOpsMetadata = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.CreateOpsMetadata" }, CreateOpsMetadataRequest, CreateOpsMetadataResult, [InternalServerError, OpsMetadataAlreadyExistsException, OpsMetadataInvalidArgumentException, OpsMetadataLimitExceededException, OpsMetadataTooManyUpdatesException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createOpsMetadata = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.CreateOpsMetadata" }, CreateOpsMetadataRequest, CreateOpsMetadataResult, [InternalServerError, OpsMetadataAlreadyExistsException, OpsMetadataInvalidArgumentException, OpsMetadataLimitExceededException, OpsMetadataTooManyUpdatesException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * A resource data sync helps you view data from multiple sources in a single location.
  * Amazon Web Services Systems Manager offers two types of resource data sync: `SyncToDestination` and
@@ -2085,17 +2085,17 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  * By default, data isn't encrypted in Amazon S3. We strongly recommend that you
  * enable encryption in Amazon S3 to ensure secure data storage. We also recommend that you
  * secure access to the Amazon S3 bucket by creating a restrictive bucket policy.
- */export const createResourceDataSync = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.CreateResourceDataSync" }, CreateResourceDataSyncRequest, CreateResourceDataSyncResult, [InternalServerError, ResourceDataSyncAlreadyExistsException, ResourceDataSyncCountExceededException, ResourceDataSyncInvalidConfigurationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createResourceDataSync = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.CreateResourceDataSync" }, CreateResourceDataSyncRequest, CreateResourceDataSyncResult, [InternalServerError, ResourceDataSyncAlreadyExistsException, ResourceDataSyncCountExceededException, ResourceDataSyncInvalidConfigurationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Views information about a specific execution of a specific association.
- */export const describeAssociationExecutionTargets = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DescribeAssociationExecutionTargets" }, DescribeAssociationExecutionTargetsRequest, DescribeAssociationExecutionTargetsResult, [AssociationDoesNotExist, AssociationExecutionDoesNotExist, InternalServerError, InvalidNextToken]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeAssociationExecutionTargets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DescribeAssociationExecutionTargets" }, DescribeAssociationExecutionTargetsRequest, DescribeAssociationExecutionTargetsResult, [AssociationDoesNotExist, AssociationExecutionDoesNotExist, InternalServerError, InvalidNextToken]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Takes in filters and returns a list of managed nodes matching the filter criteria.
- */export const listNodes = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.ListNodes" }, ListNodesRequest, ListNodesResult, [InternalServerError, InvalidFilter, InvalidNextToken, ResourceDataSyncNotFoundException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listNodes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.ListNodes" }, ListNodesRequest, ListNodesResult, [InternalServerError, InvalidFilter, InvalidNextToken, ResourceDataSyncNotFoundException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Generates a summary of managed instance/node metadata based on the filters and aggregators
  * you specify. Results are grouped by the input aggregator you specify.
- */export const listNodesSummary = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.ListNodesSummary" }, ListNodesSummaryRequest, ListNodesSummaryResult, [InternalServerError, InvalidAggregatorException, InvalidFilter, InvalidNextToken, ResourceDataSyncNotFoundException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listNodesSummary = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.ListNodesSummary" }, ListNodesSummaryRequest, ListNodesSummaryResult, [InternalServerError, InvalidAggregatorException, InvalidFilter, InvalidNextToken, ResourceDataSyncNotFoundException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Amazon Web Services Systems Manager Change Manager will no longer be open to new
  * customers starting November 7, 2025. If you would like to use Change Manager, sign up prior to that date. Existing customers can
@@ -2108,7 +2108,7 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  * Creates a change request for Change Manager. The Automation runbooks specified in the
  * change request run only after all required approvals for the change request have been
  * received.
- */export const startChangeRequestExecution = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.StartChangeRequestExecution" }, StartChangeRequestExecutionRequest, StartChangeRequestExecutionResult, [AutomationDefinitionNotApprovedException, AutomationDefinitionNotFoundException, AutomationDefinitionVersionNotFoundException, AutomationExecutionLimitExceededException, IdempotentParameterMismatch, InternalServerError, InvalidAutomationExecutionParametersException, NoLongerSupportedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startChangeRequestExecution = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.StartChangeRequestExecution" }, StartChangeRequestExecutionRequest, StartChangeRequestExecutionResult, [AutomationDefinitionNotApprovedException, AutomationDefinitionNotFoundException, AutomationDefinitionVersionNotFoundException, AutomationExecutionLimitExceededException, IdempotentParameterMismatch, InternalServerError, InvalidAutomationExecutionParametersException, NoLongerSupportedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates an association. You can update the association name and version, the document
  * version, schedule, parameters, and Amazon Simple Storage Service (Amazon S3) output. When you
@@ -2134,11 +2134,11 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  * When you update an association, the association immediately runs against the specified
  * targets. You can add the `ApplyOnlyAtCronInterval` parameter to run the association
  * during the next schedule run.
- */export const updateAssociation = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.UpdateAssociation" }, UpdateAssociationRequest, UpdateAssociationResult, [AssociationDoesNotExist, AssociationVersionLimitExceeded, InternalServerError, InvalidAssociationVersion, InvalidDocument, InvalidDocumentVersion, InvalidOutputLocation, InvalidParameters, InvalidSchedule, InvalidTarget, InvalidTargetMaps, InvalidUpdate, TooManyUpdates]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateAssociation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.UpdateAssociation" }, UpdateAssociationRequest, UpdateAssociationResult, [AssociationDoesNotExist, AssociationVersionLimitExceeded, InternalServerError, InvalidAssociationVersion, InvalidDocument, InvalidDocumentVersion, InvalidOutputLocation, InvalidParameters, InvalidSchedule, InvalidTarget, InvalidTargetMaps, InvalidUpdate, TooManyUpdates]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Delete a custom inventory type or the data associated with a custom Inventory type. Deleting
  * a custom inventory type is also referred to as deleting a custom inventory schema.
- */export const deleteInventory = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DeleteInventory" }, DeleteInventoryRequest, DeleteInventoryResult, [InternalServerError, InvalidDeleteInventoryParametersException, InvalidInventoryRequestException, InvalidOptionException, InvalidTypeNameException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteInventory = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DeleteInventory" }, DeleteInventoryRequest, DeleteInventoryResult, [InternalServerError, InvalidDeleteInventoryParametersException, InvalidInventoryRequestException, InvalidOptionException, InvalidTypeNameException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Provides information about one or more of your managed nodes, including the operating system
  * platform, SSM Agent version, association status, and IP address. This operation does not return
@@ -2155,7 +2155,7 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  * The `IamRole` field returned for this API operation is the role assigned to an
  * Amazon EC2 instance configured with a Systems Manager Quick Setup host management configuration or
  * the role assigned to an on-premises managed node.
- */export const describeInstanceInformation = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DescribeInstanceInformation" }, DescribeInstanceInformationRequest, DescribeInstanceInformationResult, [InternalServerError, InvalidFilterKey, InvalidInstanceId, InvalidInstanceInformationFilterValue, InvalidNextToken]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeInstanceInformation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DescribeInstanceInformation" }, DescribeInstanceInformationRequest, DescribeInstanceInformationResult, [InternalServerError, InvalidFilterKey, InvalidInstanceId, InvalidInstanceInformationFilterValue, InvalidNextToken]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Registers a compliance type and other compliance details on a designated resource. This
  * operation lets you register custom compliance details with a resource. This call overwrites
@@ -2240,22 +2240,22 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  * - InstalledTime: The time the association, patch, or custom compliance item was applied to
  * the resource. Specify the time by using the following format:
  * `yyyy-MM-dd'T'HH:mm:ss'Z'`
- */export const putComplianceItems = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.PutComplianceItems" }, PutComplianceItemsRequest, PutComplianceItemsResult, [ComplianceTypeCountLimitExceededException, InternalServerError, InvalidItemContentException, InvalidResourceId, InvalidResourceType, ItemSizeLimitExceededException, TotalSizeLimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putComplianceItems = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.PutComplianceItems" }, PutComplianceItemsRequest, PutComplianceItemsResult, [ComplianceTypeCountLimitExceededException, InternalServerError, InvalidItemContentException, InvalidResourceId, InvalidResourceType, ItemSizeLimitExceededException, TotalSizeLimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * View a summary of operations metadata (OpsData) based on specified filters and aggregators.
  * OpsData can include information about Amazon Web Services Systems Manager OpsCenter operational workitems (OpsItems) as
  * well as information about any Amazon Web Services resource or service configured to report OpsData to Amazon Web Services Systems Manager
  * Explorer.
- */export const getOpsSummary = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.GetOpsSummary" }, GetOpsSummaryRequest, GetOpsSummaryResult, [InternalServerError, InvalidAggregatorException, InvalidFilter, InvalidNextToken, InvalidTypeNameException, ResourceDataSyncNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getOpsSummary = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.GetOpsSummary" }, GetOpsSummaryRequest, GetOpsSummaryResult, [InternalServerError, InvalidAggregatorException, InvalidFilter, InvalidNextToken, InvalidTypeNameException, ResourceDataSyncNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Query inventory information. This includes managed node status, such as `Stopped`
  * or `Terminated`.
- */export const getInventory = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.GetInventory" }, GetInventoryRequest, GetInventoryResult, [InternalServerError, InvalidAggregatorException, InvalidFilter, InvalidInventoryGroupException, InvalidNextToken, InvalidResultAttributeException, InvalidTypeNameException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getInventory = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.GetInventory" }, GetInventoryRequest, GetInventoryResult, [InternalServerError, InvalidAggregatorException, InvalidFilter, InvalidInventoryGroupException, InvalidNextToken, InvalidResultAttributeException, InvalidTypeNameException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Bulk update custom inventory items on one or more managed nodes. The request adds an
  * inventory item, if it doesn't already exist, or updates an inventory item, if it does
  * exist.
- */export const putInventory = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.PutInventory" }, PutInventoryRequest, PutInventoryResult, [CustomSchemaCountLimitExceededException, InternalServerError, InvalidInstanceId, InvalidInventoryItemContextException, InvalidItemContentException, InvalidTypeNameException, ItemContentMismatchException, ItemSizeLimitExceededException, SubTypeCountLimitExceededException, TotalSizeLimitExceededException, UnsupportedInventoryItemContextException, UnsupportedInventorySchemaVersionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putInventory = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.PutInventory" }, PutInventoryRequest, PutInventoryResult, [CustomSchemaCountLimitExceededException, InternalServerError, InvalidInstanceId, InvalidInventoryItemContextException, InvalidItemContentException, InvalidTypeNameException, ItemContentMismatchException, ItemSizeLimitExceededException, SubTypeCountLimitExceededException, TotalSizeLimitExceededException, UnsupportedInventoryItemContextException, UnsupportedInventorySchemaVersionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Create or update a parameter in Parameter Store.
- */export const putParameter = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.PutParameter" }, PutParameterRequest, PutParameterResult, [HierarchyLevelLimitExceededException, HierarchyTypeMismatchException, IncompatiblePolicyException, InternalServerError, InvalidAllowedPatternException, InvalidKeyId, InvalidPolicyAttributeException, InvalidPolicyTypeException, ParameterAlreadyExists, ParameterLimitExceeded, ParameterMaxVersionLimitExceeded, ParameterPatternMismatchException, PoliciesLimitExceededException, TooManyUpdates, UnsupportedParameterType]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putParameter = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", uri: "/", method: "POST", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.PutParameter" }, PutParameterRequest, PutParameterResult, [HierarchyLevelLimitExceededException, HierarchyTypeMismatchException, IncompatiblePolicyException, InternalServerError, InvalidAllowedPatternException, InvalidKeyId, InvalidPolicyAttributeException, InvalidPolicyTypeException, ParameterAlreadyExists, ParameterLimitExceeded, ParameterMaxVersionLimitExceeded, ParameterPatternMismatchException, PoliciesLimitExceededException, TooManyUpdates, UnsupportedParameterType]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

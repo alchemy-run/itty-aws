@@ -27,7 +27,7 @@ export class SessionExpiredException extends S.TaggedError<SessionExpiredExcepti
  * channel. This API returns the SDP answer from the connected master. If the master is not
  * connected to the signaling channel, redelivery requests are made until the message
  * expires.
- */export const sendAlexaOfferToMaster = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-04", uri: "/v1/send-alexa-offer-to-master", method: "POST", sdkId: "Kinesis Video Signaling", sigV4ServiceName: "kinesisvideo", name: "AWSAcuitySignalingService.SendAlexaOfferToMaster" }, SendAlexaOfferToMasterRequest, SendAlexaOfferToMasterResponse, [ClientLimitExceededException, InvalidArgumentException, NotAuthorizedException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const sendAlexaOfferToMaster = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-04", uri: "/v1/send-alexa-offer-to-master", method: "POST", sdkId: "Kinesis Video Signaling", sigV4ServiceName: "kinesisvideo", name: "AWSAcuitySignalingService.SendAlexaOfferToMaster" }, SendAlexaOfferToMasterRequest, SendAlexaOfferToMasterResponse, [ClientLimitExceededException, InvalidArgumentException, NotAuthorizedException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets the Interactive Connectivity Establishment (ICE) server configuration
  * information, including URIs, username, and password which can be used to configure the
@@ -47,4 +47,4 @@ export class SessionExpiredException extends S.TaggedError<SessionExpiredExcepti
  * is unable to establish a direct peer-to-peer connection over a signaling channel. You
  * must specify either a signaling channel ARN or the client ID in order to invoke this
  * API.
- */export const getIceServerConfig = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-04", uri: "/v1/get-ice-server-config", method: "POST", sdkId: "Kinesis Video Signaling", sigV4ServiceName: "kinesisvideo", name: "AWSAcuitySignalingService.GetIceServerConfig" }, GetIceServerConfigRequest, GetIceServerConfigResponse, [ClientLimitExceededException, InvalidArgumentException, InvalidClientException, NotAuthorizedException, ResourceNotFoundException, SessionExpiredException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getIceServerConfig = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-04", uri: "/v1/get-ice-server-config", method: "POST", sdkId: "Kinesis Video Signaling", sigV4ServiceName: "kinesisvideo", name: "AWSAcuitySignalingService.GetIceServerConfig" }, GetIceServerConfigRequest, GetIceServerConfigResponse, [ClientLimitExceededException, InvalidArgumentException, InvalidClientException, NotAuthorizedException, ResourceNotFoundException, SessionExpiredException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

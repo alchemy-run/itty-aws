@@ -288,57 +288,57 @@ export class AnalysisNotFoundException extends S.TaggedError<AnalysisNotFoundExc
 /**
  * Removes one or more tags from a resource. Specify only tag keys in your request. Don't
  * specify the value.
- */export const untagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [LimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [LimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a cost anomaly subscription.
- */export const deleteAnomalySubscription = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.DeleteAnomalySubscription" }, DeleteAnomalySubscriptionRequest, DeleteAnomalySubscriptionResponse, [LimitExceededException, UnknownSubscriptionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteAnomalySubscription = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.DeleteAnomalySubscription" }, DeleteAnomalySubscriptionRequest, DeleteAnomalySubscriptionResponse, [LimitExceededException, UnknownSubscriptionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a cost category. Expenses from this month going forward will no longer be
  * categorized with this cost category.
- */export const deleteCostCategoryDefinition = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.DeleteCostCategoryDefinition" }, DeleteCostCategoryDefinitionRequest, DeleteCostCategoryDefinitionResponse, [LimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteCostCategoryDefinition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.DeleteCostCategoryDefinition" }, DeleteCostCategoryDefinitionRequest, DeleteCostCategoryDefinitionResponse, [LimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the cost anomaly subscription objects for your account. You can filter using a
  * list of cost anomaly monitor Amazon Resource Names (ARNs).
- */export const getAnomalySubscriptions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.GetAnomalySubscriptions" }, GetAnomalySubscriptionsRequest, GetAnomalySubscriptionsResponse, [InvalidNextTokenException, LimitExceededException, UnknownSubscriptionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getAnomalySubscriptions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.GetAnomalySubscriptions" }, GetAnomalySubscriptionsRequest, GetAnomalySubscriptionsResponse, [InvalidNextTokenException, LimitExceededException, UnknownSubscriptionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of resource tags associated with the resource specified by the Amazon
  * Resource Name (ARN).
- */export const listTagsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [LimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [LimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Modifies the feedback property of a given cost anomaly.
- */export const provideAnomalyFeedback = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.ProvideAnomalyFeedback" }, ProvideAnomalyFeedbackRequest, ProvideAnomalyFeedbackResponse, [LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const provideAnomalyFeedback = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.ProvideAnomalyFeedback" }, ProvideAnomalyFeedbackRequest, ProvideAnomalyFeedbackResponse, [LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates an existing cost anomaly monitor. The changes made are applied going forward, and
  * doesn't change anomalies detected in the past.
- */export const updateAnomalyMonitor = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.UpdateAnomalyMonitor" }, UpdateAnomalyMonitorRequest, UpdateAnomalyMonitorResponse, [LimitExceededException, UnknownMonitorException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateAnomalyMonitor = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.UpdateAnomalyMonitor" }, UpdateAnomalyMonitorRequest, UpdateAnomalyMonitorResponse, [LimitExceededException, UnknownMonitorException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new cost anomaly detection monitor with the requested type and monitor
  * specification.
- */export const createAnomalyMonitor = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.CreateAnomalyMonitor" }, CreateAnomalyMonitorRequest, CreateAnomalyMonitorResponse, [LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createAnomalyMonitor = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.CreateAnomalyMonitor" }, CreateAnomalyMonitorRequest, CreateAnomalyMonitorResponse, [LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Adds an alert subscription to a cost anomaly detection monitor. You can use each
  * subscription to define subscribers with email or SNS notifications. Email subscribers can set
  * an absolute or percentage threshold and a time frequency for receiving notifications.
- */export const createAnomalySubscription = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.CreateAnomalySubscription" }, CreateAnomalySubscriptionRequest, CreateAnomalySubscriptionResponse, [LimitExceededException, UnknownMonitorException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createAnomalySubscription = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.CreateAnomalySubscription" }, CreateAnomalySubscriptionRequest, CreateAnomalySubscriptionResponse, [LimitExceededException, UnknownMonitorException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a cost anomaly monitor.
- */export const deleteAnomalyMonitor = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.DeleteAnomalyMonitor" }, DeleteAnomalyMonitorRequest, DeleteAnomalyMonitorResponse, [LimitExceededException, UnknownMonitorException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteAnomalyMonitor = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.DeleteAnomalyMonitor" }, DeleteAnomalyMonitorRequest, DeleteAnomalyMonitorResponse, [LimitExceededException, UnknownMonitorException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the cost anomaly monitor definitions for your account. You can filter using a
  * list of cost anomaly monitor Amazon Resource Names (ARNs).
- */export const getAnomalyMonitors = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.GetAnomalyMonitors" }, GetAnomalyMonitorsRequest, GetAnomalyMonitorsResponse, [InvalidNextTokenException, LimitExceededException, UnknownMonitorException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getAnomalyMonitors = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.GetAnomalyMonitors" }, GetAnomalyMonitorsRequest, GetAnomalyMonitorsResponse, [InvalidNextTokenException, LimitExceededException, UnknownMonitorException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves estimated usage records for hourly granularity or resource-level data at daily
  * granularity.
- */export const getApproximateUsageRecords = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.GetApproximateUsageRecords" }, GetApproximateUsageRecordsRequest, GetApproximateUsageRecordsResponse, [DataUnavailableException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getApproximateUsageRecords = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.GetApproximateUsageRecords" }, GetApproximateUsageRecordsRequest, GetApproximateUsageRecordsResponse, [DataUnavailableException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves a forecast for how much Amazon Web Services predicts that you will spend over
  * the forecast time period that you select, based on your past costs.
- */export const getCostForecast = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.GetCostForecast" }, GetCostForecastRequest, GetCostForecastResponse, [BillingViewHealthStatusException, DataUnavailableException, LimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getCostForecast = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.GetCostForecast" }, GetCostForecastRequest, GetCostForecastResponse, [BillingViewHealthStatusException, DataUnavailableException, LimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves all available filter values for a specified filter over a period of time. You
  * can search the dimension values for an arbitrary string.
- */export const getDimensionValues = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.GetDimensionValues" }, GetDimensionValuesRequest, GetDimensionValuesResponse, [BillExpirationException, BillingViewHealthStatusException, DataUnavailableException, InvalidNextTokenException, LimitExceededException, RequestChangedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getDimensionValues = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.GetDimensionValues" }, GetDimensionValuesRequest, GetDimensionValuesResponse, [BillExpirationException, BillingViewHealthStatusException, DataUnavailableException, InvalidNextTokenException, LimitExceededException, RequestChangedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves attribute data along with aggregate utilization and savings data for a given
  * time period. This doesn't support granular or grouped data (daily/monthly) in response. You
@@ -354,25 +354,25 @@ export class AnalysisNotFoundException extends S.TaggedError<AnalysisNotFoundExc
  * 
  * `GetSavingsPlanUtilizationDetails` internally groups data by
  * `SavingsPlansArn`.
- */export const getSavingsPlansUtilizationDetails = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.GetSavingsPlansUtilizationDetails" }, GetSavingsPlansUtilizationDetailsRequest, GetSavingsPlansUtilizationDetailsResponse, [DataUnavailableException, InvalidNextTokenException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getSavingsPlansUtilizationDetails = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.GetSavingsPlansUtilizationDetails" }, GetSavingsPlansUtilizationDetailsRequest, GetSavingsPlansUtilizationDetailsResponse, [DataUnavailableException, InvalidNextTokenException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Queries for available tag keys and tag values for a specified period. You can search
  * the tag values for an arbitrary string.
- */export const getTags = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.GetTags" }, GetTagsRequest, GetTagsResponse, [BillExpirationException, BillingViewHealthStatusException, DataUnavailableException, InvalidNextTokenException, LimitExceededException, RequestChangedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getTags = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.GetTags" }, GetTagsRequest, GetTagsResponse, [BillExpirationException, BillingViewHealthStatusException, DataUnavailableException, InvalidNextTokenException, LimitExceededException, RequestChangedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves a forecast for how much Amazon Web Services predicts that you will use
  * over the forecast time period that you select, based on your past usage.
- */export const getUsageForecast = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.GetUsageForecast" }, GetUsageForecastRequest, GetUsageForecastResponse, [BillingViewHealthStatusException, DataUnavailableException, LimitExceededException, ResourceNotFoundException, UnresolvableUsageUnitException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getUsageForecast = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.GetUsageForecast" }, GetUsageForecastRequest, GetUsageForecastResponse, [BillingViewHealthStatusException, DataUnavailableException, LimitExceededException, ResourceNotFoundException, UnresolvableUsageUnitException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the commitment purchase analyses for your account.
- */export const listCommitmentPurchaseAnalyses = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.ListCommitmentPurchaseAnalyses" }, ListCommitmentPurchaseAnalysesRequest, ListCommitmentPurchaseAnalysesResponse, [DataUnavailableException, InvalidNextTokenException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listCommitmentPurchaseAnalyses = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.ListCommitmentPurchaseAnalyses" }, ListCommitmentPurchaseAnalysesRequest, ListCommitmentPurchaseAnalysesResponse, [DataUnavailableException, InvalidNextTokenException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves a list of your historical cost allocation tag backfill requests.
- */export const listCostAllocationTagBackfillHistory = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.ListCostAllocationTagBackfillHistory" }, ListCostAllocationTagBackfillHistoryRequest, ListCostAllocationTagBackfillHistoryResponse, [InvalidNextTokenException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listCostAllocationTagBackfillHistory = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.ListCostAllocationTagBackfillHistory" }, ListCostAllocationTagBackfillHistoryRequest, ListCostAllocationTagBackfillHistoryResponse, [InvalidNextTokenException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Get a list of cost allocation tags. All inputs in the API are optional and serve as
  * filters. By default, all cost allocation tags are returned.
- */export const listCostAllocationTags = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.ListCostAllocationTags" }, ListCostAllocationTagsRequest, ListCostAllocationTagsResponse, [InvalidNextTokenException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listCostAllocationTags = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.ListCostAllocationTags" }, ListCostAllocationTagsRequest, ListCostAllocationTagsResponse, [InvalidNextTokenException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the name, Amazon Resource Name (ARN), `NumberOfRules` and effective
  * dates of all cost categories defined in the account. You have the option to use
@@ -381,20 +381,20 @@ export class AnalysisNotFoundException extends S.TaggedError<AnalysisNotFoundExc
  * effective on the current date. If cost category is still effective, `EffectiveEnd`
  * is omitted in the response. `ListCostCategoryDefinitions` supports pagination. The
  * request can have a `MaxResults` range up to 100.
- */export const listCostCategoryDefinitions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.ListCostCategoryDefinitions" }, ListCostCategoryDefinitionsRequest, ListCostCategoryDefinitionsResponse, [LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listCostCategoryDefinitions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.ListCostCategoryDefinitions" }, ListCostCategoryDefinitionsRequest, ListCostCategoryDefinitionsResponse, [LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns resource associations of all cost categories defined in the account. You have the option to use `CostCategoryArn` to get the association for a specific cost category. `ListCostCategoryResourceAssociations` supports pagination. The request can have a `MaxResults` range up to 100.
- */export const listCostCategoryResourceAssociations = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.ListCostCategoryResourceAssociations" }, ListCostCategoryResourceAssociationsRequest, ListCostCategoryResourceAssociationsResponse, [LimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listCostCategoryResourceAssociations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.ListCostCategoryResourceAssociations" }, ListCostCategoryResourceAssociationsRequest, ListCostCategoryResourceAssociationsResponse, [LimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves a list of your historical recommendation generations within the past 30
  * days.
- */export const listSavingsPlansPurchaseRecommendationGeneration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.ListSavingsPlansPurchaseRecommendationGeneration" }, ListSavingsPlansPurchaseRecommendationGenerationRequest, ListSavingsPlansPurchaseRecommendationGenerationResponse, [DataUnavailableException, InvalidNextTokenException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listSavingsPlansPurchaseRecommendationGeneration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.ListSavingsPlansPurchaseRecommendationGeneration" }, ListSavingsPlansPurchaseRecommendationGenerationRequest, ListSavingsPlansPurchaseRecommendationGenerationResponse, [DataUnavailableException, InvalidNextTokenException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Request a cost allocation tag backfill. This will backfill the activation status (either `active` or `inactive`) for all tag keys from `para:BackfillFrom` up to the time this request is made.
  * 
  * 
  * You can request a backfill once every 24 hours.
- */export const startCostAllocationTagBackfill = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.StartCostAllocationTagBackfill" }, StartCostAllocationTagBackfillRequest, StartCostAllocationTagBackfillResponse, [BackfillLimitExceededException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startCostAllocationTagBackfill = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.StartCostAllocationTagBackfill" }, StartCostAllocationTagBackfillRequest, StartCostAllocationTagBackfillResponse, [BackfillLimitExceededException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Requests a Savings Plans recommendation generation. This enables you to calculate a fresh
  * set of Savings Plans recommendations that takes your latest usage data and current Savings
@@ -407,7 +407,7 @@ export class AnalysisNotFoundException extends S.TaggedError<AnalysisNotFoundExc
  * 
  * `StartSavingsPlansPurchaseRecommendationGeneration` has no request syntax
  * because no input parameters are needed to support this operation.
- */export const startSavingsPlansPurchaseRecommendationGeneration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.StartSavingsPlansPurchaseRecommendationGeneration" }, StartSavingsPlansPurchaseRecommendationGenerationRequest, StartSavingsPlansPurchaseRecommendationGenerationResponse, [DataUnavailableException, GenerationExistsException, LimitExceededException, ServiceQuotaExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startSavingsPlansPurchaseRecommendationGeneration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.StartSavingsPlansPurchaseRecommendationGeneration" }, StartSavingsPlansPurchaseRecommendationGenerationRequest, StartSavingsPlansPurchaseRecommendationGenerationResponse, [DataUnavailableException, GenerationExistsException, LimitExceededException, ServiceQuotaExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * An API operation for adding one or more tags (key-value pairs) to a resource.
  * 
@@ -420,7 +420,7 @@ export class AnalysisNotFoundException extends S.TaggedError<AnalysisNotFoundExc
  * 
  * Although the maximum number of array members is 200, user-tag maximum is 50. The remaining
  * are reserved for Amazon Web Services use.
- */export const tagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.TagResource" }, TagResourceRequest, TagResourceResponse, [LimitExceededException, ResourceNotFoundException, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.TagResource" }, TagResourceRequest, TagResourceResponse, [LimitExceededException, ResourceNotFoundException, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates an existing cost anomaly subscription. Specify the fields that you want to update.
  * Omitted fields are unchanged.
@@ -430,15 +430,15 @@ export class AnalysisNotFoundException extends S.TaggedError<AnalysisNotFoundExc
  * 
  * The JSON below describes the generic construct for each type. See Request Parameters for possible values as they apply to
  * `AnomalySubscription`.
- */export const updateAnomalySubscription = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.UpdateAnomalySubscription" }, UpdateAnomalySubscriptionRequest, UpdateAnomalySubscriptionResponse, [LimitExceededException, UnknownMonitorException, UnknownSubscriptionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateAnomalySubscription = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.UpdateAnomalySubscription" }, UpdateAnomalySubscriptionRequest, UpdateAnomalySubscriptionResponse, [LimitExceededException, UnknownMonitorException, UnknownSubscriptionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates an existing cost category. Changes made to the cost category rules will be used to
  * categorize the current month’s expenses and future expenses. This won’t change categorization
  * for the previous months.
- */export const updateCostCategoryDefinition = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.UpdateCostCategoryDefinition" }, UpdateCostCategoryDefinitionRequest, UpdateCostCategoryDefinitionResponse, [LimitExceededException, ResourceNotFoundException, ServiceQuotaExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateCostCategoryDefinition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.UpdateCostCategoryDefinition" }, UpdateCostCategoryDefinitionRequest, UpdateCostCategoryDefinitionResponse, [LimitExceededException, ResourceNotFoundException, ServiceQuotaExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new cost category with the requested name and rules.
- */export const createCostCategoryDefinition = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.CreateCostCategoryDefinition" }, CreateCostCategoryDefinitionRequest, CreateCostCategoryDefinitionResponse, [LimitExceededException, ServiceQuotaExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createCostCategoryDefinition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.CreateCostCategoryDefinition" }, CreateCostCategoryDefinitionRequest, CreateCostCategoryDefinitionResponse, [LimitExceededException, ServiceQuotaExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the name, Amazon Resource Name (ARN), rules, definition, and effective dates of a
  * cost category that's defined in the account.
@@ -448,7 +448,7 @@ export class AnalysisNotFoundException extends S.TaggedError<AnalysisNotFoundExc
  * active on a specific date. If there's no `EffectiveOn` specified, you see a Cost
  * Category that's effective on the current date. If cost category is still effective,
  * `EffectiveEnd` is omitted in the response.
- */export const describeCostCategoryDefinition = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.DescribeCostCategoryDefinition" }, DescribeCostCategoryDefinitionRequest, DescribeCostCategoryDefinitionResponse, [LimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeCostCategoryDefinition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.DescribeCostCategoryDefinition" }, DescribeCostCategoryDefinitionRequest, DescribeCostCategoryDefinitionResponse, [LimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves cost and usage metrics for your account. You can specify which cost and
  * usage-related metric that you want the request to return. For example, you can specify
@@ -459,12 +459,12 @@ export class AnalysisNotFoundException extends S.TaggedError<AnalysisNotFoundExc
  * 
  * For information about filter limitations, see Quotas and restrictions
  * in the *Billing and Cost Management User Guide*.
- */export const getCostAndUsage = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.GetCostAndUsage" }, GetCostAndUsageRequest, GetCostAndUsageResponse, [BillExpirationException, BillingViewHealthStatusException, DataUnavailableException, InvalidNextTokenException, LimitExceededException, RequestChangedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getCostAndUsage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.GetCostAndUsage" }, GetCostAndUsageRequest, GetCostAndUsageResponse, [BillExpirationException, BillingViewHealthStatusException, DataUnavailableException, InvalidNextTokenException, LimitExceededException, RequestChangedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves cost and usage comparisons for your account between two periods within the last
  * 13 months. If you have enabled multi-year data at monthly granularity, you can go back up to
  * 38 months.
- */export const getCostAndUsageComparisons = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.GetCostAndUsageComparisons" }, GetCostAndUsageComparisonsRequest, GetCostAndUsageComparisonsResponse, [BillingViewHealthStatusException, DataUnavailableException, InvalidNextTokenException, LimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getCostAndUsageComparisons = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.GetCostAndUsageComparisons" }, GetCostAndUsageComparisonsRequest, GetCostAndUsageComparisonsResponse, [BillingViewHealthStatusException, DataUnavailableException, InvalidNextTokenException, LimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves cost and usage metrics with resources for your account. You can specify which
  * cost and usage-related metric, such as `BlendedCosts` or
@@ -484,7 +484,7 @@ export class AnalysisNotFoundException extends S.TaggedError<AnalysisNotFoundExc
  * Settings page. For information about how to access the Settings page, see Controlling
  * Access for Cost Explorer in the Billing and Cost Management User
  * Guide.
- */export const getCostAndUsageWithResources = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.GetCostAndUsageWithResources" }, GetCostAndUsageWithResourcesRequest, GetCostAndUsageWithResourcesResponse, [BillExpirationException, BillingViewHealthStatusException, DataUnavailableException, InvalidNextTokenException, LimitExceededException, RequestChangedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getCostAndUsageWithResources = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.GetCostAndUsageWithResources" }, GetCostAndUsageWithResourcesRequest, GetCostAndUsageWithResourcesResponse, [BillExpirationException, BillingViewHealthStatusException, DataUnavailableException, InvalidNextTokenException, LimitExceededException, RequestChangedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves an array of cost category names and values incurred cost.
  * 
@@ -493,12 +493,12 @@ export class AnalysisNotFoundException extends S.TaggedError<AnalysisNotFoundExc
  * 
  * If some cost category names and values are not associated with any cost, they will not
  * be returned by this API.
- */export const getCostCategories = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.GetCostCategories" }, GetCostCategoriesRequest, GetCostCategoriesResponse, [BillExpirationException, BillingViewHealthStatusException, DataUnavailableException, InvalidNextTokenException, LimitExceededException, RequestChangedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getCostCategories = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.GetCostCategories" }, GetCostCategoriesRequest, GetCostCategoriesResponse, [BillExpirationException, BillingViewHealthStatusException, DataUnavailableException, InvalidNextTokenException, LimitExceededException, RequestChangedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves key factors driving cost changes between two time periods within the last 13
  * months, such as usage changes, discount changes, and commitment-based savings. If you have
  * enabled multi-year data at monthly granularity, you can go back up to 38 months.
- */export const getCostComparisonDrivers = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.GetCostComparisonDrivers" }, GetCostComparisonDriversRequest, GetCostComparisonDriversResponse, [BillingViewHealthStatusException, DataUnavailableException, InvalidNextTokenException, LimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getCostComparisonDrivers = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.GetCostComparisonDrivers" }, GetCostComparisonDriversRequest, GetCostComparisonDriversResponse, [BillingViewHealthStatusException, DataUnavailableException, InvalidNextTokenException, LimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the reservation coverage for your account, which you can use to see how much
  * of your Amazon Elastic Compute Cloud, Amazon ElastiCache, Amazon Relational Database Service,
@@ -561,17 +561,17 @@ export class AnalysisNotFoundException extends S.TaggedError<AnalysisNotFoundExc
  * 
  * To determine valid values for a dimension, use the `GetDimensionValues`
  * operation.
- */export const getReservationCoverage = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.GetReservationCoverage" }, GetReservationCoverageRequest, GetReservationCoverageResponse, [DataUnavailableException, InvalidNextTokenException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getReservationCoverage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.GetReservationCoverage" }, GetReservationCoverageRequest, GetReservationCoverageResponse, [DataUnavailableException, InvalidNextTokenException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the reservation utilization for your account. Management account in an
  * organization have access to member accounts. You can filter data by dimensions in a time
  * period. You can use `GetDimensionValues` to determine the possible dimension
  * values. Currently, you can group only by `SUBSCRIPTION_ID`.
- */export const getReservationUtilization = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.GetReservationUtilization" }, GetReservationUtilizationRequest, GetReservationUtilizationResponse, [DataUnavailableException, InvalidNextTokenException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getReservationUtilization = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.GetReservationUtilization" }, GetReservationUtilizationRequest, GetReservationUtilizationResponse, [DataUnavailableException, InvalidNextTokenException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the details for a Savings Plan recommendation. These details include the hourly
  * data-points that construct the cost, coverage, and utilization charts.
- */export const getSavingsPlanPurchaseRecommendationDetails = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.GetSavingsPlanPurchaseRecommendationDetails" }, GetSavingsPlanPurchaseRecommendationDetailsRequest, GetSavingsPlanPurchaseRecommendationDetailsResponse, [DataUnavailableException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getSavingsPlanPurchaseRecommendationDetails = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.GetSavingsPlanPurchaseRecommendationDetails" }, GetSavingsPlanPurchaseRecommendationDetailsRequest, GetSavingsPlanPurchaseRecommendationDetailsResponse, [DataUnavailableException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the Savings Plans covered for your account. This enables you to see how much of
  * your cost is covered by a Savings Plan. An organization’s management account can see the
@@ -605,7 +605,7 @@ export class AnalysisNotFoundException extends S.TaggedError<AnalysisNotFoundExc
  * 
  * To determine valid values for a dimension, use the `GetDimensionValues`
  * operation.
- */export const getSavingsPlansCoverage = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.GetSavingsPlansCoverage" }, GetSavingsPlansCoverageRequest, GetSavingsPlansCoverageResponse, [DataUnavailableException, InvalidNextTokenException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getSavingsPlansCoverage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.GetSavingsPlansCoverage" }, GetSavingsPlansCoverageRequest, GetSavingsPlansCoverageResponse, [DataUnavailableException, InvalidNextTokenException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the Savings Plans utilization for your account across date ranges with daily or
  * monthly granularity. Management account in an organization have access to member accounts. You
@@ -617,33 +617,33 @@ export class AnalysisNotFoundException extends S.TaggedError<AnalysisNotFoundExc
  * 
  * You can't group by any dimension values for
  * `GetSavingsPlansUtilization`.
- */export const getSavingsPlansUtilization = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.GetSavingsPlansUtilization" }, GetSavingsPlansUtilizationRequest, GetSavingsPlansUtilizationResponse, [DataUnavailableException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getSavingsPlansUtilization = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.GetSavingsPlansUtilization" }, GetSavingsPlansUtilizationRequest, GetSavingsPlansUtilizationResponse, [DataUnavailableException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates status for cost allocation tags in bulk, with maximum batch size of 20. If the tag
  * status that's updated is the same as the existing tag status, the request doesn't fail.
  * Instead, it doesn't have any effect on the tag status (for example, activating the active
  * tag).
- */export const updateCostAllocationTagsStatus = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.UpdateCostAllocationTagsStatus" }, UpdateCostAllocationTagsStatusRequest, UpdateCostAllocationTagsStatusResponse, [LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateCostAllocationTagsStatus = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.UpdateCostAllocationTagsStatus" }, UpdateCostAllocationTagsStatusRequest, UpdateCostAllocationTagsStatusResponse, [LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves a commitment purchase analysis result based on the
  * `AnalysisId`.
- */export const getCommitmentPurchaseAnalysis = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.GetCommitmentPurchaseAnalysis" }, GetCommitmentPurchaseAnalysisRequest, GetCommitmentPurchaseAnalysisResponse, [AnalysisNotFoundException, DataUnavailableException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getCommitmentPurchaseAnalysis = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.GetCommitmentPurchaseAnalysis" }, GetCommitmentPurchaseAnalysisRequest, GetCommitmentPurchaseAnalysisResponse, [AnalysisNotFoundException, DataUnavailableException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the Savings Plans recommendations for your account. First use
  * `StartSavingsPlansPurchaseRecommendationGeneration` to generate a new set of
  * recommendations, and then use `GetSavingsPlansPurchaseRecommendation` to retrieve
  * them.
- */export const getSavingsPlansPurchaseRecommendation = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.GetSavingsPlansPurchaseRecommendation" }, GetSavingsPlansPurchaseRecommendationRequest, GetSavingsPlansPurchaseRecommendationResponse, [InvalidNextTokenException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getSavingsPlansPurchaseRecommendation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.GetSavingsPlansPurchaseRecommendation" }, GetSavingsPlansPurchaseRecommendationRequest, GetSavingsPlansPurchaseRecommendationResponse, [InvalidNextTokenException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Specifies the parameters of a planned commitment purchase and starts the generation of the
  * analysis. This enables you to estimate the cost, coverage, and utilization impact of your
  * planned commitment purchases.
- */export const startCommitmentPurchaseAnalysis = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.StartCommitmentPurchaseAnalysis" }, StartCommitmentPurchaseAnalysisRequest, StartCommitmentPurchaseAnalysisResponse, [DataUnavailableException, GenerationExistsException, LimitExceededException, ServiceQuotaExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startCommitmentPurchaseAnalysis = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.StartCommitmentPurchaseAnalysis" }, StartCommitmentPurchaseAnalysisRequest, StartCommitmentPurchaseAnalysisResponse, [DataUnavailableException, GenerationExistsException, LimitExceededException, ServiceQuotaExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves all of the cost anomalies detected on your account during the time period that's
  * specified by the `DateInterval` object. Anomalies are available for up to 90
  * days.
- */export const getAnomalies = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.GetAnomalies" }, GetAnomaliesRequest, GetAnomaliesResponse, [InvalidNextTokenException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getAnomalies = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.GetAnomalies" }, GetAnomaliesRequest, GetAnomaliesResponse, [InvalidNextTokenException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets recommendations for reservation purchases. These recommendations might help you to
  * reduce your costs. Reservations provide a discounted hourly rate (up to 75%) compared to
@@ -665,7 +665,7 @@ export class AnalysisNotFoundException extends S.TaggedError<AnalysisNotFoundExc
  * normalized units. This way, you can purchase any instance size that you want. For this
  * example, your RI recommendation is for `c4.large` because that is the smallest size
  * instance in the c4 instance family.
- */export const getReservationPurchaseRecommendation = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.GetReservationPurchaseRecommendation" }, GetReservationPurchaseRecommendationRequest, GetReservationPurchaseRecommendationResponse, [DataUnavailableException, InvalidNextTokenException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getReservationPurchaseRecommendation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.GetReservationPurchaseRecommendation" }, GetReservationPurchaseRecommendationRequest, GetReservationPurchaseRecommendationResponse, [DataUnavailableException, InvalidNextTokenException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates recommendations that help you save cost by identifying idle and underutilized
  * Amazon EC2 instances.
@@ -674,4 +674,4 @@ export class AnalysisNotFoundException extends S.TaggedError<AnalysisNotFoundExc
  * Recommendations are generated to either downsize or terminate instances, along with
  * providing savings detail and metrics. For more information about calculation and function, see
  * Optimizing Your Cost with Rightsizing Recommendations in the *Billing and Cost Management User Guide*.
- */export const getRightsizingRecommendation = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.GetRightsizingRecommendation" }, GetRightsizingRecommendationRequest, GetRightsizingRecommendationResponse, [InvalidNextTokenException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getRightsizingRecommendation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", uri: "/", method: "POST", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.GetRightsizingRecommendation" }, GetRightsizingRecommendationRequest, GetRightsizingRecommendationResponse, [InvalidNextTokenException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

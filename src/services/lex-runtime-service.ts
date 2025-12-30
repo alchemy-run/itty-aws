@@ -48,7 +48,7 @@ export class UnsupportedMediaTypeException extends S.TaggedError<UnsupportedMedi
 /**
  * Returns session information for a specified bot, alias, and user
  * ID.
- */export const getSession = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/bot/{botName}/alias/{botAlias}/user/{userId}/session", method: "GET", sdkId: "Lex Runtime Service", sigV4ServiceName: "lex", name: "AWSDeepSenseRunTimeService.GetSession" }, GetSessionRequest, GetSessionResponse, [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getSession = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/bot/{botName}/alias/{botAlias}/user/{userId}/session", method: "GET", sdkId: "Lex Runtime Service", sigV4ServiceName: "lex", name: "AWSDeepSenseRunTimeService.GetSession" }, GetSessionRequest, GetSessionResponse, [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new session or modifies an existing session with an Amazon Lex
  * bot. Use this operation to enable your application to set the state of the
@@ -57,10 +57,10 @@ export class UnsupportedMediaTypeException extends S.TaggedError<UnsupportedMedi
  * 
  * For more information, see Managing
  * Sessions.
- */export const putSession = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/bot/{botName}/alias/{botAlias}/user/{userId}/session", method: "POST", sdkId: "Lex Runtime Service", sigV4ServiceName: "lex", name: "AWSDeepSenseRunTimeService.PutSession" }, PutSessionRequest, PutSessionResponse, [BadGatewayException, BadRequestException, ConflictException, DependencyFailedException, InternalFailureException, LimitExceededException, NotAcceptableException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putSession = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/bot/{botName}/alias/{botAlias}/user/{userId}/session", method: "POST", sdkId: "Lex Runtime Service", sigV4ServiceName: "lex", name: "AWSDeepSenseRunTimeService.PutSession" }, PutSessionRequest, PutSessionResponse, [BadGatewayException, BadRequestException, ConflictException, DependencyFailedException, InternalFailureException, LimitExceededException, NotAcceptableException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes session information for a specified bot, alias, and user ID.
- */export const deleteSession = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/bot/{botName}/alias/{botAlias}/user/{userId}/session", method: "DELETE", sdkId: "Lex Runtime Service", sigV4ServiceName: "lex", name: "AWSDeepSenseRunTimeService.DeleteSession" }, DeleteSessionRequest, DeleteSessionResponse, [BadRequestException, ConflictException, InternalFailureException, LimitExceededException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteSession = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/bot/{botName}/alias/{botAlias}/user/{userId}/session", method: "DELETE", sdkId: "Lex Runtime Service", sigV4ServiceName: "lex", name: "AWSDeepSenseRunTimeService.DeleteSession" }, DeleteSessionRequest, DeleteSessionResponse, [BadRequestException, ConflictException, InternalFailureException, LimitExceededException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Sends user input (text or speech) to Amazon Lex. Clients use this API to
  * send text and audio requests to Amazon Lex at runtime. Amazon Lex interprets the
@@ -156,7 +156,7 @@ export class UnsupportedMediaTypeException extends S.TaggedError<UnsupportedMedi
  * In addition, Amazon Lex also returns your application-specific
  * `sessionAttributes`. For more information, see Managing
  * Conversation Context.
- */export const postContent = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/bot/{botName}/alias/{botAlias}/user/{userId}/content", method: "POST", sdkId: "Lex Runtime Service", sigV4ServiceName: "lex", name: "AWSDeepSenseRunTimeService.PostContent" }, PostContentRequest, PostContentResponse, [BadGatewayException, BadRequestException, ConflictException, DependencyFailedException, InternalFailureException, LimitExceededException, LoopDetectedException, NotAcceptableException, NotFoundException, RequestTimeoutException, UnsupportedMediaTypeException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const postContent = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/bot/{botName}/alias/{botAlias}/user/{userId}/content", method: "POST", sdkId: "Lex Runtime Service", sigV4ServiceName: "lex", name: "AWSDeepSenseRunTimeService.PostContent" }, PostContentRequest, PostContentResponse, [BadGatewayException, BadRequestException, ConflictException, DependencyFailedException, InternalFailureException, LimitExceededException, LoopDetectedException, NotAcceptableException, NotFoundException, RequestTimeoutException, UnsupportedMediaTypeException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Sends user input to Amazon Lex. Client applications can use this API to
  * send requests to Amazon Lex at runtime. Amazon Lex then interprets the user input
@@ -246,4 +246,4 @@ export class UnsupportedMediaTypeException extends S.TaggedError<UnsupportedMedi
  * In addition, Amazon Lex also returns your application-specific
  * `sessionAttributes`. For more information, see Managing
  * Conversation Context.
- */export const postText = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/bot/{botName}/alias/{botAlias}/user/{userId}/text", method: "POST", sdkId: "Lex Runtime Service", sigV4ServiceName: "lex", name: "AWSDeepSenseRunTimeService.PostText" }, PostTextRequest, PostTextResponse, [BadGatewayException, BadRequestException, ConflictException, DependencyFailedException, InternalFailureException, LimitExceededException, LoopDetectedException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const postText = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/bot/{botName}/alias/{botAlias}/user/{userId}/text", method: "POST", sdkId: "Lex Runtime Service", sigV4ServiceName: "lex", name: "AWSDeepSenseRunTimeService.PostText" }, PostTextRequest, PostTextResponse, [BadGatewayException, BadRequestException, ConflictException, DependencyFailedException, InternalFailureException, LimitExceededException, LoopDetectedException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

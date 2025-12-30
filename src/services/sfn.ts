@@ -224,16 +224,16 @@ export class StateMachineLimitExceeded extends S.TaggedError<StateMachineLimitEx
  * 
  * 
  * - ListStateMachineVersions
- */export const deleteStateMachineVersion = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-23", uri: "/", method: "POST", sdkId: "SFN", sigV4ServiceName: "states", name: "AWSStepFunctions.DeleteStateMachineVersion" }, DeleteStateMachineVersionInput, DeleteStateMachineVersionOutput, [ConflictException, InvalidArn, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteStateMachineVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-23", uri: "/", method: "POST", sdkId: "SFN", sigV4ServiceName: "states", name: "AWSStepFunctions.DeleteStateMachineVersion" }, DeleteStateMachineVersionInput, DeleteStateMachineVersionOutput, [ConflictException, InvalidArn, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Remove a tag from a Step Functions resource
- */export const untagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-23", uri: "/", method: "POST", sdkId: "SFN", sigV4ServiceName: "states", name: "AWSStepFunctions.UntagResource" }, UntagResourceInput, UntagResourceOutput, [InvalidArn, ResourceNotFound]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-23", uri: "/", method: "POST", sdkId: "SFN", sigV4ServiceName: "states", name: "AWSStepFunctions.UntagResource" }, UntagResourceInput, UntagResourceOutput, [InvalidArn, ResourceNotFound]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates an in-progress Map Run's configuration to include changes to the settings that control maximum concurrency and Map Run failure.
- */export const updateMapRun = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-23", uri: "/", method: "POST", sdkId: "SFN", sigV4ServiceName: "states", name: "AWSStepFunctions.UpdateMapRun" }, UpdateMapRunInput, UpdateMapRunOutput, [InvalidArn, ResourceNotFound, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateMapRun = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-23", uri: "/", method: "POST", sdkId: "SFN", sigV4ServiceName: "states", name: "AWSStepFunctions.UpdateMapRun" }, UpdateMapRunInput, UpdateMapRunOutput, [InvalidArn, ResourceNotFound, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes an activity.
- */export const deleteActivity = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-23", uri: "/", method: "POST", sdkId: "SFN", sigV4ServiceName: "states", name: "AWSStepFunctions.DeleteActivity" }, DeleteActivityInput, DeleteActivityOutput, [InvalidArn]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteActivity = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-23", uri: "/", method: "POST", sdkId: "SFN", sigV4ServiceName: "states", name: "AWSStepFunctions.DeleteActivity" }, DeleteActivityInput, DeleteActivityOutput, [InvalidArn]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a state machine. This is an asynchronous operation. It sets the state machine's
  * status to `DELETING` and begins the deletion process. A state machine is deleted only when all its executions are completed. On the next state transition, the state machine's executions are terminated.
@@ -281,7 +281,7 @@ export class StateMachineLimitExceeded extends S.TaggedError<StateMachineLimitEx
  * For `EXPRESS` state machines, the deletion happens eventually (usually in
  * less than a minute). Running executions may emit logs after `DeleteStateMachine`
  * API is called.
- */export const deleteStateMachine = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-23", uri: "/", method: "POST", sdkId: "SFN", sigV4ServiceName: "states", name: "AWSStepFunctions.DeleteStateMachine" }, DeleteStateMachineInput, DeleteStateMachineOutput, [InvalidArn, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteStateMachine = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-23", uri: "/", method: "POST", sdkId: "SFN", sigV4ServiceName: "states", name: "AWSStepFunctions.DeleteStateMachine" }, DeleteStateMachineInput, DeleteStateMachineOutput, [InvalidArn, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a state machine alias.
  * 
@@ -313,7 +313,7 @@ export class StateMachineLimitExceeded extends S.TaggedError<StateMachineLimitEx
  * 
  * 
  * - UpdateStateMachineAlias
- */export const deleteStateMachineAlias = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-23", uri: "/", method: "POST", sdkId: "SFN", sigV4ServiceName: "states", name: "AWSStepFunctions.DeleteStateMachineAlias" }, DeleteStateMachineAliasInput, DeleteStateMachineAliasOutput, [ConflictException, InvalidArn, ResourceNotFound, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteStateMachineAlias = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-23", uri: "/", method: "POST", sdkId: "SFN", sigV4ServiceName: "states", name: "AWSStepFunctions.DeleteStateMachineAlias" }, DeleteStateMachineAliasInput, DeleteStateMachineAliasOutput, [ConflictException, InvalidArn, ResourceNotFound, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns details about a state machine alias.
  * 
@@ -340,13 +340,13 @@ export class StateMachineLimitExceeded extends S.TaggedError<StateMachineLimitEx
  * 
  * 
  * - DeleteStateMachineAlias
- */export const describeStateMachineAlias = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-23", uri: "/", method: "POST", sdkId: "SFN", sigV4ServiceName: "states", name: "AWSStepFunctions.DescribeStateMachineAlias" }, DescribeStateMachineAliasInput, DescribeStateMachineAliasOutput, [InvalidArn, ResourceNotFound, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeStateMachineAlias = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-23", uri: "/", method: "POST", sdkId: "SFN", sigV4ServiceName: "states", name: "AWSStepFunctions.DescribeStateMachineAlias" }, DescribeStateMachineAliasInput, DescribeStateMachineAliasOutput, [InvalidArn, ResourceNotFound, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * List tags for a given resource.
  * 
  * 
  * Tags may only contain Unicode letters, digits, white space, or these symbols: `_ . : / = + - @`.
- */export const listTagsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-23", uri: "/", method: "POST", sdkId: "SFN", sigV4ServiceName: "states", name: "AWSStepFunctions.ListTagsForResource" }, ListTagsForResourceInput, ListTagsForResourceOutput, [InvalidArn, ResourceNotFound]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-23", uri: "/", method: "POST", sdkId: "SFN", sigV4ServiceName: "states", name: "AWSStepFunctions.ListTagsForResource" }, ListTagsForResourceInput, ListTagsForResourceOutput, [InvalidArn, ResourceNotFound]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes an activity.
  * 
@@ -354,7 +354,7 @@ export class StateMachineLimitExceeded extends S.TaggedError<StateMachineLimitEx
  * 
  * 
  * This operation is eventually consistent. The results are best effort and may not reflect very recent updates and changes.
- */export const describeActivity = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-23", uri: "/", method: "POST", sdkId: "SFN", sigV4ServiceName: "states", name: "AWSStepFunctions.DescribeActivity" }, DescribeActivityInput, DescribeActivityOutput, [ActivityDoesNotExist, InvalidArn]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeActivity = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-23", uri: "/", method: "POST", sdkId: "SFN", sigV4ServiceName: "states", name: "AWSStepFunctions.DescribeActivity" }, DescribeActivityInput, DescribeActivityOutput, [ActivityDoesNotExist, InvalidArn]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Provides information about a state machine execution, such as the state machine associated with the execution, the execution input and output, and relevant execution metadata. If you've redriven an execution, you can use this API action to return information about the redrives of that execution. In addition, you can use this API action to return the Map Run Amazon Resource Name (ARN) if the execution was dispatched by a Map Run.
  * 
@@ -371,10 +371,10 @@ export class StateMachineLimitExceeded extends S.TaggedError<StateMachineLimitEx
  * 
  * 
  * Executions of an `EXPRESS` state machine aren't supported by `DescribeExecution` unless a Map Run dispatched them.
- */export const describeExecution = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-23", uri: "/", method: "POST", sdkId: "SFN", sigV4ServiceName: "states", name: "AWSStepFunctions.DescribeExecution" }, DescribeExecutionInput, DescribeExecutionOutput, [ExecutionDoesNotExist, InvalidArn, KmsAccessDeniedException, KmsInvalidStateException, KmsThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeExecution = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-23", uri: "/", method: "POST", sdkId: "SFN", sigV4ServiceName: "states", name: "AWSStepFunctions.DescribeExecution" }, DescribeExecutionInput, DescribeExecutionOutput, [ExecutionDoesNotExist, InvalidArn, KmsAccessDeniedException, KmsInvalidStateException, KmsThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Provides information about a Map Run's configuration, progress, and results. If you've redriven a Map Run, this API action also returns information about the redrives of that Map Run. For more information, see Examining Map Run in the *Step Functions Developer Guide*.
- */export const describeMapRun = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-23", uri: "/", method: "POST", sdkId: "SFN", sigV4ServiceName: "states", name: "AWSStepFunctions.DescribeMapRun" }, DescribeMapRunInput, DescribeMapRunOutput, [InvalidArn, ResourceNotFound]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeMapRun = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-23", uri: "/", method: "POST", sdkId: "SFN", sigV4ServiceName: "states", name: "AWSStepFunctions.DescribeMapRun" }, DescribeMapRunInput, DescribeMapRunOutput, [InvalidArn, ResourceNotFound]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Provides information about a state machine's definition, its execution role ARN, and
  * configuration. If a Map Run dispatched the execution, this action returns the Map Run
@@ -390,7 +390,7 @@ export class StateMachineLimitExceeded extends S.TaggedError<StateMachineLimitEx
  * 
  * 
  * This API action is not supported by `EXPRESS` state machines.
- */export const describeStateMachineForExecution = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-23", uri: "/", method: "POST", sdkId: "SFN", sigV4ServiceName: "states", name: "AWSStepFunctions.DescribeStateMachineForExecution" }, DescribeStateMachineForExecutionInput, DescribeStateMachineForExecutionOutput, [ExecutionDoesNotExist, InvalidArn, KmsAccessDeniedException, KmsInvalidStateException, KmsThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeStateMachineForExecution = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-23", uri: "/", method: "POST", sdkId: "SFN", sigV4ServiceName: "states", name: "AWSStepFunctions.DescribeStateMachineForExecution" }, DescribeStateMachineForExecutionInput, DescribeStateMachineForExecutionOutput, [ExecutionDoesNotExist, InvalidArn, KmsAccessDeniedException, KmsInvalidStateException, KmsThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Used by workers to retrieve a task (with the specified activity ARN) which has been
  * scheduled for execution by a running state machine. This initiates a long poll, where the
@@ -416,7 +416,7 @@ export class StateMachineLimitExceeded extends S.TaggedError<StateMachineLimitEx
  * Polling with `GetActivityTask` can cause latency in some implementations. See
  * Avoid
  * Latency When Polling for Activity Tasks in the Step Functions Developer Guide.
- */export const getActivityTask = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-23", uri: "/", method: "POST", sdkId: "SFN", sigV4ServiceName: "states", name: "AWSStepFunctions.GetActivityTask" }, GetActivityTaskInput, GetActivityTaskOutput, [ActivityDoesNotExist, ActivityWorkerLimitExceeded, InvalidArn, KmsAccessDeniedException, KmsInvalidStateException, KmsThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getActivityTask = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-23", uri: "/", method: "POST", sdkId: "SFN", sigV4ServiceName: "states", name: "AWSStepFunctions.GetActivityTask" }, GetActivityTaskInput, GetActivityTaskOutput, [ActivityDoesNotExist, ActivityWorkerLimitExceeded, InvalidArn, KmsAccessDeniedException, KmsInvalidStateException, KmsThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the existing activities.
  * 
@@ -428,10 +428,10 @@ export class StateMachineLimitExceeded extends S.TaggedError<StateMachineLimitEx
  * 
  * 
  * This operation is eventually consistent. The results are best effort and may not reflect very recent updates and changes.
- */export const listActivities = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-23", uri: "/", method: "POST", sdkId: "SFN", sigV4ServiceName: "states", name: "AWSStepFunctions.ListActivities" }, ListActivitiesInput, ListActivitiesOutput, [InvalidToken]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listActivities = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-23", uri: "/", method: "POST", sdkId: "SFN", sigV4ServiceName: "states", name: "AWSStepFunctions.ListActivities" }, ListActivitiesInput, ListActivitiesOutput, [InvalidToken]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists all Map Runs that were started by a given state machine execution. Use this API action to obtain Map Run ARNs, and then call `DescribeMapRun` to obtain more information, if needed.
- */export const listMapRuns = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-23", uri: "/", method: "POST", sdkId: "SFN", sigV4ServiceName: "states", name: "AWSStepFunctions.ListMapRuns" }, ListMapRunsInput, ListMapRunsOutput, [ExecutionDoesNotExist, InvalidArn, InvalidToken]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listMapRuns = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-23", uri: "/", method: "POST", sdkId: "SFN", sigV4ServiceName: "states", name: "AWSStepFunctions.ListMapRuns" }, ListMapRunsInput, ListMapRunsOutput, [ExecutionDoesNotExist, InvalidArn, InvalidToken]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists aliases for a specified state machine ARN. Results are sorted by time, with the most recently created aliases listed first.
  * 
@@ -465,7 +465,7 @@ export class StateMachineLimitExceeded extends S.TaggedError<StateMachineLimitEx
  * 
  * 
  * - DeleteStateMachineAlias
- */export const listStateMachineAliases = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-23", uri: "/", method: "POST", sdkId: "SFN", sigV4ServiceName: "states", name: "AWSStepFunctions.ListStateMachineAliases" }, ListStateMachineAliasesInput, ListStateMachineAliasesOutput, [InvalidArn, InvalidToken, ResourceNotFound, StateMachineDeleting, StateMachineDoesNotExist]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listStateMachineAliases = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-23", uri: "/", method: "POST", sdkId: "SFN", sigV4ServiceName: "states", name: "AWSStepFunctions.ListStateMachineAliases" }, ListStateMachineAliasesInput, ListStateMachineAliasesOutput, [InvalidArn, InvalidToken, ResourceNotFound, StateMachineDeleting, StateMachineDoesNotExist]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the existing state machines.
  * 
@@ -477,7 +477,7 @@ export class StateMachineLimitExceeded extends S.TaggedError<StateMachineLimitEx
  * 
  * 
  * This operation is eventually consistent. The results are best effort and may not reflect very recent updates and changes.
- */export const listStateMachines = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-23", uri: "/", method: "POST", sdkId: "SFN", sigV4ServiceName: "states", name: "AWSStepFunctions.ListStateMachines" }, ListStateMachinesInput, ListStateMachinesOutput, [InvalidToken]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listStateMachines = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-23", uri: "/", method: "POST", sdkId: "SFN", sigV4ServiceName: "states", name: "AWSStepFunctions.ListStateMachines" }, ListStateMachinesInput, ListStateMachinesOutput, [InvalidToken]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists versions for the specified state machine Amazon Resource Name (ARN).
  * 
@@ -501,7 +501,7 @@ export class StateMachineLimitExceeded extends S.TaggedError<StateMachineLimitEx
  * 
  * 
  * - DeleteStateMachineVersion
- */export const listStateMachineVersions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-23", uri: "/", method: "POST", sdkId: "SFN", sigV4ServiceName: "states", name: "AWSStepFunctions.ListStateMachineVersions" }, ListStateMachineVersionsInput, ListStateMachineVersionsOutput, [InvalidArn, InvalidToken, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listStateMachineVersions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-23", uri: "/", method: "POST", sdkId: "SFN", sigV4ServiceName: "states", name: "AWSStepFunctions.ListStateMachineVersions" }, ListStateMachineVersionsInput, ListStateMachineVersionsOutput, [InvalidArn, InvalidToken, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a version from the
  * current revision of a state machine. Use versions to create immutable snapshots of your state
@@ -533,7 +533,7 @@ export class StateMachineLimitExceeded extends S.TaggedError<StateMachineLimitEx
  * 
  * 
  * - ListStateMachineVersions
- */export const publishStateMachineVersion = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-23", uri: "/", method: "POST", sdkId: "SFN", sigV4ServiceName: "states", name: "AWSStepFunctions.PublishStateMachineVersion" }, PublishStateMachineVersionInput, PublishStateMachineVersionOutput, [ConflictException, InvalidArn, ServiceQuotaExceededException, StateMachineDeleting, StateMachineDoesNotExist, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const publishStateMachineVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-23", uri: "/", method: "POST", sdkId: "SFN", sigV4ServiceName: "states", name: "AWSStepFunctions.PublishStateMachineVersion" }, PublishStateMachineVersionInput, PublishStateMachineVersionOutput, [ConflictException, InvalidArn, ServiceQuotaExceededException, StateMachineDeleting, StateMachineDoesNotExist, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Used by activity workers, Task states using the callback
  * pattern, and optionally Task states using the job run pattern to report that the task identified by the `taskToken` failed.
@@ -543,7 +543,7 @@ export class StateMachineLimitExceeded extends S.TaggedError<StateMachineLimitEx
  * 
  * 
  * A caller can mark a task as fail without using any KMS permissions in the execution role if the caller provides a null value for both `error` and `cause` fields because no data needs to be encrypted.
- */export const sendTaskFailure = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-23", uri: "/", method: "POST", sdkId: "SFN", sigV4ServiceName: "states", name: "AWSStepFunctions.SendTaskFailure" }, SendTaskFailureInput, SendTaskFailureOutput, [InvalidToken, KmsAccessDeniedException, KmsInvalidStateException, KmsThrottlingException, TaskDoesNotExist, TaskTimedOut]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const sendTaskFailure = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-23", uri: "/", method: "POST", sdkId: "SFN", sigV4ServiceName: "states", name: "AWSStepFunctions.SendTaskFailure" }, SendTaskFailureInput, SendTaskFailureOutput, [InvalidToken, KmsAccessDeniedException, KmsInvalidStateException, KmsThrottlingException, TaskDoesNotExist, TaskTimedOut]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Used by activity workers and Task states using the callback
  * pattern, and optionally Task states using the job run pattern to report to Step Functions that the task represented by the specified
@@ -562,12 +562,12 @@ export class StateMachineLimitExceeded extends S.TaggedError<StateMachineLimitEx
  * The `Timeout` of a task, defined in the state machine's Amazon States Language definition, is
  * its maximum allowed duration, regardless of the number of SendTaskHeartbeat requests received. Use `HeartbeatSeconds` to configure the timeout interval
  * for heartbeats.
- */export const sendTaskHeartbeat = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-23", uri: "/", method: "POST", sdkId: "SFN", sigV4ServiceName: "states", name: "AWSStepFunctions.SendTaskHeartbeat" }, SendTaskHeartbeatInput, SendTaskHeartbeatOutput, [InvalidToken, TaskDoesNotExist, TaskTimedOut]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const sendTaskHeartbeat = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-23", uri: "/", method: "POST", sdkId: "SFN", sigV4ServiceName: "states", name: "AWSStepFunctions.SendTaskHeartbeat" }, SendTaskHeartbeatInput, SendTaskHeartbeatOutput, [InvalidToken, TaskDoesNotExist, TaskTimedOut]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Used by activity workers, Task states using the callback
  * pattern, and optionally Task states using the job run pattern to report that the task identified by the `taskToken` completed
  * successfully.
- */export const sendTaskSuccess = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-23", uri: "/", method: "POST", sdkId: "SFN", sigV4ServiceName: "states", name: "AWSStepFunctions.SendTaskSuccess" }, SendTaskSuccessInput, SendTaskSuccessOutput, [InvalidOutput, InvalidToken, KmsAccessDeniedException, KmsInvalidStateException, KmsThrottlingException, TaskDoesNotExist, TaskTimedOut]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const sendTaskSuccess = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-23", uri: "/", method: "POST", sdkId: "SFN", sigV4ServiceName: "states", name: "AWSStepFunctions.SendTaskSuccess" }, SendTaskSuccessInput, SendTaskSuccessOutput, [InvalidOutput, InvalidToken, KmsAccessDeniedException, KmsInvalidStateException, KmsThrottlingException, TaskDoesNotExist, TaskTimedOut]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts a Synchronous Express state machine execution. `StartSyncExecution`
  * is not available for `STANDARD` workflows.
@@ -588,7 +588,7 @@ export class StateMachineLimitExceeded extends S.TaggedError<StateMachineLimitEx
  * 
  * 
  * This API action isn't logged in CloudTrail.
- */export const startSyncExecution = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-23", uri: "/", method: "POST", sdkId: "SFN", sigV4ServiceName: "states", name: "AWSStepFunctions.StartSyncExecution" }, StartSyncExecutionInput, StartSyncExecutionOutput, [InvalidArn, InvalidExecutionInput, InvalidName, KmsAccessDeniedException, KmsInvalidStateException, KmsThrottlingException, StateMachineDeleting, StateMachineDoesNotExist, StateMachineTypeNotSupported]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startSyncExecution = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-23", uri: "/", method: "POST", sdkId: "SFN", sigV4ServiceName: "states", name: "AWSStepFunctions.StartSyncExecution" }, StartSyncExecutionInput, StartSyncExecutionOutput, [InvalidArn, InvalidExecutionInput, InvalidName, KmsAccessDeniedException, KmsInvalidStateException, KmsThrottlingException, StateMachineDeleting, StateMachineDoesNotExist, StateMachineTypeNotSupported]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Stops an execution.
  * 
@@ -600,7 +600,7 @@ export class StateMachineLimitExceeded extends S.TaggedError<StateMachineLimitEx
  * 
  * 
  * A caller can stop an execution without using any KMS permissions in the execution role if the caller provides a null value for both `error` and `cause` fields because no data needs to be encrypted.
- */export const stopExecution = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-23", uri: "/", method: "POST", sdkId: "SFN", sigV4ServiceName: "states", name: "AWSStepFunctions.StopExecution" }, StopExecutionInput, StopExecutionOutput, [ExecutionDoesNotExist, InvalidArn, KmsAccessDeniedException, KmsInvalidStateException, KmsThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const stopExecution = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-23", uri: "/", method: "POST", sdkId: "SFN", sigV4ServiceName: "states", name: "AWSStepFunctions.StopExecution" }, StopExecutionInput, StopExecutionOutput, [ExecutionDoesNotExist, InvalidArn, KmsAccessDeniedException, KmsInvalidStateException, KmsThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Add a tag to a Step Functions resource.
  * 
@@ -612,7 +612,7 @@ export class StateMachineLimitExceeded extends S.TaggedError<StateMachineLimitEx
  * 
  * 
  * Tags may only contain Unicode letters, digits, white space, or these symbols: `_ . : / = + - @`.
- */export const tagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-23", uri: "/", method: "POST", sdkId: "SFN", sigV4ServiceName: "states", name: "AWSStepFunctions.TagResource" }, TagResourceInput, TagResourceOutput, [InvalidArn, ResourceNotFound, TooManyTags]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-23", uri: "/", method: "POST", sdkId: "SFN", sigV4ServiceName: "states", name: "AWSStepFunctions.TagResource" }, TagResourceInput, TagResourceOutput, [InvalidArn, ResourceNotFound, TooManyTags]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the configuration of an existing state machine alias by modifying its `description` or `routingConfiguration`.
  * 
@@ -663,7 +663,7 @@ export class StateMachineLimitExceeded extends S.TaggedError<StateMachineLimitEx
  * 
  * 
  * - DeleteStateMachineAlias
- */export const updateStateMachineAlias = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-23", uri: "/", method: "POST", sdkId: "SFN", sigV4ServiceName: "states", name: "AWSStepFunctions.UpdateStateMachineAlias" }, UpdateStateMachineAliasInput, UpdateStateMachineAliasOutput, [ConflictException, InvalidArn, ResourceNotFound, StateMachineDeleting, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateStateMachineAlias = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-23", uri: "/", method: "POST", sdkId: "SFN", sigV4ServiceName: "states", name: "AWSStepFunctions.UpdateStateMachineAlias" }, UpdateStateMachineAliasInput, UpdateStateMachineAliasOutput, [ConflictException, InvalidArn, ResourceNotFound, StateMachineDeleting, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Validates the syntax of a state machine definition specified in Amazon States Language (ASL), a
  * JSON-based, structured language.
@@ -712,7 +712,7 @@ export class StateMachineLimitExceeded extends S.TaggedError<StateMachineLimitEx
  * new diagnostics in the future, adjust diagnostic codes, or change the message
  * wording. Your automated processes should only rely on the value of the **result** field value (OK, FAIL). Do **not** rely on the exact order, count, or
  * wording of diagnostic messages.
- */export const validateStateMachineDefinition = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-23", uri: "/", method: "POST", sdkId: "SFN", sigV4ServiceName: "states", name: "AWSStepFunctions.ValidateStateMachineDefinition" }, ValidateStateMachineDefinitionInput, ValidateStateMachineDefinitionOutput, [ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const validateStateMachineDefinition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-23", uri: "/", method: "POST", sdkId: "SFN", sigV4ServiceName: "states", name: "AWSStepFunctions.ValidateStateMachineDefinition" }, ValidateStateMachineDefinitionInput, ValidateStateMachineDefinitionOutput, [ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an alias for a state machine that points to one or two versions of the same state machine. You can set your application to call StartExecution with an alias and update the version the alias uses without changing the client's code.
  * 
@@ -762,7 +762,7 @@ export class StateMachineLimitExceeded extends S.TaggedError<StateMachineLimitEx
  * 
  * 
  * - DeleteStateMachineAlias
- */export const createStateMachineAlias = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-23", uri: "/", method: "POST", sdkId: "SFN", sigV4ServiceName: "states", name: "AWSStepFunctions.CreateStateMachineAlias" }, CreateStateMachineAliasInput, CreateStateMachineAliasOutput, [ConflictException, InvalidArn, InvalidName, ResourceNotFound, ServiceQuotaExceededException, StateMachineDeleting, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createStateMachineAlias = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-23", uri: "/", method: "POST", sdkId: "SFN", sigV4ServiceName: "states", name: "AWSStepFunctions.CreateStateMachineAlias" }, CreateStateMachineAliasInput, CreateStateMachineAliasOutput, [ConflictException, InvalidArn, InvalidName, ResourceNotFound, ServiceQuotaExceededException, StateMachineDeleting, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Provides information about a state machine's definition, its IAM role Amazon Resource Name (ARN), and configuration.
  * 
@@ -824,7 +824,7 @@ export class StateMachineLimitExceeded extends S.TaggedError<StateMachineLimitEx
  * 
  * 
  * This operation is eventually consistent. The results are best effort and may not reflect very recent updates and changes.
- */export const describeStateMachine = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-23", uri: "/", method: "POST", sdkId: "SFN", sigV4ServiceName: "states", name: "AWSStepFunctions.DescribeStateMachine" }, DescribeStateMachineInput, DescribeStateMachineOutput, [InvalidArn, KmsAccessDeniedException, KmsInvalidStateException, KmsThrottlingException, StateMachineDoesNotExist]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeStateMachine = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-23", uri: "/", method: "POST", sdkId: "SFN", sigV4ServiceName: "states", name: "AWSStepFunctions.DescribeStateMachine" }, DescribeStateMachineInput, DescribeStateMachineOutput, [InvalidArn, KmsAccessDeniedException, KmsInvalidStateException, KmsThrottlingException, StateMachineDoesNotExist]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists all executions of a state machine or a Map Run. You can list all executions related to a state machine by specifying a state machine Amazon Resource Name (ARN), or those related to a Map Run by specifying a Map Run ARN. Using this API action, you can also list all redriven executions.
  * 
@@ -848,7 +848,7 @@ export class StateMachineLimitExceeded extends S.TaggedError<StateMachineLimitEx
  * 
  * 
  * This API action is not supported by `EXPRESS` state machines.
- */export const listExecutions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-23", uri: "/", method: "POST", sdkId: "SFN", sigV4ServiceName: "states", name: "AWSStepFunctions.ListExecutions" }, ListExecutionsInput, ListExecutionsOutput, [InvalidArn, InvalidToken, ResourceNotFound, StateMachineDoesNotExist, StateMachineTypeNotSupported, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listExecutions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-23", uri: "/", method: "POST", sdkId: "SFN", sigV4ServiceName: "states", name: "AWSStepFunctions.ListExecutions" }, ListExecutionsInput, ListExecutionsOutput, [InvalidArn, InvalidToken, ResourceNotFound, StateMachineDoesNotExist, StateMachineTypeNotSupported, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Restarts unsuccessful executions of Standard workflows that didn't complete successfully in the last 14 days. These include failed, aborted, or timed out executions. When you redrive an execution, it continues the failed execution from the unsuccessful step and uses the same input. Step Functions preserves the results and execution history of the successful steps, and doesn't rerun these steps when you redrive an execution. Redriven executions use the same state machine definition and execution ARN as the original execution attempt.
  * 
@@ -886,7 +886,7 @@ export class StateMachineLimitExceeded extends S.TaggedError<StateMachineLimitEx
  * 
  * 
  * - The execution event history count is less than 24,999. Redriven executions append their event history to the existing event history. Make sure your workflow execution contains less than 24,999 events to accommodate the `ExecutionRedriven` history event and at least one other history event.
- */export const redriveExecution = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-23", uri: "/", method: "POST", sdkId: "SFN", sigV4ServiceName: "states", name: "AWSStepFunctions.RedriveExecution" }, RedriveExecutionInput, RedriveExecutionOutput, [ExecutionDoesNotExist, ExecutionLimitExceeded, ExecutionNotRedrivable, InvalidArn, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const redriveExecution = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-23", uri: "/", method: "POST", sdkId: "SFN", sigV4ServiceName: "states", name: "AWSStepFunctions.RedriveExecution" }, RedriveExecutionInput, RedriveExecutionOutput, [ExecutionDoesNotExist, ExecutionLimitExceeded, ExecutionNotRedrivable, InvalidArn, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts a state machine execution.
  * 
@@ -960,7 +960,7 @@ export class StateMachineLimitExceeded extends S.TaggedError<StateMachineLimitEx
  * 
  * 
  * `StartExecution` isn't idempotent for `EXPRESS` workflows.
- */export const startExecution = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-23", uri: "/", method: "POST", sdkId: "SFN", sigV4ServiceName: "states", name: "AWSStepFunctions.StartExecution" }, StartExecutionInput, StartExecutionOutput, [ExecutionAlreadyExists, ExecutionLimitExceeded, InvalidArn, InvalidExecutionInput, InvalidName, KmsAccessDeniedException, KmsInvalidStateException, KmsThrottlingException, StateMachineDeleting, StateMachineDoesNotExist, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startExecution = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-23", uri: "/", method: "POST", sdkId: "SFN", sigV4ServiceName: "states", name: "AWSStepFunctions.StartExecution" }, StartExecutionInput, StartExecutionOutput, [ExecutionAlreadyExists, ExecutionLimitExceeded, InvalidArn, InvalidExecutionInput, InvalidName, KmsAccessDeniedException, KmsInvalidStateException, KmsThrottlingException, StateMachineDeleting, StateMachineDoesNotExist, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an activity. An activity is a task that you write in any programming language and
  * host on any machine that has access to Step Functions. Activities must poll Step Functions using the
@@ -985,7 +985,7 @@ export class StateMachineLimitExceeded extends S.TaggedError<StateMachineLimitEx
  * `tags` values, Step Functions will ignore these differences and treat it as an
  * idempotent request of the previous. In this case, `tags` will not be updated,
  * even if they are different.
- */export const createActivity = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-23", uri: "/", method: "POST", sdkId: "SFN", sigV4ServiceName: "states", name: "AWSStepFunctions.CreateActivity" }, CreateActivityInput, CreateActivityOutput, [ActivityAlreadyExists, ActivityLimitExceeded, InvalidEncryptionConfiguration, InvalidName, KmsAccessDeniedException, KmsThrottlingException, TooManyTags]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createActivity = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-23", uri: "/", method: "POST", sdkId: "SFN", sigV4ServiceName: "states", name: "AWSStepFunctions.CreateActivity" }, CreateActivityInput, CreateActivityOutput, [ActivityAlreadyExists, ActivityLimitExceeded, InvalidEncryptionConfiguration, InvalidName, KmsAccessDeniedException, KmsThrottlingException, TooManyTags]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the history of the specified execution as a list of events. By default, the
  * results are returned in ascending order of the `timeStamp` of the events. Use the
@@ -997,7 +997,7 @@ export class StateMachineLimitExceeded extends S.TaggedError<StateMachineLimitEx
  * 
  * 
  * This API action is not supported by `EXPRESS` state machines.
- */export const getExecutionHistory = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-23", uri: "/", method: "POST", sdkId: "SFN", sigV4ServiceName: "states", name: "AWSStepFunctions.GetExecutionHistory" }, GetExecutionHistoryInput, GetExecutionHistoryOutput, [ExecutionDoesNotExist, InvalidArn, InvalidToken, KmsAccessDeniedException, KmsInvalidStateException, KmsThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getExecutionHistory = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-23", uri: "/", method: "POST", sdkId: "SFN", sigV4ServiceName: "states", name: "AWSStepFunctions.GetExecutionHistory" }, GetExecutionHistoryInput, GetExecutionHistoryOutput, [ExecutionDoesNotExist, InvalidArn, InvalidToken, KmsAccessDeniedException, KmsInvalidStateException, KmsThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Accepts the definition of a single state and executes it. You can test a state without creating a state machine or updating an existing state machine. Using this API, you can test the following:
  * 
@@ -1062,7 +1062,7 @@ export class StateMachineLimitExceeded extends S.TaggedError<StateMachineLimitEx
  * 
  * `TestState` only supports the following when a mock is specified: Activity tasks, `.sync` or `.waitForTaskToken`
  * service integration patterns, Parallel, or Map states.
- */export const testState = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-23", uri: "/", method: "POST", sdkId: "SFN", sigV4ServiceName: "states", name: "AWSStepFunctions.TestState" }, TestStateInput, TestStateOutput, [InvalidArn, InvalidDefinition, InvalidExecutionInput, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const testState = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-23", uri: "/", method: "POST", sdkId: "SFN", sigV4ServiceName: "states", name: "AWSStepFunctions.TestState" }, TestStateInput, TestStateOutput, [InvalidArn, InvalidDefinition, InvalidExecutionInput, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates an existing state machine by modifying its `definition`,
  * `roleArn`, `loggingConfiguration`, or `EncryptionConfiguration`. Running executions will continue
@@ -1142,7 +1142,7 @@ export class StateMachineLimitExceeded extends S.TaggedError<StateMachineLimitEx
  * `definition` and `roleArn`. Executions started immediately after you
  * call `UpdateStateMachine` may use the previous state machine
  * `definition` and `roleArn`.
- */export const updateStateMachine = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-23", uri: "/", method: "POST", sdkId: "SFN", sigV4ServiceName: "states", name: "AWSStepFunctions.UpdateStateMachine" }, UpdateStateMachineInput, UpdateStateMachineOutput, [ConflictException, InvalidArn, InvalidDefinition, InvalidEncryptionConfiguration, InvalidLoggingConfiguration, InvalidTracingConfiguration, KmsAccessDeniedException, KmsThrottlingException, MissingRequiredParameter, ServiceQuotaExceededException, StateMachineDeleting, StateMachineDoesNotExist, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateStateMachine = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-23", uri: "/", method: "POST", sdkId: "SFN", sigV4ServiceName: "states", name: "AWSStepFunctions.UpdateStateMachine" }, UpdateStateMachineInput, UpdateStateMachineOutput, [ConflictException, InvalidArn, InvalidDefinition, InvalidEncryptionConfiguration, InvalidLoggingConfiguration, InvalidTracingConfiguration, KmsAccessDeniedException, KmsThrottlingException, MissingRequiredParameter, ServiceQuotaExceededException, StateMachineDeleting, StateMachineDoesNotExist, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a state machine. A state machine consists of a collection of states that can do
  * work (`Task` states), determine to which states to transition next
@@ -1179,4 +1179,4 @@ export class StateMachineLimitExceeded extends S.TaggedError<StateMachineLimitEx
  * `roleArn` or `tags`, Step Functions will ignore these differences and treat
  * it as an idempotent request of the previous. In this case, `roleArn` and
  * `tags` will not be updated, even if they are different.
- */export const createStateMachine = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-23", uri: "/", method: "POST", sdkId: "SFN", sigV4ServiceName: "states", name: "AWSStepFunctions.CreateStateMachine" }, CreateStateMachineInput, CreateStateMachineOutput, [ConflictException, InvalidArn, InvalidDefinition, InvalidEncryptionConfiguration, InvalidLoggingConfiguration, InvalidName, InvalidTracingConfiguration, KmsAccessDeniedException, KmsThrottlingException, StateMachineAlreadyExists, StateMachineDeleting, StateMachineLimitExceeded, StateMachineTypeNotSupported, TooManyTags, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createStateMachine = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-23", uri: "/", method: "POST", sdkId: "SFN", sigV4ServiceName: "states", name: "AWSStepFunctions.CreateStateMachine" }, CreateStateMachineInput, CreateStateMachineOutput, [ConflictException, InvalidArn, InvalidDefinition, InvalidEncryptionConfiguration, InvalidLoggingConfiguration, InvalidName, InvalidTracingConfiguration, KmsAccessDeniedException, KmsThrottlingException, StateMachineAlreadyExists, StateMachineDeleting, StateMachineLimitExceeded, StateMachineTypeNotSupported, TooManyTags, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);

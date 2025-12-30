@@ -386,7 +386,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * You must also have the following permissions: `sso:CreateApplication`, `sso:PutApplicationGrant`, and `sso:PutApplicationAuthenticationMethod`.
- */export const associateAccessGrantsIdentityCenter = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accessgrantsinstance/identitycenter", method: "POST", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.AssociateAccessGrantsIdentityCenter" }, AssociateAccessGrantsIdentityCenterRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const associateAccessGrantsIdentityCenter = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accessgrantsinstance/identitycenter", method: "POST", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.AssociateAccessGrantsIdentityCenter" }, AssociateAccessGrantsIdentityCenterRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * Deletes the access grant from the S3 Access Grants instance. You cannot undo an access grant deletion and the grantee will no longer have access to the S3 data.
  * 
@@ -397,7 +397,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * You must have the `s3:DeleteAccessGrant` permission to use this operation.
- */export const deleteAccessGrant = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accessgrantsinstance/grant/{AccessGrantId}", method: "DELETE", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.DeleteAccessGrant" }, DeleteAccessGrantRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const deleteAccessGrant = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accessgrantsinstance/grant/{AccessGrantId}", method: "DELETE", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.DeleteAccessGrant" }, DeleteAccessGrantRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * Deletes your S3 Access Grants instance. You must first delete the access grants and locations before S3 Access Grants can delete the instance. See DeleteAccessGrant and DeleteAccessGrantsLocation. If you have associated an IAM Identity Center instance with your S3 Access Grants instance, you must first dissassociate the Identity Center instance from the S3 Access Grants instance before you can delete the S3 Access Grants instance. See AssociateAccessGrantsIdentityCenter and DissociateAccessGrantsIdentityCenter.
  * 
@@ -408,7 +408,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * You must have the `s3:DeleteAccessGrantsInstance` permission to use this operation.
- */export const deleteAccessGrantsInstance = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accessgrantsinstance", method: "DELETE", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.DeleteAccessGrantsInstance" }, DeleteAccessGrantsInstanceRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const deleteAccessGrantsInstance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accessgrantsinstance", method: "DELETE", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.DeleteAccessGrantsInstance" }, DeleteAccessGrantsInstanceRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * Deletes the resource policy of the S3 Access Grants instance. The resource policy is used to manage cross-account access to your S3 Access Grants instance. By deleting the resource policy, you delete any cross-account permissions to your S3 Access Grants instance.
  * 
@@ -419,7 +419,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * You must have the `s3:DeleteAccessGrantsInstanceResourcePolicy` permission to use this operation.
- */export const deleteAccessGrantsInstanceResourcePolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accessgrantsinstance/resourcepolicy", method: "DELETE", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.DeleteAccessGrantsInstanceResourcePolicy" }, DeleteAccessGrantsInstanceResourcePolicyRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const deleteAccessGrantsInstanceResourcePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accessgrantsinstance/resourcepolicy", method: "DELETE", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.DeleteAccessGrantsInstanceResourcePolicy" }, DeleteAccessGrantsInstanceResourcePolicyRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * Deregisters a location from your S3 Access Grants instance. You can only delete a location registration from an S3 Access Grants instance if there are no grants associated with this location. See Delete a grant for information on how to delete grants. You need to have at least one registered location in your S3 Access Grants instance in order to create access grants.
  * 
@@ -430,7 +430,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * You must have the `s3:DeleteAccessGrantsLocation` permission to use this operation.
- */export const deleteAccessGrantsLocation = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accessgrantsinstance/location/{AccessGrantsLocationId}", method: "DELETE", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.DeleteAccessGrantsLocation" }, DeleteAccessGrantsLocationRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const deleteAccessGrantsLocation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accessgrantsinstance/location/{AccessGrantsLocationId}", method: "DELETE", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.DeleteAccessGrantsLocation" }, DeleteAccessGrantsLocationRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * Deletes the specified access point.
  * 
@@ -453,7 +453,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * - ListAccessPoints
- */export const deleteAccessPoint = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accesspoint/{Name}", method: "DELETE", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.DeleteAccessPoint" }, DeleteAccessPointRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const deleteAccessPoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accesspoint/{Name}", method: "DELETE", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.DeleteAccessPoint" }, DeleteAccessPointRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * This operation is not supported by directory buckets.
  * 
@@ -479,7 +479,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * - ListAccessPointsForObjectLambda
- */export const deleteAccessPointForObjectLambda = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accesspointforobjectlambda/{Name}", method: "DELETE", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.DeleteAccessPointForObjectLambda" }, DeleteAccessPointForObjectLambdaRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const deleteAccessPointForObjectLambda = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accesspointforobjectlambda/{Name}", method: "DELETE", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.DeleteAccessPointForObjectLambda" }, DeleteAccessPointForObjectLambdaRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * Deletes the access point policy for the specified access point.
  * 
@@ -499,7 +499,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * - GetAccessPointPolicy
- */export const deleteAccessPointPolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accesspoint/{Name}/policy", method: "DELETE", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.DeleteAccessPointPolicy" }, DeleteAccessPointPolicyRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const deleteAccessPointPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accesspoint/{Name}/policy", method: "DELETE", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.DeleteAccessPointPolicy" }, DeleteAccessPointPolicyRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * This operation is not supported by directory buckets.
  * 
@@ -520,7 +520,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * - PutAccessPointPolicyForObjectLambda
- */export const deleteAccessPointPolicyForObjectLambda = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accesspointforobjectlambda/{Name}/policy", method: "DELETE", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.DeleteAccessPointPolicyForObjectLambda" }, DeleteAccessPointPolicyForObjectLambdaRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const deleteAccessPointPolicyForObjectLambda = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accesspointforobjectlambda/{Name}/policy", method: "DELETE", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.DeleteAccessPointPolicyForObjectLambda" }, DeleteAccessPointPolicyForObjectLambdaRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * Deletes an existing access point scope for a directory bucket.
  * 
@@ -537,7 +537,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * For information about REST API errors, see REST error responses.
- */export const deleteAccessPointScope = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accesspoint/{Name}/scope", method: "DELETE", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.DeleteAccessPointScope" }, DeleteAccessPointScopeRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const deleteAccessPointScope = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accesspoint/{Name}/scope", method: "DELETE", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.DeleteAccessPointScope" }, DeleteAccessPointScopeRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * This action deletes an Amazon S3 on Outposts bucket. To delete an S3 bucket, see DeleteBucket in the *Amazon S3 API Reference*.
  * 
@@ -569,7 +569,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * - DeleteObject
- */export const deleteBucket = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/bucket/{Bucket}", method: "DELETE", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.DeleteBucket" }, DeleteBucketRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const deleteBucket = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/bucket/{Bucket}", method: "DELETE", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.DeleteBucket" }, DeleteBucketRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * This action deletes an Amazon S3 on Outposts bucket's lifecycle configuration. To delete
  * an S3 bucket's lifecycle configuration, see DeleteBucketLifecycle in the *Amazon S3 API Reference*.
@@ -607,7 +607,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * - GetBucketLifecycleConfiguration
- */export const deleteBucketLifecycleConfiguration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/bucket/{Bucket}/lifecycleconfiguration", method: "DELETE", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.DeleteBucketLifecycleConfiguration" }, DeleteBucketLifecycleConfigurationRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const deleteBucketLifecycleConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/bucket/{Bucket}/lifecycleconfiguration", method: "DELETE", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.DeleteBucketLifecycleConfiguration" }, DeleteBucketLifecycleConfigurationRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * This action deletes an Amazon S3 on Outposts bucket policy. To delete an S3 bucket policy,
  * see DeleteBucketPolicy in the *Amazon S3 API Reference*.
@@ -656,7 +656,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * - PutBucketPolicy
- */export const deleteBucketPolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/bucket/{Bucket}/policy", method: "DELETE", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.DeleteBucketPolicy" }, DeleteBucketPolicyRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const deleteBucketPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/bucket/{Bucket}/policy", method: "DELETE", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.DeleteBucketPolicy" }, DeleteBucketPolicyRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * This operation deletes an Amazon S3 on Outposts bucket's replication configuration. To
  * delete an S3 bucket's replication configuration, see DeleteBucketReplication in the *Amazon S3 API Reference*.
@@ -704,7 +704,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * - GetBucketReplication
- */export const deleteBucketReplication = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/bucket/{Bucket}/replication", method: "DELETE", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.DeleteBucketReplication" }, DeleteBucketReplicationRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const deleteBucketReplication = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/bucket/{Bucket}/replication", method: "DELETE", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.DeleteBucketReplication" }, DeleteBucketReplicationRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * This action deletes an Amazon S3 on Outposts bucket's tags. To delete an S3 bucket tags,
  * see DeleteBucketTagging in the *Amazon S3 API Reference*.
@@ -734,7 +734,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * - PutBucketTagging
- */export const deleteBucketTagging = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/bucket/{Bucket}/tagging", method: "DELETE", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.DeleteBucketTagging" }, DeleteBucketTaggingRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const deleteBucketTagging = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/bucket/{Bucket}/tagging", method: "DELETE", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.DeleteBucketTagging" }, DeleteBucketTaggingRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * This operation is not supported by directory buckets.
  * 
@@ -760,7 +760,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * - PutPublicAccessBlock
- */export const deletePublicAccessBlock = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/configuration/publicAccessBlock", method: "DELETE", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.DeletePublicAccessBlock" }, DeletePublicAccessBlockRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const deletePublicAccessBlock = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/configuration/publicAccessBlock", method: "DELETE", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.DeletePublicAccessBlock" }, DeletePublicAccessBlockRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * This operation is not supported by directory buckets.
  * 
@@ -778,7 +778,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * `s3:DeleteStorageLensConfiguration` action. For more information, see
  * Setting permissions to
  * use Amazon S3 Storage Lens in the *Amazon S3 User Guide*.
- */export const deleteStorageLensConfiguration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/storagelens/{ConfigId}", method: "DELETE", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.DeleteStorageLensConfiguration" }, DeleteStorageLensConfigurationRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const deleteStorageLensConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/storagelens/{ConfigId}", method: "DELETE", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.DeleteStorageLensConfiguration" }, DeleteStorageLensConfigurationRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * This operation is not supported by directory buckets.
  * 
@@ -797,7 +797,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * `s3:DeleteStorageLensConfigurationTagging` action. For more information,
  * see Setting permissions to
  * use Amazon S3 Storage Lens in the *Amazon S3 User Guide*.
- */export const deleteStorageLensConfigurationTagging = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/storagelens/{ConfigId}/tagging", method: "DELETE", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.DeleteStorageLensConfigurationTagging" }, DeleteStorageLensConfigurationTaggingRequest, DeleteStorageLensConfigurationTaggingResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const deleteStorageLensConfigurationTagging = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/storagelens/{ConfigId}/tagging", method: "DELETE", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.DeleteStorageLensConfigurationTagging" }, DeleteStorageLensConfigurationTaggingRequest, DeleteStorageLensConfigurationTaggingResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * Deletes an existing S3 Storage Lens group.
  * 
@@ -809,7 +809,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * For information about Storage Lens groups errors, see List of Amazon S3 Storage
  * Lens error codes.
- */export const deleteStorageLensGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/storagelensgroup/{Name}", method: "DELETE", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.DeleteStorageLensGroup" }, DeleteStorageLensGroupRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const deleteStorageLensGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/storagelensgroup/{Name}", method: "DELETE", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.DeleteStorageLensGroup" }, DeleteStorageLensGroupRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * Dissociates the Amazon Web Services IAM Identity Center instance from the S3 Access Grants instance.
  * 
@@ -829,7 +829,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * You must have the `sso:DeleteApplication` permission to use this operation.
- */export const dissociateAccessGrantsIdentityCenter = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accessgrantsinstance/identitycenter", method: "DELETE", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.DissociateAccessGrantsIdentityCenter" }, DissociateAccessGrantsIdentityCenterRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const dissociateAccessGrantsIdentityCenter = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accessgrantsinstance/identitycenter", method: "DELETE", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.DissociateAccessGrantsIdentityCenter" }, DissociateAccessGrantsIdentityCenterRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * This operation is not supported by directory buckets.
  * 
@@ -845,7 +845,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * - GetAccessPointConfigurationForObjectLambda
- */export const putAccessPointConfigurationForObjectLambda = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accesspointforobjectlambda/{Name}/configuration", method: "PUT", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.PutAccessPointConfigurationForObjectLambda" }, PutAccessPointConfigurationForObjectLambdaRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const putAccessPointConfigurationForObjectLambda = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accesspointforobjectlambda/{Name}/configuration", method: "PUT", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.PutAccessPointConfigurationForObjectLambda" }, PutAccessPointConfigurationForObjectLambdaRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * Associates an access policy with the specified access point. Each access point can have only one policy,
  * so a request made to this API replaces any existing policy associated with the specified
@@ -867,7 +867,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * - DeleteAccessPointPolicy
- */export const putAccessPointPolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accesspoint/{Name}/policy", method: "PUT", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.PutAccessPointPolicy" }, PutAccessPointPolicyRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const putAccessPointPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accesspoint/{Name}/policy", method: "PUT", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.PutAccessPointPolicy" }, PutAccessPointPolicyRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * This operation is not supported by directory buckets.
  * 
@@ -888,7 +888,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * - GetAccessPointPolicyForObjectLambda
- */export const putAccessPointPolicyForObjectLambda = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accesspointforobjectlambda/{Name}/policy", method: "PUT", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.PutAccessPointPolicyForObjectLambda" }, PutAccessPointPolicyForObjectLambdaRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const putAccessPointPolicyForObjectLambda = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accesspointforobjectlambda/{Name}/policy", method: "PUT", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.PutAccessPointPolicyForObjectLambda" }, PutAccessPointPolicyForObjectLambdaRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * Creates or replaces the access point scope for a directory bucket. You can use the access point scope to restrict access to specific prefixes, API operations, or a combination of both.
  * 
@@ -905,7 +905,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * For information about REST API errors, see REST error responses.
- */export const putAccessPointScope = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accesspoint/{Name}/scope", method: "PUT", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.PutAccessPointScope" }, PutAccessPointScopeRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const putAccessPointScope = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accesspoint/{Name}/scope", method: "PUT", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.PutAccessPointScope" }, PutAccessPointScopeRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * This action puts a bucket policy to an Amazon S3 on Outposts bucket. To put a policy on an
  * S3 bucket, see PutBucketPolicy in the
@@ -956,7 +956,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * - DeleteBucketPolicy
- */export const putBucketPolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/bucket/{Bucket}/policy", method: "PUT", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.PutBucketPolicy" }, PutBucketPolicyRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const putBucketPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/bucket/{Bucket}/policy", method: "PUT", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.PutBucketPolicy" }, PutBucketPolicyRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * This operation is not supported by directory buckets.
  * 
@@ -983,7 +983,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * - DeletePublicAccessBlock
- */export const putPublicAccessBlock = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/configuration/publicAccessBlock", method: "PUT", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.PutPublicAccessBlock" }, PutPublicAccessBlockRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const putPublicAccessBlock = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/configuration/publicAccessBlock", method: "PUT", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.PutPublicAccessBlock" }, PutPublicAccessBlockRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * This operation is not supported by directory buckets.
  * 
@@ -1001,7 +1001,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * `s3:PutStorageLensConfigurationTagging` action. For more information, see
  * Setting permissions to
  * use Amazon S3 Storage Lens in the *Amazon S3 User Guide*.
- */export const putStorageLensConfigurationTagging = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/storagelens/{ConfigId}/tagging", method: "PUT", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.PutStorageLensConfigurationTagging" }, PutStorageLensConfigurationTaggingRequest, PutStorageLensConfigurationTaggingResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const putStorageLensConfigurationTagging = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/storagelens/{ConfigId}/tagging", method: "PUT", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.PutStorageLensConfigurationTagging" }, PutStorageLensConfigurationTaggingRequest, PutStorageLensConfigurationTaggingResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * Creates a new user-defined tag or updates an existing tag. Each tag is a label consisting of a key and value that is applied to your resource. Tags can help you organize, track costs for, and control access to your resources. You can add up to 50 Amazon Web Services resource tags for each S3 resource.
  * 
@@ -1076,7 +1076,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * For information about S3 Tagging errors, see List of Amazon S3 Tagging error codes.
- */export const tagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/tags/{ResourceArn+}", method: "POST", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.TagResource" }, TagResourceRequest, TagResourceResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/tags/{ResourceArn+}", method: "POST", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.TagResource" }, TagResourceRequest, TagResourceResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * This operation removes the specified user-defined tags from an S3 resource. You can pass one or more tag keys.
  * 
@@ -1152,7 +1152,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * For information about S3 Tagging errors, see List of Amazon S3
  * Tagging error codes.
- */export const untagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/tags/{ResourceArn+}", method: "DELETE", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.UntagResource" }, UntagResourceRequest, UntagResourceResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/tags/{ResourceArn+}", method: "DELETE", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.UntagResource" }, UntagResourceRequest, UntagResourceResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * Updates the existing Storage Lens group.
  * 
@@ -1164,7 +1164,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * For information about Storage Lens groups errors, see List of Amazon S3 Storage
  * Lens error codes.
- */export const updateStorageLensGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/storagelensgroup/{Name}", method: "PUT", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.UpdateStorageLensGroup" }, UpdateStorageLensGroupRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const updateStorageLensGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/storagelensgroup/{Name}", method: "PUT", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.UpdateStorageLensGroup" }, UpdateStorageLensGroupRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * Creates an S3 Access Grants instance, which serves as a logical grouping for access grants. You can create one S3 Access Grants instance per Region per account.
  * 
@@ -1184,7 +1184,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * To associate an IAM Identity Center instance with your S3 Access Grants instance, you must also have the `sso:DescribeInstance`, `sso:CreateApplication`, `sso:PutApplicationGrant`, and `sso:PutApplicationAuthenticationMethod` permissions.
- */export const createAccessGrantsInstance = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accessgrantsinstance", method: "POST", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.CreateAccessGrantsInstance" }, CreateAccessGrantsInstanceRequest, CreateAccessGrantsInstanceResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const createAccessGrantsInstance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accessgrantsinstance", method: "POST", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.CreateAccessGrantsInstance" }, CreateAccessGrantsInstanceRequest, CreateAccessGrantsInstanceResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * The S3 data location that you would like to register in your S3 Access Grants instance. Your S3 data must be in the same Region as your S3 Access Grants instance. The location can be one of the following:
  * 
@@ -1225,7 +1225,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * You must also have the following permission for the specified IAM role: `iam:PassRole`
- */export const createAccessGrantsLocation = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accessgrantsinstance/location", method: "POST", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.CreateAccessGrantsLocation" }, CreateAccessGrantsLocationRequest, CreateAccessGrantsLocationResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const createAccessGrantsLocation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accessgrantsinstance/location", method: "POST", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.CreateAccessGrantsLocation" }, CreateAccessGrantsLocationRequest, CreateAccessGrantsLocationResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * Get the details of an access grant from your S3 Access Grants instance.
  * 
@@ -1236,7 +1236,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * You must have the `s3:GetAccessGrant` permission to use this operation.
- */export const getAccessGrant = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accessgrantsinstance/grant/{AccessGrantId}", method: "GET", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.GetAccessGrant" }, GetAccessGrantRequest, GetAccessGrantResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const getAccessGrant = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accessgrantsinstance/grant/{AccessGrantId}", method: "GET", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.GetAccessGrant" }, GetAccessGrantRequest, GetAccessGrantResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * Retrieves the S3 Access Grants instance for a Region in your account.
  * 
@@ -1256,7 +1256,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * `GetAccessGrantsInstance` is not supported for cross-account access. You can only call the API from the account that owns the S3 Access Grants instance.
- */export const getAccessGrantsInstance = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accessgrantsinstance", method: "GET", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.GetAccessGrantsInstance" }, GetAccessGrantsInstanceRequest, GetAccessGrantsInstanceResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const getAccessGrantsInstance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accessgrantsinstance", method: "GET", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.GetAccessGrantsInstance" }, GetAccessGrantsInstanceRequest, GetAccessGrantsInstanceResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * Retrieve the S3 Access Grants instance that contains a particular prefix.
  * 
@@ -1276,7 +1276,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * The prefix owner account must grant you the following permissions to their S3 Access Grants instance: `s3:GetAccessGrantsInstanceForPrefix`.
- */export const getAccessGrantsInstanceForPrefix = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accessgrantsinstance/prefix", method: "GET", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.GetAccessGrantsInstanceForPrefix" }, GetAccessGrantsInstanceForPrefixRequest, GetAccessGrantsInstanceForPrefixResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const getAccessGrantsInstanceForPrefix = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accessgrantsinstance/prefix", method: "GET", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.GetAccessGrantsInstanceForPrefix" }, GetAccessGrantsInstanceForPrefixRequest, GetAccessGrantsInstanceForPrefixResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * Returns the resource policy of the S3 Access Grants instance.
  * 
@@ -1287,7 +1287,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * You must have the `s3:GetAccessGrantsInstanceResourcePolicy` permission to use this operation.
- */export const getAccessGrantsInstanceResourcePolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accessgrantsinstance/resourcepolicy", method: "GET", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.GetAccessGrantsInstanceResourcePolicy" }, GetAccessGrantsInstanceResourcePolicyRequest, GetAccessGrantsInstanceResourcePolicyResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const getAccessGrantsInstanceResourcePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accessgrantsinstance/resourcepolicy", method: "GET", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.GetAccessGrantsInstanceResourcePolicy" }, GetAccessGrantsInstanceResourcePolicyRequest, GetAccessGrantsInstanceResourcePolicyResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * Retrieves the details of a particular location registered in your S3 Access Grants instance.
  * 
@@ -1298,7 +1298,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * You must have the `s3:GetAccessGrantsLocation` permission to use this operation.
- */export const getAccessGrantsLocation = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accessgrantsinstance/location/{AccessGrantsLocationId}", method: "GET", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.GetAccessGrantsLocation" }, GetAccessGrantsLocationRequest, GetAccessGrantsLocationResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const getAccessGrantsLocation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accessgrantsinstance/location/{AccessGrantsLocationId}", method: "GET", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.GetAccessGrantsLocation" }, GetAccessGrantsLocationRequest, GetAccessGrantsLocationResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * This operation is not supported by directory buckets.
  * 
@@ -1314,7 +1314,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * - PutAccessPointConfigurationForObjectLambda
- */export const getAccessPointConfigurationForObjectLambda = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accesspointforobjectlambda/{Name}/configuration", method: "GET", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.GetAccessPointConfigurationForObjectLambda" }, GetAccessPointConfigurationForObjectLambdaRequest, GetAccessPointConfigurationForObjectLambdaResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const getAccessPointConfigurationForObjectLambda = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accesspointforobjectlambda/{Name}/configuration", method: "GET", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.GetAccessPointConfigurationForObjectLambda" }, GetAccessPointConfigurationForObjectLambdaRequest, GetAccessPointConfigurationForObjectLambdaResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * Returns the access point policy associated with the specified access point.
  * 
@@ -1329,7 +1329,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * - DeleteAccessPointPolicy
- */export const getAccessPointPolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accesspoint/{Name}/policy", method: "GET", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.GetAccessPointPolicy" }, GetAccessPointPolicyRequest, GetAccessPointPolicyResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const getAccessPointPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accesspoint/{Name}/policy", method: "GET", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.GetAccessPointPolicy" }, GetAccessPointPolicyRequest, GetAccessPointPolicyResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * This operation is not supported by directory buckets.
  * 
@@ -1350,7 +1350,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * - PutAccessPointPolicyForObjectLambda
- */export const getAccessPointPolicyForObjectLambda = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accesspointforobjectlambda/{Name}/policy", method: "GET", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.GetAccessPointPolicyForObjectLambda" }, GetAccessPointPolicyForObjectLambdaRequest, GetAccessPointPolicyForObjectLambdaResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const getAccessPointPolicyForObjectLambda = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accesspointforobjectlambda/{Name}/policy", method: "GET", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.GetAccessPointPolicyForObjectLambda" }, GetAccessPointPolicyForObjectLambdaRequest, GetAccessPointPolicyForObjectLambdaResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * This operation is not supported by directory buckets.
  * 
@@ -1358,7 +1358,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * Returns the status of the resource policy associated with an Object Lambda Access Point.
- */export const getAccessPointPolicyStatusForObjectLambda = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accesspointforobjectlambda/{Name}/policyStatus", method: "GET", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.GetAccessPointPolicyStatusForObjectLambda" }, GetAccessPointPolicyStatusForObjectLambdaRequest, GetAccessPointPolicyStatusForObjectLambdaResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const getAccessPointPolicyStatusForObjectLambda = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accesspointforobjectlambda/{Name}/policyStatus", method: "GET", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.GetAccessPointPolicyStatusForObjectLambda" }, GetAccessPointPolicyStatusForObjectLambdaRequest, GetAccessPointPolicyStatusForObjectLambdaResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * Returns the access point scope for a directory bucket.
  * 
@@ -1368,7 +1368,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * For information about REST API errors, see REST error responses.
- */export const getAccessPointScope = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accesspoint/{Name}/scope", method: "GET", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.GetAccessPointScope" }, GetAccessPointScopeRequest, GetAccessPointScopeResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const getAccessPointScope = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accesspoint/{Name}/scope", method: "GET", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.GetAccessPointScope" }, GetAccessPointScopeRequest, GetAccessPointScopeResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * Gets an Amazon S3 on Outposts bucket. For more information, see Using Amazon S3 on Outposts in the
  * *Amazon S3 User Guide*.
@@ -1404,7 +1404,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * - DeleteBucket
- */export const getBucket = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/bucket/{Bucket}", method: "GET", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.GetBucket" }, GetBucketRequest, GetBucketResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const getBucket = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/bucket/{Bucket}", method: "GET", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.GetBucket" }, GetBucketRequest, GetBucketResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * This action gets an Amazon S3 on Outposts bucket's lifecycle configuration. To get an S3
  * bucket's lifecycle configuration, see GetBucketLifecycleConfiguration in the *Amazon S3 API Reference*.
@@ -1467,7 +1467,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * - DeleteBucketLifecycleConfiguration
- */export const getBucketLifecycleConfiguration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/bucket/{Bucket}/lifecycleconfiguration", method: "GET", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.GetBucketLifecycleConfiguration" }, GetBucketLifecycleConfigurationRequest, GetBucketLifecycleConfigurationResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const getBucketLifecycleConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/bucket/{Bucket}/lifecycleconfiguration", method: "GET", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.GetBucketLifecycleConfiguration" }, GetBucketLifecycleConfigurationRequest, GetBucketLifecycleConfigurationResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * This action gets a bucket policy for an Amazon S3 on Outposts bucket. To get a policy for
  * an S3 bucket, see GetBucketPolicy in the
@@ -1523,7 +1523,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * - DeleteBucketPolicy
- */export const getBucketPolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/bucket/{Bucket}/policy", method: "GET", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.GetBucketPolicy" }, GetBucketPolicyRequest, GetBucketPolicyResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const getBucketPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/bucket/{Bucket}/policy", method: "GET", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.GetBucketPolicy" }, GetBucketPolicyRequest, GetBucketPolicyResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * This operation gets an Amazon S3 on Outposts bucket's replication configuration. To get an
  * S3 bucket's replication configuration, see GetBucketReplication
@@ -1580,7 +1580,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * - DeleteBucketReplication
- */export const getBucketReplication = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/bucket/{Bucket}/replication", method: "GET", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.GetBucketReplication" }, GetBucketReplicationRequest, GetBucketReplicationResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const getBucketReplication = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/bucket/{Bucket}/replication", method: "GET", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.GetBucketReplication" }, GetBucketReplicationRequest, GetBucketReplicationResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * This action gets an Amazon S3 on Outposts bucket's tags. To get an S3 bucket tags, see
  * GetBucketTagging in the *Amazon S3 API Reference*.
@@ -1630,7 +1630,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * - DeleteBucketTagging
- */export const getBucketTagging = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/bucket/{Bucket}/tagging", method: "GET", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.GetBucketTagging" }, GetBucketTaggingRequest, GetBucketTaggingResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const getBucketTagging = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/bucket/{Bucket}/tagging", method: "GET", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.GetBucketTagging" }, GetBucketTaggingRequest, GetBucketTaggingResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * This operation returns the versioning state
  * for
@@ -1677,7 +1677,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * - GetBucketLifecycleConfiguration
- */export const getBucketVersioning = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/bucket/{Bucket}/versioning", method: "GET", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.GetBucketVersioning" }, GetBucketVersioningRequest, GetBucketVersioningResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const getBucketVersioning = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/bucket/{Bucket}/versioning", method: "GET", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.GetBucketVersioning" }, GetBucketVersioningRequest, GetBucketVersioningResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * Returns the tags on an S3 Batch Operations job.
  * 
@@ -1712,7 +1712,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * - DeleteJobTagging
- */export const getJobTagging = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/jobs/{JobId}/tagging", method: "GET", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.GetJobTagging" }, GetJobTaggingRequest, GetJobTaggingResult, [InternalServiceException, NotFoundException, TooManyRequestsException]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const getJobTagging = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/jobs/{JobId}/tagging", method: "GET", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.GetJobTagging" }, GetJobTaggingRequest, GetJobTaggingResult, [InternalServiceException, NotFoundException, TooManyRequestsException]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * This operation is not supported by directory buckets.
  * 
@@ -1739,7 +1739,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * - PutMultiRegionAccessPointPolicy
- */export const getMultiRegionAccessPointPolicyStatus = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/mrap/instances/{Name+}/policystatus", method: "GET", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.GetMultiRegionAccessPointPolicyStatus" }, GetMultiRegionAccessPointPolicyStatusRequest, GetMultiRegionAccessPointPolicyStatusResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const getMultiRegionAccessPointPolicyStatus = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/mrap/instances/{Name+}/policystatus", method: "GET", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.GetMultiRegionAccessPointPolicyStatus" }, GetMultiRegionAccessPointPolicyStatusRequest, GetMultiRegionAccessPointPolicyStatusResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * This operation is not supported by directory buckets.
  * 
@@ -1776,7 +1776,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * - `eu-west-1`
- */export const getMultiRegionAccessPointRoutes = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/mrap/instances/{Mrap+}/routes", method: "GET", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.GetMultiRegionAccessPointRoutes" }, GetMultiRegionAccessPointRoutesRequest, GetMultiRegionAccessPointRoutesResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const getMultiRegionAccessPointRoutes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/mrap/instances/{Mrap+}/routes", method: "GET", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.GetMultiRegionAccessPointRoutes" }, GetMultiRegionAccessPointRoutesRequest, GetMultiRegionAccessPointRoutesResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * This operation is not supported by directory buckets.
  * 
@@ -1793,7 +1793,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * To use this action, you must have permission to perform the
  * `s3:GetStorageLensConfiguration` action. For more information, see Setting permissions to use Amazon S3 Storage Lens in the
  * *Amazon S3 User Guide*.
- */export const getStorageLensConfiguration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/storagelens/{ConfigId}", method: "GET", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.GetStorageLensConfiguration" }, GetStorageLensConfigurationRequest, GetStorageLensConfigurationResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const getStorageLensConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/storagelens/{ConfigId}", method: "GET", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.GetStorageLensConfiguration" }, GetStorageLensConfigurationRequest, GetStorageLensConfigurationResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * This operation is not supported by directory buckets.
  * 
@@ -1812,7 +1812,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * `s3:GetStorageLensConfigurationTagging` action. For more information, see
  * Setting permissions to
  * use Amazon S3 Storage Lens in the *Amazon S3 User Guide*.
- */export const getStorageLensConfigurationTagging = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/storagelens/{ConfigId}/tagging", method: "GET", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.GetStorageLensConfigurationTagging" }, GetStorageLensConfigurationTaggingRequest, GetStorageLensConfigurationTaggingResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const getStorageLensConfigurationTagging = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/storagelens/{ConfigId}/tagging", method: "GET", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.GetStorageLensConfigurationTagging" }, GetStorageLensConfigurationTaggingRequest, GetStorageLensConfigurationTaggingResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * Retrieves the Storage Lens group configuration details.
  * 
@@ -1824,7 +1824,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * For information about Storage Lens groups errors, see List of Amazon S3 Storage
  * Lens error codes.
- */export const getStorageLensGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/storagelensgroup/{Name}", method: "GET", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.GetStorageLensGroup" }, GetStorageLensGroupRequest, GetStorageLensGroupResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const getStorageLensGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/storagelensgroup/{Name}", method: "GET", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.GetStorageLensGroup" }, GetStorageLensGroupRequest, GetStorageLensGroupResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * Returns a list of the access points that are owned by the Amazon Web Services account and that are associated with the specified directory bucket.
  * 
@@ -1837,7 +1837,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * For information about REST API errors, see REST error responses.
- */export const listAccessPointsForDirectoryBuckets = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accesspointfordirectory", method: "GET", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.ListAccessPointsForDirectoryBuckets" }, ListAccessPointsForDirectoryBucketsRequest, ListAccessPointsForDirectoryBucketsResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const listAccessPointsForDirectoryBuckets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accesspointfordirectory", method: "GET", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.ListAccessPointsForDirectoryBuckets" }, ListAccessPointsForDirectoryBucketsRequest, ListAccessPointsForDirectoryBucketsResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * This operation is not supported by directory buckets.
  * 
@@ -1874,7 +1874,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * - GetMultiRegionAccessPoint
- */export const listMultiRegionAccessPoints = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/mrap/instances", method: "GET", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.ListMultiRegionAccessPoints" }, ListMultiRegionAccessPointsRequest, ListMultiRegionAccessPointsResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const listMultiRegionAccessPoints = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/mrap/instances", method: "GET", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.ListMultiRegionAccessPoints" }, ListMultiRegionAccessPointsRequest, ListMultiRegionAccessPointsResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * This operation allows you to list all of the tags for a specified resource. Each tag is a label consisting of a key and value. Tags can help you organize, track costs for, and control access to resources.
  * 
@@ -1949,7 +1949,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * For information about S3 Tagging errors, see List of Amazon S3 Tagging error codes.
- */export const listTagsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/tags/{ResourceArn+}", method: "GET", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/tags/{ResourceArn+}", method: "GET", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * Updates the resource policy of the S3 Access Grants instance.
  * 
@@ -1960,7 +1960,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * You must have the `s3:PutAccessGrantsInstanceResourcePolicy` permission to use this operation.
- */export const putAccessGrantsInstanceResourcePolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accessgrantsinstance/resourcepolicy", method: "PUT", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.PutAccessGrantsInstanceResourcePolicy" }, PutAccessGrantsInstanceResourcePolicyRequest, PutAccessGrantsInstanceResourcePolicyResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const putAccessGrantsInstanceResourcePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accessgrantsinstance/resourcepolicy", method: "PUT", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.PutAccessGrantsInstanceResourcePolicy" }, PutAccessGrantsInstanceResourcePolicyRequest, PutAccessGrantsInstanceResourcePolicyResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * This action puts tags on an Amazon S3 on Outposts bucket. To put tags on an S3 bucket, see
  * PutBucketTagging in the *Amazon S3 API Reference*.
@@ -2071,7 +2071,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * - DeleteBucketTagging
- */export const putBucketTagging = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/bucket/{Bucket}/tagging", method: "PUT", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.PutBucketTagging" }, PutBucketTaggingRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const putBucketTagging = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/bucket/{Bucket}/tagging", method: "PUT", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.PutBucketTagging" }, PutBucketTaggingRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * This operation sets the versioning state
  * for
@@ -2147,7 +2147,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * - GetBucketLifecycleConfiguration
- */export const putBucketVersioning = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/bucket/{Bucket}/versioning", method: "PUT", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.PutBucketVersioning" }, PutBucketVersioningRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const putBucketVersioning = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/bucket/{Bucket}/versioning", method: "PUT", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.PutBucketVersioning" }, PutBucketVersioningRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * This operation is not supported by directory buckets.
  * 
@@ -2202,7 +2202,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * - `eu-west-1`
- */export const submitMultiRegionAccessPointRoutes = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/mrap/instances/{Mrap+}/routes", method: "PATCH", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.SubmitMultiRegionAccessPointRoutes" }, SubmitMultiRegionAccessPointRoutesRequest, SubmitMultiRegionAccessPointRoutesResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const submitMultiRegionAccessPointRoutes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/mrap/instances/{Mrap+}/routes", method: "PATCH", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.SubmitMultiRegionAccessPointRoutes" }, SubmitMultiRegionAccessPointRoutesRequest, SubmitMultiRegionAccessPointRoutesResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * Updates the IAM role of a registered location in your S3 Access Grants instance.
  * 
@@ -2222,7 +2222,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * You must also have the following permission: `iam:PassRole`
- */export const updateAccessGrantsLocation = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accessgrantsinstance/location/{AccessGrantsLocationId}", method: "PUT", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.UpdateAccessGrantsLocation" }, UpdateAccessGrantsLocationRequest, UpdateAccessGrantsLocationResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const updateAccessGrantsLocation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accessgrantsinstance/location/{AccessGrantsLocationId}", method: "PUT", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.UpdateAccessGrantsLocation" }, UpdateAccessGrantsLocationRequest, UpdateAccessGrantsLocationResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * Creates an access grant that gives a grantee access to your S3 data. The grantee can be an IAM user or role or a directory user, or group. Before you can create a grant, you must have an S3 Access Grants instance in the same Region as the S3 data. You can create an S3 Access Grants instance using the CreateAccessGrantsInstance. You must also have registered at least one S3 data location in your S3 Access Grants instance using CreateAccessGrantsLocation.
  * 
@@ -2250,7 +2250,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * For directory groups - `identitystore:DescribeGroup`
- */export const createAccessGrant = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accessgrantsinstance/grant", method: "POST", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.CreateAccessGrant" }, CreateAccessGrantRequest, CreateAccessGrantResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const createAccessGrant = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accessgrantsinstance/grant", method: "POST", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.CreateAccessGrant" }, CreateAccessGrantRequest, CreateAccessGrantResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * Creates an access point and associates it to a specified bucket. For more information, see
  * Managing
@@ -2302,7 +2302,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * - ListAccessPointsForDirectoryBuckets
- */export const createAccessPoint = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accesspoint/{Name}", method: "PUT", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.CreateAccessPoint" }, CreateAccessPointRequest, CreateAccessPointResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const createAccessPoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accesspoint/{Name}", method: "PUT", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.CreateAccessPoint" }, CreateAccessPointRequest, CreateAccessPointResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * This action creates an Amazon S3 on Outposts bucket. To create an S3 bucket, see Create
  * Bucket in the *Amazon S3 API Reference*.
@@ -2370,7 +2370,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * - PutAccessPointPolicy
- */export const createBucket = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/bucket/{Bucket}", method: "PUT", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.CreateBucket" }, CreateBucketRequest, CreateBucketResult, [BucketAlreadyExists, BucketAlreadyOwnedByYou]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const createBucket = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/bucket/{Bucket}", method: "PUT", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.CreateBucket" }, CreateBucketRequest, CreateBucketResult, [BucketAlreadyExists, BucketAlreadyOwnedByYou]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * Removes the entire tag set from the specified S3 Batch Operations job.
  * 
@@ -2405,7 +2405,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * - PutJobTagging
- */export const deleteJobTagging = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/jobs/{JobId}/tagging", method: "DELETE", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.DeleteJobTagging" }, DeleteJobTaggingRequest, DeleteJobTaggingResult, [InternalServiceException, NotFoundException, TooManyRequestsException]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const deleteJobTagging = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/jobs/{JobId}/tagging", method: "DELETE", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.DeleteJobTagging" }, DeleteJobTaggingRequest, DeleteJobTaggingResult, [InternalServiceException, NotFoundException, TooManyRequestsException]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * This operation is not supported by directory buckets.
  * 
@@ -2447,7 +2447,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * - ListMultiRegionAccessPoints
- */export const deleteMultiRegionAccessPoint = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/async-requests/mrap/delete", method: "POST", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.DeleteMultiRegionAccessPoint" }, DeleteMultiRegionAccessPointRequest, DeleteMultiRegionAccessPointResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const deleteMultiRegionAccessPoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/async-requests/mrap/delete", method: "POST", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.DeleteMultiRegionAccessPoint" }, DeleteMultiRegionAccessPointRequest, DeleteMultiRegionAccessPointResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * Returns configuration information about the specified access point.
  * 
@@ -2472,7 +2472,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * - ListAccessPoints
- */export const getAccessPoint = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accesspoint/{Name}", method: "GET", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.GetAccessPoint" }, GetAccessPointRequest, GetAccessPointResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const getAccessPoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accesspoint/{Name}", method: "GET", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.GetAccessPoint" }, GetAccessPointRequest, GetAccessPointResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * This operation is not supported by directory buckets.
  * 
@@ -2497,7 +2497,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * - ListAccessPointsForObjectLambda
- */export const getAccessPointForObjectLambda = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accesspointforobjectlambda/{Name}", method: "GET", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.GetAccessPointForObjectLambda" }, GetAccessPointForObjectLambdaRequest, GetAccessPointForObjectLambdaResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const getAccessPointForObjectLambda = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accesspointforobjectlambda/{Name}", method: "GET", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.GetAccessPointForObjectLambda" }, GetAccessPointForObjectLambdaRequest, GetAccessPointForObjectLambdaResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * This operation is not supported by directory buckets.
  * 
@@ -2507,7 +2507,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * Indicates whether the specified access point currently has a policy that allows public access.
  * For more information about public access through access points, see Managing Data Access with Amazon S3
  * access points in the *Amazon S3 User Guide*.
- */export const getAccessPointPolicyStatus = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accesspoint/{Name}/policyStatus", method: "GET", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.GetAccessPointPolicyStatus" }, GetAccessPointPolicyStatusRequest, GetAccessPointPolicyStatusResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const getAccessPointPolicyStatus = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accesspoint/{Name}/policyStatus", method: "GET", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.GetAccessPointPolicyStatus" }, GetAccessPointPolicyStatusRequest, GetAccessPointPolicyStatusResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * Returns a temporary access credential from S3 Access Grants to the grantee or client application. The temporary credential is an Amazon Web Services STS token that grants them access to the S3 data.
  * 
@@ -2527,7 +2527,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * The IAM role that S3 Access Grants assumes must have the following permissions specified in the trust policy when registering the location: `sts:AssumeRole`, for directory users or groups `sts:SetContext`, and for IAM users or roles `sts:SetSourceIdentity`.
- */export const getDataAccess = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accessgrantsinstance/dataaccess", method: "GET", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.GetDataAccess" }, GetDataAccessRequest, GetDataAccessResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const getDataAccess = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accessgrantsinstance/dataaccess", method: "GET", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.GetDataAccess" }, GetDataAccessRequest, GetDataAccessResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * This operation is not supported by directory buckets.
  * 
@@ -2550,7 +2550,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * - PutPublicAccessBlock
- */export const getPublicAccessBlock = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/configuration/publicAccessBlock", method: "GET", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.GetPublicAccessBlock" }, GetPublicAccessBlockRequest, GetPublicAccessBlockOutput, [NoSuchPublicAccessBlockConfiguration]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const getPublicAccessBlock = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/configuration/publicAccessBlock", method: "GET", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.GetPublicAccessBlock" }, GetPublicAccessBlockRequest, GetPublicAccessBlockOutput, [NoSuchPublicAccessBlockConfiguration]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * Returns the list of access grants in your S3 Access Grants instance.
  * 
@@ -2561,7 +2561,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * You must have the `s3:ListAccessGrants` permission to use this operation.
- */export const listAccessGrants = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accessgrantsinstance/grants", method: "GET", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.ListAccessGrants" }, ListAccessGrantsRequest, ListAccessGrantsResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const listAccessGrants = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accessgrantsinstance/grants", method: "GET", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.ListAccessGrants" }, ListAccessGrantsRequest, ListAccessGrantsResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * Returns a list of S3 Access Grants instances. An S3 Access Grants instance serves as a logical grouping for your individual access grants. You can only have one S3 Access Grants instance per Region per account.
  * 
@@ -2572,7 +2572,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * You must have the `s3:ListAccessGrantsInstances` permission to use this operation.
- */export const listAccessGrantsInstances = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accessgrantsinstances", method: "GET", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.ListAccessGrantsInstances" }, ListAccessGrantsInstancesRequest, ListAccessGrantsInstancesResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const listAccessGrantsInstances = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accessgrantsinstances", method: "GET", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.ListAccessGrantsInstances" }, ListAccessGrantsInstancesRequest, ListAccessGrantsInstancesResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * Returns a list of the locations registered in your S3 Access Grants instance.
  * 
@@ -2583,7 +2583,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * You must have the `s3:ListAccessGrantsLocations` permission to use this operation.
- */export const listAccessGrantsLocations = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accessgrantsinstance/locations", method: "GET", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.ListAccessGrantsLocations" }, ListAccessGrantsLocationsRequest, ListAccessGrantsLocationsResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const listAccessGrantsLocations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accessgrantsinstance/locations", method: "GET", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.ListAccessGrantsLocations" }, ListAccessGrantsLocationsRequest, ListAccessGrantsLocationsResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * This operation is not supported by directory buckets.
  * 
@@ -2620,7 +2620,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * - GetAccessPoint
- */export const listAccessPoints = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accesspoint", method: "GET", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.ListAccessPoints" }, ListAccessPointsRequest, ListAccessPointsResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const listAccessPoints = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accesspoint", method: "GET", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.ListAccessPoints" }, ListAccessPointsRequest, ListAccessPointsResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * This operation is not supported by directory buckets.
  * 
@@ -2648,7 +2648,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * - GetAccessPointForObjectLambda
- */export const listAccessPointsForObjectLambda = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accesspointforobjectlambda", method: "GET", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.ListAccessPointsForObjectLambda" }, ListAccessPointsForObjectLambdaRequest, ListAccessPointsForObjectLambdaResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const listAccessPointsForObjectLambda = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accesspointforobjectlambda", method: "GET", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.ListAccessPointsForObjectLambda" }, ListAccessPointsForObjectLambdaRequest, ListAccessPointsForObjectLambdaResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * Use this API to list the access grants that grant the caller access to Amazon S3 data through S3 Access Grants. The caller (grantee) can be an Identity and Access Management (IAM) identity or Amazon Web Services Identity Center corporate directory identity. You must pass the Amazon Web Services account of the S3 data owner (grantor) in the request. You can, optionally, narrow the results by `GrantScope`, using a fragment of the data's S3 path, and S3 Access Grants will return only the grants with a path that contains the path fragment. You can also pass the `AllowedByApplication` filter in the request, which returns only the grants authorized for applications, whether the application is the caller's Identity Center application or any other application (`ALL`). For more information, see List the caller's access grants in the *Amazon S3 User Guide*.
  * 
@@ -2659,7 +2659,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * You must have the `s3:ListCallerAccessGrants` permission to use this operation.
- */export const listCallerAccessGrants = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accessgrantsinstance/caller/grants", method: "GET", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.ListCallerAccessGrants" }, ListCallerAccessGrantsRequest, ListCallerAccessGrantsResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const listCallerAccessGrants = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accessgrantsinstance/caller/grants", method: "GET", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.ListCallerAccessGrants" }, ListCallerAccessGrantsRequest, ListCallerAccessGrantsResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * This operation is not supported by directory buckets.
  * 
@@ -2673,7 +2673,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts
  * endpoint hostname prefix and `x-amz-outpost-id` in your request, see the Examples section.
- */export const listRegionalBuckets = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/bucket", method: "GET", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.ListRegionalBuckets" }, ListRegionalBucketsRequest, ListRegionalBucketsResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const listRegionalBuckets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/bucket", method: "GET", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.ListRegionalBuckets" }, ListRegionalBucketsRequest, ListRegionalBucketsResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * This operation is not supported by directory buckets.
  * 
@@ -2692,7 +2692,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * `s3:ListStorageLensConfigurations` action. For more information, see
  * Setting permissions to
  * use Amazon S3 Storage Lens in the *Amazon S3 User Guide*.
- */export const listStorageLensConfigurations = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/storagelens", method: "GET", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.ListStorageLensConfigurations" }, ListStorageLensConfigurationsRequest, ListStorageLensConfigurationsResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const listStorageLensConfigurations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/storagelens", method: "GET", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.ListStorageLensConfigurations" }, ListStorageLensConfigurationsRequest, ListStorageLensConfigurationsResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * Lists all the Storage Lens groups in the specified home Region.
  * 
@@ -2704,7 +2704,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * For information about Storage Lens groups errors, see List of Amazon S3 Storage
  * Lens error codes.
- */export const listStorageLensGroups = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/storagelensgroup", method: "GET", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.ListStorageLensGroups" }, ListStorageLensGroupsRequest, ListStorageLensGroupsResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const listStorageLensGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/storagelensgroup", method: "GET", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.ListStorageLensGroups" }, ListStorageLensGroupsRequest, ListStorageLensGroupsResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * Sets the supplied tag-set on an S3 Batch Operations job.
  * 
@@ -2793,7 +2793,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * - DeleteJobTagging
- */export const putJobTagging = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/jobs/{JobId}/tagging", method: "PUT", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.PutJobTagging" }, PutJobTaggingRequest, PutJobTaggingResult, [InternalServiceException, NotFoundException, TooManyRequestsException, TooManyTagsException]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const putJobTagging = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/jobs/{JobId}/tagging", method: "PUT", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.PutJobTagging" }, PutJobTaggingRequest, PutJobTaggingResult, [InternalServiceException, NotFoundException, TooManyRequestsException, TooManyTagsException]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * This operation is not supported by directory buckets.
  * 
@@ -2821,7 +2821,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * - GetMultiRegionAccessPointPolicyStatus
- */export const putMultiRegionAccessPointPolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/async-requests/mrap/put-policy", method: "POST", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.PutMultiRegionAccessPointPolicy" }, PutMultiRegionAccessPointPolicyRequest, PutMultiRegionAccessPointPolicyResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const putMultiRegionAccessPointPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/async-requests/mrap/put-policy", method: "POST", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.PutMultiRegionAccessPointPolicy" }, PutMultiRegionAccessPointPolicyRequest, PutMultiRegionAccessPointPolicyResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * Updates an existing S3 Batch Operations job's priority. For more information, see S3 Batch Operations in the *Amazon S3 User Guide*.
  * 
@@ -2859,7 +2859,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * - UpdateJobStatus
- */export const updateJobPriority = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/jobs/{JobId}/priority", method: "POST", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.UpdateJobPriority" }, UpdateJobPriorityRequest, UpdateJobPriorityResult, [BadRequestException, InternalServiceException, NotFoundException, TooManyRequestsException]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const updateJobPriority = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/jobs/{JobId}/priority", method: "POST", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.UpdateJobPriority" }, UpdateJobPriorityRequest, UpdateJobPriorityResult, [BadRequestException, InternalServiceException, NotFoundException, TooManyRequestsException]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * Updates the status for the specified job. Use this operation to confirm that you want to
  * run a job or to cancel an existing job. For more information, see S3 Batch Operations in the *Amazon S3 User Guide*.
@@ -2898,7 +2898,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * - UpdateJobStatus
- */export const updateJobStatus = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/jobs/{JobId}/status", method: "POST", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.UpdateJobStatus" }, UpdateJobStatusRequest, UpdateJobStatusResult, [BadRequestException, InternalServiceException, JobStatusException, NotFoundException, TooManyRequestsException]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const updateJobStatus = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/jobs/{JobId}/status", method: "POST", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.UpdateJobStatus" }, UpdateJobStatusRequest, UpdateJobStatusResult, [BadRequestException, InternalServiceException, JobStatusException, NotFoundException, TooManyRequestsException]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * This operation is not supported by directory buckets.
  * 
@@ -2940,7 +2940,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * - ListMultiRegionAccessPoints
- */export const createMultiRegionAccessPoint = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/async-requests/mrap/create", method: "POST", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.CreateMultiRegionAccessPoint" }, CreateMultiRegionAccessPointRequest, CreateMultiRegionAccessPointResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const createMultiRegionAccessPoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/async-requests/mrap/create", method: "POST", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.CreateMultiRegionAccessPoint" }, CreateMultiRegionAccessPointRequest, CreateMultiRegionAccessPointResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * Creates a new S3 Storage Lens group and associates it with the specified Amazon Web Services account ID. An
  * S3 Storage Lens group is a custom grouping of objects based on prefix, suffix, object tags,
@@ -2959,7 +2959,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * For information about Storage Lens groups errors, see List of Amazon S3 Storage
  * Lens error codes.
- */export const createStorageLensGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/storagelensgroup", method: "POST", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.CreateStorageLensGroup" }, CreateStorageLensGroupRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const createStorageLensGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/storagelensgroup", method: "POST", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.CreateStorageLensGroup" }, CreateStorageLensGroupRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * This operation is not supported by directory buckets.
  * 
@@ -2994,7 +2994,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * - ListMultiRegionAccessPoints
- */export const getMultiRegionAccessPoint = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/mrap/instances/{Name+}", method: "GET", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.GetMultiRegionAccessPoint" }, GetMultiRegionAccessPointRequest, GetMultiRegionAccessPointResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const getMultiRegionAccessPoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/mrap/instances/{Name+}", method: "GET", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.GetMultiRegionAccessPoint" }, GetMultiRegionAccessPointRequest, GetMultiRegionAccessPointResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * This operation is not supported by directory buckets.
  * 
@@ -3020,7 +3020,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * - PutMultiRegionAccessPointPolicy
- */export const getMultiRegionAccessPointPolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/mrap/instances/{Name+}/policy", method: "GET", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.GetMultiRegionAccessPointPolicy" }, GetMultiRegionAccessPointPolicyRequest, GetMultiRegionAccessPointPolicyResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const getMultiRegionAccessPointPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/mrap/instances/{Name+}/policy", method: "GET", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.GetMultiRegionAccessPointPolicy" }, GetMultiRegionAccessPointPolicyRequest, GetMultiRegionAccessPointPolicyResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * Retrieves the configuration parameters and status for a Batch Operations job. For more
  * information, see S3 Batch Operations in the *Amazon S3 User Guide*.
@@ -3057,7 +3057,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * - UpdateJobStatus
- */export const describeJob = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/jobs/{JobId}", method: "GET", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.DescribeJob" }, DescribeJobRequest, DescribeJobResult, [BadRequestException, InternalServiceException, NotFoundException, TooManyRequestsException]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const describeJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/jobs/{JobId}", method: "GET", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.DescribeJob" }, DescribeJobRequest, DescribeJobResult, [BadRequestException, InternalServiceException, NotFoundException, TooManyRequestsException]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * Lists current S3 Batch Operations jobs as well as the jobs that have ended within the last 90
  * days for the Amazon Web Services account making the request. For more information, see S3 Batch Operations in the *Amazon S3 User Guide*.
@@ -3098,7 +3098,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * - UpdateJobStatus
- */export const listJobs = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/jobs", method: "GET", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.ListJobs" }, ListJobsRequest, ListJobsResult, [InternalServiceException, InvalidNextTokenException, InvalidRequestException]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const listJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/jobs", method: "GET", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.ListJobs" }, ListJobsRequest, ListJobsResult, [InternalServiceException, InvalidNextTokenException, InvalidRequestException]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * This action puts a lifecycle configuration to an Amazon S3 on Outposts bucket. To put a
  * lifecycle configuration to an S3 bucket, see PutBucketLifecycleConfiguration in the *Amazon S3 API Reference*.
@@ -3129,7 +3129,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * - DeleteBucketLifecycleConfiguration
- */export const putBucketLifecycleConfiguration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/bucket/{Bucket}/lifecycleconfiguration", method: "PUT", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.PutBucketLifecycleConfiguration" }, PutBucketLifecycleConfigurationRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const putBucketLifecycleConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/bucket/{Bucket}/lifecycleconfiguration", method: "PUT", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.PutBucketLifecycleConfiguration" }, PutBucketLifecycleConfigurationRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * This operation is not supported by directory buckets.
  * 
@@ -3156,7 +3156,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * - ListAccessPointsForObjectLambda
- */export const createAccessPointForObjectLambda = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accesspointforobjectlambda/{Name}", method: "PUT", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.CreateAccessPointForObjectLambda" }, CreateAccessPointForObjectLambdaRequest, CreateAccessPointForObjectLambdaResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const createAccessPointForObjectLambda = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accesspointforobjectlambda/{Name}", method: "PUT", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.CreateAccessPointForObjectLambda" }, CreateAccessPointForObjectLambdaRequest, CreateAccessPointForObjectLambdaResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * This operation is not supported by directory buckets.
  * 
@@ -3187,7 +3187,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * - ListMultiRegionAccessPoints
- */export const describeMultiRegionAccessPointOperation = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/async-requests/mrap/{RequestTokenARN+}", method: "GET", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.DescribeMultiRegionAccessPointOperation" }, DescribeMultiRegionAccessPointOperationRequest, DescribeMultiRegionAccessPointOperationResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const describeMultiRegionAccessPointOperation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/async-requests/mrap/{RequestTokenARN+}", method: "GET", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.DescribeMultiRegionAccessPointOperation" }, DescribeMultiRegionAccessPointOperationRequest, DescribeMultiRegionAccessPointOperationResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * This action creates an Amazon S3 on Outposts bucket's replication configuration. To create
  * an S3 bucket's replication configuration, see PutBucketReplication
@@ -3304,7 +3304,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * - DeleteBucketReplication
- */export const putBucketReplication = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/bucket/{Bucket}/replication", method: "PUT", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.PutBucketReplication" }, PutBucketReplicationRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const putBucketReplication = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/bucket/{Bucket}/replication", method: "PUT", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.PutBucketReplication" }, PutBucketReplicationRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * This operation is not supported by directory buckets.
  * 
@@ -3320,7 +3320,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * To use this action, you must have permission to perform the
  * `s3:PutStorageLensConfiguration` action. For more information, see Setting permissions to use Amazon S3 Storage Lens in the
  * *Amazon S3 User Guide*.
- */export const putStorageLensConfiguration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/storagelens/{ConfigId}", method: "PUT", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.PutStorageLensConfiguration" }, PutStorageLensConfigurationRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const putStorageLensConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/storagelens/{ConfigId}", method: "PUT", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.PutStorageLensConfiguration" }, PutStorageLensConfigurationRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * This operation creates an S3 Batch Operations job.
  * 
@@ -3369,4 +3369,4 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * - JobOperation
- */export const createJob = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/jobs", method: "POST", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.CreateJob" }, CreateJobRequest, CreateJobResult, [BadRequestException, IdempotencyException, InternalServiceException, TooManyRequestsException]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const createJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/jobs", method: "POST", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.CreateJob" }, CreateJobRequest, CreateJobResult, [BadRequestException, IdempotencyException, InternalServiceException, TooManyRequestsException]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);

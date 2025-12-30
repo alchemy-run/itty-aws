@@ -350,7 +350,7 @@ export class IndexNotFoundException extends S.TaggedError<IndexNotFoundException
 /**
  * Returns the regional endpoint information. For more information on policy permissions,
  * please see Internetwork traffic privacy.
- */export const describeEndpoints = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.DescribeEndpoints" }, DescribeEndpointsRequest, DescribeEndpointsResponse, []), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeEndpoints = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.DescribeEndpoints" }, DescribeEndpointsRequest, DescribeEndpointsResponse, []), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the current provisioned-capacity quotas for your Amazon Web Services account in
  * a Region, both for the Region as a whole and for any one DynamoDB table that you create
@@ -449,17 +449,17 @@ export class IndexNotFoundException extends S.TaggedError<IndexNotFoundException
  * 
  * 
  * The `DescribeLimits` Request element has no content.
- */export const describeLimits = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.DescribeLimits" }, DescribeLimitsInput, DescribeLimitsOutput, [InternalServerError, InvalidEndpointException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeLimits = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.DescribeLimits" }, DescribeLimitsInput, DescribeLimitsOutput, [InternalServerError, InvalidEndpointException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Stops replication from the DynamoDB table to the Kinesis data stream. This
  * is done without deleting either of the resources.
- */export const disableKinesisStreamingDestination = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.DisableKinesisStreamingDestination" }, KinesisStreamingDestinationInput, KinesisStreamingDestinationOutput, [InternalServerError, InvalidEndpointException, LimitExceededException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const disableKinesisStreamingDestination = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.DisableKinesisStreamingDestination" }, KinesisStreamingDestinationInput, KinesisStreamingDestinationOutput, [InternalServerError, InvalidEndpointException, LimitExceededException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts table data replication to the specified Kinesis data stream at a timestamp
  * chosen during the enable workflow. If this operation doesn't return results immediately,
  * use DescribeKinesisStreamingDestination to check if streaming to the Kinesis data stream
  * is ACTIVE.
- */export const enableKinesisStreamingDestination = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.EnableKinesisStreamingDestination" }, KinesisStreamingDestinationInput, KinesisStreamingDestinationOutput, [InternalServerError, InvalidEndpointException, LimitExceededException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const enableKinesisStreamingDestination = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.EnableKinesisStreamingDestination" }, KinesisStreamingDestinationInput, KinesisStreamingDestinationOutput, [InternalServerError, InvalidEndpointException, LimitExceededException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the resource-based policy document attached to the resource, which can be a
  * table or stream, in JSON format.
@@ -507,12 +507,12 @@ export class IndexNotFoundException extends S.TaggedError<IndexNotFoundException
  * consistent, it will take some time to apply the policy to all requests to a resource.
  * Policies that you attach while creating a table using the `CreateTable`
  * request will always be applied to all requests for that table.
- */export const getResourcePolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.GetResourcePolicy" }, GetResourcePolicyInput, GetResourcePolicyOutput, [InternalServerError, InvalidEndpointException, PolicyNotFoundException, ResourceNotFoundException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getResourcePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.GetResourcePolicy" }, GetResourcePolicyInput, GetResourcePolicyOutput, [InternalServerError, InvalidEndpointException, PolicyNotFoundException, ResourceNotFoundException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns an array of table names associated with the current account and endpoint. The
  * output from `ListTables` is paginated, with each page returning a maximum of
  * 100 table names.
- */export const listTables = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.ListTables" }, ListTablesInput, ListTablesOutput, [InternalServerError, InvalidEndpointException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listTables = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.ListTables" }, ListTablesInput, ListTablesOutput, [InternalServerError, InvalidEndpointException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * List all tags on an Amazon DynamoDB resource. You can call ListTagsOfResource up to 10
  * times per second, per account.
@@ -520,7 +520,7 @@ export class IndexNotFoundException extends S.TaggedError<IndexNotFoundException
  * 
  * For an overview on tagging DynamoDB resources, see Tagging for DynamoDB
  * in the *Amazon DynamoDB Developer Guide*.
- */export const listTagsOfResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.ListTagsOfResource" }, ListTagsOfResourceInput, ListTagsOfResourceOutput, [InternalServerError, InvalidEndpointException, ResourceNotFoundException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listTagsOfResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.ListTagsOfResource" }, ListTagsOfResourceInput, ListTagsOfResourceOutput, [InternalServerError, InvalidEndpointException, ResourceNotFoundException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Attaches a resource-based policy document to the resource, which can be a table or
  * stream. When you attach a resource-based policy using this API, the policy application
@@ -548,7 +548,7 @@ export class IndexNotFoundException extends S.TaggedError<IndexNotFoundException
  * `GetResourcePolicy` uses an eventually consistent query, and the
  * metadata for your policy or table might not be available at that moment. Wait for a
  * few seconds, and then try the `GetResourcePolicy` request again.
- */export const putResourcePolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.PutResourcePolicy" }, PutResourcePolicyInput, PutResourcePolicyOutput, [InternalServerError, InvalidEndpointException, LimitExceededException, PolicyNotFoundException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putResourcePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.PutResourcePolicy" }, PutResourcePolicyInput, PutResourcePolicyOutput, [InternalServerError, InvalidEndpointException, LimitExceededException, PolicyNotFoundException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Associate a set of tags with an Amazon DynamoDB resource. You can then activate these
  * user-defined tags so that they appear on the Billing and Cost Management console for
@@ -578,7 +578,7 @@ export class IndexNotFoundException extends S.TaggedError<IndexNotFoundException
  * 
  * For an overview on tagging DynamoDB resources, see Tagging for DynamoDB
  * in the *Amazon DynamoDB Developer Guide*.
- */export const tagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.TagResource" }, TagResourceInput, S.Struct({}), [InternalServerError, InvalidEndpointException, LimitExceededException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.TagResource" }, TagResourceInput, S.Struct({}), [InternalServerError, InvalidEndpointException, LimitExceededException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes the association of tags from an Amazon DynamoDB resource. You can call
  * `UntagResource` up to five times per second, per account.
@@ -606,7 +606,7 @@ export class IndexNotFoundException extends S.TaggedError<IndexNotFoundException
  * 
  * For an overview on tagging DynamoDB resources, see Tagging for DynamoDB
  * in the *Amazon DynamoDB Developer Guide*.
- */export const untagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.UntagResource" }, UntagResourceInput, S.Struct({}), [InternalServerError, InvalidEndpointException, LimitExceededException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.UntagResource" }, UntagResourceInput, S.Struct({}), [InternalServerError, InvalidEndpointException, LimitExceededException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the status for contributor insights for a specific table or index. CloudWatch
  * Contributor Insights for DynamoDB graphs display the partition key and (if applicable)
@@ -615,7 +615,7 @@ export class IndexNotFoundException extends S.TaggedError<IndexNotFoundException
  * table’s partition key and sort key data with an Amazon Web Services managed key or
  * customer managed key, you should not enable CloudWatch Contributor Insights for DynamoDB
  * for this table.
- */export const updateContributorInsights = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.UpdateContributorInsights" }, UpdateContributorInsightsInput, UpdateContributorInsightsOutput, [InternalServerError, ResourceNotFoundException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateContributorInsights = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.UpdateContributorInsights" }, UpdateContributorInsightsInput, UpdateContributorInsightsOutput, [InternalServerError, ResourceNotFoundException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the resource-based policy attached to the resource, which can be a table or
  * stream.
@@ -647,21 +647,21 @@ export class IndexNotFoundException extends S.TaggedError<IndexNotFoundException
  * the deleted policy. This is because the policy for your resource might not have been
  * deleted yet. Wait for a few seconds, and then try the `GetResourcePolicy`
  * request again.
- */export const deleteResourcePolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.DeleteResourcePolicy" }, DeleteResourcePolicyInput, DeleteResourcePolicyOutput, [InternalServerError, InvalidEndpointException, LimitExceededException, PolicyNotFoundException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteResourcePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.DeleteResourcePolicy" }, DeleteResourcePolicyInput, DeleteResourcePolicyOutput, [InternalServerError, InvalidEndpointException, LimitExceededException, PolicyNotFoundException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes an existing backup of a table.
  * 
  * 
  * You can call `DescribeBackup` at a maximum rate of 10 times per
  * second.
- */export const describeBackup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.DescribeBackup" }, DescribeBackupInput, DescribeBackupOutput, [BackupNotFoundException, InternalServerError, InvalidEndpointException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeBackup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.DescribeBackup" }, DescribeBackupInput, DescribeBackupOutput, [BackupNotFoundException, InternalServerError, InvalidEndpointException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about contributor insights for a given table or global secondary
  * index.
- */export const describeContributorInsights = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.DescribeContributorInsights" }, DescribeContributorInsightsInput, DescribeContributorInsightsOutput, [InternalServerError, ResourceNotFoundException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeContributorInsights = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.DescribeContributorInsights" }, DescribeContributorInsightsInput, DescribeContributorInsightsOutput, [InternalServerError, ResourceNotFoundException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about the status of Kinesis streaming.
- */export const describeKinesisStreamingDestination = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.DescribeKinesisStreamingDestination" }, DescribeKinesisStreamingDestinationInput, DescribeKinesisStreamingDestinationOutput, [InternalServerError, InvalidEndpointException, ResourceNotFoundException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeKinesisStreamingDestination = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.DescribeKinesisStreamingDestination" }, DescribeKinesisStreamingDestinationInput, DescribeKinesisStreamingDestinationOutput, [InternalServerError, InvalidEndpointException, ResourceNotFoundException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about the table, including the current status of the table, when
  * it was created, the primary key schema, and any indexes on the table.
@@ -675,10 +675,10 @@ export class IndexNotFoundException extends S.TaggedError<IndexNotFoundException
  * `DescribeTable` uses an eventually consistent query, and the metadata
  * for your table might not be available at that moment. Wait for a few seconds, and
  * then try the `DescribeTable` request again.
- */export const describeTable = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.DescribeTable" }, DescribeTableInput, DescribeTableOutput, [InternalServerError, InvalidEndpointException, ResourceNotFoundException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeTable = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.DescribeTable" }, DescribeTableInput, DescribeTableOutput, [InternalServerError, InvalidEndpointException, ResourceNotFoundException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gives a description of the Time to Live (TTL) status on the specified table.
- */export const describeTimeToLive = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.DescribeTimeToLive" }, DescribeTimeToLiveInput, DescribeTimeToLiveOutput, [InternalServerError, InvalidEndpointException, ResourceNotFoundException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeTimeToLive = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.DescribeTimeToLive" }, DescribeTimeToLiveInput, DescribeTimeToLiveOutput, [InternalServerError, InvalidEndpointException, ResourceNotFoundException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * List DynamoDB backups that are associated with an Amazon Web Services account and
  * weren't made with Amazon Web Services Backup. To list these backups for a given table,
@@ -697,14 +697,14 @@ export class IndexNotFoundException extends S.TaggedError<IndexNotFoundException
  * If you want to retrieve the complete list of backups made with Amazon Web Services
  * Backup, use the Amazon Web Services Backup
  * list API.
- */export const listBackups = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.ListBackups" }, ListBackupsInput, ListBackupsOutput, [InternalServerError, InvalidEndpointException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listBackups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.ListBackups" }, ListBackupsInput, ListBackupsOutput, [InternalServerError, InvalidEndpointException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of ContributorInsightsSummary for a table and all its global secondary
  * indexes.
- */export const listContributorInsights = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.ListContributorInsights" }, ListContributorInsightsInput, ListContributorInsightsOutput, [InternalServerError, ResourceNotFoundException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listContributorInsights = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.ListContributorInsights" }, ListContributorInsightsInput, ListContributorInsightsOutput, [InternalServerError, ResourceNotFoundException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists completed exports within the past 90 days.
- */export const listExports = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.ListExports" }, ListExportsInput, ListExportsOutput, [InternalServerError, LimitExceededException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listExports = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.ListExports" }, ListExportsInput, ListExportsOutput, [InternalServerError, LimitExceededException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists all global tables that have a replica in the specified Region.
  * 
@@ -715,13 +715,13 @@ export class IndexNotFoundException extends S.TaggedError<IndexNotFoundException
  * 
  * 
  * To determine which version you're using, see Determining the global table version you are using. To update existing global tables from version 2017.11.29 (Legacy) to version 2019.11.21 (Current), see Upgrading global tables.
- */export const listGlobalTables = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.ListGlobalTables" }, ListGlobalTablesInput, ListGlobalTablesOutput, [InternalServerError, InvalidEndpointException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listGlobalTables = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.ListGlobalTables" }, ListGlobalTablesInput, ListGlobalTablesOutput, [InternalServerError, InvalidEndpointException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists completed imports within the past 90 days.
- */export const listImports = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.ListImports" }, ListImportsInput, ListImportsOutput, [LimitExceededException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listImports = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.ListImports" }, ListImportsInput, ListImportsOutput, [LimitExceededException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * The command to update the Kinesis stream destination.
- */export const updateKinesisStreamingDestination = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.UpdateKinesisStreamingDestination" }, UpdateKinesisStreamingDestinationInput, UpdateKinesisStreamingDestinationOutput, [InternalServerError, InvalidEndpointException, LimitExceededException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateKinesisStreamingDestination = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.UpdateKinesisStreamingDestination" }, UpdateKinesisStreamingDestinationInput, UpdateKinesisStreamingDestinationOutput, [InternalServerError, InvalidEndpointException, LimitExceededException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * The `UpdateTimeToLive` method enables or disables Time to Live (TTL) for
  * the specified table. A successful `UpdateTimeToLive` call returns the current
@@ -764,7 +764,7 @@ export class IndexNotFoundException extends S.TaggedError<IndexNotFoundException
  * 
  * For more information, see Time To Live in the
  * Amazon DynamoDB Developer Guide.
- */export const updateTimeToLive = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.UpdateTimeToLive" }, UpdateTimeToLiveInput, UpdateTimeToLiveOutput, [InternalServerError, InvalidEndpointException, LimitExceededException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateTimeToLive = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.UpdateTimeToLive" }, UpdateTimeToLiveInput, UpdateTimeToLiveOutput, [InternalServerError, InvalidEndpointException, LimitExceededException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a global table from an existing table. A global table creates a replication
  * relationship between two or more DynamoDB tables with the same table name in the
@@ -848,7 +848,7 @@ export class IndexNotFoundException extends S.TaggedError<IndexNotFoundException
  * equal replicated write capacity units to your replica tables. You should also
  * provision equal replicated write capacity units to matching secondary indexes across
  * your global table.
- */export const createGlobalTable = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.CreateGlobalTable" }, CreateGlobalTableInput, CreateGlobalTableOutput, [GlobalTableAlreadyExistsException, InternalServerError, InvalidEndpointException, LimitExceededException, TableNotFoundException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createGlobalTable = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.CreateGlobalTable" }, CreateGlobalTableInput, CreateGlobalTableOutput, [GlobalTableAlreadyExistsException, InternalServerError, InvalidEndpointException, LimitExceededException, TableNotFoundException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * The `CreateTable` operation adds a new table to your account. In an Amazon Web Services account, table names must be unique within each Region. That is, you can
  * have two tables with same name if you create the tables in different Regions.
@@ -869,7 +869,7 @@ export class IndexNotFoundException extends S.TaggedError<IndexNotFoundException
  * 
  * 
  * You can use the `DescribeTable` action to check the table status.
- */export const createTable = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.CreateTable" }, CreateTableInput, CreateTableOutput, [InternalServerError, InvalidEndpointException, LimitExceededException, ResourceInUseException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createTable = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.CreateTable" }, CreateTableInput, CreateTableOutput, [InternalServerError, InvalidEndpointException, LimitExceededException, ResourceInUseException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Checks the status of continuous backups and point in time recovery on the specified
  * table. Continuous backups are `ENABLED` on all tables at table creation. If
@@ -890,10 +890,10 @@ export class IndexNotFoundException extends S.TaggedError<IndexNotFoundException
  * 
  * You can call `DescribeContinuousBackups` at a maximum rate of 10 times per
  * second.
- */export const describeContinuousBackups = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.DescribeContinuousBackups" }, DescribeContinuousBackupsInput, DescribeContinuousBackupsOutput, [InternalServerError, InvalidEndpointException, TableNotFoundException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeContinuousBackups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.DescribeContinuousBackups" }, DescribeContinuousBackupsInput, DescribeContinuousBackupsOutput, [InternalServerError, InvalidEndpointException, TableNotFoundException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes an existing table export.
- */export const describeExport = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.DescribeExport" }, DescribeExportInput, DescribeExportOutput, [ExportNotFoundException, InternalServerError, LimitExceededException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeExport = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.DescribeExport" }, DescribeExportInput, DescribeExportOutput, [ExportNotFoundException, InternalServerError, LimitExceededException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about the specified global table.
  * 
@@ -904,10 +904,10 @@ export class IndexNotFoundException extends S.TaggedError<IndexNotFoundException
  * 
  * 
  * To determine which version you're using, see Determining the global table version you are using. To update existing global tables from version 2017.11.29 (Legacy) to version 2019.11.21 (Current), see Upgrading global tables.
- */export const describeGlobalTable = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.DescribeGlobalTable" }, DescribeGlobalTableInput, DescribeGlobalTableOutput, [GlobalTableNotFoundException, InternalServerError, InvalidEndpointException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeGlobalTable = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.DescribeGlobalTable" }, DescribeGlobalTableInput, DescribeGlobalTableOutput, [GlobalTableNotFoundException, InternalServerError, InvalidEndpointException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Represents the properties of the import.
- */export const describeImport = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.DescribeImport" }, DescribeImportInput, DescribeImportOutput, [ImportNotFoundException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeImport = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.DescribeImport" }, DescribeImportInput, DescribeImportOutput, [ImportNotFoundException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new table from an existing backup. Any number of users can execute up to 50
  * concurrent restores (any type of restore) in a given account.
@@ -942,7 +942,7 @@ export class IndexNotFoundException extends S.TaggedError<IndexNotFoundException
  * 
  * 
  * - Time to Live (TTL) settings
- */export const restoreTableFromBackup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.RestoreTableFromBackup" }, RestoreTableFromBackupInput, RestoreTableFromBackupOutput, [BackupInUseException, BackupNotFoundException, InternalServerError, InvalidEndpointException, LimitExceededException, TableAlreadyExistsException, TableInUseException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const restoreTableFromBackup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.RestoreTableFromBackup" }, RestoreTableFromBackupInput, RestoreTableFromBackupOutput, [BackupInUseException, BackupNotFoundException, InternalServerError, InvalidEndpointException, LimitExceededException, TableAlreadyExistsException, TableInUseException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Restores the specified table to the specified point in time within
  * `EarliestRestorableDateTime` and `LatestRestorableDateTime`.
@@ -1015,7 +1015,7 @@ export class IndexNotFoundException extends S.TaggedError<IndexNotFoundException
  * 
  * 
  * - Point in time recovery settings
- */export const restoreTableToPointInTime = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.RestoreTableToPointInTime" }, RestoreTableToPointInTimeInput, RestoreTableToPointInTimeOutput, [InternalServerError, InvalidEndpointException, InvalidRestoreTimeException, LimitExceededException, PointInTimeRecoveryUnavailableException, TableAlreadyExistsException, TableInUseException, TableNotFoundException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const restoreTableToPointInTime = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.RestoreTableToPointInTime" }, RestoreTableToPointInTimeInput, RestoreTableToPointInTimeOutput, [InternalServerError, InvalidEndpointException, InvalidRestoreTimeException, LimitExceededException, PointInTimeRecoveryUnavailableException, TableAlreadyExistsException, TableInUseException, TableNotFoundException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * The `Scan` operation returns one or more items and item attributes by
  * accessing every item in a table or a secondary index. To have DynamoDB return fewer
@@ -1074,7 +1074,7 @@ export class IndexNotFoundException extends S.TaggedError<IndexNotFoundException
  * `ConsistentRead` parameter is set to true. Thus, a DynamoDB scan
  * operation does not guarantee that all reads in a scan see a consistent snapshot of
  * the table when the scan operation was requested.
- */export const scan = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.Scan" }, ScanInput, ScanOutput, [InternalServerError, InvalidEndpointException, ProvisionedThroughputExceededException, RequestLimitExceeded, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const scan = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.Scan" }, ScanInput, ScanOutput, [InternalServerError, InvalidEndpointException, ProvisionedThroughputExceededException, RequestLimitExceeded, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * `UpdateContinuousBackups` enables or disables point in time recovery for
  * the specified table. A successful `UpdateContinuousBackups` call returns the
@@ -1092,10 +1092,10 @@ export class IndexNotFoundException extends S.TaggedError<IndexNotFoundException
  * `LatestRestorableDateTime` is typically 5 minutes before the current time.
  * You can restore your table to any point in time in the last 35 days. You can set the
  * `RecoveryPeriodInDays` to any value between 1 and 35 days.
- */export const updateContinuousBackups = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.UpdateContinuousBackups" }, UpdateContinuousBackupsInput, UpdateContinuousBackupsOutput, [ContinuousBackupsUnavailableException, InternalServerError, InvalidEndpointException, TableNotFoundException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateContinuousBackups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.UpdateContinuousBackups" }, UpdateContinuousBackupsInput, UpdateContinuousBackupsOutput, [ContinuousBackupsUnavailableException, InternalServerError, InvalidEndpointException, TableNotFoundException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates auto scaling settings on your global tables at once.
- */export const updateTableReplicaAutoScaling = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.UpdateTableReplicaAutoScaling" }, UpdateTableReplicaAutoScalingInput, UpdateTableReplicaAutoScalingOutput, [InternalServerError, LimitExceededException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateTableReplicaAutoScaling = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.UpdateTableReplicaAutoScaling" }, UpdateTableReplicaAutoScalingInput, UpdateTableReplicaAutoScalingOutput, [InternalServerError, LimitExceededException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This operation allows you to perform batch reads or writes on data stored in DynamoDB,
  * using PartiQL. Each read statement in a `BatchExecuteStatement` must specify
@@ -1116,7 +1116,7 @@ export class IndexNotFoundException extends S.TaggedError<IndexNotFoundException
  * A HTTP 200 response does not mean that all statements in the BatchExecuteStatement
  * succeeded. Error details for individual statements can be found under the Error field of the `BatchStatementResponse` for each
  * statement.
- */export const batchExecuteStatement = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.BatchExecuteStatement" }, BatchExecuteStatementInput, BatchExecuteStatementOutput, [InternalServerError, RequestLimitExceeded, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const batchExecuteStatement = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.BatchExecuteStatement" }, BatchExecuteStatementInput, BatchExecuteStatementOutput, [InternalServerError, RequestLimitExceeded, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * The `BatchGetItem` operation returns the attributes of one or more items
  * from one or more tables. You identify requested items by primary key.
@@ -1196,7 +1196,7 @@ export class IndexNotFoundException extends S.TaggedError<IndexNotFoundException
  * 
  * `BatchGetItem` will result in a `ValidationException` if the
  * same key is specified multiple times.
- */export const batchGetItem = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.BatchGetItem" }, BatchGetItemInput, BatchGetItemOutput, [InternalServerError, InvalidEndpointException, ProvisionedThroughputExceededException, RequestLimitExceeded, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const batchGetItem = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.BatchGetItem" }, BatchGetItemInput, BatchGetItemOutput, [InternalServerError, InvalidEndpointException, ProvisionedThroughputExceededException, RequestLimitExceeded, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a backup for an existing table.
  * 
@@ -1242,14 +1242,14 @@ export class IndexNotFoundException extends S.TaggedError<IndexNotFoundException
  * 
  * 
  * - Provisioned read and write capacity
- */export const createBackup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.CreateBackup" }, CreateBackupInput, CreateBackupOutput, [BackupInUseException, ContinuousBackupsUnavailableException, InternalServerError, InvalidEndpointException, LimitExceededException, TableInUseException, TableNotFoundException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createBackup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.CreateBackup" }, CreateBackupInput, CreateBackupOutput, [BackupInUseException, ContinuousBackupsUnavailableException, InternalServerError, InvalidEndpointException, LimitExceededException, TableInUseException, TableNotFoundException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes an existing backup of a table.
  * 
  * 
  * You can call `DeleteBackup` at a maximum rate of 10 times per
  * second.
- */export const deleteBackup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.DeleteBackup" }, DeleteBackupInput, DeleteBackupOutput, [BackupInUseException, BackupNotFoundException, InternalServerError, InvalidEndpointException, LimitExceededException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteBackup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.DeleteBackup" }, DeleteBackupInput, DeleteBackupOutput, [BackupInUseException, BackupNotFoundException, InternalServerError, InvalidEndpointException, LimitExceededException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * The `DeleteTable` operation deletes a table and all of its items. After a
  * `DeleteTable` request, the specified table is in the
@@ -1280,10 +1280,10 @@ export class IndexNotFoundException extends S.TaggedError<IndexNotFoundException
  * 
  * 
  * Use the `DescribeTable` action to check the status of the table.
- */export const deleteTable = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.DeleteTable" }, DeleteTableInput, DeleteTableOutput, [InternalServerError, InvalidEndpointException, LimitExceededException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteTable = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.DeleteTable" }, DeleteTableInput, DeleteTableOutput, [InternalServerError, InvalidEndpointException, LimitExceededException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes auto scaling settings across replicas of the global table at once.
- */export const describeTableReplicaAutoScaling = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.DescribeTableReplicaAutoScaling" }, DescribeTableReplicaAutoScalingInput, DescribeTableReplicaAutoScalingOutput, [InternalServerError, ResourceNotFoundException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeTableReplicaAutoScaling = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.DescribeTableReplicaAutoScaling" }, DescribeTableReplicaAutoScalingInput, DescribeTableReplicaAutoScalingOutput, [InternalServerError, ResourceNotFoundException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This operation allows you to perform reads and singleton writes on data stored in
  * DynamoDB, using PartiQL.
@@ -1302,12 +1302,12 @@ export class IndexNotFoundException extends S.TaggedError<IndexNotFoundException
  * `LastEvaluatedKey` is present in the response, you need to paginate the
  * result set. If `NextToken` is present, you need to paginate the result set
  * and include `NextToken`.
- */export const executeStatement = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.ExecuteStatement" }, ExecuteStatementInput, ExecuteStatementOutput, [ConditionalCheckFailedException, DuplicateItemException, InternalServerError, ItemCollectionSizeLimitExceededException, ProvisionedThroughputExceededException, RequestLimitExceeded, ResourceNotFoundException, ThrottlingException, TransactionConflictException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const executeStatement = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.ExecuteStatement" }, ExecuteStatementInput, ExecuteStatementOutput, [ConditionalCheckFailedException, DuplicateItemException, InternalServerError, ItemCollectionSizeLimitExceededException, ProvisionedThroughputExceededException, RequestLimitExceeded, ResourceNotFoundException, ThrottlingException, TransactionConflictException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Exports table data to an S3 bucket. The table must have point in time recovery
  * enabled, and you can export data from any time within the point in time recovery
  * window.
- */export const exportTableToPointInTime = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.ExportTableToPointInTime" }, ExportTableToPointInTimeInput, ExportTableToPointInTimeOutput, [ExportConflictException, InternalServerError, InvalidExportTimeException, LimitExceededException, PointInTimeRecoveryUnavailableException, TableNotFoundException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const exportTableToPointInTime = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.ExportTableToPointInTime" }, ExportTableToPointInTimeInput, ExportTableToPointInTimeOutput, [ExportConflictException, InternalServerError, InvalidExportTimeException, LimitExceededException, PointInTimeRecoveryUnavailableException, TableNotFoundException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * The `GetItem` operation returns a set of attributes for the item with the
  * given primary key. If there is no matching item, `GetItem` does not return
@@ -1319,10 +1319,10 @@ export class IndexNotFoundException extends S.TaggedError<IndexNotFoundException
  * application requires a strongly consistent read, set `ConsistentRead` to
  * `true`. Although a strongly consistent read might take more time than an
  * eventually consistent read, it always returns the last updated value.
- */export const getItem = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.GetItem" }, GetItemInput, GetItemOutput, [InternalServerError, InvalidEndpointException, ProvisionedThroughputExceededException, RequestLimitExceeded, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getItem = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.GetItem" }, GetItemInput, GetItemOutput, [InternalServerError, InvalidEndpointException, ProvisionedThroughputExceededException, RequestLimitExceeded, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Imports table data from an S3 bucket.
- */export const importTable = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.ImportTable" }, ImportTableInput, ImportTableOutput, [ImportConflictException, LimitExceededException, ResourceInUseException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const importTable = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.ImportTable" }, ImportTableInput, ImportTableOutput, [ImportConflictException, LimitExceededException, ResourceInUseException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new item, or replaces an old item with a new item. If an item that has the
  * same primary key as the new item already exists in the specified table, the new item
@@ -1357,7 +1357,7 @@ export class IndexNotFoundException extends S.TaggedError<IndexNotFoundException
  * 
  * For more information about `PutItem`, see Working with
  * Items in the *Amazon DynamoDB Developer Guide*.
- */export const putItem = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.PutItem" }, PutItemInput, PutItemOutput, [ConditionalCheckFailedException, InternalServerError, InvalidEndpointException, ItemCollectionSizeLimitExceededException, ProvisionedThroughputExceededException, ReplicatedWriteConflictException, RequestLimitExceeded, ResourceNotFoundException, ThrottlingException, TransactionConflictException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putItem = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.PutItem" }, PutItemInput, PutItemOutput, [ConditionalCheckFailedException, InternalServerError, InvalidEndpointException, ItemCollectionSizeLimitExceededException, ProvisionedThroughputExceededException, ReplicatedWriteConflictException, RequestLimitExceeded, ResourceNotFoundException, ThrottlingException, TransactionConflictException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * You must provide the name of the partition key attribute and a single value for that
  * attribute. `Query` returns all items with that partition key value.
@@ -1430,7 +1430,7 @@ export class IndexNotFoundException extends S.TaggedError<IndexNotFoundException
  * consistent result. Global secondary indexes support eventually consistent reads only, so
  * do not specify `ConsistentRead` when querying a global secondary
  * index.
- */export const query = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.Query" }, QueryInput, QueryOutput, [InternalServerError, InvalidEndpointException, ProvisionedThroughputExceededException, RequestLimitExceeded, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const query = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.Query" }, QueryInput, QueryOutput, [InternalServerError, InvalidEndpointException, ProvisionedThroughputExceededException, RequestLimitExceeded, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * `TransactWriteItems` is a synchronous write operation that groups up to 100
  * action requests. These actions can target items in different tables, but not in
@@ -1513,7 +1513,7 @@ export class IndexNotFoundException extends S.TaggedError<IndexNotFoundException
  * 
  * 
  * - There is a user error, such as an invalid data format.
- */export const transactWriteItems = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.TransactWriteItems" }, TransactWriteItemsInput, TransactWriteItemsOutput, [IdempotentParameterMismatchException, InternalServerError, InvalidEndpointException, ProvisionedThroughputExceededException, RequestLimitExceeded, ResourceNotFoundException, ThrottlingException, TransactionCanceledException, TransactionInProgressException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const transactWriteItems = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.TransactWriteItems" }, TransactWriteItemsInput, TransactWriteItemsOutput, [IdempotentParameterMismatchException, InternalServerError, InvalidEndpointException, ProvisionedThroughputExceededException, RequestLimitExceeded, ResourceNotFoundException, ThrottlingException, TransactionCanceledException, TransactionInProgressException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Edits an existing item's attributes, or adds a new item to the table if it does not
  * already exist. You can put, delete, or add attribute values. You can also perform a
@@ -1524,7 +1524,7 @@ export class IndexNotFoundException extends S.TaggedError<IndexNotFoundException
  * 
  * You can also return the item's attribute values in the same `UpdateItem`
  * operation using the `ReturnValues` parameter.
- */export const updateItem = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.UpdateItem" }, UpdateItemInput, UpdateItemOutput, [ConditionalCheckFailedException, InternalServerError, InvalidEndpointException, ItemCollectionSizeLimitExceededException, ProvisionedThroughputExceededException, ReplicatedWriteConflictException, RequestLimitExceeded, ResourceNotFoundException, ThrottlingException, TransactionConflictException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateItem = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.UpdateItem" }, UpdateItemInput, UpdateItemOutput, [ConditionalCheckFailedException, InternalServerError, InvalidEndpointException, ItemCollectionSizeLimitExceededException, ProvisionedThroughputExceededException, ReplicatedWriteConflictException, RequestLimitExceeded, ResourceNotFoundException, ThrottlingException, TransactionConflictException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Modifies the provisioned throughput settings, global secondary indexes, or DynamoDB
  * Streams settings for a given table.
@@ -1556,7 +1556,7 @@ export class IndexNotFoundException extends S.TaggedError<IndexNotFoundException
  * `UPDATING`, you can't issue another `UpdateTable` request.
  * When the table returns to the `ACTIVE` state, the `UpdateTable`
  * operation is complete.
- */export const updateTable = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.UpdateTable" }, UpdateTableInput, UpdateTableOutput, [InternalServerError, InvalidEndpointException, LimitExceededException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateTable = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.UpdateTable" }, UpdateTableInput, UpdateTableOutput, [InternalServerError, InvalidEndpointException, LimitExceededException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * The `BatchWriteItem` operation puts or deletes multiple items in one or
  * more tables. A single call to `BatchWriteItem` can transmit up to 16MB of
@@ -1676,7 +1676,7 @@ export class IndexNotFoundException extends S.TaggedError<IndexNotFoundException
  * - Any individual items with keys exceeding the key length limits. For a
  * partition key, the limit is 2048 bytes and for a sort key, the limit is 1024
  * bytes.
- */export const batchWriteItem = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.BatchWriteItem" }, BatchWriteItemInput, BatchWriteItemOutput, [InternalServerError, InvalidEndpointException, ItemCollectionSizeLimitExceededException, ProvisionedThroughputExceededException, ReplicatedWriteConflictException, RequestLimitExceeded, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const batchWriteItem = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.BatchWriteItem" }, BatchWriteItemInput, BatchWriteItemOutput, [InternalServerError, InvalidEndpointException, ItemCollectionSizeLimitExceededException, ProvisionedThroughputExceededException, ReplicatedWriteConflictException, RequestLimitExceeded, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a single item in a table by primary key. You can perform a conditional delete
  * operation that deletes the item if it exists, or if it has an expected attribute
@@ -1695,7 +1695,7 @@ export class IndexNotFoundException extends S.TaggedError<IndexNotFoundException
  * Conditional deletes are useful for deleting items only if specific conditions are met.
  * If those conditions are met, DynamoDB performs the delete. Otherwise, the item is not
  * deleted.
- */export const deleteItem = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.DeleteItem" }, DeleteItemInput, DeleteItemOutput, [ConditionalCheckFailedException, InternalServerError, InvalidEndpointException, ItemCollectionSizeLimitExceededException, ProvisionedThroughputExceededException, ReplicatedWriteConflictException, RequestLimitExceeded, ResourceNotFoundException, ThrottlingException, TransactionConflictException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteItem = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.DeleteItem" }, DeleteItemInput, DeleteItemOutput, [ConditionalCheckFailedException, InternalServerError, InvalidEndpointException, ItemCollectionSizeLimitExceededException, ProvisionedThroughputExceededException, ReplicatedWriteConflictException, RequestLimitExceeded, ResourceNotFoundException, ThrottlingException, TransactionConflictException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes Region-specific settings for a global table.
  * 
@@ -1706,7 +1706,7 @@ export class IndexNotFoundException extends S.TaggedError<IndexNotFoundException
  * 
  * 
  * To determine which version you're using, see Determining the global table version you are using. To update existing global tables from version 2017.11.29 (Legacy) to version 2019.11.21 (Current), see Upgrading global tables.
- */export const describeGlobalTableSettings = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.DescribeGlobalTableSettings" }, DescribeGlobalTableSettingsInput, DescribeGlobalTableSettingsOutput, [GlobalTableNotFoundException, InternalServerError, InvalidEndpointException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeGlobalTableSettings = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.DescribeGlobalTableSettings" }, DescribeGlobalTableSettingsInput, DescribeGlobalTableSettingsOutput, [GlobalTableNotFoundException, InternalServerError, InvalidEndpointException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This operation allows you to perform transactional reads or writes on data stored in
  * DynamoDB, using PartiQL.
@@ -1718,7 +1718,7 @@ export class IndexNotFoundException extends S.TaggedError<IndexNotFoundException
  * you cannot mix both in one transaction. The EXISTS function is an exception and can
  * be used to check the condition of specific attributes of the item in a similar
  * manner to `ConditionCheck` in the TransactWriteItems API.
- */export const executeTransaction = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.ExecuteTransaction" }, ExecuteTransactionInput, ExecuteTransactionOutput, [IdempotentParameterMismatchException, InternalServerError, ProvisionedThroughputExceededException, RequestLimitExceeded, ResourceNotFoundException, ThrottlingException, TransactionCanceledException, TransactionInProgressException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const executeTransaction = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.ExecuteTransaction" }, ExecuteTransactionInput, ExecuteTransactionOutput, [IdempotentParameterMismatchException, InternalServerError, ProvisionedThroughputExceededException, RequestLimitExceeded, ResourceNotFoundException, ThrottlingException, TransactionCanceledException, TransactionInProgressException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * `TransactGetItems` is a synchronous operation that atomically retrieves
  * multiple items from one or more tables (but not from indexes) in a single account and
@@ -1750,7 +1750,7 @@ export class IndexNotFoundException extends S.TaggedError<IndexNotFoundException
  * 
  * 
  * - The aggregate size of the items in the transaction exceeded 4 MB.
- */export const transactGetItems = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.TransactGetItems" }, TransactGetItemsInput, TransactGetItemsOutput, [InternalServerError, InvalidEndpointException, ProvisionedThroughputExceededException, RequestLimitExceeded, ResourceNotFoundException, ThrottlingException, TransactionCanceledException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const transactGetItems = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.TransactGetItems" }, TransactGetItemsInput, TransactGetItemsOutput, [InternalServerError, InvalidEndpointException, ProvisionedThroughputExceededException, RequestLimitExceeded, ResourceNotFoundException, ThrottlingException, TransactionCanceledException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Adds or removes replicas in the specified global table. The global table must already
  * exist to be able to use this operation. Any replica to be added must be empty, have the
@@ -1797,7 +1797,7 @@ export class IndexNotFoundException extends S.TaggedError<IndexNotFoundException
  * 
  * - The global secondary indexes must have the same provisioned and maximum write
  * capacity units.
- */export const updateGlobalTable = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.UpdateGlobalTable" }, UpdateGlobalTableInput, UpdateGlobalTableOutput, [GlobalTableNotFoundException, InternalServerError, InvalidEndpointException, ReplicaAlreadyExistsException, ReplicaNotFoundException, TableNotFoundException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateGlobalTable = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.UpdateGlobalTable" }, UpdateGlobalTableInput, UpdateGlobalTableOutput, [GlobalTableNotFoundException, InternalServerError, InvalidEndpointException, ReplicaAlreadyExistsException, ReplicaNotFoundException, TableNotFoundException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates settings for a global table.
  * 
@@ -1808,4 +1808,4 @@ export class IndexNotFoundException extends S.TaggedError<IndexNotFoundException
  * 
  * 
  * To determine which version you're using, see Determining the global table version you are using. To update existing global tables from version 2017.11.29 (Legacy) to version 2019.11.21 (Current), see Upgrading global tables.
- */export const updateGlobalTableSettings = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.UpdateGlobalTableSettings" }, UpdateGlobalTableSettingsInput, UpdateGlobalTableSettingsOutput, [GlobalTableNotFoundException, IndexNotFoundException, InternalServerError, InvalidEndpointException, LimitExceededException, ReplicaNotFoundException, ResourceInUseException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateGlobalTableSettings = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB", sigV4ServiceName: "dynamodb", name: "DynamoDB_20120810.UpdateGlobalTableSettings" }, UpdateGlobalTableSettingsInput, UpdateGlobalTableSettingsOutput, [GlobalTableNotFoundException, IndexNotFoundException, InternalServerError, InvalidEndpointException, LimitExceededException, ReplicaNotFoundException, ResourceInUseException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);

@@ -33,28 +33,28 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
  * 
  * 
  * If you have access to a member account, you can use this API operation from the member account. For more information, see Limiting access to the identity store from member accounts in the * IAM Identity Center User Guide*.
- */export const getUserId = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-06-15", uri: "/", method: "POST", sdkId: "identitystore", sigV4ServiceName: "identitystore", name: "AWSIdentityStore.GetUserId" }, GetUserIdRequest, GetUserIdResponse, [ResourceNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getUserId = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-06-15", uri: "/", method: "POST", sdkId: "identitystore", sigV4ServiceName: "identitystore", name: "AWSIdentityStore.GetUserId" }, GetUserIdRequest, GetUserIdResponse, [ResourceNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Checks the user's membership in all requested groups and returns if the member exists in all queried groups.
  * 
  * 
  * If you have access to a member account, you can use this API operation from the member account. For more information, see Limiting access to the identity store from member accounts in the * IAM Identity Center User Guide*.
- */export const isMemberInGroups = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-06-15", uri: "/", method: "POST", sdkId: "identitystore", sigV4ServiceName: "identitystore", name: "AWSIdentityStore.IsMemberInGroups" }, IsMemberInGroupsRequest, IsMemberInGroupsResponse, [ResourceNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const isMemberInGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-06-15", uri: "/", method: "POST", sdkId: "identitystore", sigV4ServiceName: "identitystore", name: "AWSIdentityStore.IsMemberInGroups" }, IsMemberInGroupsRequest, IsMemberInGroupsResponse, [ResourceNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * For the specified member in the specified identity store, returns the list of all ` GroupMembership` objects and returns results in paginated form.
  * 
  * 
  * If you have access to a member account, you can use this API operation from the member account. For more information, see Limiting access to the identity store from member accounts in the * IAM Identity Center User Guide*.
- */export const listGroupMembershipsForMember = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-06-15", uri: "/", method: "POST", sdkId: "identitystore", sigV4ServiceName: "identitystore", name: "AWSIdentityStore.ListGroupMembershipsForMember" }, ListGroupMembershipsForMemberRequest, ListGroupMembershipsForMemberResponse, [ResourceNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listGroupMembershipsForMember = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-06-15", uri: "/", method: "POST", sdkId: "identitystore", sigV4ServiceName: "identitystore", name: "AWSIdentityStore.ListGroupMembershipsForMember" }, ListGroupMembershipsForMemberRequest, ListGroupMembershipsForMemberResponse, [ResourceNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves `GroupId` in an identity store.
  * 
  * 
  * If you have access to a member account, you can use this API operation from the member account. For more information, see Limiting access to the identity store from member accounts in the * IAM Identity Center User Guide*.
- */export const getGroupId = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-06-15", uri: "/", method: "POST", sdkId: "identitystore", sigV4ServiceName: "identitystore", name: "AWSIdentityStore.GetGroupId" }, GetGroupIdRequest, GetGroupIdResponse, [ResourceNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getGroupId = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-06-15", uri: "/", method: "POST", sdkId: "identitystore", sigV4ServiceName: "identitystore", name: "AWSIdentityStore.GetGroupId" }, GetGroupIdRequest, GetGroupIdResponse, [ResourceNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the `MembershipId` in an identity store.
  * 
  * 
  * If you have access to a member account, you can use this API operation from the member account. For more information, see Limiting access to the identity store from member accounts in the * IAM Identity Center User Guide*.
- */export const getGroupMembershipId = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-06-15", uri: "/", method: "POST", sdkId: "identitystore", sigV4ServiceName: "identitystore", name: "AWSIdentityStore.GetGroupMembershipId" }, GetGroupMembershipIdRequest, GetGroupMembershipIdResponse, [ResourceNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getGroupMembershipId = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-06-15", uri: "/", method: "POST", sdkId: "identitystore", sigV4ServiceName: "identitystore", name: "AWSIdentityStore.GetGroupMembershipId" }, GetGroupMembershipIdRequest, GetGroupMembershipIdResponse, [ResourceNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

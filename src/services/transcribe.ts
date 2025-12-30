@@ -167,34 +167,34 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * Deletes a Medical Scribe job. To use this operation, specify the name of the
  * job you want to delete using `MedicalScribeJobName`. Job names are
  * case sensitive.
- */export const deleteMedicalScribeJob = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/medicalscribejobs/{MedicalScribeJobName}", method: "DELETE", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.DeleteMedicalScribeJob" }, DeleteMedicalScribeJobRequest, S.Struct({}), [BadRequestException, InternalFailureException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteMedicalScribeJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/medicalscribejobs/{MedicalScribeJobName}", method: "DELETE", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.DeleteMedicalScribeJob" }, DeleteMedicalScribeJobRequest, S.Struct({}), [BadRequestException, InternalFailureException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a medical transcription job. To use this operation, specify the name of the
  * job you want to delete using `MedicalTranscriptionJobName`. Job names are
  * case sensitive.
- */export const deleteMedicalTranscriptionJob = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/medicaltranscriptionjobs/{MedicalTranscriptionJobName}", method: "DELETE", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.DeleteMedicalTranscriptionJob" }, DeleteMedicalTranscriptionJobRequest, S.Struct({}), [BadRequestException, InternalFailureException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteMedicalTranscriptionJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/medicaltranscriptionjobs/{MedicalTranscriptionJobName}", method: "DELETE", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.DeleteMedicalTranscriptionJob" }, DeleteMedicalTranscriptionJobRequest, S.Struct({}), [BadRequestException, InternalFailureException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a transcription job. To use this operation, specify the name of the job you
  * want to delete using `TranscriptionJobName`. Job names are case
  * sensitive.
- */export const deleteTranscriptionJob = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/transcriptionjobs/{TranscriptionJobName}", method: "DELETE", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.DeleteTranscriptionJob" }, DeleteTranscriptionJobRequest, S.Struct({}), [BadRequestException, InternalFailureException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteTranscriptionJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/transcriptionjobs/{TranscriptionJobName}", method: "DELETE", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.DeleteTranscriptionJob" }, DeleteTranscriptionJobRequest, S.Struct({}), [BadRequestException, InternalFailureException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a custom vocabulary. To use this operation, specify the name of the custom
  * vocabulary you want to delete using `VocabularyName`. Custom vocabulary names
  * are case sensitive.
- */export const deleteVocabulary = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/vocabularies/{VocabularyName}", method: "DELETE", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.DeleteVocabulary" }, DeleteVocabularyRequest, S.Struct({}), [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteVocabulary = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/vocabularies/{VocabularyName}", method: "DELETE", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.DeleteVocabulary" }, DeleteVocabularyRequest, S.Struct({}), [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a custom vocabulary filter. To use this operation, specify the name of the
  * custom vocabulary filter you want to delete using `VocabularyFilterName`.
  * Custom vocabulary filter names are case sensitive.
- */export const deleteVocabularyFilter = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/vocabularyFilters/{VocabularyFilterName}", method: "DELETE", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.DeleteVocabularyFilter" }, DeleteVocabularyFilterRequest, S.Struct({}), [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteVocabularyFilter = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/vocabularyFilters/{VocabularyFilterName}", method: "DELETE", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.DeleteVocabularyFilter" }, DeleteVocabularyFilterRequest, S.Struct({}), [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes the specified tags from the specified Amazon Transcribe resource.
  * 
  * 
  * If you include `UntagResource` in your request, you must also include
  * `ResourceArn` and `TagKeys`.
- */export const untagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/tags/{ResourceArn}", method: "DELETE", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [BadRequestException, ConflictException, InternalFailureException, LimitExceededException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/tags/{ResourceArn}", method: "DELETE", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [BadRequestException, ConflictException, InternalFailureException, LimitExceededException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new custom medical vocabulary.
  * 
@@ -215,7 +215,7 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * 
  * For more information, see Custom
  * vocabularies.
- */export const createMedicalVocabulary = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/medicalvocabularies/{VocabularyName}", method: "PUT", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.CreateMedicalVocabulary" }, CreateMedicalVocabularyRequest, CreateMedicalVocabularyResponse, [BadRequestException, ConflictException, InternalFailureException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createMedicalVocabulary = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/medicalvocabularies/{VocabularyName}", method: "PUT", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.CreateMedicalVocabulary" }, CreateMedicalVocabularyRequest, CreateMedicalVocabularyResponse, [BadRequestException, ConflictException, InternalFailureException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new custom vocabulary.
  * 
@@ -234,7 +234,7 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * 
  * For more information, see Custom
  * vocabularies.
- */export const createVocabulary = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/vocabularies/{VocabularyName}", method: "PUT", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.CreateVocabulary" }, CreateVocabularyRequest, CreateVocabularyResponse, [BadRequestException, ConflictException, InternalFailureException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createVocabulary = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/vocabularies/{VocabularyName}", method: "PUT", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.CreateVocabulary" }, CreateVocabularyRequest, CreateVocabularyResponse, [BadRequestException, ConflictException, InternalFailureException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new custom vocabulary filter.
  * 
@@ -252,27 +252,27 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * 
  * For more information, see Vocabulary
  * filtering.
- */export const createVocabularyFilter = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/vocabularyFilters/{VocabularyFilterName}", method: "POST", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.CreateVocabularyFilter" }, CreateVocabularyFilterRequest, CreateVocabularyFilterResponse, [BadRequestException, ConflictException, InternalFailureException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createVocabularyFilter = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/vocabularyFilters/{VocabularyFilterName}", method: "POST", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.CreateVocabularyFilter" }, CreateVocabularyFilterRequest, CreateVocabularyFilterResponse, [BadRequestException, ConflictException, InternalFailureException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a Call Analytics category. To use this operation, specify the name of the
  * category you want to delete using `CategoryName`. Category names are case
  * sensitive.
- */export const deleteCallAnalyticsCategory = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/callanalyticscategories/{CategoryName}", method: "DELETE", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.DeleteCallAnalyticsCategory" }, DeleteCallAnalyticsCategoryRequest, DeleteCallAnalyticsCategoryResponse, [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteCallAnalyticsCategory = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/callanalyticscategories/{CategoryName}", method: "DELETE", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.DeleteCallAnalyticsCategory" }, DeleteCallAnalyticsCategoryRequest, DeleteCallAnalyticsCategoryResponse, [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a Call Analytics job. To use this operation, specify the name of the job you
  * want to delete using `CallAnalyticsJobName`. Job names are case
  * sensitive.
- */export const deleteCallAnalyticsJob = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/callanalyticsjobs/{CallAnalyticsJobName}", method: "DELETE", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.DeleteCallAnalyticsJob" }, DeleteCallAnalyticsJobRequest, DeleteCallAnalyticsJobResponse, [BadRequestException, InternalFailureException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteCallAnalyticsJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/callanalyticsjobs/{CallAnalyticsJobName}", method: "DELETE", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.DeleteCallAnalyticsJob" }, DeleteCallAnalyticsJobRequest, DeleteCallAnalyticsJobResponse, [BadRequestException, InternalFailureException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a custom language model. To use this operation, specify the name of the
  * language model you want to delete using `ModelName`. custom language model
  * names are case sensitive.
- */export const deleteLanguageModel = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/languagemodels/{ModelName}", method: "DELETE", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.DeleteLanguageModel" }, DeleteLanguageModelRequest, S.Struct({}), [BadRequestException, InternalFailureException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteLanguageModel = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/languagemodels/{ModelName}", method: "DELETE", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.DeleteLanguageModel" }, DeleteLanguageModelRequest, S.Struct({}), [BadRequestException, InternalFailureException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a custom medical vocabulary. To use this operation, specify the name of the
  * custom vocabulary you want to delete using `VocabularyName`. Custom
  * vocabulary names are case sensitive.
- */export const deleteMedicalVocabulary = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/medicalvocabularies/{VocabularyName}", method: "DELETE", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.DeleteMedicalVocabulary" }, DeleteMedicalVocabularyRequest, S.Struct({}), [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteMedicalVocabulary = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/medicalvocabularies/{VocabularyName}", method: "DELETE", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.DeleteMedicalVocabulary" }, DeleteMedicalVocabularyRequest, S.Struct({}), [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Provides information about the specified custom medical vocabulary.
  * 
@@ -284,7 +284,7 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * 
  * 
  * To get a list of your custom medical vocabularies, use the operation.
- */export const getMedicalVocabulary = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/medicalvocabularies/{VocabularyName}", method: "GET", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.GetMedicalVocabulary" }, GetMedicalVocabularyRequest, GetMedicalVocabularyResponse, [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getMedicalVocabulary = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/medicalvocabularies/{VocabularyName}", method: "GET", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.GetMedicalVocabulary" }, GetMedicalVocabularyRequest, GetMedicalVocabularyResponse, [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Provides information about the specified custom vocabulary.
  * 
@@ -297,27 +297,27 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * 
  * 
  * To get a list of your custom vocabularies, use the operation.
- */export const getVocabulary = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/vocabularies/{VocabularyName}", method: "GET", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.GetVocabulary" }, GetVocabularyRequest, GetVocabularyResponse, [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getVocabulary = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/vocabularies/{VocabularyName}", method: "GET", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.GetVocabulary" }, GetVocabularyRequest, GetVocabularyResponse, [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Provides information about the specified custom vocabulary filter.
  * 
  * 
  * To get a list of your custom vocabulary filters, use the operation.
- */export const getVocabularyFilter = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/vocabularyFilters/{VocabularyFilterName}", method: "GET", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.GetVocabularyFilter" }, GetVocabularyFilterRequest, GetVocabularyFilterResponse, [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getVocabularyFilter = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/vocabularyFilters/{VocabularyFilterName}", method: "GET", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.GetVocabularyFilter" }, GetVocabularyFilterRequest, GetVocabularyFilterResponse, [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Provides a list of Call Analytics categories, including all rules that make up each
  * category.
  * 
  * 
  * To get detailed information about a specific Call Analytics category, use the operation.
- */export const listCallAnalyticsCategories = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/callanalyticscategories", method: "GET", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.ListCallAnalyticsCategories" }, ListCallAnalyticsCategoriesRequest, ListCallAnalyticsCategoriesResponse, [BadRequestException, InternalFailureException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listCallAnalyticsCategories = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/callanalyticscategories", method: "GET", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.ListCallAnalyticsCategories" }, ListCallAnalyticsCategoriesRequest, ListCallAnalyticsCategoriesResponse, [BadRequestException, InternalFailureException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Provides a list of custom language models that match the specified criteria. If no
  * criteria are specified, all custom language models are returned.
  * 
  * 
  * To get detailed information about a specific custom language model, use the operation.
- */export const listLanguageModels = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/languagemodels", method: "GET", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.ListLanguageModels" }, ListLanguageModelsRequest, ListLanguageModelsResponse, [BadRequestException, InternalFailureException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listLanguageModels = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/languagemodels", method: "GET", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.ListLanguageModels" }, ListLanguageModelsRequest, ListLanguageModelsResponse, [BadRequestException, InternalFailureException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists all tags associated with the specified transcription job, vocabulary, model, or
  * resource.
@@ -325,14 +325,14 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * 
  * To learn more about using tags with Amazon Transcribe, refer to Tagging
  * resources.
- */export const listTagsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/tags/{ResourceArn}", method: "GET", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/tags/{ResourceArn}", method: "GET", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Provides a list of custom vocabularies that match the specified criteria. If no
  * criteria are specified, all custom vocabularies are returned.
  * 
  * 
  * To get detailed information about a specific custom vocabulary, use the operation.
- */export const listVocabularies = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/vocabularies", method: "GET", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.ListVocabularies" }, ListVocabulariesRequest, ListVocabulariesResponse, [BadRequestException, InternalFailureException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listVocabularies = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/vocabularies", method: "GET", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.ListVocabularies" }, ListVocabulariesRequest, ListVocabulariesResponse, [BadRequestException, InternalFailureException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Adds one or more custom tags, each in the form of a key:value pair, to the specified
  * resource.
@@ -340,7 +340,7 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * 
  * To learn more about using tags with Amazon Transcribe, refer to Tagging
  * resources.
- */export const tagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/tags/{ResourceArn}", method: "PUT", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.TagResource" }, TagResourceRequest, TagResourceResponse, [BadRequestException, ConflictException, InternalFailureException, LimitExceededException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/tags/{ResourceArn}", method: "PUT", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.TagResource" }, TagResourceRequest, TagResourceResponse, [BadRequestException, ConflictException, InternalFailureException, LimitExceededException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the specified Call Analytics category with new rules. Note that the
  * `UpdateCallAnalyticsCategory` operation overwrites all existing rules
@@ -349,22 +349,22 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * 
  * 
  * To create a new category, see .
- */export const updateCallAnalyticsCategory = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/callanalyticscategories/{CategoryName}", method: "PATCH", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.UpdateCallAnalyticsCategory" }, UpdateCallAnalyticsCategoryRequest, UpdateCallAnalyticsCategoryResponse, [BadRequestException, ConflictException, InternalFailureException, LimitExceededException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateCallAnalyticsCategory = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/callanalyticscategories/{CategoryName}", method: "PATCH", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.UpdateCallAnalyticsCategory" }, UpdateCallAnalyticsCategoryRequest, UpdateCallAnalyticsCategoryResponse, [BadRequestException, ConflictException, InternalFailureException, LimitExceededException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates an existing custom medical vocabulary with new values. This operation
  * overwrites all existing information with your new values; you cannot append new terms
  * onto an existing custom vocabulary.
- */export const updateMedicalVocabulary = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/medicalvocabularies/{VocabularyName}", method: "PATCH", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.UpdateMedicalVocabulary" }, UpdateMedicalVocabularyRequest, UpdateMedicalVocabularyResponse, [BadRequestException, ConflictException, InternalFailureException, LimitExceededException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateMedicalVocabulary = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/medicalvocabularies/{VocabularyName}", method: "PATCH", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.UpdateMedicalVocabulary" }, UpdateMedicalVocabularyRequest, UpdateMedicalVocabularyResponse, [BadRequestException, ConflictException, InternalFailureException, LimitExceededException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates an existing custom vocabulary with new values. This operation overwrites all
  * existing information with your new values; you cannot append new terms onto an existing
  * custom vocabulary.
- */export const updateVocabulary = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/vocabularies/{VocabularyName}", method: "PATCH", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.UpdateVocabulary" }, UpdateVocabularyRequest, UpdateVocabularyResponse, [BadRequestException, ConflictException, InternalFailureException, LimitExceededException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateVocabulary = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/vocabularies/{VocabularyName}", method: "PATCH", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.UpdateVocabulary" }, UpdateVocabularyRequest, UpdateVocabularyResponse, [BadRequestException, ConflictException, InternalFailureException, LimitExceededException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates an existing custom vocabulary filter with a new list of words. The new list
  * you provide overwrites all previous entries; you cannot append new terms onto an
  * existing custom vocabulary filter.
- */export const updateVocabularyFilter = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/vocabularyFilters/{VocabularyFilterName}", method: "PUT", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.UpdateVocabularyFilter" }, UpdateVocabularyFilterRequest, UpdateVocabularyFilterResponse, [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateVocabularyFilter = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/vocabularyFilters/{VocabularyFilterName}", method: "PUT", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.UpdateVocabularyFilter" }, UpdateVocabularyFilterRequest, UpdateVocabularyFilterResponse, [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new custom language model.
  * 
@@ -387,7 +387,7 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * 
  * 
  * - A unique name for your model
- */export const createLanguageModel = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/languagemodels/{ModelName}", method: "PUT", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.CreateLanguageModel" }, CreateLanguageModelRequest, CreateLanguageModelResponse, [BadRequestException, ConflictException, InternalFailureException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createLanguageModel = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/languagemodels/{ModelName}", method: "PUT", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.CreateLanguageModel" }, CreateLanguageModelRequest, CreateLanguageModelResponse, [BadRequestException, ConflictException, InternalFailureException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Provides information about the specified custom language model.
  * 
@@ -400,55 +400,55 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * If you tried to create a new custom language model and the request wasn't successful,
  * you can use `DescribeLanguageModel` to help identify the reason for this
  * failure.
- */export const describeLanguageModel = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/languagemodels/{ModelName}", method: "GET", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.DescribeLanguageModel" }, DescribeLanguageModelRequest, DescribeLanguageModelResponse, [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeLanguageModel = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/languagemodels/{ModelName}", method: "GET", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.DescribeLanguageModel" }, DescribeLanguageModelRequest, DescribeLanguageModelResponse, [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Provides information about the specified Call Analytics category.
  * 
  * 
  * To get a list of your Call Analytics categories, use the operation.
- */export const getCallAnalyticsCategory = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/callanalyticscategories/{CategoryName}", method: "GET", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.GetCallAnalyticsCategory" }, GetCallAnalyticsCategoryRequest, GetCallAnalyticsCategoryResponse, [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getCallAnalyticsCategory = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/callanalyticscategories/{CategoryName}", method: "GET", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.GetCallAnalyticsCategory" }, GetCallAnalyticsCategoryRequest, GetCallAnalyticsCategoryResponse, [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Provides a list of Call Analytics jobs that match the specified criteria. If no
  * criteria are specified, all Call Analytics jobs are returned.
  * 
  * 
  * To get detailed information about a specific Call Analytics job, use the operation.
- */export const listCallAnalyticsJobs = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/callanalyticsjobs", method: "GET", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.ListCallAnalyticsJobs" }, ListCallAnalyticsJobsRequest, ListCallAnalyticsJobsResponse, [BadRequestException, InternalFailureException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listCallAnalyticsJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/callanalyticsjobs", method: "GET", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.ListCallAnalyticsJobs" }, ListCallAnalyticsJobsRequest, ListCallAnalyticsJobsResponse, [BadRequestException, InternalFailureException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Provides a list of Medical Scribe jobs that match the specified criteria. If no
  * criteria are specified, all Medical Scribe jobs are returned.
  * 
  * 
  * To get detailed information about a specific Medical Scribe job, use the operation.
- */export const listMedicalScribeJobs = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/medicalscribejobs", method: "GET", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.ListMedicalScribeJobs" }, ListMedicalScribeJobsRequest, ListMedicalScribeJobsResponse, [BadRequestException, InternalFailureException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listMedicalScribeJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/medicalscribejobs", method: "GET", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.ListMedicalScribeJobs" }, ListMedicalScribeJobsRequest, ListMedicalScribeJobsResponse, [BadRequestException, InternalFailureException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Provides a list of medical transcription jobs that match the specified criteria. If no
  * criteria are specified, all medical transcription jobs are returned.
  * 
  * 
  * To get detailed information about a specific medical transcription job, use the operation.
- */export const listMedicalTranscriptionJobs = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/medicaltranscriptionjobs", method: "GET", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.ListMedicalTranscriptionJobs" }, ListMedicalTranscriptionJobsRequest, ListMedicalTranscriptionJobsResponse, [BadRequestException, InternalFailureException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listMedicalTranscriptionJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/medicaltranscriptionjobs", method: "GET", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.ListMedicalTranscriptionJobs" }, ListMedicalTranscriptionJobsRequest, ListMedicalTranscriptionJobsResponse, [BadRequestException, InternalFailureException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Provides a list of custom medical vocabularies that match the specified criteria. If
  * no criteria are specified, all custom medical vocabularies are returned.
  * 
  * 
  * To get detailed information about a specific custom medical vocabulary, use the operation.
- */export const listMedicalVocabularies = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/medicalvocabularies", method: "GET", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.ListMedicalVocabularies" }, ListMedicalVocabulariesRequest, ListMedicalVocabulariesResponse, [BadRequestException, InternalFailureException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listMedicalVocabularies = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/medicalvocabularies", method: "GET", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.ListMedicalVocabularies" }, ListMedicalVocabulariesRequest, ListMedicalVocabulariesResponse, [BadRequestException, InternalFailureException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Provides a list of transcription jobs that match the specified criteria. If no
  * criteria are specified, all transcription jobs are returned.
  * 
  * 
  * To get detailed information about a specific transcription job, use the operation.
- */export const listTranscriptionJobs = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/transcriptionjobs", method: "GET", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.ListTranscriptionJobs" }, ListTranscriptionJobsRequest, ListTranscriptionJobsResponse, [BadRequestException, InternalFailureException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listTranscriptionJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/transcriptionjobs", method: "GET", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.ListTranscriptionJobs" }, ListTranscriptionJobsRequest, ListTranscriptionJobsResponse, [BadRequestException, InternalFailureException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Provides a list of custom vocabulary filters that match the specified criteria. If no
  * criteria are specified, all custom vocabularies are returned.
  * 
  * 
  * To get detailed information about a specific custom vocabulary filter, use the operation.
- */export const listVocabularyFilters = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/vocabularyFilters", method: "GET", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.ListVocabularyFilters" }, ListVocabularyFiltersRequest, ListVocabularyFiltersResponse, [BadRequestException, InternalFailureException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listVocabularyFilters = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/vocabularyFilters", method: "GET", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.ListVocabularyFilters" }, ListVocabularyFiltersRequest, ListVocabularyFiltersResponse, [BadRequestException, InternalFailureException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Transcribes the audio from a medical dictation or conversation and applies any
  * additional Request Parameters you choose to include in your request.
@@ -503,7 +503,7 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * 
  * - `Type`: Choose whether your audio is a conversation or a
  * dictation.
- */export const startMedicalTranscriptionJob = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/medicaltranscriptionjobs/{MedicalTranscriptionJobName}", method: "PUT", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.StartMedicalTranscriptionJob" }, StartMedicalTranscriptionJobRequest, StartMedicalTranscriptionJobResponse, [BadRequestException, ConflictException, InternalFailureException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startMedicalTranscriptionJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/medicaltranscriptionjobs/{MedicalTranscriptionJobName}", method: "PUT", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.StartMedicalTranscriptionJob" }, StartMedicalTranscriptionJobRequest, StartMedicalTranscriptionJobResponse, [BadRequestException, ConflictException, InternalFailureException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Provides information about the specified Medical Scribe job.
  * 
@@ -517,7 +517,7 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * 
  * 
  * To get a list of your Medical Scribe jobs, use the operation.
- */export const getMedicalScribeJob = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/medicalscribejobs/{MedicalScribeJobName}", method: "GET", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.GetMedicalScribeJob" }, GetMedicalScribeJobRequest, GetMedicalScribeJobResponse, [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getMedicalScribeJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/medicalscribejobs/{MedicalScribeJobName}", method: "GET", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.GetMedicalScribeJob" }, GetMedicalScribeJobRequest, GetMedicalScribeJobResponse, [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Provides information about the specified medical transcription job.
  * 
@@ -531,7 +531,7 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * 
  * 
  * To get a list of your medical transcription jobs, use the operation.
- */export const getMedicalTranscriptionJob = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/medicaltranscriptionjobs/{MedicalTranscriptionJobName}", method: "GET", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.GetMedicalTranscriptionJob" }, GetMedicalTranscriptionJobRequest, GetMedicalTranscriptionJobResponse, [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getMedicalTranscriptionJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/medicaltranscriptionjobs/{MedicalTranscriptionJobName}", method: "GET", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.GetMedicalTranscriptionJob" }, GetMedicalTranscriptionJobRequest, GetMedicalTranscriptionJobResponse, [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Provides information about the specified transcription job.
  * 
@@ -549,7 +549,7 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * 
  * 
  * To get a list of your transcription jobs, use the operation.
- */export const getTranscriptionJob = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/transcriptionjobs/{TranscriptionJobName}", method: "GET", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.GetTranscriptionJob" }, GetTranscriptionJobRequest, GetTranscriptionJobResponse, [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getTranscriptionJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/transcriptionjobs/{TranscriptionJobName}", method: "GET", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.GetTranscriptionJob" }, GetTranscriptionJobRequest, GetTranscriptionJobResponse, [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Transcribes the audio from a customer service call and applies any additional Request
  * Parameters you choose to include in your request.
@@ -611,7 +611,7 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * to specify the location of your input audio. If you choose to redact your audio, you
  * can find your redacted media at the location specified in the
  * `RedactedMediaFileUri` field of your response.
- */export const startCallAnalyticsJob = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/callanalyticsjobs/{CallAnalyticsJobName}", method: "PUT", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.StartCallAnalyticsJob" }, StartCallAnalyticsJobRequest, StartCallAnalyticsJobResponse, [BadRequestException, ConflictException, InternalFailureException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startCallAnalyticsJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/callanalyticsjobs/{CallAnalyticsJobName}", method: "PUT", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.StartCallAnalyticsJob" }, StartCallAnalyticsJobRequest, StartCallAnalyticsJobResponse, [BadRequestException, ConflictException, InternalFailureException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Transcribes patient-clinician conversations and generates clinical notes.
  * 
@@ -662,7 +662,7 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * 
  * - `ChannelDefinitions`: A `MedicalScribeChannelDefinitions` array should be set if and only if the `ChannelIdentification`
  * value of `Settings` is set to true.
- */export const startMedicalScribeJob = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/medicalscribejobs/{MedicalScribeJobName}", method: "PUT", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.StartMedicalScribeJob" }, StartMedicalScribeJobRequest, StartMedicalScribeJobResponse, [BadRequestException, ConflictException, InternalFailureException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startMedicalScribeJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/medicalscribejobs/{MedicalScribeJobName}", method: "PUT", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.StartMedicalScribeJob" }, StartMedicalScribeJobRequest, StartMedicalScribeJobResponse, [BadRequestException, ConflictException, InternalFailureException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Transcribes the audio from a media file and applies any additional Request Parameters
  * you choose to include in your request.
@@ -702,7 +702,7 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * media, use either `IdentifyLanguage` or
  * `IdentifyMultipleLanguages` and let Amazon Transcribe identify
  * the languages for you.
- */export const startTranscriptionJob = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/transcriptionjobs/{TranscriptionJobName}", method: "PUT", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.StartTranscriptionJob" }, StartTranscriptionJobRequest, StartTranscriptionJobResponse, [BadRequestException, ConflictException, InternalFailureException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startTranscriptionJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/transcriptionjobs/{TranscriptionJobName}", method: "PUT", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.StartTranscriptionJob" }, StartTranscriptionJobRequest, StartTranscriptionJobResponse, [BadRequestException, ConflictException, InternalFailureException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new Call Analytics category.
  * 
@@ -730,7 +730,7 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * To learn more about Call Analytics categories, see Creating categories for post-call
  * transcriptions and Creating categories for
  * real-time transcriptions.
- */export const createCallAnalyticsCategory = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/callanalyticscategories/{CategoryName}", method: "PUT", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.CreateCallAnalyticsCategory" }, CreateCallAnalyticsCategoryRequest, CreateCallAnalyticsCategoryResponse, [BadRequestException, ConflictException, InternalFailureException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createCallAnalyticsCategory = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/callanalyticscategories/{CategoryName}", method: "PUT", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.CreateCallAnalyticsCategory" }, CreateCallAnalyticsCategoryRequest, CreateCallAnalyticsCategoryResponse, [BadRequestException, ConflictException, InternalFailureException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Provides information about the specified Call Analytics job.
  * 
@@ -752,4 +752,4 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * 
  * 
  * To get a list of your Call Analytics jobs, use the operation.
- */export const getCallAnalyticsJob = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/callanalyticsjobs/{CallAnalyticsJobName}", method: "GET", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.GetCallAnalyticsJob" }, GetCallAnalyticsJobRequest, GetCallAnalyticsJobResponse, [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getCallAnalyticsJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/callanalyticsjobs/{CallAnalyticsJobName}", method: "GET", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.GetCallAnalyticsJob" }, GetCallAnalyticsJobRequest, GetCallAnalyticsJobResponse, [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

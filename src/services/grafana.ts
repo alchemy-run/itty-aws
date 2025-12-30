@@ -30,12 +30,12 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
  * with the Amazon Managed Service for Grafana resource specified by the
  * `resourceArn`. Currently, the only resource that can be tagged is a
  * workspace.
- */export const listTagsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-18", uri: "/tags/{resourceArn}", method: "GET", sdkId: "grafana", sigV4ServiceName: "grafana", name: "AWSGrafanaControlPlane.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-18", uri: "/tags/{resourceArn}", method: "GET", sdkId: "grafana", sigV4ServiceName: "grafana", name: "AWSGrafanaControlPlane.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists available versions of Grafana. These are available when calling
  * `CreateWorkspace`. Optionally, include a workspace to list the versions
  * to which it can be upgraded.
- */export const listVersions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-18", uri: "/versions", method: "GET", sdkId: "grafana", sigV4ServiceName: "grafana", name: "AWSGrafanaControlPlane.ListVersions" }, ListVersionsRequest, ListVersionsResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listVersions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-18", uri: "/versions", method: "GET", sdkId: "grafana", sigV4ServiceName: "grafana", name: "AWSGrafanaControlPlane.ListVersions" }, ListVersionsRequest, ListVersionsResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * The `TagResource` operation associates tags with an Amazon Managed Grafana
  * resource. Currently, the only resource that can be tagged is workspaces.
@@ -45,8 +45,8 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
  * tags associated with the resource. If you specify a tag key that is already associated
  * with the resource, the new tag value that you specify replaces the previous value for
  * that tag.
- */export const tagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-18", uri: "/tags/{resourceArn}", method: "POST", sdkId: "grafana", sigV4ServiceName: "grafana", name: "AWSGrafanaControlPlane.TagResource" }, TagResourceRequest, TagResourceResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-18", uri: "/tags/{resourceArn}", method: "POST", sdkId: "grafana", sigV4ServiceName: "grafana", name: "AWSGrafanaControlPlane.TagResource" }, TagResourceRequest, TagResourceResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * The `UntagResource` operation removes the association of the tag with the
  * Amazon Managed Grafana resource.
- */export const untagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-18", uri: "/tags/{resourceArn}", method: "DELETE", sdkId: "grafana", sigV4ServiceName: "grafana", name: "AWSGrafanaControlPlane.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-18", uri: "/tags/{resourceArn}", method: "DELETE", sdkId: "grafana", sigV4ServiceName: "grafana", name: "AWSGrafanaControlPlane.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

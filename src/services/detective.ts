@@ -117,24 +117,24 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * `RejectInvitation` cannot be called by an organization account in the
  * organization behavior graph. In the organization behavior graph, organization accounts do
  * not receive an invitation.
- */export const rejectInvitation = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/invitation/removal", method: "POST", sdkId: "Detective", sigV4ServiceName: "detective", name: "AmazonDetective.RejectInvitation" }, RejectInvitationRequest, S.Struct({}), [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const rejectInvitation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/invitation/removal", method: "POST", sdkId: "Detective", sigV4ServiceName: "detective", name: "AmazonDetective.RejectInvitation" }, RejectInvitationRequest, S.Struct({}), [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Applies tag values to a behavior graph.
- */export const tagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/tags/{ResourceArn}", method: "POST", sdkId: "Detective", sigV4ServiceName: "detective", name: "AmazonDetective.TagResource" }, TagResourceRequest, TagResourceResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/tags/{ResourceArn}", method: "POST", sdkId: "Detective", sigV4ServiceName: "detective", name: "AmazonDetective.TagResource" }, TagResourceRequest, TagResourceResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes tags from a behavior graph.
- */export const untagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/tags/{ResourceArn}", method: "DELETE", sdkId: "Detective", sigV4ServiceName: "detective", name: "AmazonDetective.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/tags/{ResourceArn}", method: "DELETE", sdkId: "Detective", sigV4ServiceName: "detective", name: "AmazonDetective.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts a data source package for the Detective behavior graph.
- */export const updateDatasourcePackages = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/graph/datasources/update", method: "POST", sdkId: "Detective", sigV4ServiceName: "detective", name: "AmazonDetective.UpdateDatasourcePackages" }, UpdateDatasourcePackagesRequest, S.Struct({}), [AccessDeniedException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateDatasourcePackages = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/graph/datasources/update", method: "POST", sdkId: "Detective", sigV4ServiceName: "detective", name: "AmazonDetective.UpdateDatasourcePackages" }, UpdateDatasourcePackagesRequest, S.Struct({}), [AccessDeniedException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the state of an investigation.
- */export const updateInvestigationState = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/investigations/updateInvestigationState", method: "POST", sdkId: "Detective", sigV4ServiceName: "detective", name: "AmazonDetective.UpdateInvestigationState" }, UpdateInvestigationStateRequest, S.Struct({}), [AccessDeniedException, InternalServerException, ResourceNotFoundException, TooManyRequestsException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateInvestigationState = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/investigations/updateInvestigationState", method: "POST", sdkId: "Detective", sigV4ServiceName: "detective", name: "AmazonDetective.UpdateInvestigationState" }, UpdateInvestigationStateRequest, S.Struct({}), [AccessDeniedException, InternalServerException, ResourceNotFoundException, TooManyRequestsException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the configuration for the Organizations integration in the current Region.
  * Can only be called by the Detective administrator account for the
  * organization.
- */export const updateOrganizationConfiguration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/orgs/updateOrganizationConfiguration", method: "POST", sdkId: "Detective", sigV4ServiceName: "detective", name: "AmazonDetective.UpdateOrganizationConfiguration" }, UpdateOrganizationConfigurationRequest, S.Struct({}), [AccessDeniedException, InternalServerException, TooManyRequestsException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateOrganizationConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/orgs/updateOrganizationConfiguration", method: "POST", sdkId: "Detective", sigV4ServiceName: "detective", name: "AmazonDetective.UpdateOrganizationConfiguration" }, UpdateOrganizationConfigurationRequest, S.Struct({}), [AccessDeniedException, InternalServerException, TooManyRequestsException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Accepts an invitation for the member account to contribute data to a behavior graph.
  * This operation can only be called by an invited member account.
@@ -144,7 +144,7 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * 
  * 
  * The member account status in the graph must be `INVITED`.
- */export const acceptInvitation = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/invitation", method: "PUT", sdkId: "Detective", sigV4ServiceName: "detective", name: "AmazonDetective.AcceptInvitation" }, AcceptInvitationRequest, S.Struct({}), [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const acceptInvitation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/invitation", method: "PUT", sdkId: "Detective", sigV4ServiceName: "detective", name: "AmazonDetective.AcceptInvitation" }, AcceptInvitationRequest, S.Struct({}), [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Disables the specified behavior graph and queues it to be deleted. This operation
  * removes the behavior graph from each member account's list of behavior graphs.
@@ -153,7 +153,7 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * 
  * `DeleteGraph` can only be called by the administrator account for a behavior
  * graph.
- */export const deleteGraph = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/graph/removal", method: "POST", sdkId: "Detective", sigV4ServiceName: "detective", name: "AmazonDetective.DeleteGraph" }, DeleteGraphRequest, S.Struct({}), [AccessDeniedException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteGraph = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/graph/removal", method: "POST", sdkId: "Detective", sigV4ServiceName: "detective", name: "AmazonDetective.DeleteGraph" }, DeleteGraphRequest, S.Struct({}), [AccessDeniedException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes the specified member accounts from the behavior graph. The removed accounts no
  * longer contribute data to the behavior graph. This operation can only be called by the
@@ -174,7 +174,7 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * An administrator account cannot use `DeleteMembers` to remove their own
  * account from the behavior graph. To disable a behavior graph, the administrator account
  * uses the `DeleteGraph` API method.
- */export const deleteMembers = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/graph/members/removal", method: "POST", sdkId: "Detective", sigV4ServiceName: "detective", name: "AmazonDetective.DeleteMembers" }, DeleteMembersRequest, DeleteMembersResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteMembers = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/graph/members/removal", method: "POST", sdkId: "Detective", sigV4ServiceName: "detective", name: "AmazonDetective.DeleteMembers" }, DeleteMembersRequest, DeleteMembersResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about the configuration for the organization behavior graph.
  * Currently indicates whether to automatically enable new organization accounts as member
@@ -182,7 +182,7 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * 
  * 
  * Can only be called by the Detective administrator account for the organization.
- */export const describeOrganizationConfiguration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/orgs/describeOrganizationConfiguration", method: "POST", sdkId: "Detective", sigV4ServiceName: "detective", name: "AmazonDetective.DescribeOrganizationConfiguration" }, DescribeOrganizationConfigurationRequest, DescribeOrganizationConfigurationResponse, [AccessDeniedException, InternalServerException, TooManyRequestsException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeOrganizationConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/orgs/describeOrganizationConfiguration", method: "POST", sdkId: "Detective", sigV4ServiceName: "detective", name: "AmazonDetective.DescribeOrganizationConfiguration" }, DescribeOrganizationConfigurationRequest, DescribeOrganizationConfigurationResponse, [AccessDeniedException, InternalServerException, TooManyRequestsException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes the Detective administrator account in the current Region. Deletes the
  * organization behavior graph.
@@ -196,7 +196,7 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * 
  * 
  * To remove the delegated administrator account in Organizations, use the Organizations API. Removing the delegated administrator account also removes the Detective administrator account in all Regions, except for Regions where the Detective administrator account is the organization management account.
- */export const disableOrganizationAdminAccount = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/orgs/disableAdminAccount", method: "POST", sdkId: "Detective", sigV4ServiceName: "detective", name: "AmazonDetective.DisableOrganizationAdminAccount" }, S.Struct({}), S.Struct({}), [AccessDeniedException, InternalServerException, TooManyRequestsException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const disableOrganizationAdminAccount = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/orgs/disableAdminAccount", method: "POST", sdkId: "Detective", sigV4ServiceName: "detective", name: "AmazonDetective.DisableOrganizationAdminAccount" }, S.Struct({}), S.Struct({}), [AccessDeniedException, InternalServerException, TooManyRequestsException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes the member account from the specified behavior graph. This operation can only be
  * called by an invited member account that has the `ENABLED` status.
@@ -207,7 +207,7 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * organization behavior graph. For the organization behavior graph, the Detective
  * administrator account determines which organization accounts to enable or disable as member
  * accounts.
- */export const disassociateMembership = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/membership/removal", method: "POST", sdkId: "Detective", sigV4ServiceName: "detective", name: "AmazonDetective.DisassociateMembership" }, DisassociateMembershipRequest, S.Struct({}), [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const disassociateMembership = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/membership/removal", method: "POST", sdkId: "Detective", sigV4ServiceName: "detective", name: "AmazonDetective.DisassociateMembership" }, DisassociateMembershipRequest, S.Struct({}), [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Designates the Detective administrator account for the organization in the
  * current Region.
@@ -229,10 +229,10 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * than the organization management account, Detective calls Organizations to
  * make that account the delegated administrator account for Detective. The
  * organization management account cannot be the delegated administrator account.
- */export const enableOrganizationAdminAccount = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/orgs/enableAdminAccount", method: "POST", sdkId: "Detective", sigV4ServiceName: "detective", name: "AmazonDetective.EnableOrganizationAdminAccount" }, EnableOrganizationAdminAccountRequest, S.Struct({}), [AccessDeniedException, InternalServerException, TooManyRequestsException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const enableOrganizationAdminAccount = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/orgs/enableAdminAccount", method: "POST", sdkId: "Detective", sigV4ServiceName: "detective", name: "AmazonDetective.EnableOrganizationAdminAccount" }, EnableOrganizationAdminAccountRequest, S.Struct({}), [AccessDeniedException, InternalServerException, TooManyRequestsException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Detective investigations lets you investigate IAM users and IAM roles using indicators of compromise. An indicator of compromise (IOC) is an artifact observed in or on a network, system, or environment that can (with a high level of confidence) identify malicious activity or a security incident. `GetInvestigation` returns the investigation results of an investigation for a behavior graph.
- */export const getInvestigation = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/investigations/getInvestigation", method: "POST", sdkId: "Detective", sigV4ServiceName: "detective", name: "AmazonDetective.GetInvestigation" }, GetInvestigationRequest, GetInvestigationResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, TooManyRequestsException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getInvestigation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/investigations/getInvestigation", method: "POST", sdkId: "Detective", sigV4ServiceName: "detective", name: "AmazonDetective.GetInvestigation" }, GetInvestigationRequest, GetInvestigationResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, TooManyRequestsException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the list of open and accepted behavior graph invitations for the member
  * account. This operation can only be called by an invited member account.
@@ -244,7 +244,7 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * The results do not include behavior graphs for which the member account declined the
  * invitation. The results also do not include behavior graphs that the member account
  * resigned from or was removed from.
- */export const listInvitations = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/invitations/list", method: "POST", sdkId: "Detective", sigV4ServiceName: "detective", name: "AmazonDetective.ListInvitations" }, ListInvitationsRequest, ListInvitationsResponse, [AccessDeniedException, InternalServerException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listInvitations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/invitations/list", method: "POST", sdkId: "Detective", sigV4ServiceName: "detective", name: "AmazonDetective.ListInvitations" }, ListInvitationsRequest, ListInvitationsResponse, [AccessDeniedException, InternalServerException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the list of member accounts for a behavior graph.
  * 
@@ -256,13 +256,13 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * For the organization behavior graph, the results do not include organization accounts
  * that the Detective administrator account has not enabled as member
  * accounts.
- */export const listMembers = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/graph/members/list", method: "POST", sdkId: "Detective", sigV4ServiceName: "detective", name: "AmazonDetective.ListMembers" }, ListMembersRequest, ListMembersResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listMembers = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/graph/members/list", method: "POST", sdkId: "Detective", sigV4ServiceName: "detective", name: "AmazonDetective.ListMembers" }, ListMembersRequest, ListMembersResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the tag values that are assigned to a behavior graph.
- */export const listTagsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/tags/{ResourceArn}", method: "GET", sdkId: "Detective", sigV4ServiceName: "detective", name: "AmazonDetective.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/tags/{ResourceArn}", method: "GET", sdkId: "Detective", sigV4ServiceName: "detective", name: "AmazonDetective.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Detective investigations lets you investigate IAM users and IAM roles using indicators of compromise. An indicator of compromise (IOC) is an artifact observed in or on a network, system, or environment that can (with a high level of confidence) identify malicious activity or a security incident. `StartInvestigation` initiates an investigation on an entity in a behavior graph.
- */export const startInvestigation = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/investigations/startInvestigation", method: "POST", sdkId: "Detective", sigV4ServiceName: "detective", name: "AmazonDetective.StartInvestigation" }, StartInvestigationRequest, StartInvestigationResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, TooManyRequestsException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startInvestigation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/investigations/startInvestigation", method: "POST", sdkId: "Detective", sigV4ServiceName: "detective", name: "AmazonDetective.StartInvestigation" }, StartInvestigationRequest, StartInvestigationResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, TooManyRequestsException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Sends a request to enable data ingest for a member account that has a status of
  * `ACCEPTED_BUT_DISABLED`.
@@ -279,10 +279,10 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * 
  * - If Detective cannot enable the member account, the status remains
  * `ACCEPTED_BUT_DISABLED`.
- */export const startMonitoringMember = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/graph/member/monitoringstate", method: "POST", sdkId: "Detective", sigV4ServiceName: "detective", name: "AmazonDetective.StartMonitoringMember" }, StartMonitoringMemberRequest, S.Struct({}), [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startMonitoringMember = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/graph/member/monitoringstate", method: "POST", sdkId: "Detective", sigV4ServiceName: "detective", name: "AmazonDetective.StartMonitoringMember" }, StartMonitoringMemberRequest, S.Struct({}), [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets information on the data source package history for an account.
- */export const batchGetMembershipDatasources = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/membership/datasources/get", method: "POST", sdkId: "Detective", sigV4ServiceName: "detective", name: "AmazonDetective.BatchGetMembershipDatasources" }, BatchGetMembershipDatasourcesRequest, BatchGetMembershipDatasourcesResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const batchGetMembershipDatasources = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/membership/datasources/get", method: "POST", sdkId: "Detective", sigV4ServiceName: "detective", name: "AmazonDetective.BatchGetMembershipDatasources" }, BatchGetMembershipDatasourcesRequest, BatchGetMembershipDatasourcesResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new behavior graph for the calling account, and sets that account as the
  * administrator account. This operation is called by the account that is enabling Detective.
@@ -300,7 +300,7 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * An account can only be the administrator account for one behavior graph within a Region.
  * If the same account calls `CreateGraph` with the same administrator account, it
  * always returns the same behavior graph ARN. It does not create a new behavior graph.
- */export const createGraph = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/graph", method: "POST", sdkId: "Detective", sigV4ServiceName: "detective", name: "AmazonDetective.CreateGraph" }, CreateGraphRequest, CreateGraphResponse, [AccessDeniedException, ConflictException, InternalServerException, ServiceQuotaExceededException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createGraph = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/graph", method: "POST", sdkId: "Detective", sigV4ServiceName: "detective", name: "AmazonDetective.CreateGraph" }, CreateGraphRequest, CreateGraphResponse, [AccessDeniedException, ConflictException, InternalServerException, ServiceQuotaExceededException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * `CreateMembers` is used to send invitations to accounts. For the organization
  * behavior graph, the Detective administrator account uses
@@ -343,7 +343,7 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * - The accounts that `CreateMembers` was unable to process. This list
  * includes accounts that were already invited to be member accounts in the behavior
  * graph.
- */export const createMembers = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/graph/members", method: "POST", sdkId: "Detective", sigV4ServiceName: "detective", name: "AmazonDetective.CreateMembers" }, CreateMembersRequest, CreateMembersResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createMembers = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/graph/members", method: "POST", sdkId: "Detective", sigV4ServiceName: "detective", name: "AmazonDetective.CreateMembers" }, CreateMembersRequest, CreateMembersResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the list of behavior graphs that the calling account is an administrator account
  * of. This operation can only be called by an administrator account.
@@ -351,21 +351,21 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * 
  * Because an account can currently only be the administrator of one behavior graph within
  * a Region, the results always contain a single behavior graph.
- */export const listGraphs = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/graphs/list", method: "POST", sdkId: "Detective", sigV4ServiceName: "detective", name: "AmazonDetective.ListGraphs" }, ListGraphsRequest, ListGraphsResponse, [AccessDeniedException, InternalServerException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listGraphs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/graphs/list", method: "POST", sdkId: "Detective", sigV4ServiceName: "detective", name: "AmazonDetective.ListGraphs" }, ListGraphsRequest, ListGraphsResponse, [AccessDeniedException, InternalServerException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about the Detective administrator account for an
  * organization. Can only be called by the organization management account.
- */export const listOrganizationAdminAccounts = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/orgs/adminAccountslist", method: "POST", sdkId: "Detective", sigV4ServiceName: "detective", name: "AmazonDetective.ListOrganizationAdminAccounts" }, ListOrganizationAdminAccountsRequest, ListOrganizationAdminAccountsResponse, [AccessDeniedException, InternalServerException, TooManyRequestsException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listOrganizationAdminAccounts = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/orgs/adminAccountslist", method: "POST", sdkId: "Detective", sigV4ServiceName: "detective", name: "AmazonDetective.ListOrganizationAdminAccounts" }, ListOrganizationAdminAccountsRequest, ListOrganizationAdminAccountsResponse, [AccessDeniedException, InternalServerException, TooManyRequestsException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists data source packages in the behavior graph.
- */export const listDatasourcePackages = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/graph/datasources/list", method: "POST", sdkId: "Detective", sigV4ServiceName: "detective", name: "AmazonDetective.ListDatasourcePackages" }, ListDatasourcePackagesRequest, ListDatasourcePackagesResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listDatasourcePackages = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/graph/datasources/list", method: "POST", sdkId: "Detective", sigV4ServiceName: "detective", name: "AmazonDetective.ListDatasourcePackages" }, ListDatasourcePackagesRequest, ListDatasourcePackagesResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the membership details for specified member accounts for a behavior
  * graph.
- */export const getMembers = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/graph/members/get", method: "POST", sdkId: "Detective", sigV4ServiceName: "detective", name: "AmazonDetective.GetMembers" }, GetMembersRequest, GetMembersResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getMembers = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/graph/members/get", method: "POST", sdkId: "Detective", sigV4ServiceName: "detective", name: "AmazonDetective.GetMembers" }, GetMembersRequest, GetMembersResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets the indicators from an investigation. You can use the information from the indicators to determine if an IAM user and/or IAM role is involved in an unusual activity that could indicate malicious behavior and its impact.
- */export const listIndicators = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/investigations/listIndicators", method: "POST", sdkId: "Detective", sigV4ServiceName: "detective", name: "AmazonDetective.ListIndicators" }, ListIndicatorsRequest, ListIndicatorsResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, TooManyRequestsException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listIndicators = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/investigations/listIndicators", method: "POST", sdkId: "Detective", sigV4ServiceName: "detective", name: "AmazonDetective.ListIndicators" }, ListIndicatorsRequest, ListIndicatorsResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, TooManyRequestsException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Detective investigations lets you investigate IAM users and
  * IAM roles using indicators of compromise. An indicator of compromise
@@ -373,7 +373,7 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * high level of confidence) identify malicious activity or a security incident.
  * `ListInvestigations` lists all active Detective
  * investigations.
- */export const listInvestigations = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/investigations/listInvestigations", method: "POST", sdkId: "Detective", sigV4ServiceName: "detective", name: "AmazonDetective.ListInvestigations" }, ListInvestigationsRequest, ListInvestigationsResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, TooManyRequestsException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listInvestigations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/investigations/listInvestigations", method: "POST", sdkId: "Detective", sigV4ServiceName: "detective", name: "AmazonDetective.ListInvestigations" }, ListInvestigationsRequest, ListInvestigationsResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, TooManyRequestsException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets data source package information for the behavior graph.
- */export const batchGetGraphMemberDatasources = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/graph/datasources/get", method: "POST", sdkId: "Detective", sigV4ServiceName: "detective", name: "AmazonDetective.BatchGetGraphMemberDatasources" }, BatchGetGraphMemberDatasourcesRequest, BatchGetGraphMemberDatasourcesResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const batchGetGraphMemberDatasources = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/graph/datasources/get", method: "POST", sdkId: "Detective", sigV4ServiceName: "detective", name: "AmazonDetective.BatchGetGraphMemberDatasources" }, BatchGetGraphMemberDatasourcesRequest, BatchGetGraphMemberDatasourcesResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

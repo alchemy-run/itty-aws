@@ -49,13 +49,13 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * Intelligent Ranking resource used for provisioning the
  * `Rescore` API. If the tag already exists,
  * the existing value is replaced with the new value.
- */export const tagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-10-19", uri: "/", method: "POST", sdkId: "Kendra Ranking", sigV4ServiceName: "kendra-ranking", name: "AWSKendraRerankingFrontendService.TagResource" }, TagResourceRequest, TagResourceResponse, [AccessDeniedException, InternalServerException, ResourceUnavailableException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-10-19", uri: "/", method: "POST", sdkId: "Kendra Ranking", sigV4ServiceName: "kendra-ranking", name: "AWSKendraRerankingFrontendService.TagResource" }, TagResourceRequest, TagResourceResponse, [AccessDeniedException, InternalServerException, ResourceUnavailableException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes a tag from a rescore execution plan. A rescore
  * execution plan is an Amazon Kendra Intelligent
  * Ranking resource used for provisioning the
  * `Rescore` operation.
- */export const untagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-10-19", uri: "/", method: "POST", sdkId: "Kendra Ranking", sigV4ServiceName: "kendra-ranking", name: "AWSKendraRerankingFrontendService.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [AccessDeniedException, InternalServerException, ResourceUnavailableException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-10-19", uri: "/", method: "POST", sdkId: "Kendra Ranking", sigV4ServiceName: "kendra-ranking", name: "AWSKendraRerankingFrontendService.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [AccessDeniedException, InternalServerException, ResourceUnavailableException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a rescore execution plan. A rescore execution
  * plan is an Amazon Kendra Intelligent Ranking resource
@@ -69,27 +69,27 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * `CreateRescoreExecutionPlan` API, including using
  * the Python and Java SDKs, see Semantically
  * ranking a search service's results.
- */export const createRescoreExecutionPlan = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-10-19", uri: "/rescore-execution-plans", method: "POST", sdkId: "Kendra Ranking", sigV4ServiceName: "kendra-ranking", name: "AWSKendraRerankingFrontendService.CreateRescoreExecutionPlan" }, CreateRescoreExecutionPlanRequest, CreateRescoreExecutionPlanResponse, [AccessDeniedException, ConflictException, InternalServerException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createRescoreExecutionPlan = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-10-19", uri: "/rescore-execution-plans", method: "POST", sdkId: "Kendra Ranking", sigV4ServiceName: "kendra-ranking", name: "AWSKendraRerankingFrontendService.CreateRescoreExecutionPlan" }, CreateRescoreExecutionPlanRequest, CreateRescoreExecutionPlanResponse, [AccessDeniedException, ConflictException, InternalServerException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a rescore execution plan. A rescore execution
  * plan is an Amazon Kendra Intelligent Ranking resource
  * used for provisioning the `Rescore` API.
- */export const deleteRescoreExecutionPlan = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-10-19", uri: "/rescore-execution-plans/{Id}", method: "DELETE", sdkId: "Kendra Ranking", sigV4ServiceName: "kendra-ranking", name: "AWSKendraRerankingFrontendService.DeleteRescoreExecutionPlan" }, DeleteRescoreExecutionPlanRequest, S.Struct({}), [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteRescoreExecutionPlan = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-10-19", uri: "/rescore-execution-plans/{Id}", method: "DELETE", sdkId: "Kendra Ranking", sigV4ServiceName: "kendra-ranking", name: "AWSKendraRerankingFrontendService.DeleteRescoreExecutionPlan" }, DeleteRescoreExecutionPlanRequest, S.Struct({}), [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets information about a rescore execution plan. A rescore
  * execution plan is an Amazon Kendra Intelligent Ranking
  * resource used for provisioning the `Rescore` API.
- */export const describeRescoreExecutionPlan = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-10-19", uri: "/rescore-execution-plans/{Id}", method: "GET", sdkId: "Kendra Ranking", sigV4ServiceName: "kendra-ranking", name: "AWSKendraRerankingFrontendService.DescribeRescoreExecutionPlan" }, DescribeRescoreExecutionPlanRequest, DescribeRescoreExecutionPlanResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeRescoreExecutionPlan = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-10-19", uri: "/rescore-execution-plans/{Id}", method: "GET", sdkId: "Kendra Ranking", sigV4ServiceName: "kendra-ranking", name: "AWSKendraRerankingFrontendService.DescribeRescoreExecutionPlan" }, DescribeRescoreExecutionPlanRequest, DescribeRescoreExecutionPlanResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists your rescore execution plans. A rescore execution plan
  * is an Amazon Kendra Intelligent Ranking resource used for
  * provisioning the `Rescore` API.
- */export const listRescoreExecutionPlans = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-10-19", uri: "/rescore-execution-plans", method: "GET", sdkId: "Kendra Ranking", sigV4ServiceName: "kendra-ranking", name: "AWSKendraRerankingFrontendService.ListRescoreExecutionPlans" }, ListRescoreExecutionPlansRequest, ListRescoreExecutionPlansResponse, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listRescoreExecutionPlans = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-10-19", uri: "/rescore-execution-plans", method: "GET", sdkId: "Kendra Ranking", sigV4ServiceName: "kendra-ranking", name: "AWSKendraRerankingFrontendService.ListRescoreExecutionPlans" }, ListRescoreExecutionPlansRequest, ListRescoreExecutionPlansResponse, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets a list of tags associated with a specified resource.
  * A rescore execution plan is an example of a resource that
  * can have tags associated with it.
- */export const listTagsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-10-19", uri: "/", method: "POST", sdkId: "Kendra Ranking", sigV4ServiceName: "kendra-ranking", name: "AWSKendraRerankingFrontendService.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [AccessDeniedException, InternalServerException, ResourceUnavailableException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-10-19", uri: "/", method: "POST", sdkId: "Kendra Ranking", sigV4ServiceName: "kendra-ranking", name: "AWSKendraRerankingFrontendService.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [AccessDeniedException, InternalServerException, ResourceUnavailableException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates a rescore execution plan. A rescore execution plan
  * is an Amazon Kendra Intelligent Ranking resource used for
@@ -97,10 +97,10 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * number of capacity units you require for Amazon Kendra
  * Intelligent Ranking to rescore or re-rank a search service's
  * results.
- */export const updateRescoreExecutionPlan = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-10-19", uri: "/rescore-execution-plans/{Id}", method: "PUT", sdkId: "Kendra Ranking", sigV4ServiceName: "kendra-ranking", name: "AWSKendraRerankingFrontendService.UpdateRescoreExecutionPlan" }, UpdateRescoreExecutionPlanRequest, S.Struct({}), [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateRescoreExecutionPlan = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-10-19", uri: "/rescore-execution-plans/{Id}", method: "PUT", sdkId: "Kendra Ranking", sigV4ServiceName: "kendra-ranking", name: "AWSKendraRerankingFrontendService.UpdateRescoreExecutionPlan" }, UpdateRescoreExecutionPlanRequest, S.Struct({}), [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Rescores or re-ranks search results from a search service
  * such as OpenSearch (self managed). You use the semantic search
  * capabilities of Amazon Kendra Intelligent Ranking to
  * improve the search service's results.
- */export const rescore = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-10-19", uri: "/rescore-execution-plans/{RescoreExecutionPlanId}/rescore", method: "POST", sdkId: "Kendra Ranking", sigV4ServiceName: "kendra-ranking", name: "AWSKendraRerankingFrontendService.Rescore" }, RescoreRequest, RescoreResult, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const rescore = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-10-19", uri: "/rescore-execution-plans/{RescoreExecutionPlanId}/rescore", method: "POST", sdkId: "Kendra Ranking", sigV4ServiceName: "kendra-ranking", name: "AWSKendraRerankingFrontendService.Rescore" }, RescoreRequest, RescoreResult, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);

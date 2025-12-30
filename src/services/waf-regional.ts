@@ -311,7 +311,7 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * When you use a change token in a create, update, or delete request, the status of the change token changes to `PENDING`,
  * which indicates that AWS WAF is propagating the change to all AWS WAF servers. Use `GetChangeTokenStatus` to determine the
  * status of your change token.
- */export const getChangeToken = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.GetChangeToken" }, GetChangeTokenRequest, GetChangeTokenResponse, [WAFInternalErrorException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getChangeToken = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.GetChangeToken" }, GetChangeTokenRequest, GetChangeTokenResponse, [WAFInternalErrorException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is **AWS WAF Classic** documentation. For
  * more information, see AWS
@@ -346,7 +346,7 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * 
  * 
  * - Submit a `DeleteIPSet` request.
- */export const deleteIPSet = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.DeleteIPSet" }, DeleteIPSetRequest, DeleteIPSetResponse, [WAFInternalErrorException, WAFInvalidAccountException, WAFNonEmptyEntityException, WAFNonexistentItemException, WAFReferencedItemException, WAFStaleDataException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteIPSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.DeleteIPSet" }, DeleteIPSetRequest, DeleteIPSetResponse, [WAFInternalErrorException, WAFInvalidAccountException, WAFNonEmptyEntityException, WAFNonexistentItemException, WAFReferencedItemException, WAFStaleDataException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is **AWS WAF Classic** documentation. For
  * more information, see AWS
@@ -362,7 +362,7 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * 
  * Permanently deletes the LoggingConfiguration from the specified web
  * ACL.
- */export const deleteLoggingConfiguration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.DeleteLoggingConfiguration" }, DeleteLoggingConfigurationRequest, DeleteLoggingConfigurationResponse, [WAFInternalErrorException, WAFNonexistentItemException, WAFStaleDataException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteLoggingConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.DeleteLoggingConfiguration" }, DeleteLoggingConfigurationRequest, DeleteLoggingConfigurationResponse, [WAFInternalErrorException, WAFNonexistentItemException, WAFStaleDataException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is **AWS WAF Classic** documentation. For
  * more information, see AWS
@@ -380,7 +380,7 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * 
  * 
  * The user making the request must be the owner of the RuleGroup.
- */export const deletePermissionPolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.DeletePermissionPolicy" }, DeletePermissionPolicyRequest, DeletePermissionPolicyResponse, [WAFInternalErrorException, WAFNonexistentItemException, WAFStaleDataException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deletePermissionPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.DeletePermissionPolicy" }, DeletePermissionPolicyRequest, DeletePermissionPolicyResponse, [WAFInternalErrorException, WAFNonexistentItemException, WAFStaleDataException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is **AWS WAF Classic** documentation. For
  * more information, see AWS
@@ -415,7 +415,7 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * 
  * 
  * - Submit a `DeleteRegexMatchSet` request.
- */export const deleteRegexMatchSet = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.DeleteRegexMatchSet" }, DeleteRegexMatchSetRequest, DeleteRegexMatchSetResponse, [WAFInternalErrorException, WAFInvalidAccountException, WAFNonEmptyEntityException, WAFNonexistentItemException, WAFReferencedItemException, WAFStaleDataException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteRegexMatchSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.DeleteRegexMatchSet" }, DeleteRegexMatchSetRequest, DeleteRegexMatchSetResponse, [WAFInternalErrorException, WAFInvalidAccountException, WAFNonEmptyEntityException, WAFNonexistentItemException, WAFReferencedItemException, WAFStaleDataException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is **AWS WAF Classic** documentation. For
  * more information, see AWS
@@ -431,7 +431,7 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * 
  * Permanently deletes a RegexPatternSet. You can't delete a `RegexPatternSet` if it's still used in any `RegexMatchSet`
  * or if the `RegexPatternSet` is not empty.
- */export const deleteRegexPatternSet = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.DeleteRegexPatternSet" }, DeleteRegexPatternSetRequest, DeleteRegexPatternSetResponse, [WAFInternalErrorException, WAFInvalidAccountException, WAFNonEmptyEntityException, WAFNonexistentItemException, WAFReferencedItemException, WAFStaleDataException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteRegexPatternSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.DeleteRegexPatternSet" }, DeleteRegexPatternSetRequest, DeleteRegexPatternSetResponse, [WAFInternalErrorException, WAFInvalidAccountException, WAFNonEmptyEntityException, WAFNonexistentItemException, WAFReferencedItemException, WAFStaleDataException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is **AWS WAF Classic** documentation. For
  * more information, see AWS
@@ -466,7 +466,7 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * 
  * 
  * - Submit a `DeleteRule` request.
- */export const deleteRule = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.DeleteRule" }, DeleteRuleRequest, DeleteRuleResponse, [WAFInternalErrorException, WAFInvalidAccountException, WAFNonEmptyEntityException, WAFNonexistentItemException, WAFReferencedItemException, WAFStaleDataException, WAFTagOperationException, WAFTagOperationInternalErrorException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteRule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.DeleteRule" }, DeleteRuleRequest, DeleteRuleResponse, [WAFInternalErrorException, WAFInvalidAccountException, WAFNonEmptyEntityException, WAFNonexistentItemException, WAFReferencedItemException, WAFStaleDataException, WAFTagOperationException, WAFTagOperationInternalErrorException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is **AWS WAF Classic** documentation. For
  * more information, see AWS
@@ -501,7 +501,7 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * 
  * 
  * - Submit a `DeleteSizeConstraintSet` request.
- */export const deleteSizeConstraintSet = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.DeleteSizeConstraintSet" }, DeleteSizeConstraintSetRequest, DeleteSizeConstraintSetResponse, [WAFInternalErrorException, WAFInvalidAccountException, WAFNonEmptyEntityException, WAFNonexistentItemException, WAFReferencedItemException, WAFStaleDataException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteSizeConstraintSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.DeleteSizeConstraintSet" }, DeleteSizeConstraintSetRequest, DeleteSizeConstraintSetResponse, [WAFInternalErrorException, WAFInvalidAccountException, WAFNonEmptyEntityException, WAFNonexistentItemException, WAFReferencedItemException, WAFStaleDataException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is **AWS WAF Classic** documentation. For
  * more information, see AWS
@@ -537,7 +537,7 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * 
  * 
  * - Submit a `DeleteSqlInjectionMatchSet` request.
- */export const deleteSqlInjectionMatchSet = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.DeleteSqlInjectionMatchSet" }, DeleteSqlInjectionMatchSetRequest, DeleteSqlInjectionMatchSetResponse, [WAFInternalErrorException, WAFInvalidAccountException, WAFNonEmptyEntityException, WAFNonexistentItemException, WAFReferencedItemException, WAFStaleDataException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteSqlInjectionMatchSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.DeleteSqlInjectionMatchSet" }, DeleteSqlInjectionMatchSetRequest, DeleteSqlInjectionMatchSetResponse, [WAFInternalErrorException, WAFInvalidAccountException, WAFNonEmptyEntityException, WAFNonexistentItemException, WAFReferencedItemException, WAFStaleDataException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is **AWS WAF Classic** documentation. For
  * more information, see AWS
@@ -568,7 +568,7 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * 
  * 
  * - Submit a `DeleteWebACL` request.
- */export const deleteWebACL = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.DeleteWebACL" }, DeleteWebACLRequest, DeleteWebACLResponse, [WAFInternalErrorException, WAFInvalidAccountException, WAFNonEmptyEntityException, WAFNonexistentItemException, WAFReferencedItemException, WAFStaleDataException, WAFTagOperationException, WAFTagOperationInternalErrorException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteWebACL = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.DeleteWebACL" }, DeleteWebACLRequest, DeleteWebACLResponse, [WAFInternalErrorException, WAFInvalidAccountException, WAFNonEmptyEntityException, WAFNonexistentItemException, WAFReferencedItemException, WAFStaleDataException, WAFTagOperationException, WAFTagOperationInternalErrorException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is **AWS WAF Classic** documentation. For
  * more information, see AWS
@@ -604,7 +604,7 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * 
  * 
  * - Submit a `DeleteXssMatchSet` request.
- */export const deleteXssMatchSet = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.DeleteXssMatchSet" }, DeleteXssMatchSetRequest, DeleteXssMatchSetResponse, [WAFInternalErrorException, WAFInvalidAccountException, WAFNonEmptyEntityException, WAFNonexistentItemException, WAFReferencedItemException, WAFStaleDataException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteXssMatchSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.DeleteXssMatchSet" }, DeleteXssMatchSetRequest, DeleteXssMatchSetResponse, [WAFInternalErrorException, WAFInvalidAccountException, WAFNonEmptyEntityException, WAFNonexistentItemException, WAFReferencedItemException, WAFStaleDataException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is **AWS WAF Classic Regional** documentation. For
  * more information, see AWS
@@ -619,7 +619,7 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * 
  * 
  * Removes a web ACL from the specified resource, either an application load balancer or Amazon API Gateway stage.
- */export const disassociateWebACL = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.DisassociateWebACL" }, DisassociateWebACLRequest, DisassociateWebACLResponse, [WAFInternalErrorException, WAFInvalidAccountException, WAFInvalidParameterException, WAFNonexistentItemException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const disassociateWebACL = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.DisassociateWebACL" }, DisassociateWebACLRequest, DisassociateWebACLResponse, [WAFInternalErrorException, WAFInvalidAccountException, WAFInvalidParameterException, WAFNonexistentItemException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is **AWS WAF Classic** documentation. For
  * more information, see AWS
@@ -634,7 +634,7 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * 
  * 
  * Returns the ByteMatchSet specified by `ByteMatchSetId`.
- */export const getByteMatchSet = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.GetByteMatchSet" }, GetByteMatchSetRequest, GetByteMatchSetResponse, [WAFInternalErrorException, WAFInvalidAccountException, WAFNonexistentItemException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getByteMatchSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.GetByteMatchSet" }, GetByteMatchSetRequest, GetByteMatchSetResponse, [WAFInternalErrorException, WAFInvalidAccountException, WAFNonexistentItemException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is **AWS WAF Classic** documentation. For
  * more information, see AWS
@@ -663,7 +663,7 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * 
  * 
  * - `INSYNC`: Propagation is complete.
- */export const getChangeTokenStatus = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.GetChangeTokenStatus" }, GetChangeTokenStatusRequest, GetChangeTokenStatusResponse, [WAFInternalErrorException, WAFNonexistentItemException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getChangeTokenStatus = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.GetChangeTokenStatus" }, GetChangeTokenStatusRequest, GetChangeTokenStatusResponse, [WAFInternalErrorException, WAFNonexistentItemException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is **AWS WAF Classic** documentation. For
  * more information, see AWS
@@ -678,7 +678,7 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * 
  * 
  * Returns the GeoMatchSet that is specified by `GeoMatchSetId`.
- */export const getGeoMatchSet = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.GetGeoMatchSet" }, GetGeoMatchSetRequest, GetGeoMatchSetResponse, [WAFInternalErrorException, WAFInvalidAccountException, WAFNonexistentItemException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getGeoMatchSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.GetGeoMatchSet" }, GetGeoMatchSetRequest, GetGeoMatchSetResponse, [WAFInternalErrorException, WAFInvalidAccountException, WAFNonexistentItemException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is **AWS WAF Classic** documentation. For
  * more information, see AWS
@@ -693,7 +693,7 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * 
  * 
  * Returns the IPSet that is specified by `IPSetId`.
- */export const getIPSet = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.GetIPSet" }, GetIPSetRequest, GetIPSetResponse, [WAFInternalErrorException, WAFInvalidAccountException, WAFNonexistentItemException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getIPSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.GetIPSet" }, GetIPSetRequest, GetIPSetResponse, [WAFInternalErrorException, WAFInvalidAccountException, WAFNonexistentItemException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is **AWS WAF Classic** documentation. For
  * more information, see AWS
@@ -708,7 +708,7 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * 
  * 
  * Returns the LoggingConfiguration for the specified web ACL.
- */export const getLoggingConfiguration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.GetLoggingConfiguration" }, GetLoggingConfigurationRequest, GetLoggingConfigurationResponse, [WAFInternalErrorException, WAFNonexistentItemException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getLoggingConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.GetLoggingConfiguration" }, GetLoggingConfigurationRequest, GetLoggingConfigurationResponse, [WAFInternalErrorException, WAFNonexistentItemException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is **AWS WAF Classic** documentation. For
  * more information, see AWS
@@ -723,7 +723,7 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * 
  * 
  * Returns the IAM policy attached to the RuleGroup.
- */export const getPermissionPolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.GetPermissionPolicy" }, GetPermissionPolicyRequest, GetPermissionPolicyResponse, [WAFInternalErrorException, WAFNonexistentItemException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getPermissionPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.GetPermissionPolicy" }, GetPermissionPolicyRequest, GetPermissionPolicyResponse, [WAFInternalErrorException, WAFNonexistentItemException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is **AWS WAF Classic** documentation. For
  * more information, see AWS
@@ -740,7 +740,7 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * Returns an array of IP addresses currently being blocked by the RateBasedRule that is specified by the `RuleId`. The maximum
  * number of managed keys that will be blocked is 10,000. If more than 10,000 addresses exceed
  * the rate limit, the 10,000 addresses with the highest rates will be blocked.
- */export const getRateBasedRuleManagedKeys = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.GetRateBasedRuleManagedKeys" }, GetRateBasedRuleManagedKeysRequest, GetRateBasedRuleManagedKeysResponse, [WAFInternalErrorException, WAFInvalidAccountException, WAFInvalidParameterException, WAFNonexistentItemException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getRateBasedRuleManagedKeys = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.GetRateBasedRuleManagedKeys" }, GetRateBasedRuleManagedKeysRequest, GetRateBasedRuleManagedKeysResponse, [WAFInternalErrorException, WAFInvalidAccountException, WAFInvalidParameterException, WAFNonexistentItemException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is **AWS WAF Classic** documentation. For
  * more information, see AWS
@@ -755,7 +755,7 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * 
  * 
  * Returns the RegexMatchSet specified by `RegexMatchSetId`.
- */export const getRegexMatchSet = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.GetRegexMatchSet" }, GetRegexMatchSetRequest, GetRegexMatchSetResponse, [WAFInternalErrorException, WAFInvalidAccountException, WAFNonexistentItemException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getRegexMatchSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.GetRegexMatchSet" }, GetRegexMatchSetRequest, GetRegexMatchSetResponse, [WAFInternalErrorException, WAFInvalidAccountException, WAFNonexistentItemException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is **AWS WAF Classic** documentation. For
  * more information, see AWS
@@ -770,7 +770,7 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * 
  * 
  * Returns the RegexPatternSet specified by `RegexPatternSetId`.
- */export const getRegexPatternSet = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.GetRegexPatternSet" }, GetRegexPatternSetRequest, GetRegexPatternSetResponse, [WAFInternalErrorException, WAFInvalidAccountException, WAFNonexistentItemException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getRegexPatternSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.GetRegexPatternSet" }, GetRegexPatternSetRequest, GetRegexPatternSetResponse, [WAFInternalErrorException, WAFInvalidAccountException, WAFNonexistentItemException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is **AWS WAF Classic** documentation. For
  * more information, see AWS
@@ -785,7 +785,7 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * 
  * 
  * Returns the Rule that is specified by the `RuleId` that you included in the `GetRule` request.
- */export const getRule = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.GetRule" }, GetRuleRequest, GetRuleResponse, [WAFInternalErrorException, WAFInvalidAccountException, WAFNonexistentItemException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getRule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.GetRule" }, GetRuleRequest, GetRuleResponse, [WAFInternalErrorException, WAFInvalidAccountException, WAFNonexistentItemException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is **AWS WAF Classic** documentation. For
  * more information, see AWS
@@ -803,7 +803,7 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * 
  * 
  * To view the rules in a rule group, use ListActivatedRulesInRuleGroup.
- */export const getRuleGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.GetRuleGroup" }, GetRuleGroupRequest, GetRuleGroupResponse, [WAFInternalErrorException, WAFNonexistentItemException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getRuleGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.GetRuleGroup" }, GetRuleGroupRequest, GetRuleGroupResponse, [WAFInternalErrorException, WAFNonexistentItemException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is **AWS WAF Classic** documentation. For
  * more information, see AWS
@@ -818,7 +818,7 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * 
  * 
  * Returns the SizeConstraintSet specified by `SizeConstraintSetId`.
- */export const getSizeConstraintSet = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.GetSizeConstraintSet" }, GetSizeConstraintSetRequest, GetSizeConstraintSetResponse, [WAFInternalErrorException, WAFInvalidAccountException, WAFNonexistentItemException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getSizeConstraintSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.GetSizeConstraintSet" }, GetSizeConstraintSetRequest, GetSizeConstraintSetResponse, [WAFInternalErrorException, WAFInvalidAccountException, WAFNonexistentItemException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is **AWS WAF Classic** documentation. For
  * more information, see AWS
@@ -833,7 +833,7 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * 
  * 
  * Returns the SqlInjectionMatchSet that is specified by `SqlInjectionMatchSetId`.
- */export const getSqlInjectionMatchSet = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.GetSqlInjectionMatchSet" }, GetSqlInjectionMatchSetRequest, GetSqlInjectionMatchSetResponse, [WAFInternalErrorException, WAFInvalidAccountException, WAFNonexistentItemException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getSqlInjectionMatchSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.GetSqlInjectionMatchSet" }, GetSqlInjectionMatchSetRequest, GetSqlInjectionMatchSetResponse, [WAFInternalErrorException, WAFInvalidAccountException, WAFNonexistentItemException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is **AWS WAF Classic** documentation. For
  * more information, see AWS
@@ -848,7 +848,7 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * 
  * 
  * Returns the XssMatchSet that is specified by `XssMatchSetId`.
- */export const getXssMatchSet = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.GetXssMatchSet" }, GetXssMatchSetRequest, GetXssMatchSetResponse, [WAFInternalErrorException, WAFInvalidAccountException, WAFNonexistentItemException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getXssMatchSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.GetXssMatchSet" }, GetXssMatchSetRequest, GetXssMatchSetResponse, [WAFInternalErrorException, WAFInvalidAccountException, WAFNonexistentItemException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is **AWS WAF Classic** documentation. For
  * more information, see AWS
@@ -863,7 +863,7 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * 
  * 
  * Returns an array of ActivatedRule objects.
- */export const listActivatedRulesInRuleGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.ListActivatedRulesInRuleGroup" }, ListActivatedRulesInRuleGroupRequest, ListActivatedRulesInRuleGroupResponse, [WAFInternalErrorException, WAFInvalidParameterException, WAFNonexistentItemException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listActivatedRulesInRuleGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.ListActivatedRulesInRuleGroup" }, ListActivatedRulesInRuleGroupRequest, ListActivatedRulesInRuleGroupResponse, [WAFInternalErrorException, WAFInvalidParameterException, WAFNonexistentItemException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is **AWS WAF Classic** documentation. For
  * more information, see AWS
@@ -878,7 +878,7 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * 
  * 
  * Returns an array of LoggingConfiguration objects.
- */export const listLoggingConfigurations = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.ListLoggingConfigurations" }, ListLoggingConfigurationsRequest, ListLoggingConfigurationsResponse, [WAFInternalErrorException, WAFInvalidParameterException, WAFNonexistentItemException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listLoggingConfigurations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.ListLoggingConfigurations" }, ListLoggingConfigurationsRequest, ListLoggingConfigurationsResponse, [WAFInternalErrorException, WAFInvalidParameterException, WAFNonexistentItemException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is **AWS WAF Classic Regional** documentation. For
  * more information, see AWS
@@ -893,7 +893,7 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * 
  * 
  * Returns an array of resources associated with the specified web ACL.
- */export const listResourcesForWebACL = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.ListResourcesForWebACL" }, ListResourcesForWebACLRequest, ListResourcesForWebACLResponse, [WAFInternalErrorException, WAFInvalidAccountException, WAFInvalidParameterException, WAFNonexistentItemException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listResourcesForWebACL = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.ListResourcesForWebACL" }, ListResourcesForWebACLRequest, ListResourcesForWebACLResponse, [WAFInternalErrorException, WAFInvalidAccountException, WAFInvalidParameterException, WAFNonexistentItemException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is **AWS WAF Classic** documentation. For
  * more information, see AWS
@@ -908,7 +908,7 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * 
  * 
  * Returns an array of RuleSummary objects.
- */export const listRules = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.ListRules" }, ListRulesRequest, ListRulesResponse, [WAFInternalErrorException, WAFInvalidAccountException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listRules = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.ListRules" }, ListRulesRequest, ListRulesResponse, [WAFInternalErrorException, WAFInvalidAccountException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is **AWS WAF Classic** documentation. For
  * more information, see AWS
@@ -923,7 +923,7 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * 
  * 
  * Returns an array of WebACLSummary objects in the response.
- */export const listWebACLs = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.ListWebACLs" }, ListWebACLsRequest, ListWebACLsResponse, [WAFInternalErrorException, WAFInvalidAccountException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listWebACLs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.ListWebACLs" }, ListWebACLsRequest, ListWebACLsResponse, [WAFInternalErrorException, WAFInvalidAccountException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is **AWS WAF Classic** documentation. For
  * more information, see AWS
@@ -983,7 +983,7 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * 
  * 
  * An example of a valid policy parameter is shown in the Examples section below.
- */export const putPermissionPolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.PutPermissionPolicy" }, PutPermissionPolicyRequest, PutPermissionPolicyResponse, [WAFInternalErrorException, WAFInvalidPermissionPolicyException, WAFNonexistentItemException, WAFStaleDataException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putPermissionPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.PutPermissionPolicy" }, PutPermissionPolicyRequest, PutPermissionPolicyResponse, [WAFInternalErrorException, WAFInvalidPermissionPolicyException, WAFNonexistentItemException, WAFStaleDataException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is **AWS WAF Classic** documentation. For
  * more information, see AWS
@@ -993,7 +993,7 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * 
  * For the latest version of AWS
  * WAF, use the AWS WAFV2 API and see the AWS WAF Developer Guide. With the latest version, AWS WAF has a single set of endpoints for regional and global use.
- */export const untagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [WAFBadRequestException, WAFInternalErrorException, WAFInvalidParameterException, WAFNonexistentItemException, WAFTagOperationException, WAFTagOperationInternalErrorException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [WAFBadRequestException, WAFInternalErrorException, WAFInvalidParameterException, WAFNonexistentItemException, WAFTagOperationException, WAFTagOperationInternalErrorException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is **AWS WAF Classic Regional** documentation. For
  * more information, see AWS
@@ -1008,7 +1008,7 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * 
  * 
  * Associates a web ACL with a resource, either an application load balancer or Amazon API Gateway stage.
- */export const associateWebACL = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.AssociateWebACL" }, AssociateWebACLRequest, AssociateWebACLResponse, [WAFInternalErrorException, WAFInvalidAccountException, WAFInvalidParameterException, WAFNonexistentItemException, WAFUnavailableEntityException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const associateWebACL = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.AssociateWebACL" }, AssociateWebACLRequest, AssociateWebACLResponse, [WAFInternalErrorException, WAFInvalidAccountException, WAFInvalidParameterException, WAFNonexistentItemException, WAFUnavailableEntityException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is **AWS WAF Classic** documentation. For
  * more information, see AWS
@@ -1051,7 +1051,7 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * 
  * For more information about how to use the AWS WAF API to allow or block HTTP requests, see the
  * AWS WAF Developer Guide.
- */export const createGeoMatchSet = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.CreateGeoMatchSet" }, CreateGeoMatchSetRequest, CreateGeoMatchSetResponse, [WAFDisallowedNameException, WAFInternalErrorException, WAFInvalidAccountException, WAFInvalidParameterException, WAFLimitsExceededException, WAFStaleDataException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createGeoMatchSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.CreateGeoMatchSet" }, CreateGeoMatchSetRequest, CreateGeoMatchSetResponse, [WAFDisallowedNameException, WAFInternalErrorException, WAFInvalidAccountException, WAFInvalidParameterException, WAFLimitsExceededException, WAFStaleDataException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is **AWS WAF Classic** documentation. For
  * more information, see AWS
@@ -1099,7 +1099,7 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * 
  * For more information about how to use the AWS WAF API to allow or block HTTP requests, see the
  * AWS WAF Developer Guide.
- */export const createIPSet = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.CreateIPSet" }, CreateIPSetRequest, CreateIPSetResponse, [WAFDisallowedNameException, WAFInternalErrorException, WAFInvalidAccountException, WAFInvalidParameterException, WAFLimitsExceededException, WAFStaleDataException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createIPSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.CreateIPSet" }, CreateIPSetRequest, CreateIPSetResponse, [WAFDisallowedNameException, WAFInternalErrorException, WAFInvalidAccountException, WAFInvalidParameterException, WAFLimitsExceededException, WAFStaleDataException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is **AWS WAF Classic** documentation. For
  * more information, see AWS
@@ -1228,7 +1228,7 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * For more information about how to use the AWS WAF API to allow or block HTTP requests,
  * see the AWS WAF Developer
  * Guide.
- */export const createRateBasedRule = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.CreateRateBasedRule" }, CreateRateBasedRuleRequest, CreateRateBasedRuleResponse, [WAFBadRequestException, WAFDisallowedNameException, WAFInternalErrorException, WAFInvalidParameterException, WAFLimitsExceededException, WAFStaleDataException, WAFTagOperationException, WAFTagOperationInternalErrorException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createRateBasedRule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.CreateRateBasedRule" }, CreateRateBasedRuleRequest, CreateRateBasedRuleResponse, [WAFBadRequestException, WAFDisallowedNameException, WAFInternalErrorException, WAFInvalidParameterException, WAFLimitsExceededException, WAFStaleDataException, WAFTagOperationException, WAFTagOperationInternalErrorException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is **AWS WAF Classic** documentation. For
  * more information, see AWS
@@ -1274,7 +1274,7 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * 
  * For more information about how to use the AWS WAF API to allow or block HTTP requests, see the
  * AWS WAF Developer Guide.
- */export const createRegexMatchSet = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.CreateRegexMatchSet" }, CreateRegexMatchSetRequest, CreateRegexMatchSetResponse, [WAFDisallowedNameException, WAFInternalErrorException, WAFLimitsExceededException, WAFStaleDataException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createRegexMatchSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.CreateRegexMatchSet" }, CreateRegexMatchSetRequest, CreateRegexMatchSetResponse, [WAFDisallowedNameException, WAFInternalErrorException, WAFLimitsExceededException, WAFStaleDataException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is **AWS WAF Classic** documentation. For
  * more information, see AWS
@@ -1316,7 +1316,7 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * 
  * For more information about how to use the AWS WAF API to allow or block HTTP requests, see the
  * AWS WAF Developer Guide.
- */export const createRegexPatternSet = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.CreateRegexPatternSet" }, CreateRegexPatternSetRequest, CreateRegexPatternSetResponse, [WAFDisallowedNameException, WAFInternalErrorException, WAFLimitsExceededException, WAFStaleDataException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createRegexPatternSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.CreateRegexPatternSet" }, CreateRegexPatternSetRequest, CreateRegexPatternSetResponse, [WAFDisallowedNameException, WAFInternalErrorException, WAFLimitsExceededException, WAFStaleDataException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is **AWS WAF Classic** documentation. For
  * more information, see AWS
@@ -1389,7 +1389,7 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * 
  * For more information about how to use the AWS WAF API to allow or block HTTP requests, see the
  * AWS WAF Developer Guide.
- */export const createRule = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.CreateRule" }, CreateRuleRequest, CreateRuleResponse, [WAFBadRequestException, WAFDisallowedNameException, WAFInternalErrorException, WAFInvalidParameterException, WAFLimitsExceededException, WAFStaleDataException, WAFTagOperationException, WAFTagOperationInternalErrorException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createRule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.CreateRule" }, CreateRuleRequest, CreateRuleResponse, [WAFBadRequestException, WAFDisallowedNameException, WAFInternalErrorException, WAFInvalidParameterException, WAFLimitsExceededException, WAFStaleDataException, WAFTagOperationException, WAFTagOperationInternalErrorException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is **AWS WAF Classic** documentation. For
  * more information, see AWS
@@ -1426,7 +1426,7 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * 
  * For more information about how to use the AWS WAF API to allow or block HTTP requests, see the
  * AWS WAF Developer Guide.
- */export const createRuleGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.CreateRuleGroup" }, CreateRuleGroupRequest, CreateRuleGroupResponse, [WAFBadRequestException, WAFDisallowedNameException, WAFInternalErrorException, WAFLimitsExceededException, WAFStaleDataException, WAFTagOperationException, WAFTagOperationInternalErrorException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createRuleGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.CreateRuleGroup" }, CreateRuleGroupRequest, CreateRuleGroupResponse, [WAFBadRequestException, WAFDisallowedNameException, WAFInternalErrorException, WAFLimitsExceededException, WAFStaleDataException, WAFTagOperationException, WAFTagOperationInternalErrorException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is **AWS WAF Classic** documentation. For
  * more information, see AWS
@@ -1472,7 +1472,7 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * 
  * For more information about how to use the AWS WAF API to allow or block HTTP requests, see the
  * AWS WAF Developer Guide.
- */export const createSizeConstraintSet = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.CreateSizeConstraintSet" }, CreateSizeConstraintSetRequest, CreateSizeConstraintSetResponse, [WAFDisallowedNameException, WAFInternalErrorException, WAFInvalidAccountException, WAFInvalidParameterException, WAFLimitsExceededException, WAFStaleDataException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createSizeConstraintSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.CreateSizeConstraintSet" }, CreateSizeConstraintSetRequest, CreateSizeConstraintSetResponse, [WAFDisallowedNameException, WAFInternalErrorException, WAFInvalidAccountException, WAFInvalidParameterException, WAFLimitsExceededException, WAFStaleDataException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is **AWS WAF Classic** documentation. For
  * more information, see AWS
@@ -1516,7 +1516,7 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * 
  * For more information about how to use the AWS WAF API to allow or block HTTP requests, see the
  * AWS WAF Developer Guide.
- */export const createSqlInjectionMatchSet = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.CreateSqlInjectionMatchSet" }, CreateSqlInjectionMatchSetRequest, CreateSqlInjectionMatchSetResponse, [WAFDisallowedNameException, WAFInternalErrorException, WAFInvalidAccountException, WAFInvalidParameterException, WAFLimitsExceededException, WAFStaleDataException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createSqlInjectionMatchSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.CreateSqlInjectionMatchSet" }, CreateSqlInjectionMatchSetRequest, CreateSqlInjectionMatchSetResponse, [WAFDisallowedNameException, WAFInternalErrorException, WAFInvalidAccountException, WAFInvalidParameterException, WAFLimitsExceededException, WAFStaleDataException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is **AWS WAF Classic** documentation. For
  * more information, see AWS
@@ -1574,7 +1574,7 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * 
  * 
  * For more information about how to use the AWS WAF API, see the AWS WAF Developer Guide.
- */export const createWebACL = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.CreateWebACL" }, CreateWebACLRequest, CreateWebACLResponse, [WAFBadRequestException, WAFDisallowedNameException, WAFInternalErrorException, WAFInvalidAccountException, WAFInvalidParameterException, WAFLimitsExceededException, WAFStaleDataException, WAFTagOperationException, WAFTagOperationInternalErrorException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createWebACL = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.CreateWebACL" }, CreateWebACLRequest, CreateWebACLResponse, [WAFBadRequestException, WAFDisallowedNameException, WAFInternalErrorException, WAFInvalidAccountException, WAFInvalidParameterException, WAFLimitsExceededException, WAFStaleDataException, WAFTagOperationException, WAFTagOperationInternalErrorException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an AWS CloudFormation WAFV2 template for the specified web ACL in the specified Amazon S3 bucket.
  * Then, in CloudFormation, you create a stack from the template, to create the web ACL and its resources in AWS WAFV2.
@@ -1586,7 +1586,7 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * the migration and switch over to the new web ACL, see
  * Migrating your AWS WAF Classic resources to AWS WAF in the AWS WAF
  * Developer Guide.
- */export const createWebACLMigrationStack = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.CreateWebACLMigrationStack" }, CreateWebACLMigrationStackRequest, CreateWebACLMigrationStackResponse, [WAFEntityMigrationException, WAFInternalErrorException, WAFInvalidOperationException, WAFInvalidParameterException, WAFNonexistentItemException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createWebACLMigrationStack = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.CreateWebACLMigrationStack" }, CreateWebACLMigrationStackRequest, CreateWebACLMigrationStackResponse, [WAFEntityMigrationException, WAFInternalErrorException, WAFInvalidOperationException, WAFInvalidParameterException, WAFNonexistentItemException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is **AWS WAF Classic** documentation. For
  * more information, see AWS
@@ -1630,7 +1630,7 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * 
  * For more information about how to use the AWS WAF API to allow or block HTTP requests, see the
  * AWS WAF Developer Guide.
- */export const createXssMatchSet = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.CreateXssMatchSet" }, CreateXssMatchSetRequest, CreateXssMatchSetResponse, [WAFDisallowedNameException, WAFInternalErrorException, WAFInvalidAccountException, WAFInvalidParameterException, WAFLimitsExceededException, WAFStaleDataException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createXssMatchSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.CreateXssMatchSet" }, CreateXssMatchSetRequest, CreateXssMatchSetResponse, [WAFDisallowedNameException, WAFInternalErrorException, WAFInvalidAccountException, WAFInvalidParameterException, WAFLimitsExceededException, WAFStaleDataException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is **AWS WAF Classic** documentation. For
  * more information, see AWS
@@ -1665,7 +1665,7 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * 
  * 
  * - Submit a `DeleteByteMatchSet` request.
- */export const deleteByteMatchSet = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.DeleteByteMatchSet" }, DeleteByteMatchSetRequest, DeleteByteMatchSetResponse, [WAFInternalErrorException, WAFInvalidAccountException, WAFNonEmptyEntityException, WAFNonexistentItemException, WAFReferencedItemException, WAFStaleDataException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteByteMatchSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.DeleteByteMatchSet" }, DeleteByteMatchSetRequest, DeleteByteMatchSetResponse, [WAFInternalErrorException, WAFInvalidAccountException, WAFNonEmptyEntityException, WAFNonexistentItemException, WAFReferencedItemException, WAFStaleDataException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is **AWS WAF Classic** documentation. For
  * more information, see AWS
@@ -1700,7 +1700,7 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * 
  * 
  * - Submit a `DeleteGeoMatchSet` request.
- */export const deleteGeoMatchSet = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.DeleteGeoMatchSet" }, DeleteGeoMatchSetRequest, DeleteGeoMatchSetResponse, [WAFInternalErrorException, WAFInvalidAccountException, WAFNonEmptyEntityException, WAFNonexistentItemException, WAFReferencedItemException, WAFStaleDataException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteGeoMatchSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.DeleteGeoMatchSet" }, DeleteGeoMatchSetRequest, DeleteGeoMatchSetResponse, [WAFInternalErrorException, WAFInvalidAccountException, WAFNonEmptyEntityException, WAFNonexistentItemException, WAFReferencedItemException, WAFStaleDataException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is **AWS WAF Classic** documentation. For
  * more information, see AWS
@@ -1739,7 +1739,7 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * 
  * 
  * - Submit a `DeleteRateBasedRule` request.
- */export const deleteRateBasedRule = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.DeleteRateBasedRule" }, DeleteRateBasedRuleRequest, DeleteRateBasedRuleResponse, [WAFInternalErrorException, WAFInvalidAccountException, WAFNonEmptyEntityException, WAFNonexistentItemException, WAFReferencedItemException, WAFStaleDataException, WAFTagOperationException, WAFTagOperationInternalErrorException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteRateBasedRule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.DeleteRateBasedRule" }, DeleteRateBasedRuleRequest, DeleteRateBasedRuleResponse, [WAFInternalErrorException, WAFInvalidAccountException, WAFNonEmptyEntityException, WAFNonexistentItemException, WAFReferencedItemException, WAFStaleDataException, WAFTagOperationException, WAFTagOperationInternalErrorException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is **AWS WAF Classic** documentation. For
  * more information, see AWS
@@ -1774,7 +1774,7 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * 
  * 
  * - Submit a `DeleteRuleGroup` request.
- */export const deleteRuleGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.DeleteRuleGroup" }, DeleteRuleGroupRequest, DeleteRuleGroupResponse, [WAFInternalErrorException, WAFInvalidOperationException, WAFNonEmptyEntityException, WAFNonexistentItemException, WAFReferencedItemException, WAFStaleDataException, WAFTagOperationException, WAFTagOperationInternalErrorException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteRuleGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.DeleteRuleGroup" }, DeleteRuleGroupRequest, DeleteRuleGroupResponse, [WAFInternalErrorException, WAFInvalidOperationException, WAFNonEmptyEntityException, WAFNonexistentItemException, WAFReferencedItemException, WAFStaleDataException, WAFTagOperationException, WAFTagOperationInternalErrorException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is **AWS WAF Classic** documentation. For
  * more information, see AWS
@@ -1791,7 +1791,7 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * Returns the RateBasedRule that is specified by the
  * `RuleId` that you included in the `GetRateBasedRule`
  * request.
- */export const getRateBasedRule = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.GetRateBasedRule" }, GetRateBasedRuleRequest, GetRateBasedRuleResponse, [WAFInternalErrorException, WAFInvalidAccountException, WAFNonexistentItemException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getRateBasedRule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.GetRateBasedRule" }, GetRateBasedRuleRequest, GetRateBasedRuleResponse, [WAFInternalErrorException, WAFInvalidAccountException, WAFNonexistentItemException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is **AWS WAF Classic** documentation. For
  * more information, see AWS
@@ -1806,7 +1806,7 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * 
  * 
  * Returns the WebACL that is specified by `WebACLId`.
- */export const getWebACL = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.GetWebACL" }, GetWebACLRequest, GetWebACLResponse, [WAFInternalErrorException, WAFInvalidAccountException, WAFNonexistentItemException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getWebACL = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.GetWebACL" }, GetWebACLRequest, GetWebACLResponse, [WAFInternalErrorException, WAFInvalidAccountException, WAFNonexistentItemException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is **AWS WAF Classic Regional** documentation. For
  * more information, see AWS
@@ -1821,7 +1821,7 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * 
  * 
  * Returns the web ACL for the specified resource, either an application load balancer or Amazon API Gateway stage.
- */export const getWebACLForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.GetWebACLForResource" }, GetWebACLForResourceRequest, GetWebACLForResourceResponse, [WAFInternalErrorException, WAFInvalidAccountException, WAFInvalidParameterException, WAFNonexistentItemException, WAFUnavailableEntityException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getWebACLForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.GetWebACLForResource" }, GetWebACLForResourceRequest, GetWebACLForResourceResponse, [WAFInternalErrorException, WAFInvalidAccountException, WAFInvalidParameterException, WAFNonexistentItemException, WAFUnavailableEntityException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is **AWS WAF Classic** documentation. For
  * more information, see AWS
@@ -1836,7 +1836,7 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * 
  * 
  * Returns an array of ByteMatchSetSummary objects.
- */export const listByteMatchSets = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.ListByteMatchSets" }, ListByteMatchSetsRequest, ListByteMatchSetsResponse, [WAFInternalErrorException, WAFInvalidAccountException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listByteMatchSets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.ListByteMatchSets" }, ListByteMatchSetsRequest, ListByteMatchSetsResponse, [WAFInternalErrorException, WAFInvalidAccountException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is **AWS WAF Classic** documentation. For
  * more information, see AWS
@@ -1851,7 +1851,7 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * 
  * 
  * Returns an array of GeoMatchSetSummary objects in the response.
- */export const listGeoMatchSets = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.ListGeoMatchSets" }, ListGeoMatchSetsRequest, ListGeoMatchSetsResponse, [WAFInternalErrorException, WAFInvalidAccountException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listGeoMatchSets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.ListGeoMatchSets" }, ListGeoMatchSetsRequest, ListGeoMatchSetsResponse, [WAFInternalErrorException, WAFInvalidAccountException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is **AWS WAF Classic** documentation. For
  * more information, see AWS
@@ -1866,7 +1866,7 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * 
  * 
  * Returns an array of IPSetSummary objects in the response.
- */export const listIPSets = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.ListIPSets" }, ListIPSetsRequest, ListIPSetsResponse, [WAFInternalErrorException, WAFInvalidAccountException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listIPSets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.ListIPSets" }, ListIPSetsRequest, ListIPSetsResponse, [WAFInternalErrorException, WAFInvalidAccountException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is **AWS WAF Classic** documentation. For
  * more information, see AWS
@@ -1881,7 +1881,7 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * 
  * 
  * Returns an array of RuleSummary objects.
- */export const listRateBasedRules = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.ListRateBasedRules" }, ListRateBasedRulesRequest, ListRateBasedRulesResponse, [WAFInternalErrorException, WAFInvalidAccountException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listRateBasedRules = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.ListRateBasedRules" }, ListRateBasedRulesRequest, ListRateBasedRulesResponse, [WAFInternalErrorException, WAFInvalidAccountException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is **AWS WAF Classic** documentation. For
  * more information, see AWS
@@ -1896,7 +1896,7 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * 
  * 
  * Returns an array of RegexMatchSetSummary objects.
- */export const listRegexMatchSets = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.ListRegexMatchSets" }, ListRegexMatchSetsRequest, ListRegexMatchSetsResponse, [WAFInternalErrorException, WAFInvalidAccountException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listRegexMatchSets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.ListRegexMatchSets" }, ListRegexMatchSetsRequest, ListRegexMatchSetsResponse, [WAFInternalErrorException, WAFInvalidAccountException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is **AWS WAF Classic** documentation. For
  * more information, see AWS
@@ -1911,7 +1911,7 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * 
  * 
  * Returns an array of RegexPatternSetSummary objects.
- */export const listRegexPatternSets = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.ListRegexPatternSets" }, ListRegexPatternSetsRequest, ListRegexPatternSetsResponse, [WAFInternalErrorException, WAFInvalidAccountException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listRegexPatternSets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.ListRegexPatternSets" }, ListRegexPatternSetsRequest, ListRegexPatternSetsResponse, [WAFInternalErrorException, WAFInvalidAccountException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is **AWS WAF Classic** documentation. For
  * more information, see AWS
@@ -1926,7 +1926,7 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * 
  * 
  * Returns an array of RuleGroup objects.
- */export const listRuleGroups = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.ListRuleGroups" }, ListRuleGroupsRequest, ListRuleGroupsResponse, [WAFInternalErrorException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listRuleGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.ListRuleGroups" }, ListRuleGroupsRequest, ListRuleGroupsResponse, [WAFInternalErrorException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is **AWS WAF Classic** documentation. For
  * more information, see AWS
@@ -1941,7 +1941,7 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * 
  * 
  * Returns an array of SizeConstraintSetSummary objects.
- */export const listSizeConstraintSets = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.ListSizeConstraintSets" }, ListSizeConstraintSetsRequest, ListSizeConstraintSetsResponse, [WAFInternalErrorException, WAFInvalidAccountException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listSizeConstraintSets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.ListSizeConstraintSets" }, ListSizeConstraintSetsRequest, ListSizeConstraintSetsResponse, [WAFInternalErrorException, WAFInvalidAccountException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is **AWS WAF Classic** documentation. For
  * more information, see AWS
@@ -1956,7 +1956,7 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * 
  * 
  * Returns an array of SqlInjectionMatchSet objects.
- */export const listSqlInjectionMatchSets = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.ListSqlInjectionMatchSets" }, ListSqlInjectionMatchSetsRequest, ListSqlInjectionMatchSetsResponse, [WAFInternalErrorException, WAFInvalidAccountException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listSqlInjectionMatchSets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.ListSqlInjectionMatchSets" }, ListSqlInjectionMatchSetsRequest, ListSqlInjectionMatchSetsResponse, [WAFInternalErrorException, WAFInvalidAccountException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is **AWS WAF Classic** documentation. For
  * more information, see AWS
@@ -1971,7 +1971,7 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * 
  * 
  * Returns an array of RuleGroup objects that you are subscribed to.
- */export const listSubscribedRuleGroups = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.ListSubscribedRuleGroups" }, ListSubscribedRuleGroupsRequest, ListSubscribedRuleGroupsResponse, [WAFInternalErrorException, WAFNonexistentItemException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listSubscribedRuleGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.ListSubscribedRuleGroups" }, ListSubscribedRuleGroupsRequest, ListSubscribedRuleGroupsResponse, [WAFInternalErrorException, WAFNonexistentItemException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is **AWS WAF Classic** documentation. For
  * more information, see AWS
@@ -1989,7 +1989,7 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * 
  * 
  * Tagging is only available through the API, SDKs, and CLI. You can't manage or view tags through the AWS WAF Classic console. You can tag the AWS resources that you manage through AWS WAF Classic: web ACLs, rule groups, and rules.
- */export const listTagsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [WAFBadRequestException, WAFInternalErrorException, WAFInvalidParameterException, WAFNonexistentItemException, WAFTagOperationException, WAFTagOperationInternalErrorException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [WAFBadRequestException, WAFInternalErrorException, WAFInvalidParameterException, WAFNonexistentItemException, WAFTagOperationException, WAFTagOperationInternalErrorException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is **AWS WAF Classic** documentation. For
  * more information, see AWS
@@ -2004,7 +2004,7 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * 
  * 
  * Returns an array of XssMatchSet objects.
- */export const listXssMatchSets = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.ListXssMatchSets" }, ListXssMatchSetsRequest, ListXssMatchSetsResponse, [WAFInternalErrorException, WAFInvalidAccountException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listXssMatchSets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.ListXssMatchSets" }, ListXssMatchSetsRequest, ListXssMatchSetsResponse, [WAFInternalErrorException, WAFInvalidAccountException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is **AWS WAF Classic** documentation. For
  * more information, see AWS
@@ -2022,7 +2022,7 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * 
  * 
  * Tagging is only available through the API, SDKs, and CLI. You can't manage or view tags through the AWS WAF Classic console. You can use this action to tag the AWS resources that you manage through AWS WAF Classic: web ACLs, rule groups, and rules.
- */export const tagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.TagResource" }, TagResourceRequest, TagResourceResponse, [WAFBadRequestException, WAFInternalErrorException, WAFInvalidParameterException, WAFLimitsExceededException, WAFNonexistentItemException, WAFTagOperationException, WAFTagOperationInternalErrorException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.TagResource" }, TagResourceRequest, TagResourceResponse, [WAFBadRequestException, WAFInternalErrorException, WAFInvalidParameterException, WAFLimitsExceededException, WAFNonexistentItemException, WAFTagOperationException, WAFTagOperationInternalErrorException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is **AWS WAF Classic** documentation. For
  * more information, see AWS
@@ -2094,7 +2094,7 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * 
  * For more information about how to use the AWS WAF API to allow or block HTTP requests, see the
  * AWS WAF Developer Guide.
- */export const updateRule = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.UpdateRule" }, UpdateRuleRequest, UpdateRuleResponse, [WAFInternalErrorException, WAFInvalidAccountException, WAFInvalidOperationException, WAFInvalidParameterException, WAFLimitsExceededException, WAFNonexistentContainerException, WAFNonexistentItemException, WAFReferencedItemException, WAFStaleDataException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateRule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.UpdateRule" }, UpdateRuleRequest, UpdateRuleResponse, [WAFInternalErrorException, WAFInvalidAccountException, WAFInvalidOperationException, WAFInvalidParameterException, WAFLimitsExceededException, WAFNonexistentContainerException, WAFNonexistentItemException, WAFReferencedItemException, WAFStaleDataException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is **AWS WAF Classic** documentation. For
  * more information, see AWS
@@ -2140,7 +2140,7 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * 
  * For more information about how to use the AWS WAF API to allow or block HTTP requests, see the
  * AWS WAF Developer Guide.
- */export const createByteMatchSet = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.CreateByteMatchSet" }, CreateByteMatchSetRequest, CreateByteMatchSetResponse, [WAFDisallowedNameException, WAFInternalErrorException, WAFInvalidAccountException, WAFInvalidParameterException, WAFLimitsExceededException, WAFStaleDataException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createByteMatchSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.CreateByteMatchSet" }, CreateByteMatchSetRequest, CreateByteMatchSetResponse, [WAFDisallowedNameException, WAFInternalErrorException, WAFInvalidAccountException, WAFInvalidParameterException, WAFLimitsExceededException, WAFStaleDataException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is **AWS WAF Classic** documentation. For
  * more information, see AWS
@@ -2208,7 +2208,7 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * 
  * For more information about how to use the AWS WAF API to allow or block HTTP requests, see the
  * AWS WAF Developer Guide.
- */export const updateByteMatchSet = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.UpdateByteMatchSet" }, UpdateByteMatchSetRequest, UpdateByteMatchSetResponse, [WAFInternalErrorException, WAFInvalidAccountException, WAFInvalidOperationException, WAFInvalidParameterException, WAFLimitsExceededException, WAFNonexistentContainerException, WAFNonexistentItemException, WAFStaleDataException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateByteMatchSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.UpdateByteMatchSet" }, UpdateByteMatchSetRequest, UpdateByteMatchSetResponse, [WAFInternalErrorException, WAFInvalidAccountException, WAFInvalidOperationException, WAFInvalidParameterException, WAFLimitsExceededException, WAFNonexistentContainerException, WAFNonexistentItemException, WAFStaleDataException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is **AWS WAF Classic** documentation. For
  * more information, see AWS
@@ -2266,7 +2266,7 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * 
  * For more information about how to use the AWS WAF API to allow or block HTTP requests, see the
  * AWS WAF Developer Guide.
- */export const updateGeoMatchSet = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.UpdateGeoMatchSet" }, UpdateGeoMatchSetRequest, UpdateGeoMatchSetResponse, [WAFInternalErrorException, WAFInvalidAccountException, WAFInvalidOperationException, WAFInvalidParameterException, WAFLimitsExceededException, WAFNonexistentContainerException, WAFNonexistentItemException, WAFReferencedItemException, WAFStaleDataException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateGeoMatchSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.UpdateGeoMatchSet" }, UpdateGeoMatchSetRequest, UpdateGeoMatchSetResponse, [WAFInternalErrorException, WAFInvalidAccountException, WAFInvalidOperationException, WAFInvalidParameterException, WAFLimitsExceededException, WAFNonexistentContainerException, WAFNonexistentItemException, WAFReferencedItemException, WAFStaleDataException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is **AWS WAF Classic** documentation. For
  * more information, see AWS
@@ -2372,7 +2372,7 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * For more information about how to use the AWS WAF API to allow or block HTTP
  * requests, see the AWS WAF
  * Developer Guide.
- */export const updateIPSet = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.UpdateIPSet" }, UpdateIPSetRequest, UpdateIPSetResponse, [WAFInternalErrorException, WAFInvalidAccountException, WAFInvalidOperationException, WAFInvalidParameterException, WAFLimitsExceededException, WAFNonexistentContainerException, WAFNonexistentItemException, WAFReferencedItemException, WAFStaleDataException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateIPSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.UpdateIPSet" }, UpdateIPSetRequest, UpdateIPSetResponse, [WAFInternalErrorException, WAFInvalidAccountException, WAFInvalidOperationException, WAFInvalidParameterException, WAFLimitsExceededException, WAFNonexistentContainerException, WAFNonexistentItemException, WAFReferencedItemException, WAFStaleDataException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is **AWS WAF Classic** documentation. For
  * more information, see AWS
@@ -2454,7 +2454,7 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * 
  * 
  * By adding this `RateBasedRule` to a `WebACL`, you could limit requests to your login page without affecting the rest of your site.
- */export const updateRateBasedRule = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.UpdateRateBasedRule" }, UpdateRateBasedRuleRequest, UpdateRateBasedRuleResponse, [WAFInternalErrorException, WAFInvalidAccountException, WAFInvalidOperationException, WAFInvalidParameterException, WAFLimitsExceededException, WAFNonexistentContainerException, WAFNonexistentItemException, WAFReferencedItemException, WAFStaleDataException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateRateBasedRule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.UpdateRateBasedRule" }, UpdateRateBasedRuleRequest, UpdateRateBasedRuleResponse, [WAFInternalErrorException, WAFInvalidAccountException, WAFInvalidOperationException, WAFInvalidParameterException, WAFLimitsExceededException, WAFNonexistentContainerException, WAFNonexistentItemException, WAFReferencedItemException, WAFStaleDataException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is **AWS WAF Classic** documentation. For
  * more information, see AWS
@@ -2517,7 +2517,7 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * 
  * For more information about how to use the AWS WAF API to allow or block HTTP requests, see the
  * AWS WAF Developer Guide.
- */export const updateRegexMatchSet = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.UpdateRegexMatchSet" }, UpdateRegexMatchSetRequest, UpdateRegexMatchSetResponse, [WAFDisallowedNameException, WAFInternalErrorException, WAFInvalidAccountException, WAFInvalidOperationException, WAFLimitsExceededException, WAFNonexistentContainerException, WAFNonexistentItemException, WAFStaleDataException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateRegexMatchSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.UpdateRegexMatchSet" }, UpdateRegexMatchSetRequest, UpdateRegexMatchSetResponse, [WAFDisallowedNameException, WAFInternalErrorException, WAFInvalidAccountException, WAFInvalidOperationException, WAFLimitsExceededException, WAFNonexistentContainerException, WAFNonexistentItemException, WAFStaleDataException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is **AWS WAF Classic** documentation. For
  * more information, see AWS
@@ -2588,7 +2588,7 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * 
  * For more information about how to use the AWS WAF API to allow or block HTTP requests, see the
  * AWS WAF Developer Guide.
- */export const updateRegexPatternSet = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.UpdateRegexPatternSet" }, UpdateRegexPatternSetRequest, UpdateRegexPatternSetResponse, [WAFInternalErrorException, WAFInvalidAccountException, WAFInvalidOperationException, WAFInvalidRegexPatternException, WAFLimitsExceededException, WAFNonexistentContainerException, WAFNonexistentItemException, WAFStaleDataException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateRegexPatternSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.UpdateRegexPatternSet" }, UpdateRegexPatternSetRequest, UpdateRegexPatternSetResponse, [WAFInternalErrorException, WAFInvalidAccountException, WAFInvalidOperationException, WAFInvalidRegexPatternException, WAFLimitsExceededException, WAFNonexistentContainerException, WAFNonexistentItemException, WAFStaleDataException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is **AWS WAF Classic** documentation. For
  * more information, see AWS
@@ -2662,7 +2662,7 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * 
  * For more information about how to use the AWS WAF API to allow or block HTTP requests, see the
  * AWS WAF Developer Guide.
- */export const updateSizeConstraintSet = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.UpdateSizeConstraintSet" }, UpdateSizeConstraintSetRequest, UpdateSizeConstraintSetResponse, [WAFInternalErrorException, WAFInvalidAccountException, WAFInvalidOperationException, WAFInvalidParameterException, WAFLimitsExceededException, WAFNonexistentContainerException, WAFNonexistentItemException, WAFReferencedItemException, WAFStaleDataException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateSizeConstraintSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.UpdateSizeConstraintSet" }, UpdateSizeConstraintSetRequest, UpdateSizeConstraintSetResponse, [WAFInternalErrorException, WAFInvalidAccountException, WAFInvalidOperationException, WAFInvalidParameterException, WAFLimitsExceededException, WAFNonexistentContainerException, WAFNonexistentItemException, WAFReferencedItemException, WAFStaleDataException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is **AWS WAF Classic** documentation. For
  * more information, see AWS
@@ -2730,7 +2730,7 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * 
  * For more information about how to use the AWS WAF API to allow or block HTTP requests, see the
  * AWS WAF Developer Guide.
- */export const updateSqlInjectionMatchSet = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.UpdateSqlInjectionMatchSet" }, UpdateSqlInjectionMatchSetRequest, UpdateSqlInjectionMatchSetResponse, [WAFInternalErrorException, WAFInvalidAccountException, WAFInvalidOperationException, WAFInvalidParameterException, WAFLimitsExceededException, WAFNonexistentContainerException, WAFNonexistentItemException, WAFStaleDataException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateSqlInjectionMatchSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.UpdateSqlInjectionMatchSet" }, UpdateSqlInjectionMatchSetRequest, UpdateSqlInjectionMatchSetResponse, [WAFInternalErrorException, WAFInvalidAccountException, WAFInvalidOperationException, WAFInvalidParameterException, WAFLimitsExceededException, WAFNonexistentContainerException, WAFNonexistentItemException, WAFStaleDataException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is **AWS WAF Classic** documentation. For
  * more information, see AWS
@@ -2836,7 +2836,7 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * 
  * 
  * For more information about how to use the AWS WAF API to allow or block HTTP requests, see the AWS WAF Developer Guide.
- */export const updateWebACL = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.UpdateWebACL" }, UpdateWebACLRequest, UpdateWebACLResponse, [WAFInternalErrorException, WAFInvalidAccountException, WAFInvalidOperationException, WAFInvalidParameterException, WAFLimitsExceededException, WAFNonexistentContainerException, WAFNonexistentItemException, WAFReferencedItemException, WAFStaleDataException, WAFSubscriptionNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateWebACL = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.UpdateWebACL" }, UpdateWebACLRequest, UpdateWebACLResponse, [WAFInternalErrorException, WAFInvalidAccountException, WAFInvalidOperationException, WAFInvalidParameterException, WAFLimitsExceededException, WAFNonexistentContainerException, WAFNonexistentItemException, WAFReferencedItemException, WAFStaleDataException, WAFSubscriptionNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is **AWS WAF Classic** documentation. For
  * more information, see AWS
@@ -2906,7 +2906,7 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * 
  * For more information about how to use the AWS WAF API to allow or block HTTP requests, see the
  * AWS WAF Developer Guide.
- */export const updateXssMatchSet = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.UpdateXssMatchSet" }, UpdateXssMatchSetRequest, UpdateXssMatchSetResponse, [WAFInternalErrorException, WAFInvalidAccountException, WAFInvalidOperationException, WAFInvalidParameterException, WAFLimitsExceededException, WAFNonexistentContainerException, WAFNonexistentItemException, WAFStaleDataException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateXssMatchSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.UpdateXssMatchSet" }, UpdateXssMatchSetRequest, UpdateXssMatchSetResponse, [WAFInternalErrorException, WAFInvalidAccountException, WAFInvalidOperationException, WAFInvalidParameterException, WAFLimitsExceededException, WAFNonexistentContainerException, WAFNonexistentItemException, WAFStaleDataException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is **AWS WAF Classic** documentation. For
  * more information, see AWS
@@ -2950,7 +2950,7 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * 
  * 
  * When you successfully enable logging using a `PutLoggingConfiguration` request, AWS WAF will create a service linked role with the necessary permissions to write logs to the Amazon Kinesis Data Firehose. For more information, see Logging Web ACL Traffic Information in the *AWS WAF Developer Guide*.
- */export const putLoggingConfiguration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.PutLoggingConfiguration" }, PutLoggingConfigurationRequest, PutLoggingConfigurationResponse, [WAFInternalErrorException, WAFNonexistentItemException, WAFServiceLinkedRoleErrorException, WAFStaleDataException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putLoggingConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.PutLoggingConfiguration" }, PutLoggingConfigurationRequest, PutLoggingConfigurationResponse, [WAFInternalErrorException, WAFNonexistentItemException, WAFServiceLinkedRoleErrorException, WAFStaleDataException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is **AWS WAF Classic** documentation. For
  * more information, see AWS
@@ -3003,7 +3003,7 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * 
  * For more information about how to use the AWS WAF API to allow or block HTTP requests, see the
  * AWS WAF Developer Guide.
- */export const updateRuleGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.UpdateRuleGroup" }, UpdateRuleGroupRequest, UpdateRuleGroupResponse, [WAFInternalErrorException, WAFInvalidOperationException, WAFInvalidParameterException, WAFLimitsExceededException, WAFNonexistentContainerException, WAFNonexistentItemException, WAFStaleDataException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateRuleGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.UpdateRuleGroup" }, UpdateRuleGroupRequest, UpdateRuleGroupResponse, [WAFInternalErrorException, WAFInvalidOperationException, WAFInvalidParameterException, WAFLimitsExceededException, WAFNonexistentContainerException, WAFNonexistentItemException, WAFStaleDataException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is **AWS WAF Classic** documentation. For
  * more information, see AWS
@@ -3024,4 +3024,4 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * `GetSampledRequests` returns a time range, which is usually the time range that you specified. However, if your resource
  * (such as a CloudFront distribution) received 5,000 requests before the specified time range elapsed, `GetSampledRequests`
  * returns an updated time range. This new time range indicates the actual period during which AWS WAF selected the requests in the sample.
- */export const getSampledRequests = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.GetSampledRequests" }, GetSampledRequestsRequest, GetSampledRequestsResponse, [WAFInternalErrorException, WAFNonexistentItemException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getSampledRequests = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.GetSampledRequests" }, GetSampledRequestsRequest, GetSampledRequestsResponse, [WAFInternalErrorException, WAFNonexistentItemException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

@@ -14,7 +14,7 @@ export class GetUserDetailsResponse extends S.Class<GetUserDetailsResponse>("Get
 //# Operations
 /**
  * Verifies whether the calling user has a valid Amazon CodeCatalyst login and session. If successful, this returns the ID of the user in Amazon CodeCatalyst.
- */export const verifySession = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-09-28", uri: "/session", method: "GET", sdkId: "CodeCatalyst", sigV4ServiceName: "CodeCatalyst", name: "CodeCatalyst.VerifySession" }, S.Struct({}), VerifySessionResponse, []), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const verifySession = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-09-28", uri: "/session", method: "GET", sdkId: "CodeCatalyst", sigV4ServiceName: "CodeCatalyst", name: "CodeCatalyst.VerifySession" }, S.Struct({}), VerifySessionResponse, []), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about a user.
- */export const getUserDetails = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-09-28", uri: "/userDetails", method: "GET", sdkId: "CodeCatalyst", sigV4ServiceName: "CodeCatalyst", name: "CodeCatalyst.GetUserDetails" }, GetUserDetailsRequest, GetUserDetailsResponse, []), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getUserDetails = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-09-28", uri: "/userDetails", method: "GET", sdkId: "CodeCatalyst", sigV4ServiceName: "CodeCatalyst", name: "CodeCatalyst.GetUserDetails" }, GetUserDetailsRequest, GetUserDetailsResponse, []), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

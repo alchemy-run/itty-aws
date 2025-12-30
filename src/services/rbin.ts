@@ -45,10 +45,10 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 //# Operations
 /**
  * Gets information about a Recycle Bin retention rule.
- */export const getRule = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-06-15", uri: "/rules/{Identifier}", method: "GET", sdkId: "rbin", sigV4ServiceName: "rbin", name: "AmazonRecycleBin.GetRule" }, GetRuleRequest, GetRuleResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getRule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-06-15", uri: "/rules/{Identifier}", method: "GET", sdkId: "rbin", sigV4ServiceName: "rbin", name: "AmazonRecycleBin.GetRule" }, GetRuleRequest, GetRuleResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the tags assigned to a retention rule.
- */export const listTagsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-06-15", uri: "/tags/{ResourceArn}", method: "GET", sdkId: "rbin", sigV4ServiceName: "rbin", name: "AmazonRecycleBin.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-06-15", uri: "/tags/{ResourceArn}", method: "GET", sdkId: "rbin", sigV4ServiceName: "rbin", name: "AmazonRecycleBin.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Locks a Region-level retention rule. A locked retention rule can't be modified or
  * deleted.
@@ -58,30 +58,30 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * 
  * You can't lock tag-level retention rules, or Region-level retention rules that
  * have exclusion tags.
- */export const lockRule = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-06-15", uri: "/rules/{Identifier}/lock", method: "PATCH", sdkId: "rbin", sigV4ServiceName: "rbin", name: "AmazonRecycleBin.LockRule" }, LockRuleRequest, LockRuleResponse, [ConflictException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const lockRule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-06-15", uri: "/rules/{Identifier}/lock", method: "PATCH", sdkId: "rbin", sigV4ServiceName: "rbin", name: "AmazonRecycleBin.LockRule" }, LockRuleRequest, LockRuleResponse, [ConflictException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Unlocks a retention rule. After a retention rule is unlocked, it can be modified or deleted
  * only after the unlock delay period expires.
- */export const unlockRule = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-06-15", uri: "/rules/{Identifier}/unlock", method: "PATCH", sdkId: "rbin", sigV4ServiceName: "rbin", name: "AmazonRecycleBin.UnlockRule" }, UnlockRuleRequest, UnlockRuleResponse, [ConflictException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const unlockRule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-06-15", uri: "/rules/{Identifier}/unlock", method: "PATCH", sdkId: "rbin", sigV4ServiceName: "rbin", name: "AmazonRecycleBin.UnlockRule" }, UnlockRuleRequest, UnlockRuleResponse, [ConflictException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Unassigns a tag from a retention rule.
- */export const untagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-06-15", uri: "/tags/{ResourceArn}", method: "DELETE", sdkId: "rbin", sigV4ServiceName: "rbin", name: "AmazonRecycleBin.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-06-15", uri: "/tags/{ResourceArn}", method: "DELETE", sdkId: "rbin", sigV4ServiceName: "rbin", name: "AmazonRecycleBin.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates an existing Recycle Bin retention rule. You can update a retention rule's description,
  * resource tags, and retention period at any time after creation. You can't update a retention rule's
  * resource type after creation. For more information, see
  * Update Recycle Bin retention rules in the *Amazon Elastic Compute Cloud User Guide*.
- */export const updateRule = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-06-15", uri: "/rules/{Identifier}", method: "PATCH", sdkId: "rbin", sigV4ServiceName: "rbin", name: "AmazonRecycleBin.UpdateRule" }, UpdateRuleRequest, UpdateRuleResponse, [ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateRule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-06-15", uri: "/rules/{Identifier}", method: "PATCH", sdkId: "rbin", sigV4ServiceName: "rbin", name: "AmazonRecycleBin.UpdateRule" }, UpdateRuleRequest, UpdateRuleResponse, [ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a Recycle Bin retention rule. For more information, see
  * Delete Recycle Bin retention rules in the *Amazon Elastic Compute Cloud User Guide*.
- */export const deleteRule = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-06-15", uri: "/rules/{Identifier}", method: "DELETE", sdkId: "rbin", sigV4ServiceName: "rbin", name: "AmazonRecycleBin.DeleteRule" }, DeleteRuleRequest, DeleteRuleResponse, [ConflictException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteRule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-06-15", uri: "/rules/{Identifier}", method: "DELETE", sdkId: "rbin", sigV4ServiceName: "rbin", name: "AmazonRecycleBin.DeleteRule" }, DeleteRuleRequest, DeleteRuleResponse, [ConflictException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the Recycle Bin retention rules in the Region.
- */export const listRules = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-06-15", uri: "/list-rules", method: "POST", sdkId: "rbin", sigV4ServiceName: "rbin", name: "AmazonRecycleBin.ListRules" }, ListRulesRequest, ListRulesResponse, [InternalServerException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listRules = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-06-15", uri: "/list-rules", method: "POST", sdkId: "rbin", sigV4ServiceName: "rbin", name: "AmazonRecycleBin.ListRules" }, ListRulesRequest, ListRulesResponse, [InternalServerException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Assigns tags to the specified retention rule.
- */export const tagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-06-15", uri: "/tags/{ResourceArn}", method: "POST", sdkId: "rbin", sigV4ServiceName: "rbin", name: "AmazonRecycleBin.TagResource" }, TagResourceRequest, TagResourceResponse, [InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-06-15", uri: "/tags/{ResourceArn}", method: "POST", sdkId: "rbin", sigV4ServiceName: "rbin", name: "AmazonRecycleBin.TagResource" }, TagResourceRequest, TagResourceResponse, [InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a Recycle Bin retention rule. You can create two types of retention rules:
  * 
@@ -107,4 +107,4 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * 
  * For more information, see
  * Create Recycle Bin retention rules in the *Amazon EBS User Guide*.
- */export const createRule = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-06-15", uri: "/rules", method: "POST", sdkId: "rbin", sigV4ServiceName: "rbin", name: "AmazonRecycleBin.CreateRule" }, CreateRuleRequest, CreateRuleResponse, [InternalServerException, ServiceQuotaExceededException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createRule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-06-15", uri: "/rules", method: "POST", sdkId: "rbin", sigV4ServiceName: "rbin", name: "AmazonRecycleBin.CreateRule" }, CreateRuleRequest, CreateRuleResponse, [InternalServerException, ServiceQuotaExceededException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

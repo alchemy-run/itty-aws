@@ -290,7 +290,7 @@ export class ServiceUnavailableError extends S.TaggedError<ServiceUnavailableErr
  * In the request, you specify the gateway Amazon Resource Name (ARN) to which you want to
  * add upload buffer, and one or more disk IDs that you want to configure as upload
  * buffer.
- */export const addUploadBuffer = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.AddUploadBuffer" }, AddUploadBufferInput, AddUploadBufferOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const addUploadBuffer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.AddUploadBuffer" }, AddUploadBufferInput, AddUploadBufferOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Configures one or more gateway local disks as working storage for a gateway. This
  * operation is only supported in the stored volume gateway type. This operation is deprecated
@@ -309,35 +309,35 @@ export class ServiceUnavailableError extends S.TaggedError<ServiceUnavailableErr
  * In the request, you specify the gateway Amazon Resource Name (ARN) to which you want to
  * add working storage, and one or more disk IDs that you want to configure as working
  * storage.
- */export const addWorkingStorage = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.AddWorkingStorage" }, AddWorkingStorageInput, AddWorkingStorageOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const addWorkingStorage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.AddWorkingStorage" }, AddWorkingStorageInput, AddWorkingStorageOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Assigns a tape to a tape pool for archiving. The tape assigned to a pool is archived in
  * the S3 storage class that is associated with the pool. When you use your backup application
  * to eject the tape, the tape is archived directly into the S3 storage class (S3 Glacier or
  * S3 Glacier Deep Archive) that corresponds to the pool.
- */export const assignTapePool = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.AssignTapePool" }, AssignTapePoolInput, AssignTapePoolOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const assignTapePool = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.AssignTapePool" }, AssignTapePoolInput, AssignTapePoolOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Connects a volume to an iSCSI connection and then attaches the volume to the specified
  * gateway. Detaching and attaching a volume enables you to recover your data from one gateway
  * to a different gateway without creating a snapshot. It also makes it easier to move your
  * volumes from an on-premises gateway to a gateway hosted on an Amazon EC2 instance.
- */export const attachVolume = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.AttachVolume" }, AttachVolumeInput, AttachVolumeOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const attachVolume = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.AttachVolume" }, AttachVolumeInput, AttachVolumeOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Cancels archiving of a virtual tape to the virtual tape shelf (VTS) after the archiving
  * process is initiated. This operation is only supported in the tape gateway type.
- */export const cancelArchival = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.CancelArchival" }, CancelArchivalInput, CancelArchivalOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const cancelArchival = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.CancelArchival" }, CancelArchivalInput, CancelArchivalOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Cancels generation of a specified cache report. You can use this operation to manually
  * cancel an IN-PROGRESS report for any reason. This action changes the report status from
  * IN-PROGRESS to CANCELLED. You can only cancel in-progress reports. If the the report you
  * attempt to cancel is in FAILED, ERROR, or COMPLETED state, the cancel operation returns an
  * error.
- */export const cancelCacheReport = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.CancelCacheReport" }, CancelCacheReportInput, CancelCacheReportOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const cancelCacheReport = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.CancelCacheReport" }, CancelCacheReportInput, CancelCacheReportOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Cancels retrieval of a virtual tape from the virtual tape shelf (VTS) to a gateway after
  * the retrieval process is initiated. The virtual tape is returned to the VTS. This operation
  * is only supported in the tape gateway type.
- */export const cancelRetrieval = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.CancelRetrieval" }, CancelRetrievalInput, CancelRetrievalOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const cancelRetrieval = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.CancelRetrieval" }, CancelRetrievalInput, CancelRetrievalOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a cached volume on a specified cached volume gateway. This operation is only
  * supported in the cached volume gateway type.
@@ -362,7 +362,7 @@ export class ServiceUnavailableError extends S.TaggedError<ServiceUnavailableErr
  * `SourceVolumeARN` for this cached volume, which creates an exact copy of the
  * existing volume’s latest recovery point. The `VolumeSizeInBytes` value must be
  * equal to or larger than the size of the copied volume, in bytes.
- */export const createCachediSCSIVolume = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.CreateCachediSCSIVolume" }, CreateCachediSCSIVolumeInput, CreateCachediSCSIVolumeOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createCachediSCSIVolume = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.CreateCachediSCSIVolume" }, CreateCachediSCSIVolumeInput, CreateCachediSCSIVolumeOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a Server Message Block (SMB) file share on an existing S3 File Gateway. In
  * Storage Gateway, a file share is a file system mount point backed by Amazon S3
@@ -383,7 +383,7 @@ export class ServiceUnavailableError extends S.TaggedError<ServiceUnavailableErr
  * 
  * File gateways don't support creating hard or symbolic links on a file
  * share.
- */export const createSMBFileShare = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.CreateSMBFileShare" }, CreateSMBFileShareInput, CreateSMBFileShareOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createSMBFileShare = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.CreateSMBFileShare" }, CreateSMBFileShareInput, CreateSMBFileShareOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Initiates a snapshot of a gateway from a volume recovery point. This operation is only
  * supported in the cached volume gateway type.
@@ -409,7 +409,7 @@ export class ServiceUnavailableError extends S.TaggedError<ServiceUnavailableErr
  * see DescribeSnapshots
  * or DeleteSnapshot in the Amazon Elastic Compute Cloud API
  * Reference.
- */export const createSnapshotFromVolumeRecoveryPoint = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.CreateSnapshotFromVolumeRecoveryPoint" }, CreateSnapshotFromVolumeRecoveryPointInput, CreateSnapshotFromVolumeRecoveryPointOutput, [InternalServerError, InvalidGatewayRequestException, ServiceUnavailableError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createSnapshotFromVolumeRecoveryPoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.CreateSnapshotFromVolumeRecoveryPoint" }, CreateSnapshotFromVolumeRecoveryPointInput, CreateSnapshotFromVolumeRecoveryPointOutput, [InternalServerError, InvalidGatewayRequestException, ServiceUnavailableError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a volume on a specified gateway. This operation is only supported in the stored
  * volume gateway type.
@@ -425,11 +425,11 @@ export class ServiceUnavailableError extends S.TaggedError<ServiceUnavailableErr
  * creating the volume. In response, the gateway creates the volume and returns volume
  * information such as the volume Amazon Resource Name (ARN), its size, and the iSCSI target
  * ARN that initiators can use to connect to the volume target.
- */export const createStorediSCSIVolume = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.CreateStorediSCSIVolume" }, CreateStorediSCSIVolumeInput, CreateStorediSCSIVolumeOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createStorediSCSIVolume = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.CreateStorediSCSIVolume" }, CreateStorediSCSIVolumeInput, CreateStorediSCSIVolumeOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new custom tape pool. You can use custom tape pool to enable tape retention
  * lock on tapes that are archived in the custom pool.
- */export const createTapePool = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.CreateTapePool" }, CreateTapePoolInput, CreateTapePoolOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createTapePool = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.CreateTapePool" }, CreateTapePoolInput, CreateTapePoolOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates one or more virtual tapes. You write data to the virtual tapes and then archive
  * the tapes. This operation is only supported in the tape gateway type.
@@ -439,7 +439,7 @@ export class ServiceUnavailableError extends S.TaggedError<ServiceUnavailableErr
  * 
  * Cache storage must be allocated to the gateway before you can create virtual tapes.
  * Use the AddCache operation to add cache storage to a gateway.
- */export const createTapes = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.CreateTapes" }, CreateTapesInput, CreateTapesOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createTapes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.CreateTapes" }, CreateTapesInput, CreateTapesOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a virtual tape by using your own barcode. You write data to the virtual tape and
  * then archive the tape. A barcode is unique and cannot be reused if it has already been used
@@ -451,19 +451,19 @@ export class ServiceUnavailableError extends S.TaggedError<ServiceUnavailableErr
  * 
  * Cache storage must be allocated to the gateway before you can create a virtual tape.
  * Use the AddCache operation to add cache storage to a gateway.
- */export const createTapeWithBarcode = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.CreateTapeWithBarcode" }, CreateTapeWithBarcodeInput, CreateTapeWithBarcodeOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createTapeWithBarcode = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.CreateTapeWithBarcode" }, CreateTapeWithBarcodeInput, CreateTapeWithBarcodeOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the automatic tape creation policy of a gateway. If you delete this policy, new
  * virtual tapes must be created manually. Use the Amazon Resource Name (ARN) of the gateway
  * in your request to remove the policy.
- */export const deleteAutomaticTapeCreationPolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.DeleteAutomaticTapeCreationPolicy" }, DeleteAutomaticTapeCreationPolicyInput, DeleteAutomaticTapeCreationPolicyOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteAutomaticTapeCreationPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.DeleteAutomaticTapeCreationPolicy" }, DeleteAutomaticTapeCreationPolicyInput, DeleteAutomaticTapeCreationPolicyOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the bandwidth rate limits of a gateway. You can delete either the upload and
  * download bandwidth rate limit, or you can delete both. If you delete only one of the
  * limits, the other limit remains unchanged. To specify which gateway to work with, use the
  * Amazon Resource Name (ARN) of the gateway in your request. This operation is supported only
  * for the stored volume, cached volume, and tape gateway types.
- */export const deleteBandwidthRateLimit = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.DeleteBandwidthRateLimit" }, DeleteBandwidthRateLimitInput, DeleteBandwidthRateLimitOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteBandwidthRateLimit = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.DeleteBandwidthRateLimit" }, DeleteBandwidthRateLimitInput, DeleteBandwidthRateLimitOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the specified cache report and any associated tags from the Storage Gateway database. You can only delete completed reports. If the status of the
  * report you attempt to delete still IN-PROGRESS, the delete operation returns an error. You
@@ -474,16 +474,16 @@ export class ServiceUnavailableError extends S.TaggedError<ServiceUnavailableErr
  * 
  * 
  * `DeleteCacheReport` does not delete the report object from your Amazon S3 bucket.
- */export const deleteCacheReport = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.DeleteCacheReport" }, DeleteCacheReportInput, DeleteCacheReportOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteCacheReport = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.DeleteCacheReport" }, DeleteCacheReportInput, DeleteCacheReportOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes Challenge-Handshake Authentication Protocol (CHAP) credentials for a specified
  * iSCSI target and initiator pair. This operation is supported in volume and tape gateway
  * types.
- */export const deleteChapCredentials = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.DeleteChapCredentials" }, DeleteChapCredentialsInput, DeleteChapCredentialsOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteChapCredentials = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.DeleteChapCredentials" }, DeleteChapCredentialsInput, DeleteChapCredentialsOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a file share from an S3 File Gateway. This operation is only supported for S3
  * File Gateways.
- */export const deleteFileShare = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.DeleteFileShare" }, DeleteFileShareInput, DeleteFileShareOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteFileShare = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.DeleteFileShare" }, DeleteFileShareInput, DeleteFileShareOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a gateway. To specify which gateway to delete, use the Amazon Resource Name
  * (ARN) of the gateway in your request. The operation deletes the gateway; however, it does
@@ -505,7 +505,7 @@ export class ServiceUnavailableError extends S.TaggedError<ServiceUnavailableErr
  * can delete your snapshots using the Amazon EC2 console. For more information, see the
  * Storage Gateway detail
  * page.
- */export const deleteGateway = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.DeleteGateway" }, DeleteGatewayInput, DeleteGatewayOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteGateway = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.DeleteGateway" }, DeleteGatewayInput, DeleteGatewayOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a snapshot of a volume.
  * 
@@ -523,20 +523,20 @@ export class ServiceUnavailableError extends S.TaggedError<ServiceUnavailableErr
  * To list or delete a snapshot, you must use the Amazon EC2 API. For more information,
  * go to DescribeSnapshots
  * in the *Amazon Elastic Compute Cloud API Reference*.
- */export const deleteSnapshotSchedule = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.DeleteSnapshotSchedule" }, DeleteSnapshotScheduleInput, DeleteSnapshotScheduleOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteSnapshotSchedule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.DeleteSnapshotSchedule" }, DeleteSnapshotScheduleInput, DeleteSnapshotScheduleOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the specified virtual tape. This operation is only supported in the tape gateway
  * type.
- */export const deleteTape = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.DeleteTape" }, DeleteTapeInput, DeleteTapeOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteTape = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.DeleteTape" }, DeleteTapeInput, DeleteTapeOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the specified virtual tape from the virtual tape shelf (VTS). This operation is
  * only supported in the tape gateway type.
- */export const deleteTapeArchive = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.DeleteTapeArchive" }, DeleteTapeArchiveInput, DeleteTapeArchiveOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteTapeArchive = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.DeleteTapeArchive" }, DeleteTapeArchiveInput, DeleteTapeArchiveOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Delete a custom tape pool. A custom tape pool can only be deleted if there are no tapes
  * in the pool and if there are no automatic tape creation policies that reference the custom
  * tape pool.
- */export const deleteTapePool = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.DeleteTapePool" }, DeleteTapePoolInput, DeleteTapePoolOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteTapePool = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.DeleteTapePool" }, DeleteTapePoolInput, DeleteTapePoolOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the specified storage volume that you previously created using the CreateCachediSCSIVolume or CreateStorediSCSIVolume API.
  * This operation is only supported in the cached volume and stored volume types. For stored
@@ -553,12 +553,12 @@ export class ServiceUnavailableError extends S.TaggedError<ServiceUnavailableErr
  * 
  * In the request, you must provide the Amazon Resource Name (ARN) of the storage volume
  * you want to delete.
- */export const deleteVolume = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.DeleteVolume" }, DeleteVolumeInput, DeleteVolumeOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteVolume = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.DeleteVolume" }, DeleteVolumeInput, DeleteVolumeOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about the most recent high availability monitoring test that was
  * performed on the host in a cluster. If a test isn't performed, the status and start
  * time in the response would be null.
- */export const describeAvailabilityMonitorTest = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.DescribeAvailabilityMonitorTest" }, DescribeAvailabilityMonitorTestInput, DescribeAvailabilityMonitorTestOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeAvailabilityMonitorTest = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.DescribeAvailabilityMonitorTest" }, DescribeAvailabilityMonitorTestInput, DescribeAvailabilityMonitorTestOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the bandwidth rate limits of a gateway. By default, these limits are not set,
  * which means no bandwidth rate limiting is in effect. This operation is supported only for
@@ -570,7 +570,7 @@ export class ServiceUnavailableError extends S.TaggedError<ServiceUnavailableErr
  * no limits are set for the gateway, then this operation returns only the gateway ARN in the
  * response body. To specify which gateway to describe, use the Amazon Resource Name (ARN) of
  * the gateway in your request.
- */export const describeBandwidthRateLimit = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.DescribeBandwidthRateLimit" }, DescribeBandwidthRateLimitInput, DescribeBandwidthRateLimitOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeBandwidthRateLimit = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.DescribeBandwidthRateLimit" }, DescribeBandwidthRateLimitInput, DescribeBandwidthRateLimitOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about the bandwidth rate limit schedule of a gateway. By default,
  * gateways do not have bandwidth rate limit schedules, which means no bandwidth rate limiting
@@ -592,7 +592,7 @@ export class ServiceUnavailableError extends S.TaggedError<ServiceUnavailableErr
  * If no bandwidth rate limit schedule intervals are set for the gateway, this operation
  * returns an empty response. To specify which gateway to describe, use the Amazon Resource
  * Name (ARN) of the gateway in your request.
- */export const describeBandwidthRateLimitSchedule = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.DescribeBandwidthRateLimitSchedule" }, DescribeBandwidthRateLimitScheduleInput, DescribeBandwidthRateLimitScheduleOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeBandwidthRateLimitSchedule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.DescribeBandwidthRateLimitSchedule" }, DescribeBandwidthRateLimitScheduleInput, DescribeBandwidthRateLimitScheduleOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about the cache of a gateway. This operation is only supported in
  * the cached volume, tape, and file gateway types.
@@ -600,22 +600,22 @@ export class ServiceUnavailableError extends S.TaggedError<ServiceUnavailableErr
  * 
  * The response includes disk IDs that are configured as cache, and it includes the amount
  * of cache allocated and used.
- */export const describeCache = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.DescribeCache" }, DescribeCacheInput, DescribeCacheOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeCache = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.DescribeCache" }, DescribeCacheInput, DescribeCacheOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns your gateway's maintenance window schedule information, with values for
  * monthly or weekly cadence, specific day and time to begin maintenance, and which types of
  * updates to apply. Time values returned are for the gateway's time zone.
- */export const describeMaintenanceStartTime = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.DescribeMaintenanceStartTime" }, DescribeMaintenanceStartTimeInput, DescribeMaintenanceStartTimeOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeMaintenanceStartTime = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.DescribeMaintenanceStartTime" }, DescribeMaintenanceStartTimeInput, DescribeMaintenanceStartTimeOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets a description of a Server Message Block (SMB) file share settings from a file
  * gateway. This operation is only supported for file gateways.
- */export const describeSMBSettings = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.DescribeSMBSettings" }, DescribeSMBSettingsInput, DescribeSMBSettingsOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeSMBSettings = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.DescribeSMBSettings" }, DescribeSMBSettingsInput, DescribeSMBSettingsOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes the snapshot schedule for the specified gateway volume. The snapshot schedule
  * information includes intervals at which snapshots are automatically initiated on the
  * volume. This operation is only supported in the cached volume and stored volume
  * types.
- */export const describeSnapshotSchedule = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.DescribeSnapshotSchedule" }, DescribeSnapshotScheduleInput, DescribeSnapshotScheduleOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeSnapshotSchedule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.DescribeSnapshotSchedule" }, DescribeSnapshotScheduleInput, DescribeSnapshotScheduleOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about the upload buffer of a gateway. This operation is supported
  * for the stored volume, cached volume, and tape gateway types.
@@ -623,7 +623,7 @@ export class ServiceUnavailableError extends S.TaggedError<ServiceUnavailableErr
  * 
  * The response includes disk IDs that are configured as upload buffer space, and it
  * includes the amount of upload buffer space allocated and used.
- */export const describeUploadBuffer = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.DescribeUploadBuffer" }, DescribeUploadBufferInput, DescribeUploadBufferOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeUploadBuffer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.DescribeUploadBuffer" }, DescribeUploadBufferInput, DescribeUploadBufferOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about the working storage of a gateway. This operation is only
  * supported in the stored volumes gateway type. This operation is deprecated in cached
@@ -640,14 +640,14 @@ export class ServiceUnavailableError extends S.TaggedError<ServiceUnavailableErr
  * 
  * The response includes disk IDs that are configured as working storage, and it includes
  * the amount of working storage allocated and used.
- */export const describeWorkingStorage = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.DescribeWorkingStorage" }, DescribeWorkingStorageInput, DescribeWorkingStorageOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeWorkingStorage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.DescribeWorkingStorage" }, DescribeWorkingStorageInput, DescribeWorkingStorageOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Disconnects a volume from an iSCSI connection and then detaches the volume from the
  * specified gateway. Detaching and attaching a volume enables you to recover your data from
  * one gateway to a different gateway without creating a snapshot. It also makes it easier to
  * move your volumes from an on-premises gateway to a gateway hosted on an Amazon EC2
  * instance. This operation is only supported in the volume gateway type.
- */export const detachVolume = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.DetachVolume" }, DetachVolumeInput, DetachVolumeOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const detachVolume = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.DetachVolume" }, DetachVolumeInput, DetachVolumeOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Disables a tape gateway when the gateway is no longer functioning. For example, if your
  * gateway VM is damaged, you can disable the gateway so you can recover virtual tapes.
@@ -660,12 +660,12 @@ export class ServiceUnavailableError extends S.TaggedError<ServiceUnavailableErr
  * 
  * 
  * After a gateway is disabled, it cannot be enabled.
- */export const disableGateway = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.DisableGateway" }, DisableGatewayInput, DisableGatewayOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const disableGateway = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.DisableGateway" }, DisableGatewayInput, DisableGatewayOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Disassociates an Amazon FSx file system from the specified gateway. After the
  * disassociation process finishes, the gateway can no longer access the Amazon FSx
  * file system. This operation is only supported in the FSx File Gateway type.
- */export const disassociateFileSystem = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.DisassociateFileSystem" }, DisassociateFileSystemInput, DisassociateFileSystemOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const disassociateFileSystem = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.DisassociateFileSystem" }, DisassociateFileSystemInput, DisassociateFileSystemOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts a process that cleans the specified file share's cache of file entries that are
  * failing upload to Amazon S3. This API operation reports success if the request is
@@ -682,7 +682,7 @@ export class ServiceUnavailableError extends S.TaggedError<ServiceUnavailableErr
  * recommend using this operation only after all other methods to clear files failing
  * upload have been exhausted, and if your business need outweighs the potential data
  * loss.
- */export const evictFilesFailingUpload = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.EvictFilesFailingUpload" }, EvictFilesFailingUploadInput, EvictFilesFailingUploadOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const evictFilesFailingUpload = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.EvictFilesFailingUpload" }, EvictFilesFailingUploadInput, EvictFilesFailingUploadOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Adds a file gateway to an Active Directory domain. This operation is only supported for
  * file gateways that support the SMB file protocol.
@@ -699,22 +699,22 @@ export class ServiceUnavailableError extends S.TaggedError<ServiceUnavailableErr
  * 
  * To create the gateway's computer account in an organizational unit other than the
  * default, you must specify the organizational unit when joining the domain.
- */export const joinDomain = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.JoinDomain" }, JoinDomainInput, JoinDomainOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const joinDomain = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.JoinDomain" }, JoinDomainInput, JoinDomainOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of existing cache reports for all file shares associated with your
  * Amazon Web Services account. This list includes all information provided by the
  * `DescribeCacheReport` action, such as report name, status, completion
  * progress, start time, end time, filters, and tags.
- */export const listCacheReports = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.ListCacheReports" }, ListCacheReportsInput, ListCacheReportsOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listCacheReports = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.ListCacheReports" }, ListCacheReportsInput, ListCacheReportsOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the tags that have been added to the specified resource. This operation is
  * supported in storage gateways of all types.
- */export const listTagsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.ListTagsForResource" }, ListTagsForResourceInput, ListTagsForResourceOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.ListTagsForResource" }, ListTagsForResourceInput, ListTagsForResourceOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists iSCSI initiators that are connected to a volume. You can use this operation to
  * determine whether a volume is being used or not. This operation is only supported in the
  * cached volume and stored volume gateway types.
- */export const listVolumeInitiators = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.ListVolumeInitiators" }, ListVolumeInitiatorsInput, ListVolumeInitiatorsOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listVolumeInitiators = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.ListVolumeInitiators" }, ListVolumeInitiatorsInput, ListVolumeInitiatorsOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Sends you notification through Amazon EventBridge when all files written to your file
  * share have been uploaded to Amazon S3.
@@ -731,7 +731,7 @@ export class ServiceUnavailableError extends S.TaggedError<ServiceUnavailableErr
  * For more information, see Getting
  * file upload notification in the Amazon S3 File Gateway User
  * Guide.
- */export const notifyWhenUploaded = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.NotifyWhenUploaded" }, NotifyWhenUploadedInput, NotifyWhenUploadedOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const notifyWhenUploaded = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.NotifyWhenUploaded" }, NotifyWhenUploadedInput, NotifyWhenUploadedOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Refreshes the cached inventory of objects for the specified file share. This operation
  * finds objects in the Amazon S3 bucket that were added, removed, or replaced since
@@ -791,11 +791,11 @@ export class ServiceUnavailableError extends S.TaggedError<ServiceUnavailableErr
  * For more information, see Getting
  * notified about file operations in the Amazon S3 File Gateway User
  * Guide.
- */export const refreshCache = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.RefreshCache" }, RefreshCacheInput, RefreshCacheOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const refreshCache = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.RefreshCache" }, RefreshCacheInput, RefreshCacheOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes one or more tags from the specified resource. This operation is supported in
  * storage gateways of all types.
- */export const removeTagsFromResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.RemoveTagsFromResource" }, RemoveTagsFromResourceInput, RemoveTagsFromResourceOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const removeTagsFromResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.RemoveTagsFromResource" }, RemoveTagsFromResourceInput, RemoveTagsFromResourceOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Resets all cache disks that have encountered an error and makes the disks available for
  * reconfiguration as cache storage. If your cache disk encounters an error, the gateway
@@ -811,7 +811,7 @@ export class ServiceUnavailableError extends S.TaggedError<ServiceUnavailableErr
  * Amazon S3 yet, that data can be lost. After you reset cache disks, there will
  * be no configured cache disks left in the gateway, so you must configure at least one new
  * cache disk for your gateway to function properly.
- */export const resetCache = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.ResetCache" }, ResetCacheInput, ResetCacheOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const resetCache = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.ResetCache" }, ResetCacheInput, ResetCacheOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves an archived virtual tape from the virtual tape shelf (VTS) to a tape gateway.
  * Virtual tapes archived in the VTS are not associated with any gateway. However after a tape
@@ -822,7 +822,7 @@ export class ServiceUnavailableError extends S.TaggedError<ServiceUnavailableErr
  * Once a tape is successfully retrieved to a gateway, it cannot be retrieved again to
  * another gateway. You must archive the tape again before you can retrieve it to another
  * gateway. This operation is only supported in the tape gateway type.
- */export const retrieveTapeArchive = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.RetrieveTapeArchive" }, RetrieveTapeArchiveInput, RetrieveTapeArchiveOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const retrieveTapeArchive = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.RetrieveTapeArchive" }, RetrieveTapeArchiveInput, RetrieveTapeArchiveOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the recovery point for the specified virtual tape. This operation is only
  * supported in the tape gateway type.
@@ -838,18 +838,18 @@ export class ServiceUnavailableError extends S.TaggedError<ServiceUnavailableErr
  * The virtual tape can be retrieved to only one gateway. The retrieved tape is
  * read-only. The virtual tape can be retrieved to only a tape gateway. There is no charge
  * for retrieving recovery points.
- */export const retrieveTapeRecoveryPoint = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.RetrieveTapeRecoveryPoint" }, RetrieveTapeRecoveryPointInput, RetrieveTapeRecoveryPointOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const retrieveTapeRecoveryPoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.RetrieveTapeRecoveryPoint" }, RetrieveTapeRecoveryPointInput, RetrieveTapeRecoveryPointOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Sets the password for your VM local console. When you log in to the local console for
  * the first time, you log in to the VM with the default credentials. We recommend that you
  * set a new password. You don't need to know the default password to set a new
  * password.
- */export const setLocalConsolePassword = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.SetLocalConsolePassword" }, SetLocalConsolePasswordInput, SetLocalConsolePasswordOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const setLocalConsolePassword = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.SetLocalConsolePassword" }, SetLocalConsolePasswordInput, SetLocalConsolePasswordOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Sets the password for the guest user `smbguest`. The `smbguest`
  * user is the user when the authentication method for the file share is set to
  * `GuestAccess`. This operation only supported for S3 File Gateways
- */export const setSMBGuestPassword = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.SetSMBGuestPassword" }, SetSMBGuestPasswordInput, SetSMBGuestPasswordOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const setSMBGuestPassword = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.SetSMBGuestPassword" }, SetSMBGuestPasswordInput, SetSMBGuestPasswordOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Shuts down a Tape Gateway or Volume Gateway. To specify which gateway to shut down, use
  * the Amazon Resource Name (ARN) of the gateway in the body of your request.
@@ -892,7 +892,7 @@ export class ServiceUnavailableError extends S.TaggedError<ServiceUnavailableErr
  * 
  * If do not intend to use the gateway again, you must delete the gateway (using DeleteGateway) to no longer pay software charges associated with the
  * gateway.
- */export const shutdownGateway = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.ShutdownGateway" }, ShutdownGatewayInput, ShutdownGatewayOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const shutdownGateway = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.ShutdownGateway" }, ShutdownGatewayInput, ShutdownGatewayOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Start a test that verifies that the specified gateway is configured for High
  * Availability monitoring in your host environment. This request only initiates the test and
@@ -904,7 +904,7 @@ export class ServiceUnavailableError extends S.TaggedError<ServiceUnavailableErr
  * 
  * 
  * Starting this test will cause your gateway to go offline for a brief period.
- */export const startAvailabilityMonitorTest = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.StartAvailabilityMonitorTest" }, StartAvailabilityMonitorTestInput, StartAvailabilityMonitorTestOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startAvailabilityMonitorTest = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.StartAvailabilityMonitorTest" }, StartAvailabilityMonitorTestInput, StartAvailabilityMonitorTestOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts a gateway that you previously shut down (see ShutdownGateway).
  * After the gateway starts, you can then make other API calls, your applications can read
@@ -923,7 +923,7 @@ export class ServiceUnavailableError extends S.TaggedError<ServiceUnavailableErr
  * 
  * To specify which gateway to start, use the Amazon Resource Name (ARN) of the gateway in
  * your request.
- */export const startGateway = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.StartGateway" }, StartGatewayInput, StartGatewayOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startGateway = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.StartGateway" }, StartGatewayInput, StartGatewayOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the bandwidth rate limits of a gateway. You can update both the upload and
  * download bandwidth rate limit or specify only one of the two. If you don't set a
@@ -939,7 +939,7 @@ export class ServiceUnavailableError extends S.TaggedError<ServiceUnavailableErr
  * 
  * To specify which gateway to update, use the Amazon Resource Name (ARN) of the gateway in
  * your request.
- */export const updateBandwidthRateLimit = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.UpdateBandwidthRateLimit" }, UpdateBandwidthRateLimitInput, UpdateBandwidthRateLimitOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateBandwidthRateLimit = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.UpdateBandwidthRateLimit" }, UpdateBandwidthRateLimitInput, UpdateBandwidthRateLimitOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the Challenge-Handshake Authentication Protocol (CHAP) credentials for a
  * specified iSCSI target. By default, a gateway does not have CHAP enabled; however, for
@@ -951,11 +951,11 @@ export class ServiceUnavailableError extends S.TaggedError<ServiceUnavailableErr
  * 
  * When you update CHAP credentials, all existing connections on the target are closed
  * and initiators must reconnect with the new credentials.
- */export const updateChapCredentials = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.UpdateChapCredentials" }, UpdateChapCredentialsInput, UpdateChapCredentialsOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateChapCredentials = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.UpdateChapCredentials" }, UpdateChapCredentialsInput, UpdateChapCredentialsOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates a file system association. This operation is only supported in the FSx File
  * Gateways.
- */export const updateFileSystemAssociation = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.UpdateFileSystemAssociation" }, UpdateFileSystemAssociationInput, UpdateFileSystemAssociationOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateFileSystemAssociation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.UpdateFileSystemAssociation" }, UpdateFileSystemAssociationInput, UpdateFileSystemAssociationOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates a gateway's metadata, which includes the gateway's name, time zone,
  * and metadata cache size. To specify which gateway to update, use the Amazon Resource Name
@@ -967,7 +967,7 @@ export class ServiceUnavailableError extends S.TaggedError<ServiceUnavailableErr
  * For gateways activated after September 2, 2015, the gateway's ARN contains the
  * gateway ID rather than the gateway name. However, changing the name of the gateway has
  * no effect on the gateway's ARN.
- */export const updateGatewayInformation = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.UpdateGatewayInformation" }, UpdateGatewayInformationInput, UpdateGatewayInformationOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateGatewayInformation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.UpdateGatewayInformation" }, UpdateGatewayInformationInput, UpdateGatewayInformationOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the gateway virtual machine (VM) software. The request immediately triggers the
  * software update.
@@ -989,7 +989,7 @@ export class ServiceUnavailableError extends S.TaggedError<ServiceUnavailableErr
  * chance of any disruption to your applications by increasing your iSCSI Initiators'
  * timeouts. For more information about increasing iSCSI Initiator timeouts for Windows and
  * Linux, see Customizing your Windows iSCSI settings and Customizing your Linux iSCSI settings, respectively.
- */export const updateGatewaySoftwareNow = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.UpdateGatewaySoftwareNow" }, UpdateGatewaySoftwareNowInput, UpdateGatewaySoftwareNowOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateGatewaySoftwareNow = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.UpdateGatewaySoftwareNow" }, UpdateGatewaySoftwareNowInput, UpdateGatewaySoftwareNowOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates a Network File System (NFS) file share. This operation is only supported in S3
  * File Gateways.
@@ -1024,7 +1024,7 @@ export class ServiceUnavailableError extends S.TaggedError<ServiceUnavailableErr
  * 
  * 
  * - Write status of your file share
- */export const updateNFSFileShare = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.UpdateNFSFileShare" }, UpdateNFSFileShareInput, UpdateNFSFileShareOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateNFSFileShare = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.UpdateNFSFileShare" }, UpdateNFSFileShareInput, UpdateNFSFileShareOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates a Server Message Block (SMB) file share. This operation is only supported for S3
  * File Gateways.
@@ -1051,11 +1051,11 @@ export class ServiceUnavailableError extends S.TaggedError<ServiceUnavailableErr
  * 
  * File gateways don't support creating hard or symbolic links on a file
  * share.
- */export const updateSMBFileShare = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.UpdateSMBFileShare" }, UpdateSMBFileShareInput, UpdateSMBFileShareOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateSMBFileShare = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.UpdateSMBFileShare" }, UpdateSMBFileShareInput, UpdateSMBFileShareOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Controls whether the shares on an S3 File Gateway are visible in a net view or browse
  * list. The operation is only supported for S3 File Gateways.
- */export const updateSMBFileShareVisibility = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.UpdateSMBFileShareVisibility" }, UpdateSMBFileShareVisibilityInput, UpdateSMBFileShareVisibilityOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateSMBFileShareVisibility = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.UpdateSMBFileShareVisibility" }, UpdateSMBFileShareVisibilityInput, UpdateSMBFileShareVisibilityOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the SMB security strategy level for an Amazon S3 file gateway. This
  * action is only supported for Amazon S3 file gateways.
@@ -1069,7 +1069,7 @@ export class ServiceUnavailableError extends S.TaggedError<ServiceUnavailableErr
  * 
  * 
  * A higher security strategy level can affect performance of the gateway.
- */export const updateSMBSecurityStrategy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.UpdateSMBSecurityStrategy" }, UpdateSMBSecurityStrategyInput, UpdateSMBSecurityStrategyOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateSMBSecurityStrategy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.UpdateSMBSecurityStrategy" }, UpdateSMBSecurityStrategyInput, UpdateSMBSecurityStrategyOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates a snapshot schedule configured for a gateway volume. This operation is only
  * supported in the cached volume and stored volume gateway types.
@@ -1083,13 +1083,13 @@ export class ServiceUnavailableError extends S.TaggedError<ServiceUnavailableErr
  * In the request you must identify the gateway volume whose snapshot schedule you want to
  * update, and the schedule information, including when you want the snapshot to begin on a
  * day and the frequency (in hours) of snapshots.
- */export const updateSnapshotSchedule = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.UpdateSnapshotSchedule" }, UpdateSnapshotScheduleInput, UpdateSnapshotScheduleOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateSnapshotSchedule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.UpdateSnapshotSchedule" }, UpdateSnapshotScheduleInput, UpdateSnapshotScheduleOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the type of medium changer in a tape gateway. When you activate a tape gateway,
  * you select a medium changer type for the tape gateway. This operation enables you to select
  * a different type of medium changer after a tape gateway is activated. This operation is
  * only supported in the tape gateway type.
- */export const updateVTLDeviceType = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.UpdateVTLDeviceType" }, UpdateVTLDeviceTypeInput, UpdateVTLDeviceTypeOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateVTLDeviceType = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.UpdateVTLDeviceType" }, UpdateVTLDeviceTypeInput, UpdateVTLDeviceTypeOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Activates the gateway you previously deployed on your host. In the activation process,
  * you specify information such as the Amazon Web Services Region that you want to use for
@@ -1101,7 +1101,7 @@ export class ServiceUnavailableError extends S.TaggedError<ServiceUnavailableErr
  * 
  * 
  * You must turn on the gateway VM before you can activate your gateway.
- */export const activateGateway = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.ActivateGateway" }, ActivateGatewayInput, ActivateGatewayOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const activateGateway = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.ActivateGateway" }, ActivateGatewayInput, ActivateGatewayOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Adds one or more tags to the specified resource. You use tags to add metadata to
  * resources, which you can use to categorize these resources. For example, you can categorize
@@ -1134,13 +1134,13 @@ export class ServiceUnavailableError extends S.TaggedError<ServiceUnavailableErr
  * 
  * You can create a maximum of 50 tags for each resource. Virtual tapes and storage volumes
  * that are recovered to a new gateway maintain their tags.
- */export const addTagsToResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.AddTagsToResource" }, AddTagsToResourceInput, AddTagsToResourceOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const addTagsToResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.AddTagsToResource" }, AddTagsToResourceInput, AddTagsToResourceOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Associate an Amazon FSx file system with the FSx File Gateway. After the
  * association process is complete, the file shares on the Amazon FSx file system are
  * available for access through the gateway. This operation only supports the FSx File Gateway
  * type.
- */export const associateFileSystem = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.AssociateFileSystem" }, AssociateFileSystemInput, AssociateFileSystemOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const associateFileSystem = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.AssociateFileSystem" }, AssociateFileSystemInput, AssociateFileSystemOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a Network File System (NFS) file share on an existing S3 File Gateway. In
  * Storage Gateway, a file share is a file system mount point backed by Amazon S3
@@ -1161,7 +1161,7 @@ export class ServiceUnavailableError extends S.TaggedError<ServiceUnavailableErr
  * 
  * S3 File Gateways do not support creating hard or symbolic links on a file
  * share.
- */export const createNFSFileShare = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.CreateNFSFileShare" }, CreateNFSFileShareInput, CreateNFSFileShareOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createNFSFileShare = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.CreateNFSFileShare" }, CreateNFSFileShareInput, CreateNFSFileShareOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Initiates a snapshot of a volume.
  * 
@@ -1197,34 +1197,34 @@ export class ServiceUnavailableError extends S.TaggedError<ServiceUnavailableErr
  * 
  * Volume and snapshot IDs are changing to a longer length ID format. For more
  * information, see the important note on the Welcome page.
- */export const createSnapshot = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.CreateSnapshot" }, CreateSnapshotInput, CreateSnapshotOutput, [InternalServerError, InvalidGatewayRequestException, ServiceUnavailableError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createSnapshot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.CreateSnapshot" }, CreateSnapshotInput, CreateSnapshotOutput, [InternalServerError, InvalidGatewayRequestException, ServiceUnavailableError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about the specified cache report, including completion status and
  * generation progress.
- */export const describeCacheReport = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.DescribeCacheReport" }, DescribeCacheReportInput, DescribeCacheReportOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeCacheReport = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.DescribeCacheReport" }, DescribeCacheReportInput, DescribeCacheReportOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns an array of Challenge-Handshake Authentication Protocol (CHAP) credentials
  * information for a specified iSCSI target, one for each target-initiator pair. This
  * operation is supported in the volume and tape gateway types.
- */export const describeChapCredentials = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.DescribeChapCredentials" }, DescribeChapCredentialsInput, DescribeChapCredentialsOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeChapCredentials = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.DescribeChapCredentials" }, DescribeChapCredentialsInput, DescribeChapCredentialsOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns metadata about a gateway such as its name, network interfaces, time zone,
  * status, and software version. To specify which gateway to describe, use the Amazon Resource
  * Name (ARN) of the gateway in your request.
- */export const describeGatewayInformation = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.DescribeGatewayInformation" }, DescribeGatewayInformationInput, DescribeGatewayInformationOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeGatewayInformation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.DescribeGatewayInformation" }, DescribeGatewayInformationInput, DescribeGatewayInformationOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets a description for one or more Network File System (NFS) file shares from an S3 File
  * Gateway. This operation is only supported for S3 File Gateways.
- */export const describeNFSFileShares = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.DescribeNFSFileShares" }, DescribeNFSFileSharesInput, DescribeNFSFileSharesOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeNFSFileShares = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.DescribeNFSFileShares" }, DescribeNFSFileSharesInput, DescribeNFSFileSharesOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets a description for one or more Server Message Block (SMB) file shares from a S3 File
  * Gateway. This operation is only supported for S3 File Gateways.
- */export const describeSMBFileShares = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.DescribeSMBFileShares" }, DescribeSMBFileSharesInput, DescribeSMBFileSharesOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeSMBFileShares = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.DescribeSMBFileShares" }, DescribeSMBFileSharesInput, DescribeSMBFileSharesOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the description of the gateway volumes specified in the request. The list of
  * gateway volumes in the request must be from one gateway. In the response, Storage Gateway returns volume information sorted by volume ARNs. This operation is only
  * supported in stored volume gateway type.
- */export const describeStorediSCSIVolumes = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.DescribeStorediSCSIVolumes" }, DescribeStorediSCSIVolumesInput, DescribeStorediSCSIVolumesOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeStorediSCSIVolumes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.DescribeStorediSCSIVolumes" }, DescribeStorediSCSIVolumesInput, DescribeStorediSCSIVolumesOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a description of specified virtual tapes in the virtual tape shelf (VTS). This
  * operation is only supported in the tape gateway type.
@@ -1232,7 +1232,7 @@ export class ServiceUnavailableError extends S.TaggedError<ServiceUnavailableErr
  * 
  * If a specific `TapeARN` is not specified, Storage Gateway returns a
  * description of all virtual tapes found in the VTS associated with your account.
- */export const describeTapeArchives = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.DescribeTapeArchives" }, DescribeTapeArchivesInput, DescribeTapeArchivesOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeTapeArchives = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.DescribeTapeArchives" }, DescribeTapeArchivesInput, DescribeTapeArchivesOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of virtual tape recovery points that are available for the specified tape
  * gateway.
@@ -1242,7 +1242,7 @@ export class ServiceUnavailableError extends S.TaggedError<ServiceUnavailableErr
  * virtual tape is consistent. If your gateway crashes, virtual tapes that have recovery
  * points can be recovered to a new gateway. This operation is only supported in the tape
  * gateway type.
- */export const describeTapeRecoveryPoints = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.DescribeTapeRecoveryPoints" }, DescribeTapeRecoveryPointsInput, DescribeTapeRecoveryPointsOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeTapeRecoveryPoints = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.DescribeTapeRecoveryPoints" }, DescribeTapeRecoveryPointsInput, DescribeTapeRecoveryPointsOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a description of virtual tapes that correspond to the specified Amazon Resource
  * Names (ARNs). If `TapeARN` is not specified, returns a description of the
@@ -1256,24 +1256,24 @@ export class ServiceUnavailableError extends S.TaggedError<ServiceUnavailableErr
  * truncated, the response includes a `Marker` field. You can use this
  * `Marker` value in your subsequent request to retrieve the next set of
  * tapes.
- */export const describeTapes = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.DescribeTapes" }, DescribeTapesInput, DescribeTapesOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeTapes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.DescribeTapes" }, DescribeTapesInput, DescribeTapesOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the automatic tape creation policies for a gateway. If there are no automatic tape
  * creation policies for the gateway, it returns an empty list.
  * 
  * 
  * This operation is only supported for tape gateways.
- */export const listAutomaticTapeCreationPolicies = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.ListAutomaticTapeCreationPolicies" }, ListAutomaticTapeCreationPoliciesInput, ListAutomaticTapeCreationPoliciesOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listAutomaticTapeCreationPolicies = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.ListAutomaticTapeCreationPolicies" }, ListAutomaticTapeCreationPoliciesInput, ListAutomaticTapeCreationPoliciesOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets a list of the file shares for a specific S3 File Gateway, or the list of file
  * shares that belong to the calling Amazon Web Services account. This operation is only
  * supported for S3 File Gateways.
- */export const listFileShares = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.ListFileShares" }, ListFileSharesInput, ListFileSharesOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listFileShares = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.ListFileShares" }, ListFileSharesInput, ListFileSharesOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets a list of `FileSystemAssociationSummary` objects. Each object contains a
  * summary of a file system association. This operation is only supported for FSx File
  * Gateways.
- */export const listFileSystemAssociations = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.ListFileSystemAssociations" }, ListFileSystemAssociationsInput, ListFileSystemAssociationsOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listFileSystemAssociations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.ListFileSystemAssociations" }, ListFileSystemAssociationsInput, ListFileSystemAssociationsOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists gateways owned by an Amazon Web Services account in an Amazon Web Services Region
  * specified in the request. The returned list is ordered by gateway Amazon Resource Name
@@ -1288,7 +1288,7 @@ export class ServiceUnavailableError extends S.TaggedError<ServiceUnavailableErr
  * If you have more gateways than are returned in a response (that is, the response returns
  * only a truncated list of your gateways), the response contains a marker that you can
  * specify in your next request to fetch the next page of gateways.
- */export const listGateways = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.ListGateways" }, ListGatewaysInput, ListGatewaysOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listGateways = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.ListGateways" }, ListGatewaysInput, ListGatewaysOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of the gateway's local disks. To specify which gateway to describe,
  * you use the Amazon Resource Name (ARN) of the gateway in the body of the request.
@@ -1300,7 +1300,7 @@ export class ServiceUnavailableError extends S.TaggedError<ServiceUnavailableErr
  * available to use), missing (the disk is no longer connected to the gateway), or mismatch
  * (the disk node is occupied by a disk that has incorrect metadata or the disk content is
  * corrupted).
- */export const listLocalDisks = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.ListLocalDisks" }, ListLocalDisksInput, ListLocalDisksOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listLocalDisks = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.ListLocalDisks" }, ListLocalDisksInput, ListLocalDisksOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists custom tape pools. You specify custom tape pools to list by specifying one or more
  * custom tape pool Amazon Resource Names (ARNs). If you don't specify a custom tape pool ARN,
@@ -1312,7 +1312,7 @@ export class ServiceUnavailableError extends S.TaggedError<ServiceUnavailableErr
  * tape pools returned in the response is truncated, the response includes a
  * `Marker` element that you can use in your subsequent request to retrieve the
  * next set of tape pools.
- */export const listTapePools = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.ListTapePools" }, ListTapePoolsInput, ListTapePoolsOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listTapePools = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.ListTapePools" }, ListTapePoolsInput, ListTapePoolsOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists virtual tapes in your virtual tape library (VTL) and your virtual tape shelf
  * (VTS). You specify the tapes to list by specifying one or more tape Amazon Resource Names
@@ -1326,7 +1326,7 @@ export class ServiceUnavailableError extends S.TaggedError<ServiceUnavailableErr
  * truncated, the response includes a `Marker` element that you can use in your
  * subsequent request to retrieve the next set of tapes. This operation is only supported in
  * the tape gateway type.
- */export const listTapes = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.ListTapes" }, ListTapesInput, ListTapesOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listTapes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.ListTapes" }, ListTapesInput, ListTapesOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the recovery points for a specified gateway. This operation is only supported in
  * the cached volume gateway type.
@@ -1336,7 +1336,7 @@ export class ServiceUnavailableError extends S.TaggedError<ServiceUnavailableErr
  * which all data of the volume is consistent and from which you can create a snapshot or
  * clone a new cached volume from a source volume. To create a snapshot from a volume recovery
  * point use the CreateSnapshotFromVolumeRecoveryPoint operation.
- */export const listVolumeRecoveryPoints = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.ListVolumeRecoveryPoints" }, ListVolumeRecoveryPointsInput, ListVolumeRecoveryPointsOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listVolumeRecoveryPoints = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.ListVolumeRecoveryPoints" }, ListVolumeRecoveryPointsInput, ListVolumeRecoveryPointsOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the iSCSI stored volumes of a gateway. Results are sorted by volume ARN. The
  * response includes only the volume ARNs. If you want additional volume information, use the
@@ -1349,7 +1349,7 @@ export class ServiceUnavailableError extends S.TaggedError<ServiceUnavailableErr
  * truncated, the response includes a Marker field. You can use this Marker value in your
  * subsequent request to retrieve the next set of volumes. This operation is only supported in
  * the cached volume and stored volume gateway types.
- */export const listVolumes = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.ListVolumes" }, ListVolumesInput, ListVolumesOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listVolumes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.ListVolumes" }, ListVolumesInput, ListVolumesOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts generating a report of the file metadata currently cached by an S3 File Gateway for a specific file share. You can use this report to identify and resolve
  * issues if you have files failing upload from your gateway to Amazon S3. The report
@@ -1397,7 +1397,7 @@ export class ServiceUnavailableError extends S.TaggedError<ServiceUnavailableErr
  * 
  * - You must specify at least one value for `InclusionFilters` or
  * `ExclusionFilters` in the request.
- */export const startCacheReport = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.StartCacheReport" }, StartCacheReportInput, StartCacheReportOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startCacheReport = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.StartCacheReport" }, StartCacheReportInput, StartCacheReportOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the automatic tape creation policy of a gateway. Use this to update the policy
  * with a new set of automatic tape creation rules. This is only supported for tape
@@ -1410,7 +1410,7 @@ export class ServiceUnavailableError extends S.TaggedError<ServiceUnavailableErr
  * 
  * 
  * A gateway can have only one automatic tape creation policy.
- */export const updateAutomaticTapeCreationPolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.UpdateAutomaticTapeCreationPolicy" }, UpdateAutomaticTapeCreationPolicyInput, UpdateAutomaticTapeCreationPolicyOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateAutomaticTapeCreationPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.UpdateAutomaticTapeCreationPolicy" }, UpdateAutomaticTapeCreationPolicyInput, UpdateAutomaticTapeCreationPolicyOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the bandwidth rate limit schedule for a specified gateway. By default, gateways
  * do not have bandwidth rate limit schedules, which means no bandwidth rate limiting is in
@@ -1418,7 +1418,7 @@ export class ServiceUnavailableError extends S.TaggedError<ServiceUnavailableErr
  * operation is supported for volume, tape, and S3 file gateways. S3 file gateways support
  * bandwidth rate limits for upload only. FSx file gateways do not support bandwidth rate
  * limits.
- */export const updateBandwidthRateLimitSchedule = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.UpdateBandwidthRateLimitSchedule" }, UpdateBandwidthRateLimitScheduleInput, UpdateBandwidthRateLimitScheduleOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateBandwidthRateLimitSchedule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.UpdateBandwidthRateLimitSchedule" }, UpdateBandwidthRateLimitScheduleInput, UpdateBandwidthRateLimitScheduleOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates a gateway's maintenance window schedule, with settings for monthly or
  * weekly cadence, specific day and time to begin maintenance, and which types of updates to
@@ -1440,11 +1440,11 @@ export class ServiceUnavailableError extends S.TaggedError<ServiceUnavailableErr
  * We recommend keeping maintenance updates turned on, except in specific use cases
  * where the brief disruptions caused by updating the gateway could critically impact your
  * deployment.
- */export const updateMaintenanceStartTime = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.UpdateMaintenanceStartTime" }, UpdateMaintenanceStartTimeInput, UpdateMaintenanceStartTimeOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateMaintenanceStartTime = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.UpdateMaintenanceStartTime" }, UpdateMaintenanceStartTimeInput, UpdateMaintenanceStartTimeOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the list of Active Directory users and groups that have special permissions for
  * SMB file shares on the gateway.
- */export const updateSMBLocalGroups = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.UpdateSMBLocalGroups" }, UpdateSMBLocalGroupsInput, UpdateSMBLocalGroupsOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateSMBLocalGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.UpdateSMBLocalGroups" }, UpdateSMBLocalGroupsInput, UpdateSMBLocalGroupsOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a description of the gateway volumes specified in the request. This operation is
  * only supported in the cached volume gateway types.
@@ -1453,18 +1453,18 @@ export class ServiceUnavailableError extends S.TaggedError<ServiceUnavailableErr
  * The list of gateway volumes in the request must be from one gateway. In the response,
  * Storage Gateway returns volume information sorted by volume Amazon Resource Name
  * (ARN).
- */export const describeCachediSCSIVolumes = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.DescribeCachediSCSIVolumes" }, DescribeCachediSCSIVolumesInput, DescribeCachediSCSIVolumesOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeCachediSCSIVolumes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.DescribeCachediSCSIVolumes" }, DescribeCachediSCSIVolumesInput, DescribeCachediSCSIVolumesOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets the file system association information. This operation is only supported for FSx
  * File Gateways.
- */export const describeFileSystemAssociations = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.DescribeFileSystemAssociations" }, DescribeFileSystemAssociationsInput, DescribeFileSystemAssociationsOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeFileSystemAssociations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.DescribeFileSystemAssociations" }, DescribeFileSystemAssociationsInput, DescribeFileSystemAssociationsOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a description of virtual tape library (VTL) devices for the specified tape
  * gateway. In the response, Storage Gateway returns VTL device information.
  * 
  * 
  * This operation is only supported in the tape gateway type.
- */export const describeVTLDevices = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.DescribeVTLDevices" }, DescribeVTLDevicesInput, DescribeVTLDevicesOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeVTLDevices = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.DescribeVTLDevices" }, DescribeVTLDevicesInput, DescribeVTLDevicesOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Configures one or more gateway local disks as cache for a gateway. This operation is
  * only supported in the cached volume, tape, and file gateway type (see How Storage Gateway works (architecture).
@@ -1472,4 +1472,4 @@ export class ServiceUnavailableError extends S.TaggedError<ServiceUnavailableErr
  * 
  * In the request, you specify the gateway Amazon Resource Name (ARN) to which you want to
  * add cache, and one or more disk IDs that you want to configure as cache.
- */export const addCache = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.AddCache" }, AddCacheInput, AddCacheOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const addCache = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-06-30", uri: "/", method: "POST", sdkId: "Storage Gateway", sigV4ServiceName: "storagegateway", name: "StorageGateway_20130630.AddCache" }, AddCacheInput, AddCacheOutput, [InternalServerError, InvalidGatewayRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

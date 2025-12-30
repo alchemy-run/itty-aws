@@ -108,7 +108,7 @@ export class AttachmentSetSizeLimitExceeded extends S.TaggedError<AttachmentSetS
  * Business, Enterprise On-Ramp, or Enterprise Support plan, the
  * `SubscriptionRequiredException` error message appears. For
  * information about changing your support plan, see Amazon Web Services Support.
- */export const addCommunicationToCase = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-04-15", uri: "/", method: "POST", sdkId: "Support", sigV4ServiceName: "support", name: "AWSSupport_20130415.AddCommunicationToCase" }, AddCommunicationToCaseRequest, AddCommunicationToCaseResponse, [AttachmentSetExpired, AttachmentSetIdNotFound, CaseIdNotFound, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const addCommunicationToCase = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-04-15", uri: "/", method: "POST", sdkId: "Support", sigV4ServiceName: "support", name: "AWSSupport_20130415.AddCommunicationToCase" }, AddCommunicationToCaseRequest, AddCommunicationToCaseResponse, [AttachmentSetExpired, AttachmentSetIdNotFound, CaseIdNotFound, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the list of severity levels that you can assign to a support case. The
  * severity level for a case is also a field in the CaseDetails data type
@@ -127,7 +127,7 @@ export class AttachmentSetSizeLimitExceeded extends S.TaggedError<AttachmentSetS
  * Business, Enterprise On-Ramp, or Enterprise Support plan, the
  * `SubscriptionRequiredException` error message appears. For
  * information about changing your support plan, see Amazon Web Services Support.
- */export const describeSeverityLevels = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-04-15", uri: "/", method: "POST", sdkId: "Support", sigV4ServiceName: "support", name: "AWSSupport_20130415.DescribeSeverityLevels" }, DescribeSeverityLevelsRequest, DescribeSeverityLevelsResponse, [InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeSeverityLevels = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-04-15", uri: "/", method: "POST", sdkId: "Support", sigV4ServiceName: "support", name: "AWSSupport_20130415.DescribeSeverityLevels" }, DescribeSeverityLevelsRequest, DescribeSeverityLevelsResponse, [InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the refresh status of the Trusted Advisor checks that have the specified check
  * IDs. You can get the check IDs by calling the DescribeTrustedAdvisorChecks operation.
@@ -162,7 +162,7 @@ export class AttachmentSetSizeLimitExceeded extends S.TaggedError<AttachmentSetS
  * the Amazon Web Services Support API, you must use the US East (N. Virginia) endpoint. Currently, the US West (Oregon) and Europe (Ireland)
  * endpoints don't support the Trusted Advisor operations. For more information, see About the Amazon Web Services Support
  * API in the *Amazon Web Services Support User Guide*.
- */export const describeTrustedAdvisorCheckRefreshStatuses = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-04-15", uri: "/", method: "POST", sdkId: "Support", sigV4ServiceName: "support", name: "AWSSupport_20130415.DescribeTrustedAdvisorCheckRefreshStatuses" }, DescribeTrustedAdvisorCheckRefreshStatusesRequest, DescribeTrustedAdvisorCheckRefreshStatusesResponse, [InternalServerError, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeTrustedAdvisorCheckRefreshStatuses = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-04-15", uri: "/", method: "POST", sdkId: "Support", sigV4ServiceName: "support", name: "AWSSupport_20130415.DescribeTrustedAdvisorCheckRefreshStatuses" }, DescribeTrustedAdvisorCheckRefreshStatusesRequest, DescribeTrustedAdvisorCheckRefreshStatusesResponse, [InternalServerError, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about all available Trusted Advisor checks, including the name, ID,
  * category, description, and metadata. You must specify a language code.
@@ -200,7 +200,7 @@ export class AttachmentSetSizeLimitExceeded extends S.TaggedError<AttachmentSetS
  * the Amazon Web Services Support API, you must use the US East (N. Virginia) endpoint. Currently, the US West (Oregon) and Europe (Ireland)
  * endpoints don't support the Trusted Advisor operations. For more information, see About the Amazon Web Services Support
  * API in the *Amazon Web Services Support User Guide*.
- */export const describeTrustedAdvisorChecks = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-04-15", uri: "/", method: "POST", sdkId: "Support", sigV4ServiceName: "support", name: "AWSSupport_20130415.DescribeTrustedAdvisorChecks" }, DescribeTrustedAdvisorChecksRequest, DescribeTrustedAdvisorChecksResponse, [InternalServerError, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeTrustedAdvisorChecks = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-04-15", uri: "/", method: "POST", sdkId: "Support", sigV4ServiceName: "support", name: "AWSSupport_20130415.DescribeTrustedAdvisorChecks" }, DescribeTrustedAdvisorChecksRequest, DescribeTrustedAdvisorChecksResponse, [InternalServerError, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the results for the Trusted Advisor check summaries for the check IDs that you
  * specified. You can get the check IDs by calling the DescribeTrustedAdvisorChecks operation.
@@ -233,7 +233,7 @@ export class AttachmentSetSizeLimitExceeded extends S.TaggedError<AttachmentSetS
  * the Amazon Web Services Support API, you must use the US East (N. Virginia) endpoint. Currently, the US West (Oregon) and Europe (Ireland)
  * endpoints don't support the Trusted Advisor operations. For more information, see About the Amazon Web Services Support
  * API in the *Amazon Web Services Support User Guide*.
- */export const describeTrustedAdvisorCheckSummaries = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-04-15", uri: "/", method: "POST", sdkId: "Support", sigV4ServiceName: "support", name: "AWSSupport_20130415.DescribeTrustedAdvisorCheckSummaries" }, DescribeTrustedAdvisorCheckSummariesRequest, DescribeTrustedAdvisorCheckSummariesResponse, [InternalServerError, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeTrustedAdvisorCheckSummaries = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-04-15", uri: "/", method: "POST", sdkId: "Support", sigV4ServiceName: "support", name: "AWSSupport_20130415.DescribeTrustedAdvisorCheckSummaries" }, DescribeTrustedAdvisorCheckSummariesRequest, DescribeTrustedAdvisorCheckSummariesResponse, [InternalServerError, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Refreshes the Trusted Advisor check that you specify using the check ID. You can get the
  * check IDs by calling the DescribeTrustedAdvisorChecks
@@ -272,7 +272,7 @@ export class AttachmentSetSizeLimitExceeded extends S.TaggedError<AttachmentSetS
  * the Amazon Web Services Support API, you must use the US East (N. Virginia) endpoint. Currently, the US West (Oregon) and Europe (Ireland)
  * endpoints don't support the Trusted Advisor operations. For more information, see About the Amazon Web Services Support
  * API in the *Amazon Web Services Support User Guide*.
- */export const refreshTrustedAdvisorCheck = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-04-15", uri: "/", method: "POST", sdkId: "Support", sigV4ServiceName: "support", name: "AWSSupport_20130415.RefreshTrustedAdvisorCheck" }, RefreshTrustedAdvisorCheckRequest, RefreshTrustedAdvisorCheckResponse, [InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const refreshTrustedAdvisorCheck = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-04-15", uri: "/", method: "POST", sdkId: "Support", sigV4ServiceName: "support", name: "AWSSupport_20130415.RefreshTrustedAdvisorCheck" }, RefreshTrustedAdvisorCheckRequest, RefreshTrustedAdvisorCheckResponse, [InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Resolves a support case. This operation takes a `caseId` and returns the
  * initial and final state of the case.
@@ -290,7 +290,7 @@ export class AttachmentSetSizeLimitExceeded extends S.TaggedError<AttachmentSetS
  * Business, Enterprise On-Ramp, or Enterprise Support plan, the
  * `SubscriptionRequiredException` error message appears. For
  * information about changing your support plan, see Amazon Web Services Support.
- */export const resolveCase = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-04-15", uri: "/", method: "POST", sdkId: "Support", sigV4ServiceName: "support", name: "AWSSupport_20130415.ResolveCase" }, ResolveCaseRequest, ResolveCaseResponse, [CaseIdNotFound, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const resolveCase = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-04-15", uri: "/", method: "POST", sdkId: "Support", sigV4ServiceName: "support", name: "AWSSupport_20130415.ResolveCase" }, ResolveCaseRequest, ResolveCaseResponse, [CaseIdNotFound, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a case in the Amazon Web Services Support Center. This operation is similar to how you create a case
  * in the Amazon Web Services Support Center Create
@@ -334,7 +334,7 @@ export class AttachmentSetSizeLimitExceeded extends S.TaggedError<AttachmentSetS
  * Business, Enterprise On-Ramp, or Enterprise Support plan, the
  * `SubscriptionRequiredException` error message appears. For
  * information about changing your support plan, see Amazon Web Services Support.
- */export const createCase = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-04-15", uri: "/", method: "POST", sdkId: "Support", sigV4ServiceName: "support", name: "AWSSupport_20130415.CreateCase" }, CreateCaseRequest, CreateCaseResponse, [AttachmentSetExpired, AttachmentSetIdNotFound, CaseCreationLimitExceeded, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createCase = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-04-15", uri: "/", method: "POST", sdkId: "Support", sigV4ServiceName: "support", name: "AWSSupport_20130415.CreateCase" }, CreateCaseRequest, CreateCaseResponse, [AttachmentSetExpired, AttachmentSetIdNotFound, CaseCreationLimitExceeded, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the attachment that has the specified ID. Attachments can include screenshots,
  * error logs, or other files that describe your issue. Attachment IDs are generated by the
@@ -355,7 +355,7 @@ export class AttachmentSetSizeLimitExceeded extends S.TaggedError<AttachmentSetS
  * Business, Enterprise On-Ramp, or Enterprise Support plan, the
  * `SubscriptionRequiredException` error message appears. For
  * information about changing your support plan, see Amazon Web Services Support.
- */export const describeAttachment = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-04-15", uri: "/", method: "POST", sdkId: "Support", sigV4ServiceName: "support", name: "AWSSupport_20130415.DescribeAttachment" }, DescribeAttachmentRequest, DescribeAttachmentResponse, [AttachmentIdNotFound, DescribeAttachmentLimitExceeded, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeAttachment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-04-15", uri: "/", method: "POST", sdkId: "Support", sigV4ServiceName: "support", name: "AWSSupport_20130415.DescribeAttachment" }, DescribeAttachmentRequest, DescribeAttachmentResponse, [AttachmentIdNotFound, DescribeAttachmentLimitExceeded, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of cases that you specify by passing one or more case IDs. You can use
  * the `afterTime` and `beforeTime` parameters to filter the cases by
@@ -395,7 +395,7 @@ export class AttachmentSetSizeLimitExceeded extends S.TaggedError<AttachmentSetS
  * Business, Enterprise On-Ramp, or Enterprise Support plan, the
  * `SubscriptionRequiredException` error message appears. For
  * information about changing your support plan, see Amazon Web Services Support.
- */export const describeCases = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-04-15", uri: "/", method: "POST", sdkId: "Support", sigV4ServiceName: "support", name: "AWSSupport_20130415.DescribeCases" }, DescribeCasesRequest, DescribeCasesResponse, [CaseIdNotFound, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeCases = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-04-15", uri: "/", method: "POST", sdkId: "Support", sigV4ServiceName: "support", name: "AWSSupport_20130415.DescribeCases" }, DescribeCasesRequest, DescribeCasesResponse, [CaseIdNotFound, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns communications and attachments for one or more support cases. Use the
  * `afterTime` and `beforeTime` parameters to filter by date. You
@@ -425,7 +425,7 @@ export class AttachmentSetSizeLimitExceeded extends S.TaggedError<AttachmentSetS
  * Business, Enterprise On-Ramp, or Enterprise Support plan, the
  * `SubscriptionRequiredException` error message appears. For
  * information about changing your support plan, see Amazon Web Services Support.
- */export const describeCommunications = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-04-15", uri: "/", method: "POST", sdkId: "Support", sigV4ServiceName: "support", name: "AWSSupport_20130415.DescribeCommunications" }, DescribeCommunicationsRequest, DescribeCommunicationsResponse, [CaseIdNotFound, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeCommunications = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-04-15", uri: "/", method: "POST", sdkId: "Support", sigV4ServiceName: "support", name: "AWSSupport_20130415.DescribeCommunications" }, DescribeCommunicationsRequest, DescribeCommunicationsResponse, [CaseIdNotFound, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of CreateCaseOption types along with the
  * corresponding supported hours and language availability. You can specify the `language`
@@ -445,7 +445,7 @@ export class AttachmentSetSizeLimitExceeded extends S.TaggedError<AttachmentSetS
  * Business, Enterprise On-Ramp, or Enterprise Support plan, the
  * `SubscriptionRequiredException` error message appears. For
  * information about changing your support plan, see Amazon Web Services Support.
- */export const describeCreateCaseOptions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-04-15", uri: "/", method: "POST", sdkId: "Support", sigV4ServiceName: "support", name: "AWSSupport_20130415.DescribeCreateCaseOptions" }, DescribeCreateCaseOptionsRequest, DescribeCreateCaseOptionsResponse, [InternalServerError, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeCreateCaseOptions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-04-15", uri: "/", method: "POST", sdkId: "Support", sigV4ServiceName: "support", name: "AWSSupport_20130415.DescribeCreateCaseOptions" }, DescribeCreateCaseOptionsRequest, DescribeCreateCaseOptionsResponse, [InternalServerError, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the current list of Amazon Web Services services and a list of service categories for each
  * service. You then use service names and categories in your CreateCase
@@ -472,7 +472,7 @@ export class AttachmentSetSizeLimitExceeded extends S.TaggedError<AttachmentSetS
  * Business, Enterprise On-Ramp, or Enterprise Support plan, the
  * `SubscriptionRequiredException` error message appears. For
  * information about changing your support plan, see Amazon Web Services Support.
- */export const describeServices = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-04-15", uri: "/", method: "POST", sdkId: "Support", sigV4ServiceName: "support", name: "AWSSupport_20130415.DescribeServices" }, DescribeServicesRequest, DescribeServicesResponse, [InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeServices = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-04-15", uri: "/", method: "POST", sdkId: "Support", sigV4ServiceName: "support", name: "AWSSupport_20130415.DescribeServices" }, DescribeServicesRequest, DescribeServicesResponse, [InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of supported languages for a specified `categoryCode`,
  * `issueType` and `serviceCode`. The returned supported languages will
@@ -491,7 +491,7 @@ export class AttachmentSetSizeLimitExceeded extends S.TaggedError<AttachmentSetS
  * Business, Enterprise On-Ramp, or Enterprise Support plan, the
  * `SubscriptionRequiredException` error message appears. For
  * information about changing your support plan, see Amazon Web Services Support.
- */export const describeSupportedLanguages = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-04-15", uri: "/", method: "POST", sdkId: "Support", sigV4ServiceName: "support", name: "AWSSupport_20130415.DescribeSupportedLanguages" }, DescribeSupportedLanguagesRequest, DescribeSupportedLanguagesResponse, [InternalServerError, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeSupportedLanguages = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-04-15", uri: "/", method: "POST", sdkId: "Support", sigV4ServiceName: "support", name: "AWSSupport_20130415.DescribeSupportedLanguages" }, DescribeSupportedLanguagesRequest, DescribeSupportedLanguagesResponse, [InternalServerError, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Adds one or more attachments to an attachment set.
  * 
@@ -513,7 +513,7 @@ export class AttachmentSetSizeLimitExceeded extends S.TaggedError<AttachmentSetS
  * Business, Enterprise On-Ramp, or Enterprise Support plan, the
  * `SubscriptionRequiredException` error message appears. For
  * information about changing your support plan, see Amazon Web Services Support.
- */export const addAttachmentsToSet = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-04-15", uri: "/", method: "POST", sdkId: "Support", sigV4ServiceName: "support", name: "AWSSupport_20130415.AddAttachmentsToSet" }, AddAttachmentsToSetRequest, AddAttachmentsToSetResponse, [AttachmentLimitExceeded, AttachmentSetExpired, AttachmentSetIdNotFound, AttachmentSetSizeLimitExceeded, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const addAttachmentsToSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-04-15", uri: "/", method: "POST", sdkId: "Support", sigV4ServiceName: "support", name: "AWSSupport_20130415.AddAttachmentsToSet" }, AddAttachmentsToSetRequest, AddAttachmentsToSetResponse, [AttachmentLimitExceeded, AttachmentSetExpired, AttachmentSetIdNotFound, AttachmentSetSizeLimitExceeded, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the results of the Trusted Advisor check that has the specified check ID. You
  * can get the check IDs by calling the DescribeTrustedAdvisorChecks
@@ -587,4 +587,4 @@ export class AttachmentSetSizeLimitExceeded extends S.TaggedError<AttachmentSetS
  * the Amazon Web Services Support API, you must use the US East (N. Virginia) endpoint. Currently, the US West (Oregon) and Europe (Ireland)
  * endpoints don't support the Trusted Advisor operations. For more information, see About the Amazon Web Services Support
  * API in the *Amazon Web Services Support User Guide*.
- */export const describeTrustedAdvisorCheckResult = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-04-15", uri: "/", method: "POST", sdkId: "Support", sigV4ServiceName: "support", name: "AWSSupport_20130415.DescribeTrustedAdvisorCheckResult" }, DescribeTrustedAdvisorCheckResultRequest, DescribeTrustedAdvisorCheckResultResponse, [InternalServerError, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeTrustedAdvisorCheckResult = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-04-15", uri: "/", method: "POST", sdkId: "Support", sigV4ServiceName: "support", name: "AWSSupport_20130415.DescribeTrustedAdvisorCheckResult" }, DescribeTrustedAdvisorCheckResultRequest, DescribeTrustedAdvisorCheckResultResponse, [InternalServerError, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

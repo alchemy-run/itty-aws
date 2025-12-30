@@ -63,18 +63,18 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * Returns complete information about one link.
  * 
  * To use this operation, provide the link ARN. To retrieve a list of link ARNs, use ListLinks.
- */export const getLink = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-06-10", uri: "/GetLink", method: "POST", sdkId: "OAM", sigV4ServiceName: "oam", name: "oamservice.GetLink" }, GetLinkInput, GetLinkOutput, [InternalServiceFault, InvalidParameterException, MissingRequiredParameterException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getLink = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-06-10", uri: "/GetLink", method: "POST", sdkId: "OAM", sigV4ServiceName: "oam", name: "oamservice.GetLink" }, GetLinkInput, GetLinkOutput, [InternalServiceFault, InvalidParameterException, MissingRequiredParameterException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns complete information about one monitoring account sink.
  * 
  * To use this operation, provide the sink ARN. To retrieve a list of sink ARNs, use ListSinks.
- */export const getSink = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-06-10", uri: "/GetSink", method: "POST", sdkId: "OAM", sigV4ServiceName: "oam", name: "oamservice.GetSink" }, GetSinkInput, GetSinkOutput, [InternalServiceFault, InvalidParameterException, MissingRequiredParameterException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getSink = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-06-10", uri: "/GetSink", method: "POST", sdkId: "OAM", sigV4ServiceName: "oam", name: "oamservice.GetSink" }, GetSinkInput, GetSinkOutput, [InternalServiceFault, InvalidParameterException, MissingRequiredParameterException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the current sink policy attached to this sink. The sink policy specifies what accounts can attach to this sink as source accounts, and what types of data they can share.
- */export const getSinkPolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-06-10", uri: "/GetSinkPolicy", method: "POST", sdkId: "OAM", sigV4ServiceName: "oam", name: "oamservice.GetSinkPolicy" }, GetSinkPolicyInput, GetSinkPolicyOutput, [InternalServiceFault, InvalidParameterException, MissingRequiredParameterException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getSinkPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-06-10", uri: "/GetSinkPolicy", method: "POST", sdkId: "OAM", sigV4ServiceName: "oam", name: "oamservice.GetSinkPolicy" }, GetSinkPolicyInput, GetSinkPolicyOutput, [InternalServiceFault, InvalidParameterException, MissingRequiredParameterException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Displays the tags associated with a resource. Both sinks and links support tagging.
- */export const listTagsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-06-10", uri: "/tags/{ResourceArn}", method: "GET", sdkId: "OAM", sigV4ServiceName: "oam", name: "oamservice.ListTagsForResource" }, ListTagsForResourceInput, ListTagsForResourceOutput, [ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-06-10", uri: "/tags/{ResourceArn}", method: "GET", sdkId: "OAM", sigV4ServiceName: "oam", name: "oamservice.ListTagsForResource" }, ListTagsForResourceInput, ListTagsForResourceOutput, [ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates or updates the resource policy that grants permissions to source accounts to link to the monitoring account sink. When you create a sink policy, you can grant permissions to all accounts in an organization or to individual accounts.
  * 
@@ -94,41 +94,41 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * 
  * 
  * See the examples in this section to see how to specify permitted source accounts and data types.
- */export const putSinkPolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-06-10", uri: "/PutSinkPolicy", method: "POST", sdkId: "OAM", sigV4ServiceName: "oam", name: "oamservice.PutSinkPolicy" }, PutSinkPolicyInput, PutSinkPolicyOutput, [InternalServiceFault, InvalidParameterException, MissingRequiredParameterException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putSinkPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-06-10", uri: "/PutSinkPolicy", method: "POST", sdkId: "OAM", sigV4ServiceName: "oam", name: "oamservice.PutSinkPolicy" }, PutSinkPolicyInput, PutSinkPolicyOutput, [InternalServiceFault, InvalidParameterException, MissingRequiredParameterException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes one or more tags from the specified resource.
  * 
  * 
  * Unlike tagging permissions in other Amazon Web Services services, to tag or untag links and sinks you must have the `oam:ResourceTag` permission. The `iam:TagResource` permission does not allow you to tag and untag links and sinks.
- */export const untagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-06-10", uri: "/tags/{ResourceArn}", method: "DELETE", sdkId: "OAM", sigV4ServiceName: "oam", name: "oamservice.UntagResource" }, UntagResourceInput, UntagResourceOutput, [ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-06-10", uri: "/tags/{ResourceArn}", method: "DELETE", sdkId: "OAM", sigV4ServiceName: "oam", name: "oamservice.UntagResource" }, UntagResourceInput, UntagResourceOutput, [ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Use this operation to change what types of data are shared from a source account to its linked monitoring account sink. You can't change the sink or change the monitoring account with this operation.
  * 
  * When you update a link, you can optionally specify filters that specify which metric namespaces and which log groups are shared from the source account to the monitoring account.
  * 
  * To update the list of tags associated with the sink, use TagResource.
- */export const updateLink = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-06-10", uri: "/UpdateLink", method: "POST", sdkId: "OAM", sigV4ServiceName: "oam", name: "oamservice.UpdateLink" }, UpdateLinkInput, UpdateLinkOutput, [InternalServiceFault, InvalidParameterException, MissingRequiredParameterException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateLink = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-06-10", uri: "/UpdateLink", method: "POST", sdkId: "OAM", sigV4ServiceName: "oam", name: "oamservice.UpdateLink" }, UpdateLinkInput, UpdateLinkOutput, [InternalServiceFault, InvalidParameterException, MissingRequiredParameterException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a link between a monitoring account sink and a source account. You must run this operation in the source account.
- */export const deleteLink = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-06-10", uri: "/DeleteLink", method: "POST", sdkId: "OAM", sigV4ServiceName: "oam", name: "oamservice.DeleteLink" }, DeleteLinkInput, DeleteLinkOutput, [InternalServiceFault, InvalidParameterException, MissingRequiredParameterException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteLink = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-06-10", uri: "/DeleteLink", method: "POST", sdkId: "OAM", sigV4ServiceName: "oam", name: "oamservice.DeleteLink" }, DeleteLinkInput, DeleteLinkOutput, [InternalServiceFault, InvalidParameterException, MissingRequiredParameterException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a sink. You must delete all links to a sink before you can delete that sink.
- */export const deleteSink = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-06-10", uri: "/DeleteSink", method: "POST", sdkId: "OAM", sigV4ServiceName: "oam", name: "oamservice.DeleteSink" }, DeleteSinkInput, DeleteSinkOutput, [ConflictException, InternalServiceFault, InvalidParameterException, MissingRequiredParameterException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteSink = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-06-10", uri: "/DeleteSink", method: "POST", sdkId: "OAM", sigV4ServiceName: "oam", name: "oamservice.DeleteSink" }, DeleteSinkInput, DeleteSinkOutput, [ConflictException, InternalServiceFault, InvalidParameterException, MissingRequiredParameterException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of source account links that are linked to this monitoring account sink.
  * 
  * To use this operation, provide the sink ARN. To retrieve a list of sink ARNs, use ListSinks.
  * 
  * To find a list of links for one source account, use ListLinks.
- */export const listAttachedLinks = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-06-10", uri: "/ListAttachedLinks", method: "POST", sdkId: "OAM", sigV4ServiceName: "oam", name: "oamservice.ListAttachedLinks" }, ListAttachedLinksInput, ListAttachedLinksOutput, [InternalServiceFault, InvalidParameterException, MissingRequiredParameterException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listAttachedLinks = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-06-10", uri: "/ListAttachedLinks", method: "POST", sdkId: "OAM", sigV4ServiceName: "oam", name: "oamservice.ListAttachedLinks" }, ListAttachedLinksInput, ListAttachedLinksOutput, [InternalServiceFault, InvalidParameterException, MissingRequiredParameterException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Use this operation in a source account to return a list of links to monitoring account sinks that this source account has.
  * 
  * To find a list of links for one monitoring account sink, use ListAttachedLinks from within the monitoring account.
- */export const listLinks = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-06-10", uri: "/ListLinks", method: "POST", sdkId: "OAM", sigV4ServiceName: "oam", name: "oamservice.ListLinks" }, ListLinksInput, ListLinksOutput, [InternalServiceFault, InvalidParameterException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listLinks = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-06-10", uri: "/ListLinks", method: "POST", sdkId: "OAM", sigV4ServiceName: "oam", name: "oamservice.ListLinks" }, ListLinksInput, ListLinksOutput, [InternalServiceFault, InvalidParameterException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Use this operation in a monitoring account to return the list of sinks created in that account.
- */export const listSinks = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-06-10", uri: "/ListSinks", method: "POST", sdkId: "OAM", sigV4ServiceName: "oam", name: "oamservice.ListSinks" }, ListSinksInput, ListSinksOutput, [InternalServiceFault, InvalidParameterException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listSinks = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-06-10", uri: "/ListSinks", method: "POST", sdkId: "OAM", sigV4ServiceName: "oam", name: "oamservice.ListSinks" }, ListSinksInput, ListSinksOutput, [InternalServiceFault, InvalidParameterException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Assigns one or more tags (key-value pairs) to the specified resource. Both sinks and links can be tagged.
  * 
@@ -142,7 +142,7 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * 
  * 
  * Unlike tagging permissions in other Amazon Web Services services, to tag or untag links and sinks you must have the `oam:ResourceTag` permission. The `iam:ResourceTag` permission does not allow you to tag and untag links and sinks.
- */export const tagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-06-10", uri: "/tags/{ResourceArn}", method: "PUT", sdkId: "OAM", sigV4ServiceName: "oam", name: "oamservice.TagResource" }, TagResourceInput, TagResourceOutput, [ResourceNotFoundException, TooManyTagsException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-06-10", uri: "/tags/{ResourceArn}", method: "PUT", sdkId: "OAM", sigV4ServiceName: "oam", name: "oamservice.TagResource" }, TagResourceInput, TagResourceOutput, [ResourceNotFoundException, TooManyTagsException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a link between a source account and a sink that you have created in a monitoring account. After the link is created, data is sent from the source account to the monitoring account. When you create a link, you can optionally specify filters that specify which metric namespaces and which log groups are shared from the source account to the monitoring account.
  * 
@@ -153,11 +153,11 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * Each monitoring account can be linked to as many as 100,000 source accounts.
  * 
  * Each source account can be linked to as many as five monitoring accounts.
- */export const createLink = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-06-10", uri: "/CreateLink", method: "POST", sdkId: "OAM", sigV4ServiceName: "oam", name: "oamservice.CreateLink" }, CreateLinkInput, CreateLinkOutput, [ConflictException, InternalServiceFault, InvalidParameterException, MissingRequiredParameterException, ServiceQuotaExceededException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createLink = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-06-10", uri: "/CreateLink", method: "POST", sdkId: "OAM", sigV4ServiceName: "oam", name: "oamservice.CreateLink" }, CreateLinkInput, CreateLinkOutput, [ConflictException, InternalServiceFault, InvalidParameterException, MissingRequiredParameterException, ServiceQuotaExceededException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Use this to create a *sink* in the current account, so that it can be used as a monitoring account in CloudWatch cross-account observability. A sink is a resource that represents an attachment point in a monitoring account. Source accounts can link to the sink to send observability data.
  * 
  * After you create a sink, you must create a sink policy that allows source accounts to attach to it. For more information, see PutSinkPolicy.
  * 
  * Each account can contain one sink per Region. If you delete a sink, you can then create a new one in that Region.
- */export const createSink = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-06-10", uri: "/CreateSink", method: "POST", sdkId: "OAM", sigV4ServiceName: "oam", name: "oamservice.CreateSink" }, CreateSinkInput, CreateSinkOutput, [ConflictException, InternalServiceFault, InvalidParameterException, MissingRequiredParameterException, ServiceQuotaExceededException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createSink = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-06-10", uri: "/CreateSink", method: "POST", sdkId: "OAM", sigV4ServiceName: "oam", name: "oamservice.CreateSink" }, CreateSinkInput, CreateSinkOutput, [ConflictException, InternalServiceFault, InvalidParameterException, MissingRequiredParameterException, ServiceQuotaExceededException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

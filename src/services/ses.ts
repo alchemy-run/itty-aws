@@ -251,14 +251,14 @@ export class ProductionAccessNotGrantedException extends S.TaggedError<Productio
  * 
  * 
  * You can execute this operation no more than once per second.
- */export const deleteCustomVerificationEmailTemplate = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.DeleteCustomVerificationEmailTemplate" }, DeleteCustomVerificationEmailTemplateRequest, S.Struct({}), []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deleteCustomVerificationEmailTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.DeleteCustomVerificationEmailTemplate" }, DeleteCustomVerificationEmailTemplateRequest, S.Struct({}), []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes the specified identity (an email address or a domain) from the list of
  * verified identities.
  * 
  * 
  * You can execute this operation no more than once per second.
- */export const deleteIdentity = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.DeleteIdentity" }, DeleteIdentityRequest, DeleteIdentityResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deleteIdentity = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.DeleteIdentity" }, DeleteIdentityRequest, DeleteIdentityResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes the specified sending authorization policy for the given identity (an email
  * address or a domain). This operation returns successfully even if a policy with the
@@ -280,7 +280,7 @@ export class ProductionAccessNotGrantedException extends S.TaggedError<Productio
  * 
  * 
  * You can execute this operation no more than once per second.
- */export const deleteIdentityPolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.DeleteIdentityPolicy" }, DeleteIdentityPolicyRequest, DeleteIdentityPolicyResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deleteIdentityPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.DeleteIdentityPolicy" }, DeleteIdentityPolicyRequest, DeleteIdentityPolicyResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes the specified IP address filter.
  * 
@@ -290,29 +290,29 @@ export class ProductionAccessNotGrantedException extends S.TaggedError<Productio
  * 
  * 
  * You can execute this operation no more than once per second.
- */export const deleteReceiptFilter = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.DeleteReceiptFilter" }, DeleteReceiptFilterRequest, DeleteReceiptFilterResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deleteReceiptFilter = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.DeleteReceiptFilter" }, DeleteReceiptFilterRequest, DeleteReceiptFilterResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes an email template.
  * 
  * 
  * You can execute this operation no more than once per second.
- */export const deleteTemplate = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.DeleteTemplate" }, DeleteTemplateRequest, DeleteTemplateResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deleteTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.DeleteTemplate" }, DeleteTemplateRequest, DeleteTemplateResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deprecated. Use the `DeleteIdentity` operation to delete email addresses
  * and domains.
- */export const deleteVerifiedEmailAddress = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.DeleteVerifiedEmailAddress" }, DeleteVerifiedEmailAddressRequest, S.Struct({}), []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deleteVerifiedEmailAddress = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.DeleteVerifiedEmailAddress" }, DeleteVerifiedEmailAddressRequest, S.Struct({}), []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns the email sending status of the Amazon SES account for the current Region.
  * 
  * 
  * You can execute this operation no more than once per second.
- */export const getAccountSendingEnabled = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.GetAccountSendingEnabled" }, S.Struct({}), GetAccountSendingEnabledResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const getAccountSendingEnabled = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.GetAccountSendingEnabled" }, S.Struct({}), GetAccountSendingEnabledResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Provides the sending limits for the Amazon SES account.
  * 
  * 
  * You can execute this operation no more than once per second.
- */export const getSendQuota = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.GetSendQuota" }, S.Struct({}), GetSendQuotaResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const getSendQuota = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.GetSendQuota" }, S.Struct({}), GetSendQuotaResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Lists the IP address filters associated with your Amazon Web Services account in the current
  * Amazon Web Services Region.
@@ -323,11 +323,11 @@ export class ProductionAccessNotGrantedException extends S.TaggedError<Productio
  * 
  * 
  * You can execute this operation no more than once per second.
- */export const listReceiptFilters = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.ListReceiptFilters" }, ListReceiptFiltersRequest, ListReceiptFiltersResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const listReceiptFilters = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.ListReceiptFilters" }, ListReceiptFiltersRequest, ListReceiptFiltersResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deprecated. Use the `ListIdentities` operation to list the email addresses
  * and domains associated with your account.
- */export const listVerifiedEmailAddresses = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.ListVerifiedEmailAddresses" }, S.Struct({}), ListVerifiedEmailAddressesResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const listVerifiedEmailAddresses = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.ListVerifiedEmailAddresses" }, S.Struct({}), ListVerifiedEmailAddressesResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Sets the specified receipt rule set as the active receipt rule set.
  * 
@@ -345,7 +345,7 @@ export class ProductionAccessNotGrantedException extends S.TaggedError<Productio
  * 
  * 
  * You can execute this operation no more than once per second.
- */export const setActiveReceiptRuleSet = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.SetActiveReceiptRuleSet" }, SetActiveReceiptRuleSetRequest, SetActiveReceiptRuleSetResponse, [RuleSetDoesNotExistException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const setActiveReceiptRuleSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.SetActiveReceiptRuleSet" }, SetActiveReceiptRuleSetRequest, SetActiveReceiptRuleSetResponse, [RuleSetDoesNotExistException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Enables or disables Easy DKIM signing of email sent from an identity. If Easy DKIM
  * signing is enabled for a domain, then Amazon SES uses DKIM to sign all email that it sends
@@ -371,7 +371,7 @@ export class ProductionAccessNotGrantedException extends S.TaggedError<Productio
  * 
  * For more information about Easy DKIM signing, go to the Amazon SES Developer
  * Guide.
- */export const setIdentityDkimEnabled = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.SetIdentityDkimEnabled" }, SetIdentityDkimEnabledRequest, SetIdentityDkimEnabledResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const setIdentityDkimEnabled = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.SetIdentityDkimEnabled" }, SetIdentityDkimEnabledRequest, SetIdentityDkimEnabledResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Given an identity (an email address or a domain), enables or disables whether Amazon SES
  * forwards bounce and complaint notifications as email. Feedback forwarding can only be
@@ -392,7 +392,7 @@ export class ProductionAccessNotGrantedException extends S.TaggedError<Productio
  * 
  * For more information about using notifications with Amazon SES, see the Amazon SES
  * Developer Guide.
- */export const setIdentityFeedbackForwardingEnabled = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.SetIdentityFeedbackForwardingEnabled" }, SetIdentityFeedbackForwardingEnabledRequest, SetIdentityFeedbackForwardingEnabledResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const setIdentityFeedbackForwardingEnabled = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.SetIdentityFeedbackForwardingEnabled" }, SetIdentityFeedbackForwardingEnabledRequest, SetIdentityFeedbackForwardingEnabledResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Given an identity (an email address or a domain), sets whether Amazon SES includes the
  * original email headers in the Amazon Simple Notification Service (Amazon SNS) notifications of a specified
@@ -404,7 +404,7 @@ export class ProductionAccessNotGrantedException extends S.TaggedError<Productio
  * 
  * For more information about using notifications with Amazon SES, see the Amazon SES
  * Developer Guide.
- */export const setIdentityHeadersInNotificationsEnabled = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.SetIdentityHeadersInNotificationsEnabled" }, SetIdentityHeadersInNotificationsEnabledRequest, SetIdentityHeadersInNotificationsEnabledResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const setIdentityHeadersInNotificationsEnabled = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.SetIdentityHeadersInNotificationsEnabled" }, SetIdentityHeadersInNotificationsEnabledRequest, SetIdentityHeadersInNotificationsEnabledResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Enables or disables the custom MAIL FROM domain setup for a verified identity (an
  * email address or a domain).
@@ -421,7 +421,7 @@ export class ProductionAccessNotGrantedException extends S.TaggedError<Productio
  * 
  * 
  * You can execute this operation no more than once per second.
- */export const setIdentityMailFromDomain = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.SetIdentityMailFromDomain" }, SetIdentityMailFromDomainRequest, SetIdentityMailFromDomainResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const setIdentityMailFromDomain = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.SetIdentityMailFromDomain" }, SetIdentityMailFromDomainRequest, SetIdentityMailFromDomainResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Sets an Amazon Simple Notification Service (Amazon SNS) topic to use when delivering notifications. When you use
  * this operation, you specify a verified identity, such as an email address or domain.
@@ -436,7 +436,7 @@ export class ProductionAccessNotGrantedException extends S.TaggedError<Productio
  * 
  * For more information about feedback notification, see the Amazon SES
  * Developer Guide.
- */export const setIdentityNotificationTopic = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.SetIdentityNotificationTopic" }, SetIdentityNotificationTopicRequest, SetIdentityNotificationTopicResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const setIdentityNotificationTopic = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.SetIdentityNotificationTopic" }, SetIdentityNotificationTopicRequest, SetIdentityNotificationTopicResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Sets the position of the specified receipt rule in the receipt rule set.
  * 
@@ -446,7 +446,7 @@ export class ProductionAccessNotGrantedException extends S.TaggedError<Productio
  * 
  * 
  * You can execute this operation no more than once per second.
- */export const setReceiptRulePosition = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.SetReceiptRulePosition" }, SetReceiptRulePositionRequest, SetReceiptRulePositionResponse, [RuleDoesNotExistException, RuleSetDoesNotExistException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const setReceiptRulePosition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.SetReceiptRulePosition" }, SetReceiptRulePositionRequest, SetReceiptRulePositionResponse, [RuleDoesNotExistException, RuleSetDoesNotExistException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Enables or disables email sending across your entire Amazon SES account in the current
  * Amazon Web Services Region. You can use this operation in conjunction with Amazon CloudWatch alarms to
@@ -456,7 +456,7 @@ export class ProductionAccessNotGrantedException extends S.TaggedError<Productio
  * 
  * 
  * You can execute this operation no more than once per second.
- */export const updateAccountSendingEnabled = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.UpdateAccountSendingEnabled" }, UpdateAccountSendingEnabledRequest, S.Struct({}), []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const updateAccountSendingEnabled = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.UpdateAccountSendingEnabled" }, UpdateAccountSendingEnabledRequest, S.Struct({}), []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Enables or disables the publishing of reputation metrics for emails sent using a
  * specific configuration set in a given Amazon Web Services Region. Reputation metrics include bounce
@@ -465,7 +465,7 @@ export class ProductionAccessNotGrantedException extends S.TaggedError<Productio
  * 
  * 
  * You can execute this operation no more than once per second.
- */export const updateConfigurationSetReputationMetricsEnabled = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.UpdateConfigurationSetReputationMetricsEnabled" }, UpdateConfigurationSetReputationMetricsEnabledRequest, S.Struct({}), [ConfigurationSetDoesNotExistException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const updateConfigurationSetReputationMetricsEnabled = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.UpdateConfigurationSetReputationMetricsEnabled" }, UpdateConfigurationSetReputationMetricsEnabledRequest, S.Struct({}), [ConfigurationSetDoesNotExistException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Enables or disables email sending for messages sent using a specific configuration set
  * in a given Amazon Web Services Region. You can use this operation in conjunction with Amazon CloudWatch alarms
@@ -475,11 +475,11 @@ export class ProductionAccessNotGrantedException extends S.TaggedError<Productio
  * 
  * 
  * You can execute this operation no more than once per second.
- */export const updateConfigurationSetSendingEnabled = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.UpdateConfigurationSetSendingEnabled" }, UpdateConfigurationSetSendingEnabledRequest, S.Struct({}), [ConfigurationSetDoesNotExistException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const updateConfigurationSetSendingEnabled = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.UpdateConfigurationSetSendingEnabled" }, UpdateConfigurationSetSendingEnabledRequest, S.Struct({}), [ConfigurationSetDoesNotExistException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deprecated. Use the `VerifyEmailIdentity` operation to verify a new email
  * address.
- */export const verifyEmailAddress = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.VerifyEmailAddress" }, VerifyEmailAddressRequest, S.Struct({}), []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const verifyEmailAddress = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.VerifyEmailAddress" }, VerifyEmailAddressRequest, S.Struct({}), []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Adds an email address to the list of identities for your Amazon SES account in the current
  * Amazon Web Services Region and attempts to verify it. As a result of executing this operation, a
@@ -487,7 +487,7 @@ export class ProductionAccessNotGrantedException extends S.TaggedError<Productio
  * 
  * 
  * You can execute this operation no more than once per second.
- */export const verifyEmailIdentity = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.VerifyEmailIdentity" }, VerifyEmailIdentityRequest, VerifyEmailIdentityResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const verifyEmailIdentity = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.VerifyEmailIdentity" }, VerifyEmailIdentityRequest, VerifyEmailIdentityResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Creates a receipt rule set by cloning an existing one. All receipt rules and
  * configurations are copied to the new receipt rule set and are completely independent of
@@ -498,7 +498,7 @@ export class ProductionAccessNotGrantedException extends S.TaggedError<Productio
  * 
  * 
  * You can execute this operation no more than once per second.
- */export const cloneReceiptRuleSet = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.CloneReceiptRuleSet" }, CloneReceiptRuleSetRequest, CloneReceiptRuleSetResponse, [AlreadyExistsException, LimitExceededException, RuleSetDoesNotExistException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const cloneReceiptRuleSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.CloneReceiptRuleSet" }, CloneReceiptRuleSetRequest, CloneReceiptRuleSetResponse, [AlreadyExistsException, LimitExceededException, RuleSetDoesNotExistException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Creates an empty receipt rule set.
  * 
@@ -507,7 +507,7 @@ export class ProductionAccessNotGrantedException extends S.TaggedError<Productio
  * 
  * 
  * You can execute this operation no more than once per second.
- */export const createReceiptRuleSet = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.CreateReceiptRuleSet" }, CreateReceiptRuleSetRequest, CreateReceiptRuleSetResponse, [AlreadyExistsException, LimitExceededException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const createReceiptRuleSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.CreateReceiptRuleSet" }, CreateReceiptRuleSetRequest, CreateReceiptRuleSetResponse, [AlreadyExistsException, LimitExceededException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Creates an email template. Email templates enable you to send personalized email to
  * one or more destinations in a single operation. For more information, see the Amazon SES
@@ -515,7 +515,7 @@ export class ProductionAccessNotGrantedException extends S.TaggedError<Productio
  * 
  * 
  * You can execute this operation no more than once per second.
- */export const createTemplate = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.CreateTemplate" }, CreateTemplateRequest, CreateTemplateResponse, [AlreadyExistsException, InvalidTemplateException, LimitExceededException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const createTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.CreateTemplate" }, CreateTemplateRequest, CreateTemplateResponse, [AlreadyExistsException, InvalidTemplateException, LimitExceededException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes a configuration set. Configuration sets enable you to publish email sending
  * events. For information about using configuration sets, see the Amazon SES
@@ -523,7 +523,7 @@ export class ProductionAccessNotGrantedException extends S.TaggedError<Productio
  * 
  * 
  * You can execute this operation no more than once per second.
- */export const deleteConfigurationSet = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.DeleteConfigurationSet" }, DeleteConfigurationSetRequest, DeleteConfigurationSetResponse, [ConfigurationSetDoesNotExistException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deleteConfigurationSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.DeleteConfigurationSet" }, DeleteConfigurationSetRequest, DeleteConfigurationSetResponse, [ConfigurationSetDoesNotExistException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes a configuration set event destination. Configuration set event destinations
  * are associated with configuration sets, which enable you to publish email sending
@@ -532,7 +532,7 @@ export class ProductionAccessNotGrantedException extends S.TaggedError<Productio
  * 
  * 
  * You can execute this operation no more than once per second.
- */export const deleteConfigurationSetEventDestination = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.DeleteConfigurationSetEventDestination" }, DeleteConfigurationSetEventDestinationRequest, DeleteConfigurationSetEventDestinationResponse, [ConfigurationSetDoesNotExistException, EventDestinationDoesNotExistException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deleteConfigurationSetEventDestination = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.DeleteConfigurationSetEventDestination" }, DeleteConfigurationSetEventDestinationRequest, DeleteConfigurationSetEventDestinationResponse, [ConfigurationSetDoesNotExistException, EventDestinationDoesNotExistException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes an association between a configuration set and a custom domain for open and
  * click event tracking.
@@ -548,7 +548,7 @@ export class ProductionAccessNotGrantedException extends S.TaggedError<Productio
  * Deleting this kind of association results in emails sent using the specified
  * configuration set to capture open and click events using the standard,
  * Amazon SES-operated domains.
- */export const deleteConfigurationSetTrackingOptions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.DeleteConfigurationSetTrackingOptions" }, DeleteConfigurationSetTrackingOptionsRequest, DeleteConfigurationSetTrackingOptionsResponse, [ConfigurationSetDoesNotExistException, TrackingOptionsDoesNotExistException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deleteConfigurationSetTrackingOptions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.DeleteConfigurationSetTrackingOptions" }, DeleteConfigurationSetTrackingOptionsRequest, DeleteConfigurationSetTrackingOptionsResponse, [ConfigurationSetDoesNotExistException, TrackingOptionsDoesNotExistException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes the specified receipt rule.
  * 
@@ -558,7 +558,7 @@ export class ProductionAccessNotGrantedException extends S.TaggedError<Productio
  * 
  * 
  * You can execute this operation no more than once per second.
- */export const deleteReceiptRule = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.DeleteReceiptRule" }, DeleteReceiptRuleRequest, DeleteReceiptRuleResponse, [RuleSetDoesNotExistException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deleteReceiptRule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.DeleteReceiptRule" }, DeleteReceiptRuleRequest, DeleteReceiptRuleResponse, [RuleSetDoesNotExistException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes the specified receipt rule set and all of the receipt rules it
  * contains.
@@ -576,7 +576,7 @@ export class ProductionAccessNotGrantedException extends S.TaggedError<Productio
  * 
  * 
  * You can execute this operation no more than once per second.
- */export const deleteReceiptRuleSet = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.DeleteReceiptRuleSet" }, DeleteReceiptRuleSetRequest, DeleteReceiptRuleSetResponse, [CannotDeleteException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deleteReceiptRuleSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.DeleteReceiptRuleSet" }, DeleteReceiptRuleSetRequest, DeleteReceiptRuleSetResponse, [CannotDeleteException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns the metadata and receipt rules for the receipt rule set that is currently
  * active.
@@ -586,7 +586,7 @@ export class ProductionAccessNotGrantedException extends S.TaggedError<Productio
  * 
  * 
  * You can execute this operation no more than once per second.
- */export const describeActiveReceiptRuleSet = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.DescribeActiveReceiptRuleSet" }, DescribeActiveReceiptRuleSetRequest, DescribeActiveReceiptRuleSetResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeActiveReceiptRuleSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.DescribeActiveReceiptRuleSet" }, DescribeActiveReceiptRuleSetRequest, DescribeActiveReceiptRuleSetResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns the details of the specified receipt rule.
  * 
@@ -596,7 +596,7 @@ export class ProductionAccessNotGrantedException extends S.TaggedError<Productio
  * 
  * 
  * You can execute this operation no more than once per second.
- */export const describeReceiptRule = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.DescribeReceiptRule" }, DescribeReceiptRuleRequest, DescribeReceiptRuleResponse, [RuleDoesNotExistException, RuleSetDoesNotExistException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeReceiptRule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.DescribeReceiptRule" }, DescribeReceiptRuleRequest, DescribeReceiptRuleResponse, [RuleDoesNotExistException, RuleSetDoesNotExistException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns the details of the specified receipt rule set.
  * 
@@ -606,7 +606,7 @@ export class ProductionAccessNotGrantedException extends S.TaggedError<Productio
  * 
  * 
  * You can execute this operation no more than once per second.
- */export const describeReceiptRuleSet = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.DescribeReceiptRuleSet" }, DescribeReceiptRuleSetRequest, DescribeReceiptRuleSetResponse, [RuleSetDoesNotExistException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeReceiptRuleSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.DescribeReceiptRuleSet" }, DescribeReceiptRuleSetRequest, DescribeReceiptRuleSetResponse, [RuleSetDoesNotExistException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns the custom email verification template for the template name you
  * specify.
@@ -618,7 +618,7 @@ export class ProductionAccessNotGrantedException extends S.TaggedError<Productio
  * 
  * 
  * You can execute this operation no more than once per second.
- */export const getCustomVerificationEmailTemplate = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.GetCustomVerificationEmailTemplate" }, GetCustomVerificationEmailTemplateRequest, GetCustomVerificationEmailTemplateResponse, [CustomVerificationEmailTemplateDoesNotExistException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const getCustomVerificationEmailTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.GetCustomVerificationEmailTemplate" }, GetCustomVerificationEmailTemplateRequest, GetCustomVerificationEmailTemplateResponse, [CustomVerificationEmailTemplateDoesNotExistException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Provides sending statistics for the current Amazon Web Services Region. The result is a list of data
  * points, representing the last two weeks of sending activity. Each data point in the list
@@ -626,7 +626,7 @@ export class ProductionAccessNotGrantedException extends S.TaggedError<Productio
  * 
  * 
  * You can execute this operation no more than once per second.
- */export const getSendStatistics = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.GetSendStatistics" }, S.Struct({}), GetSendStatisticsResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const getSendStatistics = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.GetSendStatistics" }, S.Struct({}), GetSendStatisticsResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Provides a list of the configuration sets associated with your Amazon SES account in the
  * current Amazon Web Services Region. For information about using configuration sets, see Monitoring
@@ -641,7 +641,7 @@ export class ProductionAccessNotGrantedException extends S.TaggedError<Productio
  * then execute the `ListConfigurationSets` operation again, passing the
  * `NextToken` parameter and the value of the NextToken element to retrieve
  * additional results.
- */export const listConfigurationSets = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.ListConfigurationSets" }, ListConfigurationSetsRequest, ListConfigurationSetsResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const listConfigurationSets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.ListConfigurationSets" }, ListConfigurationSetsRequest, ListConfigurationSetsResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns a list containing all of the identities (email addresses and domains) for your
  * Amazon Web Services account in the current Amazon Web Services Region, regardless of verification status.
@@ -660,7 +660,7 @@ export class ProductionAccessNotGrantedException extends S.TaggedError<Productio
  * calls; however, if you didn't provide the `IdentityType` parameter in the
  * original call, then continue to not provide it for successive pagination calls.
  * Using this protocol will ensure consistent results.
- */export const listIdentities = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.ListIdentities" }, ListIdentitiesRequest, ListIdentitiesResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const listIdentities = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.ListIdentities" }, ListIdentitiesRequest, ListIdentitiesResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns a list of sending authorization policies that are attached to the given
  * identity (an email address or a domain). This operation returns only a list. To get the
@@ -682,7 +682,7 @@ export class ProductionAccessNotGrantedException extends S.TaggedError<Productio
  * 
  * 
  * You can execute this operation no more than once per second.
- */export const listIdentityPolicies = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.ListIdentityPolicies" }, ListIdentityPoliciesRequest, ListIdentityPoliciesResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const listIdentityPolicies = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.ListIdentityPolicies" }, ListIdentityPoliciesRequest, ListIdentityPoliciesResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Lists the receipt rule sets that exist under your Amazon Web Services account in the current
  * Amazon Web Services Region. If there are additional receipt rule sets to be retrieved, you receive a
@@ -695,7 +695,7 @@ export class ProductionAccessNotGrantedException extends S.TaggedError<Productio
  * 
  * 
  * You can execute this operation no more than once per second.
- */export const listReceiptRuleSets = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.ListReceiptRuleSets" }, ListReceiptRuleSetsRequest, ListReceiptRuleSetsResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const listReceiptRuleSets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.ListReceiptRuleSets" }, ListReceiptRuleSetsRequest, ListReceiptRuleSetsResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Adds or updates a sending authorization policy for the specified identity (an email
  * address or a domain).
@@ -716,7 +716,7 @@ export class ProductionAccessNotGrantedException extends S.TaggedError<Productio
  * 
  * 
  * You can execute this operation no more than once per second.
- */export const putIdentityPolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.PutIdentityPolicy" }, PutIdentityPolicyRequest, PutIdentityPolicyResponse, [InvalidPolicyException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const putIdentityPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.PutIdentityPolicy" }, PutIdentityPolicyRequest, PutIdentityPolicyResponse, [InvalidPolicyException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Reorders the receipt rules within a receipt rule set.
  * 
@@ -734,7 +734,7 @@ export class ProductionAccessNotGrantedException extends S.TaggedError<Productio
  * 
  * 
  * You can execute this operation no more than once per second.
- */export const reorderReceiptRuleSet = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.ReorderReceiptRuleSet" }, ReorderReceiptRuleSetRequest, ReorderReceiptRuleSetResponse, [RuleDoesNotExistException, RuleSetDoesNotExistException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const reorderReceiptRuleSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.ReorderReceiptRuleSet" }, ReorderReceiptRuleSetRequest, ReorderReceiptRuleSetResponse, [RuleDoesNotExistException, RuleSetDoesNotExistException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Modifies an association between a configuration set and a custom domain for open and
  * click event tracking.
@@ -743,7 +743,7 @@ export class ProductionAccessNotGrantedException extends S.TaggedError<Productio
  * By default, images and links used for tracking open and click events are hosted on
  * domains operated by Amazon SES. You can configure a subdomain of your own to handle these
  * events. For information about using custom domains, see the Amazon SES Developer Guide.
- */export const updateConfigurationSetTrackingOptions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.UpdateConfigurationSetTrackingOptions" }, UpdateConfigurationSetTrackingOptionsRequest, UpdateConfigurationSetTrackingOptionsResponse, [ConfigurationSetDoesNotExistException, InvalidTrackingOptionsException, TrackingOptionsDoesNotExistException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const updateConfigurationSetTrackingOptions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.UpdateConfigurationSetTrackingOptions" }, UpdateConfigurationSetTrackingOptionsRequest, UpdateConfigurationSetTrackingOptionsResponse, [ConfigurationSetDoesNotExistException, InvalidTrackingOptionsException, TrackingOptionsDoesNotExistException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Updates an existing custom verification email template.
  * 
@@ -754,7 +754,7 @@ export class ProductionAccessNotGrantedException extends S.TaggedError<Productio
  * 
  * 
  * You can execute this operation no more than once per second.
- */export const updateCustomVerificationEmailTemplate = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.UpdateCustomVerificationEmailTemplate" }, UpdateCustomVerificationEmailTemplateRequest, S.Struct({}), [CustomVerificationEmailInvalidContentException, CustomVerificationEmailTemplateDoesNotExistException, FromEmailAddressNotVerifiedException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const updateCustomVerificationEmailTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.UpdateCustomVerificationEmailTemplate" }, UpdateCustomVerificationEmailTemplateRequest, S.Struct({}), [CustomVerificationEmailInvalidContentException, CustomVerificationEmailTemplateDoesNotExistException, FromEmailAddressNotVerifiedException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Updates an email template. Email templates enable you to send personalized email to
  * one or more destinations in a single operation. For more information, see the Amazon SES
@@ -762,7 +762,7 @@ export class ProductionAccessNotGrantedException extends S.TaggedError<Productio
  * 
  * 
  * You can execute this operation no more than once per second.
- */export const updateTemplate = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.UpdateTemplate" }, UpdateTemplateRequest, UpdateTemplateResponse, [InvalidTemplateException, TemplateDoesNotExistException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const updateTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.UpdateTemplate" }, UpdateTemplateRequest, UpdateTemplateResponse, [InvalidTemplateException, TemplateDoesNotExistException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns a set of DKIM tokens for a domain identity.
  * 
@@ -816,7 +816,7 @@ export class ProductionAccessNotGrantedException extends S.TaggedError<Productio
  * 
  * 
  * You can execute this operation no more than once per second.
- */export const verifyDomainDkim = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.VerifyDomainDkim" }, VerifyDomainDkimRequest, VerifyDomainDkimResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const verifyDomainDkim = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.VerifyDomainDkim" }, VerifyDomainDkimRequest, VerifyDomainDkimResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Adds a domain to the list of identities for your Amazon SES account in the current
  * Amazon Web Services Region and attempts to verify it. For more information about verifying domains,
@@ -826,7 +826,7 @@ export class ProductionAccessNotGrantedException extends S.TaggedError<Productio
  * 
  * 
  * You can execute this operation no more than once per second.
- */export const verifyDomainIdentity = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.VerifyDomainIdentity" }, VerifyDomainIdentityRequest, VerifyDomainIdentityResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const verifyDomainIdentity = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.VerifyDomainIdentity" }, VerifyDomainIdentityRequest, VerifyDomainIdentityResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Creates an association between a configuration set and a custom domain for open and
  * click event tracking.
@@ -835,7 +835,7 @@ export class ProductionAccessNotGrantedException extends S.TaggedError<Productio
  * By default, images and links used for tracking open and click events are hosted on
  * domains operated by Amazon SES. You can configure a subdomain of your own to handle these
  * events. For information about using custom domains, see the Amazon SES Developer Guide.
- */export const createConfigurationSetTrackingOptions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.CreateConfigurationSetTrackingOptions" }, CreateConfigurationSetTrackingOptionsRequest, CreateConfigurationSetTrackingOptionsResponse, [ConfigurationSetDoesNotExistException, InvalidTrackingOptionsException, TrackingOptionsAlreadyExistsException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const createConfigurationSetTrackingOptions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.CreateConfigurationSetTrackingOptions" }, CreateConfigurationSetTrackingOptionsRequest, CreateConfigurationSetTrackingOptionsResponse, [ConfigurationSetDoesNotExistException, InvalidTrackingOptionsException, TrackingOptionsAlreadyExistsException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Creates a new custom verification email template.
  * 
@@ -846,7 +846,7 @@ export class ProductionAccessNotGrantedException extends S.TaggedError<Productio
  * 
  * 
  * You can execute this operation no more than once per second.
- */export const createCustomVerificationEmailTemplate = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.CreateCustomVerificationEmailTemplate" }, CreateCustomVerificationEmailTemplateRequest, S.Struct({}), [CustomVerificationEmailInvalidContentException, CustomVerificationEmailTemplateAlreadyExistsException, FromEmailAddressNotVerifiedException, LimitExceededException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const createCustomVerificationEmailTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.CreateCustomVerificationEmailTemplate" }, CreateCustomVerificationEmailTemplateRequest, S.Struct({}), [CustomVerificationEmailInvalidContentException, CustomVerificationEmailTemplateAlreadyExistsException, FromEmailAddressNotVerifiedException, LimitExceededException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Creates a new IP address filter.
  * 
@@ -856,7 +856,7 @@ export class ProductionAccessNotGrantedException extends S.TaggedError<Productio
  * 
  * 
  * You can execute this operation no more than once per second.
- */export const createReceiptFilter = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.CreateReceiptFilter" }, CreateReceiptFilterRequest, CreateReceiptFilterResponse, [AlreadyExistsException, LimitExceededException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const createReceiptFilter = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.CreateReceiptFilter" }, CreateReceiptFilterRequest, CreateReceiptFilterResponse, [AlreadyExistsException, LimitExceededException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns the details of the specified configuration set. For information about using
  * configuration sets, see the Amazon SES Developer
@@ -864,7 +864,7 @@ export class ProductionAccessNotGrantedException extends S.TaggedError<Productio
  * 
  * 
  * You can execute this operation no more than once per second.
- */export const describeConfigurationSet = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.DescribeConfigurationSet" }, DescribeConfigurationSetRequest, DescribeConfigurationSetResponse, [ConfigurationSetDoesNotExistException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeConfigurationSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.DescribeConfigurationSet" }, DescribeConfigurationSetRequest, DescribeConfigurationSetResponse, [ConfigurationSetDoesNotExistException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns the requested sending authorization policies for the given identity (an email
  * address or a domain). The policies are returned as a map of policy names to policy
@@ -886,14 +886,14 @@ export class ProductionAccessNotGrantedException extends S.TaggedError<Productio
  * 
  * 
  * You can execute this operation no more than once per second.
- */export const getIdentityPolicies = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.GetIdentityPolicies" }, GetIdentityPoliciesRequest, GetIdentityPoliciesResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const getIdentityPolicies = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.GetIdentityPolicies" }, GetIdentityPoliciesRequest, GetIdentityPoliciesResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Displays the template object (which includes the Subject line, HTML part and text
  * part) for the template you specify.
  * 
  * 
  * You can execute this operation no more than once per second.
- */export const getTemplate = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.GetTemplate" }, GetTemplateRequest, GetTemplateResponse, [TemplateDoesNotExistException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const getTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.GetTemplate" }, GetTemplateRequest, GetTemplateResponse, [TemplateDoesNotExistException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Lists the existing custom verification email templates for your account in the current
  * Amazon Web Services Region.
@@ -905,17 +905,17 @@ export class ProductionAccessNotGrantedException extends S.TaggedError<Productio
  * 
  * 
  * You can execute this operation no more than once per second.
- */export const listCustomVerificationEmailTemplates = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.ListCustomVerificationEmailTemplates" }, ListCustomVerificationEmailTemplatesRequest, ListCustomVerificationEmailTemplatesResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const listCustomVerificationEmailTemplates = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.ListCustomVerificationEmailTemplates" }, ListCustomVerificationEmailTemplatesRequest, ListCustomVerificationEmailTemplatesResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Lists the email templates present in your Amazon SES account in the current
  * Amazon Web Services Region.
  * 
  * 
  * You can execute this operation no more than once per second.
- */export const listTemplates = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.ListTemplates" }, ListTemplatesRequest, ListTemplatesResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const listTemplates = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.ListTemplates" }, ListTemplatesRequest, ListTemplatesResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Adds or updates the delivery options for a configuration set.
- */export const putConfigurationSetDeliveryOptions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.PutConfigurationSetDeliveryOptions" }, PutConfigurationSetDeliveryOptionsRequest, PutConfigurationSetDeliveryOptionsResponse, [ConfigurationSetDoesNotExistException, InvalidDeliveryOptionsException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const putConfigurationSetDeliveryOptions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.PutConfigurationSetDeliveryOptions" }, PutConfigurationSetDeliveryOptionsRequest, PutConfigurationSetDeliveryOptionsResponse, [ConfigurationSetDoesNotExistException, InvalidDeliveryOptionsException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Creates a configuration set.
  * 
@@ -926,7 +926,7 @@ export class ProductionAccessNotGrantedException extends S.TaggedError<Productio
  * 
  * 
  * You can execute this operation no more than once per second.
- */export const createConfigurationSet = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.CreateConfigurationSet" }, CreateConfigurationSetRequest, CreateConfigurationSetResponse, [ConfigurationSetAlreadyExistsException, InvalidConfigurationSetException, LimitExceededException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const createConfigurationSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.CreateConfigurationSet" }, CreateConfigurationSetRequest, CreateConfigurationSetResponse, [ConfigurationSetAlreadyExistsException, InvalidConfigurationSetException, LimitExceededException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Creates a receipt rule.
  * 
@@ -936,7 +936,7 @@ export class ProductionAccessNotGrantedException extends S.TaggedError<Productio
  * 
  * 
  * You can execute this operation no more than once per second.
- */export const createReceiptRule = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.CreateReceiptRule" }, CreateReceiptRuleRequest, CreateReceiptRuleResponse, [AlreadyExistsException, InvalidLambdaFunctionException, InvalidS3ConfigurationException, InvalidSnsTopicException, LimitExceededException, RuleDoesNotExistException, RuleSetDoesNotExistException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const createReceiptRule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.CreateReceiptRule" }, CreateReceiptRuleRequest, CreateReceiptRuleResponse, [AlreadyExistsException, InvalidLambdaFunctionException, InvalidS3ConfigurationException, InvalidSnsTopicException, LimitExceededException, RuleDoesNotExistException, RuleSetDoesNotExistException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns the current status of Easy DKIM signing for an entity. For domain name
  * identities, this operation also returns the DKIM tokens that are required for Easy DKIM
@@ -972,7 +972,7 @@ export class ProductionAccessNotGrantedException extends S.TaggedError<Productio
  * 
  * For more information about creating DNS records using DKIM tokens, go to the Amazon SES
  * Developer Guide.
- */export const getIdentityDkimAttributes = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.GetIdentityDkimAttributes" }, GetIdentityDkimAttributesRequest, GetIdentityDkimAttributesResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const getIdentityDkimAttributes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.GetIdentityDkimAttributes" }, GetIdentityDkimAttributesRequest, GetIdentityDkimAttributesResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns the custom MAIL FROM attributes for a list of identities (email addresses :
  * domains).
@@ -980,7 +980,7 @@ export class ProductionAccessNotGrantedException extends S.TaggedError<Productio
  * 
  * This operation is throttled at one request per second and can only get custom MAIL
  * FROM attributes for up to 100 identities at a time.
- */export const getIdentityMailFromDomainAttributes = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.GetIdentityMailFromDomainAttributes" }, GetIdentityMailFromDomainAttributesRequest, GetIdentityMailFromDomainAttributesResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const getIdentityMailFromDomainAttributes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.GetIdentityMailFromDomainAttributes" }, GetIdentityMailFromDomainAttributesRequest, GetIdentityMailFromDomainAttributesResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Given a list of verified identities (email addresses and/or domains), returns a
  * structure describing identity notification attributes.
@@ -992,7 +992,7 @@ export class ProductionAccessNotGrantedException extends S.TaggedError<Productio
  * 
  * For more information about using notifications with Amazon SES, see the Amazon SES
  * Developer Guide.
- */export const getIdentityNotificationAttributes = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.GetIdentityNotificationAttributes" }, GetIdentityNotificationAttributesRequest, GetIdentityNotificationAttributesResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const getIdentityNotificationAttributes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.GetIdentityNotificationAttributes" }, GetIdentityNotificationAttributesRequest, GetIdentityNotificationAttributesResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Given a list of identities (email addresses and/or domains), returns the verification
  * status and (for domain identities) the verification token for each identity.
@@ -1016,7 +1016,7 @@ export class ProductionAccessNotGrantedException extends S.TaggedError<Productio
  * 
  * This operation is throttled at one request per second and can only get verification
  * attributes for up to 100 identities at a time.
- */export const getIdentityVerificationAttributes = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.GetIdentityVerificationAttributes" }, GetIdentityVerificationAttributesRequest, GetIdentityVerificationAttributesResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const getIdentityVerificationAttributes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.GetIdentityVerificationAttributes" }, GetIdentityVerificationAttributesRequest, GetIdentityVerificationAttributesResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Generates and sends a bounce message to the sender of an email you received through
  * Amazon SES. You can only use this operation on an email up to 24 hours after you receive
@@ -1036,7 +1036,7 @@ export class ProductionAccessNotGrantedException extends S.TaggedError<Productio
  * 
  * 
  * You can execute this operation no more than once per second.
- */export const sendBounce = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.SendBounce" }, SendBounceRequest, SendBounceResponse, [MessageRejected]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const sendBounce = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.SendBounce" }, SendBounceRequest, SendBounceResponse, [MessageRejected]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Composes an email message to multiple destinations. The message body is created using
  * an email template.
@@ -1088,7 +1088,7 @@ export class ProductionAccessNotGrantedException extends S.TaggedError<Productio
  * 
  * - The number of destinations you can contact in a single call can be limited by
  * your account's maximum sending rate.
- */export const sendBulkTemplatedEmail = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.SendBulkTemplatedEmail" }, SendBulkTemplatedEmailRequest, SendBulkTemplatedEmailResponse, [AccountSendingPausedException, ConfigurationSetDoesNotExistException, ConfigurationSetSendingPausedException, MailFromDomainNotVerifiedException, MessageRejected, TemplateDoesNotExistException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const sendBulkTemplatedEmail = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.SendBulkTemplatedEmail" }, SendBulkTemplatedEmailRequest, SendBulkTemplatedEmailResponse, [AccountSendingPausedException, ConfigurationSetDoesNotExistException, ConfigurationSetSendingPausedException, MailFromDomainNotVerifiedException, MessageRejected, TemplateDoesNotExistException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Composes an email message and immediately queues it for sending. To send email using
  * this operation, your message must meet the following requirements:
@@ -1140,7 +1140,7 @@ export class ProductionAccessNotGrantedException extends S.TaggedError<Productio
  * emails you can send in a 24-hour period (your *sending quota*).
  * For more information about sending quotas in Amazon SES, see Managing Your Amazon SES Sending
  * Limits in the *Amazon SES Developer Guide.*
- */export const sendEmail = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.SendEmail" }, SendEmailRequest, SendEmailResponse, [AccountSendingPausedException, ConfigurationSetDoesNotExistException, ConfigurationSetSendingPausedException, MailFromDomainNotVerifiedException, MessageRejected]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const sendEmail = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.SendEmail" }, SendEmailRequest, SendEmailResponse, [AccountSendingPausedException, ConfigurationSetDoesNotExistException, ConfigurationSetSendingPausedException, MailFromDomainNotVerifiedException, MessageRejected]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Composes an email message and immediately queues it for sending.
  * 
@@ -1266,7 +1266,7 @@ export class ProductionAccessNotGrantedException extends S.TaggedError<Productio
  * quota). For more information about sending quotas in Amazon SES, see
  * Managing Your Amazon SES Sending Limits in the Amazon SES Developer
  * Guide.
- */export const sendRawEmail = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.SendRawEmail" }, SendRawEmailRequest, SendRawEmailResponse, [AccountSendingPausedException, ConfigurationSetDoesNotExistException, ConfigurationSetSendingPausedException, MailFromDomainNotVerifiedException, MessageRejected]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const sendRawEmail = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.SendRawEmail" }, SendRawEmailRequest, SendRawEmailResponse, [AccountSendingPausedException, ConfigurationSetDoesNotExistException, ConfigurationSetSendingPausedException, MailFromDomainNotVerifiedException, MessageRejected]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Composes an email message using an email template and immediately queues it for
  * sending.
@@ -1330,14 +1330,14 @@ export class ProductionAccessNotGrantedException extends S.TaggedError<Productio
  * For these reasons, we highly recommend that you set up Amazon SES to send you
  * notifications when Rendering Failure events occur. For more information, see Sending Personalized Email Using the Amazon SES API in the
  * *Amazon Simple Email Service Developer Guide*.
- */export const sendTemplatedEmail = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.SendTemplatedEmail" }, SendTemplatedEmailRequest, SendTemplatedEmailResponse, [AccountSendingPausedException, ConfigurationSetDoesNotExistException, ConfigurationSetSendingPausedException, MailFromDomainNotVerifiedException, MessageRejected, TemplateDoesNotExistException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const sendTemplatedEmail = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.SendTemplatedEmail" }, SendTemplatedEmailRequest, SendTemplatedEmailResponse, [AccountSendingPausedException, ConfigurationSetDoesNotExistException, ConfigurationSetSendingPausedException, MailFromDomainNotVerifiedException, MessageRejected, TemplateDoesNotExistException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Creates a preview of the MIME content of an email when provided with a template and a
  * set of replacement data.
  * 
  * 
  * You can execute this operation no more than once per second.
- */export const testRenderTemplate = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.TestRenderTemplate" }, TestRenderTemplateRequest, TestRenderTemplateResponse, [InvalidRenderingParameterException, MissingRenderingAttributeException, TemplateDoesNotExistException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const testRenderTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.TestRenderTemplate" }, TestRenderTemplateRequest, TestRenderTemplateResponse, [InvalidRenderingParameterException, MissingRenderingAttributeException, TemplateDoesNotExistException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Updates the event destination of a configuration set. Event destinations are
  * associated with configuration sets, which enable you to publish email sending events to
@@ -1357,7 +1357,7 @@ export class ProductionAccessNotGrantedException extends S.TaggedError<Productio
  * 
  * 
  * You can execute this operation no more than once per second.
- */export const updateConfigurationSetEventDestination = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.UpdateConfigurationSetEventDestination" }, UpdateConfigurationSetEventDestinationRequest, UpdateConfigurationSetEventDestinationResponse, [ConfigurationSetDoesNotExistException, EventDestinationDoesNotExistException, InvalidCloudWatchDestinationException, InvalidFirehoseDestinationException, InvalidSNSDestinationException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const updateConfigurationSetEventDestination = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.UpdateConfigurationSetEventDestination" }, UpdateConfigurationSetEventDestinationRequest, UpdateConfigurationSetEventDestinationResponse, [ConfigurationSetDoesNotExistException, EventDestinationDoesNotExistException, InvalidCloudWatchDestinationException, InvalidFirehoseDestinationException, InvalidSNSDestinationException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Updates a receipt rule.
  * 
@@ -1367,7 +1367,7 @@ export class ProductionAccessNotGrantedException extends S.TaggedError<Productio
  * 
  * 
  * You can execute this operation no more than once per second.
- */export const updateReceiptRule = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.UpdateReceiptRule" }, UpdateReceiptRuleRequest, UpdateReceiptRuleResponse, [InvalidLambdaFunctionException, InvalidS3ConfigurationException, InvalidSnsTopicException, LimitExceededException, RuleDoesNotExistException, RuleSetDoesNotExistException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const updateReceiptRule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.UpdateReceiptRule" }, UpdateReceiptRuleRequest, UpdateReceiptRuleResponse, [InvalidLambdaFunctionException, InvalidS3ConfigurationException, InvalidSnsTopicException, LimitExceededException, RuleDoesNotExistException, RuleSetDoesNotExistException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Creates a configuration set event destination.
  * 
@@ -1387,7 +1387,7 @@ export class ProductionAccessNotGrantedException extends S.TaggedError<Productio
  * 
  * 
  * You can execute this operation no more than once per second.
- */export const createConfigurationSetEventDestination = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.CreateConfigurationSetEventDestination" }, CreateConfigurationSetEventDestinationRequest, CreateConfigurationSetEventDestinationResponse, [ConfigurationSetDoesNotExistException, EventDestinationAlreadyExistsException, InvalidCloudWatchDestinationException, InvalidFirehoseDestinationException, InvalidSNSDestinationException, LimitExceededException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const createConfigurationSetEventDestination = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.CreateConfigurationSetEventDestination" }, CreateConfigurationSetEventDestinationRequest, CreateConfigurationSetEventDestinationResponse, [ConfigurationSetDoesNotExistException, EventDestinationAlreadyExistsException, InvalidCloudWatchDestinationException, InvalidFirehoseDestinationException, InvalidSNSDestinationException, LimitExceededException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Adds an email address to the list of identities for your Amazon SES account in the current
  * Amazon Web Services Region and attempts to verify it. As a result of executing this operation, a
@@ -1402,4 +1402,4 @@ export class ProductionAccessNotGrantedException extends S.TaggedError<Productio
  * 
  * 
  * You can execute this operation no more than once per second.
- */export const sendCustomVerificationEmail = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.SendCustomVerificationEmail" }, SendCustomVerificationEmailRequest, SendCustomVerificationEmailResponse, [ConfigurationSetDoesNotExistException, CustomVerificationEmailTemplateDoesNotExistException, FromEmailAddressNotVerifiedException, MessageRejected, ProductionAccessNotGrantedException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const sendCustomVerificationEmail = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.SendCustomVerificationEmail" }, SendCustomVerificationEmailRequest, SendCustomVerificationEmailResponse, [ConfigurationSetDoesNotExistException, CustomVerificationEmailTemplateDoesNotExistException, FromEmailAddressNotVerifiedException, MessageRejected, ProductionAccessNotGrantedException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);

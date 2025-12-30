@@ -173,7 +173,7 @@ export class ServiceUnavailableException extends S.TaggedError<ServiceUnavailabl
  * 
  * 
  * This operation has a limit of five transactions per second per account.
- */export const untagDeliveryStream = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-08-04", uri: "/", method: "POST", sdkId: "Firehose", sigV4ServiceName: "firehose", name: "Firehose_20150804.UntagDeliveryStream" }, UntagDeliveryStreamInput, UntagDeliveryStreamOutput, [InvalidArgumentException, LimitExceededException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const untagDeliveryStream = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-08-04", uri: "/", method: "POST", sdkId: "Firehose", sigV4ServiceName: "firehose", name: "Firehose_20150804.UntagDeliveryStream" }, UntagDeliveryStreamInput, UntagDeliveryStreamOutput, [InvalidArgumentException, LimitExceededException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a Firehose stream and its data.
  * 
@@ -194,7 +194,7 @@ export class ServiceUnavailableException extends S.TaggedError<ServiceUnavailabl
  * Removal of a Firehose stream that is in the `DELETING` state is a low priority operation for the service. A stream may remain in the
  * `DELETING` state for several minutes. Therefore, as a best practice, applications should not wait for streams in the `DELETING` state
  * to be removed.
- */export const deleteDeliveryStream = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-08-04", uri: "/", method: "POST", sdkId: "Firehose", sigV4ServiceName: "firehose", name: "Firehose_20150804.DeleteDeliveryStream" }, DeleteDeliveryStreamInput, DeleteDeliveryStreamOutput, [ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteDeliveryStream = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-08-04", uri: "/", method: "POST", sdkId: "Firehose", sigV4ServiceName: "firehose", name: "Firehose_20150804.DeleteDeliveryStream" }, DeleteDeliveryStreamInput, DeleteDeliveryStreamOutput, [ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists your Firehose streams in alphabetical order of their names.
  * 
@@ -206,11 +206,11 @@ export class ServiceUnavailableException extends S.TaggedError<ServiceUnavailabl
  * there are more Firehose streams to list, you can request them by calling this operation
  * again and setting the `ExclusiveStartDeliveryStreamName` parameter to the name
  * of the last Firehose stream returned in the last call.
- */export const listDeliveryStreams = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-08-04", uri: "/", method: "POST", sdkId: "Firehose", sigV4ServiceName: "firehose", name: "Firehose_20150804.ListDeliveryStreams" }, ListDeliveryStreamsInput, ListDeliveryStreamsOutput, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listDeliveryStreams = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-08-04", uri: "/", method: "POST", sdkId: "Firehose", sigV4ServiceName: "firehose", name: "Firehose_20150804.ListDeliveryStreams" }, ListDeliveryStreamsInput, ListDeliveryStreamsOutput, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the tags for the specified Firehose stream. This operation has a limit of five
  * transactions per second per account.
- */export const listTagsForDeliveryStream = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-08-04", uri: "/", method: "POST", sdkId: "Firehose", sigV4ServiceName: "firehose", name: "Firehose_20150804.ListTagsForDeliveryStream" }, ListTagsForDeliveryStreamInput, ListTagsForDeliveryStreamOutput, [InvalidArgumentException, LimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listTagsForDeliveryStream = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-08-04", uri: "/", method: "POST", sdkId: "Firehose", sigV4ServiceName: "firehose", name: "Firehose_20150804.ListTagsForDeliveryStream" }, ListTagsForDeliveryStreamInput, ListTagsForDeliveryStreamOutput, [InvalidArgumentException, LimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Disables server-side encryption (SSE) for the Firehose stream.
  * 
@@ -239,7 +239,7 @@ export class ServiceUnavailableException extends S.TaggedError<ServiceUnavailabl
  * `StartDeliveryStreamEncryption` 13 times and
  * `StopDeliveryStreamEncryption` 12 times for the same Firehose stream in a
  * 24-hour period.
- */export const stopDeliveryStreamEncryption = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-08-04", uri: "/", method: "POST", sdkId: "Firehose", sigV4ServiceName: "firehose", name: "Firehose_20150804.StopDeliveryStreamEncryption" }, StopDeliveryStreamEncryptionInput, StopDeliveryStreamEncryptionOutput, [InvalidArgumentException, LimitExceededException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const stopDeliveryStreamEncryption = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-08-04", uri: "/", method: "POST", sdkId: "Firehose", sigV4ServiceName: "firehose", name: "Firehose_20150804.StopDeliveryStreamEncryption" }, StopDeliveryStreamEncryptionInput, StopDeliveryStreamEncryptionOutput, [InvalidArgumentException, LimitExceededException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Adds or updates tags for the specified Firehose stream. A tag is a key-value pair
  * that you can define and assign to Amazon Web Services resources. If you specify a tag that
@@ -255,7 +255,7 @@ export class ServiceUnavailableException extends S.TaggedError<ServiceUnavailabl
  * 
  * 
  * This operation has a limit of five transactions per second per account.
- */export const tagDeliveryStream = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-08-04", uri: "/", method: "POST", sdkId: "Firehose", sigV4ServiceName: "firehose", name: "Firehose_20150804.TagDeliveryStream" }, TagDeliveryStreamInput, TagDeliveryStreamOutput, [InvalidArgumentException, LimitExceededException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagDeliveryStream = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-08-04", uri: "/", method: "POST", sdkId: "Firehose", sigV4ServiceName: "firehose", name: "Firehose_20150804.TagDeliveryStream" }, TagDeliveryStreamInput, TagDeliveryStreamOutput, [InvalidArgumentException, LimitExceededException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Enables server-side encryption (SSE) for the Firehose stream.
  * 
@@ -311,7 +311,7 @@ export class ServiceUnavailableException extends S.TaggedError<ServiceUnavailabl
  * `StartDeliveryStreamEncryption` 13 times and
  * `StopDeliveryStreamEncryption` 12 times for the same Firehose stream in a
  * 24-hour period.
- */export const startDeliveryStreamEncryption = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-08-04", uri: "/", method: "POST", sdkId: "Firehose", sigV4ServiceName: "firehose", name: "Firehose_20150804.StartDeliveryStreamEncryption" }, StartDeliveryStreamEncryptionInput, StartDeliveryStreamEncryptionOutput, [InvalidArgumentException, InvalidKMSResourceException, LimitExceededException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startDeliveryStreamEncryption = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-08-04", uri: "/", method: "POST", sdkId: "Firehose", sigV4ServiceName: "firehose", name: "Firehose_20150804.StartDeliveryStreamEncryption" }, StartDeliveryStreamEncryptionInput, StartDeliveryStreamEncryptionOutput, [InvalidArgumentException, InvalidKMSResourceException, LimitExceededException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the specified destination of the specified Firehose stream.
  * 
@@ -346,7 +346,7 @@ export class ServiceUnavailableException extends S.TaggedError<ServiceUnavailabl
  * configuration only if the existing configuration has a version ID that matches. After the
  * update is applied successfully, the version ID is updated, and can be retrieved using DescribeDeliveryStream. Use the new version ID to set
  * `CurrentDeliveryStreamVersionId` in the next call.
- */export const updateDestination = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-08-04", uri: "/", method: "POST", sdkId: "Firehose", sigV4ServiceName: "firehose", name: "Firehose_20150804.UpdateDestination" }, UpdateDestinationInput, UpdateDestinationOutput, [ConcurrentModificationException, InvalidArgumentException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateDestination = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-08-04", uri: "/", method: "POST", sdkId: "Firehose", sigV4ServiceName: "firehose", name: "Firehose_20150804.UpdateDestination" }, UpdateDestinationInput, UpdateDestinationOutput, [ConcurrentModificationException, InvalidArgumentException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Writes a single data record into an Firehose stream. To
  * write multiple data records into a Firehose stream, use PutRecordBatch.
@@ -409,7 +409,7 @@ export class ServiceUnavailableException extends S.TaggedError<ServiceUnavailabl
  * 
  * Don't concatenate two or more base64 strings to form the data fields of your records.
  * Instead, concatenate the raw data, then perform base64 encoding.
- */export const putRecord = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-08-04", uri: "/", method: "POST", sdkId: "Firehose", sigV4ServiceName: "firehose", name: "Firehose_20150804.PutRecord" }, PutRecordInput, PutRecordOutput, [InvalidArgumentException, InvalidKMSResourceException, InvalidSourceException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putRecord = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-08-04", uri: "/", method: "POST", sdkId: "Firehose", sigV4ServiceName: "firehose", name: "Firehose_20150804.PutRecord" }, PutRecordInput, PutRecordOutput, [InvalidArgumentException, InvalidKMSResourceException, InvalidSourceException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Writes multiple data records into a Firehose stream in a single call, which can
  * achieve higher throughput per producer than when writing single records. To write single
@@ -496,7 +496,7 @@ export class ServiceUnavailableException extends S.TaggedError<ServiceUnavailabl
  * 
  * Don't concatenate two or more base64 strings to form the data fields of your records.
  * Instead, concatenate the raw data, then perform base64 encoding.
- */export const putRecordBatch = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-08-04", uri: "/", method: "POST", sdkId: "Firehose", sigV4ServiceName: "firehose", name: "Firehose_20150804.PutRecordBatch" }, PutRecordBatchInput, PutRecordBatchOutput, [InvalidArgumentException, InvalidKMSResourceException, InvalidSourceException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putRecordBatch = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-08-04", uri: "/", method: "POST", sdkId: "Firehose", sigV4ServiceName: "firehose", name: "Firehose_20150804.PutRecordBatch" }, PutRecordBatchInput, PutRecordBatchOutput, [InvalidArgumentException, InvalidKMSResourceException, InvalidSourceException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes the specified Firehose stream and its status. For example, after your
  * Firehose stream is created, call `DescribeDeliveryStream` to see whether the
@@ -507,7 +507,7 @@ export class ServiceUnavailableException extends S.TaggedError<ServiceUnavailabl
  * doesn't change, and you can't invoke CreateDeliveryStream again on it.
  * However, you can invoke the DeleteDeliveryStream operation to delete it.
  * If the status is `DELETING_FAILED`, you can force deletion by invoking DeleteDeliveryStream again but with DeleteDeliveryStreamInput$AllowForceDelete set to true.
- */export const describeDeliveryStream = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-08-04", uri: "/", method: "POST", sdkId: "Firehose", sigV4ServiceName: "firehose", name: "Firehose_20150804.DescribeDeliveryStream" }, DescribeDeliveryStreamInput, DescribeDeliveryStreamOutput, [ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeDeliveryStream = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-08-04", uri: "/", method: "POST", sdkId: "Firehose", sigV4ServiceName: "firehose", name: "Firehose_20150804.DescribeDeliveryStream" }, DescribeDeliveryStreamInput, DescribeDeliveryStreamOutput, [ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a Firehose stream.
  * 
@@ -598,4 +598,4 @@ export class ServiceUnavailableException extends S.TaggedError<ServiceUnavailabl
  * destination. The role should allow the Firehose principal to assume the role,
  * and the role should have permissions that allow the service to deliver the data. For more
  * information, see Grant Firehose Access to an Amazon S3 Destination in the *Amazon Firehose Developer Guide*.
- */export const createDeliveryStream = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-08-04", uri: "/", method: "POST", sdkId: "Firehose", sigV4ServiceName: "firehose", name: "Firehose_20150804.CreateDeliveryStream" }, CreateDeliveryStreamInput, CreateDeliveryStreamOutput, [InvalidArgumentException, InvalidKMSResourceException, LimitExceededException, ResourceInUseException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createDeliveryStream = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-08-04", uri: "/", method: "POST", sdkId: "Firehose", sigV4ServiceName: "firehose", name: "Firehose_20150804.CreateDeliveryStream" }, CreateDeliveryStreamInput, CreateDeliveryStreamOutput, [InvalidArgumentException, InvalidKMSResourceException, LimitExceededException, ResourceInUseException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

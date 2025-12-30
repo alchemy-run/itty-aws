@@ -186,13 +186,13 @@ export class DashboardInvalidInputError extends S.TaggedError<DashboardInvalidIn
 /**
  * Disables the actions for the specified alarms. When an alarm's actions are
  * disabled, the alarm actions do not execute when the alarm state changes.
- */export const disableAlarmActions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-08-01", uri: "/", method: "POST", sdkId: "CloudWatch", sigV4ServiceName: "monitoring", name: "GraniteServiceVersion20100801.DisableAlarmActions" }, DisableAlarmActionsInput, S.Struct({}), []), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const disableAlarmActions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-08-01", uri: "/", method: "POST", sdkId: "CloudWatch", sigV4ServiceName: "monitoring", name: "GraniteServiceVersion20100801.DisableAlarmActions" }, DisableAlarmActionsInput, S.Struct({}), []), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Enables the actions for the specified alarms.
- */export const enableAlarmActions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-08-01", uri: "/", method: "POST", sdkId: "CloudWatch", sigV4ServiceName: "monitoring", name: "GraniteServiceVersion20100801.EnableAlarmActions" }, EnableAlarmActionsInput, S.Struct({}), []), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const enableAlarmActions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-08-01", uri: "/", method: "POST", sdkId: "CloudWatch", sigV4ServiceName: "monitoring", name: "GraniteServiceVersion20100801.EnableAlarmActions" }, EnableAlarmActionsInput, S.Struct({}), []), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Stops the streaming of metrics for one or more of your metric streams.
- */export const stopMetricStreams = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-08-01", uri: "/", method: "POST", sdkId: "CloudWatch", sigV4ServiceName: "monitoring", name: "GraniteServiceVersion20100801.StopMetricStreams" }, StopMetricStreamsInput, StopMetricStreamsOutput, [InternalServiceFault, InvalidParameterValueException, MissingRequiredParameterException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const stopMetricStreams = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-08-01", uri: "/", method: "POST", sdkId: "CloudWatch", sigV4ServiceName: "monitoring", name: "GraniteServiceVersion20100801.StopMetricStreams" }, StopMetricStreamsInput, StopMetricStreamsOutput, [InternalServiceFault, InvalidParameterValueException, MissingRequiredParameterException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the specified alarms. You can delete up to 100 alarms in one operation.
  * However, this total can include no more than one composite alarm. For example, you could
@@ -222,10 +222,10 @@ export class DashboardInvalidInputError extends S.TaggedError<DashboardInvalidIn
  * 
  * Additionally, the evaluation of composite alarms stops if CloudWatch
  * detects a cycle in the evaluation path.
- */export const deleteAlarms = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-08-01", uri: "/", method: "POST", sdkId: "CloudWatch", sigV4ServiceName: "monitoring", name: "GraniteServiceVersion20100801.DeleteAlarms" }, DeleteAlarmsInput, S.Struct({}), [ResourceNotFound]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteAlarms = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-08-01", uri: "/", method: "POST", sdkId: "CloudWatch", sigV4ServiceName: "monitoring", name: "GraniteServiceVersion20100801.DeleteAlarms" }, DeleteAlarmsInput, S.Struct({}), [ResourceNotFound]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Permanently deletes the metric stream that you specify.
- */export const deleteMetricStream = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-08-01", uri: "/", method: "POST", sdkId: "CloudWatch", sigV4ServiceName: "monitoring", name: "GraniteServiceVersion20100801.DeleteMetricStream" }, DeleteMetricStreamInput, DeleteMetricStreamOutput, [InternalServiceFault, InvalidParameterValueException, MissingRequiredParameterException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteMetricStream = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-08-01", uri: "/", method: "POST", sdkId: "CloudWatch", sigV4ServiceName: "monitoring", name: "GraniteServiceVersion20100801.DeleteMetricStream" }, DeleteMetricStreamInput, DeleteMetricStreamOutput, [InternalServiceFault, InvalidParameterValueException, MissingRequiredParameterException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the alarms for the specified metric. To filter the results, specify a
  * statistic, period, or unit.
@@ -234,11 +234,11 @@ export class DashboardInvalidInputError extends S.TaggedError<DashboardInvalidIn
  * This operation retrieves only standard alarms that are based on the specified
  * metric. It does not return alarms based on math expressions that use the specified
  * metric, or composite alarms that use the specified metric.
- */export const describeAlarmsForMetric = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-08-01", uri: "/", method: "POST", sdkId: "CloudWatch", sigV4ServiceName: "monitoring", name: "GraniteServiceVersion20100801.DescribeAlarmsForMetric" }, DescribeAlarmsForMetricInput, DescribeAlarmsForMetricOutput, []), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeAlarmsForMetric = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-08-01", uri: "/", method: "POST", sdkId: "CloudWatch", sigV4ServiceName: "monitoring", name: "GraniteServiceVersion20100801.DescribeAlarmsForMetric" }, DescribeAlarmsForMetricInput, DescribeAlarmsForMetricOutput, []), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Disables the specified Contributor Insights rules. When rules are disabled, they do
  * not analyze log groups and do not incur costs.
- */export const disableInsightRules = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-08-01", uri: "/", method: "POST", sdkId: "CloudWatch", sigV4ServiceName: "monitoring", name: "GraniteServiceVersion20100801.DisableInsightRules" }, DisableInsightRulesInput, DisableInsightRulesOutput, [InvalidParameterValueException, MissingRequiredParameterException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const disableInsightRules = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-08-01", uri: "/", method: "POST", sdkId: "CloudWatch", sigV4ServiceName: "monitoring", name: "GraniteServiceVersion20100801.DisableInsightRules" }, DisableInsightRulesInput, DisableInsightRulesOutput, [InvalidParameterValueException, MissingRequiredParameterException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Displays the details of the dashboard that you specify.
  * 
@@ -246,10 +246,10 @@ export class DashboardInvalidInputError extends S.TaggedError<DashboardInvalidIn
  * To copy an existing dashboard, use `GetDashboard`, and then use the data
  * returned within `DashboardBody` as the template for the new dashboard when
  * you call `PutDashboard` to create the copy.
- */export const getDashboard = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-08-01", uri: "/", method: "POST", sdkId: "CloudWatch", sigV4ServiceName: "monitoring", name: "GraniteServiceVersion20100801.GetDashboard" }, GetDashboardInput, GetDashboardOutput, [DashboardNotFoundError, InternalServiceFault, InvalidParameterValueException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getDashboard = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-08-01", uri: "/", method: "POST", sdkId: "CloudWatch", sigV4ServiceName: "monitoring", name: "GraniteServiceVersion20100801.GetDashboard" }, GetDashboardInput, GetDashboardOutput, [DashboardNotFoundError, InternalServiceFault, InvalidParameterValueException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about the metric stream that you specify.
- */export const getMetricStream = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-08-01", uri: "/", method: "POST", sdkId: "CloudWatch", sigV4ServiceName: "monitoring", name: "GraniteServiceVersion20100801.GetMetricStream" }, GetMetricStreamInput, GetMetricStreamOutput, [InternalServiceFault, InvalidParameterCombinationException, InvalidParameterValueException, MissingRequiredParameterException, ResourceNotFoundException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getMetricStream = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-08-01", uri: "/", method: "POST", sdkId: "CloudWatch", sigV4ServiceName: "monitoring", name: "GraniteServiceVersion20100801.GetMetricStream" }, GetMetricStreamInput, GetMetricStreamOutput, [InternalServiceFault, InvalidParameterCombinationException, InvalidParameterValueException, MissingRequiredParameterException, ResourceNotFoundException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * You can use the `GetMetricWidgetImage` API to retrieve a snapshot graph
  * of one or more Amazon CloudWatch metrics as a bitmap image. You can then embed this
@@ -272,11 +272,11 @@ export class DashboardInvalidInputError extends S.TaggedError<DashboardInvalidIn
  * 
  * 
  * - Up to 100 KB uncompressed payload.
- */export const getMetricWidgetImage = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-08-01", uri: "/", method: "POST", sdkId: "CloudWatch", sigV4ServiceName: "monitoring", name: "GraniteServiceVersion20100801.GetMetricWidgetImage" }, GetMetricWidgetImageInput, GetMetricWidgetImageOutput, []), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getMetricWidgetImage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-08-01", uri: "/", method: "POST", sdkId: "CloudWatch", sigV4ServiceName: "monitoring", name: "GraniteServiceVersion20100801.GetMetricWidgetImage" }, GetMetricWidgetImageInput, GetMetricWidgetImageOutput, []), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Displays the tags associated with a CloudWatch resource. Currently, alarms and
  * Contributor Insights rules support tagging.
- */export const listTagsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-08-01", uri: "/", method: "POST", sdkId: "CloudWatch", sigV4ServiceName: "monitoring", name: "GraniteServiceVersion20100801.ListTagsForResource" }, ListTagsForResourceInput, ListTagsForResourceOutput, [InternalServiceFault, InvalidParameterValueException, ResourceNotFoundException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-08-01", uri: "/", method: "POST", sdkId: "CloudWatch", sigV4ServiceName: "monitoring", name: "GraniteServiceVersion20100801.ListTagsForResource" }, ListTagsForResourceInput, ListTagsForResourceOutput, [InternalServiceFault, InvalidParameterValueException, ResourceNotFoundException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates or updates a *composite alarm*. When you create a composite
  * alarm, you specify a rule expression for the alarm that takes into account the alarm
@@ -359,7 +359,7 @@ export class DashboardInvalidInputError extends S.TaggedError<DashboardInvalidIn
  * If you are an IAM user, you must have
  * `iam:CreateServiceLinkedRole` to create a composite alarm that has
  * Systems Manager OpsItem actions.
- */export const putCompositeAlarm = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-08-01", uri: "/", method: "POST", sdkId: "CloudWatch", sigV4ServiceName: "monitoring", name: "GraniteServiceVersion20100801.PutCompositeAlarm" }, PutCompositeAlarmInput, S.Struct({}), [LimitExceededFault]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putCompositeAlarm = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-08-01", uri: "/", method: "POST", sdkId: "CloudWatch", sigV4ServiceName: "monitoring", name: "GraniteServiceVersion20100801.PutCompositeAlarm" }, PutCompositeAlarmInput, S.Struct({}), [LimitExceededFault]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a Contributor Insights rule. Rules evaluate log events in a CloudWatch Logs
  * log group, enabling you to find contributor data for the log events in that log group.
@@ -369,7 +369,7 @@ export class DashboardInvalidInputError extends S.TaggedError<DashboardInvalidIn
  * 
  * If you create a rule, delete it, and then re-create it with the same name, historical
  * data from the first time the rule was created might not be available.
- */export const putInsightRule = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-08-01", uri: "/", method: "POST", sdkId: "CloudWatch", sigV4ServiceName: "monitoring", name: "GraniteServiceVersion20100801.PutInsightRule" }, PutInsightRuleInput, PutInsightRuleOutput, [InvalidParameterValueException, LimitExceededException, MissingRequiredParameterException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putInsightRule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-08-01", uri: "/", method: "POST", sdkId: "CloudWatch", sigV4ServiceName: "monitoring", name: "GraniteServiceVersion20100801.PutInsightRule" }, PutInsightRuleInput, PutInsightRuleOutput, [InvalidParameterValueException, LimitExceededException, MissingRequiredParameterException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates or updates an alarm and associates it with the specified metric, metric
  * math expression, anomaly detection model, or Metrics Insights query. For more
@@ -440,7 +440,7 @@ export class DashboardInvalidInputError extends S.TaggedError<DashboardInvalidIn
  * account) must already have a service-linked role named **AWSServiceRoleForCloudWatchCrossAccount** to allow
  * CloudWatch to assume the sharing role in the sharing account. If it
  * does not, you must create it following the directions in **Set up a monitoring account** in Cross-account cross-Region CloudWatch console.
- */export const putMetricAlarm = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-08-01", uri: "/", method: "POST", sdkId: "CloudWatch", sigV4ServiceName: "monitoring", name: "GraniteServiceVersion20100801.PutMetricAlarm" }, PutMetricAlarmInput, S.Struct({}), [LimitExceededFault]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putMetricAlarm = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-08-01", uri: "/", method: "POST", sdkId: "CloudWatch", sigV4ServiceName: "monitoring", name: "GraniteServiceVersion20100801.PutMetricAlarm" }, PutMetricAlarmInput, S.Struct({}), [LimitExceededFault]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Temporarily sets the state of an alarm for testing purposes. When the updated state
  * differs from the previous value, the action configured for the appropriate state is
@@ -464,10 +464,10 @@ export class DashboardInvalidInputError extends S.TaggedError<DashboardInvalidIn
  * If an alarm triggers EC2 Auto Scaling policies or application Auto Scaling
  * policies, you must include information in the `StateReasonData` parameter to
  * enable the policy to take the correct action.
- */export const setAlarmState = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-08-01", uri: "/", method: "POST", sdkId: "CloudWatch", sigV4ServiceName: "monitoring", name: "GraniteServiceVersion20100801.SetAlarmState" }, SetAlarmStateInput, S.Struct({}), [InvalidFormatFault, ResourceNotFound]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const setAlarmState = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-08-01", uri: "/", method: "POST", sdkId: "CloudWatch", sigV4ServiceName: "monitoring", name: "GraniteServiceVersion20100801.SetAlarmState" }, SetAlarmStateInput, S.Struct({}), [InvalidFormatFault, ResourceNotFound]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts the streaming of metrics for one or more of your metric streams.
- */export const startMetricStreams = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-08-01", uri: "/", method: "POST", sdkId: "CloudWatch", sigV4ServiceName: "monitoring", name: "GraniteServiceVersion20100801.StartMetricStreams" }, StartMetricStreamsInput, StartMetricStreamsOutput, [InternalServiceFault, InvalidParameterValueException, MissingRequiredParameterException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startMetricStreams = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-08-01", uri: "/", method: "POST", sdkId: "CloudWatch", sigV4ServiceName: "monitoring", name: "GraniteServiceVersion20100801.StartMetricStreams" }, StartMetricStreamsInput, StartMetricStreamsOutput, [InternalServiceFault, InvalidParameterValueException, MissingRequiredParameterException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Assigns one or more tags (key-value pairs) to the specified CloudWatch resource.
  * Currently, the only CloudWatch resources that can be tagged are alarms and Contributor
@@ -491,26 +491,26 @@ export class DashboardInvalidInputError extends S.TaggedError<DashboardInvalidIn
  * 
  * 
  * You can associate as many as 50 tags with a CloudWatch resource.
- */export const tagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-08-01", uri: "/", method: "POST", sdkId: "CloudWatch", sigV4ServiceName: "monitoring", name: "GraniteServiceVersion20100801.TagResource" }, TagResourceInput, TagResourceOutput, [ConcurrentModificationException, ConflictException, InternalServiceFault, InvalidParameterValueException, ResourceNotFoundException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-08-01", uri: "/", method: "POST", sdkId: "CloudWatch", sigV4ServiceName: "monitoring", name: "GraniteServiceVersion20100801.TagResource" }, TagResourceInput, TagResourceOutput, [ConcurrentModificationException, ConflictException, InternalServiceFault, InvalidParameterValueException, ResourceNotFoundException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes one or more tags from the specified resource.
- */export const untagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-08-01", uri: "/", method: "POST", sdkId: "CloudWatch", sigV4ServiceName: "monitoring", name: "GraniteServiceVersion20100801.UntagResource" }, UntagResourceInput, UntagResourceOutput, [ConcurrentModificationException, ConflictException, InternalServiceFault, InvalidParameterValueException, ResourceNotFoundException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-08-01", uri: "/", method: "POST", sdkId: "CloudWatch", sigV4ServiceName: "monitoring", name: "GraniteServiceVersion20100801.UntagResource" }, UntagResourceInput, UntagResourceOutput, [ConcurrentModificationException, ConflictException, InternalServiceFault, InvalidParameterValueException, ResourceNotFoundException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the specified anomaly detection model from your account. For more information
  * about how to delete an anomaly detection model, see Deleting an anomaly detection model in the CloudWatch User
  * Guide.
- */export const deleteAnomalyDetector = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-08-01", uri: "/", method: "POST", sdkId: "CloudWatch", sigV4ServiceName: "monitoring", name: "GraniteServiceVersion20100801.DeleteAnomalyDetector" }, DeleteAnomalyDetectorInput, DeleteAnomalyDetectorOutput, [InternalServiceFault, InvalidParameterCombinationException, InvalidParameterValueException, MissingRequiredParameterException, ResourceNotFoundException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteAnomalyDetector = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-08-01", uri: "/", method: "POST", sdkId: "CloudWatch", sigV4ServiceName: "monitoring", name: "GraniteServiceVersion20100801.DeleteAnomalyDetector" }, DeleteAnomalyDetectorInput, DeleteAnomalyDetectorOutput, [InternalServiceFault, InvalidParameterCombinationException, InvalidParameterValueException, MissingRequiredParameterException, ResourceNotFoundException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes all dashboards that you specify. You can specify up to 100 dashboards to
  * delete. If there is an error during this call, no dashboards are deleted.
- */export const deleteDashboards = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-08-01", uri: "/", method: "POST", sdkId: "CloudWatch", sigV4ServiceName: "monitoring", name: "GraniteServiceVersion20100801.DeleteDashboards" }, DeleteDashboardsInput, DeleteDashboardsOutput, [ConflictException, DashboardNotFoundError, InternalServiceFault, InvalidParameterValueException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteDashboards = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-08-01", uri: "/", method: "POST", sdkId: "CloudWatch", sigV4ServiceName: "monitoring", name: "GraniteServiceVersion20100801.DeleteDashboards" }, DeleteDashboardsInput, DeleteDashboardsOutput, [ConflictException, DashboardNotFoundError, InternalServiceFault, InvalidParameterValueException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Permanently deletes the specified Contributor Insights rules.
  * 
  * 
  * If you create a rule, delete it, and then re-create it with the same name, historical
  * data from the first time the rule was created might not be available.
- */export const deleteInsightRules = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-08-01", uri: "/", method: "POST", sdkId: "CloudWatch", sigV4ServiceName: "monitoring", name: "GraniteServiceVersion20100801.DeleteInsightRules" }, DeleteInsightRulesInput, DeleteInsightRulesOutput, [InvalidParameterValueException, MissingRequiredParameterException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteInsightRules = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-08-01", uri: "/", method: "POST", sdkId: "CloudWatch", sigV4ServiceName: "monitoring", name: "GraniteServiceVersion20100801.DeleteInsightRules" }, DeleteInsightRulesInput, DeleteInsightRulesOutput, [InvalidParameterValueException, MissingRequiredParameterException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the specified alarms. You can filter the results by specifying a prefix
  * for the alarm name, the alarm state, or a prefix for any action.
@@ -520,7 +520,7 @@ export class DashboardInvalidInputError extends S.TaggedError<DashboardInvalidIn
  * signed on with the `cloudwatch:DescribeAlarms` permission that is scoped to
  * `*`. You can't return information about composite alarms if your
  * `cloudwatch:DescribeAlarms` permission has a narrower scope.
- */export const describeAlarms = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-08-01", uri: "/", method: "POST", sdkId: "CloudWatch", sigV4ServiceName: "monitoring", name: "GraniteServiceVersion20100801.DescribeAlarms" }, DescribeAlarmsInput, DescribeAlarmsOutput, [InvalidNextToken]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeAlarms = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-08-01", uri: "/", method: "POST", sdkId: "CloudWatch", sigV4ServiceName: "monitoring", name: "GraniteServiceVersion20100801.DescribeAlarms" }, DescribeAlarmsInput, DescribeAlarmsOutput, [InvalidNextToken]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the anomaly detection models that you have created in your account. For single
  * metric anomaly detectors, you can list all of the models in your account or filter the
@@ -528,18 +528,18 @@ export class DashboardInvalidInputError extends S.TaggedError<DashboardInvalidIn
  * metric dimension. For metric math anomaly detectors, you can list them by adding
  * `METRIC_MATH` to the `AnomalyDetectorTypes` array. This will
  * return all metric math anomaly detectors in your account.
- */export const describeAnomalyDetectors = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-08-01", uri: "/", method: "POST", sdkId: "CloudWatch", sigV4ServiceName: "monitoring", name: "GraniteServiceVersion20100801.DescribeAnomalyDetectors" }, DescribeAnomalyDetectorsInput, DescribeAnomalyDetectorsOutput, [InternalServiceFault, InvalidNextToken, InvalidParameterCombinationException, InvalidParameterValueException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeAnomalyDetectors = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-08-01", uri: "/", method: "POST", sdkId: "CloudWatch", sigV4ServiceName: "monitoring", name: "GraniteServiceVersion20100801.DescribeAnomalyDetectors" }, DescribeAnomalyDetectorsInput, DescribeAnomalyDetectorsOutput, [InternalServiceFault, InvalidNextToken, InvalidParameterCombinationException, InvalidParameterValueException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of all the Contributor Insights rules in your account.
  * 
  * 
  * For more information about Contributor Insights, see Using Contributor
  * Insights to Analyze High-Cardinality Data.
- */export const describeInsightRules = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-08-01", uri: "/", method: "POST", sdkId: "CloudWatch", sigV4ServiceName: "monitoring", name: "GraniteServiceVersion20100801.DescribeInsightRules" }, DescribeInsightRulesInput, DescribeInsightRulesOutput, [InvalidNextToken]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeInsightRules = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-08-01", uri: "/", method: "POST", sdkId: "CloudWatch", sigV4ServiceName: "monitoring", name: "GraniteServiceVersion20100801.DescribeInsightRules" }, DescribeInsightRulesInput, DescribeInsightRulesOutput, [InvalidNextToken]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Enables the specified Contributor Insights rules. When rules are enabled, they
  * immediately begin analyzing log data.
- */export const enableInsightRules = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-08-01", uri: "/", method: "POST", sdkId: "CloudWatch", sigV4ServiceName: "monitoring", name: "GraniteServiceVersion20100801.EnableInsightRules" }, EnableInsightRulesInput, EnableInsightRulesOutput, [InvalidParameterValueException, LimitExceededException, MissingRequiredParameterException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const enableInsightRules = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-08-01", uri: "/", method: "POST", sdkId: "CloudWatch", sigV4ServiceName: "monitoring", name: "GraniteServiceVersion20100801.EnableInsightRules" }, EnableInsightRulesInput, EnableInsightRulesOutput, [InvalidParameterValueException, LimitExceededException, MissingRequiredParameterException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of the dashboards for your account. If you include
  * `DashboardNamePrefix`, only those dashboards with names starting with the
@@ -551,7 +551,7 @@ export class DashboardInvalidInputError extends S.TaggedError<DashboardInvalidIn
  * more than 1000 dashboards, you can call `ListDashboards` again and include
  * the value you received for `NextToken` in the first call, to receive the next
  * 1000 results.
- */export const listDashboards = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-08-01", uri: "/", method: "POST", sdkId: "CloudWatch", sigV4ServiceName: "monitoring", name: "GraniteServiceVersion20100801.ListDashboards" }, ListDashboardsInput, ListDashboardsOutput, [InternalServiceFault, InvalidParameterValueException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listDashboards = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-08-01", uri: "/", method: "POST", sdkId: "CloudWatch", sigV4ServiceName: "monitoring", name: "GraniteServiceVersion20100801.ListDashboards" }, ListDashboardsInput, ListDashboardsOutput, [InternalServiceFault, InvalidParameterValueException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * List the specified metrics. You can use the returned metrics with GetMetricData or GetMetricStatistics to get statistical data.
  * 
@@ -572,10 +572,10 @@ export class DashboardInvalidInputError extends S.TaggedError<DashboardInvalidIn
  * 
  * `ListMetrics` doesn't return information about metrics if those metrics
  * haven't reported data in the past two weeks. To retrieve those metrics, use GetMetricData or GetMetricStatistics.
- */export const listMetrics = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-08-01", uri: "/", method: "POST", sdkId: "CloudWatch", sigV4ServiceName: "monitoring", name: "GraniteServiceVersion20100801.ListMetrics" }, ListMetricsInput, ListMetricsOutput, [InternalServiceFault, InvalidParameterValueException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listMetrics = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-08-01", uri: "/", method: "POST", sdkId: "CloudWatch", sigV4ServiceName: "monitoring", name: "GraniteServiceVersion20100801.ListMetrics" }, ListMetricsInput, ListMetricsOutput, [InternalServiceFault, InvalidParameterValueException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of metric streams in this account.
- */export const listMetricStreams = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-08-01", uri: "/", method: "POST", sdkId: "CloudWatch", sigV4ServiceName: "monitoring", name: "GraniteServiceVersion20100801.ListMetricStreams" }, ListMetricStreamsInput, ListMetricStreamsOutput, [InternalServiceFault, InvalidNextToken, InvalidParameterValueException, MissingRequiredParameterException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listMetricStreams = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-08-01", uri: "/", method: "POST", sdkId: "CloudWatch", sigV4ServiceName: "monitoring", name: "GraniteServiceVersion20100801.ListMetricStreams" }, ListMetricStreamsInput, ListMetricStreamsOutput, [InternalServiceFault, InvalidNextToken, InvalidParameterValueException, MissingRequiredParameterException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an anomaly detection model for a CloudWatch metric. You can use the model to
  * display a band of expected normal values when the metric is graphed.
@@ -588,7 +588,7 @@ export class DashboardInvalidInputError extends S.TaggedError<DashboardInvalidIn
  * 
  * 
  * For more information, see CloudWatch Anomaly Detection.
- */export const putAnomalyDetector = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-08-01", uri: "/", method: "POST", sdkId: "CloudWatch", sigV4ServiceName: "monitoring", name: "GraniteServiceVersion20100801.PutAnomalyDetector" }, PutAnomalyDetectorInput, PutAnomalyDetectorOutput, [InternalServiceFault, InvalidParameterCombinationException, InvalidParameterValueException, LimitExceededException, MissingRequiredParameterException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putAnomalyDetector = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-08-01", uri: "/", method: "POST", sdkId: "CloudWatch", sigV4ServiceName: "monitoring", name: "GraniteServiceVersion20100801.PutAnomalyDetector" }, PutAnomalyDetectorInput, PutAnomalyDetectorOutput, [InternalServiceFault, InvalidParameterCombinationException, InvalidParameterValueException, LimitExceededException, MissingRequiredParameterException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a managed Contributor Insights rule for a specified Amazon Web Services
  * resource. When you enable a managed rule, you create a Contributor Insights rule that
@@ -598,10 +598,10 @@ export class DashboardInvalidInputError extends S.TaggedError<DashboardInvalidIn
  * `DeleteInsightRules`. If a previously created managed rule is currently
  * disabled, a subsequent call to this API will re-enable it. Use
  * `ListManagedInsightRules` to describe all available rules.
- */export const putManagedInsightRules = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-08-01", uri: "/", method: "POST", sdkId: "CloudWatch", sigV4ServiceName: "monitoring", name: "GraniteServiceVersion20100801.PutManagedInsightRules" }, PutManagedInsightRulesInput, PutManagedInsightRulesOutput, [InvalidParameterValueException, MissingRequiredParameterException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putManagedInsightRules = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-08-01", uri: "/", method: "POST", sdkId: "CloudWatch", sigV4ServiceName: "monitoring", name: "GraniteServiceVersion20100801.PutManagedInsightRules" }, PutManagedInsightRulesInput, PutManagedInsightRulesOutput, [InvalidParameterValueException, MissingRequiredParameterException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the information of the current alarm contributors that are in `ALARM` state. This operation returns details about the individual time series that contribute to the alarm's state.
- */export const describeAlarmContributors = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-08-01", uri: "/", method: "POST", sdkId: "CloudWatch", sigV4ServiceName: "monitoring", name: "GraniteServiceVersion20100801.DescribeAlarmContributors" }, DescribeAlarmContributorsInput, DescribeAlarmContributorsOutput, [InvalidNextToken, ResourceNotFoundException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeAlarmContributors = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-08-01", uri: "/", method: "POST", sdkId: "CloudWatch", sigV4ServiceName: "monitoring", name: "GraniteServiceVersion20100801.DescribeAlarmContributors" }, DescribeAlarmContributorsInput, DescribeAlarmContributorsOutput, [InvalidNextToken, ResourceNotFoundException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the history for the specified alarm. You can filter the results by date
  * range or item type. If an alarm name is not specified, the histories for either all
@@ -615,7 +615,7 @@ export class DashboardInvalidInputError extends S.TaggedError<DashboardInvalidIn
  * signed on with the `cloudwatch:DescribeAlarmHistory` permission that is
  * scoped to `*`. You can't return information about composite alarms if your
  * `cloudwatch:DescribeAlarmHistory` permission has a narrower scope.
- */export const describeAlarmHistory = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-08-01", uri: "/", method: "POST", sdkId: "CloudWatch", sigV4ServiceName: "monitoring", name: "GraniteServiceVersion20100801.DescribeAlarmHistory" }, DescribeAlarmHistoryInput, DescribeAlarmHistoryOutput, [InvalidNextToken]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeAlarmHistory = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-08-01", uri: "/", method: "POST", sdkId: "CloudWatch", sigV4ServiceName: "monitoring", name: "GraniteServiceVersion20100801.DescribeAlarmHistory" }, DescribeAlarmHistoryInput, DescribeAlarmHistoryOutput, [InvalidNextToken]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This operation returns the time series data collected by a Contributor Insights rule.
  * The data includes the identity and number of contributors to the log group.
@@ -665,7 +665,7 @@ export class DashboardInvalidInputError extends S.TaggedError<DashboardInvalidIn
  * 
  * - `Average` -- the average value from all contributors during the
  * time period represented by that data point.
- */export const getInsightRuleReport = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-08-01", uri: "/", method: "POST", sdkId: "CloudWatch", sigV4ServiceName: "monitoring", name: "GraniteServiceVersion20100801.GetInsightRuleReport" }, GetInsightRuleReportInput, GetInsightRuleReportOutput, [InvalidParameterValueException, MissingRequiredParameterException, ResourceNotFoundException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getInsightRuleReport = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-08-01", uri: "/", method: "POST", sdkId: "CloudWatch", sigV4ServiceName: "monitoring", name: "GraniteServiceVersion20100801.GetInsightRuleReport" }, GetInsightRuleReportInput, GetInsightRuleReportOutput, [InvalidParameterValueException, MissingRequiredParameterException, ResourceNotFoundException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets statistics for the specified metric.
  * 
@@ -748,11 +748,11 @@ export class DashboardInvalidInputError extends S.TaggedError<DashboardInvalidIn
  * services, see the Amazon CloudWatch
  * Metrics and Dimensions Reference in the Amazon CloudWatch User
  * Guide.
- */export const getMetricStatistics = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-08-01", uri: "/", method: "POST", sdkId: "CloudWatch", sigV4ServiceName: "monitoring", name: "GraniteServiceVersion20100801.GetMetricStatistics" }, GetMetricStatisticsInput, GetMetricStatisticsOutput, [InternalServiceFault, InvalidParameterCombinationException, InvalidParameterValueException, MissingRequiredParameterException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getMetricStatistics = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-08-01", uri: "/", method: "POST", sdkId: "CloudWatch", sigV4ServiceName: "monitoring", name: "GraniteServiceVersion20100801.GetMetricStatistics" }, GetMetricStatisticsInput, GetMetricStatisticsOutput, [InternalServiceFault, InvalidParameterCombinationException, InvalidParameterValueException, MissingRequiredParameterException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list that contains the number of managed Contributor Insights rules in your
  * account.
- */export const listManagedInsightRules = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-08-01", uri: "/", method: "POST", sdkId: "CloudWatch", sigV4ServiceName: "monitoring", name: "GraniteServiceVersion20100801.ListManagedInsightRules" }, ListManagedInsightRulesInput, ListManagedInsightRulesOutput, [InvalidNextToken, InvalidParameterValueException, MissingRequiredParameterException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listManagedInsightRules = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-08-01", uri: "/", method: "POST", sdkId: "CloudWatch", sigV4ServiceName: "monitoring", name: "GraniteServiceVersion20100801.ListManagedInsightRules" }, ListManagedInsightRulesInput, ListManagedInsightRulesOutput, [InvalidNextToken, InvalidParameterValueException, MissingRequiredParameterException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a dashboard if it does not already exist, or updates an existing dashboard.
  * If you update a dashboard, the entire contents are replaced with what you specify
@@ -776,7 +776,7 @@ export class DashboardInvalidInputError extends S.TaggedError<DashboardInvalidIn
  * created by script and should not be changed in the console. This message could also
  * point console users to the location of the `DashboardBody` script or the
  * CloudFormation template used to create the dashboard.
- */export const putDashboard = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-08-01", uri: "/", method: "POST", sdkId: "CloudWatch", sigV4ServiceName: "monitoring", name: "GraniteServiceVersion20100801.PutDashboard" }, PutDashboardInput, PutDashboardOutput, [ConflictException, DashboardInvalidInputError, InternalServiceFault]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putDashboard = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-08-01", uri: "/", method: "POST", sdkId: "CloudWatch", sigV4ServiceName: "monitoring", name: "GraniteServiceVersion20100801.PutDashboard" }, PutDashboardInput, PutDashboardOutput, [ConflictException, DashboardInvalidInputError, InternalServiceFault]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Publishes metric data to Amazon CloudWatch. CloudWatch associates the data with the
  * specified metric. If the specified metric does not exist, CloudWatch creates the metric.
@@ -843,7 +843,7 @@ export class DashboardInvalidInputError extends S.TaggedError<DashboardInvalidIn
  * 
  * - The `Min` and `Max` are equal, and `Sum`
  * is equal to `Min` multiplied by `SampleCount`.
- */export const putMetricData = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-08-01", uri: "/", method: "POST", sdkId: "CloudWatch", sigV4ServiceName: "monitoring", name: "GraniteServiceVersion20100801.PutMetricData" }, PutMetricDataInput, S.Struct({}), [InternalServiceFault, InvalidParameterCombinationException, InvalidParameterValueException, MissingRequiredParameterException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putMetricData = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-08-01", uri: "/", method: "POST", sdkId: "CloudWatch", sigV4ServiceName: "monitoring", name: "GraniteServiceVersion20100801.PutMetricData" }, PutMetricDataInput, S.Struct({}), [InternalServiceFault, InvalidParameterCombinationException, InvalidParameterValueException, MissingRequiredParameterException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates or updates a metric stream. Metric streams can automatically stream CloudWatch
  * metrics to Amazon Web Services destinations, including Amazon S3, and to many third-party
@@ -895,7 +895,7 @@ export class DashboardInvalidInputError extends S.TaggedError<DashboardInvalidIn
  * If you are using CloudWatch cross-account observability and you create a metric
  * stream in a monitoring account, you can choose whether to include metrics from source
  * accounts in the stream. For more information, see CloudWatch cross-account observability.
- */export const putMetricStream = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-08-01", uri: "/", method: "POST", sdkId: "CloudWatch", sigV4ServiceName: "monitoring", name: "GraniteServiceVersion20100801.PutMetricStream" }, PutMetricStreamInput, PutMetricStreamOutput, [ConcurrentModificationException, InternalServiceFault, InvalidParameterCombinationException, InvalidParameterValueException, MissingRequiredParameterException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putMetricStream = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-08-01", uri: "/", method: "POST", sdkId: "CloudWatch", sigV4ServiceName: "monitoring", name: "GraniteServiceVersion20100801.PutMetricStream" }, PutMetricStreamInput, PutMetricStreamOutput, [ConcurrentModificationException, InternalServiceFault, InvalidParameterCombinationException, InvalidParameterValueException, MissingRequiredParameterException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * You can use the `GetMetricData` API to retrieve CloudWatch metric
  * values. The operation can also include a CloudWatch Metrics Insights query, and
@@ -982,4 +982,4 @@ export class DashboardInvalidInputError extends S.TaggedError<DashboardInvalidIn
  * with a **GROUP BY** clause returns an array of time-series
  * (TS[]), and can be used as input for a metric math expression that expects an array of
  * time series.
- */export const getMetricData = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-08-01", uri: "/", method: "POST", sdkId: "CloudWatch", sigV4ServiceName: "monitoring", name: "GraniteServiceVersion20100801.GetMetricData" }, GetMetricDataInput, GetMetricDataOutput, [InvalidNextToken]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getMetricData = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-08-01", uri: "/", method: "POST", sdkId: "CloudWatch", sigV4ServiceName: "monitoring", name: "GraniteServiceVersion20100801.GetMetricData" }, GetMetricDataInput, GetMetricDataOutput, [InvalidNextToken]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);

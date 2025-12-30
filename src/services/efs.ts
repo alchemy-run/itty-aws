@@ -124,21 +124,21 @@ export class SubnetNotFound extends S.TaggedError<SubnetNotFound>()("SubnetNotFo
  * 
  * This operation requires permissions for the `elasticfilesystem:DeleteTags`
  * action.
- */export const deleteTags = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-01", uri: "/2015-02-01/delete-tags/{FileSystemId}", method: "POST", sdkId: "EFS", sigV4ServiceName: "elasticfilesystem", name: "MagnolioAPIService_v20150201.DeleteTags" }, DeleteTagsRequest, S.Struct({}), [BadRequest, FileSystemNotFound, InternalServerError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteTags = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-01", uri: "/2015-02-01/delete-tags/{FileSystemId}", method: "POST", sdkId: "EFS", sigV4ServiceName: "elasticfilesystem", name: "MagnolioAPIService_v20150201.DeleteTags" }, DeleteTagsRequest, S.Struct({}), [BadRequest, FileSystemNotFound, InternalServerError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a tag for an EFS resource. You can create tags for EFS file
  * systems and access points using this API operation.
  * 
  * 
  * This operation requires permissions for the `elasticfilesystem:TagResource` action.
- */export const tagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-01", uri: "/2015-02-01/resource-tags/{ResourceId}", method: "POST", sdkId: "EFS", sigV4ServiceName: "elasticfilesystem", name: "MagnolioAPIService_v20150201.TagResource" }, TagResourceRequest, S.Struct({}), [AccessPointNotFound, BadRequest, FileSystemNotFound, InternalServerError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-01", uri: "/2015-02-01/resource-tags/{ResourceId}", method: "POST", sdkId: "EFS", sigV4ServiceName: "elasticfilesystem", name: "MagnolioAPIService_v20150201.TagResource" }, TagResourceRequest, S.Struct({}), [AccessPointNotFound, BadRequest, FileSystemNotFound, InternalServerError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes tags from an EFS resource. You can remove tags from EFS file
  * systems and access points using this API operation.
  * 
  * 
  * This operation requires permissions for the `elasticfilesystem:UntagResource` action.
- */export const untagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-01", uri: "/2015-02-01/resource-tags/{ResourceId}", method: "DELETE", sdkId: "EFS", sigV4ServiceName: "elasticfilesystem", name: "MagnolioAPIService_v20150201.UntagResource" }, UntagResourceRequest, S.Struct({}), [AccessPointNotFound, BadRequest, FileSystemNotFound, InternalServerError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-01", uri: "/2015-02-01/resource-tags/{ResourceId}", method: "DELETE", sdkId: "EFS", sigV4ServiceName: "elasticfilesystem", name: "MagnolioAPIService_v20150201.UntagResource" }, UntagResourceRequest, S.Struct({}), [AccessPointNotFound, BadRequest, FileSystemNotFound, InternalServerError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * DEPRECATED - `CreateTags` is deprecated and not maintained. To create tags for EFS
  * resources, use the API action.
@@ -154,7 +154,7 @@ export class SubnetNotFound extends S.TaggedError<SubnetNotFound>()("SubnetNotFo
  * 
  * This operation requires permission for the `elasticfilesystem:CreateTags`
  * action.
- */export const createTags = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-01", uri: "/2015-02-01/create-tags/{FileSystemId}", method: "POST", sdkId: "EFS", sigV4ServiceName: "elasticfilesystem", name: "MagnolioAPIService_v20150201.CreateTags" }, CreateTagsRequest, S.Struct({}), [BadRequest, FileSystemNotFound, InternalServerError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createTags = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-01", uri: "/2015-02-01/create-tags/{FileSystemId}", method: "POST", sdkId: "EFS", sigV4ServiceName: "elasticfilesystem", name: "MagnolioAPIService_v20150201.CreateTags" }, CreateTagsRequest, S.Struct({}), [BadRequest, FileSystemNotFound, InternalServerError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the specified access point. After deletion is complete, new clients can no
  * longer connect to the access points. Clients connected to the access point at the time of
@@ -162,7 +162,7 @@ export class SubnetNotFound extends S.TaggedError<SubnetNotFound>()("SubnetNotFo
  * 
  * 
  * This operation requires permissions for the `elasticfilesystem:DeleteAccessPoint` action.
- */export const deleteAccessPoint = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-01", uri: "/2015-02-01/access-points/{AccessPointId}", method: "DELETE", sdkId: "EFS", sigV4ServiceName: "elasticfilesystem", name: "MagnolioAPIService_v20150201.DeleteAccessPoint" }, DeleteAccessPointRequest, S.Struct({}), [AccessPointNotFound, BadRequest, InternalServerError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteAccessPoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-01", uri: "/2015-02-01/access-points/{AccessPointId}", method: "DELETE", sdkId: "EFS", sigV4ServiceName: "elasticfilesystem", name: "MagnolioAPIService_v20150201.DeleteAccessPoint" }, DeleteAccessPointRequest, S.Struct({}), [AccessPointNotFound, BadRequest, InternalServerError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a file system, permanently severing access to its contents. Upon return, the
  * file system no longer exists and you can't access any contents of the deleted file
@@ -198,7 +198,7 @@ export class SubnetNotFound extends S.TaggedError<SubnetNotFound>()("SubnetNotFo
  * 
  * This operation requires permissions for the
  * `elasticfilesystem:DeleteFileSystem` action.
- */export const deleteFileSystem = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-01", uri: "/2015-02-01/file-systems/{FileSystemId}", method: "DELETE", sdkId: "EFS", sigV4ServiceName: "elasticfilesystem", name: "MagnolioAPIService_v20150201.DeleteFileSystem" }, DeleteFileSystemRequest, S.Struct({}), [BadRequest, FileSystemInUse, FileSystemNotFound, InternalServerError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteFileSystem = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-01", uri: "/2015-02-01/file-systems/{FileSystemId}", method: "DELETE", sdkId: "EFS", sigV4ServiceName: "elasticfilesystem", name: "MagnolioAPIService_v20150201.DeleteFileSystem" }, DeleteFileSystemRequest, S.Struct({}), [BadRequest, FileSystemInUse, FileSystemNotFound, InternalServerError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the `FileSystemPolicy` for the specified file system.
  * The default `FileSystemPolicy` goes into effect once the existing policy is deleted.
@@ -206,14 +206,14 @@ export class SubnetNotFound extends S.TaggedError<SubnetNotFound>()("SubnetNotFo
  * 
  * 
  * This operation requires permissions for the `elasticfilesystem:DeleteFileSystemPolicy` action.
- */export const deleteFileSystemPolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-01", uri: "/2015-02-01/file-systems/{FileSystemId}/policy", method: "DELETE", sdkId: "EFS", sigV4ServiceName: "elasticfilesystem", name: "MagnolioAPIService_v20150201.DeleteFileSystemPolicy" }, DeleteFileSystemPolicyRequest, S.Struct({}), [BadRequest, FileSystemNotFound, IncorrectFileSystemLifeCycleState, InternalServerError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteFileSystemPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-01", uri: "/2015-02-01/file-systems/{FileSystemId}/policy", method: "DELETE", sdkId: "EFS", sigV4ServiceName: "elasticfilesystem", name: "MagnolioAPIService_v20150201.DeleteFileSystemPolicy" }, DeleteFileSystemPolicyRequest, S.Struct({}), [BadRequest, FileSystemNotFound, IncorrectFileSystemLifeCycleState, InternalServerError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the `FileSystemPolicy` for the specified EFS file
  * system.
  * 
  * 
  * This operation requires permissions for the `elasticfilesystem:DescribeFileSystemPolicy` action.
- */export const describeFileSystemPolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-01", uri: "/2015-02-01/file-systems/{FileSystemId}/policy", method: "GET", sdkId: "EFS", sigV4ServiceName: "elasticfilesystem", name: "MagnolioAPIService_v20150201.DescribeFileSystemPolicy" }, DescribeFileSystemPolicyRequest, FileSystemPolicyDescription, [BadRequest, FileSystemNotFound, InternalServerError, PolicyNotFound]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeFileSystemPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-01", uri: "/2015-02-01/file-systems/{FileSystemId}/policy", method: "GET", sdkId: "EFS", sigV4ServiceName: "elasticfilesystem", name: "MagnolioAPIService_v20150201.DescribeFileSystemPolicy" }, DescribeFileSystemPolicyRequest, FileSystemPolicyDescription, [BadRequest, FileSystemNotFound, InternalServerError, PolicyNotFound]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the description of a specific Amazon EFS file system if either the file system
  * `CreationToken` or the `FileSystemId` is provided. Otherwise, it
@@ -243,7 +243,7 @@ export class SubnetNotFound extends S.TaggedError<SubnetNotFound>()("SubnetNotFo
  * 
  * This operation requires permissions for the
  * `elasticfilesystem:DescribeFileSystems` action.
- */export const describeFileSystems = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-01", uri: "/2015-02-01/file-systems", method: "GET", sdkId: "EFS", sigV4ServiceName: "elasticfilesystem", name: "MagnolioAPIService_v20150201.DescribeFileSystems" }, DescribeFileSystemsRequest, DescribeFileSystemsResponse, [BadRequest, FileSystemNotFound, InternalServerError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeFileSystems = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-01", uri: "/2015-02-01/file-systems", method: "GET", sdkId: "EFS", sigV4ServiceName: "elasticfilesystem", name: "MagnolioAPIService_v20150201.DescribeFileSystems" }, DescribeFileSystemsRequest, DescribeFileSystemsResponse, [BadRequest, FileSystemNotFound, InternalServerError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the current `LifecycleConfiguration` object for the specified
  * EFS file system. Lifecycle management uses the `LifecycleConfiguration`
@@ -254,7 +254,7 @@ export class SubnetNotFound extends S.TaggedError<SubnetNotFound>()("SubnetNotFo
  * 
  * This operation requires permissions for the
  * `elasticfilesystem:DescribeLifecycleConfiguration` operation.
- */export const describeLifecycleConfiguration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-01", uri: "/2015-02-01/file-systems/{FileSystemId}/lifecycle-configuration", method: "GET", sdkId: "EFS", sigV4ServiceName: "elasticfilesystem", name: "MagnolioAPIService_v20150201.DescribeLifecycleConfiguration" }, DescribeLifecycleConfigurationRequest, LifecycleConfigurationDescription, [BadRequest, FileSystemNotFound, InternalServerError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeLifecycleConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-01", uri: "/2015-02-01/file-systems/{FileSystemId}/lifecycle-configuration", method: "GET", sdkId: "EFS", sigV4ServiceName: "elasticfilesystem", name: "MagnolioAPIService_v20150201.DescribeLifecycleConfiguration" }, DescribeLifecycleConfigurationRequest, LifecycleConfigurationDescription, [BadRequest, FileSystemNotFound, InternalServerError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the descriptions of all the current mount targets, or a specific mount target,
  * for a file system. When requesting all of the current mount targets, the order of mount
@@ -265,7 +265,7 @@ export class SubnetNotFound extends S.TaggedError<SubnetNotFound>()("SubnetNotFo
  * `elasticfilesystem:DescribeMountTargets` action, on either the file system ID
  * that you specify in `FileSystemId`, or on the file system of the mount target that
  * you specify in `MountTargetId`.
- */export const describeMountTargets = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-01", uri: "/2015-02-01/mount-targets", method: "GET", sdkId: "EFS", sigV4ServiceName: "elasticfilesystem", name: "MagnolioAPIService_v20150201.DescribeMountTargets" }, DescribeMountTargetsRequest, DescribeMountTargetsResponse, [AccessPointNotFound, BadRequest, FileSystemNotFound, InternalServerError, MountTargetNotFound]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeMountTargets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-01", uri: "/2015-02-01/mount-targets", method: "GET", sdkId: "EFS", sigV4ServiceName: "elasticfilesystem", name: "MagnolioAPIService_v20150201.DescribeMountTargets" }, DescribeMountTargetsRequest, DescribeMountTargetsResponse, [AccessPointNotFound, BadRequest, FileSystemNotFound, InternalServerError, MountTargetNotFound]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the security groups currently in effect for a mount target. This operation
  * requires that the network interface of the mount target has been created and the lifecycle
@@ -283,7 +283,7 @@ export class SubnetNotFound extends S.TaggedError<SubnetNotFound>()("SubnetNotFo
  * 
  * - `ec2:DescribeNetworkInterfaceAttribute` action on the mount target's
  * network interface.
- */export const describeMountTargetSecurityGroups = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-01", uri: "/2015-02-01/mount-targets/{MountTargetId}/security-groups", method: "GET", sdkId: "EFS", sigV4ServiceName: "elasticfilesystem", name: "MagnolioAPIService_v20150201.DescribeMountTargetSecurityGroups" }, DescribeMountTargetSecurityGroupsRequest, DescribeMountTargetSecurityGroupsResponse, [BadRequest, IncorrectMountTargetState, InternalServerError, MountTargetNotFound]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeMountTargetSecurityGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-01", uri: "/2015-02-01/mount-targets/{MountTargetId}/security-groups", method: "GET", sdkId: "EFS", sigV4ServiceName: "elasticfilesystem", name: "MagnolioAPIService_v20150201.DescribeMountTargetSecurityGroups" }, DescribeMountTargetSecurityGroupsRequest, DescribeMountTargetSecurityGroupsResponse, [BadRequest, IncorrectMountTargetState, InternalServerError, MountTargetNotFound]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * DEPRECATED - The `DescribeTags` action is deprecated and not maintained. To view
  * tags associated with EFS resources, use the `ListTagsForResource` API
@@ -299,14 +299,14 @@ export class SubnetNotFound extends S.TaggedError<SubnetNotFound>()("SubnetNotFo
  * 
  * This operation requires permissions for the
  * `elasticfilesystem:DescribeTags` action.
- */export const describeTags = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-01", uri: "/2015-02-01/tags/{FileSystemId}", method: "GET", sdkId: "EFS", sigV4ServiceName: "elasticfilesystem", name: "MagnolioAPIService_v20150201.DescribeTags" }, DescribeTagsRequest, DescribeTagsResponse, [BadRequest, FileSystemNotFound, InternalServerError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeTags = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-01", uri: "/2015-02-01/tags/{FileSystemId}", method: "GET", sdkId: "EFS", sigV4ServiceName: "elasticfilesystem", name: "MagnolioAPIService_v20150201.DescribeTags" }, DescribeTagsRequest, DescribeTagsResponse, [BadRequest, FileSystemNotFound, InternalServerError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists all tags for a top-level EFS resource. You must provide the ID of the
  * resource that you want to retrieve the tags for.
  * 
  * 
  * This operation requires permissions for the `elasticfilesystem:DescribeAccessPoints` action.
- */export const listTagsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-01", uri: "/2015-02-01/resource-tags/{ResourceId}", method: "GET", sdkId: "EFS", sigV4ServiceName: "elasticfilesystem", name: "MagnolioAPIService_v20150201.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [AccessPointNotFound, BadRequest, FileSystemNotFound, InternalServerError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-01", uri: "/2015-02-01/resource-tags/{ResourceId}", method: "GET", sdkId: "EFS", sigV4ServiceName: "elasticfilesystem", name: "MagnolioAPIService_v20150201.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [AccessPointNotFound, BadRequest, FileSystemNotFound, InternalServerError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Use this operation to set the account preference in the current Amazon Web Services Region
  * to use long 17 character (63 bit) or short 8 character (32 bit) resource IDs for new
@@ -320,7 +320,7 @@ export class SubnetNotFound extends S.TaggedError<SubnetNotFound>()("SubnetNotFo
  * Starting in October, 2021, you will receive an error if you try to set the account preference
  * to use the short 8 character format resource ID. Contact Amazon Web Services support if you
  * receive an error and must use short IDs for file system and mount target resources.
- */export const putAccountPreferences = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-01", uri: "/2015-02-01/account-preferences", method: "PUT", sdkId: "EFS", sigV4ServiceName: "elasticfilesystem", name: "MagnolioAPIService_v20150201.PutAccountPreferences" }, PutAccountPreferencesRequest, PutAccountPreferencesResponse, [BadRequest, InternalServerError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putAccountPreferences = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-01", uri: "/2015-02-01/account-preferences", method: "PUT", sdkId: "EFS", sigV4ServiceName: "elasticfilesystem", name: "MagnolioAPIService_v20150201.PutAccountPreferences" }, PutAccountPreferencesRequest, PutAccountPreferencesResponse, [BadRequest, InternalServerError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Use this action to manage storage for your file system. A
  * `LifecycleConfiguration` consists of one or more `LifecyclePolicy`
@@ -409,7 +409,7 @@ export class SubnetNotFound extends S.TaggedError<SubnetNotFound>()("SubnetNotFo
  * 
  * To apply a `LifecycleConfiguration` object to an encrypted file system, you
  * need the same Key Management Service permissions as when you created the encrypted file system.
- */export const putLifecycleConfiguration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-01", uri: "/2015-02-01/file-systems/{FileSystemId}/lifecycle-configuration", method: "PUT", sdkId: "EFS", sigV4ServiceName: "elasticfilesystem", name: "MagnolioAPIService_v20150201.PutLifecycleConfiguration" }, PutLifecycleConfigurationRequest, LifecycleConfigurationDescription, [BadRequest, FileSystemNotFound, IncorrectFileSystemLifeCycleState, InternalServerError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putLifecycleConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-01", uri: "/2015-02-01/file-systems/{FileSystemId}/lifecycle-configuration", method: "PUT", sdkId: "EFS", sigV4ServiceName: "elasticfilesystem", name: "MagnolioAPIService_v20150201.PutLifecycleConfiguration" }, PutLifecycleConfigurationRequest, LifecycleConfigurationDescription, [BadRequest, FileSystemNotFound, IncorrectFileSystemLifeCycleState, InternalServerError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the specified mount target.
  * 
@@ -450,7 +450,7 @@ export class SubnetNotFound extends S.TaggedError<SubnetNotFound>()("SubnetNotFo
  * 
  * 
  * - `ec2:DeleteNetworkInterface`
- */export const deleteMountTarget = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-01", uri: "/2015-02-01/mount-targets/{MountTargetId}", method: "DELETE", sdkId: "EFS", sigV4ServiceName: "elasticfilesystem", name: "MagnolioAPIService_v20150201.DeleteMountTarget" }, DeleteMountTargetRequest, S.Struct({}), [BadRequest, DependencyTimeout, InternalServerError, MountTargetNotFound]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteMountTarget = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-01", uri: "/2015-02-01/mount-targets/{MountTargetId}", method: "DELETE", sdkId: "EFS", sigV4ServiceName: "elasticfilesystem", name: "MagnolioAPIService_v20150201.DeleteMountTarget" }, DeleteMountTargetRequest, S.Struct({}), [BadRequest, DependencyTimeout, InternalServerError, MountTargetNotFound]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a replication configuration. Deleting a replication configuration ends the
  * replication process. After a replication configuration is deleted, the destination file system
@@ -460,7 +460,7 @@ export class SubnetNotFound extends S.TaggedError<SubnetNotFound>()("SubnetNotFo
  * 
  * This operation requires permissions for the
  * `elasticfilesystem:DeleteReplicationConfiguration` action.
- */export const deleteReplicationConfiguration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-01", uri: "/2015-02-01/file-systems/{SourceFileSystemId}/replication-configuration", method: "DELETE", sdkId: "EFS", sigV4ServiceName: "elasticfilesystem", name: "MagnolioAPIService_v20150201.DeleteReplicationConfiguration" }, DeleteReplicationConfigurationRequest, S.Struct({}), [BadRequest, FileSystemNotFound, InternalServerError, ReplicationNotFound]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteReplicationConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-01", uri: "/2015-02-01/file-systems/{SourceFileSystemId}/replication-configuration", method: "DELETE", sdkId: "EFS", sigV4ServiceName: "elasticfilesystem", name: "MagnolioAPIService_v20150201.DeleteReplicationConfiguration" }, DeleteReplicationConfigurationRequest, S.Struct({}), [BadRequest, FileSystemNotFound, InternalServerError, ReplicationNotFound]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the description of a specific Amazon EFS access point if the
  * `AccessPointId` is provided. If you provide an EFS
@@ -470,16 +470,16 @@ export class SubnetNotFound extends S.TaggedError<SubnetNotFound>()("SubnetNotFo
  * 
  * 
  * This operation requires permissions for the `elasticfilesystem:DescribeAccessPoints` action.
- */export const describeAccessPoints = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-01", uri: "/2015-02-01/access-points", method: "GET", sdkId: "EFS", sigV4ServiceName: "elasticfilesystem", name: "MagnolioAPIService_v20150201.DescribeAccessPoints" }, DescribeAccessPointsRequest, DescribeAccessPointsResponse, [AccessPointNotFound, BadRequest, FileSystemNotFound, InternalServerError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeAccessPoints = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-01", uri: "/2015-02-01/access-points", method: "GET", sdkId: "EFS", sigV4ServiceName: "elasticfilesystem", name: "MagnolioAPIService_v20150201.DescribeAccessPoints" }, DescribeAccessPointsRequest, DescribeAccessPointsResponse, [AccessPointNotFound, BadRequest, FileSystemNotFound, InternalServerError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the account preferences settings for the Amazon Web Services account associated with the user making the request, in the current Amazon Web Services Region.
- */export const describeAccountPreferences = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-01", uri: "/2015-02-01/account-preferences", method: "GET", sdkId: "EFS", sigV4ServiceName: "elasticfilesystem", name: "MagnolioAPIService_v20150201.DescribeAccountPreferences" }, DescribeAccountPreferencesRequest, DescribeAccountPreferencesResponse, [InternalServerError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeAccountPreferences = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-01", uri: "/2015-02-01/account-preferences", method: "GET", sdkId: "EFS", sigV4ServiceName: "elasticfilesystem", name: "MagnolioAPIService_v20150201.DescribeAccountPreferences" }, DescribeAccountPreferencesRequest, DescribeAccountPreferencesResponse, [InternalServerError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the backup policy for the specified EFS file system.
- */export const describeBackupPolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-01", uri: "/2015-02-01/file-systems/{FileSystemId}/backup-policy", method: "GET", sdkId: "EFS", sigV4ServiceName: "elasticfilesystem", name: "MagnolioAPIService_v20150201.DescribeBackupPolicy" }, DescribeBackupPolicyRequest, BackupPolicyDescription, [BadRequest, FileSystemNotFound, InternalServerError, PolicyNotFound, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeBackupPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-01", uri: "/2015-02-01/file-systems/{FileSystemId}/backup-policy", method: "GET", sdkId: "EFS", sigV4ServiceName: "elasticfilesystem", name: "MagnolioAPIService_v20150201.DescribeBackupPolicy" }, DescribeBackupPolicyRequest, BackupPolicyDescription, [BadRequest, FileSystemNotFound, InternalServerError, PolicyNotFound, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the file system's backup policy. Use this action to start or stop automatic backups of the file system.
- */export const putBackupPolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-01", uri: "/2015-02-01/file-systems/{FileSystemId}/backup-policy", method: "PUT", sdkId: "EFS", sigV4ServiceName: "elasticfilesystem", name: "MagnolioAPIService_v20150201.PutBackupPolicy" }, PutBackupPolicyRequest, BackupPolicyDescription, [BadRequest, FileSystemNotFound, IncorrectFileSystemLifeCycleState, InternalServerError, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putBackupPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-01", uri: "/2015-02-01/file-systems/{FileSystemId}/backup-policy", method: "PUT", sdkId: "EFS", sigV4ServiceName: "elasticfilesystem", name: "MagnolioAPIService_v20150201.PutBackupPolicy" }, PutBackupPolicyRequest, BackupPolicyDescription, [BadRequest, FileSystemNotFound, IncorrectFileSystemLifeCycleState, InternalServerError, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Applies an Amazon EFS
  * `FileSystemPolicy` to an Amazon EFS file system. A file system policy is an
@@ -499,14 +499,14 @@ export class SubnetNotFound extends S.TaggedError<SubnetNotFound>()("SubnetNotFo
  * 
  * 
  * This operation requires permissions for the `elasticfilesystem:PutFileSystemPolicy` action.
- */export const putFileSystemPolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-01", uri: "/2015-02-01/file-systems/{FileSystemId}/policy", method: "PUT", sdkId: "EFS", sigV4ServiceName: "elasticfilesystem", name: "MagnolioAPIService_v20150201.PutFileSystemPolicy" }, PutFileSystemPolicyRequest, FileSystemPolicyDescription, [BadRequest, FileSystemNotFound, IncorrectFileSystemLifeCycleState, InternalServerError, InvalidPolicyException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putFileSystemPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-01", uri: "/2015-02-01/file-systems/{FileSystemId}/policy", method: "PUT", sdkId: "EFS", sigV4ServiceName: "elasticfilesystem", name: "MagnolioAPIService_v20150201.PutFileSystemPolicy" }, PutFileSystemPolicyRequest, FileSystemPolicyDescription, [BadRequest, FileSystemNotFound, IncorrectFileSystemLifeCycleState, InternalServerError, InvalidPolicyException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates protection on the file system.
  * 
  * 
  * This operation requires permissions for the
  * `elasticfilesystem:UpdateFileSystemProtection` action.
- */export const updateFileSystemProtection = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-01", uri: "/2015-02-01/file-systems/{FileSystemId}/protection", method: "PUT", sdkId: "EFS", sigV4ServiceName: "elasticfilesystem", name: "MagnolioAPIService_v20150201.UpdateFileSystemProtection" }, UpdateFileSystemProtectionRequest, FileSystemProtectionDescription, [BadRequest, FileSystemNotFound, IncorrectFileSystemLifeCycleState, InsufficientThroughputCapacity, InternalServerError, ReplicationAlreadyExists, ThroughputLimitExceeded, TooManyRequests]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateFileSystemProtection = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-01", uri: "/2015-02-01/file-systems/{FileSystemId}/protection", method: "PUT", sdkId: "EFS", sigV4ServiceName: "elasticfilesystem", name: "MagnolioAPIService_v20150201.UpdateFileSystemProtection" }, UpdateFileSystemProtectionRequest, FileSystemProtectionDescription, [BadRequest, FileSystemNotFound, IncorrectFileSystemLifeCycleState, InsufficientThroughputCapacity, InternalServerError, ReplicationAlreadyExists, ThroughputLimitExceeded, TooManyRequests]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a replication conﬁguration to either a new or existing EFS file system.
  * For more information, see Amazon EFS replication in the Amazon EFS User
@@ -544,12 +544,12 @@ export class SubnetNotFound extends S.TaggedError<SubnetNotFound>()("SubnetNotFo
  * For more information, see Required permissions for replication
  * in the Amazon EFS User
  * Guide.
- */export const createReplicationConfiguration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-01", uri: "/2015-02-01/file-systems/{SourceFileSystemId}/replication-configuration", method: "POST", sdkId: "EFS", sigV4ServiceName: "elasticfilesystem", name: "MagnolioAPIService_v20150201.CreateReplicationConfiguration" }, CreateReplicationConfigurationRequest, ReplicationConfigurationDescription, [BadRequest, ConflictException, FileSystemLimitExceeded, FileSystemNotFound, IncorrectFileSystemLifeCycleState, InsufficientThroughputCapacity, InternalServerError, ReplicationNotFound, ThroughputLimitExceeded, UnsupportedAvailabilityZone, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createReplicationConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-01", uri: "/2015-02-01/file-systems/{SourceFileSystemId}/replication-configuration", method: "POST", sdkId: "EFS", sigV4ServiceName: "elasticfilesystem", name: "MagnolioAPIService_v20150201.CreateReplicationConfiguration" }, CreateReplicationConfigurationRequest, ReplicationConfigurationDescription, [BadRequest, ConflictException, FileSystemLimitExceeded, FileSystemNotFound, IncorrectFileSystemLifeCycleState, InsufficientThroughputCapacity, InternalServerError, ReplicationNotFound, ThroughputLimitExceeded, UnsupportedAvailabilityZone, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the replication configuration for a specific file system. If a file system is
  * not specified, all of the replication configurations for the Amazon Web Services account in an
  * Amazon Web Services Region are retrieved.
- */export const describeReplicationConfigurations = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-01", uri: "/2015-02-01/file-systems/replication-configurations", method: "GET", sdkId: "EFS", sigV4ServiceName: "elasticfilesystem", name: "MagnolioAPIService_v20150201.DescribeReplicationConfigurations" }, DescribeReplicationConfigurationsRequest, DescribeReplicationConfigurationsResponse, [BadRequest, FileSystemNotFound, InternalServerError, ReplicationNotFound, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeReplicationConfigurations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-01", uri: "/2015-02-01/file-systems/replication-configurations", method: "GET", sdkId: "EFS", sigV4ServiceName: "elasticfilesystem", name: "MagnolioAPIService_v20150201.DescribeReplicationConfigurations" }, DescribeReplicationConfigurationsRequest, DescribeReplicationConfigurationsResponse, [BadRequest, FileSystemNotFound, InternalServerError, ReplicationNotFound, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Modifies the set of security groups in effect for a mount target.
  * 
@@ -573,11 +573,11 @@ export class SubnetNotFound extends S.TaggedError<SubnetNotFound>()("SubnetNotFo
  * 
  * - `ec2:ModifyNetworkInterfaceAttribute` action on the mount target's network
  * interface.
- */export const modifyMountTargetSecurityGroups = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-01", uri: "/2015-02-01/mount-targets/{MountTargetId}/security-groups", method: "PUT", sdkId: "EFS", sigV4ServiceName: "elasticfilesystem", name: "MagnolioAPIService_v20150201.ModifyMountTargetSecurityGroups" }, ModifyMountTargetSecurityGroupsRequest, S.Struct({}), [BadRequest, IncorrectMountTargetState, InternalServerError, MountTargetNotFound, SecurityGroupLimitExceeded, SecurityGroupNotFound]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const modifyMountTargetSecurityGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-01", uri: "/2015-02-01/mount-targets/{MountTargetId}/security-groups", method: "PUT", sdkId: "EFS", sigV4ServiceName: "elasticfilesystem", name: "MagnolioAPIService_v20150201.ModifyMountTargetSecurityGroups" }, ModifyMountTargetSecurityGroupsRequest, S.Struct({}), [BadRequest, IncorrectMountTargetState, InternalServerError, MountTargetNotFound, SecurityGroupLimitExceeded, SecurityGroupNotFound]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the throughput mode or the amount of provisioned throughput of an existing file
  * system.
- */export const updateFileSystem = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-01", uri: "/2015-02-01/file-systems/{FileSystemId}", method: "PUT", sdkId: "EFS", sigV4ServiceName: "elasticfilesystem", name: "MagnolioAPIService_v20150201.UpdateFileSystem" }, UpdateFileSystemRequest, FileSystemDescription, [BadRequest, FileSystemNotFound, IncorrectFileSystemLifeCycleState, InsufficientThroughputCapacity, InternalServerError, ThroughputLimitExceeded, TooManyRequests]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateFileSystem = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-01", uri: "/2015-02-01/file-systems/{FileSystemId}", method: "PUT", sdkId: "EFS", sigV4ServiceName: "elasticfilesystem", name: "MagnolioAPIService_v20150201.UpdateFileSystem" }, UpdateFileSystemRequest, FileSystemDescription, [BadRequest, FileSystemNotFound, IncorrectFileSystemLifeCycleState, InsufficientThroughputCapacity, InternalServerError, ThroughputLimitExceeded, TooManyRequests]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new, empty file system. The operation requires a creation token in the
  * request that Amazon EFS uses to ensure idempotent creation (calling the operation with same
@@ -666,7 +666,7 @@ export class SubnetNotFound extends S.TaggedError<SubnetNotFound>()("SubnetNotFo
  * verify if users have permissions to create tags. Therefore, you must grant explicit
  * permissions to use the `elasticfilesystem:TagResource` action. For more
  * information, see Granting permissions to tag resources during creation.
- */export const createFileSystem = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-01", uri: "/2015-02-01/file-systems", method: "POST", sdkId: "EFS", sigV4ServiceName: "elasticfilesystem", name: "MagnolioAPIService_v20150201.CreateFileSystem" }, CreateFileSystemRequest, FileSystemDescription, [BadRequest, FileSystemAlreadyExists, FileSystemLimitExceeded, InsufficientThroughputCapacity, InternalServerError, ThroughputLimitExceeded, UnsupportedAvailabilityZone]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createFileSystem = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-01", uri: "/2015-02-01/file-systems", method: "POST", sdkId: "EFS", sigV4ServiceName: "elasticfilesystem", name: "MagnolioAPIService_v20150201.CreateFileSystem" }, CreateFileSystemRequest, FileSystemDescription, [BadRequest, FileSystemAlreadyExists, FileSystemLimitExceeded, InsufficientThroughputCapacity, InternalServerError, ThroughputLimitExceeded, UnsupportedAvailabilityZone]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an EFS access point. An access point is an application-specific view
  * into an EFS file system that applies an operating system user and group, and a file
@@ -698,7 +698,7 @@ export class SubnetNotFound extends S.TaggedError<SubnetNotFound>()("SubnetNotFo
  * permissions to use the `elasticfilesystem:TagResource` action. For more
  * information, see Granting
  * permissions to tag resources during creation.
- */export const createAccessPoint = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-01", uri: "/2015-02-01/access-points", method: "POST", sdkId: "EFS", sigV4ServiceName: "elasticfilesystem", name: "MagnolioAPIService_v20150201.CreateAccessPoint" }, CreateAccessPointRequest, AccessPointDescription, [AccessPointAlreadyExists, AccessPointLimitExceeded, BadRequest, FileSystemNotFound, IncorrectFileSystemLifeCycleState, InternalServerError, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createAccessPoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-01", uri: "/2015-02-01/access-points", method: "POST", sdkId: "EFS", sigV4ServiceName: "elasticfilesystem", name: "MagnolioAPIService_v20150201.CreateAccessPoint" }, CreateAccessPointRequest, AccessPointDescription, [AccessPointAlreadyExists, AccessPointLimitExceeded, BadRequest, FileSystemNotFound, IncorrectFileSystemLifeCycleState, InternalServerError, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a mount target for a file system. You can then mount the file system on EC2
  * instances by using the mount target.
@@ -884,4 +884,4 @@ export class SubnetNotFound extends S.TaggedError<SubnetNotFound>()("SubnetNotFo
  * 
  * 
  * - `ec2:CreateNetworkInterface`
- */export const createMountTarget = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-01", uri: "/2015-02-01/mount-targets", method: "POST", sdkId: "EFS", sigV4ServiceName: "elasticfilesystem", name: "MagnolioAPIService_v20150201.CreateMountTarget" }, CreateMountTargetRequest, MountTargetDescription, [AvailabilityZonesMismatch, BadRequest, FileSystemNotFound, IncorrectFileSystemLifeCycleState, InternalServerError, IpAddressInUse, MountTargetConflict, NetworkInterfaceLimitExceeded, NoFreeAddressesInSubnet, SecurityGroupLimitExceeded, SecurityGroupNotFound, SubnetNotFound, UnsupportedAvailabilityZone]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createMountTarget = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-01", uri: "/2015-02-01/mount-targets", method: "POST", sdkId: "EFS", sigV4ServiceName: "elasticfilesystem", name: "MagnolioAPIService_v20150201.CreateMountTarget" }, CreateMountTargetRequest, MountTargetDescription, [AvailabilityZonesMismatch, BadRequest, FileSystemNotFound, IncorrectFileSystemLifeCycleState, InternalServerError, IpAddressInUse, MountTargetConflict, NetworkInterfaceLimitExceeded, NoFreeAddressesInSubnet, SecurityGroupLimitExceeded, SecurityGroupNotFound, SubnetNotFound, UnsupportedAvailabilityZone]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

@@ -75,7 +75,7 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
  * 
  * 
  * Creates an HSM client.
- */export const createLunaClient = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-05-30", uri: "/", method: "POST", sdkId: "CloudHSM", sigV4ServiceName: "cloudhsm", name: "CloudHsmFrontendService.CreateLunaClient" }, CreateLunaClientRequest, CreateLunaClientResponse, [CloudHsmInternalException, CloudHsmServiceException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createLunaClient = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-05-30", uri: "/", method: "POST", sdkId: "CloudHSM", sigV4ServiceName: "cloudhsm", name: "CloudHsmFrontendService.CreateLunaClient" }, CreateLunaClientRequest, CreateLunaClientResponse, [CloudHsmInternalException, CloudHsmServiceException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is documentation for **AWS CloudHSM Classic**. For
  * more information, see AWS CloudHSM
@@ -92,7 +92,7 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
  * 
  * 
  * Deletes a high-availability partition group.
- */export const deleteHapg = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-05-30", uri: "/", method: "POST", sdkId: "CloudHSM", sigV4ServiceName: "cloudhsm", name: "CloudHsmFrontendService.DeleteHapg" }, DeleteHapgRequest, DeleteHapgResponse, [CloudHsmInternalException, CloudHsmServiceException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteHapg = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-05-30", uri: "/", method: "POST", sdkId: "CloudHSM", sigV4ServiceName: "cloudhsm", name: "CloudHsmFrontendService.DeleteHapg" }, DeleteHapgRequest, DeleteHapgResponse, [CloudHsmInternalException, CloudHsmServiceException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is documentation for **AWS CloudHSM Classic**. For
  * more information, see AWS CloudHSM
@@ -110,7 +110,7 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
  * 
  * Deletes an HSM. After completion, this operation cannot be undone and your key material
  * cannot be recovered.
- */export const deleteHsm = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-05-30", uri: "/", method: "POST", sdkId: "CloudHSM", sigV4ServiceName: "cloudhsm", name: "CloudHsmFrontendService.DeleteHsm" }, DeleteHsmRequest, DeleteHsmResponse, [CloudHsmInternalException, CloudHsmServiceException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteHsm = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-05-30", uri: "/", method: "POST", sdkId: "CloudHSM", sigV4ServiceName: "cloudhsm", name: "CloudHsmFrontendService.DeleteHsm" }, DeleteHsmRequest, DeleteHsmResponse, [CloudHsmInternalException, CloudHsmServiceException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is documentation for **AWS CloudHSM Classic**. For
  * more information, see AWS CloudHSM
@@ -127,7 +127,7 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
  * 
  * 
  * Deletes a client.
- */export const deleteLunaClient = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-05-30", uri: "/", method: "POST", sdkId: "CloudHSM", sigV4ServiceName: "cloudhsm", name: "CloudHsmFrontendService.DeleteLunaClient" }, DeleteLunaClientRequest, DeleteLunaClientResponse, [CloudHsmInternalException, CloudHsmServiceException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteLunaClient = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-05-30", uri: "/", method: "POST", sdkId: "CloudHSM", sigV4ServiceName: "cloudhsm", name: "CloudHsmFrontendService.DeleteLunaClient" }, DeleteLunaClientRequest, DeleteLunaClientResponse, [CloudHsmInternalException, CloudHsmServiceException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is documentation for **AWS CloudHSM Classic**. For
  * more information, see AWS CloudHSM
@@ -144,7 +144,7 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
  * 
  * 
  * Retrieves information about a high-availability partition group.
- */export const describeHapg = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-05-30", uri: "/", method: "POST", sdkId: "CloudHSM", sigV4ServiceName: "cloudhsm", name: "CloudHsmFrontendService.DescribeHapg" }, DescribeHapgRequest, DescribeHapgResponse, [CloudHsmInternalException, CloudHsmServiceException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeHapg = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-05-30", uri: "/", method: "POST", sdkId: "CloudHSM", sigV4ServiceName: "cloudhsm", name: "CloudHsmFrontendService.DescribeHapg" }, DescribeHapgRequest, DescribeHapgResponse, [CloudHsmInternalException, CloudHsmServiceException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is documentation for **AWS CloudHSM Classic**. For
  * more information, see AWS CloudHSM
@@ -162,7 +162,7 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
  * 
  * Retrieves information about an HSM. You can identify the HSM by its ARN or its serial
  * number.
- */export const describeHsm = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-05-30", uri: "/", method: "POST", sdkId: "CloudHSM", sigV4ServiceName: "cloudhsm", name: "CloudHsmFrontendService.DescribeHsm" }, DescribeHsmRequest, DescribeHsmResponse, [CloudHsmInternalException, CloudHsmServiceException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeHsm = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-05-30", uri: "/", method: "POST", sdkId: "CloudHSM", sigV4ServiceName: "cloudhsm", name: "CloudHsmFrontendService.DescribeHsm" }, DescribeHsmRequest, DescribeHsmResponse, [CloudHsmInternalException, CloudHsmServiceException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is documentation for **AWS CloudHSM Classic**. For
  * more information, see AWS CloudHSM
@@ -179,7 +179,7 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
  * 
  * 
  * Retrieves information about an HSM client.
- */export const describeLunaClient = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-05-30", uri: "/", method: "POST", sdkId: "CloudHSM", sigV4ServiceName: "cloudhsm", name: "CloudHsmFrontendService.DescribeLunaClient" }, DescribeLunaClientRequest, DescribeLunaClientResponse, [CloudHsmInternalException, CloudHsmServiceException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeLunaClient = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-05-30", uri: "/", method: "POST", sdkId: "CloudHSM", sigV4ServiceName: "cloudhsm", name: "CloudHsmFrontendService.DescribeLunaClient" }, DescribeLunaClientRequest, DescribeLunaClientResponse, [CloudHsmInternalException, CloudHsmServiceException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is documentation for **AWS CloudHSM Classic**. For
  * more information, see AWS CloudHSM
@@ -197,7 +197,7 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
  * 
  * Gets the configuration files necessary to connect to all high availability partition
  * groups the client is associated with.
- */export const getConfig = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-05-30", uri: "/", method: "POST", sdkId: "CloudHSM", sigV4ServiceName: "cloudhsm", name: "CloudHsmFrontendService.GetConfig" }, GetConfigRequest, GetConfigResponse, [CloudHsmInternalException, CloudHsmServiceException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getConfig = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-05-30", uri: "/", method: "POST", sdkId: "CloudHSM", sigV4ServiceName: "cloudhsm", name: "CloudHsmFrontendService.GetConfig" }, GetConfigRequest, GetConfigResponse, [CloudHsmInternalException, CloudHsmServiceException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is documentation for **AWS CloudHSM Classic**. For
  * more information, see AWS CloudHSM
@@ -214,7 +214,7 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
  * 
  * 
  * Lists the Availability Zones that have available AWS CloudHSM capacity.
- */export const listAvailableZones = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-05-30", uri: "/", method: "POST", sdkId: "CloudHSM", sigV4ServiceName: "cloudhsm", name: "CloudHsmFrontendService.ListAvailableZones" }, ListAvailableZonesRequest, ListAvailableZonesResponse, [CloudHsmInternalException, CloudHsmServiceException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listAvailableZones = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-05-30", uri: "/", method: "POST", sdkId: "CloudHSM", sigV4ServiceName: "cloudhsm", name: "CloudHsmFrontendService.ListAvailableZones" }, ListAvailableZonesRequest, ListAvailableZonesResponse, [CloudHsmInternalException, CloudHsmServiceException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is documentation for **AWS CloudHSM Classic**. For
  * more information, see AWS CloudHSM
@@ -237,7 +237,7 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
  * If more results are available, the `NextToken` member of the response contains a
  * token that you pass in the next call to `ListHapgs` to retrieve the next set of
  * items.
- */export const listHapgs = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-05-30", uri: "/", method: "POST", sdkId: "CloudHSM", sigV4ServiceName: "cloudhsm", name: "CloudHsmFrontendService.ListHapgs" }, ListHapgsRequest, ListHapgsResponse, [CloudHsmInternalException, CloudHsmServiceException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listHapgs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-05-30", uri: "/", method: "POST", sdkId: "CloudHSM", sigV4ServiceName: "cloudhsm", name: "CloudHsmFrontendService.ListHapgs" }, ListHapgsRequest, ListHapgsResponse, [CloudHsmInternalException, CloudHsmServiceException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is documentation for **AWS CloudHSM Classic**. For
  * more information, see AWS CloudHSM
@@ -261,7 +261,7 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
  * If more results are available, the `NextToken` member of the response contains a
  * token that you pass in the next call to `ListHsms` to retrieve the next set of
  * items.
- */export const listHsms = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-05-30", uri: "/", method: "POST", sdkId: "CloudHSM", sigV4ServiceName: "cloudhsm", name: "CloudHsmFrontendService.ListHsms" }, ListHsmsRequest, ListHsmsResponse, [CloudHsmInternalException, CloudHsmServiceException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listHsms = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-05-30", uri: "/", method: "POST", sdkId: "CloudHSM", sigV4ServiceName: "cloudhsm", name: "CloudHsmFrontendService.ListHsms" }, ListHsmsRequest, ListHsmsResponse, [CloudHsmInternalException, CloudHsmServiceException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is documentation for **AWS CloudHSM Classic**. For
  * more information, see AWS CloudHSM
@@ -284,7 +284,7 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
  * If more results are available, the `NextToken` member of the response contains a
  * token that you pass in the next call to `ListLunaClients` to retrieve the next set
  * of items.
- */export const listLunaClients = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-05-30", uri: "/", method: "POST", sdkId: "CloudHSM", sigV4ServiceName: "cloudhsm", name: "CloudHsmFrontendService.ListLunaClients" }, ListLunaClientsRequest, ListLunaClientsResponse, [CloudHsmInternalException, CloudHsmServiceException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listLunaClients = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-05-30", uri: "/", method: "POST", sdkId: "CloudHSM", sigV4ServiceName: "cloudhsm", name: "CloudHsmFrontendService.ListLunaClients" }, ListLunaClientsRequest, ListLunaClientsResponse, [CloudHsmInternalException, CloudHsmServiceException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is documentation for **AWS CloudHSM Classic**. For
  * more information, see AWS CloudHSM
@@ -301,7 +301,7 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
  * 
  * 
  * Returns a list of all tags for the specified AWS CloudHSM resource.
- */export const listTagsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-05-30", uri: "/", method: "POST", sdkId: "CloudHSM", sigV4ServiceName: "cloudhsm", name: "CloudHsmFrontendService.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [CloudHsmInternalException, CloudHsmServiceException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-05-30", uri: "/", method: "POST", sdkId: "CloudHSM", sigV4ServiceName: "cloudhsm", name: "CloudHsmFrontendService.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [CloudHsmInternalException, CloudHsmServiceException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is documentation for **AWS CloudHSM Classic**. For
  * more information, see AWS CloudHSM
@@ -318,7 +318,7 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
  * 
  * 
  * Modifies an existing high-availability partition group.
- */export const modifyHapg = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-05-30", uri: "/", method: "POST", sdkId: "CloudHSM", sigV4ServiceName: "cloudhsm", name: "CloudHsmFrontendService.ModifyHapg" }, ModifyHapgRequest, ModifyHapgResponse, [CloudHsmInternalException, CloudHsmServiceException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const modifyHapg = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-05-30", uri: "/", method: "POST", sdkId: "CloudHSM", sigV4ServiceName: "cloudhsm", name: "CloudHsmFrontendService.ModifyHapg" }, ModifyHapgRequest, ModifyHapgResponse, [CloudHsmInternalException, CloudHsmServiceException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is documentation for **AWS CloudHSM Classic**. For
  * more information, see AWS CloudHSM
@@ -343,7 +343,7 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
  * CloudHSM service is reconfigured. If you are modifying a production HSM, you should ensure
  * that your AWS CloudHSM service is configured for high availability, and consider executing this
  * operation during a maintenance window.
- */export const modifyHsm = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-05-30", uri: "/", method: "POST", sdkId: "CloudHSM", sigV4ServiceName: "cloudhsm", name: "CloudHsmFrontendService.ModifyHsm" }, ModifyHsmRequest, ModifyHsmResponse, [CloudHsmInternalException, CloudHsmServiceException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const modifyHsm = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-05-30", uri: "/", method: "POST", sdkId: "CloudHSM", sigV4ServiceName: "cloudhsm", name: "CloudHsmFrontendService.ModifyHsm" }, ModifyHsmRequest, ModifyHsmResponse, [CloudHsmInternalException, CloudHsmServiceException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is documentation for **AWS CloudHSM Classic**. For
  * more information, see AWS CloudHSM
@@ -364,7 +364,7 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
  * 
  * This action can potentially start a workflow to install the new certificate on the
  * client's HSMs.
- */export const modifyLunaClient = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-05-30", uri: "/", method: "POST", sdkId: "CloudHSM", sigV4ServiceName: "cloudhsm", name: "CloudHsmFrontendService.ModifyLunaClient" }, ModifyLunaClientRequest, ModifyLunaClientResponse, [CloudHsmServiceException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const modifyLunaClient = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-05-30", uri: "/", method: "POST", sdkId: "CloudHSM", sigV4ServiceName: "cloudhsm", name: "CloudHsmFrontendService.ModifyLunaClient" }, ModifyLunaClientRequest, ModifyLunaClientResponse, [CloudHsmServiceException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is documentation for **AWS CloudHSM Classic**. For
  * more information, see AWS CloudHSM
@@ -385,7 +385,7 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
  * 
  * To remove a tag, specify only the tag key to remove (not the value). To overwrite the
  * value for an existing tag, use AddTagsToResource.
- */export const removeTagsFromResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-05-30", uri: "/", method: "POST", sdkId: "CloudHSM", sigV4ServiceName: "cloudhsm", name: "CloudHsmFrontendService.RemoveTagsFromResource" }, RemoveTagsFromResourceRequest, RemoveTagsFromResourceResponse, [CloudHsmInternalException, CloudHsmServiceException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const removeTagsFromResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-05-30", uri: "/", method: "POST", sdkId: "CloudHSM", sigV4ServiceName: "cloudhsm", name: "CloudHsmFrontendService.RemoveTagsFromResource" }, RemoveTagsFromResourceRequest, RemoveTagsFromResourceResponse, [CloudHsmInternalException, CloudHsmServiceException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is documentation for **AWS CloudHSM Classic**. For
  * more information, see AWS CloudHSM
@@ -406,7 +406,7 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
  * 
  * Each tag consists of a key and a value. Tag keys must be unique to each
  * resource.
- */export const addTagsToResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-05-30", uri: "/", method: "POST", sdkId: "CloudHSM", sigV4ServiceName: "cloudhsm", name: "CloudHsmFrontendService.AddTagsToResource" }, AddTagsToResourceRequest, AddTagsToResourceResponse, [CloudHsmInternalException, CloudHsmServiceException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const addTagsToResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-05-30", uri: "/", method: "POST", sdkId: "CloudHSM", sigV4ServiceName: "cloudhsm", name: "CloudHsmFrontendService.AddTagsToResource" }, AddTagsToResourceRequest, AddTagsToResourceResponse, [CloudHsmInternalException, CloudHsmServiceException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is documentation for **AWS CloudHSM Classic**. For
  * more information, see AWS CloudHSM
@@ -424,7 +424,7 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
  * 
  * Creates a high-availability partition group. A high-availability partition group is a
  * group of partitions that spans multiple physical HSMs.
- */export const createHapg = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-05-30", uri: "/", method: "POST", sdkId: "CloudHSM", sigV4ServiceName: "cloudhsm", name: "CloudHsmFrontendService.CreateHapg" }, CreateHapgRequest, CreateHapgResponse, [CloudHsmInternalException, CloudHsmServiceException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createHapg = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-05-30", uri: "/", method: "POST", sdkId: "CloudHSM", sigV4ServiceName: "cloudhsm", name: "CloudHsmFrontendService.CreateHapg" }, CreateHapgRequest, CreateHapgResponse, [CloudHsmInternalException, CloudHsmServiceException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is documentation for **AWS CloudHSM Classic**. For
  * more information, see AWS CloudHSM
@@ -454,4 +454,4 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
  * It can take up to 20 minutes to create and provision an HSM. You can monitor the
  * status of the HSM with the DescribeHsm operation. The HSM is ready to be
  * initialized when the status changes to `RUNNING`.
- */export const createHsm = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-05-30", uri: "/", method: "POST", sdkId: "CloudHSM", sigV4ServiceName: "cloudhsm", name: "CloudHsmFrontendService.CreateHsm" }, CreateHsmRequest, CreateHsmResponse, [CloudHsmInternalException, CloudHsmServiceException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createHsm = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-05-30", uri: "/", method: "POST", sdkId: "CloudHSM", sigV4ServiceName: "cloudhsm", name: "CloudHsmFrontendService.CreateHsm" }, CreateHsmRequest, CreateHsmResponse, [CloudHsmInternalException, CloudHsmServiceException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

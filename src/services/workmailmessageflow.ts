@@ -19,7 +19,7 @@ export class MessageRejected extends S.TaggedError<MessageRejected>()("MessageRe
 //# Operations
 /**
  * Retrieves the raw content of an in-transit email message, in MIME format.
- */export const getRawMessageContent = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-05-01", uri: "/messages/{messageId}", method: "GET", sdkId: "WorkMailMessageFlow", sigV4ServiceName: "workmailmessageflow", name: "GiraffeMessageInTransitService.GetRawMessageContent" }, GetRawMessageContentRequest, GetRawMessageContentResponse, [ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getRawMessageContent = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-05-01", uri: "/messages/{messageId}", method: "GET", sdkId: "WorkMailMessageFlow", sigV4ServiceName: "workmailmessageflow", name: "GiraffeMessageInTransitService.GetRawMessageContent" }, GetRawMessageContentRequest, GetRawMessageContentResponse, [ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the raw content of an in-transit email message, in MIME format.
  * 
@@ -36,4 +36,4 @@ export class MessageRejected extends S.TaggedError<MessageRejected>()("MessageRe
  * Run Lambda rule. If you call `PutRawMessageContent` on a delivered or sent message, the message remains unchanged,
  * even though GetRawMessageContent returns an updated
  * message.
- */export const putRawMessageContent = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-05-01", uri: "/messages/{messageId}", method: "POST", sdkId: "WorkMailMessageFlow", sigV4ServiceName: "workmailmessageflow", name: "GiraffeMessageInTransitService.PutRawMessageContent" }, PutRawMessageContentRequest, PutRawMessageContentResponse, [InvalidContentLocation, MessageFrozen, MessageRejected, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putRawMessageContent = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-05-01", uri: "/messages/{messageId}", method: "POST", sdkId: "WorkMailMessageFlow", sigV4ServiceName: "workmailmessageflow", name: "GiraffeMessageInTransitService.PutRawMessageContent" }, PutRawMessageContentRequest, PutRawMessageContentResponse, [InvalidContentLocation, MessageFrozen, MessageRejected, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

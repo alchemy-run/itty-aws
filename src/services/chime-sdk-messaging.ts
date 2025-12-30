@@ -170,10 +170,10 @@ export class ResourceLimitExceededException extends S.TaggedError<ResourceLimitE
 /**
  * Deletes the streaming configurations for an `AppInstance`. For more information, see
  * Streaming messaging data in the *Amazon Chime SDK Developer Guide*.
- */export const deleteMessagingStreamingConfigurations = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/app-instances/{AppInstanceArn}/streaming-configurations", method: "DELETE", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.DeleteMessagingStreamingConfigurations" }, DeleteMessagingStreamingConfigurationsRequest, S.Struct({}), [BadRequestException, ForbiddenException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteMessagingStreamingConfigurations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/app-instances/{AppInstanceArn}/streaming-configurations", method: "DELETE", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.DeleteMessagingStreamingConfigurations" }, DeleteMessagingStreamingConfigurationsRequest, S.Struct({}), [BadRequestException, ForbiddenException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes the specified tags from the specified Amazon Chime SDK messaging resource.
- */export const untagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/tags?operation=untag-resource", method: "POST", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.UntagResource" }, UntagResourceRequest, S.Struct({}), [BadRequestException, ForbiddenException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/tags?operation=untag-resource", method: "POST", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.UntagResource" }, UntagResourceRequest, S.Struct({}), [BadRequestException, ForbiddenException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Associates a channel flow with a channel. Once associated, all messages to that channel go through channel flow processors. To stop processing, use the
  * `DisassociateChannelFlow` API.
@@ -185,7 +185,7 @@ export class ResourceLimitExceededException extends S.TaggedError<ResourceLimitE
  * `x-amz-chime-bearer` request header is mandatory. Use the ARN of the
  * `AppInstanceUser` or `AppInstanceBot`
  * that makes the API call as the value in the header.
- */export const associateChannelFlow = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels/{ChannelArn}/channel-flow", method: "PUT", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.AssociateChannelFlow" }, AssociateChannelFlowRequest, S.Struct({}), [BadRequestException, ConflictException, ForbiddenException, NotFoundException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const associateChannelFlow = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels/{ChannelArn}/channel-flow", method: "PUT", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.AssociateChannelFlow" }, AssociateChannelFlowRequest, S.Struct({}), [BadRequestException, ConflictException, ForbiddenException, NotFoundException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Adds a member to a channel. The `InvitedBy` field in `ChannelMembership`
  * is derived from the request header. A channel member can:
@@ -234,7 +234,7 @@ export class ResourceLimitExceededException extends S.TaggedError<ResourceLimitE
  * The `x-amz-chime-bearer` request header is mandatory. Use the
  * ARN of the `AppInstanceUserArn` or `AppInstanceBot` that makes the API call
  * as the value in the header.
- */export const createChannelMembership = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels/{ChannelArn}/memberships", method: "POST", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.CreateChannelMembership" }, CreateChannelMembershipRequest, CreateChannelMembershipResponse, [BadRequestException, ConflictException, ForbiddenException, NotFoundException, ResourceLimitExceededException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createChannelMembership = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels/{ChannelArn}/memberships", method: "POST", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.CreateChannelMembership" }, CreateChannelMembershipRequest, CreateChannelMembershipResponse, [BadRequestException, ConflictException, ForbiddenException, NotFoundException, ResourceLimitExceededException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new `ChannelModerator`. A channel moderator can:
  * 
@@ -267,7 +267,7 @@ export class ResourceLimitExceededException extends S.TaggedError<ResourceLimitE
  * The `x-amz-chime-bearer` request header is mandatory. Use the
  * ARN of the `AppInstanceUser` or `AppInstanceBot`of the user that makes the API call as the value in
  * the header.
- */export const createChannelModerator = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels/{ChannelArn}/moderators", method: "POST", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.CreateChannelModerator" }, CreateChannelModeratorRequest, CreateChannelModeratorResponse, [BadRequestException, ConflictException, ForbiddenException, ResourceLimitExceededException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createChannelModerator = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels/{ChannelArn}/moderators", method: "POST", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.CreateChannelModerator" }, CreateChannelModeratorRequest, CreateChannelModeratorResponse, [BadRequestException, ConflictException, ForbiddenException, ResourceLimitExceededException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Immediately makes a channel and its memberships inaccessible and marks them for
  * deletion. This is an irreversible process.
@@ -278,7 +278,7 @@ export class ResourceLimitExceededException extends S.TaggedError<ResourceLimitE
  * The `x-amz-chime-bearer` request header is mandatory. Use the
  * ARN of the `AppInstanceUserArn` or `AppInstanceBot` that makes the API call as the value in
  * the header.
- */export const deleteChannel = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels/{ChannelArn}", method: "DELETE", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.DeleteChannel" }, DeleteChannelRequest, S.Struct({}), [BadRequestException, ConflictException, ForbiddenException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteChannel = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels/{ChannelArn}", method: "DELETE", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.DeleteChannel" }, DeleteChannelRequest, S.Struct({}), [BadRequestException, ConflictException, ForbiddenException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes a member from a channel's ban list.
  * 
@@ -288,7 +288,7 @@ export class ResourceLimitExceededException extends S.TaggedError<ResourceLimitE
  * The `x-amz-chime-bearer` request header is mandatory. Use the
  * ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call as the value in
  * the header.
- */export const deleteChannelBan = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels/{ChannelArn}/bans/{MemberArn}", method: "DELETE", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.DeleteChannelBan" }, DeleteChannelBanRequest, S.Struct({}), [BadRequestException, ForbiddenException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteChannelBan = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels/{ChannelArn}/bans/{MemberArn}", method: "DELETE", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.DeleteChannelBan" }, DeleteChannelBanRequest, S.Struct({}), [BadRequestException, ForbiddenException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a channel flow, an irreversible process. This is a developer API.
  * 
@@ -297,7 +297,7 @@ export class ResourceLimitExceededException extends S.TaggedError<ResourceLimitE
  * 
  * This API works only when the channel flow is not associated with any channel. To get a list of all channels that a channel flow is associated with, use the
  * `ListChannelsAssociatedWithChannelFlow` API. Use the `DisassociateChannelFlow` API to disassociate a channel flow from all channels.
- */export const deleteChannelFlow = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channel-flows/{ChannelFlowArn}", method: "DELETE", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.DeleteChannelFlow" }, DeleteChannelFlowRequest, S.Struct({}), [BadRequestException, ConflictException, ForbiddenException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteChannelFlow = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channel-flows/{ChannelFlowArn}", method: "DELETE", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.DeleteChannelFlow" }, DeleteChannelFlowRequest, S.Struct({}), [BadRequestException, ConflictException, ForbiddenException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes a member from a channel.
  * 
@@ -307,7 +307,7 @@ export class ResourceLimitExceededException extends S.TaggedError<ResourceLimitE
  * The `x-amz-chime-bearer` request header is mandatory. Use the
  * `AppInstanceUserArn` of the user that makes the API call as the value in
  * the header.
- */export const deleteChannelMembership = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels/{ChannelArn}/memberships/{MemberArn}", method: "DELETE", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.DeleteChannelMembership" }, DeleteChannelMembershipRequest, S.Struct({}), [BadRequestException, ConflictException, ForbiddenException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteChannelMembership = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels/{ChannelArn}/memberships/{MemberArn}", method: "DELETE", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.DeleteChannelMembership" }, DeleteChannelMembershipRequest, S.Struct({}), [BadRequestException, ConflictException, ForbiddenException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a channel message. Only admins can perform this action. Deletion makes messages
  * inaccessible immediately. A background process deletes any revisions created by
@@ -319,7 +319,7 @@ export class ResourceLimitExceededException extends S.TaggedError<ResourceLimitE
  * The `x-amz-chime-bearer` request header is mandatory. Use the
  * ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call as the value in
  * the header.
- */export const deleteChannelMessage = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels/{ChannelArn}/messages/{MessageId}", method: "DELETE", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.DeleteChannelMessage" }, DeleteChannelMessageRequest, S.Struct({}), [BadRequestException, ForbiddenException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteChannelMessage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels/{ChannelArn}/messages/{MessageId}", method: "DELETE", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.DeleteChannelMessage" }, DeleteChannelMessageRequest, S.Struct({}), [BadRequestException, ForbiddenException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a channel moderator.
  * 
@@ -329,7 +329,7 @@ export class ResourceLimitExceededException extends S.TaggedError<ResourceLimitE
  * The `x-amz-chime-bearer` request header is mandatory. Use the
  * ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call as the value in
  * the header.
- */export const deleteChannelModerator = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels/{ChannelArn}/moderators/{ChannelModeratorArn}", method: "DELETE", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.DeleteChannelModerator" }, DeleteChannelModeratorRequest, S.Struct({}), [BadRequestException, ForbiddenException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteChannelModerator = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels/{ChannelArn}/moderators/{ChannelModeratorArn}", method: "DELETE", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.DeleteChannelModerator" }, DeleteChannelModeratorRequest, S.Struct({}), [BadRequestException, ForbiddenException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Disassociates a channel flow from all its channels. Once disassociated, all messages to
  * that channel stop going through the channel flow processor.
@@ -343,7 +343,7 @@ export class ResourceLimitExceededException extends S.TaggedError<ResourceLimitE
  * The `x-amz-chime-bearer` request header is mandatory. Use the
  * ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call as the value in
  * the header.
- */export const disassociateChannelFlow = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels/{ChannelArn}/channel-flow/{ChannelFlowArn}", method: "DELETE", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.DisassociateChannelFlow" }, DisassociateChannelFlowRequest, S.Struct({}), [BadRequestException, ConflictException, ForbiddenException, NotFoundException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const disassociateChannelFlow = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels/{ChannelArn}/channel-flow/{ChannelFlowArn}", method: "DELETE", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.DisassociateChannelFlow" }, DisassociateChannelFlowRequest, S.Struct({}), [BadRequestException, ConflictException, ForbiddenException, NotFoundException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets the membership preferences of an `AppInstanceUser` or `AppInstanceBot`
  * for the specified channel. A user or a bot must be a member of the channel and own the membership in order to retrieve membership preferences.
@@ -357,11 +357,11 @@ export class ResourceLimitExceededException extends S.TaggedError<ResourceLimitE
  * The `x-amz-chime-bearer` request header is mandatory. Use the
  * ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call as the value in
  * the header.
- */export const getChannelMembershipPreferences = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels/{ChannelArn}/memberships/{MemberArn}/preferences", method: "GET", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.GetChannelMembershipPreferences" }, GetChannelMembershipPreferencesRequest, GetChannelMembershipPreferencesResponse, [BadRequestException, ForbiddenException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getChannelMembershipPreferences = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels/{ChannelArn}/memberships/{MemberArn}/preferences", method: "GET", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.GetChannelMembershipPreferences" }, GetChannelMembershipPreferencesRequest, GetChannelMembershipPreferencesResponse, [BadRequestException, ForbiddenException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the data streaming configuration for an `AppInstance`. For more information, see
  * Streaming messaging data in the *Amazon Chime SDK Developer Guide*.
- */export const getMessagingStreamingConfigurations = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/app-instances/{AppInstanceArn}/streaming-configurations", method: "GET", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.GetMessagingStreamingConfigurations" }, GetMessagingStreamingConfigurationsRequest, GetMessagingStreamingConfigurationsResponse, [BadRequestException, ForbiddenException, NotFoundException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getMessagingStreamingConfigurations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/app-instances/{AppInstanceArn}/streaming-configurations", method: "GET", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.GetMessagingStreamingConfigurations" }, GetMessagingStreamingConfigurationsRequest, GetMessagingStreamingConfigurationsResponse, [BadRequestException, ForbiddenException, NotFoundException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists all channels that an `AppInstanceUser` or `AppInstanceBot` is a part of.
  * Only an `AppInstanceAdmin` can call the API with a user ARN that is not their own.
@@ -372,7 +372,7 @@ export class ResourceLimitExceededException extends S.TaggedError<ResourceLimitE
  * The `x-amz-chime-bearer` request header is mandatory. Use the
  * ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call as the value in
  * the header.
- */export const listChannelMembershipsForAppInstanceUser = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels?scope=app-instance-user-memberships", method: "GET", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.ListChannelMembershipsForAppInstanceUser" }, ListChannelMembershipsForAppInstanceUserRequest, ListChannelMembershipsForAppInstanceUserResponse, [BadRequestException, ForbiddenException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listChannelMembershipsForAppInstanceUser = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels?scope=app-instance-user-memberships", method: "GET", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.ListChannelMembershipsForAppInstanceUser" }, ListChannelMembershipsForAppInstanceUserRequest, ListChannelMembershipsForAppInstanceUserResponse, [BadRequestException, ForbiddenException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * A list of the channels moderated by an `AppInstanceUser`.
  * 
@@ -382,10 +382,10 @@ export class ResourceLimitExceededException extends S.TaggedError<ResourceLimitE
  * The `x-amz-chime-bearer` request header is mandatory. Use the
  * ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call as the value in
  * the header.
- */export const listChannelsModeratedByAppInstanceUser = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels?scope=app-instance-user-moderated-channels", method: "GET", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.ListChannelsModeratedByAppInstanceUser" }, ListChannelsModeratedByAppInstanceUserRequest, ListChannelsModeratedByAppInstanceUserResponse, [BadRequestException, ForbiddenException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listChannelsModeratedByAppInstanceUser = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels?scope=app-instance-user-moderated-channels", method: "GET", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.ListChannelsModeratedByAppInstanceUser" }, ListChannelsModeratedByAppInstanceUserRequest, ListChannelsModeratedByAppInstanceUserResponse, [BadRequestException, ForbiddenException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the tags applied to an Amazon Chime SDK messaging resource.
- */export const listTagsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/tags", method: "GET", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [BadRequestException, ForbiddenException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/tags", method: "GET", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [BadRequestException, ForbiddenException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Sets the number of days before the channel is automatically deleted.
  * 
@@ -406,7 +406,7 @@ export class ResourceLimitExceededException extends S.TaggedError<ResourceLimitE
  * - The `x-amz-chime-bearer` request header is mandatory. Use the
  * ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call as the value in
  * the header.
- */export const putChannelExpirationSettings = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels/{ChannelArn}/expiration-settings", method: "PUT", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.PutChannelExpirationSettings" }, PutChannelExpirationSettingsRequest, PutChannelExpirationSettingsResponse, [BadRequestException, ConflictException, ForbiddenException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putChannelExpirationSettings = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels/{ChannelArn}/expiration-settings", method: "PUT", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.PutChannelExpirationSettings" }, PutChannelExpirationSettingsRequest, PutChannelExpirationSettingsResponse, [BadRequestException, ConflictException, ForbiddenException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Redacts message content and metadata. The message exists in the back end, but the
  * action returns null content, and the state shows as redacted.
@@ -417,10 +417,10 @@ export class ResourceLimitExceededException extends S.TaggedError<ResourceLimitE
  * The `x-amz-chime-bearer` request header is mandatory. Use the
  * ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call as the value in
  * the header.
- */export const redactChannelMessage = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels/{ChannelArn}/messages/{MessageId}?operation=redact", method: "POST", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.RedactChannelMessage" }, RedactChannelMessageRequest, RedactChannelMessageResponse, [BadRequestException, ConflictException, ForbiddenException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const redactChannelMessage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels/{ChannelArn}/messages/{MessageId}?operation=redact", method: "POST", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.RedactChannelMessage" }, RedactChannelMessageRequest, RedactChannelMessageResponse, [BadRequestException, ConflictException, ForbiddenException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Applies the specified tags to the specified Amazon Chime SDK messaging resource.
- */export const tagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/tags?operation=tag-resource", method: "POST", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.TagResource" }, TagResourceRequest, S.Struct({}), [BadRequestException, ForbiddenException, ResourceLimitExceededException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/tags?operation=tag-resource", method: "POST", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.TagResource" }, TagResourceRequest, S.Struct({}), [BadRequestException, ForbiddenException, ResourceLimitExceededException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Update a channel's attributes.
  * 
@@ -434,10 +434,10 @@ export class ResourceLimitExceededException extends S.TaggedError<ResourceLimitE
  * The `x-amz-chime-bearer` request header is mandatory. Use the
  * ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call as the value in
  * the header.
- */export const updateChannel = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels/{ChannelArn}", method: "PUT", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.UpdateChannel" }, UpdateChannelRequest, UpdateChannelResponse, [BadRequestException, ConflictException, ForbiddenException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateChannel = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels/{ChannelArn}", method: "PUT", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.UpdateChannel" }, UpdateChannelRequest, UpdateChannelResponse, [BadRequestException, ConflictException, ForbiddenException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates channel flow attributes. This is a developer API.
- */export const updateChannelFlow = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channel-flows/{ChannelFlowArn}", method: "PUT", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.UpdateChannelFlow" }, UpdateChannelFlowRequest, UpdateChannelFlowResponse, [BadRequestException, ConflictException, ForbiddenException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateChannelFlow = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channel-flows/{ChannelFlowArn}", method: "PUT", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.UpdateChannelFlow" }, UpdateChannelFlowRequest, UpdateChannelFlowResponse, [BadRequestException, ConflictException, ForbiddenException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the content of a message.
  * 
@@ -447,7 +447,7 @@ export class ResourceLimitExceededException extends S.TaggedError<ResourceLimitE
  * The `x-amz-chime-bearer` request header is mandatory. Use the
  * ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call as the value in
  * the header.
- */export const updateChannelMessage = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels/{ChannelArn}/messages/{MessageId}", method: "PUT", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.UpdateChannelMessage" }, UpdateChannelMessageRequest, UpdateChannelMessageResponse, [BadRequestException, ConflictException, ForbiddenException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateChannelMessage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels/{ChannelArn}/messages/{MessageId}", method: "PUT", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.UpdateChannelMessage" }, UpdateChannelMessageRequest, UpdateChannelMessageResponse, [BadRequestException, ConflictException, ForbiddenException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * The details of the time when a user last read messages in a channel.
  * 
@@ -457,10 +457,10 @@ export class ResourceLimitExceededException extends S.TaggedError<ResourceLimitE
  * The `x-amz-chime-bearer` request header is mandatory. Use the
  * ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call as the value in
  * the header.
- */export const updateChannelReadMarker = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels/{ChannelArn}/readMarker", method: "PUT", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.UpdateChannelReadMarker" }, UpdateChannelReadMarkerRequest, UpdateChannelReadMarkerResponse, [BadRequestException, ConflictException, ForbiddenException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateChannelReadMarker = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels/{ChannelArn}/readMarker", method: "PUT", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.UpdateChannelReadMarker" }, UpdateChannelReadMarkerRequest, UpdateChannelReadMarkerResponse, [BadRequestException, ConflictException, ForbiddenException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Adds a specified number of users and bots to a channel.
- */export const batchCreateChannelMembership = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels/{ChannelArn}/memberships?operation=batch-create", method: "POST", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.BatchCreateChannelMembership" }, BatchCreateChannelMembershipRequest, BatchCreateChannelMembershipResponse, [BadRequestException, ForbiddenException, NotFoundException, ResourceLimitExceededException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const batchCreateChannelMembership = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels/{ChannelArn}/memberships?operation=batch-create", method: "POST", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.BatchCreateChannelMembership" }, BatchCreateChannelMembershipRequest, BatchCreateChannelMembershipResponse, [BadRequestException, ForbiddenException, NotFoundException, ResourceLimitExceededException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Calls back Amazon Chime SDK messaging with a processing response message. This should be invoked from the processor Lambda. This is a developer API.
  * 
@@ -478,7 +478,7 @@ export class ResourceLimitExceededException extends S.TaggedError<ResourceLimitE
  * 
  * 
  * - Make no changes to the message
- */export const channelFlowCallback = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels/{ChannelArn}?operation=channel-flow-callback", method: "POST", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.ChannelFlowCallback" }, ChannelFlowCallbackRequest, ChannelFlowCallbackResponse, [BadRequestException, ConflictException, ForbiddenException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const channelFlowCallback = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels/{ChannelArn}?operation=channel-flow-callback", method: "POST", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.ChannelFlowCallback" }, ChannelFlowCallbackRequest, ChannelFlowCallbackResponse, [BadRequestException, ConflictException, ForbiddenException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a channel to which you can add users and send messages.
  * 
@@ -493,7 +493,7 @@ export class ResourceLimitExceededException extends S.TaggedError<ResourceLimitE
  * The `x-amz-chime-bearer` request header is mandatory. Use the
  * ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call as the value in
  * the header.
- */export const createChannel = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels", method: "POST", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.CreateChannel" }, CreateChannelRequest, CreateChannelResponse, [BadRequestException, ConflictException, ForbiddenException, ResourceLimitExceededException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createChannel = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels", method: "POST", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.CreateChannel" }, CreateChannelRequest, CreateChannelResponse, [BadRequestException, ConflictException, ForbiddenException, ResourceLimitExceededException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Permanently bans a member from a channel. Moderators can't add banned members to a
  * channel. To undo a ban, you first have to `DeleteChannelBan`, and then
@@ -510,7 +510,7 @@ export class ResourceLimitExceededException extends S.TaggedError<ResourceLimitE
  * The `x-amz-chime-bearer` request header is mandatory. Use the
  * ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call as the value in
  * the header.
- */export const createChannelBan = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels/{ChannelArn}/bans", method: "POST", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.CreateChannelBan" }, CreateChannelBanRequest, CreateChannelBanResponse, [BadRequestException, ConflictException, ForbiddenException, ResourceLimitExceededException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createChannelBan = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels/{ChannelArn}/bans", method: "POST", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.CreateChannelBan" }, CreateChannelBanRequest, CreateChannelBanResponse, [BadRequestException, ConflictException, ForbiddenException, ResourceLimitExceededException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the full details of a channel in an Amazon Chime
  * `AppInstance`.
@@ -521,7 +521,7 @@ export class ResourceLimitExceededException extends S.TaggedError<ResourceLimitE
  * The `x-amz-chime-bearer` request header is mandatory. Use the
  * ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call as the value in
  * the header.
- */export const describeChannel = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels/{ChannelArn}", method: "GET", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.DescribeChannel" }, DescribeChannelRequest, DescribeChannelResponse, [BadRequestException, ForbiddenException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeChannel = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels/{ChannelArn}", method: "GET", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.DescribeChannel" }, DescribeChannelRequest, DescribeChannelResponse, [BadRequestException, ForbiddenException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the full details of a channel ban.
  * 
@@ -531,10 +531,10 @@ export class ResourceLimitExceededException extends S.TaggedError<ResourceLimitE
  * The `x-amz-chime-bearer` request header is mandatory. Use the
  * ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call as the value in
  * the header.
- */export const describeChannelBan = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels/{ChannelArn}/bans/{MemberArn}", method: "GET", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.DescribeChannelBan" }, DescribeChannelBanRequest, DescribeChannelBanResponse, [BadRequestException, ForbiddenException, NotFoundException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeChannelBan = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels/{ChannelArn}/bans/{MemberArn}", method: "GET", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.DescribeChannelBan" }, DescribeChannelBanRequest, DescribeChannelBanResponse, [BadRequestException, ForbiddenException, NotFoundException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the full details of a channel flow in an Amazon Chime `AppInstance`. This is a developer API.
- */export const describeChannelFlow = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channel-flows/{ChannelFlowArn}", method: "GET", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.DescribeChannelFlow" }, DescribeChannelFlowRequest, DescribeChannelFlowResponse, [BadRequestException, ForbiddenException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeChannelFlow = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channel-flows/{ChannelFlowArn}", method: "GET", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.DescribeChannelFlow" }, DescribeChannelFlowRequest, DescribeChannelFlowResponse, [BadRequestException, ForbiddenException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the full details of a user's channel membership.
  * 
@@ -544,7 +544,7 @@ export class ResourceLimitExceededException extends S.TaggedError<ResourceLimitE
  * The `x-amz-chime-bearer` request header is mandatory. Use the
  * ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call as the value in
  * the header.
- */export const describeChannelMembership = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels/{ChannelArn}/memberships/{MemberArn}", method: "GET", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.DescribeChannelMembership" }, DescribeChannelMembershipRequest, DescribeChannelMembershipResponse, [BadRequestException, ForbiddenException, NotFoundException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeChannelMembership = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels/{ChannelArn}/memberships/{MemberArn}", method: "GET", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.DescribeChannelMembership" }, DescribeChannelMembershipRequest, DescribeChannelMembershipResponse, [BadRequestException, ForbiddenException, NotFoundException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the full details of a channel moderated by the specified
  * `AppInstanceUser` or `AppInstanceBot`.
@@ -555,7 +555,7 @@ export class ResourceLimitExceededException extends S.TaggedError<ResourceLimitE
  * The `x-amz-chime-bearer` request header is mandatory. Use the
  * ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call as the value in
  * the header.
- */export const describeChannelModeratedByAppInstanceUser = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels/{ChannelArn}?scope=app-instance-user-moderated-channel", method: "GET", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.DescribeChannelModeratedByAppInstanceUser" }, DescribeChannelModeratedByAppInstanceUserRequest, DescribeChannelModeratedByAppInstanceUserResponse, [BadRequestException, ForbiddenException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeChannelModeratedByAppInstanceUser = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels/{ChannelArn}?scope=app-instance-user-moderated-channel", method: "GET", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.DescribeChannelModeratedByAppInstanceUser" }, DescribeChannelModeratedByAppInstanceUserRequest, DescribeChannelModeratedByAppInstanceUserResponse, [BadRequestException, ForbiddenException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the full details of a single ChannelModerator.
  * 
@@ -565,7 +565,7 @@ export class ResourceLimitExceededException extends S.TaggedError<ResourceLimitE
  * The `x-amz-chime-bearer` request header is mandatory. Use the
  * `AppInstanceUserArn` of the user that makes the API call as the value in
  * the header.
- */export const describeChannelModerator = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels/{ChannelArn}/moderators/{ChannelModeratorArn}", method: "GET", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.DescribeChannelModerator" }, DescribeChannelModeratorRequest, DescribeChannelModeratorResponse, [BadRequestException, ForbiddenException, NotFoundException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeChannelModerator = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels/{ChannelArn}/moderators/{ChannelModeratorArn}", method: "GET", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.DescribeChannelModerator" }, DescribeChannelModeratorRequest, DescribeChannelModeratorResponse, [BadRequestException, ForbiddenException, NotFoundException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets the full details of a channel message.
  * 
@@ -575,7 +575,7 @@ export class ResourceLimitExceededException extends S.TaggedError<ResourceLimitE
  * The `x-amz-chime-bearer` request header is mandatory. Use the
  * ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call as the value in
  * the header.
- */export const getChannelMessage = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels/{ChannelArn}/messages/{MessageId}", method: "GET", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.GetChannelMessage" }, GetChannelMessageRequest, GetChannelMessageResponse, [BadRequestException, ForbiddenException, NotFoundException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getChannelMessage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels/{ChannelArn}/messages/{MessageId}", method: "GET", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.GetChannelMessage" }, GetChannelMessageRequest, GetChannelMessageResponse, [BadRequestException, ForbiddenException, NotFoundException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets message status for a specified `messageId`. Use this API to determine the intermediate status of messages going through channel flow processing. The API provides an alternative to
  * retrieving message status if the event was not received because a client wasn't connected to a websocket.
@@ -636,10 +636,10 @@ export class ResourceLimitExceededException extends S.TaggedError<ResourceLimitE
  * - The `x-amz-chime-bearer` request header is mandatory. Use the
  * ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call as the value in
  * the header.
- */export const getChannelMessageStatus = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels/{ChannelArn}/messages/{MessageId}?scope=message-status", method: "GET", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.GetChannelMessageStatus" }, GetChannelMessageStatusRequest, GetChannelMessageStatusResponse, [BadRequestException, ForbiddenException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getChannelMessageStatus = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels/{ChannelArn}/messages/{MessageId}?scope=message-status", method: "GET", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.GetChannelMessageStatus" }, GetChannelMessageStatusRequest, GetChannelMessageStatusResponse, [BadRequestException, ForbiddenException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * The details of the endpoint for the messaging session.
- */export const getMessagingSessionEndpoint = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/endpoints/messaging-session", method: "GET", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.GetMessagingSessionEndpoint" }, GetMessagingSessionEndpointRequest, GetMessagingSessionEndpointResponse, [ForbiddenException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getMessagingSessionEndpoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/endpoints/messaging-session", method: "GET", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.GetMessagingSessionEndpoint" }, GetMessagingSessionEndpointRequest, GetMessagingSessionEndpointResponse, [ForbiddenException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists all the users and bots banned from a particular channel.
  * 
@@ -649,10 +649,10 @@ export class ResourceLimitExceededException extends S.TaggedError<ResourceLimitE
  * The `x-amz-chime-bearer` request header is mandatory. Use the
  * ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call as the value in
  * the header.
- */export const listChannelBans = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels/{ChannelArn}/bans", method: "GET", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.ListChannelBans" }, ListChannelBansRequest, ListChannelBansResponse, [BadRequestException, ForbiddenException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listChannelBans = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels/{ChannelArn}/bans", method: "GET", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.ListChannelBans" }, ListChannelBansRequest, ListChannelBansResponse, [BadRequestException, ForbiddenException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a paginated lists of all the channel flows created under a single Chime. This is a developer API.
- */export const listChannelFlows = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channel-flows", method: "GET", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.ListChannelFlows" }, ListChannelFlowsRequest, ListChannelFlowsResponse, [BadRequestException, ForbiddenException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listChannelFlows = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channel-flows", method: "GET", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.ListChannelFlows" }, ListChannelFlowsRequest, ListChannelFlowsResponse, [BadRequestException, ForbiddenException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists all channel memberships in a channel.
  * 
@@ -668,7 +668,7 @@ export class ResourceLimitExceededException extends S.TaggedError<ResourceLimitE
  * 
  * If you want to list the channels to which a specific app instance user belongs, see the
  * ListChannelMembershipsForAppInstanceUser API.
- */export const listChannelMemberships = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels/{ChannelArn}/memberships", method: "GET", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.ListChannelMemberships" }, ListChannelMembershipsRequest, ListChannelMembershipsResponse, [BadRequestException, ForbiddenException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listChannelMemberships = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels/{ChannelArn}/memberships", method: "GET", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.ListChannelMemberships" }, ListChannelMembershipsRequest, ListChannelMembershipsResponse, [BadRequestException, ForbiddenException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * List all the messages in a channel. Returns a paginated list of
  * `ChannelMessages`. By default, sorted by creation timestamp in descending
@@ -685,7 +685,7 @@ export class ResourceLimitExceededException extends S.TaggedError<ResourceLimitE
  * Also, the `x-amz-chime-bearer` request header is mandatory. Use the
  * ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call as the value in
  * the header.
- */export const listChannelMessages = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels/{ChannelArn}/messages", method: "GET", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.ListChannelMessages" }, ListChannelMessagesRequest, ListChannelMessagesResponse, [BadRequestException, ForbiddenException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listChannelMessages = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels/{ChannelArn}/messages", method: "GET", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.ListChannelMessages" }, ListChannelMessagesRequest, ListChannelMessagesResponse, [BadRequestException, ForbiddenException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists all the moderators for a channel.
  * 
@@ -695,7 +695,7 @@ export class ResourceLimitExceededException extends S.TaggedError<ResourceLimitE
  * The `x-amz-chime-bearer` request header is mandatory. Use the
  * ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call as the value in
  * the header.
- */export const listChannelModerators = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels/{ChannelArn}/moderators", method: "GET", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.ListChannelModerators" }, ListChannelModeratorsRequest, ListChannelModeratorsResponse, [BadRequestException, ForbiddenException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listChannelModerators = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels/{ChannelArn}/moderators", method: "GET", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.ListChannelModerators" }, ListChannelModeratorsRequest, ListChannelModeratorsResponse, [BadRequestException, ForbiddenException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists all Channels created under a single Chime App as a paginated list. You can specify
  * filters to narrow results.
@@ -723,17 +723,17 @@ export class ResourceLimitExceededException extends S.TaggedError<ResourceLimitE
  * The `x-amz-chime-bearer` request header is mandatory. Use the
  * ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call as the value in
  * the header.
- */export const listChannels = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels", method: "GET", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.ListChannels" }, ListChannelsRequest, ListChannelsResponse, [BadRequestException, ForbiddenException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listChannels = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels", method: "GET", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.ListChannels" }, ListChannelsRequest, ListChannelsResponse, [BadRequestException, ForbiddenException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists all channels associated with a specified channel flow. You can associate a channel flow with multiple channels, but you can only associate a channel with one channel flow. This is a developer API.
- */export const listChannelsAssociatedWithChannelFlow = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels?scope=channel-flow-associations", method: "GET", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.ListChannelsAssociatedWithChannelFlow" }, ListChannelsAssociatedWithChannelFlowRequest, ListChannelsAssociatedWithChannelFlowResponse, [BadRequestException, ForbiddenException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listChannelsAssociatedWithChannelFlow = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels?scope=channel-flow-associations", method: "GET", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.ListChannelsAssociatedWithChannelFlow" }, ListChannelsAssociatedWithChannelFlowRequest, ListChannelsAssociatedWithChannelFlowResponse, [BadRequestException, ForbiddenException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists all the SubChannels in an elastic channel when given a channel ID. Available only to the app instance admins and channel moderators of elastic channels.
- */export const listSubChannels = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels/{ChannelArn}/subchannels", method: "GET", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.ListSubChannels" }, ListSubChannelsRequest, ListSubChannelsResponse, [BadRequestException, ForbiddenException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listSubChannels = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels/{ChannelArn}/subchannels", method: "GET", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.ListSubChannels" }, ListSubChannelsRequest, ListSubChannelsResponse, [BadRequestException, ForbiddenException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Sets the data streaming configuration for an `AppInstance`. For more information, see
  * Streaming messaging data in the *Amazon Chime SDK Developer Guide*.
- */export const putMessagingStreamingConfigurations = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/app-instances/{AppInstanceArn}/streaming-configurations", method: "PUT", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.PutMessagingStreamingConfigurations" }, PutMessagingStreamingConfigurationsRequest, PutMessagingStreamingConfigurationsResponse, [BadRequestException, ConflictException, ForbiddenException, NotFoundException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putMessagingStreamingConfigurations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/app-instances/{AppInstanceArn}/streaming-configurations", method: "PUT", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.PutMessagingStreamingConfigurations" }, PutMessagingStreamingConfigurationsRequest, PutMessagingStreamingConfigurationsResponse, [BadRequestException, ConflictException, ForbiddenException, NotFoundException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Allows the `ChimeBearer` to search channels by channel members. Users or bots can search
  * across the channels that they belong to. Users in the `AppInstanceAdmin` role can search across
@@ -748,7 +748,7 @@ export class ResourceLimitExceededException extends S.TaggedError<ResourceLimitE
  * 
  * 
  * This operation isn't supported for `AppInstanceUsers` with a large number of memberships.
- */export const searchChannels = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels?operation=search", method: "POST", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.SearchChannels" }, SearchChannelsRequest, SearchChannelsResponse, [BadRequestException, ForbiddenException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const searchChannels = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels?operation=search", method: "POST", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.SearchChannels" }, SearchChannelsRequest, SearchChannelsResponse, [BadRequestException, ForbiddenException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the details of a channel based on the membership of the specified
  * `AppInstanceUser` or `AppInstanceBot`.
@@ -759,7 +759,7 @@ export class ResourceLimitExceededException extends S.TaggedError<ResourceLimitE
  * The `x-amz-chime-bearer` request header is mandatory. Use the
  * ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call as the value in
  * the header.
- */export const describeChannelMembershipForAppInstanceUser = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels/{ChannelArn}?scope=app-instance-user-membership", method: "GET", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.DescribeChannelMembershipForAppInstanceUser" }, DescribeChannelMembershipForAppInstanceUserRequest, DescribeChannelMembershipForAppInstanceUserResponse, [BadRequestException, ForbiddenException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeChannelMembershipForAppInstanceUser = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels/{ChannelArn}?scope=app-instance-user-membership", method: "GET", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.DescribeChannelMembershipForAppInstanceUser" }, DescribeChannelMembershipForAppInstanceUserRequest, DescribeChannelMembershipForAppInstanceUserResponse, [BadRequestException, ForbiddenException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Sets the membership preferences of an `AppInstanceUser` or `AppInstanceBot`
  * for the specified channel. The user or bot must be a member of the channel. Only the user or bot who owns the
@@ -773,7 +773,7 @@ export class ResourceLimitExceededException extends S.TaggedError<ResourceLimitE
  * The x-amz-chime-bearer request header is mandatory. Use the ARN of an
  * `AppInstanceUser` or `AppInstanceBot` that makes the API call as the value in the
  * header.
- */export const putChannelMembershipPreferences = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels/{ChannelArn}/memberships/{MemberArn}/preferences", method: "PUT", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.PutChannelMembershipPreferences" }, PutChannelMembershipPreferencesRequest, PutChannelMembershipPreferencesResponse, [BadRequestException, ConflictException, ForbiddenException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putChannelMembershipPreferences = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels/{ChannelArn}/memberships/{MemberArn}/preferences", method: "PUT", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.PutChannelMembershipPreferences" }, PutChannelMembershipPreferencesRequest, PutChannelMembershipPreferencesResponse, [BadRequestException, ConflictException, ForbiddenException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Sends a message to a particular channel that the member is a part of.
  * 
@@ -791,7 +791,7 @@ export class ResourceLimitExceededException extends S.TaggedError<ResourceLimitE
  * 
  * 
  * `CONTROL` messages are limited to 30 bytes and do not contain metadata.
- */export const sendChannelMessage = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels/{ChannelArn}/messages", method: "POST", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.SendChannelMessage" }, SendChannelMessageRequest, SendChannelMessageResponse, [BadRequestException, ConflictException, ForbiddenException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const sendChannelMessage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels/{ChannelArn}/messages", method: "POST", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.SendChannelMessage" }, SendChannelMessageRequest, SendChannelMessageResponse, [BadRequestException, ConflictException, ForbiddenException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a channel flow, a container for processors. Processors are AWS Lambda functions
  * that perform actions on chat messages, such as stripping out profanity. You can associate
@@ -820,4 +820,4 @@ export class ResourceLimitExceededException extends S.TaggedError<ResourceLimitE
  * 
  * Channel flows don't process Control or System messages. For more information about the message types provided by Chime SDK messaging, refer to
  * Message types in the *Amazon Chime developer guide*.
- */export const createChannelFlow = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channel-flows", method: "POST", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.CreateChannelFlow" }, CreateChannelFlowRequest, CreateChannelFlowResponse, [BadRequestException, ConflictException, ForbiddenException, ResourceLimitExceededException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createChannelFlow = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channel-flows", method: "POST", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.CreateChannelFlow" }, CreateChannelFlowRequest, CreateChannelFlowResponse, [BadRequestException, ConflictException, ForbiddenException, ResourceLimitExceededException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

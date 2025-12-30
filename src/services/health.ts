@@ -132,12 +132,12 @@ export class UnsupportedLocale extends S.TaggedError<UnsupportedLocale>()("Unsup
  * If you don't have the required support plan, you can instead use the Health console
  * to enable the organizational view feature. For more information, see Aggregating
  * Health events in the *Health User Guide*.
- */export const enableHealthServiceAccessForOrganization = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-04", uri: "/", method: "POST", sdkId: "Health", sigV4ServiceName: "health", name: "AWSHealth_20160804.EnableHealthServiceAccessForOrganization" }, S.Struct({}), S.Struct({}), [ConcurrentModificationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const enableHealthServiceAccessForOrganization = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-04", uri: "/", method: "POST", sdkId: "Health", sigV4ServiceName: "health", name: "AWSHealth_20160804.EnableHealthServiceAccessForOrganization" }, S.Struct({}), S.Struct({}), [ConcurrentModificationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This operation provides status information on enabling or disabling Health to work
  * with your organization. To call this operation, you must use the organization's
  * management account.
- */export const describeHealthServiceStatusForOrganization = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-04", uri: "/", method: "POST", sdkId: "Health", sigV4ServiceName: "health", name: "AWSHealth_20160804.DescribeHealthServiceStatusForOrganization" }, S.Struct({}), DescribeHealthServiceStatusForOrganizationResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeHealthServiceStatusForOrganization = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-04", uri: "/", method: "POST", sdkId: "Health", sigV4ServiceName: "health", name: "AWSHealth_20160804.DescribeHealthServiceStatusForOrganization" }, S.Struct({}), DescribeHealthServiceStatusForOrganizationResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Disables Health from working with Organizations. To call this operation, you must sign
  * in to the organization's management account. For more information, see Aggregating
@@ -157,7 +157,7 @@ export class UnsupportedLocale extends S.TaggedError<UnsupportedLocale>()("Unsup
  * If you call the Health API operations for organizational view, Health returns
  * an error. Health continues to aggregate health events for your
  * Amazon Web Services account.
- */export const disableHealthServiceAccessForOrganization = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-04", uri: "/", method: "POST", sdkId: "Health", sigV4ServiceName: "health", name: "AWSHealth_20160804.DisableHealthServiceAccessForOrganization" }, S.Struct({}), S.Struct({}), [ConcurrentModificationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const disableHealthServiceAccessForOrganization = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-04", uri: "/", method: "POST", sdkId: "Health", sigV4ServiceName: "health", name: "AWSHealth_20160804.DisableHealthServiceAccessForOrganization" }, S.Struct({}), S.Struct({}), [ConcurrentModificationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of accounts in the organization from Organizations that are affected by the
  * provided event. For more information about the different types of Health events, see
@@ -172,7 +172,7 @@ export class UnsupportedLocale extends S.TaggedError<UnsupportedLocale>()("Unsup
  * 
  * 
  * This API operation uses pagination. Specify the `nextToken` parameter in the next request to return more results.
- */export const describeAffectedAccountsForOrganization = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-04", uri: "/", method: "POST", sdkId: "Health", sigV4ServiceName: "health", name: "AWSHealth_20160804.DescribeAffectedAccountsForOrganization" }, DescribeAffectedAccountsForOrganizationRequest, DescribeAffectedAccountsForOrganizationResponse, [InvalidPaginationToken]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeAffectedAccountsForOrganization = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-04", uri: "/", method: "POST", sdkId: "Health", sigV4ServiceName: "health", name: "AWSHealth_20160804.DescribeAffectedAccountsForOrganization" }, DescribeAffectedAccountsForOrganizationRequest, DescribeAffectedAccountsForOrganizationResponse, [InvalidPaginationToken]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about events that meet the specified filter criteria. Events are
  * returned in a summary form and do not include the detailed description, any additional
@@ -199,7 +199,7 @@ export class UnsupportedLocale extends S.TaggedError<UnsupportedLocale>()("Unsup
  * 
  * 
  * - This API operation uses pagination. Specify the `nextToken` parameter in the next request to return more results.
- */export const describeEvents = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-04", uri: "/", method: "POST", sdkId: "Health", sigV4ServiceName: "health", name: "AWSHealth_20160804.DescribeEvents" }, DescribeEventsRequest, DescribeEventsResponse, [InvalidPaginationToken, UnsupportedLocale]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeEvents = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-04", uri: "/", method: "POST", sdkId: "Health", sigV4ServiceName: "health", name: "AWSHealth_20160804.DescribeEvents" }, DescribeEventsRequest, DescribeEventsResponse, [InvalidPaginationToken, UnsupportedLocale]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of entities that have been affected by the specified events, based on the
  * specified filter criteria. Entities can refer to individual customer resources, groups of
@@ -220,13 +220,13 @@ export class UnsupportedLocale extends S.TaggedError<UnsupportedLocale>()("Unsup
  * 
  * - This operation supports resource-level permissions. You can use this operation to allow or deny access to specific Health events. For more
  * information, see Resource- and action-based conditions in the *Health User Guide*.
- */export const describeAffectedEntities = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-04", uri: "/", method: "POST", sdkId: "Health", sigV4ServiceName: "health", name: "AWSHealth_20160804.DescribeAffectedEntities" }, DescribeAffectedEntitiesRequest, DescribeAffectedEntitiesResponse, [InvalidPaginationToken, UnsupportedLocale]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeAffectedEntities = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-04", uri: "/", method: "POST", sdkId: "Health", sigV4ServiceName: "health", name: "AWSHealth_20160804.DescribeAffectedEntities" }, DescribeAffectedEntitiesRequest, DescribeAffectedEntitiesResponse, [InvalidPaginationToken, UnsupportedLocale]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the number of entities that are affected by each of the specified events.
- */export const describeEntityAggregates = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-04", uri: "/", method: "POST", sdkId: "Health", sigV4ServiceName: "health", name: "AWSHealth_20160804.DescribeEntityAggregates" }, DescribeEntityAggregatesRequest, DescribeEntityAggregatesResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeEntityAggregates = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-04", uri: "/", method: "POST", sdkId: "Health", sigV4ServiceName: "health", name: "AWSHealth_20160804.DescribeEntityAggregates" }, DescribeEntityAggregatesRequest, DescribeEntityAggregatesResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of entity aggregates for your Organizations that are affected by each of the specified events.
- */export const describeEntityAggregatesForOrganization = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-04", uri: "/", method: "POST", sdkId: "Health", sigV4ServiceName: "health", name: "AWSHealth_20160804.DescribeEntityAggregatesForOrganization" }, DescribeEntityAggregatesForOrganizationRequest, DescribeEntityAggregatesForOrganizationResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeEntityAggregatesForOrganization = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-04", uri: "/", method: "POST", sdkId: "Health", sigV4ServiceName: "health", name: "AWSHealth_20160804.DescribeEntityAggregatesForOrganization" }, DescribeEntityAggregatesForOrganizationRequest, DescribeEntityAggregatesForOrganizationResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the number of events of each event type (issue, scheduled change, and account
  * notification). If no filter is specified, the counts of all events in each category are
@@ -236,7 +236,7 @@ export class UnsupportedLocale extends S.TaggedError<UnsupportedLocale>()("Unsup
  * 
  * 
  * This API operation uses pagination. Specify the `nextToken` parameter in the next request to return more results.
- */export const describeEventAggregates = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-04", uri: "/", method: "POST", sdkId: "Health", sigV4ServiceName: "health", name: "AWSHealth_20160804.DescribeEventAggregates" }, DescribeEventAggregatesRequest, DescribeEventAggregatesResponse, [InvalidPaginationToken]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeEventAggregates = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-04", uri: "/", method: "POST", sdkId: "Health", sigV4ServiceName: "health", name: "AWSHealth_20160804.DescribeEventAggregates" }, DescribeEventAggregatesRequest, DescribeEventAggregatesResponse, [InvalidPaginationToken]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns detailed information about one or more specified events. Information includes
  * standard event data (Amazon Web Services Region, service, and so on, as returned by DescribeEvents), a detailed event description, and possible additional metadata
@@ -252,7 +252,7 @@ export class UnsupportedLocale extends S.TaggedError<UnsupportedLocale>()("Unsup
  * 
  * This operation supports resource-level permissions. You can use this operation to allow or deny access to specific Health events. For more
  * information, see Resource- and action-based conditions in the *Health User Guide*.
- */export const describeEventDetails = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-04", uri: "/", method: "POST", sdkId: "Health", sigV4ServiceName: "health", name: "AWSHealth_20160804.DescribeEventDetails" }, DescribeEventDetailsRequest, DescribeEventDetailsResponse, [UnsupportedLocale]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeEventDetails = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-04", uri: "/", method: "POST", sdkId: "Health", sigV4ServiceName: "health", name: "AWSHealth_20160804.DescribeEventDetails" }, DescribeEventDetailsRequest, DescribeEventDetailsResponse, [UnsupportedLocale]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns detailed information about one or more specified events for one or more
  * Amazon Web Services accounts in your organization. This information includes standard event data (such as
@@ -299,7 +299,7 @@ export class UnsupportedLocale extends S.TaggedError<UnsupportedLocale>()("Unsup
  * 
  * This operation doesn't support resource-level permissions. You can't use this operation to allow or deny access to specific Health events. For more
  * information, see Resource- and action-based conditions in the *Health User Guide*.
- */export const describeEventDetailsForOrganization = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-04", uri: "/", method: "POST", sdkId: "Health", sigV4ServiceName: "health", name: "AWSHealth_20160804.DescribeEventDetailsForOrganization" }, DescribeEventDetailsForOrganizationRequest, DescribeEventDetailsForOrganizationResponse, [UnsupportedLocale]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeEventDetailsForOrganization = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-04", uri: "/", method: "POST", sdkId: "Health", sigV4ServiceName: "health", name: "AWSHealth_20160804.DescribeEventDetailsForOrganization" }, DescribeEventDetailsForOrganizationRequest, DescribeEventDetailsForOrganizationResponse, [UnsupportedLocale]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about events across your organization in Organizations. You can use
  * the`filters` parameter to specify the events that you want to return. Events
@@ -342,7 +342,7 @@ export class UnsupportedLocale extends S.TaggedError<UnsupportedLocale>()("Unsup
  * 
  * 
  * This API operation uses pagination. Specify the `nextToken` parameter in the next request to return more results.
- */export const describeEventsForOrganization = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-04", uri: "/", method: "POST", sdkId: "Health", sigV4ServiceName: "health", name: "AWSHealth_20160804.DescribeEventsForOrganization" }, DescribeEventsForOrganizationRequest, DescribeEventsForOrganizationResponse, [InvalidPaginationToken, UnsupportedLocale]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeEventsForOrganization = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-04", uri: "/", method: "POST", sdkId: "Health", sigV4ServiceName: "health", name: "AWSHealth_20160804.DescribeEventsForOrganization" }, DescribeEventsForOrganizationRequest, DescribeEventsForOrganizationResponse, [InvalidPaginationToken, UnsupportedLocale]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the event types that meet the specified filter criteria. You can use this API
  * operation to find information about the Health event, such as the category, Amazon Web Services service, and event code. The metadata for each event appears in the EventType object.
@@ -355,7 +355,7 @@ export class UnsupportedLocale extends S.TaggedError<UnsupportedLocale>()("Unsup
  * 
  * 
  * This API operation uses pagination. Specify the `nextToken` parameter in the next request to return more results.
- */export const describeEventTypes = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-04", uri: "/", method: "POST", sdkId: "Health", sigV4ServiceName: "health", name: "AWSHealth_20160804.DescribeEventTypes" }, DescribeEventTypesRequest, DescribeEventTypesResponse, [InvalidPaginationToken, UnsupportedLocale]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeEventTypes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-04", uri: "/", method: "POST", sdkId: "Health", sigV4ServiceName: "health", name: "AWSHealth_20160804.DescribeEventTypes" }, DescribeEventTypesRequest, DescribeEventTypesResponse, [InvalidPaginationToken, UnsupportedLocale]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of entities that have been affected by one or more events for one or more
  * accounts in your organization in Organizations, based on the filter criteria. Entities can refer
@@ -380,4 +380,4 @@ export class UnsupportedLocale extends S.TaggedError<UnsupportedLocale>()("Unsup
  * 
  * - This operation doesn't support resource-level permissions. You can't use this operation to allow or deny access to specific Health events. For more
  * information, see Resource- and action-based conditions in the *Health User Guide*.
- */export const describeAffectedEntitiesForOrganization = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-04", uri: "/", method: "POST", sdkId: "Health", sigV4ServiceName: "health", name: "AWSHealth_20160804.DescribeAffectedEntitiesForOrganization" }, DescribeAffectedEntitiesForOrganizationRequest, DescribeAffectedEntitiesForOrganizationResponse, [InvalidPaginationToken, UnsupportedLocale]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeAffectedEntitiesForOrganization = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-04", uri: "/", method: "POST", sdkId: "Health", sigV4ServiceName: "health", name: "AWSHealth_20160804.DescribeAffectedEntitiesForOrganization" }, DescribeAffectedEntitiesForOrganizationRequest, DescribeAffectedEntitiesForOrganizationResponse, [InvalidPaginationToken, UnsupportedLocale]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

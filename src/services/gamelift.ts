@@ -425,7 +425,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * Deletes a game session queue. Once a queue is successfully deleted, unfulfilled StartGameSessionPlacement requests that reference the queue will fail. To
  * delete a queue, specify the queue name.
- */export const deleteGameSessionQueue = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DeleteGameSessionQueue" }, DeleteGameSessionQueueInput, DeleteGameSessionQueueOutput, [InternalServiceException, InvalidRequestException, NotFoundException, TaggingFailedException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteGameSessionQueue = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DeleteGameSessionQueue" }, DeleteGameSessionQueueInput, DeleteGameSessionQueueOutput, [InternalServiceException, InvalidRequestException, NotFoundException, TaggingFailedException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** Anywhere
  * 
@@ -435,7 +435,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * Before deleting a custom location, review any fleets currently using the custom
  * location and deregister the location if it is in use. For more information, see DeregisterCompute.
- */export const deleteLocation = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DeleteLocation" }, DeleteLocationInput, DeleteLocationOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteLocation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DeleteLocation" }, DeleteLocationInput, DeleteLocationOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2, Anywhere, Container
  * 
@@ -443,7 +443,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * Permanently removes a FlexMatch matchmaking configuration. To delete, specify the
  * configuration name. A matchmaking configuration cannot be deleted if it is being used in
  * any active matchmaking tickets.
- */export const deleteMatchmakingConfiguration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DeleteMatchmakingConfiguration" }, DeleteMatchmakingConfigurationInput, DeleteMatchmakingConfigurationOutput, [InternalServiceException, InvalidRequestException, NotFoundException, TaggingFailedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteMatchmakingConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DeleteMatchmakingConfiguration" }, DeleteMatchmakingConfigurationInput, DeleteMatchmakingConfigurationOutput, [InternalServiceException, InvalidRequestException, NotFoundException, TaggingFailedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2, Anywhere, Container
  * 
@@ -461,7 +461,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * - Build a rule
  * set
- */export const deleteMatchmakingRuleSet = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DeleteMatchmakingRuleSet" }, DeleteMatchmakingRuleSetInput, DeleteMatchmakingRuleSetOutput, [InternalServiceException, InvalidRequestException, NotFoundException, TaggingFailedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteMatchmakingRuleSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DeleteMatchmakingRuleSet" }, DeleteMatchmakingRuleSetInput, DeleteMatchmakingRuleSetOutput, [InternalServiceException, InvalidRequestException, NotFoundException, TaggingFailedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2
  * 
@@ -473,7 +473,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * To temporarily suspend scaling policies, use StopFleetActions. This operation suspends all policies for the
  * fleet.
- */export const deleteScalingPolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DeleteScalingPolicy" }, DeleteScalingPolicyInput, S.Struct({}), [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteScalingPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DeleteScalingPolicy" }, DeleteScalingPolicyInput, S.Struct({}), [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2
  * 
@@ -506,7 +506,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * 
  * All APIs by task
- */export const deleteScript = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DeleteScript" }, DeleteScriptInput, S.Struct({}), [InternalServiceException, InvalidRequestException, NotFoundException, TaggingFailedException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteScript = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DeleteScript" }, DeleteScriptInput, S.Struct({}), [InternalServiceException, InvalidRequestException, NotFoundException, TaggingFailedException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2
  * 
@@ -522,7 +522,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * 
  * All APIs by task
- */export const deleteVpcPeeringAuthorization = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DeleteVpcPeeringAuthorization" }, DeleteVpcPeeringAuthorizationInput, DeleteVpcPeeringAuthorizationOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteVpcPeeringAuthorization = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DeleteVpcPeeringAuthorization" }, DeleteVpcPeeringAuthorizationInput, DeleteVpcPeeringAuthorizationOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2
  * 
@@ -543,7 +543,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * 
  * All APIs by task
- */export const deleteVpcPeeringConnection = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DeleteVpcPeeringConnection" }, DeleteVpcPeeringConnectionInput, DeleteVpcPeeringConnectionOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteVpcPeeringConnection = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DeleteVpcPeeringConnection" }, DeleteVpcPeeringConnectionInput, DeleteVpcPeeringConnectionOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** Anywhere
  * 
@@ -556,7 +556,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * To deregister a compute, call this operation from the compute that's being
  * deregistered and specify the compute name and the fleet ID.
- */export const deregisterCompute = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DeregisterCompute" }, DeregisterComputeInput, DeregisterComputeOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deregisterCompute = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DeregisterCompute" }, DeregisterComputeInput, DeregisterComputeOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2 (FleetIQ)
  * 
@@ -579,7 +579,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * Amazon GameLift Servers FleetIQ
  * Guide
- */export const deregisterGameServer = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DeregisterGameServer" }, DeregisterGameServerInput, S.Struct({}), [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deregisterGameServer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DeregisterGameServer" }, DeregisterGameServerInput, S.Struct({}), [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2, Anywhere, Container
  * 
@@ -612,7 +612,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * 
  * Add FlexMatch to a game client
- */export const stopMatchmaking = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.StopMatchmaking" }, StopMatchmakingInput, StopMatchmakingOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const stopMatchmaking = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.StopMatchmaking" }, StopMatchmakingInput, StopMatchmakingOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2, Anywhere, Container
  * 
@@ -652,7 +652,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * 
  * All APIs by task
- */export const tagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.TagResource" }, TagResourceRequest, TagResourceResponse, [InternalServiceException, InvalidRequestException, NotFoundException, TaggingFailedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.TagResource" }, TagResourceRequest, TagResourceResponse, [InternalServiceException, InvalidRequestException, NotFoundException, TaggingFailedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2, Anywhere, Container
  * 
@@ -691,7 +691,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * 
  * All APIs by task
- */export const untagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [InternalServiceException, InvalidRequestException, NotFoundException, TaggingFailedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [InternalServiceException, InvalidRequestException, NotFoundException, TaggingFailedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2, Anywhere, Container
  * 
@@ -746,7 +746,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * 
  * FlexMatch events (reference)
- */export const acceptMatch = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.AcceptMatch" }, AcceptMatchInput, AcceptMatchOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const acceptMatch = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.AcceptMatch" }, AcceptMatchInput, AcceptMatchOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2
  * 
@@ -789,7 +789,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * 
  * All APIs by task
- */export const createVpcPeeringAuthorization = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.CreateVpcPeeringAuthorization" }, CreateVpcPeeringAuthorizationInput, CreateVpcPeeringAuthorizationOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createVpcPeeringAuthorization = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.CreateVpcPeeringAuthorization" }, CreateVpcPeeringAuthorizationInput, CreateVpcPeeringAuthorizationOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2
  * 
@@ -825,7 +825,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * 
  * All APIs by task
- */export const createVpcPeeringConnection = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.CreateVpcPeeringConnection" }, CreateVpcPeeringConnectionInput, CreateVpcPeeringConnectionOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createVpcPeeringConnection = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.CreateVpcPeeringConnection" }, CreateVpcPeeringConnectionInput, CreateVpcPeeringConnectionOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2, Anywhere, Container
  * 
@@ -842,7 +842,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * 
  * All APIs by task
- */export const deleteAlias = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DeleteAlias" }, DeleteAliasInput, S.Struct({}), [InternalServiceException, InvalidRequestException, NotFoundException, TaggingFailedException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteAlias = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DeleteAlias" }, DeleteAliasInput, S.Struct({}), [InternalServiceException, InvalidRequestException, NotFoundException, TaggingFailedException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2
  * 
@@ -868,7 +868,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * 
  * All APIs by task
- */export const deleteBuild = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DeleteBuild" }, DeleteBuildInput, S.Struct({}), [InternalServiceException, InvalidRequestException, NotFoundException, TaggingFailedException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteBuild = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DeleteBuild" }, DeleteBuildInput, S.Struct({}), [InternalServiceException, InvalidRequestException, NotFoundException, TaggingFailedException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** Container
  * 
@@ -890,7 +890,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * Setting up Amazon GameLift Servers
  * Fleets
- */export const deleteContainerFleet = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DeleteContainerFleet" }, DeleteContainerFleetInput, DeleteContainerFleetOutput, [InternalServiceException, InvalidRequestException, NotFoundException, TaggingFailedException, UnauthorizedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteContainerFleet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DeleteContainerFleet" }, DeleteContainerFleetInput, DeleteContainerFleetOutput, [InternalServiceException, InvalidRequestException, NotFoundException, TaggingFailedException, UnauthorizedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** Container
  * 
@@ -954,7 +954,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * 
  * - Manage a container group definition
- */export const deleteContainerGroupDefinition = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DeleteContainerGroupDefinition" }, DeleteContainerGroupDefinitionInput, DeleteContainerGroupDefinitionOutput, [InternalServiceException, InvalidRequestException, NotFoundException, TaggingFailedException, UnauthorizedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteContainerGroupDefinition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DeleteContainerGroupDefinition" }, DeleteContainerGroupDefinitionInput, DeleteContainerGroupDefinitionOutput, [InternalServiceException, InvalidRequestException, NotFoundException, TaggingFailedException, UnauthorizedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2, Anywhere, Container
  * 
@@ -986,7 +986,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * Setting up Amazon GameLift Servers
  * Fleets
- */export const deleteFleet = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DeleteFleet" }, DeleteFleetInput, S.Struct({}), [InternalServiceException, InvalidFleetStatusException, InvalidRequestException, NotFoundException, TaggingFailedException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteFleet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DeleteFleet" }, DeleteFleetInput, S.Struct({}), [InternalServiceException, InvalidFleetStatusException, InvalidRequestException, NotFoundException, TaggingFailedException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2, Container
  * 
@@ -1012,7 +1012,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * Setting up Amazon GameLift Servers
  * fleets
- */export const deleteFleetLocations = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DeleteFleetLocations" }, DeleteFleetLocationsInput, DeleteFleetLocationsOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteFleetLocations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DeleteFleetLocations" }, DeleteFleetLocationsInput, DeleteFleetLocationsOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2, Container
  * 
@@ -1052,7 +1052,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * 
  * GameLift metrics for fleets
- */export const describeFleetLocationCapacity = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DescribeFleetLocationCapacity" }, DescribeFleetLocationCapacityInput, DescribeFleetLocationCapacityOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeFleetLocationCapacity = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DescribeFleetLocationCapacity" }, DescribeFleetLocationCapacityInput, DescribeFleetLocationCapacityOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2, Container
  * 
@@ -1093,7 +1093,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * Setting up Amazon GameLift Servers
  * fleets
- */export const describeFleetPortSettings = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DescribeFleetPortSettings" }, DescribeFleetPortSettingsInput, DescribeFleetPortSettingsOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeFleetPortSettings = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DescribeFleetPortSettings" }, DescribeFleetPortSettingsInput, DescribeFleetPortSettingsOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2, Container
  * 
@@ -1152,7 +1152,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * 
  * GameLift Metrics for Fleets
- */export const describeFleetUtilization = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DescribeFleetUtilization" }, DescribeFleetUtilizationInput, DescribeFleetUtilizationOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeFleetUtilization = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DescribeFleetUtilization" }, DescribeFleetUtilizationInput, DescribeFleetUtilizationOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2 (FleetIQ)
  * 
@@ -1176,7 +1176,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * Amazon GameLift Servers FleetIQ
  * Guide
- */export const describeGameServerGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DescribeGameServerGroup" }, DescribeGameServerGroupInput, DescribeGameServerGroupOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeGameServerGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DescribeGameServerGroup" }, DescribeGameServerGroupInput, DescribeGameServerGroupOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2, Anywhere, Container
  * 
@@ -1201,7 +1201,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * 
  * Setting up FlexMatch matchmakers
- */export const describeMatchmakingConfigurations = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DescribeMatchmakingConfigurations" }, DescribeMatchmakingConfigurationsInput, DescribeMatchmakingConfigurationsOutput, [InternalServiceException, InvalidRequestException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeMatchmakingConfigurations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DescribeMatchmakingConfigurations" }, DescribeMatchmakingConfigurationsInput, DescribeMatchmakingConfigurationsOutput, [InternalServiceException, InvalidRequestException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2, Anywhere, Container
  * 
@@ -1220,7 +1220,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * - Build a rule
  * set
- */export const describeMatchmakingRuleSets = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DescribeMatchmakingRuleSets" }, DescribeMatchmakingRuleSetsInput, DescribeMatchmakingRuleSetsOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeMatchmakingRuleSets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DescribeMatchmakingRuleSets" }, DescribeMatchmakingRuleSetsInput, DescribeMatchmakingRuleSetsOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2, Anywhere, Container
  * 
@@ -1266,7 +1266,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * 
  * All APIs by task
- */export const describePlayerSessions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DescribePlayerSessions" }, DescribePlayerSessionsInput, DescribePlayerSessionsOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describePlayerSessions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DescribePlayerSessions" }, DescribePlayerSessionsInput, DescribePlayerSessionsOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2
  * 
@@ -1300,7 +1300,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * Running multiple
  * processes on a fleet
- */export const describeRuntimeConfiguration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DescribeRuntimeConfiguration" }, DescribeRuntimeConfigurationInput, DescribeRuntimeConfigurationOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeRuntimeConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DescribeRuntimeConfiguration" }, DescribeRuntimeConfigurationInput, DescribeRuntimeConfigurationOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2
  * 
@@ -1329,7 +1329,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * 
  * All APIs by task
- */export const describeScript = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DescribeScript" }, DescribeScriptInput, DescribeScriptOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeScript = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DescribeScript" }, DescribeScriptInput, DescribeScriptOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2
  * 
@@ -1346,7 +1346,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * 
  * All APIs by task
- */export const describeVpcPeeringAuthorizations = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DescribeVpcPeeringAuthorizations" }, DescribeVpcPeeringAuthorizationsInput, DescribeVpcPeeringAuthorizationsOutput, [InternalServiceException, InvalidRequestException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeVpcPeeringAuthorizations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DescribeVpcPeeringAuthorizations" }, DescribeVpcPeeringAuthorizationsInput, DescribeVpcPeeringAuthorizationsOutput, [InternalServiceException, InvalidRequestException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2, Anywhere, Container
  * 
@@ -1400,7 +1400,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * - Server SDK
  * reference guides (for version 5.x)
- */export const getComputeAuthToken = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.GetComputeAuthToken" }, GetComputeAuthTokenInput, GetComputeAuthTokenOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getComputeAuthToken = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.GetComputeAuthToken" }, GetComputeAuthTokenInput, GetComputeAuthTokenOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2
  * 
@@ -1421,7 +1421,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * 
  * All APIs by task
- */export const getGameSessionLogUrl = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.GetGameSessionLogUrl" }, GetGameSessionLogUrlInput, GetGameSessionLogUrlOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getGameSessionLogUrl = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.GetGameSessionLogUrl" }, GetGameSessionLogUrlInput, GetGameSessionLogUrlOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2, Anywhere, Container
  * 
@@ -1445,7 +1445,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * 
  * All APIs by task
- */export const listAliases = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.ListAliases" }, ListAliasesInput, ListAliasesOutput, [InternalServiceException, InvalidRequestException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listAliases = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.ListAliases" }, ListAliasesInput, ListAliasesOutput, [InternalServiceException, InvalidRequestException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2
  * 
@@ -1475,7 +1475,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * 
  * All APIs by task
- */export const listBuilds = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.ListBuilds" }, ListBuildsInput, ListBuildsOutput, [InternalServiceException, InvalidRequestException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listBuilds = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.ListBuilds" }, ListBuildsInput, ListBuildsOutput, [InternalServiceException, InvalidRequestException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2, Anywhere, Container
  * 
@@ -1522,7 +1522,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * `RegisterCompute`. This includes
  * `GameLiftServiceSdkEndpoint` or
  * `GameLiftAgentEndpoint`.
- */export const listCompute = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.ListCompute" }, ListComputeInput, ListComputeOutput, [InternalServiceException, InvalidRequestException, UnauthorizedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listCompute = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.ListCompute" }, ListComputeInput, ListComputeOutput, [InternalServiceException, InvalidRequestException, UnauthorizedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** Container
  * 
@@ -1566,7 +1566,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * 
  * Fleet IDs are returned in no particular order.
- */export const listContainerFleets = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.ListContainerFleets" }, ListContainerFleetsInput, ListContainerFleetsOutput, [InternalServiceException, InvalidRequestException, UnauthorizedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listContainerFleets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.ListContainerFleets" }, ListContainerFleetsInput, ListContainerFleetsOutput, [InternalServiceException, InvalidRequestException, UnauthorizedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** Container
  * 
@@ -1608,7 +1608,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * 
  * This operation returns the list of container group definitions in no particular order.
- */export const listContainerGroupDefinitions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.ListContainerGroupDefinitions" }, ListContainerGroupDefinitionsInput, ListContainerGroupDefinitionsOutput, [InternalServiceException, InvalidRequestException, UnauthorizedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listContainerGroupDefinitions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.ListContainerGroupDefinitions" }, ListContainerGroupDefinitionsInput, ListContainerGroupDefinitionsOutput, [InternalServiceException, InvalidRequestException, UnauthorizedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** Container
  * 
@@ -1655,7 +1655,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * 
  * - Manage a container group definition
- */export const listContainerGroupDefinitionVersions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.ListContainerGroupDefinitionVersions" }, ListContainerGroupDefinitionVersionsInput, ListContainerGroupDefinitionVersionsOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listContainerGroupDefinitionVersions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.ListContainerGroupDefinitionVersions" }, ListContainerGroupDefinitionVersionsInput, ListContainerGroupDefinitionVersionsOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** Container
  * 
@@ -1693,7 +1693,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * 
  * Deployments are returned starting with the latest.
- */export const listFleetDeployments = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.ListFleetDeployments" }, ListFleetDeploymentsInput, ListFleetDeploymentsOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listFleetDeployments = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.ListFleetDeployments" }, ListFleetDeploymentsInput, ListFleetDeploymentsOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2, Anywhere, Container
  * 
@@ -1736,13 +1736,13 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * 
  * Fleet IDs are returned in no particular order.
- */export const listFleets = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.ListFleets" }, ListFleetsInput, ListFleetsOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listFleets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.ListFleets" }, ListFleetsInput, ListFleetsOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2 (FleetIQ)
  * 
  * 
  * Lists a game server groups.
- */export const listGameServerGroups = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.ListGameServerGroups" }, ListGameServerGroupsInput, ListGameServerGroupsOutput, [InternalServiceException, InvalidRequestException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listGameServerGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.ListGameServerGroups" }, ListGameServerGroupsInput, ListGameServerGroupsOutput, [InternalServiceException, InvalidRequestException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2 (FleetIQ)
  * 
@@ -1761,7 +1761,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * Amazon GameLift Servers FleetIQ
  * Guide
- */export const listGameServers = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.ListGameServers" }, ListGameServersInput, ListGameServersOutput, [InternalServiceException, InvalidRequestException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listGameServers = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.ListGameServers" }, ListGameServersInput, ListGameServersOutput, [InternalServiceException, InvalidRequestException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** Anywhere
  * 
@@ -1786,7 +1786,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * 
  * Service locations
- */export const listLocations = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.ListLocations" }, ListLocationsInput, ListLocationsOutput, [InternalServiceException, InvalidRequestException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listLocations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.ListLocations" }, ListLocationsInput, ListLocationsOutput, [InternalServiceException, InvalidRequestException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2
  * 
@@ -1812,7 +1812,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * 
  * All APIs by task
- */export const listScripts = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.ListScripts" }, ListScriptsInput, ListScriptsOutput, [InternalServiceException, InvalidRequestException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listScripts = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.ListScripts" }, ListScriptsInput, ListScriptsOutput, [InternalServiceException, InvalidRequestException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2, Anywhere, Container
  * 
@@ -1849,7 +1849,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * 
  * All APIs by task
- */export const listTagsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [InternalServiceException, InvalidRequestException, NotFoundException, TaggingFailedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [InternalServiceException, InvalidRequestException, NotFoundException, TaggingFailedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2
  * 
@@ -1876,7 +1876,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * 
  * All APIs by task
- */export const requestUploadCredentials = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.RequestUploadCredentials" }, RequestUploadCredentialsInput, RequestUploadCredentialsOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const requestUploadCredentials = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.RequestUploadCredentials" }, RequestUploadCredentialsInput, RequestUploadCredentialsOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2 (FleetIQ)
  * 
@@ -1903,7 +1903,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * Amazon GameLift Servers FleetIQ
  * Guide
- */export const resumeGameServerGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.ResumeGameServerGroup" }, ResumeGameServerGroupInput, ResumeGameServerGroupOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const resumeGameServerGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.ResumeGameServerGroup" }, ResumeGameServerGroupInput, ResumeGameServerGroupOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2, Anywhere, Container
  * 
@@ -2015,7 +2015,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * 
  * All APIs by task
- */export const searchGameSessions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.SearchGameSessions" }, SearchGameSessionsInput, SearchGameSessionsOutput, [InternalServiceException, InvalidRequestException, NotFoundException, TerminalRoutingStrategyException, UnauthorizedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const searchGameSessions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.SearchGameSessions" }, SearchGameSessionsInput, SearchGameSessionsOutput, [InternalServiceException, InvalidRequestException, NotFoundException, TerminalRoutingStrategyException, UnauthorizedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2, Container
  * 
@@ -2054,7 +2054,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * Setting up Amazon GameLift Servers
  * fleets
- */export const startFleetActions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.StartFleetActions" }, StartFleetActionsInput, StartFleetActionsOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startFleetActions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.StartFleetActions" }, StartFleetActionsInput, StartFleetActionsOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2, Anywhere, Container
  * 
@@ -2100,7 +2100,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * 
  * How Amazon GameLift Servers FlexMatch works
- */export const startMatchmaking = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.StartMatchmaking" }, StartMatchmakingInput, StartMatchmakingOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startMatchmaking = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.StartMatchmaking" }, StartMatchmakingInput, StartMatchmakingOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2, Container
  * 
@@ -2145,7 +2145,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * Setting up Amazon GameLift Servers
  * Fleets
- */export const stopFleetActions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.StopFleetActions" }, StopFleetActionsInput, StopFleetActionsOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const stopFleetActions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.StopFleetActions" }, StopFleetActionsInput, StopFleetActionsOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2, Anywhere, Container
  * 
@@ -2164,7 +2164,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * This operation results in an `InvalidRequestExecption` (400) error if a
  * game session has already been created for this placement. You can clean up an unneeded
  * game session by calling TerminateGameSession.
- */export const stopGameSessionPlacement = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.StopGameSessionPlacement" }, StopGameSessionPlacementInput, StopGameSessionPlacementOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const stopGameSessionPlacement = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.StopGameSessionPlacement" }, StopGameSessionPlacementInput, StopGameSessionPlacementOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2 (FleetIQ)
  * 
@@ -2202,7 +2202,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * Amazon GameLift Servers FleetIQ
  * Guide
- */export const suspendGameServerGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.SuspendGameServerGroup" }, SuspendGameServerGroupInput, SuspendGameServerGroupOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const suspendGameServerGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.SuspendGameServerGroup" }, SuspendGameServerGroupInput, SuspendGameServerGroupOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2, Anywhere, Container
  * 
@@ -2222,7 +2222,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * 
  * All APIs by task
- */export const updateAlias = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.UpdateAlias" }, UpdateAliasInput, UpdateAliasOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateAlias = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.UpdateAlias" }, UpdateAliasInput, UpdateAliasOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2
  * 
@@ -2245,7 +2245,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * 
  * All APIs by task
- */export const updateBuild = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.UpdateBuild" }, UpdateBuildInput, UpdateBuildOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateBuild = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.UpdateBuild" }, UpdateBuildInput, UpdateBuildOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** Container
  * 
@@ -2308,7 +2308,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * If the container group definition version is used in an active fleets, the update
  * automatically initiates a new fleet deployment of the new version. You can track a fleet's
  * deployments using ListFleetDeployments.
- */export const updateContainerGroupDefinition = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.UpdateContainerGroupDefinition" }, UpdateContainerGroupDefinitionInput, UpdateContainerGroupDefinitionOutput, [InternalServiceException, InvalidRequestException, LimitExceededException, NotFoundException, UnauthorizedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateContainerGroupDefinition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.UpdateContainerGroupDefinition" }, UpdateContainerGroupDefinitionInput, UpdateContainerGroupDefinitionOutput, [InternalServiceException, InvalidRequestException, LimitExceededException, NotFoundException, UnauthorizedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2, Anywhere, Container
  * 
@@ -2341,7 +2341,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * Setting up Amazon GameLift Servers
  * fleets
- */export const updateFleetAttributes = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.UpdateFleetAttributes" }, UpdateFleetAttributesInput, UpdateFleetAttributesOutput, [ConflictException, InternalServiceException, InvalidFleetStatusException, InvalidRequestException, LimitExceededException, NotFoundException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateFleetAttributes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.UpdateFleetAttributes" }, UpdateFleetAttributesInput, UpdateFleetAttributesOutput, [ConflictException, InternalServiceException, InvalidFleetStatusException, InvalidRequestException, LimitExceededException, NotFoundException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2, Container
  * 
@@ -2401,7 +2401,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * Scaling fleet
  * capacity
- */export const updateFleetCapacity = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.UpdateFleetCapacity" }, UpdateFleetCapacityInput, UpdateFleetCapacityOutput, [ConflictException, InternalServiceException, InvalidFleetStatusException, InvalidRequestException, LimitExceededException, NotFoundException, UnauthorizedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateFleetCapacity = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.UpdateFleetCapacity" }, UpdateFleetCapacityInput, UpdateFleetCapacityOutput, [ConflictException, InternalServiceException, InvalidFleetStatusException, InvalidRequestException, LimitExceededException, NotFoundException, UnauthorizedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2, Container
  * 
@@ -2431,7 +2431,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * Setting up Amazon GameLift Servers
  * fleets
- */export const updateFleetPortSettings = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.UpdateFleetPortSettings" }, UpdateFleetPortSettingsInput, UpdateFleetPortSettingsOutput, [ConflictException, InternalServiceException, InvalidFleetStatusException, InvalidRequestException, LimitExceededException, NotFoundException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateFleetPortSettings = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.UpdateFleetPortSettings" }, UpdateFleetPortSettingsInput, UpdateFleetPortSettingsOutput, [ConflictException, InternalServiceException, InvalidFleetStatusException, InvalidRequestException, LimitExceededException, NotFoundException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2 (FleetIQ)
  * 
@@ -2481,7 +2481,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * Amazon GameLift Servers FleetIQ
  * Guide
- */export const updateGameServer = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.UpdateGameServer" }, UpdateGameServerInput, UpdateGameServerOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateGameServer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.UpdateGameServer" }, UpdateGameServerInput, UpdateGameServerOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2 (FleetIQ)
  * 
@@ -2506,7 +2506,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * Amazon GameLift Servers FleetIQ
  * Guide
- */export const updateGameServerGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.UpdateGameServerGroup" }, UpdateGameServerGroupInput, UpdateGameServerGroupOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateGameServerGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.UpdateGameServerGroup" }, UpdateGameServerGroupInput, UpdateGameServerGroupOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2, Anywhere, Container
  * 
@@ -2525,7 +2525,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * 
  * Using Multi-Region Queues
- */export const updateGameSessionQueue = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.UpdateGameSessionQueue" }, UpdateGameSessionQueueInput, UpdateGameSessionQueueOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateGameSessionQueue = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.UpdateGameSessionQueue" }, UpdateGameSessionQueueInput, UpdateGameSessionQueueOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2, Anywhere, Container
  * 
@@ -2543,7 +2543,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * Design a FlexMatch
  * matchmaker
- */export const updateMatchmakingConfiguration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.UpdateMatchmakingConfiguration" }, UpdateMatchmakingConfigurationInput, UpdateMatchmakingConfigurationOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateMatchmakingConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.UpdateMatchmakingConfiguration" }, UpdateMatchmakingConfigurationInput, UpdateMatchmakingConfigurationOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2
  * 
@@ -2575,7 +2575,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * Setting up Amazon GameLift Servers
  * fleets
- */export const updateRuntimeConfiguration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.UpdateRuntimeConfiguration" }, UpdateRuntimeConfigurationInput, UpdateRuntimeConfigurationOutput, [InternalServiceException, InvalidFleetStatusException, InvalidRequestException, LimitExceededException, NotFoundException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateRuntimeConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.UpdateRuntimeConfiguration" }, UpdateRuntimeConfigurationInput, UpdateRuntimeConfigurationOutput, [InternalServiceException, InvalidFleetStatusException, InvalidRequestException, LimitExceededException, NotFoundException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2
  * 
@@ -2615,7 +2615,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * 
  * All APIs by task
- */export const updateScript = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.UpdateScript" }, UpdateScriptInput, UpdateScriptOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateScript = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.UpdateScript" }, UpdateScriptInput, UpdateScriptOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2, Anywhere, Container
  * 
@@ -2633,7 +2633,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * - Build a rule
  * set
- */export const validateMatchmakingRuleSet = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.ValidateMatchmakingRuleSet" }, ValidateMatchmakingRuleSetInput, ValidateMatchmakingRuleSetOutput, [InternalServiceException, InvalidRequestException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const validateMatchmakingRuleSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.ValidateMatchmakingRuleSet" }, ValidateMatchmakingRuleSetInput, ValidateMatchmakingRuleSetOutput, [InternalServiceException, InvalidRequestException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2, Anywhere, Container
  * 
@@ -2665,7 +2665,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * 
  * All APIs by task
- */export const createAlias = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.CreateAlias" }, CreateAliasInput, CreateAliasOutput, [ConflictException, InternalServiceException, InvalidRequestException, LimitExceededException, TaggingFailedException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createAlias = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.CreateAlias" }, CreateAliasInput, CreateAliasOutput, [ConflictException, InternalServiceException, InvalidRequestException, LimitExceededException, TaggingFailedException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2, Anywhere
  * 
@@ -2731,7 +2731,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * 
  * All APIs by task
- */export const createBuild = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.CreateBuild" }, CreateBuildInput, CreateBuildOutput, [ConflictException, InternalServiceException, InvalidRequestException, TaggingFailedException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createBuild = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.CreateBuild" }, CreateBuildInput, CreateBuildOutput, [ConflictException, InternalServiceException, InvalidRequestException, TaggingFailedException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** Container
  * 
@@ -2866,7 +2866,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * days to maintain a secure and up-to-date runtime environment for your hosted game
  * servers. For guidance, see
  * Security best practices for Amazon GameLift Servers.
- */export const createContainerFleet = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.CreateContainerFleet" }, CreateContainerFleetInput, CreateContainerFleetOutput, [ConflictException, InternalServiceException, InvalidRequestException, LimitExceededException, TaggingFailedException, UnauthorizedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createContainerFleet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.CreateContainerFleet" }, CreateContainerFleetInput, CreateContainerFleetOutput, [ConflictException, InternalServiceException, InvalidRequestException, LimitExceededException, TaggingFailedException, UnauthorizedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2, Container
  * 
@@ -2914,7 +2914,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * 
  * Amazon GameLift Servers service locations for managed hosting.
- */export const createFleetLocations = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.CreateFleetLocations" }, CreateFleetLocationsInput, CreateFleetLocationsOutput, [ConflictException, InternalServiceException, InvalidFleetStatusException, InvalidRequestException, LimitExceededException, NotFoundException, NotReadyException, UnauthorizedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createFleetLocations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.CreateFleetLocations" }, CreateFleetLocationsInput, CreateFleetLocationsOutput, [ConflictException, InternalServiceException, InvalidFleetStatusException, InvalidRequestException, LimitExceededException, NotFoundException, NotReadyException, UnauthorizedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2, Anywhere, Container
  * 
@@ -3064,7 +3064,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * DeleteGameSessionQueue
  * |
  * All APIs by task
- */export const createGameSessionQueue = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.CreateGameSessionQueue" }, CreateGameSessionQueueInput, CreateGameSessionQueueOutput, [InternalServiceException, InvalidRequestException, LimitExceededException, NotFoundException, TaggingFailedException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createGameSessionQueue = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.CreateGameSessionQueue" }, CreateGameSessionQueueInput, CreateGameSessionQueueOutput, [InternalServiceException, InvalidRequestException, LimitExceededException, NotFoundException, TaggingFailedException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2, Anywhere, Container
  * 
@@ -3104,7 +3104,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * Set up FlexMatch event
  * notification
- */export const createMatchmakingConfiguration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.CreateMatchmakingConfiguration" }, CreateMatchmakingConfigurationInput, CreateMatchmakingConfigurationOutput, [InternalServiceException, InvalidRequestException, LimitExceededException, NotFoundException, TaggingFailedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createMatchmakingConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.CreateMatchmakingConfiguration" }, CreateMatchmakingConfigurationInput, CreateMatchmakingConfigurationOutput, [InternalServiceException, InvalidRequestException, LimitExceededException, NotFoundException, TaggingFailedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2, Anywhere, Container
  * 
@@ -3143,7 +3143,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * - Matchmaking with
  * FlexMatch
- */export const createMatchmakingRuleSet = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.CreateMatchmakingRuleSet" }, CreateMatchmakingRuleSetInput, CreateMatchmakingRuleSetOutput, [InternalServiceException, InvalidRequestException, LimitExceededException, TaggingFailedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createMatchmakingRuleSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.CreateMatchmakingRuleSet" }, CreateMatchmakingRuleSetInput, CreateMatchmakingRuleSetOutput, [InternalServiceException, InvalidRequestException, LimitExceededException, TaggingFailedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2, Anywhere, Container
  * 
@@ -3176,7 +3176,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * 
  * All APIs by task
- */export const createPlayerSessions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.CreatePlayerSessions" }, CreatePlayerSessionsInput, CreatePlayerSessionsOutput, [GameSessionFullException, InternalServiceException, InvalidGameSessionStatusException, InvalidRequestException, NotFoundException, TerminalRoutingStrategyException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createPlayerSessions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.CreatePlayerSessions" }, CreatePlayerSessionsInput, CreatePlayerSessionsOutput, [GameSessionFullException, InternalServiceException, InvalidGameSessionStatusException, InvalidRequestException, NotFoundException, TerminalRoutingStrategyException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2, Anywhere
  * 
@@ -3236,7 +3236,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * 
  * All APIs by task
- */export const createScript = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.CreateScript" }, CreateScriptInput, CreateScriptOutput, [ConflictException, InternalServiceException, InvalidRequestException, TaggingFailedException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createScript = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.CreateScript" }, CreateScriptInput, CreateScriptOutput, [ConflictException, InternalServiceException, InvalidRequestException, TaggingFailedException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2 (FleetIQ)
  * 
@@ -3286,7 +3286,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * Amazon GameLift Servers FleetIQ
  * Guide
- */export const deleteGameServerGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DeleteGameServerGroup" }, DeleteGameServerGroupInput, DeleteGameServerGroupOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteGameServerGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DeleteGameServerGroup" }, DeleteGameServerGroupInput, DeleteGameServerGroupOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2, Anywhere, Container
  * 
@@ -3306,7 +3306,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * 
  * All APIs by task
- */export const describeAlias = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DescribeAlias" }, DescribeAliasInput, DescribeAliasOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeAlias = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DescribeAlias" }, DescribeAliasInput, DescribeAliasOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2
  * 
@@ -3328,7 +3328,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * 
  * All APIs by task
- */export const describeBuild = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DescribeBuild" }, DescribeBuildInput, DescribeBuildOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeBuild = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DescribeBuild" }, DescribeBuildInput, DescribeBuildOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2
  * 
@@ -3404,7 +3404,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * 
  * Setting up Amazon GameLift Servers fleets
- */export const describeEC2InstanceLimits = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DescribeEC2InstanceLimits" }, DescribeEC2InstanceLimitsInput, DescribeEC2InstanceLimitsOutput, [InternalServiceException, InvalidRequestException, UnauthorizedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeEC2InstanceLimits = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DescribeEC2InstanceLimits" }, DescribeEC2InstanceLimitsInput, DescribeEC2InstanceLimitsOutput, [InternalServiceException, InvalidRequestException, UnauthorizedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2, Anywhere, Container
  * 
@@ -3452,7 +3452,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * Setting up Amazon GameLift Servers
  * fleets
- */export const describeFleetAttributes = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DescribeFleetAttributes" }, DescribeFleetAttributesInput, DescribeFleetAttributesOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeFleetAttributes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DescribeFleetAttributes" }, DescribeFleetAttributesInput, DescribeFleetAttributesOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2, Anywhere, Container
  * 
@@ -3478,7 +3478,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * Setting up Amazon GameLift Servers
  * fleets
- */export const describeFleetEvents = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DescribeFleetEvents" }, DescribeFleetEventsInput, DescribeFleetEventsOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeFleetEvents = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DescribeFleetEvents" }, DescribeFleetEventsInput, DescribeFleetEventsOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2, Container
  * 
@@ -3527,7 +3527,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * 
  * Amazon GameLift Servers service locations for managed hosting
- */export const describeFleetLocationAttributes = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DescribeFleetLocationAttributes" }, DescribeFleetLocationAttributesInput, DescribeFleetLocationAttributesOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeFleetLocationAttributes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DescribeFleetLocationAttributes" }, DescribeFleetLocationAttributesInput, DescribeFleetLocationAttributesOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2, Anywhere, Container
  * 
@@ -3563,7 +3563,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * 
  * GameLift metrics for fleets
- */export const describeFleetLocationUtilization = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DescribeFleetLocationUtilization" }, DescribeFleetLocationUtilizationInput, DescribeFleetLocationUtilizationOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeFleetLocationUtilization = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DescribeFleetLocationUtilization" }, DescribeFleetLocationUtilizationInput, DescribeFleetLocationUtilizationOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2 (FleetIQ)
  * 
@@ -3585,7 +3585,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * Amazon GameLift Servers FleetIQ
  * Guide
- */export const describeGameServer = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DescribeGameServer" }, DescribeGameServerInput, DescribeGameServerOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeGameServer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DescribeGameServer" }, DescribeGameServerInput, DescribeGameServerOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2 (FleetIQ)
  * 
@@ -3617,7 +3617,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * Amazon GameLift Servers FleetIQ
  * Guide
- */export const describeGameServerInstances = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DescribeGameServerInstances" }, DescribeGameServerInstancesInput, DescribeGameServerInstancesOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeGameServerInstances = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DescribeGameServerInstances" }, DescribeGameServerInstancesInput, DescribeGameServerInstancesOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2, Anywhere, Container
  * 
@@ -3672,7 +3672,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * 
  * All APIs by task
- */export const describeGameSessionDetails = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DescribeGameSessionDetails" }, DescribeGameSessionDetailsInput, DescribeGameSessionDetailsOutput, [InternalServiceException, InvalidRequestException, NotFoundException, TerminalRoutingStrategyException, UnauthorizedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeGameSessionDetails = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DescribeGameSessionDetails" }, DescribeGameSessionDetailsInput, DescribeGameSessionDetailsOutput, [InternalServiceException, InvalidRequestException, NotFoundException, TerminalRoutingStrategyException, UnauthorizedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2, Anywhere, Container
  * 
@@ -3691,7 +3691,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * 
  * View Your Queues
- */export const describeGameSessionQueues = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DescribeGameSessionQueues" }, DescribeGameSessionQueuesInput, DescribeGameSessionQueuesOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeGameSessionQueues = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DescribeGameSessionQueues" }, DescribeGameSessionQueuesInput, DescribeGameSessionQueuesOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2, Anywhere, Container
  * 
@@ -3757,7 +3757,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * 
  * All APIs by task
- */export const describeGameSessions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DescribeGameSessions" }, DescribeGameSessionsInput, DescribeGameSessionsOutput, [InternalServiceException, InvalidRequestException, NotFoundException, TerminalRoutingStrategyException, UnauthorizedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeGameSessions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DescribeGameSessions" }, DescribeGameSessionsInput, DescribeGameSessionsOutput, [InternalServiceException, InvalidRequestException, NotFoundException, TerminalRoutingStrategyException, UnauthorizedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2
  * 
@@ -3822,7 +3822,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * 
  * All APIs by task
- */export const describeInstances = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DescribeInstances" }, DescribeInstancesInput, DescribeInstancesOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeInstances = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DescribeInstances" }, DescribeInstancesInput, DescribeInstancesOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2
  * 
@@ -3838,7 +3838,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * A fleet may have all of its scaling policies suspended. This operation does not affect
  * the status of the scaling policies, which remains ACTIVE.
- */export const describeScalingPolicies = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DescribeScalingPolicies" }, DescribeScalingPoliciesInput, DescribeScalingPoliciesOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeScalingPolicies = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DescribeScalingPolicies" }, DescribeScalingPoliciesInput, DescribeScalingPoliciesOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2, Container
  * 
@@ -3884,7 +3884,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * credentials with Amazon EC2 Systems Manager (SSM) to start a session with the compute. For more
  * details, see Starting a session (CLI) in the Amazon EC2 Systems Manager User
  * Guide.
- */export const getComputeAccess = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.GetComputeAccess" }, GetComputeAccessInput, GetComputeAccessOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getComputeAccess = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.GetComputeAccess" }, GetComputeAccessInput, GetComputeAccessOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2
  * 
@@ -3975,7 +3975,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * are automatically in force as soon as they're successfully created. If the fleet's
  * auto-scaling actions are temporarily suspended, the new policy will be in force once the
  * fleet actions are restarted.
- */export const putScalingPolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.PutScalingPolicy" }, PutScalingPolicyInput, PutScalingPolicyOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putScalingPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.PutScalingPolicy" }, PutScalingPolicyInput, PutScalingPolicyOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** Anywhere, Container
  * 
@@ -4023,7 +4023,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * - Server SDK
  * reference guides (for version 5.x)
- */export const registerCompute = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.RegisterCompute" }, RegisterComputeInput, RegisterComputeOutput, [ConflictException, InternalServiceException, InvalidRequestException, LimitExceededException, NotReadyException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const registerCompute = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.RegisterCompute" }, RegisterComputeInput, RegisterComputeOutput, [ConflictException, InternalServiceException, InvalidRequestException, LimitExceededException, NotReadyException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2 (FleetIQ)
  * 
@@ -4055,7 +4055,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * Amazon GameLift Servers FleetIQ
  * Guide
- */export const registerGameServer = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.RegisterGameServer" }, RegisterGameServerInput, RegisterGameServerOutput, [ConflictException, InternalServiceException, InvalidRequestException, LimitExceededException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const registerGameServer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.RegisterGameServer" }, RegisterGameServerInput, RegisterGameServerOutput, [ConflictException, InternalServiceException, InvalidRequestException, LimitExceededException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2, Anywhere, Container
  * 
@@ -4076,7 +4076,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * 
  * All APIs by task
- */export const resolveAlias = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.ResolveAlias" }, ResolveAliasInput, ResolveAliasOutput, [InternalServiceException, InvalidRequestException, NotFoundException, TerminalRoutingStrategyException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const resolveAlias = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.ResolveAlias" }, ResolveAliasInput, ResolveAliasOutput, [InternalServiceException, InvalidRequestException, NotFoundException, TerminalRoutingStrategyException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2, Anywhere, Container
  * 
@@ -4213,7 +4213,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * Amazon GameLift Servers continues to retry each placement request until it reaches the queue's timeout
  * setting. If a request times out, you can resubmit the request to the same queue or try a
  * different queue.
- */export const startGameSessionPlacement = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.StartGameSessionPlacement" }, StartGameSessionPlacementInput, StartGameSessionPlacementOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startGameSessionPlacement = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.StartGameSessionPlacement" }, StartGameSessionPlacementInput, StartGameSessionPlacementOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2, Anywhere, Container
  * 
@@ -4283,7 +4283,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * (C#)
  * (Unreal)
  * (Go)
- */export const terminateGameSession = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.TerminateGameSession" }, TerminateGameSessionInput, TerminateGameSessionOutput, [InternalServiceException, InvalidGameSessionStatusException, InvalidRequestException, NotFoundException, NotReadyException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const terminateGameSession = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.TerminateGameSession" }, TerminateGameSessionInput, TerminateGameSessionOutput, [InternalServiceException, InvalidGameSessionStatusException, InvalidRequestException, NotFoundException, NotReadyException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** Container
  * 
@@ -4379,7 +4379,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * You can have only one update deployment active at a time for a fleet. If a second
  * update request initiates a deployment while another deployment is in progress, the first
  * deployment is cancelled.
- */export const updateContainerFleet = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.UpdateContainerFleet" }, UpdateContainerFleetInput, UpdateContainerFleetOutput, [InternalServiceException, InvalidRequestException, LimitExceededException, NotFoundException, NotReadyException, UnauthorizedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateContainerFleet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.UpdateContainerFleet" }, UpdateContainerFleetInput, UpdateContainerFleetOutput, [InternalServiceException, InvalidRequestException, LimitExceededException, NotFoundException, NotReadyException, UnauthorizedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2, Anywhere, Container
  * 
@@ -4396,7 +4396,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * 
  * All APIs by task
- */export const updateGameSession = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.UpdateGameSession" }, UpdateGameSessionInput, UpdateGameSessionOutput, [ConflictException, InternalServiceException, InvalidGameSessionStatusException, InvalidRequestException, NotFoundException, NotReadyException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateGameSession = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.UpdateGameSession" }, UpdateGameSessionInput, UpdateGameSessionOutput, [ConflictException, InternalServiceException, InvalidGameSessionStatusException, InvalidRequestException, NotFoundException, NotReadyException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2 (FleetIQ)
  * 
@@ -4454,7 +4454,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * Amazon GameLift Servers FleetIQ
  * Guide
- */export const claimGameServer = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.ClaimGameServer" }, ClaimGameServerInput, ClaimGameServerOutput, [ConflictException, InternalServiceException, InvalidRequestException, NotFoundException, OutOfCapacityException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const claimGameServer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.ClaimGameServer" }, ClaimGameServerInput, ClaimGameServerOutput, [ConflictException, InternalServiceException, InvalidRequestException, NotFoundException, OutOfCapacityException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2, Anywhere, Container
  * 
@@ -4593,7 +4593,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * 
  * Multi-location fleets
- */export const createFleet = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.CreateFleet" }, CreateFleetInput, CreateFleetOutput, [ConflictException, InternalServiceException, InvalidRequestException, LimitExceededException, NotFoundException, NotReadyException, TaggingFailedException, UnauthorizedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createFleet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.CreateFleet" }, CreateFleetInput, CreateFleetOutput, [ConflictException, InternalServiceException, InvalidRequestException, LimitExceededException, NotFoundException, NotReadyException, TaggingFailedException, UnauthorizedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2 (FleetIQ)
  * 
@@ -4649,7 +4649,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * Amazon GameLift Servers FleetIQ
  * Guide
- */export const createGameServerGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.CreateGameServerGroup" }, CreateGameServerGroupInput, CreateGameServerGroupOutput, [ConflictException, InternalServiceException, InvalidRequestException, LimitExceededException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createGameServerGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.CreateGameServerGroup" }, CreateGameServerGroupInput, CreateGameServerGroupOutput, [ConflictException, InternalServiceException, InvalidRequestException, LimitExceededException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2, Anywhere, Container
  * 
@@ -4681,7 +4681,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * 
  * All APIs by task
- */export const createPlayerSession = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.CreatePlayerSession" }, CreatePlayerSessionInput, CreatePlayerSessionOutput, [GameSessionFullException, InternalServiceException, InvalidGameSessionStatusException, InvalidRequestException, NotFoundException, TerminalRoutingStrategyException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createPlayerSession = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.CreatePlayerSession" }, CreatePlayerSessionInput, CreatePlayerSessionOutput, [GameSessionFullException, InternalServiceException, InvalidGameSessionStatusException, InvalidRequestException, NotFoundException, TerminalRoutingStrategyException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2, Anywhere, Container
  * 
@@ -4736,7 +4736,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * - For an Anywhere fleet, this operation returns information about the registered
  * compute.
- */export const describeCompute = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DescribeCompute" }, DescribeComputeInput, DescribeComputeOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeCompute = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DescribeCompute" }, DescribeComputeInput, DescribeComputeOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** Container
  * 
@@ -4772,7 +4772,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * Some API operations limit the number of fleet IDs that allowed in one request. If
  * a request exceeds this limit, the request fails and the error message contains the
  * maximum allowed number.
- */export const describeContainerFleet = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DescribeContainerFleet" }, DescribeContainerFleetInput, DescribeContainerFleetOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeContainerFleet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DescribeContainerFleet" }, DescribeContainerFleetInput, DescribeContainerFleetOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** Container
  * 
@@ -4815,7 +4815,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * 
  * - Manage a container group definition
- */export const describeContainerGroupDefinition = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DescribeContainerGroupDefinition" }, DescribeContainerGroupDefinitionInput, DescribeContainerGroupDefinitionOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeContainerGroupDefinition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DescribeContainerGroupDefinition" }, DescribeContainerGroupDefinitionInput, DescribeContainerGroupDefinitionOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2, Container
  * 
@@ -4877,7 +4877,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * 
  * GameLift metrics for fleets
- */export const describeFleetCapacity = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DescribeFleetCapacity" }, DescribeFleetCapacityInput, DescribeFleetCapacityOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeFleetCapacity = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DescribeFleetCapacity" }, DescribeFleetCapacityInput, DescribeFleetCapacityOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** Container
  * 
@@ -4909,7 +4909,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * 
  * If successful, a `FleetDeployment` object is returned.
- */export const describeFleetDeployment = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DescribeFleetDeployment" }, DescribeFleetDeploymentInput, DescribeFleetDeploymentOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeFleetDeployment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DescribeFleetDeployment" }, DescribeFleetDeploymentInput, DescribeFleetDeploymentOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2, Anywhere, Container
  * 
@@ -4926,7 +4926,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * you must configure an Amazon Simple Notification Service (SNS) topic to receive notifications from FlexMatch or
  * queues. Continuously polling with `DescribeGameSessionPlacement` should only
  * be used for games in development with low game session usage.
- */export const describeGameSessionPlacement = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DescribeGameSessionPlacement" }, DescribeGameSessionPlacementInput, DescribeGameSessionPlacementOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeGameSessionPlacement = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DescribeGameSessionPlacement" }, DescribeGameSessionPlacementInput, DescribeGameSessionPlacementOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2
  * 
@@ -4949,7 +4949,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * 
  * All APIs by task
- */export const describeVpcPeeringConnections = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DescribeVpcPeeringConnections" }, DescribeVpcPeeringConnectionsInput, DescribeVpcPeeringConnectionsOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeVpcPeeringConnections = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DescribeVpcPeeringConnections" }, DescribeVpcPeeringConnectionsInput, DescribeVpcPeeringConnectionsOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2
  * 
@@ -5007,7 +5007,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * 
  * All APIs by task
- */export const getInstanceAccess = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.GetInstanceAccess" }, GetInstanceAccessInput, GetInstanceAccessOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getInstanceAccess = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.GetInstanceAccess" }, GetInstanceAccessInput, GetInstanceAccessOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** Container
  * 
@@ -5198,7 +5198,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * If successful, this request creates a `ContainerGroupDefinition` resource and
  * assigns a unique ARN value. You can update most properties of a container group definition by
  * calling UpdateContainerGroupDefinition, and optionally save the update as a new version.
- */export const createContainerGroupDefinition = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.CreateContainerGroupDefinition" }, CreateContainerGroupDefinitionInput, CreateContainerGroupDefinitionOutput, [ConflictException, InternalServiceException, InvalidRequestException, LimitExceededException, TaggingFailedException, UnauthorizedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createContainerGroupDefinition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.CreateContainerGroupDefinition" }, CreateContainerGroupDefinitionInput, CreateContainerGroupDefinitionOutput, [ConflictException, InternalServiceException, InvalidRequestException, LimitExceededException, TaggingFailedException, UnauthorizedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2, Anywhere, Container
  * 
@@ -5266,13 +5266,13 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * 
  * All APIs by task
- */export const createGameSession = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.CreateGameSession" }, CreateGameSessionInput, CreateGameSessionOutput, [ConflictException, FleetCapacityExceededException, IdempotentParameterMismatchException, InternalServiceException, InvalidFleetStatusException, InvalidRequestException, LimitExceededException, NotFoundException, TerminalRoutingStrategyException, UnauthorizedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createGameSession = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.CreateGameSession" }, CreateGameSessionInput, CreateGameSessionOutput, [ConflictException, FleetCapacityExceededException, IdempotentParameterMismatchException, InternalServiceException, InvalidFleetStatusException, InvalidRequestException, LimitExceededException, NotFoundException, TerminalRoutingStrategyException, UnauthorizedException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** Anywhere
  * 
  * 
  * Creates a custom location for use in an Anywhere fleet.
- */export const createLocation = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.CreateLocation" }, CreateLocationInput, CreateLocationOutput, [ConflictException, InternalServiceException, InvalidRequestException, LimitExceededException, TaggingFailedException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createLocation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.CreateLocation" }, CreateLocationInput, CreateLocationOutput, [ConflictException, InternalServiceException, InvalidRequestException, LimitExceededException, TaggingFailedException, UnauthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2, Anywhere, Container
  * 
@@ -5309,7 +5309,7 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * Set Up FlexMatch event
  * notification
- */export const describeMatchmaking = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DescribeMatchmaking" }, DescribeMatchmakingInput, DescribeMatchmakingOutput, [InternalServiceException, InvalidRequestException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeMatchmaking = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.DescribeMatchmaking" }, DescribeMatchmakingInput, DescribeMatchmakingOutput, [InternalServiceException, InvalidRequestException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This API works with the following fleet types:** EC2, Anywhere, Container
  * 
@@ -5367,4 +5367,4 @@ export class IdempotentParameterMismatchException extends S.TaggedError<Idempote
  * 
  * 
  * How Amazon GameLift Servers FlexMatch works
- */export const startMatchBackfill = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.StartMatchBackfill" }, StartMatchBackfillInput, StartMatchBackfillOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startMatchBackfill = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-01", uri: "/", method: "POST", sdkId: "GameLift", sigV4ServiceName: "gamelift", name: "GameLift.StartMatchBackfill" }, StartMatchBackfillInput, StartMatchBackfillOutput, [InternalServiceException, InvalidRequestException, NotFoundException, UnsupportedRegionException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

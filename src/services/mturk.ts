@@ -148,7 +148,7 @@ export class ServiceFault extends S.TaggedError<ServiceFault>()("ServiceFault", 
  * the request may modify the Qualification score. To resolve a pending Qualification
  * request without affecting the Qualification the Worker already has, reject the
  * request with the `RejectQualificationRequest` operation.
- */export const associateQualificationWithWorker = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-17", uri: "/", method: "POST", sdkId: "MTurk", sigV4ServiceName: "mturk-requester", name: "MTurkRequesterServiceV20170117.AssociateQualificationWithWorker" }, AssociateQualificationWithWorkerRequest, AssociateQualificationWithWorkerResponse, [RequestError, ServiceFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const associateQualificationWithWorker = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-17", uri: "/", method: "POST", sdkId: "MTurk", sigV4ServiceName: "mturk-requester", name: "MTurkRequesterServiceV20170117.AssociateQualificationWithWorker" }, AssociateQualificationWithWorkerRequest, AssociateQualificationWithWorkerResponse, [RequestError, ServiceFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * The
  * `CreateAdditionalAssignmentsForHIT`
@@ -173,10 +173,10 @@ export class ServiceFault extends S.TaggedError<ServiceFault>()("ServiceFault", 
  * - HITs that were created before July 22, 2015 cannot be extended. Attempting to extend HITs that were created before July 22, 2015 will result in an
  * `AWS.MechanicalTurk.HITTooOldForExtension`
  * exception.
- */export const createAdditionalAssignmentsForHIT = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-17", uri: "/", method: "POST", sdkId: "MTurk", sigV4ServiceName: "mturk-requester", name: "MTurkRequesterServiceV20170117.CreateAdditionalAssignmentsForHIT" }, CreateAdditionalAssignmentsForHITRequest, CreateAdditionalAssignmentsForHITResponse, [RequestError, ServiceFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createAdditionalAssignmentsForHIT = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-17", uri: "/", method: "POST", sdkId: "MTurk", sigV4ServiceName: "mturk-requester", name: "MTurkRequesterServiceV20170117.CreateAdditionalAssignmentsForHIT" }, CreateAdditionalAssignmentsForHITRequest, CreateAdditionalAssignmentsForHITResponse, [RequestError, ServiceFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * The `CreateWorkerBlock` operation allows you to prevent a Worker from working on your HITs. For example, you can block a Worker who is producing poor quality work. You can block up to 100,000 Workers.
- */export const createWorkerBlock = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-17", uri: "/", method: "POST", sdkId: "MTurk", sigV4ServiceName: "mturk-requester", name: "MTurkRequesterServiceV20170117.CreateWorkerBlock" }, CreateWorkerBlockRequest, CreateWorkerBlockResponse, [RequestError, ServiceFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createWorkerBlock = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-17", uri: "/", method: "POST", sdkId: "MTurk", sigV4ServiceName: "mturk-requester", name: "MTurkRequesterServiceV20170117.CreateWorkerBlock" }, CreateWorkerBlockRequest, CreateWorkerBlockResponse, [RequestError, ServiceFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * The `DeleteHIT` operation is used to delete HIT that is no longer needed.
  * Only the Requester who created the HIT can delete it.
@@ -212,7 +212,7 @@ export class ServiceFault extends S.TaggedError<ServiceFault>()("ServiceFault", 
  * 
  * 
  * - Disposing HITs can improve the performance of operations such as ListReviewableHITs and ListHITs.
- */export const deleteHIT = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-17", uri: "/", method: "POST", sdkId: "MTurk", sigV4ServiceName: "mturk-requester", name: "MTurkRequesterServiceV20170117.DeleteHIT" }, DeleteHITRequest, DeleteHITResponse, [RequestError, ServiceFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteHIT = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-17", uri: "/", method: "POST", sdkId: "MTurk", sigV4ServiceName: "mturk-requester", name: "MTurkRequesterServiceV20170117.DeleteHIT" }, DeleteHITRequest, DeleteHITResponse, [RequestError, ServiceFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * The
  * `DeleteQualificationType`
@@ -236,10 +236,10 @@ export class ServiceFault extends S.TaggedError<ServiceFault>()("ServiceFault", 
  * may take up to 48 hours before DeleteQualificationType completes and
  * the unique name of the Qualification type is available for reuse with
  * CreateQualificationType.
- */export const deleteQualificationType = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-17", uri: "/", method: "POST", sdkId: "MTurk", sigV4ServiceName: "mturk-requester", name: "MTurkRequesterServiceV20170117.DeleteQualificationType" }, DeleteQualificationTypeRequest, DeleteQualificationTypeResponse, [RequestError, ServiceFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteQualificationType = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-17", uri: "/", method: "POST", sdkId: "MTurk", sigV4ServiceName: "mturk-requester", name: "MTurkRequesterServiceV20170117.DeleteQualificationType" }, DeleteQualificationTypeRequest, DeleteQualificationTypeResponse, [RequestError, ServiceFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * The `DeleteWorkerBlock` operation allows you to reinstate a blocked Worker to work on your HITs. This operation reverses the effects of the CreateWorkerBlock operation. You need the Worker ID to use this operation. If the Worker ID is missing or invalid, this operation fails and returns the message “WorkerId is invalid.” If the specified Worker is not blocked, this operation returns successfully.
- */export const deleteWorkerBlock = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-17", uri: "/", method: "POST", sdkId: "MTurk", sigV4ServiceName: "mturk-requester", name: "MTurkRequesterServiceV20170117.DeleteWorkerBlock" }, DeleteWorkerBlockRequest, DeleteWorkerBlockResponse, [RequestError, ServiceFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteWorkerBlock = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-17", uri: "/", method: "POST", sdkId: "MTurk", sigV4ServiceName: "mturk-requester", name: "MTurkRequesterServiceV20170117.DeleteWorkerBlock" }, DeleteWorkerBlockRequest, DeleteWorkerBlockResponse, [RequestError, ServiceFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * The `DisassociateQualificationFromWorker`
  * revokes a previously granted Qualification from a user.
@@ -249,12 +249,12 @@ export class ServiceFault extends S.TaggedError<ServiceFault>()("ServiceFault", 
  * 
  * You can provide a text message explaining why the Qualification was
  * revoked. The user who had the Qualification can see this message.
- */export const disassociateQualificationFromWorker = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-17", uri: "/", method: "POST", sdkId: "MTurk", sigV4ServiceName: "mturk-requester", name: "MTurkRequesterServiceV20170117.DisassociateQualificationFromWorker" }, DisassociateQualificationFromWorkerRequest, DisassociateQualificationFromWorkerResponse, [RequestError, ServiceFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const disassociateQualificationFromWorker = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-17", uri: "/", method: "POST", sdkId: "MTurk", sigV4ServiceName: "mturk-requester", name: "MTurkRequesterServiceV20170117.DisassociateQualificationFromWorker" }, DisassociateQualificationFromWorkerRequest, DisassociateQualificationFromWorkerResponse, [RequestError, ServiceFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * The `GetAccountBalance` operation retrieves the Prepaid HITs balance in your Amazon Mechanical Turk account if you are a Prepaid Requester.
  * Alternatively, this operation will retrieve the remaining available AWS Billing usage if you have enabled AWS Billing.
  * Note: If you have enabled AWS Billing and still have a remaining Prepaid HITs balance, this balance can be viewed on the My Account page in the Requester console.
- */export const getAccountBalance = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-17", uri: "/", method: "POST", sdkId: "MTurk", sigV4ServiceName: "mturk-requester", name: "MTurkRequesterServiceV20170117.GetAccountBalance" }, GetAccountBalanceRequest, GetAccountBalanceResponse, [RequestError, ServiceFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getAccountBalance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-17", uri: "/", method: "POST", sdkId: "MTurk", sigV4ServiceName: "mturk-requester", name: "MTurkRequesterServiceV20170117.GetAccountBalance" }, GetAccountBalanceRequest, GetAccountBalanceResponse, [RequestError, ServiceFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * The `RejectAssignment` operation rejects the results of a completed assignment.
  * 
@@ -271,7 +271,7 @@ export class ServiceFault extends S.TaggedError<ServiceFault>()("ServiceFault", 
  * 
  * 
  * Only the Requester who created the HIT can reject an assignment for the HIT.
- */export const rejectAssignment = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-17", uri: "/", method: "POST", sdkId: "MTurk", sigV4ServiceName: "mturk-requester", name: "MTurkRequesterServiceV20170117.RejectAssignment" }, RejectAssignmentRequest, RejectAssignmentResponse, [RequestError, ServiceFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const rejectAssignment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-17", uri: "/", method: "POST", sdkId: "MTurk", sigV4ServiceName: "mturk-requester", name: "MTurkRequesterServiceV20170117.RejectAssignment" }, RejectAssignmentRequest, RejectAssignmentResponse, [RequestError, ServiceFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * The
  * `RejectQualificationRequest`
@@ -281,7 +281,7 @@ export class ServiceFault extends S.TaggedError<ServiceFault>()("ServiceFault", 
  * 
  * You can provide a text message explaining why the request was
  * rejected. The Worker who made the request can see this message.
- */export const rejectQualificationRequest = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-17", uri: "/", method: "POST", sdkId: "MTurk", sigV4ServiceName: "mturk-requester", name: "MTurkRequesterServiceV20170117.RejectQualificationRequest" }, RejectQualificationRequestRequest, RejectQualificationRequestResponse, [RequestError, ServiceFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const rejectQualificationRequest = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-17", uri: "/", method: "POST", sdkId: "MTurk", sigV4ServiceName: "mturk-requester", name: "MTurkRequesterServiceV20170117.RejectQualificationRequest" }, RejectQualificationRequestRequest, RejectQualificationRequestResponse, [RequestError, ServiceFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * The
  * `SendBonus`
@@ -295,16 +295,16 @@ export class ServiceFault extends S.TaggedError<ServiceFault>()("ServiceFault", 
  * bonus payments, similar to the HIT listing fee. This operation fails
  * if your account does not have enough funds to pay for both the bonus
  * and the fees.
- */export const sendBonus = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-17", uri: "/", method: "POST", sdkId: "MTurk", sigV4ServiceName: "mturk-requester", name: "MTurkRequesterServiceV20170117.SendBonus" }, SendBonusRequest, SendBonusResponse, [RequestError, ServiceFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const sendBonus = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-17", uri: "/", method: "POST", sdkId: "MTurk", sigV4ServiceName: "mturk-requester", name: "MTurkRequesterServiceV20170117.SendBonus" }, SendBonusRequest, SendBonusResponse, [RequestError, ServiceFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * The `UpdateExpirationForHIT` operation allows you update the expiration time of a HIT.
  * If you update it to a time in the past, the HIT will be immediately expired.
- */export const updateExpirationForHIT = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-17", uri: "/", method: "POST", sdkId: "MTurk", sigV4ServiceName: "mturk-requester", name: "MTurkRequesterServiceV20170117.UpdateExpirationForHIT" }, UpdateExpirationForHITRequest, UpdateExpirationForHITResponse, [RequestError, ServiceFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateExpirationForHIT = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-17", uri: "/", method: "POST", sdkId: "MTurk", sigV4ServiceName: "mturk-requester", name: "MTurkRequesterServiceV20170117.UpdateExpirationForHIT" }, UpdateExpirationForHITRequest, UpdateExpirationForHITResponse, [RequestError, ServiceFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * The `UpdateHITReviewStatus` operation updates the status of a HIT.
  * If the status is Reviewable, this operation can update the status to Reviewing,
  * or it can revert a Reviewing HIT back to the Reviewable status.
- */export const updateHITReviewStatus = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-17", uri: "/", method: "POST", sdkId: "MTurk", sigV4ServiceName: "mturk-requester", name: "MTurkRequesterServiceV20170117.UpdateHITReviewStatus" }, UpdateHITReviewStatusRequest, UpdateHITReviewStatusResponse, [RequestError, ServiceFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateHITReviewStatus = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-17", uri: "/", method: "POST", sdkId: "MTurk", sigV4ServiceName: "mturk-requester", name: "MTurkRequesterServiceV20170117.UpdateHITReviewStatus" }, UpdateHITReviewStatusRequest, UpdateHITReviewStatusResponse, [RequestError, ServiceFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * The
  * `UpdateHITTypeOfHIT`
@@ -312,7 +312,7 @@ export class ServiceFault extends S.TaggedError<ServiceFault>()("ServiceFault", 
  * operation disassociates the HIT from its old HITType properties and
  * associates it with the new HITType properties. The HIT takes on the
  * properties of the new HITType in place of the old ones.
- */export const updateHITTypeOfHIT = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-17", uri: "/", method: "POST", sdkId: "MTurk", sigV4ServiceName: "mturk-requester", name: "MTurkRequesterServiceV20170117.UpdateHITTypeOfHIT" }, UpdateHITTypeOfHITRequest, UpdateHITTypeOfHITResponse, [RequestError, ServiceFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateHITTypeOfHIT = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-17", uri: "/", method: "POST", sdkId: "MTurk", sigV4ServiceName: "mturk-requester", name: "MTurkRequesterServiceV20170117.UpdateHITTypeOfHIT" }, UpdateHITTypeOfHITRequest, UpdateHITTypeOfHITResponse, [RequestError, ServiceFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * The `UpdateNotificationSettings` operation creates, updates,
  * disables or re-enables notifications for a HIT type.
@@ -324,7 +324,7 @@ export class ServiceFault extends S.TaggedError<ServiceFault>()("ServiceFault", 
  * To change the Active status of a HIT type's notifications,
  * the HIT type must already have a notification specification,
  * or one must be provided in the same call to `UpdateNotificationSettings`.
- */export const updateNotificationSettings = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-17", uri: "/", method: "POST", sdkId: "MTurk", sigV4ServiceName: "mturk-requester", name: "MTurkRequesterServiceV20170117.UpdateNotificationSettings" }, UpdateNotificationSettingsRequest, UpdateNotificationSettingsResponse, [RequestError, ServiceFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateNotificationSettings = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-17", uri: "/", method: "POST", sdkId: "MTurk", sigV4ServiceName: "mturk-requester", name: "MTurkRequesterServiceV20170117.UpdateNotificationSettings" }, UpdateNotificationSettingsRequest, UpdateNotificationSettingsResponse, [RequestError, ServiceFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * The `AcceptQualificationRequest` operation approves a Worker's request for a Qualification.
  * 
@@ -338,7 +338,7 @@ export class ServiceFault extends S.TaggedError<ServiceFault>()("ServiceFault", 
  * 
  * A successful request for the `AcceptQualificationRequest` operation
  * returns with no errors and an empty body.
- */export const acceptQualificationRequest = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-17", uri: "/", method: "POST", sdkId: "MTurk", sigV4ServiceName: "mturk-requester", name: "MTurkRequesterServiceV20170117.AcceptQualificationRequest" }, AcceptQualificationRequestRequest, AcceptQualificationRequestResponse, [RequestError, ServiceFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const acceptQualificationRequest = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-17", uri: "/", method: "POST", sdkId: "MTurk", sigV4ServiceName: "mturk-requester", name: "MTurkRequesterServiceV20170117.AcceptQualificationRequest" }, AcceptQualificationRequestRequest, AcceptQualificationRequestResponse, [RequestError, ServiceFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * The `ApproveAssignment` operation approves the results of a completed assignment.
  * 
@@ -375,13 +375,13 @@ export class ServiceFault extends S.TaggedError<ServiceFault>()("ServiceFault", 
  * and approve them by explicitly overriding the previous rejection.
  * This only works on rejected assignments that were submitted within the previous 30 days
  * and only if the assignment's related HIT has not been deleted.
- */export const approveAssignment = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-17", uri: "/", method: "POST", sdkId: "MTurk", sigV4ServiceName: "mturk-requester", name: "MTurkRequesterServiceV20170117.ApproveAssignment" }, ApproveAssignmentRequest, ApproveAssignmentResponse, [RequestError, ServiceFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const approveAssignment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-17", uri: "/", method: "POST", sdkId: "MTurk", sigV4ServiceName: "mturk-requester", name: "MTurkRequesterServiceV20170117.ApproveAssignment" }, ApproveAssignmentRequest, ApproveAssignmentResponse, [RequestError, ServiceFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * The `CreateHITType` operation creates a new HIT type. This operation
  * allows you to define a standard set of HIT properties to use when creating HITs.
  * If you register a HIT type with values that match an existing HIT type, the HIT type
  * ID of the existing type will be returned.
- */export const createHITType = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-17", uri: "/", method: "POST", sdkId: "MTurk", sigV4ServiceName: "mturk-requester", name: "MTurkRequesterServiceV20170117.CreateHITType" }, CreateHITTypeRequest, CreateHITTypeResponse, [RequestError, ServiceFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createHITType = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-17", uri: "/", method: "POST", sdkId: "MTurk", sigV4ServiceName: "mturk-requester", name: "MTurkRequesterServiceV20170117.CreateHITType" }, CreateHITTypeRequest, CreateHITTypeResponse, [RequestError, ServiceFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * The
  * `GetFileUploadURL`
@@ -398,13 +398,13 @@ export class ServiceFault extends S.TaggedError<ServiceFault>()("ServiceFault", 
  * element to be used for the QuestionForm data structure.
  * Instead, we recommend that Requesters who want to create HITs asking
  * Workers to upload files to use Amazon S3.
- */export const getFileUploadURL = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-17", uri: "/", method: "POST", sdkId: "MTurk", sigV4ServiceName: "mturk-requester", name: "MTurkRequesterServiceV20170117.GetFileUploadURL" }, GetFileUploadURLRequest, GetFileUploadURLResponse, [RequestError, ServiceFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getFileUploadURL = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-17", uri: "/", method: "POST", sdkId: "MTurk", sigV4ServiceName: "mturk-requester", name: "MTurkRequesterServiceV20170117.GetFileUploadURL" }, GetFileUploadURLRequest, GetFileUploadURLResponse, [RequestError, ServiceFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * The `GetHIT` operation retrieves the details of the specified HIT.
- */export const getHIT = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-17", uri: "/", method: "POST", sdkId: "MTurk", sigV4ServiceName: "mturk-requester", name: "MTurkRequesterServiceV20170117.GetHIT" }, GetHITRequest, GetHITResponse, [RequestError, ServiceFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getHIT = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-17", uri: "/", method: "POST", sdkId: "MTurk", sigV4ServiceName: "mturk-requester", name: "MTurkRequesterServiceV20170117.GetHIT" }, GetHITRequest, GetHITResponse, [RequestError, ServiceFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * The `GetQualificationType`operation retrieves information about a Qualification type using its ID.
- */export const getQualificationType = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-17", uri: "/", method: "POST", sdkId: "MTurk", sigV4ServiceName: "mturk-requester", name: "MTurkRequesterServiceV20170117.GetQualificationType" }, GetQualificationTypeRequest, GetQualificationTypeResponse, [RequestError, ServiceFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getQualificationType = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-17", uri: "/", method: "POST", sdkId: "MTurk", sigV4ServiceName: "mturk-requester", name: "MTurkRequesterServiceV20170117.GetQualificationType" }, GetQualificationTypeRequest, GetQualificationTypeResponse, [RequestError, ServiceFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * The
  * `ListAssignmentsForHIT`
@@ -439,41 +439,41 @@ export class ServiceFault extends S.TaggedError<ServiceFault>()("ServiceFault", 
  * operation returns a single page of results. You can use the
  * parameters
  * of the operation to control sorting and pagination.
- */export const listAssignmentsForHIT = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-17", uri: "/", method: "POST", sdkId: "MTurk", sigV4ServiceName: "mturk-requester", name: "MTurkRequesterServiceV20170117.ListAssignmentsForHIT" }, ListAssignmentsForHITRequest, ListAssignmentsForHITResponse, [RequestError, ServiceFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listAssignmentsForHIT = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-17", uri: "/", method: "POST", sdkId: "MTurk", sigV4ServiceName: "mturk-requester", name: "MTurkRequesterServiceV20170117.ListAssignmentsForHIT" }, ListAssignmentsForHITRequest, ListAssignmentsForHITResponse, [RequestError, ServiceFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * The
  * `ListHITs`
  * operation returns all of a Requester's HITs. The operation returns
  * HITs of any status, except for HITs that have been deleted of with
  * the DeleteHIT operation or that have been auto-deleted.
- */export const listHITs = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-17", uri: "/", method: "POST", sdkId: "MTurk", sigV4ServiceName: "mturk-requester", name: "MTurkRequesterServiceV20170117.ListHITs" }, ListHITsRequest, ListHITsResponse, [RequestError, ServiceFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listHITs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-17", uri: "/", method: "POST", sdkId: "MTurk", sigV4ServiceName: "mturk-requester", name: "MTurkRequesterServiceV20170117.ListHITs" }, ListHITsRequest, ListHITsResponse, [RequestError, ServiceFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * The `ListHITsForQualificationType` operation returns the HITs that use
  * the given Qualification type for a Qualification requirement.
  * The operation returns HITs of any status, except for HITs that have been deleted
  * with the `DeleteHIT` operation or that have been auto-deleted.
- */export const listHITsForQualificationType = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-17", uri: "/", method: "POST", sdkId: "MTurk", sigV4ServiceName: "mturk-requester", name: "MTurkRequesterServiceV20170117.ListHITsForQualificationType" }, ListHITsForQualificationTypeRequest, ListHITsForQualificationTypeResponse, [RequestError, ServiceFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listHITsForQualificationType = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-17", uri: "/", method: "POST", sdkId: "MTurk", sigV4ServiceName: "mturk-requester", name: "MTurkRequesterServiceV20170117.ListHITsForQualificationType" }, ListHITsForQualificationTypeRequest, ListHITsForQualificationTypeResponse, [RequestError, ServiceFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * The
  * `ListQualificationTypes`
  * operation returns a list of Qualification types, filtered by
  * an optional search term.
- */export const listQualificationTypes = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-17", uri: "/", method: "POST", sdkId: "MTurk", sigV4ServiceName: "mturk-requester", name: "MTurkRequesterServiceV20170117.ListQualificationTypes" }, ListQualificationTypesRequest, ListQualificationTypesResponse, [RequestError, ServiceFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listQualificationTypes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-17", uri: "/", method: "POST", sdkId: "MTurk", sigV4ServiceName: "mturk-requester", name: "MTurkRequesterServiceV20170117.ListQualificationTypes" }, ListQualificationTypesRequest, ListQualificationTypesResponse, [RequestError, ServiceFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * The `ListReviewableHITs` operation retrieves the HITs with Status equal to
  * Reviewable or Status equal to Reviewing that belong to the Requester calling the operation.
- */export const listReviewableHITs = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-17", uri: "/", method: "POST", sdkId: "MTurk", sigV4ServiceName: "mturk-requester", name: "MTurkRequesterServiceV20170117.ListReviewableHITs" }, ListReviewableHITsRequest, ListReviewableHITsResponse, [RequestError, ServiceFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listReviewableHITs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-17", uri: "/", method: "POST", sdkId: "MTurk", sigV4ServiceName: "mturk-requester", name: "MTurkRequesterServiceV20170117.ListReviewableHITs" }, ListReviewableHITsRequest, ListReviewableHITsResponse, [RequestError, ServiceFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * The `ListWorkersWithQualificationType` operation returns all of the Workers
  * that have been associated with a given Qualification type.
- */export const listWorkersWithQualificationType = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-17", uri: "/", method: "POST", sdkId: "MTurk", sigV4ServiceName: "mturk-requester", name: "MTurkRequesterServiceV20170117.ListWorkersWithQualificationType" }, ListWorkersWithQualificationTypeRequest, ListWorkersWithQualificationTypeResponse, [RequestError, ServiceFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listWorkersWithQualificationType = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-17", uri: "/", method: "POST", sdkId: "MTurk", sigV4ServiceName: "mturk-requester", name: "MTurkRequesterServiceV20170117.ListWorkersWithQualificationType" }, ListWorkersWithQualificationTypeRequest, ListWorkersWithQualificationTypeResponse, [RequestError, ServiceFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * The `SendTestEventNotification` operation causes Amazon Mechanical Turk to send
  * a notification message as if a HIT event occurred, according to the provided
  * notification specification. This allows you to test notifications without
  * setting up notifications for a real HIT type and trying to trigger them using the website.
  * When you call this operation, the service attempts to send the test notification immediately.
- */export const sendTestEventNotification = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-17", uri: "/", method: "POST", sdkId: "MTurk", sigV4ServiceName: "mturk-requester", name: "MTurkRequesterServiceV20170117.SendTestEventNotification" }, SendTestEventNotificationRequest, SendTestEventNotificationResponse, [RequestError, ServiceFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const sendTestEventNotification = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-17", uri: "/", method: "POST", sdkId: "MTurk", sigV4ServiceName: "mturk-requester", name: "MTurkRequesterServiceV20170117.SendTestEventNotification" }, SendTestEventNotificationRequest, SendTestEventNotificationResponse, [RequestError, ServiceFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * The
  * `UpdateQualificationType`
@@ -519,7 +519,7 @@ export class ServiceFault extends S.TaggedError<ServiceFault>()("ServiceFault", 
  * 
  * You can also update the AutoGranted and AutoGrantedValue
  * attributes of the Qualification type.
- */export const updateQualificationType = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-17", uri: "/", method: "POST", sdkId: "MTurk", sigV4ServiceName: "mturk-requester", name: "MTurkRequesterServiceV20170117.UpdateQualificationType" }, UpdateQualificationTypeRequest, UpdateQualificationTypeResponse, [RequestError, ServiceFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateQualificationType = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-17", uri: "/", method: "POST", sdkId: "MTurk", sigV4ServiceName: "mturk-requester", name: "MTurkRequesterServiceV20170117.UpdateQualificationType" }, UpdateQualificationTypeRequest, UpdateQualificationTypeResponse, [RequestError, ServiceFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * The `CreateHITWithHITType` operation creates a new Human Intelligence Task (HIT)
  * using an existing HITTypeID generated by the `CreateHITType` operation.
@@ -543,17 +543,17 @@ export class ServiceFault extends S.TaggedError<ServiceFault>()("ServiceFault", 
  * 
  * If a HIT is created with 10 or more maximum assignments, there is an additional fee.
  * For more information, see Amazon Mechanical Turk Pricing.
- */export const createHITWithHITType = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-17", uri: "/", method: "POST", sdkId: "MTurk", sigV4ServiceName: "mturk-requester", name: "MTurkRequesterServiceV20170117.CreateHITWithHITType" }, CreateHITWithHITTypeRequest, CreateHITWithHITTypeResponse, [RequestError, ServiceFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createHITWithHITType = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-17", uri: "/", method: "POST", sdkId: "MTurk", sigV4ServiceName: "mturk-requester", name: "MTurkRequesterServiceV20170117.CreateHITWithHITType" }, CreateHITWithHITTypeRequest, CreateHITWithHITTypeResponse, [RequestError, ServiceFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * The
  * `CreateQualificationType`
  * operation creates a new Qualification type, which is represented by a
  * `QualificationType`
  * data structure.
- */export const createQualificationType = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-17", uri: "/", method: "POST", sdkId: "MTurk", sigV4ServiceName: "mturk-requester", name: "MTurkRequesterServiceV20170117.CreateQualificationType" }, CreateQualificationTypeRequest, CreateQualificationTypeResponse, [RequestError, ServiceFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createQualificationType = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-17", uri: "/", method: "POST", sdkId: "MTurk", sigV4ServiceName: "mturk-requester", name: "MTurkRequesterServiceV20170117.CreateQualificationType" }, CreateQualificationTypeRequest, CreateQualificationTypeResponse, [RequestError, ServiceFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * The `GetAssignment` operation retrieves the details of the specified Assignment.
- */export const getAssignment = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-17", uri: "/", method: "POST", sdkId: "MTurk", sigV4ServiceName: "mturk-requester", name: "MTurkRequesterServiceV20170117.GetAssignment" }, GetAssignmentRequest, GetAssignmentResponse, [RequestError, ServiceFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getAssignment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-17", uri: "/", method: "POST", sdkId: "MTurk", sigV4ServiceName: "mturk-requester", name: "MTurkRequesterServiceV20170117.GetAssignment" }, GetAssignmentRequest, GetAssignmentResponse, [RequestError, ServiceFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * The
  * `GetQualificationScore`
@@ -572,13 +572,13 @@ export class ServiceFault extends S.TaggedError<ServiceFault>()("ServiceFault", 
  * 
  * Only the owner of a Qualification type can query the value of
  * a Worker's Qualification of that type.
- */export const getQualificationScore = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-17", uri: "/", method: "POST", sdkId: "MTurk", sigV4ServiceName: "mturk-requester", name: "MTurkRequesterServiceV20170117.GetQualificationScore" }, GetQualificationScoreRequest, GetQualificationScoreResponse, [RequestError, ServiceFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getQualificationScore = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-17", uri: "/", method: "POST", sdkId: "MTurk", sigV4ServiceName: "mturk-requester", name: "MTurkRequesterServiceV20170117.GetQualificationScore" }, GetQualificationScoreRequest, GetQualificationScoreResponse, [RequestError, ServiceFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * The
  * `ListBonusPayments`
  * operation retrieves the amounts of bonuses you have paid to Workers
  * for a given HIT or assignment.
- */export const listBonusPayments = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-17", uri: "/", method: "POST", sdkId: "MTurk", sigV4ServiceName: "mturk-requester", name: "MTurkRequesterServiceV20170117.ListBonusPayments" }, ListBonusPaymentsRequest, ListBonusPaymentsResponse, [RequestError, ServiceFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listBonusPayments = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-17", uri: "/", method: "POST", sdkId: "MTurk", sigV4ServiceName: "mturk-requester", name: "MTurkRequesterServiceV20170117.ListBonusPayments" }, ListBonusPaymentsRequest, ListBonusPaymentsResponse, [RequestError, ServiceFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * The
  * `ListQualificationRequests`
@@ -586,10 +586,10 @@ export class ServiceFault extends S.TaggedError<ServiceFault>()("ServiceFault", 
  * Qualification type. The owner of the Qualification type calls this
  * operation to poll for pending requests, and accepts them using the
  * AcceptQualification operation.
- */export const listQualificationRequests = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-17", uri: "/", method: "POST", sdkId: "MTurk", sigV4ServiceName: "mturk-requester", name: "MTurkRequesterServiceV20170117.ListQualificationRequests" }, ListQualificationRequestsRequest, ListQualificationRequestsResponse, [RequestError, ServiceFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listQualificationRequests = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-17", uri: "/", method: "POST", sdkId: "MTurk", sigV4ServiceName: "mturk-requester", name: "MTurkRequesterServiceV20170117.ListQualificationRequests" }, ListQualificationRequestsRequest, ListQualificationRequestsResponse, [RequestError, ServiceFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * The `ListWorkersBlocks` operation retrieves a list of Workers who are blocked from working on your HITs.
- */export const listWorkerBlocks = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-17", uri: "/", method: "POST", sdkId: "MTurk", sigV4ServiceName: "mturk-requester", name: "MTurkRequesterServiceV20170117.ListWorkerBlocks" }, ListWorkerBlocksRequest, ListWorkerBlocksResponse, [RequestError, ServiceFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listWorkerBlocks = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-17", uri: "/", method: "POST", sdkId: "MTurk", sigV4ServiceName: "mturk-requester", name: "MTurkRequesterServiceV20170117.ListWorkerBlocks" }, ListWorkerBlocksRequest, ListWorkerBlocksResponse, [RequestError, ServiceFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * The
  * `NotifyWorkers`
@@ -599,14 +599,14 @@ export class ServiceFault extends S.TaggedError<ServiceFault>()("ServiceFault", 
  * NotifyWorkers operation will send a notification email to a Worker
  * only if you have previously approved or rejected work from the
  * Worker.
- */export const notifyWorkers = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-17", uri: "/", method: "POST", sdkId: "MTurk", sigV4ServiceName: "mturk-requester", name: "MTurkRequesterServiceV20170117.NotifyWorkers" }, NotifyWorkersRequest, NotifyWorkersResponse, [RequestError, ServiceFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const notifyWorkers = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-17", uri: "/", method: "POST", sdkId: "MTurk", sigV4ServiceName: "mturk-requester", name: "MTurkRequesterServiceV20170117.NotifyWorkers" }, NotifyWorkersRequest, NotifyWorkersResponse, [RequestError, ServiceFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * The `ListReviewPolicyResultsForHIT` operation retrieves the computed results
  * and the actions taken in the course of executing your Review Policies for a given HIT.
  * For information about how to specify Review Policies when you call CreateHIT,
  * see Review Policies. The ListReviewPolicyResultsForHIT operation can return results for both
  * Assignment-level and HIT-level review results.
- */export const listReviewPolicyResultsForHIT = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-17", uri: "/", method: "POST", sdkId: "MTurk", sigV4ServiceName: "mturk-requester", name: "MTurkRequesterServiceV20170117.ListReviewPolicyResultsForHIT" }, ListReviewPolicyResultsForHITRequest, ListReviewPolicyResultsForHITResponse, [RequestError, ServiceFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listReviewPolicyResultsForHIT = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-17", uri: "/", method: "POST", sdkId: "MTurk", sigV4ServiceName: "mturk-requester", name: "MTurkRequesterServiceV20170117.ListReviewPolicyResultsForHIT" }, ListReviewPolicyResultsForHITRequest, ListReviewPolicyResultsForHITResponse, [RequestError, ServiceFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * The `CreateHIT` operation creates a new Human Intelligence Task (HIT).
  * The new HIT is made available for Workers to find and accept on the Amazon Mechanical
@@ -631,4 +631,4 @@ export class ServiceFault extends S.TaggedError<ServiceFault>()("ServiceFault", 
  * 
  * If a HIT is created with 10 or more maximum assignments, there is an additional fee. For more information, see
  * Amazon Mechanical Turk Pricing.
- */export const createHIT = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-17", uri: "/", method: "POST", sdkId: "MTurk", sigV4ServiceName: "mturk-requester", name: "MTurkRequesterServiceV20170117.CreateHIT" }, CreateHITRequest, CreateHITResponse, [RequestError, ServiceFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createHIT = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-17", uri: "/", method: "POST", sdkId: "MTurk", sigV4ServiceName: "mturk-requester", name: "MTurkRequesterServiceV20170117.CreateHIT" }, CreateHITRequest, CreateHITResponse, [RequestError, ServiceFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

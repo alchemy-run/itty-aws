@@ -139,7 +139,7 @@ export class PublicPolicyException extends S.TaggedError<PublicPolicyException>(
  * `secretsmanager:DeleteSecret`. For more information, see
  * IAM policy actions for Secrets Manager and Authentication
  * and access control in Secrets Manager.
- */export const deleteSecret = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", uri: "/", method: "POST", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.DeleteSecret" }, DeleteSecretRequest, DeleteSecretResponse, [InternalServiceError, InvalidParameterException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteSecret = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", uri: "/", method: "POST", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.DeleteSecret" }, DeleteSecretRequest, DeleteSecretResponse, [InternalServiceError, InvalidParameterException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Generates a random password. We recommend that you specify the maximum length and
  * include every character type that the system you are generating a password for can
@@ -159,7 +159,7 @@ export class PublicPolicyException extends S.TaggedError<PublicPolicyException>(
  * `secretsmanager:GetRandomPassword`. For more information, see
  * IAM policy actions for Secrets Manager and Authentication
  * and access control in Secrets Manager.
- */export const getRandomPassword = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", uri: "/", method: "POST", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.GetRandomPassword" }, GetRandomPasswordRequest, GetRandomPasswordResponse, [InternalServiceError, InvalidParameterException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getRandomPassword = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", uri: "/", method: "POST", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.GetRandomPassword" }, GetRandomPasswordRequest, GetRandomPasswordResponse, [InternalServiceError, InvalidParameterException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the JSON text of the resource-based policy document attached to the secret.
  * For more information about permissions policies attached to a secret, see Permissions policies attached to a secret.
@@ -174,7 +174,7 @@ export class PublicPolicyException extends S.TaggedError<PublicPolicyException>(
  * `secretsmanager:GetResourcePolicy`. For more information, see
  * IAM policy actions for Secrets Manager and Authentication
  * and access control in Secrets Manager.
- */export const getResourcePolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", uri: "/", method: "POST", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.GetResourcePolicy" }, GetResourcePolicyRequest, GetResourcePolicyResponse, [InternalServiceError, InvalidParameterException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getResourcePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", uri: "/", method: "POST", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.GetResourcePolicy" }, GetResourcePolicyRequest, GetResourcePolicyResponse, [InternalServiceError, InvalidParameterException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * For a secret that is replicated to other Regions, deletes the secret replicas from the
  * Regions you specify.
@@ -190,7 +190,7 @@ export class PublicPolicyException extends S.TaggedError<PublicPolicyException>(
  * For more information, see
  * IAM policy actions for Secrets Manager and Authentication
  * and access control in Secrets Manager.
- */export const removeRegionsFromReplication = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", uri: "/", method: "POST", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.RemoveRegionsFromReplication" }, RemoveRegionsFromReplicationRequest, RemoveRegionsFromReplicationResponse, [InternalServiceError, InvalidParameterException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const removeRegionsFromReplication = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", uri: "/", method: "POST", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.RemoveRegionsFromReplication" }, RemoveRegionsFromReplicationRequest, RemoveRegionsFromReplicationResponse, [InternalServiceError, InvalidParameterException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Replicates the secret to a new Regions. See Multi-Region secrets.
  * 
@@ -209,7 +209,7 @@ export class PublicPolicyException extends S.TaggedError<PublicPolicyException>(
  * For more information, see
  * IAM policy actions for Secrets Manager and Authentication
  * and access control in Secrets Manager.
- */export const replicateSecretToRegions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", uri: "/", method: "POST", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.ReplicateSecretToRegions" }, ReplicateSecretToRegionsRequest, ReplicateSecretToRegionsResponse, [InternalServiceError, InvalidParameterException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const replicateSecretToRegions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", uri: "/", method: "POST", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.ReplicateSecretToRegions" }, ReplicateSecretToRegionsRequest, ReplicateSecretToRegionsResponse, [InternalServiceError, InvalidParameterException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Cancels the scheduled deletion of a secret by removing the `DeletedDate`
  * time stamp. You can access a secret again after it has been restored.
@@ -224,7 +224,7 @@ export class PublicPolicyException extends S.TaggedError<PublicPolicyException>(
  * `secretsmanager:RestoreSecret`. For more information, see
  * IAM policy actions for Secrets Manager and Authentication
  * and access control in Secrets Manager.
- */export const restoreSecret = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", uri: "/", method: "POST", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.RestoreSecret" }, RestoreSecretRequest, RestoreSecretResponse, [InternalServiceError, InvalidParameterException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const restoreSecret = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", uri: "/", method: "POST", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.RestoreSecret" }, RestoreSecretRequest, RestoreSecretResponse, [InternalServiceError, InvalidParameterException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes the link between the replica secret and the primary secret and promotes the
  * replica to a primary secret in the replica Region.
@@ -243,7 +243,7 @@ export class PublicPolicyException extends S.TaggedError<PublicPolicyException>(
  * `secretsmanager:StopReplicationToReplica`. For more information, see
  * IAM policy actions for Secrets Manager and Authentication
  * and access control in Secrets Manager.
- */export const stopReplicationToReplica = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", uri: "/", method: "POST", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.StopReplicationToReplica" }, StopReplicationToReplicaRequest, StopReplicationToReplicaResponse, [InternalServiceError, InvalidParameterException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const stopReplicationToReplica = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", uri: "/", method: "POST", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.StopReplicationToReplica" }, StopReplicationToReplicaRequest, StopReplicationToReplicaResponse, [InternalServiceError, InvalidParameterException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Attaches tags to a secret. Tags consist of a key name and a value. Tags are part of
  * the secret's metadata. They are not associated with specific versions of the secret.
@@ -273,7 +273,7 @@ export class PublicPolicyException extends S.TaggedError<PublicPolicyException>(
  * `secretsmanager:TagResource`. For more information, see
  * IAM policy actions for Secrets Manager and Authentication
  * and access control in Secrets Manager.
- */export const tagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", uri: "/", method: "POST", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.TagResource" }, TagResourceRequest, S.Struct({}), [InternalServiceError, InvalidParameterException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", uri: "/", method: "POST", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.TagResource" }, TagResourceRequest, S.Struct({}), [InternalServiceError, InvalidParameterException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes specific tags from a secret.
  * 
@@ -301,7 +301,7 @@ export class PublicPolicyException extends S.TaggedError<PublicPolicyException>(
  * `secretsmanager:UntagResource`. For more information, see
  * IAM policy actions for Secrets Manager and Authentication
  * and access control in Secrets Manager.
- */export const untagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", uri: "/", method: "POST", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.UntagResource" }, UntagResourceRequest, S.Struct({}), [InternalServiceError, InvalidParameterException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", uri: "/", method: "POST", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.UntagResource" }, UntagResourceRequest, S.Struct({}), [InternalServiceError, InvalidParameterException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Modifies the staging labels attached to a version of a secret. Secrets Manager uses staging
  * labels to track a version as it progresses through the secret rotation process. Each
@@ -342,7 +342,7 @@ export class PublicPolicyException extends S.TaggedError<PublicPolicyException>(
  * `secretsmanager:UpdateSecretVersionStage`. For more information, see
  * IAM policy actions for Secrets Manager and Authentication
  * and access control in Secrets Manager.
- */export const updateSecretVersionStage = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", uri: "/", method: "POST", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.UpdateSecretVersionStage" }, UpdateSecretVersionStageRequest, UpdateSecretVersionStageResponse, [InternalServiceError, InvalidParameterException, InvalidRequestException, LimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateSecretVersionStage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", uri: "/", method: "POST", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.UpdateSecretVersionStage" }, UpdateSecretVersionStageRequest, UpdateSecretVersionStageResponse, [InternalServiceError, InvalidParameterException, InvalidRequestException, LimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Turns off automatic rotation, and if a rotation is currently in progress, cancels the
  * rotation.
@@ -369,7 +369,7 @@ export class PublicPolicyException extends S.TaggedError<PublicPolicyException>(
  * `secretsmanager:CancelRotateSecret`. For more information, see
  * IAM policy actions for Secrets Manager and Authentication
  * and access control in Secrets Manager.
- */export const cancelRotateSecret = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", uri: "/", method: "POST", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.CancelRotateSecret" }, CancelRotateSecretRequest, CancelRotateSecretResponse, [InternalServiceError, InvalidParameterException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const cancelRotateSecret = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", uri: "/", method: "POST", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.CancelRotateSecret" }, CancelRotateSecretRequest, CancelRotateSecretResponse, [InternalServiceError, InvalidParameterException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the resource-based permission policy attached to the secret. To attach a
  * policy to a secret, use PutResourcePolicy.
@@ -384,7 +384,7 @@ export class PublicPolicyException extends S.TaggedError<PublicPolicyException>(
  * `secretsmanager:DeleteResourcePolicy`. For more information, see
  * IAM policy actions for Secrets Manager and Authentication
  * and access control in Secrets Manager.
- */export const deleteResourcePolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", uri: "/", method: "POST", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.DeleteResourcePolicy" }, DeleteResourcePolicyRequest, DeleteResourcePolicyResponse, [InternalServiceError, InvalidParameterException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteResourcePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", uri: "/", method: "POST", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.DeleteResourcePolicy" }, DeleteResourcePolicyRequest, DeleteResourcePolicyResponse, [InternalServiceError, InvalidParameterException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the details of a secret. It does not include the encrypted secret value.
  * Secrets Manager only returns fields that have a value in the response.
@@ -399,7 +399,7 @@ export class PublicPolicyException extends S.TaggedError<PublicPolicyException>(
  * `secretsmanager:DescribeSecret`. For more information, see
  * IAM policy actions for Secrets Manager and Authentication
  * and access control in Secrets Manager.
- */export const describeSecret = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", uri: "/", method: "POST", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.DescribeSecret" }, DescribeSecretRequest, DescribeSecretResponse, [InternalServiceError, InvalidParameterException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeSecret = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", uri: "/", method: "POST", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.DescribeSecret" }, DescribeSecretRequest, DescribeSecretResponse, [InternalServiceError, InvalidParameterException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the contents of the encrypted fields `SecretString` or
  * `SecretBinary` from the specified version of a secret, whichever contains
@@ -429,7 +429,7 @@ export class PublicPolicyException extends S.TaggedError<PublicPolicyException>(
  * permissions for that key. For more information, see
  * IAM policy actions for Secrets Manager and Authentication
  * and access control in Secrets Manager.
- */export const getSecretValue = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", uri: "/", method: "POST", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.GetSecretValue" }, GetSecretValueRequest, GetSecretValueResponse, [DecryptionFailure, InternalServiceError, InvalidParameterException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getSecretValue = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", uri: "/", method: "POST", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.GetSecretValue" }, GetSecretValueRequest, GetSecretValueResponse, [DecryptionFailure, InternalServiceError, InvalidParameterException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the versions of a secret. Secrets Manager uses staging labels to indicate the different
  * versions of a secret. For more information, see Secrets Manager
@@ -448,7 +448,7 @@ export class PublicPolicyException extends S.TaggedError<PublicPolicyException>(
  * `secretsmanager:ListSecretVersionIds`. For more information, see
  * IAM policy actions for Secrets Manager and Authentication
  * and access control in Secrets Manager.
- */export const listSecretVersionIds = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", uri: "/", method: "POST", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.ListSecretVersionIds" }, ListSecretVersionIdsRequest, ListSecretVersionIdsResponse, [InternalServiceError, InvalidNextTokenException, InvalidParameterException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listSecretVersionIds = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", uri: "/", method: "POST", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.ListSecretVersionIds" }, ListSecretVersionIdsRequest, ListSecretVersionIdsResponse, [InternalServiceError, InvalidNextTokenException, InvalidParameterException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Configures and starts the asynchronous process of rotating the secret. For information
  * about rotation, see Rotate secrets
@@ -480,7 +480,7 @@ export class PublicPolicyException extends S.TaggedError<PublicPolicyException>(
  * and access control in Secrets Manager. You also
  * need `lambda:InvokeFunction` permissions on the rotation function. For more
  * information, see Permissions for rotation.
- */export const rotateSecret = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", uri: "/", method: "POST", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.RotateSecret" }, RotateSecretRequest, RotateSecretResponse, [InternalServiceError, InvalidParameterException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const rotateSecret = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", uri: "/", method: "POST", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.RotateSecret" }, RotateSecretRequest, RotateSecretResponse, [InternalServiceError, InvalidParameterException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Modifies the details of a secret, including metadata and the secret value. To change
  * the secret value, you can also use PutSecretValue.
@@ -538,7 +538,7 @@ export class PublicPolicyException extends S.TaggedError<PublicPolicyException>(
  * 
  * 
  * When you enter commands in a command shell, there is a risk of the command history being accessed or utilities having access to your command parameters. This is a concern if the command includes the value of a secret. Learn how to Mitigate the risks of using command-line tools to store Secrets Manager secrets.
- */export const updateSecret = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", uri: "/", method: "POST", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.UpdateSecret" }, UpdateSecretRequest, UpdateSecretResponse, [DecryptionFailure, EncryptionFailure, InternalServiceError, InvalidParameterException, InvalidRequestException, LimitExceededException, MalformedPolicyDocumentException, PreconditionNotMetException, ResourceExistsException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateSecret = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", uri: "/", method: "POST", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.UpdateSecret" }, UpdateSecretRequest, UpdateSecretResponse, [DecryptionFailure, EncryptionFailure, InternalServiceError, InvalidParameterException, InvalidRequestException, LimitExceededException, MalformedPolicyDocumentException, PreconditionNotMetException, ResourceExistsException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Validates that a resource policy does not grant a wide range of principals access to
  * your secret. A resource-based policy is optional for secrets.
@@ -574,7 +574,7 @@ export class PublicPolicyException extends S.TaggedError<PublicPolicyException>(
  * `secretsmanager:PutResourcePolicy`. For more information, see
  * IAM policy actions for Secrets Manager and Authentication
  * and access control in Secrets Manager.
- */export const validateResourcePolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", uri: "/", method: "POST", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.ValidateResourcePolicy" }, ValidateResourcePolicyRequest, ValidateResourcePolicyResponse, [InternalServiceError, InvalidParameterException, InvalidRequestException, MalformedPolicyDocumentException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const validateResourcePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", uri: "/", method: "POST", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.ValidateResourcePolicy" }, ValidateResourcePolicyRequest, ValidateResourcePolicyResponse, [InternalServiceError, InvalidParameterException, InvalidRequestException, MalformedPolicyDocumentException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the contents of the encrypted fields `SecretString` or
  * `SecretBinary` for up to 20 secrets. To retrieve a single secret, call
@@ -603,7 +603,7 @@ export class PublicPolicyException extends S.TaggedError<PublicPolicyException>(
  * permissions for the keys. For more information, see
  * IAM policy actions for Secrets Manager and Authentication
  * and access control in Secrets Manager.
- */export const batchGetSecretValue = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", uri: "/", method: "POST", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.BatchGetSecretValue" }, BatchGetSecretValueRequest, BatchGetSecretValueResponse, [DecryptionFailure, InternalServiceError, InvalidNextTokenException, InvalidParameterException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const batchGetSecretValue = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", uri: "/", method: "POST", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.BatchGetSecretValue" }, BatchGetSecretValueRequest, BatchGetSecretValueResponse, [DecryptionFailure, InternalServiceError, InvalidNextTokenException, InvalidParameterException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new secret. A *secret* can be a password, a set of
  * credentials such as a user name and password, an OAuth token, or other secret
@@ -673,7 +673,7 @@ export class PublicPolicyException extends S.TaggedError<PublicPolicyException>(
  * 
  * 
  * When you enter commands in a command shell, there is a risk of the command history being accessed or utilities having access to your command parameters. This is a concern if the command includes the value of a secret. Learn how to Mitigate the risks of using command-line tools to store Secrets Manager secrets.
- */export const createSecret = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", uri: "/", method: "POST", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.CreateSecret" }, CreateSecretRequest, CreateSecretResponse, [DecryptionFailure, EncryptionFailure, InternalServiceError, InvalidParameterException, InvalidRequestException, LimitExceededException, MalformedPolicyDocumentException, PreconditionNotMetException, ResourceExistsException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createSecret = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", uri: "/", method: "POST", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.CreateSecret" }, CreateSecretRequest, CreateSecretResponse, [DecryptionFailure, EncryptionFailure, InternalServiceError, InvalidParameterException, InvalidRequestException, LimitExceededException, MalformedPolicyDocumentException, PreconditionNotMetException, ResourceExistsException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the secrets that are stored by Secrets Manager in the Amazon Web Services account, not including secrets
  * that are marked for deletion. To see secrets marked for deletion, use the Secrets Manager
@@ -705,7 +705,7 @@ export class PublicPolicyException extends S.TaggedError<PublicPolicyException>(
  * `secretsmanager:ListSecrets`. For more information, see
  * IAM policy actions for Secrets Manager and Authentication
  * and access control in Secrets Manager.
- */export const listSecrets = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", uri: "/", method: "POST", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.ListSecrets" }, ListSecretsRequest, ListSecretsResponse, [InternalServiceError, InvalidNextTokenException, InvalidParameterException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listSecrets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", uri: "/", method: "POST", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.ListSecrets" }, ListSecretsRequest, ListSecretsResponse, [InternalServiceError, InvalidNextTokenException, InvalidParameterException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Attaches a resource-based permission policy to a secret. A resource-based policy is
  * optional. For more information, see Authentication and access control for Secrets Manager
@@ -724,7 +724,7 @@ export class PublicPolicyException extends S.TaggedError<PublicPolicyException>(
  * `secretsmanager:PutResourcePolicy`. For more information, see
  * IAM policy actions for Secrets Manager and Authentication
  * and access control in Secrets Manager.
- */export const putResourcePolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", uri: "/", method: "POST", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.PutResourcePolicy" }, PutResourcePolicyRequest, PutResourcePolicyResponse, [InternalServiceError, InvalidParameterException, InvalidRequestException, MalformedPolicyDocumentException, PublicPolicyException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putResourcePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", uri: "/", method: "POST", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.PutResourcePolicy" }, PutResourcePolicyRequest, PutResourcePolicyResponse, [InternalServiceError, InvalidParameterException, InvalidRequestException, MalformedPolicyDocumentException, PublicPolicyException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new version of your secret by creating a new encrypted value and attaching
  * it to the secret. version can contain a new `SecretString` value or a new
@@ -773,4 +773,4 @@ export class PublicPolicyException extends S.TaggedError<PublicPolicyException>(
  * 
  * 
  * When you enter commands in a command shell, there is a risk of the command history being accessed or utilities having access to your command parameters. This is a concern if the command includes the value of a secret. Learn how to Mitigate the risks of using command-line tools to store Secrets Manager secrets.
- */export const putSecretValue = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", uri: "/", method: "POST", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.PutSecretValue" }, PutSecretValueRequest, PutSecretValueResponse, [DecryptionFailure, EncryptionFailure, InternalServiceError, InvalidParameterException, InvalidRequestException, LimitExceededException, ResourceExistsException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putSecretValue = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", uri: "/", method: "POST", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.PutSecretValue" }, PutSecretValueRequest, PutSecretValueResponse, [DecryptionFailure, EncryptionFailure, InternalServiceError, InvalidParameterException, InvalidRequestException, LimitExceededException, ResourceExistsException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

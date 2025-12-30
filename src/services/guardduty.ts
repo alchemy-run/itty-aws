@@ -566,41 +566,41 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * 
  * Only the administrator account can archive findings. Member accounts don't have
  * permission to archive findings from their accounts.
- */export const archiveFindings = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/findings/archive", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.ArchiveFindings" }, ArchiveFindingsRequest, ArchiveFindingsResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const archiveFindings = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/findings/archive", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.ArchiveFindings" }, ArchiveFindingsRequest, ArchiveFindingsResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Generates sample findings of types specified by the list of finding types. If 'NULL' is
  * specified for `findingTypes`, the API generates sample findings of all supported
  * finding types.
- */export const createSampleFindings = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/findings/create", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.CreateSampleFindings" }, CreateSampleFindingsRequest, CreateSampleFindingsResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createSampleFindings = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/findings/create", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.CreateSampleFindings" }, CreateSampleFindingsRequest, CreateSampleFindingsResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes an Amazon GuardDuty detector that is specified by the detector ID.
- */export const deleteDetector = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}", method: "DELETE", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.DeleteDetector" }, DeleteDetectorRequest, DeleteDetectorResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteDetector = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}", method: "DELETE", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.DeleteDetector" }, DeleteDetectorRequest, DeleteDetectorResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the filter specified by the filter name.
- */export const deleteFilter = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/filter/{FilterName}", method: "DELETE", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.DeleteFilter" }, DeleteFilterRequest, DeleteFilterResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteFilter = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/filter/{FilterName}", method: "DELETE", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.DeleteFilter" }, DeleteFilterRequest, DeleteFilterResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the IPSet specified by the `ipSetId`. IPSets are called trusted IP
  * lists in the console user interface.
- */export const deleteIPSet = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/ipset/{IpSetId}", method: "DELETE", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.DeleteIPSet" }, DeleteIPSetRequest, DeleteIPSetResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteIPSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/ipset/{IpSetId}", method: "DELETE", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.DeleteIPSet" }, DeleteIPSetRequest, DeleteIPSetResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the publishing definition with the specified `destinationId`.
- */export const deletePublishingDestination = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/publishingDestination/{DestinationId}", method: "DELETE", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.DeletePublishingDestination" }, DeletePublishingDestinationRequest, DeletePublishingDestinationResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deletePublishingDestination = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/publishingDestination/{DestinationId}", method: "DELETE", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.DeletePublishingDestination" }, DeletePublishingDestinationRequest, DeletePublishingDestinationResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the threat entity set that is associated with the specified
  * `threatEntitySetId`.
- */export const deleteThreatEntitySet = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/threatentityset/{ThreatEntitySetId}", method: "DELETE", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.DeleteThreatEntitySet" }, DeleteThreatEntitySetRequest, DeleteThreatEntitySetResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteThreatEntitySet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/threatentityset/{ThreatEntitySetId}", method: "DELETE", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.DeleteThreatEntitySet" }, DeleteThreatEntitySetRequest, DeleteThreatEntitySetResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the ThreatIntelSet specified by the ThreatIntelSet ID.
- */export const deleteThreatIntelSet = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/threatintelset/{ThreatIntelSetId}", method: "DELETE", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.DeleteThreatIntelSet" }, DeleteThreatIntelSetRequest, DeleteThreatIntelSetResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteThreatIntelSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/threatintelset/{ThreatIntelSetId}", method: "DELETE", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.DeleteThreatIntelSet" }, DeleteThreatIntelSetRequest, DeleteThreatIntelSetResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the trusted entity set that is associated with the specified
  * `trustedEntitySetId`.
- */export const deleteTrustedEntitySet = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/trustedentityset/{TrustedEntitySetId}", method: "DELETE", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.DeleteTrustedEntitySet" }, DeleteTrustedEntitySetRequest, DeleteTrustedEntitySetResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteTrustedEntitySet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/trustedentityset/{TrustedEntitySetId}", method: "DELETE", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.DeleteTrustedEntitySet" }, DeleteTrustedEntitySetRequest, DeleteTrustedEntitySetResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes the existing GuardDuty delegated
  * administrator of the organization. Only the organization's management account can run this
  * API operation.
- */export const disableOrganizationAdminAccount = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/admin/disable", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.DisableOrganizationAdminAccount" }, DisableOrganizationAdminAccountRequest, DisableOrganizationAdminAccountResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const disableOrganizationAdminAccount = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/admin/disable", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.DisableOrganizationAdminAccount" }, DisableOrganizationAdminAccountRequest, DisableOrganizationAdminAccountResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Disassociates the current GuardDuty member account from its administrator account.
  * 
@@ -616,7 +616,7 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * With `autoEnableOrganizationMembers` configuration for your organization set to
  * `ALL`, you'll receive an error if you attempt to disable GuardDuty in a member
  * account.
- */export const disassociateFromAdministratorAccount = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/administrator/disassociate", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.DisassociateFromAdministratorAccount" }, DisassociateFromAdministratorAccountRequest, DisassociateFromAdministratorAccountResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const disassociateFromAdministratorAccount = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/administrator/disassociate", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.DisassociateFromAdministratorAccount" }, DisassociateFromAdministratorAccountRequest, DisassociateFromAdministratorAccountResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Disassociates the current GuardDuty member account from its administrator account.
  * 
@@ -627,25 +627,25 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * done so that the delegated administrator can invoke the InviteMembers API without the need to invoke the CreateMembers API again. To
  * remove the details associated with a member account, the delegated administrator must invoke the
  * DeleteMembers API.
- */export const disassociateFromMasterAccount = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/master/disassociate", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.DisassociateFromMasterAccount" }, DisassociateFromMasterAccountRequest, DisassociateFromMasterAccountResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const disassociateFromMasterAccount = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/master/disassociate", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.DisassociateFromMasterAccount" }, DisassociateFromMasterAccountRequest, DisassociateFromMasterAccountResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Designates an Amazon Web Services account within the organization as your GuardDuty delegated
  * administrator. Only the organization's management account can run this
  * API operation.
- */export const enableOrganizationAdminAccount = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/admin/enable", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.EnableOrganizationAdminAccount" }, EnableOrganizationAdminAccountRequest, EnableOrganizationAdminAccountResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const enableOrganizationAdminAccount = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/admin/enable", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.EnableOrganizationAdminAccount" }, EnableOrganizationAdminAccountRequest, EnableOrganizationAdminAccountResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the count of all GuardDuty membership invitations that were sent to the current
  * member account except the currently accepted invitation.
- */export const getInvitationsCount = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/invitation/count", method: "GET", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.GetInvitationsCount" }, GetInvitationsCountRequest, GetInvitationsCountResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getInvitationsCount = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/invitation/count", method: "GET", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.GetInvitationsCount" }, GetInvitationsCountRequest, GetInvitationsCountResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Adds tags to a resource.
- */export const tagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/tags/{ResourceArn}", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.TagResource" }, TagResourceRequest, TagResourceResponse, [AccessDeniedException, BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/tags/{ResourceArn}", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.TagResource" }, TagResourceRequest, TagResourceResponse, [AccessDeniedException, BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Unarchives GuardDuty findings specified by the `findingIds`.
- */export const unarchiveFindings = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/findings/unarchive", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.UnarchiveFindings" }, UnarchiveFindingsRequest, UnarchiveFindingsResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const unarchiveFindings = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/findings/unarchive", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.UnarchiveFindings" }, UnarchiveFindingsRequest, UnarchiveFindingsResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes tags from a resource.
- */export const untagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/tags/{ResourceArn}", method: "DELETE", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [AccessDeniedException, BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/tags/{ResourceArn}", method: "DELETE", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [AccessDeniedException, BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the GuardDuty detector specified by the detector ID.
  * 
@@ -660,51 +660,51 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * There might be regional differences because some data sources might not be
  * available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more
  * information, see Regions and endpoints.
- */export const updateDetector = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.UpdateDetector" }, UpdateDetectorRequest, UpdateDetectorResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateDetector = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.UpdateDetector" }, UpdateDetectorRequest, UpdateDetectorResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Marks the specified GuardDuty findings as useful or not useful.
- */export const updateFindingsFeedback = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/findings/feedback", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.UpdateFindingsFeedback" }, UpdateFindingsFeedbackRequest, UpdateFindingsFeedbackResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateFindingsFeedback = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/findings/feedback", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.UpdateFindingsFeedback" }, UpdateFindingsFeedbackRequest, UpdateFindingsFeedbackResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the IPSet specified by the IPSet ID.
- */export const updateIPSet = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/ipset/{IpSetId}", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.UpdateIPSet" }, UpdateIPSetRequest, UpdateIPSetResponse, [AccessDeniedException, BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateIPSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/ipset/{IpSetId}", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.UpdateIPSet" }, UpdateIPSetRequest, UpdateIPSetResponse, [AccessDeniedException, BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates information about the publishing destination specified by the
  * `destinationId`.
- */export const updatePublishingDestination = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/publishingDestination/{DestinationId}", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.UpdatePublishingDestination" }, UpdatePublishingDestinationRequest, UpdatePublishingDestinationResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updatePublishingDestination = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/publishingDestination/{DestinationId}", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.UpdatePublishingDestination" }, UpdatePublishingDestinationRequest, UpdatePublishingDestinationResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the threat entity set associated with the specified `threatEntitySetId`.
- */export const updateThreatEntitySet = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/threatentityset/{ThreatEntitySetId}", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.UpdateThreatEntitySet" }, UpdateThreatEntitySetRequest, UpdateThreatEntitySetResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateThreatEntitySet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/threatentityset/{ThreatEntitySetId}", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.UpdateThreatEntitySet" }, UpdateThreatEntitySetRequest, UpdateThreatEntitySetResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the ThreatIntelSet specified by the ThreatIntelSet ID.
- */export const updateThreatIntelSet = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/threatintelset/{ThreatIntelSetId}", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.UpdateThreatIntelSet" }, UpdateThreatIntelSetRequest, UpdateThreatIntelSetResponse, [AccessDeniedException, BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateThreatIntelSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/threatintelset/{ThreatIntelSetId}", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.UpdateThreatIntelSet" }, UpdateThreatIntelSetRequest, UpdateThreatIntelSetResponse, [AccessDeniedException, BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the trusted entity set associated with the specified `trustedEntitySetId`.
- */export const updateTrustedEntitySet = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/trustedentityset/{TrustedEntitySetId}", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.UpdateTrustedEntitySet" }, UpdateTrustedEntitySetRequest, UpdateTrustedEntitySetResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateTrustedEntitySet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/trustedentityset/{TrustedEntitySetId}", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.UpdateTrustedEntitySet" }, UpdateTrustedEntitySetRequest, UpdateTrustedEntitySetResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Accepts the invitation to be a member account and get monitored by a GuardDuty
  * administrator account that sent the invitation.
- */export const acceptAdministratorInvitation = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/administrator", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.AcceptAdministratorInvitation" }, AcceptAdministratorInvitationRequest, AcceptAdministratorInvitationResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const acceptAdministratorInvitation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/administrator", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.AcceptAdministratorInvitation" }, AcceptAdministratorInvitationRequest, AcceptAdministratorInvitationResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Accepts the invitation to be monitored by a GuardDuty administrator account.
- */export const acceptInvitation = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/master", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.AcceptInvitation" }, AcceptInvitationRequest, AcceptInvitationResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const acceptInvitation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/master", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.AcceptInvitation" }, AcceptInvitationRequest, AcceptInvitationResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new IPSet, which is called a trusted IP list in the console user interface. An
  * IPSet is a list of IP addresses that are trusted for secure communication with Amazon Web Services
  * infrastructure and applications. GuardDuty doesn't generate findings for IP addresses that are
  * included in IPSets. Only users from the administrator account can use this operation.
- */export const createIPSet = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/ipset", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.CreateIPSet" }, CreateIPSetRequest, CreateIPSetResponse, [AccessDeniedException, BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createIPSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/ipset", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.CreateIPSet" }, CreateIPSetRequest, CreateIPSetResponse, [AccessDeniedException, BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new threat entity set. In a threat entity set, you can provide known malicious
  * IP addresses and domains for your Amazon Web Services environment.
  * GuardDuty generates findings based on the entries in the threat entity sets.
  * Only users of the administrator account can manage entity sets, which automatically apply
  * to member accounts.
- */export const createThreatEntitySet = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/threatentityset", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.CreateThreatEntitySet" }, CreateThreatEntitySetRequest, CreateThreatEntitySetResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createThreatEntitySet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/threatentityset", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.CreateThreatEntitySet" }, CreateThreatEntitySetRequest, CreateThreatEntitySetResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new ThreatIntelSet. ThreatIntelSets consist of known malicious IP addresses.
  * GuardDuty generates findings based on ThreatIntelSets. Only users of the administrator
  * account can use this operation.
- */export const createThreatIntelSet = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/threatintelset", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.CreateThreatIntelSet" }, CreateThreatIntelSetRequest, CreateThreatIntelSetResponse, [AccessDeniedException, BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createThreatIntelSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/threatintelset", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.CreateThreatIntelSet" }, CreateThreatIntelSetRequest, CreateThreatIntelSetResponse, [AccessDeniedException, BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new trusted entity set. In the trusted entity set, you can provide IP addresses
  * and domains that you believe are secure for communication in your Amazon Web Services environment. GuardDuty
@@ -714,11 +714,11 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * 
  * Only users of the administrator account can manage the entity sets, which automatically
  * apply to member accounts.
- */export const createTrustedEntitySet = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/trustedentityset", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.CreateTrustedEntitySet" }, CreateTrustedEntitySetRequest, CreateTrustedEntitySetResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createTrustedEntitySet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/trustedentityset", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.CreateTrustedEntitySet" }, CreateTrustedEntitySetRequest, CreateTrustedEntitySetResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes invitations sent to the current member account by Amazon Web Services accounts specified by
  * their account IDs.
- */export const deleteInvitations = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/invitation/delete", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.DeleteInvitations" }, DeleteInvitationsRequest, DeleteInvitationsResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteInvitations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/invitation/delete", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.DeleteInvitations" }, DeleteInvitationsRequest, DeleteInvitationsResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes GuardDuty member accounts (to the current GuardDuty administrator account)
  * specified by the account IDs.
@@ -727,11 +727,11 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * With `autoEnableOrganizationMembers` configuration for your organization set to
  * `ALL`, you'll receive an error if you attempt to disable GuardDuty for a member
  * account in your organization.
- */export const deleteMembers = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/member/delete", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.DeleteMembers" }, DeleteMembersRequest, DeleteMembersResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteMembers = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/member/delete", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.DeleteMembers" }, DeleteMembersRequest, DeleteMembersResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about the publishing destination specified by the provided
  * `destinationId`.
- */export const describePublishingDestination = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/publishingDestination/{DestinationId}", method: "GET", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.DescribePublishingDestination" }, DescribePublishingDestinationRequest, DescribePublishingDestinationResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describePublishingDestination = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/publishingDestination/{DestinationId}", method: "GET", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.DescribePublishingDestination" }, DescribePublishingDestinationRequest, DescribePublishingDestinationResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Disassociates GuardDuty member accounts (from the current administrator account) specified
  * by the account IDs.
@@ -760,13 +760,13 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * When the member accounts added through Organizations are later disassociated, you (administrator)
  * can't invite them by calling the InviteMembers API. You can create an association with these
  * member accounts again only by calling the CreateMembers API.
- */export const disassociateMembers = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/member/disassociate", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.DisassociateMembers" }, DisassociateMembersRequest, DisassociateMembersResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const disassociateMembers = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/member/disassociate", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.DisassociateMembers" }, DisassociateMembersRequest, DisassociateMembersResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the details of the filter specified by the filter name.
- */export const getFilter = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/filter/{FilterName}", method: "GET", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.GetFilter" }, GetFilterRequest, GetFilterResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getFilter = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/filter/{FilterName}", method: "GET", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.GetFilter" }, GetFilterRequest, GetFilterResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the IPSet specified by the `ipSetId`.
- */export const getIPSet = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/ipset/{IpSetId}", method: "GET", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.GetIPSet" }, GetIPSetRequest, GetIPSetResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getIPSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/ipset/{IpSetId}", method: "GET", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.GetIPSet" }, GetIPSetRequest, GetIPSetResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the details of the malware scan settings.
  * 
@@ -774,16 +774,16 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * There might be regional differences because some data sources might not be
  * available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more
  * information, see Regions and endpoints.
- */export const getMalwareScanSettings = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/malware-scan-settings", method: "GET", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.GetMalwareScanSettings" }, GetMalwareScanSettingsRequest, GetMalwareScanSettingsResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getMalwareScanSettings = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/malware-scan-settings", method: "GET", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.GetMalwareScanSettings" }, GetMalwareScanSettingsRequest, GetMalwareScanSettingsResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the threat entity set associated with the specified `threatEntitySetId`.
- */export const getThreatEntitySet = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/threatentityset/{ThreatEntitySetId}", method: "GET", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.GetThreatEntitySet" }, GetThreatEntitySetRequest, GetThreatEntitySetResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getThreatEntitySet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/threatentityset/{ThreatEntitySetId}", method: "GET", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.GetThreatEntitySet" }, GetThreatEntitySetRequest, GetThreatEntitySetResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the ThreatIntelSet that is specified by the ThreatIntelSet ID.
- */export const getThreatIntelSet = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/threatintelset/{ThreatIntelSetId}", method: "GET", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.GetThreatIntelSet" }, GetThreatIntelSetRequest, GetThreatIntelSetResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getThreatIntelSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/threatintelset/{ThreatIntelSetId}", method: "GET", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.GetThreatIntelSet" }, GetThreatIntelSetRequest, GetThreatIntelSetResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the trusted entity set associated with the specified `trustedEntitySetId`.
- */export const getTrustedEntitySet = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/trustedentityset/{TrustedEntitySetId}", method: "GET", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.GetTrustedEntitySet" }, GetTrustedEntitySetRequest, GetTrustedEntitySetResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getTrustedEntitySet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/trustedentityset/{TrustedEntitySetId}", method: "GET", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.GetTrustedEntitySet" }, GetTrustedEntitySetRequest, GetTrustedEntitySetResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Invites Amazon Web Services accounts to become members of an organization administered by the Amazon Web Services account
  * that invokes this API. If you are using Amazon Web Services Organizations to manage your GuardDuty environment, this step is not
@@ -819,61 +819,61 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * When the member accounts added through Organizations are later disassociated, you (administrator)
  * can't invite them by calling the InviteMembers API. You can create an association with these
  * member accounts again only by calling the CreateMembers API.
- */export const inviteMembers = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/member/invite", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.InviteMembers" }, InviteMembersRequest, InviteMembersResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const inviteMembers = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/member/invite", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.InviteMembers" }, InviteMembersRequest, InviteMembersResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists detectorIds of all the existing Amazon GuardDuty detector resources.
- */export const listDetectors = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector", method: "GET", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.ListDetectors" }, ListDetectorsRequest, ListDetectorsResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listDetectors = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector", method: "GET", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.ListDetectors" }, ListDetectorsRequest, ListDetectorsResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a paginated list of the current filters.
- */export const listFilters = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/filter", method: "GET", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.ListFilters" }, ListFiltersRequest, ListFiltersResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listFilters = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/filter", method: "GET", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.ListFilters" }, ListFiltersRequest, ListFiltersResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists GuardDuty findings for the specified detector ID.
  * 
  * 
  * There might be regional differences because some flags might not be available in all the Regions where GuardDuty
  * is currently supported. For more information, see Regions and endpoints.
- */export const listFindings = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/findings", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.ListFindings" }, ListFindingsRequest, ListFindingsResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listFindings = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/findings", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.ListFindings" }, ListFindingsRequest, ListFindingsResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the IPSets of the GuardDuty service specified by the detector ID. If you use this
  * operation from a member account, the IPSets returned are the IPSets from the associated
  * administrator account.
- */export const listIPSets = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/ipset", method: "GET", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.ListIPSets" }, ListIPSetsRequest, ListIPSetsResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listIPSets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/ipset", method: "GET", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.ListIPSets" }, ListIPSetsRequest, ListIPSetsResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists details about all member accounts for the current GuardDuty administrator
  * account.
- */export const listMembers = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/member", method: "GET", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.ListMembers" }, ListMembersRequest, ListMembersResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listMembers = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/member", method: "GET", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.ListMembers" }, ListMembersRequest, ListMembersResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists tags for a resource. Tagging is currently supported for detectors, finding filters,
  * IP sets, threat intel sets, and publishing destination, with a limit of 50 tags per resource.
  * When invoked, this
  * operation returns all assigned tags for a given resource.
- */export const listTagsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/tags/{ResourceArn}", method: "GET", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [AccessDeniedException, BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/tags/{ResourceArn}", method: "GET", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [AccessDeniedException, BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the threat entity sets associated with the specified GuardDuty detector ID. If you use this
  * operation from a member account, the threat entity sets that are returned as a response, belong to the
  * administrator account.
- */export const listThreatEntitySets = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/threatentityset", method: "GET", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.ListThreatEntitySets" }, ListThreatEntitySetsRequest, ListThreatEntitySetsResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listThreatEntitySets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/threatentityset", method: "GET", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.ListThreatEntitySets" }, ListThreatEntitySetsRequest, ListThreatEntitySetsResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the ThreatIntelSets of the GuardDuty service specified by the detector ID. If you
  * use this operation from a member account, the ThreatIntelSets associated with the
  * administrator account are returned.
- */export const listThreatIntelSets = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/threatintelset", method: "GET", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.ListThreatIntelSets" }, ListThreatIntelSetsRequest, ListThreatIntelSetsResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listThreatIntelSets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/threatintelset", method: "GET", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.ListThreatIntelSets" }, ListThreatIntelSetsRequest, ListThreatIntelSetsResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the trusted entity sets associated with the specified GuardDuty detector ID. If you use this
  * operation from a member account, the trusted entity sets that are returned as a response, belong to the
  * administrator account.
- */export const listTrustedEntitySets = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/trustedentityset", method: "GET", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.ListTrustedEntitySets" }, ListTrustedEntitySetsRequest, ListTrustedEntitySetsResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listTrustedEntitySets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/trustedentityset", method: "GET", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.ListTrustedEntitySets" }, ListTrustedEntitySetsRequest, ListTrustedEntitySetsResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Initiates a malware scan for a specific S3 object. This API allows you to perform on-demand malware scanning of individual objects in S3 buckets that have Malware Protection for S3 enabled.
  * 
  * 
  * When you use this API, the Amazon Web Services service terms for GuardDuty Malware
  * Protection apply. For more information, see Amazon Web Services service terms for GuardDuty Malware Protection.
- */export const sendObjectMalwareScan = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/object-malware-scan/send", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.SendObjectMalwareScan" }, SendObjectMalwareScanRequest, SendObjectMalwareScanResponse, [AccessDeniedException, BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const sendObjectMalwareScan = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/object-malware-scan/send", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.SendObjectMalwareScan" }, SendObjectMalwareScanRequest, SendObjectMalwareScanResponse, [AccessDeniedException, BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Turns on GuardDuty monitoring of the specified member accounts. Use this operation to
  * restart monitoring of accounts that you stopped monitoring with the StopMonitoringMembers operation.
- */export const startMonitoringMembers = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/member/start", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.StartMonitoringMembers" }, StartMonitoringMembersRequest, StartMonitoringMembersResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startMonitoringMembers = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/member/start", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.StartMonitoringMembers" }, StartMonitoringMembersRequest, StartMonitoringMembersResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Stops GuardDuty monitoring for the specified member accounts. Use the
  * `StartMonitoringMembers` operation to restart monitoring for those
@@ -883,10 +883,10 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * With `autoEnableOrganizationMembers` configuration for your organization set to
  * `ALL`, you'll receive an error if you attempt to stop monitoring the member
  * accounts in your organization.
- */export const stopMonitoringMembers = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/member/stop", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.StopMonitoringMembers" }, StopMonitoringMembersRequest, StopMonitoringMembersResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const stopMonitoringMembers = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/member/stop", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.StopMonitoringMembers" }, StopMonitoringMembersRequest, StopMonitoringMembersResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the filter specified by the filter name.
- */export const updateFilter = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/filter/{FilterName}", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.UpdateFilter" }, UpdateFilterRequest, UpdateFilterResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateFilter = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/filter/{FilterName}", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.UpdateFilter" }, UpdateFilterRequest, UpdateFilterResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates member accounts of the current Amazon Web Services account by specifying a list of Amazon Web Services account
  * IDs. This step is a prerequisite for managing the associated member accounts either by
@@ -916,20 +916,20 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * When the member accounts added through Organizations are later disassociated, you (administrator)
  * can't invite them by calling the InviteMembers API. You can create an association with these
  * member accounts again only by calling the CreateMembers API.
- */export const createMembers = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/member", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.CreateMembers" }, CreateMembersRequest, CreateMembersResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createMembers = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/member", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.CreateMembers" }, CreateMembersRequest, CreateMembersResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a publishing destination where you can export your GuardDuty findings. Before you start exporting the
  * findings, the destination resource must exist.
- */export const createPublishingDestination = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/publishingDestination", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.CreatePublishingDestination" }, CreatePublishingDestinationRequest, CreatePublishingDestinationResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createPublishingDestination = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/publishingDestination", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.CreatePublishingDestination" }, CreatePublishingDestinationRequest, CreatePublishingDestinationResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Declines invitations sent to the current member account by Amazon Web Services accounts specified by
  * their account IDs.
- */export const declineInvitations = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/invitation/decline", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.DeclineInvitations" }, DeclineInvitationsRequest, DeclineInvitationsResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const declineInvitations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/invitation/decline", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.DeclineInvitations" }, DeclineInvitationsRequest, DeclineInvitationsResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the Malware Protection plan ID associated with the Malware Protection plan resource.
  * Use this API only when you no longer want to protect the resource associated with this
  * Malware Protection plan ID.
- */export const deleteMalwareProtectionPlan = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/malware-protection-plan/{MalwareProtectionPlanId}", method: "DELETE", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.DeleteMalwareProtectionPlan" }, DeleteMalwareProtectionPlanRequest, S.Struct({}), [AccessDeniedException, BadRequestException, InternalServerErrorException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteMalwareProtectionPlan = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/malware-protection-plan/{MalwareProtectionPlanId}", method: "DELETE", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.DeleteMalwareProtectionPlan" }, DeleteMalwareProtectionPlanRequest, S.Struct({}), [AccessDeniedException, BadRequestException, InternalServerErrorException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Provides the details of the GuardDuty administrator account associated with the current
  * GuardDuty member account.
@@ -950,39 +950,39 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * 
  * - When an individual account (not associated with an organization) runs this API, it will return success (`HTTP 200`)
  * but no content.
- */export const getAdministratorAccount = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/administrator", method: "GET", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.GetAdministratorAccount" }, GetAdministratorAccountRequest, GetAdministratorAccountResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getAdministratorAccount = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/administrator", method: "GET", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.GetAdministratorAccount" }, GetAdministratorAccountRequest, GetAdministratorAccountResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the Malware Protection plan details associated with a Malware Protection
  * plan ID.
- */export const getMalwareProtectionPlan = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/malware-protection-plan/{MalwareProtectionPlanId}", method: "GET", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.GetMalwareProtectionPlan" }, GetMalwareProtectionPlanRequest, GetMalwareProtectionPlanResponse, [AccessDeniedException, BadRequestException, InternalServerErrorException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getMalwareProtectionPlan = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/malware-protection-plan/{MalwareProtectionPlanId}", method: "GET", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.GetMalwareProtectionPlan" }, GetMalwareProtectionPlanRequest, GetMalwareProtectionPlanResponse, [AccessDeniedException, BadRequestException, InternalServerErrorException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Provides the details for the GuardDuty administrator account associated with the current
  * GuardDuty member account.
- */export const getMasterAccount = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/master", method: "GET", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.GetMasterAccount" }, GetMasterAccountRequest, GetMasterAccountResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getMasterAccount = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/master", method: "GET", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.GetMasterAccount" }, GetMasterAccountRequest, GetMasterAccountResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves GuardDuty member accounts (of the current GuardDuty administrator account)
  * specified by the account IDs.
- */export const getMembers = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/member/get", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.GetMembers" }, GetMembersRequest, GetMembersResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getMembers = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/member/get", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.GetMembers" }, GetMembersRequest, GetMembersResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists all GuardDuty membership invitations that were sent to the current Amazon Web Services
  * account.
- */export const listInvitations = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/invitation", method: "GET", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.ListInvitations" }, ListInvitationsRequest, ListInvitationsResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listInvitations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/invitation", method: "GET", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.ListInvitations" }, ListInvitationsRequest, ListInvitationsResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the Malware Protection plan IDs associated with the protected
  * resources in your Amazon Web Services account.
- */export const listMalwareProtectionPlans = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/malware-protection-plan", method: "GET", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.ListMalwareProtectionPlans" }, ListMalwareProtectionPlansRequest, ListMalwareProtectionPlansResponse, [AccessDeniedException, BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listMalwareProtectionPlans = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/malware-protection-plan", method: "GET", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.ListMalwareProtectionPlans" }, ListMalwareProtectionPlansRequest, ListMalwareProtectionPlansResponse, [AccessDeniedException, BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the accounts designated as GuardDuty delegated administrators.
  * Only the organization's management account can run this
  * API operation.
- */export const listOrganizationAdminAccounts = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/admin", method: "GET", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.ListOrganizationAdminAccounts" }, ListOrganizationAdminAccountsRequest, ListOrganizationAdminAccountsResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listOrganizationAdminAccounts = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/admin", method: "GET", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.ListOrganizationAdminAccounts" }, ListOrganizationAdminAccountsRequest, ListOrganizationAdminAccountsResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of publishing destinations associated with the specified
  * `detectorId`.
- */export const listPublishingDestinations = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/publishingDestination", method: "GET", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.ListPublishingDestinations" }, ListPublishingDestinationsRequest, ListPublishingDestinationsResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listPublishingDestinations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/publishingDestination", method: "GET", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.ListPublishingDestinations" }, ListPublishingDestinationsRequest, ListPublishingDestinationsResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates an existing Malware Protection plan resource.
- */export const updateMalwareProtectionPlan = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/malware-protection-plan/{MalwareProtectionPlanId}", method: "PATCH", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.UpdateMalwareProtectionPlan" }, UpdateMalwareProtectionPlanRequest, S.Struct({}), [AccessDeniedException, BadRequestException, InternalServerErrorException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateMalwareProtectionPlan = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/malware-protection-plan/{MalwareProtectionPlanId}", method: "PATCH", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.UpdateMalwareProtectionPlan" }, UpdateMalwareProtectionPlanRequest, S.Struct({}), [AccessDeniedException, BadRequestException, InternalServerErrorException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists GuardDuty findings statistics for the specified detector ID.
  * 
@@ -994,7 +994,7 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * 
  * There might be regional differences because some flags might not be available in all the Regions where GuardDuty
  * is currently supported. For more information, see Regions and endpoints.
- */export const getFindingsStatistics = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/findings/statistics", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.GetFindingsStatistics" }, GetFindingsStatisticsRequest, GetFindingsStatisticsResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getFindingsStatistics = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/findings/statistics", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.GetFindingsStatistics" }, GetFindingsStatisticsRequest, GetFindingsStatisticsResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Initiates the malware scan. Invoking this API will automatically create the Service-linked role in
  * the corresponding account if the resourceArn belongs to an EC2 instance.
@@ -1006,7 +1006,7 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * 
  * When you use this API, the Amazon Web Services service terms for GuardDuty Malware
  * Protection apply. For more information, see Amazon Web Services service terms for GuardDuty Malware Protection.
- */export const startMalwareScan = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/malware-scan/start", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.StartMalwareScan" }, StartMalwareScanRequest, StartMalwareScanResponse, [BadRequestException, ConflictException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startMalwareScan = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/malware-scan/start", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.StartMalwareScan" }, StartMalwareScanRequest, StartMalwareScanResponse, [BadRequestException, ConflictException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Contains information on member accounts to be updated.
  * 
@@ -1021,18 +1021,18 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * There might be regional differences because some data sources might not be
  * available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more
  * information, see Regions and endpoints.
- */export const updateMemberDetectors = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/member/detector/update", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.UpdateMemberDetectors" }, UpdateMemberDetectorsRequest, UpdateMemberDetectorsResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateMemberDetectors = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/member/detector/update", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.UpdateMemberDetectors" }, UpdateMemberDetectorsRequest, UpdateMemberDetectorsResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a filter using the specified finding criteria. The maximum number of saved filters
  * per Amazon Web Services account per Region is 100. For more information, see Quotas for GuardDuty.
- */export const createFilter = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/filter", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.CreateFilter" }, CreateFilterRequest, CreateFilterResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createFilter = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/filter", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.CreateFilter" }, CreateFilterRequest, CreateFilterResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new Malware Protection plan for the protected resource.
  * 
  * 
  * When you create a Malware Protection plan, the Amazon Web Services service terms for GuardDuty Malware
  * Protection apply. For more information, see Amazon Web Services service terms for GuardDuty Malware Protection.
- */export const createMalwareProtectionPlan = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/malware-protection-plan", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.CreateMalwareProtectionPlan" }, CreateMalwareProtectionPlanRequest, CreateMalwareProtectionPlanResponse, [AccessDeniedException, BadRequestException, ConflictException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createMalwareProtectionPlan = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/malware-protection-plan", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.CreateMalwareProtectionPlan" }, CreateMalwareProtectionPlanRequest, CreateMalwareProtectionPlanResponse, [AccessDeniedException, BadRequestException, ConflictException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes which data sources are enabled for the member account's detector.
  * 
@@ -1040,7 +1040,7 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * There might be regional differences because some data sources might not be
  * available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more
  * information, see Regions and endpoints.
- */export const getMemberDetectors = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/member/detector/get", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.GetMemberDetectors" }, GetMemberDetectorsRequest, GetMemberDetectorsResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getMemberDetectors = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/member/detector/get", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.GetMemberDetectors" }, GetMemberDetectorsRequest, GetMemberDetectorsResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves how many active member accounts have
  * each feature enabled within GuardDuty. Only a delegated GuardDuty administrator of an organization can run this API.
@@ -1048,15 +1048,15 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * 
  * When you create a new organization, it might take up to 24
  * hours to generate the statistics for the entire organization.
- */export const getOrganizationStatistics = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/organization/statistics", method: "GET", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.GetOrganizationStatistics" }, S.Struct({}), GetOrganizationStatisticsResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getOrganizationStatistics = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/organization/statistics", method: "GET", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.GetOrganizationStatistics" }, S.Struct({}), GetOrganizationStatisticsResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Provides the number of days left for each data source used in the free trial
  * period.
- */export const getRemainingFreeTrialDays = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/freeTrial/daysRemaining", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.GetRemainingFreeTrialDays" }, GetRemainingFreeTrialDaysRequest, GetRemainingFreeTrialDaysResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getRemainingFreeTrialDays = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/freeTrial/daysRemaining", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.GetRemainingFreeTrialDays" }, GetRemainingFreeTrialDaysRequest, GetRemainingFreeTrialDaysResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of malware scans. Each member account can view the malware scans for their
  * own accounts. An administrator can view the malware scans for all of its members' accounts.
- */export const listMalwareScans = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/malware-scan", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.ListMalwareScans" }, ListMalwareScansRequest, ListMalwareScansResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listMalwareScans = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/malware-scan", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.ListMalwareScans" }, ListMalwareScansRequest, ListMalwareScansResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the malware scan settings.
  * 
@@ -1064,7 +1064,7 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * There might be regional differences because some data sources might not be
  * available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more
  * information, see Regions and endpoints.
- */export const updateMalwareScanSettings = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/malware-scan-settings", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.UpdateMalwareScanSettings" }, UpdateMalwareScanSettingsRequest, UpdateMalwareScanSettingsResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateMalwareScanSettings = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/malware-scan-settings", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.UpdateMalwareScanSettings" }, UpdateMalwareScanSettingsRequest, UpdateMalwareScanSettingsResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Configures the delegated administrator account with the provided values. You must provide
  * a value for either `autoEnableOrganizationMembers` or `autoEnable`, but not both.
@@ -1080,7 +1080,7 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * There might be regional differences because some data sources might not be
  * available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more
  * information, see Regions and endpoints.
- */export const updateOrganizationConfiguration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/admin", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.UpdateOrganizationConfiguration" }, UpdateOrganizationConfigurationRequest, UpdateOrganizationConfigurationResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateOrganizationConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/admin", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.UpdateOrganizationConfiguration" }, UpdateOrganizationConfigurationRequest, UpdateOrganizationConfigurationResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a single GuardDuty detector. A detector is a resource that represents the
  * GuardDuty service. To start using GuardDuty, you must create a detector in each Region where
@@ -1112,7 +1112,7 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * There might be regional differences because some data sources might not be
  * available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more
  * information, see Regions and endpoints.
- */export const createDetector = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.CreateDetector" }, CreateDetectorRequest, CreateDetectorResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createDetector = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.CreateDetector" }, CreateDetectorRequest, CreateDetectorResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about the account selected as the delegated administrator for
  * GuardDuty.
@@ -1121,7 +1121,7 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * There might be regional differences because some data sources might not be
  * available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more
  * information, see Regions and endpoints.
- */export const describeOrganizationConfiguration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/admin", method: "GET", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.DescribeOrganizationConfiguration" }, DescribeOrganizationConfigurationRequest, DescribeOrganizationConfigurationResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeOrganizationConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/admin", method: "GET", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.DescribeOrganizationConfiguration" }, DescribeOrganizationConfigurationRequest, DescribeOrganizationConfigurationResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves a GuardDuty detector specified by the detectorId.
  * 
@@ -1129,7 +1129,7 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * There might be regional differences because some data sources might not be
  * available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more
  * information, see Regions and endpoints.
- */export const getDetector = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}", method: "GET", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.GetDetector" }, GetDetectorRequest, GetDetectorResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getDetector = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}", method: "GET", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.GetDetector" }, GetDetectorRequest, GetDetectorResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the detailed information for a specific malware scan. Each member account can view the malware scan details for their
  * own account. An administrator can view malware scan details for all accounts in the organization.
@@ -1138,13 +1138,13 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * There might be regional differences because some data sources might not be
  * available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more
  * information, see Regions and endpoints.
- */export const getMalwareScan = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/malware-scan/{ScanId}", method: "GET", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.GetMalwareScan" }, GetMalwareScanRequest, GetMalwareScanResponse, [BadRequestException, InternalServerErrorException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getMalwareScan = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/malware-scan/{ScanId}", method: "GET", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.GetMalwareScan" }, GetMalwareScanRequest, GetMalwareScanResponse, [BadRequestException, InternalServerErrorException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists Amazon GuardDuty usage statistics over the last 30 days for the specified detector
  * ID. For newly enabled detectors or data sources, the cost returned will include only the usage
  * so far under 30 days. This may differ from the cost metrics in the console, which project
  * usage over 30 days to provide a monthly cost estimate. For more information, see Understanding How Usage Costs are Calculated.
- */export const getUsageStatistics = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/usage/statistics", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.GetUsageStatistics" }, GetUsageStatisticsRequest, GetUsageStatisticsResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getUsageStatistics = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/usage/statistics", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.GetUsageStatistics" }, GetUsageStatisticsRequest, GetUsageStatisticsResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of malware scans. Each member account can view the malware scans for their
  * own accounts. An administrator can view the malware scans for all the member accounts.
@@ -1153,13 +1153,13 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * There might be regional differences because some data sources might not be
  * available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more
  * information, see Regions and endpoints.
- */export const describeMalwareScans = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/malware-scans", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.DescribeMalwareScans" }, DescribeMalwareScansRequest, DescribeMalwareScansResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeMalwareScans = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/malware-scans", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.DescribeMalwareScans" }, DescribeMalwareScansRequest, DescribeMalwareScansResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves aggregated statistics for your account. If you are a GuardDuty administrator, you
  * can retrieve the statistics for all the resources associated with the active member accounts
  * in your organization who have enabled Runtime Monitoring and have the GuardDuty security agent running
  * on their resources.
- */export const getCoverageStatistics = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/coverage/statistics", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.GetCoverageStatistics" }, GetCoverageStatisticsRequest, GetCoverageStatisticsResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getCoverageStatistics = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/coverage/statistics", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.GetCoverageStatistics" }, GetCoverageStatisticsRequest, GetCoverageStatisticsResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists coverage details for your GuardDuty account. If you're a GuardDuty administrator, you can
  * retrieve all resources associated with the active member accounts in your organization.
@@ -1167,7 +1167,7 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * 
  * Make sure the accounts have Runtime Monitoring enabled and GuardDuty agent running on
  * their resources.
- */export const listCoverage = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/coverage", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.ListCoverage" }, ListCoverageRequest, ListCoverageResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listCoverage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/coverage", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.ListCoverage" }, ListCoverageRequest, ListCoverageResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes Amazon GuardDuty findings specified by finding IDs.
- */export const getFindings = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/findings/get", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.GetFindings" }, GetFindingsRequest, GetFindingsResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getFindings = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/findings/get", method: "POST", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.GetFindings" }, GetFindingsRequest, GetFindingsResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

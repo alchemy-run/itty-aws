@@ -96,7 +96,7 @@ export class ResourceNotFoundException extends S.TaggedError<ResourceNotFoundExc
  * 
  * 
  * - **Concurrent calls** - Concurrent calls are allowed. An offer is sent once per each call.
- */export const joinStorageSession = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/joinStorageSession", method: "POST", sdkId: "Kinesis Video WebRTC Storage", sigV4ServiceName: "kinesisvideo", name: "AWSAcuityRoutingServiceLambda.JoinStorageSession" }, JoinStorageSessionInput, S.Struct({}), [AccessDeniedException, ClientLimitExceededException, InvalidArgumentException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const joinStorageSession = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/joinStorageSession", method: "POST", sdkId: "Kinesis Video WebRTC Storage", sigV4ServiceName: "kinesisvideo", name: "AWSAcuityRoutingServiceLambda.JoinStorageSession" }, JoinStorageSessionInput, S.Struct({}), [AccessDeniedException, ClientLimitExceededException, InvalidArgumentException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Join the ongoing one way-video and/or multi-way audio WebRTC session as
  * a viewer for an input channel. If there’s
@@ -119,4 +119,4 @@ export class ResourceNotFoundException extends S.TaggedError<ResourceNotFoundExc
  * `HLS` or `DASH` playback, Image generation, and more
  * with ingested WebRTC media. If there’s an existing session with the same
  * `clientId` that's found in the join session request, the new request takes precedence.
- */export const joinStorageSessionAsViewer = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/joinStorageSessionAsViewer", method: "POST", sdkId: "Kinesis Video WebRTC Storage", sigV4ServiceName: "kinesisvideo", name: "AWSAcuityRoutingServiceLambda.JoinStorageSessionAsViewer" }, JoinStorageSessionAsViewerInput, S.Struct({}), [AccessDeniedException, ClientLimitExceededException, InvalidArgumentException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const joinStorageSessionAsViewer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/joinStorageSessionAsViewer", method: "POST", sdkId: "Kinesis Video WebRTC Storage", sigV4ServiceName: "kinesisvideo", name: "AWSAcuityRoutingServiceLambda.JoinStorageSessionAsViewer" }, JoinStorageSessionAsViewerInput, S.Struct({}), [AccessDeniedException, ClientLimitExceededException, InvalidArgumentException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

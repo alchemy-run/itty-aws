@@ -128,7 +128,7 @@ export class ExpiredIteratorException extends S.TaggedError<ExpiredIteratorExcep
  * 
  * 
  * This operation has a limit of one transaction per second per account.
- */export const describeLimits = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-12-02", uri: "/", method: "POST", sdkId: "Kinesis", sigV4ServiceName: "kinesis", name: "Kinesis_20131202.DescribeLimits" }, DescribeLimitsInput, DescribeLimitsOutput, [LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeLimits = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-12-02", uri: "/", method: "POST", sdkId: "Kinesis", sigV4ServiceName: "kinesis", name: "Kinesis_20131202.DescribeLimits" }, DescribeLimitsInput, DescribeLimitsOutput, [LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Increases the Kinesis data stream's retention period, which is the length of time data
  * records are accessible after they are added to the stream. The maximum value of a
@@ -150,7 +150,7 @@ export class ExpiredIteratorException extends S.TaggedError<ExpiredIteratorExcep
  * accessible after the operation has been called. For example, if a stream's retention
  * period is set to 24 hours and is increased to 168 hours, any data that is older than 24
  * hours remains inaccessible to consumer applications.
- */export const increaseStreamRetentionPeriod = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-12-02", uri: "/", method: "POST", sdkId: "Kinesis", sigV4ServiceName: "kinesis", name: "Kinesis_20131202.IncreaseStreamRetentionPeriod" }, IncreaseStreamRetentionPeriodInput, S.Struct({}), [AccessDeniedException, InvalidArgumentException, LimitExceededException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const increaseStreamRetentionPeriod = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-12-02", uri: "/", method: "POST", sdkId: "Kinesis", sigV4ServiceName: "kinesis", name: "Kinesis_20131202.IncreaseStreamRetentionPeriod" }, IncreaseStreamRetentionPeriodInput, S.Struct({}), [AccessDeniedException, InvalidArgumentException, LimitExceededException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Attaches a resource-based policy to a data stream or registered consumer. If you are using an identity other than the root user of
  * the Amazon Web Services account that owns the resource, the calling identity must have the `PutResourcePolicy` permissions on the
@@ -177,7 +177,7 @@ export class ExpiredIteratorException extends S.TaggedError<ExpiredIteratorExcep
  * 
  * 
  * For more information, see Controlling Access to Amazon Kinesis Data Streams Resources Using IAM.
- */export const putResourcePolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-12-02", uri: "/", method: "POST", sdkId: "Kinesis", sigV4ServiceName: "kinesis", name: "Kinesis_20131202.PutResourcePolicy" }, PutResourcePolicyInput, S.Struct({}), [AccessDeniedException, InvalidArgumentException, LimitExceededException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putResourcePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-12-02", uri: "/", method: "POST", sdkId: "Kinesis", sigV4ServiceName: "kinesis", name: "Kinesis_20131202.PutResourcePolicy" }, PutResourcePolicyInput, S.Struct({}), [AccessDeniedException, InvalidArgumentException, LimitExceededException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes tags from the specified Kinesis data stream. Removed tags are deleted and
  * cannot be recovered after this operation successfully completes.
@@ -198,7 +198,7 @@ export class ExpiredIteratorException extends S.TaggedError<ExpiredIteratorExcep
  * 
  * RemoveTagsFromStream has a limit of five transactions per second per
  * account.
- */export const removeTagsFromStream = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-12-02", uri: "/", method: "POST", sdkId: "Kinesis", sigV4ServiceName: "kinesis", name: "Kinesis_20131202.RemoveTagsFromStream" }, RemoveTagsFromStreamInput, S.Struct({}), [AccessDeniedException, InvalidArgumentException, LimitExceededException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const removeTagsFromStream = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-12-02", uri: "/", method: "POST", sdkId: "Kinesis", sigV4ServiceName: "kinesis", name: "Kinesis_20131202.RemoveTagsFromStream" }, RemoveTagsFromStreamInput, S.Struct({}), [AccessDeniedException, InvalidArgumentException, LimitExceededException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Splits a shard into two new shards in the Kinesis data stream, to increase the
  * stream's capacity to ingest and transport data. `SplitShard` is called when
@@ -268,7 +268,7 @@ export class ExpiredIteratorException extends S.TaggedError<ExpiredIteratorExcep
  * 
  * 
  * `SplitShard` has a limit of five transactions per second per account.
- */export const splitShard = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-12-02", uri: "/", method: "POST", sdkId: "Kinesis", sigV4ServiceName: "kinesis", name: "Kinesis_20131202.SplitShard" }, SplitShardInput, S.Struct({}), [AccessDeniedException, InvalidArgumentException, LimitExceededException, ResourceInUseException, ResourceNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const splitShard = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-12-02", uri: "/", method: "POST", sdkId: "Kinesis", sigV4ServiceName: "kinesis", name: "Kinesis_20131202.SplitShard" }, SplitShardInput, S.Struct({}), [AccessDeniedException, InvalidArgumentException, LimitExceededException, ResourceInUseException, ResourceNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Disables server-side encryption for a specified stream.
  * 
@@ -300,16 +300,16 @@ export class ExpiredIteratorException extends S.TaggedError<ExpiredIteratorExcep
  * before all records written to the stream are no longer subject to encryption. After you
  * disabled encryption, you can verify that encryption is not applied by inspecting the API
  * response from `PutRecord` or `PutRecords`.
- */export const stopStreamEncryption = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-12-02", uri: "/", method: "POST", sdkId: "Kinesis", sigV4ServiceName: "kinesis", name: "Kinesis_20131202.StopStreamEncryption" }, StopStreamEncryptionInput, S.Struct({}), [AccessDeniedException, InvalidArgumentException, LimitExceededException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const stopStreamEncryption = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-12-02", uri: "/", method: "POST", sdkId: "Kinesis", sigV4ServiceName: "kinesis", name: "Kinesis_20131202.StopStreamEncryption" }, StopStreamEncryptionInput, S.Struct({}), [AccessDeniedException, InvalidArgumentException, LimitExceededException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Adds or updates tags for the specified Kinesis resource. Each tag is a label consisting of a user-defined key and value. Tags can help you manage, identify, organize, search for, and filter resources. You can assign up to 50 tags to a Kinesis resource.
- */export const tagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-12-02", uri: "/", method: "POST", sdkId: "Kinesis", sigV4ServiceName: "kinesis", name: "Kinesis_20131202.TagResource" }, TagResourceInput, S.Struct({}), [AccessDeniedException, InvalidArgumentException, LimitExceededException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-12-02", uri: "/", method: "POST", sdkId: "Kinesis", sigV4ServiceName: "kinesis", name: "Kinesis_20131202.TagResource" }, TagResourceInput, S.Struct({}), [AccessDeniedException, InvalidArgumentException, LimitExceededException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes tags from the specified Kinesis resource. Removed tags are deleted and can't be recovered after this operation completes successfully.
- */export const untagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-12-02", uri: "/", method: "POST", sdkId: "Kinesis", sigV4ServiceName: "kinesis", name: "Kinesis_20131202.UntagResource" }, UntagResourceInput, S.Struct({}), [AccessDeniedException, InvalidArgumentException, LimitExceededException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-12-02", uri: "/", method: "POST", sdkId: "Kinesis", sigV4ServiceName: "kinesis", name: "Kinesis_20131202.UntagResource" }, UntagResourceInput, S.Struct({}), [AccessDeniedException, InvalidArgumentException, LimitExceededException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This allows you to update the `MaxRecordSize` of a single record that you can write to, and read from a stream. You can ingest and digest single records up to 10240 KiB.
- */export const updateMaxRecordSize = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-12-02", uri: "/", method: "POST", sdkId: "Kinesis", sigV4ServiceName: "kinesis", name: "Kinesis_20131202.UpdateMaxRecordSize" }, UpdateMaxRecordSizeInput, S.Struct({}), [AccessDeniedException, InvalidArgumentException, LimitExceededException, ResourceInUseException, ResourceNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateMaxRecordSize = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-12-02", uri: "/", method: "POST", sdkId: "Kinesis", sigV4ServiceName: "kinesis", name: "Kinesis_20131202.UpdateMaxRecordSize" }, UpdateMaxRecordSizeInput, S.Struct({}), [AccessDeniedException, InvalidArgumentException, LimitExceededException, ResourceInUseException, ResourceNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the capacity mode of the data stream. Currently, in Kinesis Data Streams, you
  * can choose between an **on-demand** capacity mode and a
@@ -318,7 +318,7 @@ export class ExpiredIteratorException extends S.TaggedError<ExpiredIteratorExcep
  * 
  * 
  * If you'd still like to proactively scale your on-demand data stream’s capacity, you can unlock the warm throughput feature for on-demand data streams by enabling `MinimumThroughputBillingCommitment` for your account. Once your account has `MinimumThroughputBillingCommitment` enabled, you can specify the warm throughput in MiB per second that your stream can support in writes.
- */export const updateStreamMode = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-12-02", uri: "/", method: "POST", sdkId: "Kinesis", sigV4ServiceName: "kinesis", name: "Kinesis_20131202.UpdateStreamMode" }, UpdateStreamModeInput, S.Struct({}), [InvalidArgumentException, LimitExceededException, ResourceInUseException, ResourceNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateStreamMode = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-12-02", uri: "/", method: "POST", sdkId: "Kinesis", sigV4ServiceName: "kinesis", name: "Kinesis_20131202.UpdateStreamMode" }, UpdateStreamModeInput, S.Struct({}), [InvalidArgumentException, LimitExceededException, ResourceInUseException, ResourceNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Adds or updates tags for the specified Kinesis data stream. You can assign up to 50
  * tags to a data stream.
@@ -340,7 +340,7 @@ export class ExpiredIteratorException extends S.TaggedError<ExpiredIteratorExcep
  * 
  * AddTagsToStream has a limit of five transactions per second per
  * account.
- */export const addTagsToStream = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-12-02", uri: "/", method: "POST", sdkId: "Kinesis", sigV4ServiceName: "kinesis", name: "Kinesis_20131202.AddTagsToStream" }, AddTagsToStreamInput, S.Struct({}), [AccessDeniedException, InvalidArgumentException, LimitExceededException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const addTagsToStream = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-12-02", uri: "/", method: "POST", sdkId: "Kinesis", sigV4ServiceName: "kinesis", name: "Kinesis_20131202.AddTagsToStream" }, AddTagsToStreamInput, S.Struct({}), [AccessDeniedException, InvalidArgumentException, LimitExceededException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a Kinesis data stream. A stream captures and transports data records that are
  * continuously emitted from different data sources or *producers*.
@@ -400,7 +400,7 @@ export class ExpiredIteratorException extends S.TaggedError<ExpiredIteratorExcep
  * 
  * 
  * You can add tags to the stream when making a `CreateStream` request by setting the `Tags` parameter. If you pass the `Tags` parameter, in addition to having the `kinesis:CreateStream` permission, you must also have the `kinesis:AddTagsToStream` permission for the stream that will be created. The `kinesis:TagResource` permission won’t work to tag streams on creation. Tags will take effect from the `CREATING` status of the stream, but you can't make any updates to the tags until the stream is in `ACTIVE` state.
- */export const createStream = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-12-02", uri: "/", method: "POST", sdkId: "Kinesis", sigV4ServiceName: "kinesis", name: "Kinesis_20131202.CreateStream" }, CreateStreamInput, S.Struct({}), [InvalidArgumentException, LimitExceededException, ResourceInUseException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createStream = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-12-02", uri: "/", method: "POST", sdkId: "Kinesis", sigV4ServiceName: "kinesis", name: "Kinesis_20131202.CreateStream" }, CreateStreamInput, S.Struct({}), [InvalidArgumentException, LimitExceededException, ResourceInUseException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Decreases the Kinesis data stream's retention period, which is the length of time data
  * records are accessible after they are added to the stream. The minimum value of a
@@ -419,7 +419,7 @@ export class ExpiredIteratorException extends S.TaggedError<ExpiredIteratorExcep
  * This operation may result in lost data. For example, if the stream's retention period
  * is 48 hours and is decreased to 24 hours, any data already in the stream that is older
  * than 24 hours is inaccessible.
- */export const decreaseStreamRetentionPeriod = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-12-02", uri: "/", method: "POST", sdkId: "Kinesis", sigV4ServiceName: "kinesis", name: "Kinesis_20131202.DecreaseStreamRetentionPeriod" }, DecreaseStreamRetentionPeriodInput, S.Struct({}), [AccessDeniedException, InvalidArgumentException, LimitExceededException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const decreaseStreamRetentionPeriod = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-12-02", uri: "/", method: "POST", sdkId: "Kinesis", sigV4ServiceName: "kinesis", name: "Kinesis_20131202.DecreaseStreamRetentionPeriod" }, DecreaseStreamRetentionPeriodInput, S.Struct({}), [AccessDeniedException, InvalidArgumentException, LimitExceededException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Delete a policy for the specified data stream or consumer. Request patterns can be one of the following:
  * 
@@ -431,7 +431,7 @@ export class ExpiredIteratorException extends S.TaggedError<ExpiredIteratorExcep
  * 
  * 
  * - Consumer pattern: `^(arn):aws.*:kinesis:.*:\d{12}:.*stream\/[a-zA-Z0-9_.-]+\/consumer\/[a-zA-Z0-9_.-]+:[0-9]+`
- */export const deleteResourcePolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-12-02", uri: "/", method: "POST", sdkId: "Kinesis", sigV4ServiceName: "kinesis", name: "Kinesis_20131202.DeleteResourcePolicy" }, DeleteResourcePolicyInput, S.Struct({}), [AccessDeniedException, InvalidArgumentException, LimitExceededException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteResourcePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-12-02", uri: "/", method: "POST", sdkId: "Kinesis", sigV4ServiceName: "kinesis", name: "Kinesis_20131202.DeleteResourcePolicy" }, DeleteResourcePolicyInput, S.Struct({}), [AccessDeniedException, InvalidArgumentException, LimitExceededException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a Kinesis data stream and all its shards and data. You must shut down any
  * applications that are operating on the stream before you delete the stream. If an
@@ -471,7 +471,7 @@ export class ExpiredIteratorException extends S.TaggedError<ExpiredIteratorExcep
  * 
  * DeleteStream has a limit of five transactions per second per
  * account.
- */export const deleteStream = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-12-02", uri: "/", method: "POST", sdkId: "Kinesis", sigV4ServiceName: "kinesis", name: "Kinesis_20131202.DeleteStream" }, DeleteStreamInput, S.Struct({}), [AccessDeniedException, InvalidArgumentException, LimitExceededException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteStream = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-12-02", uri: "/", method: "POST", sdkId: "Kinesis", sigV4ServiceName: "kinesis", name: "Kinesis_20131202.DeleteStream" }, DeleteStreamInput, S.Struct({}), [AccessDeniedException, InvalidArgumentException, LimitExceededException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * To deregister a consumer, provide its ARN. Alternatively, you can provide the ARN of
  * the data stream and the name you gave the consumer when you registered it. You may also
@@ -483,13 +483,13 @@ export class ExpiredIteratorException extends S.TaggedError<ExpiredIteratorExcep
  * 
  * 
  * This operation has a limit of five transactions per second per stream.
- */export const deregisterStreamConsumer = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-12-02", uri: "/", method: "POST", sdkId: "Kinesis", sigV4ServiceName: "kinesis", name: "Kinesis_20131202.DeregisterStreamConsumer" }, DeregisterStreamConsumerInput, S.Struct({}), [InvalidArgumentException, LimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deregisterStreamConsumer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-12-02", uri: "/", method: "POST", sdkId: "Kinesis", sigV4ServiceName: "kinesis", name: "Kinesis_20131202.DeregisterStreamConsumer" }, DeregisterStreamConsumerInput, S.Struct({}), [InvalidArgumentException, LimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes the account-level settings for Amazon Kinesis Data Streams. This operation returns information about the minimum throughput billing commitments and other account-level configurations.
  * 
  * 
  * This API has a call limit of 5 transactions per second (TPS) for each Amazon Web Services account. TPS over 5 will initiate the `LimitExceededException`.
- */export const describeAccountSettings = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-12-02", uri: "/", method: "POST", sdkId: "Kinesis", sigV4ServiceName: "kinesis", name: "Kinesis_20131202.DescribeAccountSettings" }, DescribeAccountSettingsInput, DescribeAccountSettingsOutput, [LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeAccountSettings = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-12-02", uri: "/", method: "POST", sdkId: "Kinesis", sigV4ServiceName: "kinesis", name: "Kinesis_20131202.DescribeAccountSettings" }, DescribeAccountSettingsInput, DescribeAccountSettingsOutput, [LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Disables enhanced monitoring.
  * 
@@ -499,7 +499,7 @@ export class ExpiredIteratorException extends S.TaggedError<ExpiredIteratorExcep
  * When invoking this API, you must use either the `StreamARN` or the
  * `StreamName` parameter, or both. It is recommended that you use the
  * `StreamARN` input parameter when you invoke this API.
- */export const disableEnhancedMonitoring = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-12-02", uri: "/", method: "POST", sdkId: "Kinesis", sigV4ServiceName: "kinesis", name: "Kinesis_20131202.DisableEnhancedMonitoring" }, DisableEnhancedMonitoringInput, EnhancedMonitoringOutput, [AccessDeniedException, InvalidArgumentException, LimitExceededException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const disableEnhancedMonitoring = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-12-02", uri: "/", method: "POST", sdkId: "Kinesis", sigV4ServiceName: "kinesis", name: "Kinesis_20131202.DisableEnhancedMonitoring" }, DisableEnhancedMonitoringInput, EnhancedMonitoringOutput, [AccessDeniedException, InvalidArgumentException, LimitExceededException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Enables enhanced Kinesis data stream monitoring for shard-level metrics.
  * 
@@ -509,7 +509,7 @@ export class ExpiredIteratorException extends S.TaggedError<ExpiredIteratorExcep
  * When invoking this API, you must use either the `StreamARN` or the
  * `StreamName` parameter, or both. It is recommended that you use the
  * `StreamARN` input parameter when you invoke this API.
- */export const enableEnhancedMonitoring = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-12-02", uri: "/", method: "POST", sdkId: "Kinesis", sigV4ServiceName: "kinesis", name: "Kinesis_20131202.EnableEnhancedMonitoring" }, EnableEnhancedMonitoringInput, EnhancedMonitoringOutput, [AccessDeniedException, InvalidArgumentException, LimitExceededException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const enableEnhancedMonitoring = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-12-02", uri: "/", method: "POST", sdkId: "Kinesis", sigV4ServiceName: "kinesis", name: "Kinesis_20131202.EnableEnhancedMonitoring" }, EnableEnhancedMonitoringInput, EnhancedMonitoringOutput, [AccessDeniedException, InvalidArgumentException, LimitExceededException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a policy attached to the specified data stream or consumer. Request patterns can be one of the following:
  * 
@@ -521,7 +521,7 @@ export class ExpiredIteratorException extends S.TaggedError<ExpiredIteratorExcep
  * 
  * 
  * - Consumer pattern: `^(arn):aws.*:kinesis:.*:\d{12}:.*stream\/[a-zA-Z0-9_.-]+\/consumer\/[a-zA-Z0-9_.-]+:[0-9]+`
- */export const getResourcePolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-12-02", uri: "/", method: "POST", sdkId: "Kinesis", sigV4ServiceName: "kinesis", name: "Kinesis_20131202.GetResourcePolicy" }, GetResourcePolicyInput, GetResourcePolicyOutput, [AccessDeniedException, InvalidArgumentException, LimitExceededException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getResourcePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-12-02", uri: "/", method: "POST", sdkId: "Kinesis", sigV4ServiceName: "kinesis", name: "Kinesis_20131202.GetResourcePolicy" }, GetResourcePolicyInput, GetResourcePolicyOutput, [AccessDeniedException, InvalidArgumentException, LimitExceededException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the tags for the specified Kinesis data stream. This operation has a limit of
  * five transactions per second per account.
@@ -532,7 +532,7 @@ export class ExpiredIteratorException extends S.TaggedError<ExpiredIteratorExcep
  * When invoking this API, you must use either the `StreamARN` or the
  * `StreamName` parameter, or both. It is recommended that you use the
  * `StreamARN` input parameter when you invoke this API.
- */export const listTagsForStream = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-12-02", uri: "/", method: "POST", sdkId: "Kinesis", sigV4ServiceName: "kinesis", name: "Kinesis_20131202.ListTagsForStream" }, ListTagsForStreamInput, ListTagsForStreamOutput, [AccessDeniedException, InvalidArgumentException, LimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listTagsForStream = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-12-02", uri: "/", method: "POST", sdkId: "Kinesis", sigV4ServiceName: "kinesis", name: "Kinesis_20131202.ListTagsForStream" }, ListTagsForStreamInput, ListTagsForStreamOutput, [AccessDeniedException, InvalidArgumentException, LimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Merges two adjacent shards in a Kinesis data stream and combines them into a single
  * shard to reduce the stream's capacity to ingest and transport data. This API is only
@@ -594,7 +594,7 @@ export class ExpiredIteratorException extends S.TaggedError<ExpiredIteratorExcep
  * 
  * 
  * `MergeShards` has a limit of five transactions per second per account.
- */export const mergeShards = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-12-02", uri: "/", method: "POST", sdkId: "Kinesis", sigV4ServiceName: "kinesis", name: "Kinesis_20131202.MergeShards" }, MergeShardsInput, S.Struct({}), [AccessDeniedException, InvalidArgumentException, LimitExceededException, ResourceInUseException, ResourceNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const mergeShards = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-12-02", uri: "/", method: "POST", sdkId: "Kinesis", sigV4ServiceName: "kinesis", name: "Kinesis_20131202.MergeShards" }, MergeShardsInput, S.Struct({}), [AccessDeniedException, InvalidArgumentException, LimitExceededException, ResourceInUseException, ResourceNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Registers a consumer with a Kinesis data stream. When you use this operation, the
  * consumer you register can then call SubscribeToShard to receive data
@@ -619,7 +619,7 @@ export class ExpiredIteratorException extends S.TaggedError<ExpiredIteratorExcep
  * more than 5 consumers in a `CREATING` status at the same time. Registering a
  * 6th consumer while there are 5 in a `CREATING` status results in a
  * `LimitExceededException`.
- */export const registerStreamConsumer = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-12-02", uri: "/", method: "POST", sdkId: "Kinesis", sigV4ServiceName: "kinesis", name: "Kinesis_20131202.RegisterStreamConsumer" }, RegisterStreamConsumerInput, RegisterStreamConsumerOutput, [InvalidArgumentException, LimitExceededException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const registerStreamConsumer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-12-02", uri: "/", method: "POST", sdkId: "Kinesis", sigV4ServiceName: "kinesis", name: "Kinesis_20131202.RegisterStreamConsumer" }, RegisterStreamConsumerInput, RegisterStreamConsumerOutput, [InvalidArgumentException, LimitExceededException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the shard count of the specified stream to the specified number of shards.
  * This API is only supported for the data streams with the provisioned capacity
@@ -695,7 +695,7 @@ export class ExpiredIteratorException extends S.TaggedError<ExpiredIteratorExcep
  * Limits in the Amazon Kinesis Data Streams Developer
  * Guide. To request an increase in the call rate limit, the shard limit for
  * this API, or your overall shard limit, use the limits form.
- */export const updateShardCount = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-12-02", uri: "/", method: "POST", sdkId: "Kinesis", sigV4ServiceName: "kinesis", name: "Kinesis_20131202.UpdateShardCount" }, UpdateShardCountInput, UpdateShardCountOutput, [AccessDeniedException, InvalidArgumentException, LimitExceededException, ResourceInUseException, ResourceNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateShardCount = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-12-02", uri: "/", method: "POST", sdkId: "Kinesis", sigV4ServiceName: "kinesis", name: "Kinesis_20131202.UpdateShardCount" }, UpdateShardCountInput, UpdateShardCountOutput, [AccessDeniedException, InvalidArgumentException, LimitExceededException, ResourceInUseException, ResourceNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * To get the description of a registered consumer, provide the ARN of the consumer.
  * Alternatively, you can provide the ARN of the data stream and the name you gave the
@@ -712,7 +712,7 @@ export class ExpiredIteratorException extends S.TaggedError<ExpiredIteratorExcep
  * 
  * 
  * When making a cross-account call with `DescribeStreamConsumer`, make sure to provide the ARN of the consumer.
- */export const describeStreamConsumer = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-12-02", uri: "/", method: "POST", sdkId: "Kinesis", sigV4ServiceName: "kinesis", name: "Kinesis_20131202.DescribeStreamConsumer" }, DescribeStreamConsumerInput, DescribeStreamConsumerOutput, [InvalidArgumentException, LimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeStreamConsumer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-12-02", uri: "/", method: "POST", sdkId: "Kinesis", sigV4ServiceName: "kinesis", name: "Kinesis_20131202.DescribeStreamConsumer" }, DescribeStreamConsumerInput, DescribeStreamConsumerOutput, [InvalidArgumentException, LimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Provides a summarized description of the specified Kinesis data stream without the
  * shard list.
@@ -735,14 +735,14 @@ export class ExpiredIteratorException extends S.TaggedError<ExpiredIteratorExcep
  * 
  * DescribeStreamSummary has a limit of 20 transactions per second per
  * account.
- */export const describeStreamSummary = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-12-02", uri: "/", method: "POST", sdkId: "Kinesis", sigV4ServiceName: "kinesis", name: "Kinesis_20131202.DescribeStreamSummary" }, DescribeStreamSummaryInput, DescribeStreamSummaryOutput, [AccessDeniedException, InvalidArgumentException, LimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeStreamSummary = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-12-02", uri: "/", method: "POST", sdkId: "Kinesis", sigV4ServiceName: "kinesis", name: "Kinesis_20131202.DescribeStreamSummary" }, DescribeStreamSummaryInput, DescribeStreamSummaryOutput, [AccessDeniedException, InvalidArgumentException, LimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the consumers registered to receive data from a stream using enhanced fan-out,
  * and provides information about each consumer.
  * 
  * 
  * This operation has a limit of 5 transactions per second per stream.
- */export const listStreamConsumers = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-12-02", uri: "/", method: "POST", sdkId: "Kinesis", sigV4ServiceName: "kinesis", name: "Kinesis_20131202.ListStreamConsumers" }, ListStreamConsumersInput, ListStreamConsumersOutput, [ExpiredNextTokenException, InvalidArgumentException, LimitExceededException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listStreamConsumers = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-12-02", uri: "/", method: "POST", sdkId: "Kinesis", sigV4ServiceName: "kinesis", name: "Kinesis_20131202.ListStreamConsumers" }, ListStreamConsumersInput, ListStreamConsumersOutput, [ExpiredNextTokenException, InvalidArgumentException, LimitExceededException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists your Kinesis data streams.
  * 
@@ -766,13 +766,13 @@ export class ExpiredIteratorException extends S.TaggedError<ExpiredIteratorExcep
  * 
  * ListStreams has a limit of five transactions per second per
  * account.
- */export const listStreams = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-12-02", uri: "/", method: "POST", sdkId: "Kinesis", sigV4ServiceName: "kinesis", name: "Kinesis_20131202.ListStreams" }, ListStreamsInput, ListStreamsOutput, [ExpiredNextTokenException, InvalidArgumentException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listStreams = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-12-02", uri: "/", method: "POST", sdkId: "Kinesis", sigV4ServiceName: "kinesis", name: "Kinesis_20131202.ListStreams" }, ListStreamsInput, ListStreamsOutput, [ExpiredNextTokenException, InvalidArgumentException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * List all tags added to the specified Kinesis resource. Each tag is a label consisting of a user-defined key and value. Tags can help you manage, identify, organize, search for, and filter resources.
  * 
  * 
  * For more information about tagging Kinesis resources, see Tag your Amazon Kinesis Data Streams resources.
- */export const listTagsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-12-02", uri: "/", method: "POST", sdkId: "Kinesis", sigV4ServiceName: "kinesis", name: "Kinesis_20131202.ListTagsForResource" }, ListTagsForResourceInput, ListTagsForResourceOutput, [AccessDeniedException, InvalidArgumentException, LimitExceededException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-12-02", uri: "/", method: "POST", sdkId: "Kinesis", sigV4ServiceName: "kinesis", name: "Kinesis_20131202.ListTagsForResource" }, ListTagsForResourceInput, ListTagsForResourceOutput, [AccessDeniedException, InvalidArgumentException, LimitExceededException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the account-level settings for Amazon Kinesis Data Streams.
  * 
@@ -791,7 +791,7 @@ export class ExpiredIteratorException extends S.TaggedError<ExpiredIteratorExcep
  * 
  * 
  * - This API has a call limit of 5 transactions per second (TPS) for each Amazon Web Services account. TPS over 5 will initiate the `LimitExceededException`.
- */export const updateAccountSettings = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-12-02", uri: "/", method: "POST", sdkId: "Kinesis", sigV4ServiceName: "kinesis", name: "Kinesis_20131202.UpdateAccountSettings" }, UpdateAccountSettingsInput, UpdateAccountSettingsOutput, [InvalidArgumentException, LimitExceededException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateAccountSettings = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-12-02", uri: "/", method: "POST", sdkId: "Kinesis", sigV4ServiceName: "kinesis", name: "Kinesis_20131202.UpdateAccountSettings" }, UpdateAccountSettingsInput, UpdateAccountSettingsOutput, [InvalidArgumentException, LimitExceededException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the warm throughput configuration for the specified Amazon Kinesis Data Streams on-demand data stream. This operation allows you to proactively scale your on-demand data stream to a specified throughput level, enabling better performance for sudden traffic spikes.
  * 
@@ -825,7 +825,7 @@ export class ExpiredIteratorException extends S.TaggedError<ExpiredIteratorExcep
  * 
  * For the default limits for an Amazon Web Services account, see Streams Limits in the Amazon Kinesis Data Streams Developer
  * Guide. To request an increase in the call rate limit, the shard limit for this API, or your overall shard limit, use the limits form.
- */export const updateStreamWarmThroughput = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-12-02", uri: "/", method: "POST", sdkId: "Kinesis", sigV4ServiceName: "kinesis", name: "Kinesis_20131202.UpdateStreamWarmThroughput" }, UpdateStreamWarmThroughputInput, UpdateStreamWarmThroughputOutput, [AccessDeniedException, InvalidArgumentException, LimitExceededException, ResourceInUseException, ResourceNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateStreamWarmThroughput = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-12-02", uri: "/", method: "POST", sdkId: "Kinesis", sigV4ServiceName: "kinesis", name: "Kinesis_20131202.UpdateStreamWarmThroughput" }, UpdateStreamWarmThroughputInput, UpdateStreamWarmThroughputOutput, [AccessDeniedException, InvalidArgumentException, LimitExceededException, ResourceInUseException, ResourceNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets an Amazon Kinesis shard iterator. A shard iterator expires 5 minutes after it is
  * returned to the requester.
@@ -882,7 +882,7 @@ export class ExpiredIteratorException extends S.TaggedError<ExpiredIteratorExcep
  * 
  * GetShardIterator has a limit of five transactions per second per
  * account per open shard.
- */export const getShardIterator = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-12-02", uri: "/", method: "POST", sdkId: "Kinesis", sigV4ServiceName: "kinesis", name: "Kinesis_20131202.GetShardIterator" }, GetShardIteratorInput, GetShardIteratorOutput, [AccessDeniedException, InternalFailureException, InvalidArgumentException, ProvisionedThroughputExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getShardIterator = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-12-02", uri: "/", method: "POST", sdkId: "Kinesis", sigV4ServiceName: "kinesis", name: "Kinesis_20131202.GetShardIterator" }, GetShardIteratorInput, GetShardIteratorOutput, [AccessDeniedException, InternalFailureException, InvalidArgumentException, ProvisionedThroughputExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the shards in a stream and provides information about each shard. This operation
  * has a limit of 1000 transactions per second per data stream.
@@ -908,7 +908,7 @@ export class ExpiredIteratorException extends S.TaggedError<ExpiredIteratorExcep
  * you must update your policy to allow calls to this API. For more information, see
  * Controlling Access to Amazon Kinesis Data Streams Resources Using
  * IAM.
- */export const listShards = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-12-02", uri: "/", method: "POST", sdkId: "Kinesis", sigV4ServiceName: "kinesis", name: "Kinesis_20131202.ListShards" }, ListShardsInput, ListShardsOutput, [AccessDeniedException, ExpiredNextTokenException, InvalidArgumentException, LimitExceededException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listShards = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-12-02", uri: "/", method: "POST", sdkId: "Kinesis", sigV4ServiceName: "kinesis", name: "Kinesis_20131202.ListShards" }, ListShardsInput, ListShardsOutput, [AccessDeniedException, ExpiredNextTokenException, InvalidArgumentException, LimitExceededException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Writes a single data record into an Amazon Kinesis data stream. Call
  * `PutRecord` to send data into the stream for real-time ingestion and
@@ -975,7 +975,7 @@ export class ExpiredIteratorException extends S.TaggedError<ExpiredIteratorExcep
  * 
  * By default, data records are accessible for 24 hours from the time that they are added
  * to a stream. You can use IncreaseStreamRetentionPeriod or DecreaseStreamRetentionPeriod to modify this retention period.
- */export const putRecord = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-12-02", uri: "/", method: "POST", sdkId: "Kinesis", sigV4ServiceName: "kinesis", name: "Kinesis_20131202.PutRecord" }, PutRecordInput, PutRecordOutput, [AccessDeniedException, InternalFailureException, InvalidArgumentException, KMSAccessDeniedException, KMSDisabledException, KMSInvalidStateException, KMSNotFoundException, KMSOptInRequired, KMSThrottlingException, ProvisionedThroughputExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putRecord = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-12-02", uri: "/", method: "POST", sdkId: "Kinesis", sigV4ServiceName: "kinesis", name: "Kinesis_20131202.PutRecord" }, PutRecordInput, PutRecordOutput, [AccessDeniedException, InternalFailureException, InvalidArgumentException, KMSAccessDeniedException, KMSDisabledException, KMSInvalidStateException, KMSNotFoundException, KMSOptInRequired, KMSThrottlingException, ProvisionedThroughputExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Writes multiple data records into a Kinesis data stream in a single call (also
  * referred to as a `PutRecords` request). Use this operation to send data into
@@ -1066,7 +1066,7 @@ export class ExpiredIteratorException extends S.TaggedError<ExpiredIteratorExcep
  * 
  * By default, data records are accessible for 24 hours from the time that they are added
  * to a stream. You can use IncreaseStreamRetentionPeriod or DecreaseStreamRetentionPeriod to modify this retention period.
- */export const putRecords = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-12-02", uri: "/", method: "POST", sdkId: "Kinesis", sigV4ServiceName: "kinesis", name: "Kinesis_20131202.PutRecords" }, PutRecordsInput, PutRecordsOutput, [AccessDeniedException, InternalFailureException, InvalidArgumentException, KMSAccessDeniedException, KMSDisabledException, KMSInvalidStateException, KMSNotFoundException, KMSOptInRequired, KMSThrottlingException, ProvisionedThroughputExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putRecords = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-12-02", uri: "/", method: "POST", sdkId: "Kinesis", sigV4ServiceName: "kinesis", name: "Kinesis_20131202.PutRecords" }, PutRecordsInput, PutRecordsOutput, [AccessDeniedException, InternalFailureException, InvalidArgumentException, KMSAccessDeniedException, KMSDisabledException, KMSInvalidStateException, KMSNotFoundException, KMSOptInRequired, KMSThrottlingException, ProvisionedThroughputExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Enables or updates server-side encryption using an Amazon Web Services KMS key for a
  * specified stream.
@@ -1099,7 +1099,7 @@ export class ExpiredIteratorException extends S.TaggedError<ExpiredIteratorExcep
  * before all records written to the stream are encrypted. After you enable encryption, you
  * can verify that encryption is applied by inspecting the API response from
  * `PutRecord` or `PutRecords`.
- */export const startStreamEncryption = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-12-02", uri: "/", method: "POST", sdkId: "Kinesis", sigV4ServiceName: "kinesis", name: "Kinesis_20131202.StartStreamEncryption" }, StartStreamEncryptionInput, S.Struct({}), [AccessDeniedException, InvalidArgumentException, KMSAccessDeniedException, KMSDisabledException, KMSInvalidStateException, KMSNotFoundException, KMSOptInRequired, KMSThrottlingException, LimitExceededException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startStreamEncryption = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-12-02", uri: "/", method: "POST", sdkId: "Kinesis", sigV4ServiceName: "kinesis", name: "Kinesis_20131202.StartStreamEncryption" }, StartStreamEncryptionInput, S.Struct({}), [AccessDeniedException, InvalidArgumentException, KMSAccessDeniedException, KMSDisabledException, KMSInvalidStateException, KMSNotFoundException, KMSOptInRequired, KMSThrottlingException, LimitExceededException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes the specified Kinesis data stream.
  * 
@@ -1142,7 +1142,7 @@ export class ExpiredIteratorException extends S.TaggedError<ExpiredIteratorExcep
  * 
  * 
  * This operation has a limit of 10 transactions per second per account.
- */export const describeStream = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-12-02", uri: "/", method: "POST", sdkId: "Kinesis", sigV4ServiceName: "kinesis", name: "Kinesis_20131202.DescribeStream" }, DescribeStreamInput, DescribeStreamOutput, [AccessDeniedException, InvalidArgumentException, LimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeStream = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-12-02", uri: "/", method: "POST", sdkId: "Kinesis", sigV4ServiceName: "kinesis", name: "Kinesis_20131202.DescribeStream" }, DescribeStreamInput, DescribeStreamOutput, [AccessDeniedException, InvalidArgumentException, LimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets data records from a Kinesis data stream's shard.
  * 
@@ -1215,7 +1215,7 @@ export class ExpiredIteratorException extends S.TaggedError<ExpiredIteratorExcep
  * 
  * 
  * This operation has a limit of five transactions per second per shard.
- */export const getRecords = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-12-02", uri: "/", method: "POST", sdkId: "Kinesis", sigV4ServiceName: "kinesis", name: "Kinesis_20131202.GetRecords" }, GetRecordsInput, GetRecordsOutput, [AccessDeniedException, ExpiredIteratorException, InternalFailureException, InvalidArgumentException, KMSAccessDeniedException, KMSDisabledException, KMSInvalidStateException, KMSNotFoundException, KMSOptInRequired, KMSThrottlingException, ProvisionedThroughputExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getRecords = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-12-02", uri: "/", method: "POST", sdkId: "Kinesis", sigV4ServiceName: "kinesis", name: "Kinesis_20131202.GetRecords" }, GetRecordsInput, GetRecordsOutput, [AccessDeniedException, ExpiredIteratorException, InternalFailureException, InvalidArgumentException, KMSAccessDeniedException, KMSDisabledException, KMSInvalidStateException, KMSNotFoundException, KMSOptInRequired, KMSThrottlingException, ProvisionedThroughputExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This operation establishes an HTTP/2 connection between the consumer you specify in
  * the `ConsumerARN` parameter and the shard you specify in the
@@ -1248,4 +1248,4 @@ export class ExpiredIteratorException extends S.TaggedError<ExpiredIteratorExcep
  * 
  * For an example of how to use this operation, see Enhanced Fan-Out
  * Using the Kinesis Data Streams API.
- */export const subscribeToShard = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-12-02", uri: "/", method: "POST", sdkId: "Kinesis", sigV4ServiceName: "kinesis", name: "Kinesis_20131202.SubscribeToShard" }, SubscribeToShardInput, SubscribeToShardOutput, [AccessDeniedException, InvalidArgumentException, LimitExceededException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const subscribeToShard = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-12-02", uri: "/", method: "POST", sdkId: "Kinesis", sigV4ServiceName: "kinesis", name: "Kinesis_20131202.SubscribeToShard" }, SubscribeToShardInput, SubscribeToShardOutput, [AccessDeniedException, InvalidArgumentException, LimitExceededException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

@@ -183,7 +183,7 @@ export class AccessDeniedException extends S.TaggedError<AccessDeniedException>(
  * 
  * This operation requires permission for the
  * `lex:DeleteSlotType` action.
- */export const deleteSlotType = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/slottypes/{name}", method: "DELETE", sdkId: "Lex Model Building Service", sigV4ServiceName: "lex", name: "AWSDeepSenseModelBuildingService.DeleteSlotType" }, DeleteSlotTypeRequest, S.Struct({}), [BadRequestException, ConflictException, InternalFailureException, LimitExceededException, NotFoundException, ResourceInUseException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteSlotType = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/slottypes/{name}", method: "DELETE", sdkId: "Lex Model Building Service", sigV4ServiceName: "lex", name: "AWSDeepSenseModelBuildingService.DeleteSlotType" }, DeleteSlotTypeRequest, S.Struct({}), [BadRequestException, ConflictException, InternalFailureException, LimitExceededException, NotFoundException, ResourceInUseException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a specific version of a slot type. To delete all versions
  * of a slot type, use the DeleteSlotType operation.
@@ -191,7 +191,7 @@ export class AccessDeniedException extends S.TaggedError<AccessDeniedException>(
  * 
  * This operation requires permissions for the
  * `lex:DeleteSlotTypeVersion` action.
- */export const deleteSlotTypeVersion = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/slottypes/{name}/version/{version}", method: "DELETE", sdkId: "Lex Model Building Service", sigV4ServiceName: "lex", name: "AWSDeepSenseModelBuildingService.DeleteSlotTypeVersion" }, DeleteSlotTypeVersionRequest, S.Struct({}), [BadRequestException, ConflictException, InternalFailureException, LimitExceededException, NotFoundException, ResourceInUseException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteSlotTypeVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/slottypes/{name}/version/{version}", method: "DELETE", sdkId: "Lex Model Building Service", sigV4ServiceName: "lex", name: "AWSDeepSenseModelBuildingService.DeleteSlotTypeVersion" }, DeleteSlotTypeVersionRequest, S.Struct({}), [BadRequestException, ConflictException, InternalFailureException, LimitExceededException, NotFoundException, ResourceInUseException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes stored utterances.
  * 
@@ -211,14 +211,14 @@ export class AccessDeniedException extends S.TaggedError<AccessDeniedException>(
  * 
  * This operation requires permissions for the
  * `lex:DeleteUtterances` action.
- */export const deleteUtterances = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/bots/{botName}/utterances/{userId}", method: "DELETE", sdkId: "Lex Model Building Service", sigV4ServiceName: "lex", name: "AWSDeepSenseModelBuildingService.DeleteUtterances" }, DeleteUtterancesRequest, S.Struct({}), [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteUtterances = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/bots/{botName}/utterances/{userId}", method: "DELETE", sdkId: "Lex Model Building Service", sigV4ServiceName: "lex", name: "AWSDeepSenseModelBuildingService.DeleteUtterances" }, DeleteUtterancesRequest, S.Struct({}), [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Adds the specified tags to the specified resource. If a tag key
  * already exists, the existing value is replaced with the new value.
- */export const tagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/tags/{resourceArn}", method: "POST", sdkId: "Lex Model Building Service", sigV4ServiceName: "lex", name: "AWSDeepSenseModelBuildingService.TagResource" }, TagResourceRequest, TagResourceResponse, [BadRequestException, ConflictException, InternalFailureException, LimitExceededException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/tags/{resourceArn}", method: "POST", sdkId: "Lex Model Building Service", sigV4ServiceName: "lex", name: "AWSDeepSenseModelBuildingService.TagResource" }, TagResourceRequest, TagResourceResponse, [BadRequestException, ConflictException, InternalFailureException, LimitExceededException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes tags from a bot, bot alias or bot channel.
- */export const untagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/tags/{resourceArn}", method: "DELETE", sdkId: "Lex Model Building Service", sigV4ServiceName: "lex", name: "AWSDeepSenseModelBuildingService.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [BadRequestException, ConflictException, InternalFailureException, LimitExceededException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/tags/{resourceArn}", method: "DELETE", sdkId: "Lex Model Building Service", sigV4ServiceName: "lex", name: "AWSDeepSenseModelBuildingService.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [BadRequestException, ConflictException, InternalFailureException, LimitExceededException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new version of an intent based on the
  * `$LATEST` version of the intent. If the `$LATEST`
@@ -242,7 +242,7 @@ export class AccessDeniedException extends S.TaggedError<AccessDeniedException>(
  * 
  * This operation requires permissions to perform the
  * `lex:CreateIntentVersion` action.
- */export const createIntentVersion = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/intents/{name}/versions", method: "POST", sdkId: "Lex Model Building Service", sigV4ServiceName: "lex", name: "AWSDeepSenseModelBuildingService.CreateIntentVersion" }, CreateIntentVersionRequest, CreateIntentVersionResponse, [BadRequestException, ConflictException, InternalFailureException, LimitExceededException, NotFoundException, PreconditionFailedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createIntentVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/intents/{name}/versions", method: "POST", sdkId: "Lex Model Building Service", sigV4ServiceName: "lex", name: "AWSDeepSenseModelBuildingService.CreateIntentVersion" }, CreateIntentVersionRequest, CreateIntentVersionResponse, [BadRequestException, ConflictException, InternalFailureException, LimitExceededException, NotFoundException, PreconditionFailedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new version of a slot type based on the
  * `$LATEST` version of the specified slot type. If the
@@ -266,7 +266,7 @@ export class AccessDeniedException extends S.TaggedError<AccessDeniedException>(
  * 
  * This operation requires permissions for the
  * `lex:CreateSlotTypeVersion` action.
- */export const createSlotTypeVersion = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/slottypes/{name}/versions", method: "POST", sdkId: "Lex Model Building Service", sigV4ServiceName: "lex", name: "AWSDeepSenseModelBuildingService.CreateSlotTypeVersion" }, CreateSlotTypeVersionRequest, CreateSlotTypeVersionResponse, [BadRequestException, ConflictException, InternalFailureException, LimitExceededException, NotFoundException, PreconditionFailedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createSlotTypeVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/slottypes/{name}/versions", method: "POST", sdkId: "Lex Model Building Service", sigV4ServiceName: "lex", name: "AWSDeepSenseModelBuildingService.CreateSlotTypeVersion" }, CreateSlotTypeVersionRequest, CreateSlotTypeVersionResponse, [BadRequestException, ConflictException, InternalFailureException, LimitExceededException, NotFoundException, PreconditionFailedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes all versions of the bot, including the `$LATEST`
  * version. To delete a specific version of the bot, use the DeleteBotVersion operation. The `DeleteBot`
@@ -290,7 +290,7 @@ export class AccessDeniedException extends S.TaggedError<AccessDeniedException>(
  * 
  * This operation requires permissions for the
  * `lex:DeleteBot` action.
- */export const deleteBot = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/bots/{name}", method: "DELETE", sdkId: "Lex Model Building Service", sigV4ServiceName: "lex", name: "AWSDeepSenseModelBuildingService.DeleteBot" }, DeleteBotRequest, S.Struct({}), [BadRequestException, ConflictException, InternalFailureException, LimitExceededException, NotFoundException, ResourceInUseException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteBot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/bots/{name}", method: "DELETE", sdkId: "Lex Model Building Service", sigV4ServiceName: "lex", name: "AWSDeepSenseModelBuildingService.DeleteBot" }, DeleteBotRequest, S.Struct({}), [BadRequestException, ConflictException, InternalFailureException, LimitExceededException, NotFoundException, ResourceInUseException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes an alias for the specified bot.
  * 
@@ -303,7 +303,7 @@ export class AccessDeniedException extends S.TaggedError<AccessDeniedException>(
  * reference to the alias by deleting the channel association. If you get the
  * same exception again, delete the referring association until the
  * `DeleteBotAlias` operation is successful.
- */export const deleteBotAlias = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/bots/{botName}/aliases/{name}", method: "DELETE", sdkId: "Lex Model Building Service", sigV4ServiceName: "lex", name: "AWSDeepSenseModelBuildingService.DeleteBotAlias" }, DeleteBotAliasRequest, S.Struct({}), [BadRequestException, ConflictException, InternalFailureException, LimitExceededException, NotFoundException, ResourceInUseException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteBotAlias = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/bots/{botName}/aliases/{name}", method: "DELETE", sdkId: "Lex Model Building Service", sigV4ServiceName: "lex", name: "AWSDeepSenseModelBuildingService.DeleteBotAlias" }, DeleteBotAliasRequest, S.Struct({}), [BadRequestException, ConflictException, InternalFailureException, LimitExceededException, NotFoundException, ResourceInUseException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the association between an Amazon Lex bot and a messaging
  * platform.
@@ -311,7 +311,7 @@ export class AccessDeniedException extends S.TaggedError<AccessDeniedException>(
  * 
  * This operation requires permission for the
  * `lex:DeleteBotChannelAssociation` action.
- */export const deleteBotChannelAssociation = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/bots/{botName}/aliases/{botAlias}/channels/{name}", method: "DELETE", sdkId: "Lex Model Building Service", sigV4ServiceName: "lex", name: "AWSDeepSenseModelBuildingService.DeleteBotChannelAssociation" }, DeleteBotChannelAssociationRequest, S.Struct({}), [BadRequestException, ConflictException, InternalFailureException, LimitExceededException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteBotChannelAssociation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/bots/{botName}/aliases/{botAlias}/channels/{name}", method: "DELETE", sdkId: "Lex Model Building Service", sigV4ServiceName: "lex", name: "AWSDeepSenseModelBuildingService.DeleteBotChannelAssociation" }, DeleteBotChannelAssociationRequest, S.Struct({}), [BadRequestException, ConflictException, InternalFailureException, LimitExceededException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a specific version of a bot. To delete all versions of a
  * bot, use the DeleteBot operation.
@@ -319,7 +319,7 @@ export class AccessDeniedException extends S.TaggedError<AccessDeniedException>(
  * 
  * This operation requires permissions for the
  * `lex:DeleteBotVersion` action.
- */export const deleteBotVersion = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/bots/{name}/versions/{version}", method: "DELETE", sdkId: "Lex Model Building Service", sigV4ServiceName: "lex", name: "AWSDeepSenseModelBuildingService.DeleteBotVersion" }, DeleteBotVersionRequest, S.Struct({}), [BadRequestException, ConflictException, InternalFailureException, LimitExceededException, NotFoundException, ResourceInUseException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteBotVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/bots/{name}/versions/{version}", method: "DELETE", sdkId: "Lex Model Building Service", sigV4ServiceName: "lex", name: "AWSDeepSenseModelBuildingService.DeleteBotVersion" }, DeleteBotVersionRequest, S.Struct({}), [BadRequestException, ConflictException, InternalFailureException, LimitExceededException, NotFoundException, ResourceInUseException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes all versions of the intent, including the
  * `$LATEST` version. To delete a specific version of the
@@ -346,7 +346,7 @@ export class AccessDeniedException extends S.TaggedError<AccessDeniedException>(
  * 
  * This operation requires permission for the
  * `lex:DeleteIntent` action.
- */export const deleteIntent = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/intents/{name}", method: "DELETE", sdkId: "Lex Model Building Service", sigV4ServiceName: "lex", name: "AWSDeepSenseModelBuildingService.DeleteIntent" }, DeleteIntentRequest, S.Struct({}), [BadRequestException, ConflictException, InternalFailureException, LimitExceededException, NotFoundException, ResourceInUseException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteIntent = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/intents/{name}", method: "DELETE", sdkId: "Lex Model Building Service", sigV4ServiceName: "lex", name: "AWSDeepSenseModelBuildingService.DeleteIntent" }, DeleteIntentRequest, S.Struct({}), [BadRequestException, ConflictException, InternalFailureException, LimitExceededException, NotFoundException, ResourceInUseException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns metadata information for a specific bot. You must provide
  * the bot name and the bot version or alias.
@@ -354,7 +354,7 @@ export class AccessDeniedException extends S.TaggedError<AccessDeniedException>(
  * 
  * This operation requires permissions for the
  * `lex:GetBot` action.
- */export const getBot = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/bots/{name}/versions/{versionOrAlias}", method: "GET", sdkId: "Lex Model Building Service", sigV4ServiceName: "lex", name: "AWSDeepSenseModelBuildingService.GetBot" }, GetBotRequest, GetBotResponse, [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getBot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/bots/{name}/versions/{versionOrAlias}", method: "GET", sdkId: "Lex Model Building Service", sigV4ServiceName: "lex", name: "AWSDeepSenseModelBuildingService.GetBot" }, GetBotRequest, GetBotResponse, [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets information about all of the versions of a bot.
  * 
@@ -373,14 +373,14 @@ export class AccessDeniedException extends S.TaggedError<AccessDeniedException>(
  * 
  * This operation requires permissions for the
  * `lex:GetBotVersions` action.
- */export const getBotVersions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/bots/{name}/versions", method: "GET", sdkId: "Lex Model Building Service", sigV4ServiceName: "lex", name: "AWSDeepSenseModelBuildingService.GetBotVersions" }, GetBotVersionsRequest, GetBotVersionsResponse, [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getBotVersions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/bots/{name}/versions", method: "GET", sdkId: "Lex Model Building Service", sigV4ServiceName: "lex", name: "AWSDeepSenseModelBuildingService.GetBotVersions" }, GetBotVersionsRequest, GetBotVersionsResponse, [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Exports the contents of a Amazon Lex resource in a specified format.
- */export const getExport = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/exports", method: "GET", sdkId: "Lex Model Building Service", sigV4ServiceName: "lex", name: "AWSDeepSenseModelBuildingService.GetExport" }, GetExportRequest, GetExportResponse, [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getExport = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/exports", method: "GET", sdkId: "Lex Model Building Service", sigV4ServiceName: "lex", name: "AWSDeepSenseModelBuildingService.GetExport" }, GetExportRequest, GetExportResponse, [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets information about an import job started with the
  * `StartImport` operation.
- */export const getImport = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/imports/{importId}", method: "GET", sdkId: "Lex Model Building Service", sigV4ServiceName: "lex", name: "AWSDeepSenseModelBuildingService.GetImport" }, GetImportRequest, GetImportResponse, [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getImport = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/imports/{importId}", method: "GET", sdkId: "Lex Model Building Service", sigV4ServiceName: "lex", name: "AWSDeepSenseModelBuildingService.GetImport" }, GetImportRequest, GetImportResponse, [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about an intent. In addition to the intent
  * name, you must specify the intent version.
@@ -388,7 +388,7 @@ export class AccessDeniedException extends S.TaggedError<AccessDeniedException>(
  * 
  * This operation requires permissions to perform the
  * `lex:GetIntent` action.
- */export const getIntent = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/intents/{name}/versions/{version}", method: "GET", sdkId: "Lex Model Building Service", sigV4ServiceName: "lex", name: "AWSDeepSenseModelBuildingService.GetIntent" }, GetIntentRequest, GetIntentResponse, [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getIntent = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/intents/{name}/versions/{version}", method: "GET", sdkId: "Lex Model Building Service", sigV4ServiceName: "lex", name: "AWSDeepSenseModelBuildingService.GetIntent" }, GetIntentRequest, GetIntentResponse, [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets information about all of the versions of an intent.
  * 
@@ -407,7 +407,7 @@ export class AccessDeniedException extends S.TaggedError<AccessDeniedException>(
  * 
  * This operation requires permissions for the
  * `lex:GetIntentVersions` action.
- */export const getIntentVersions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/intents/{name}/versions", method: "GET", sdkId: "Lex Model Building Service", sigV4ServiceName: "lex", name: "AWSDeepSenseModelBuildingService.GetIntentVersions" }, GetIntentVersionsRequest, GetIntentVersionsResponse, [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getIntentVersions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/intents/{name}/versions", method: "GET", sdkId: "Lex Model Building Service", sigV4ServiceName: "lex", name: "AWSDeepSenseModelBuildingService.GetIntentVersions" }, GetIntentVersionsRequest, GetIntentVersionsResponse, [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about a specific version of a slot type. In
  * addition to specifying the slot type name, you must specify the slot type
@@ -416,7 +416,7 @@ export class AccessDeniedException extends S.TaggedError<AccessDeniedException>(
  * 
  * This operation requires permissions for the
  * `lex:GetSlotType` action.
- */export const getSlotType = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/slottypes/{name}/versions/{version}", method: "GET", sdkId: "Lex Model Building Service", sigV4ServiceName: "lex", name: "AWSDeepSenseModelBuildingService.GetSlotType" }, GetSlotTypeRequest, GetSlotTypeResponse, [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getSlotType = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/slottypes/{name}/versions/{version}", method: "GET", sdkId: "Lex Model Building Service", sigV4ServiceName: "lex", name: "AWSDeepSenseModelBuildingService.GetSlotType" }, GetSlotTypeRequest, GetSlotTypeResponse, [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets information about all versions of a slot type.
  * 
@@ -435,14 +435,14 @@ export class AccessDeniedException extends S.TaggedError<AccessDeniedException>(
  * 
  * This operation requires permissions for the
  * `lex:GetSlotTypeVersions` action.
- */export const getSlotTypeVersions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/slottypes/{name}/versions", method: "GET", sdkId: "Lex Model Building Service", sigV4ServiceName: "lex", name: "AWSDeepSenseModelBuildingService.GetSlotTypeVersions" }, GetSlotTypeVersionsRequest, GetSlotTypeVersionsResponse, [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getSlotTypeVersions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/slottypes/{name}/versions", method: "GET", sdkId: "Lex Model Building Service", sigV4ServiceName: "lex", name: "AWSDeepSenseModelBuildingService.GetSlotTypeVersions" }, GetSlotTypeVersionsRequest, GetSlotTypeVersionsResponse, [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets a list of tags associated with the specified resource. Only bots,
  * bot aliases, and bot channels can have tags associated with them.
- */export const listTagsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/tags/{resourceArn}", method: "GET", sdkId: "Lex Model Building Service", sigV4ServiceName: "lex", name: "AWSDeepSenseModelBuildingService.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/tags/{resourceArn}", method: "GET", sdkId: "Lex Model Building Service", sigV4ServiceName: "lex", name: "AWSDeepSenseModelBuildingService.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts a job to import a resource to Amazon Lex.
- */export const startImport = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/imports", method: "POST", sdkId: "Lex Model Building Service", sigV4ServiceName: "lex", name: "AWSDeepSenseModelBuildingService.StartImport" }, StartImportRequest, StartImportResponse, [BadRequestException, InternalFailureException, LimitExceededException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startImport = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/imports", method: "POST", sdkId: "Lex Model Building Service", sigV4ServiceName: "lex", name: "AWSDeepSenseModelBuildingService.StartImport" }, StartImportRequest, StartImportResponse, [BadRequestException, InternalFailureException, LimitExceededException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new version of the bot based on the `$LATEST`
  * version. If the `$LATEST` version of this resource hasn't
@@ -465,7 +465,7 @@ export class AccessDeniedException extends S.TaggedError<AccessDeniedException>(
  * 
  * This operation requires permission for the
  * `lex:CreateBotVersion` action.
- */export const createBotVersion = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/bots/{name}/versions", method: "POST", sdkId: "Lex Model Building Service", sigV4ServiceName: "lex", name: "AWSDeepSenseModelBuildingService.CreateBotVersion" }, CreateBotVersionRequest, CreateBotVersionResponse, [BadRequestException, ConflictException, InternalFailureException, LimitExceededException, NotFoundException, PreconditionFailedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createBotVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/bots/{name}/versions", method: "POST", sdkId: "Lex Model Building Service", sigV4ServiceName: "lex", name: "AWSDeepSenseModelBuildingService.CreateBotVersion" }, CreateBotVersionRequest, CreateBotVersionResponse, [BadRequestException, ConflictException, InternalFailureException, LimitExceededException, NotFoundException, PreconditionFailedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a specific version of an intent. To delete all versions of
  * a intent, use the DeleteIntent operation.
@@ -473,14 +473,14 @@ export class AccessDeniedException extends S.TaggedError<AccessDeniedException>(
  * 
  * This operation requires permissions for the
  * `lex:DeleteIntentVersion` action.
- */export const deleteIntentVersion = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/intents/{name}/versions/{version}", method: "DELETE", sdkId: "Lex Model Building Service", sigV4ServiceName: "lex", name: "AWSDeepSenseModelBuildingService.DeleteIntentVersion" }, DeleteIntentVersionRequest, S.Struct({}), [BadRequestException, ConflictException, InternalFailureException, LimitExceededException, NotFoundException, ResourceInUseException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteIntentVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/intents/{name}/versions/{version}", method: "DELETE", sdkId: "Lex Model Building Service", sigV4ServiceName: "lex", name: "AWSDeepSenseModelBuildingService.DeleteIntentVersion" }, DeleteIntentVersionRequest, S.Struct({}), [BadRequestException, ConflictException, InternalFailureException, LimitExceededException, NotFoundException, ResourceInUseException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of aliases for a specified Amazon Lex bot.
  * 
  * 
  * This operation requires permissions for the
  * `lex:GetBotAliases` action.
- */export const getBotAliases = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/bots/{botName}/aliases", method: "GET", sdkId: "Lex Model Building Service", sigV4ServiceName: "lex", name: "AWSDeepSenseModelBuildingService.GetBotAliases" }, GetBotAliasesRequest, GetBotAliasesResponse, [BadRequestException, InternalFailureException, LimitExceededException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getBotAliases = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/bots/{botName}/aliases", method: "GET", sdkId: "Lex Model Building Service", sigV4ServiceName: "lex", name: "AWSDeepSenseModelBuildingService.GetBotAliases" }, GetBotAliasesRequest, GetBotAliasesResponse, [BadRequestException, InternalFailureException, LimitExceededException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about the association between an Amazon Lex bot and
  * a messaging platform.
@@ -488,7 +488,7 @@ export class AccessDeniedException extends S.TaggedError<AccessDeniedException>(
  * 
  * This operation requires permissions for the
  * `lex:GetBotChannelAssociation` action.
- */export const getBotChannelAssociation = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/bots/{botName}/aliases/{botAlias}/channels/{name}", method: "GET", sdkId: "Lex Model Building Service", sigV4ServiceName: "lex", name: "AWSDeepSenseModelBuildingService.GetBotChannelAssociation" }, GetBotChannelAssociationRequest, GetBotChannelAssociationResponse, [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getBotChannelAssociation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/bots/{botName}/aliases/{botAlias}/channels/{name}", method: "GET", sdkId: "Lex Model Building Service", sigV4ServiceName: "lex", name: "AWSDeepSenseModelBuildingService.GetBotChannelAssociation" }, GetBotChannelAssociationRequest, GetBotChannelAssociationResponse, [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of all of the channels associated with the
  * specified bot.
@@ -497,7 +497,7 @@ export class AccessDeniedException extends S.TaggedError<AccessDeniedException>(
  * The `GetBotChannelAssociations` operation requires
  * permissions for the `lex:GetBotChannelAssociations`
  * action.
- */export const getBotChannelAssociations = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/bots/{botName}/aliases/{botAlias}/channels", method: "GET", sdkId: "Lex Model Building Service", sigV4ServiceName: "lex", name: "AWSDeepSenseModelBuildingService.GetBotChannelAssociations" }, GetBotChannelAssociationsRequest, GetBotChannelAssociationsResponse, [BadRequestException, InternalFailureException, LimitExceededException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getBotChannelAssociations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/bots/{botName}/aliases/{botAlias}/channels", method: "GET", sdkId: "Lex Model Building Service", sigV4ServiceName: "lex", name: "AWSDeepSenseModelBuildingService.GetBotChannelAssociations" }, GetBotChannelAssociationsRequest, GetBotChannelAssociationsResponse, [BadRequestException, InternalFailureException, LimitExceededException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns bot information as follows:
  * 
@@ -519,14 +519,14 @@ export class AccessDeniedException extends S.TaggedError<AccessDeniedException>(
  * 
  * This operation requires permission for the `lex:GetBots`
  * action.
- */export const getBots = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/bots", method: "GET", sdkId: "Lex Model Building Service", sigV4ServiceName: "lex", name: "AWSDeepSenseModelBuildingService.GetBots" }, GetBotsRequest, GetBotsResponse, [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getBots = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/bots", method: "GET", sdkId: "Lex Model Building Service", sigV4ServiceName: "lex", name: "AWSDeepSenseModelBuildingService.GetBots" }, GetBotsRequest, GetBotsResponse, [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about a built-in intent.
  * 
  * 
  * This operation requires permission for the
  * `lex:GetBuiltinIntent` action.
- */export const getBuiltinIntent = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/builtins/intents/{signature}", method: "GET", sdkId: "Lex Model Building Service", sigV4ServiceName: "lex", name: "AWSDeepSenseModelBuildingService.GetBuiltinIntent" }, GetBuiltinIntentRequest, GetBuiltinIntentResponse, [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getBuiltinIntent = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/builtins/intents/{signature}", method: "GET", sdkId: "Lex Model Building Service", sigV4ServiceName: "lex", name: "AWSDeepSenseModelBuildingService.GetBuiltinIntent" }, GetBuiltinIntentRequest, GetBuiltinIntentResponse, [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets a list of built-in intents that meet the specified
  * criteria.
@@ -534,7 +534,7 @@ export class AccessDeniedException extends S.TaggedError<AccessDeniedException>(
  * 
  * This operation requires permission for the
  * `lex:GetBuiltinIntents` action.
- */export const getBuiltinIntents = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/builtins/intents", method: "GET", sdkId: "Lex Model Building Service", sigV4ServiceName: "lex", name: "AWSDeepSenseModelBuildingService.GetBuiltinIntents" }, GetBuiltinIntentsRequest, GetBuiltinIntentsResponse, [BadRequestException, InternalFailureException, LimitExceededException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getBuiltinIntents = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/builtins/intents", method: "GET", sdkId: "Lex Model Building Service", sigV4ServiceName: "lex", name: "AWSDeepSenseModelBuildingService.GetBuiltinIntents" }, GetBuiltinIntentsRequest, GetBuiltinIntentsResponse, [BadRequestException, InternalFailureException, LimitExceededException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets a list of built-in slot types that meet the specified
  * criteria.
@@ -546,7 +546,7 @@ export class AccessDeniedException extends S.TaggedError<AccessDeniedException>(
  * 
  * This operation requires permission for the
  * `lex:GetBuiltInSlotTypes` action.
- */export const getBuiltinSlotTypes = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/builtins/slottypes", method: "GET", sdkId: "Lex Model Building Service", sigV4ServiceName: "lex", name: "AWSDeepSenseModelBuildingService.GetBuiltinSlotTypes" }, GetBuiltinSlotTypesRequest, GetBuiltinSlotTypesResponse, [BadRequestException, InternalFailureException, LimitExceededException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getBuiltinSlotTypes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/builtins/slottypes", method: "GET", sdkId: "Lex Model Building Service", sigV4ServiceName: "lex", name: "AWSDeepSenseModelBuildingService.GetBuiltinSlotTypes" }, GetBuiltinSlotTypesRequest, GetBuiltinSlotTypesResponse, [BadRequestException, InternalFailureException, LimitExceededException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns intent information as follows:
  * 
@@ -568,15 +568,15 @@ export class AccessDeniedException extends S.TaggedError<AccessDeniedException>(
  * 
  * The operation requires permission for the
  * `lex:GetIntents` action.
- */export const getIntents = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/intents", method: "GET", sdkId: "Lex Model Building Service", sigV4ServiceName: "lex", name: "AWSDeepSenseModelBuildingService.GetIntents" }, GetIntentsRequest, GetIntentsResponse, [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getIntents = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/intents", method: "GET", sdkId: "Lex Model Building Service", sigV4ServiceName: "lex", name: "AWSDeepSenseModelBuildingService.GetIntents" }, GetIntentsRequest, GetIntentsResponse, [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Provides details about an ongoing or complete migration from an
  * Amazon Lex V1 bot to an Amazon Lex V2 bot. Use this operation to view the migration
  * alerts and warnings related to the migration.
- */export const getMigration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/migrations/{migrationId}", method: "GET", sdkId: "Lex Model Building Service", sigV4ServiceName: "lex", name: "AWSDeepSenseModelBuildingService.GetMigration" }, GetMigrationRequest, GetMigrationResponse, [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getMigration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/migrations/{migrationId}", method: "GET", sdkId: "Lex Model Building Service", sigV4ServiceName: "lex", name: "AWSDeepSenseModelBuildingService.GetMigration" }, GetMigrationRequest, GetMigrationResponse, [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets a list of migrations between Amazon Lex V1 and Amazon Lex V2.
- */export const getMigrations = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/migrations", method: "GET", sdkId: "Lex Model Building Service", sigV4ServiceName: "lex", name: "AWSDeepSenseModelBuildingService.GetMigrations" }, GetMigrationsRequest, GetMigrationsResponse, [BadRequestException, InternalFailureException, LimitExceededException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getMigrations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/migrations", method: "GET", sdkId: "Lex Model Building Service", sigV4ServiceName: "lex", name: "AWSDeepSenseModelBuildingService.GetMigrations" }, GetMigrationsRequest, GetMigrationsResponse, [BadRequestException, InternalFailureException, LimitExceededException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns slot type information as follows:
  * 
@@ -598,7 +598,7 @@ export class AccessDeniedException extends S.TaggedError<AccessDeniedException>(
  * 
  * The operation requires permission for the
  * `lex:GetSlotTypes` action.
- */export const getSlotTypes = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/slottypes", method: "GET", sdkId: "Lex Model Building Service", sigV4ServiceName: "lex", name: "AWSDeepSenseModelBuildingService.GetSlotTypes" }, GetSlotTypesRequest, GetSlotTypesResponse, [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getSlotTypes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/slottypes", method: "GET", sdkId: "Lex Model Building Service", sigV4ServiceName: "lex", name: "AWSDeepSenseModelBuildingService.GetSlotTypes" }, GetSlotTypesRequest, GetSlotTypesResponse, [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts migrating a bot from Amazon Lex V1 to Amazon Lex V2. Migrate your bot when
  * you want to take advantage of the new features of Amazon Lex V2.
@@ -606,7 +606,7 @@ export class AccessDeniedException extends S.TaggedError<AccessDeniedException>(
  * 
  * For more information, see Migrating a bot in the Amazon Lex
  * developer guide.
- */export const startMigration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/migrations", method: "POST", sdkId: "Lex Model Building Service", sigV4ServiceName: "lex", name: "AWSDeepSenseModelBuildingService.StartMigration" }, StartMigrationRequest, StartMigrationResponse, [AccessDeniedException, BadRequestException, InternalFailureException, LimitExceededException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startMigration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/migrations", method: "POST", sdkId: "Lex Model Building Service", sigV4ServiceName: "lex", name: "AWSDeepSenseModelBuildingService.StartMigration" }, StartMigrationRequest, StartMigrationResponse, [AccessDeniedException, BadRequestException, InternalFailureException, LimitExceededException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about an Amazon Lex bot alias. For more information
  * about aliases, see versioning-aliases.
@@ -614,7 +614,7 @@ export class AccessDeniedException extends S.TaggedError<AccessDeniedException>(
  * 
  * This operation requires permissions for the
  * `lex:GetBotAlias` action.
- */export const getBotAlias = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/bots/{botName}/aliases/{name}", method: "GET", sdkId: "Lex Model Building Service", sigV4ServiceName: "lex", name: "AWSDeepSenseModelBuildingService.GetBotAlias" }, GetBotAliasRequest, GetBotAliasResponse, [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getBotAlias = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/bots/{botName}/aliases/{name}", method: "GET", sdkId: "Lex Model Building Service", sigV4ServiceName: "lex", name: "AWSDeepSenseModelBuildingService.GetBotAlias" }, GetBotAliasRequest, GetBotAliasResponse, [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Use the `GetUtterancesView` operation to get information
  * about the utterances that your users have made to your bot. You can use
@@ -650,7 +650,7 @@ export class AccessDeniedException extends S.TaggedError<AccessDeniedException>(
  * 
  * This operation requires permissions for the
  * `lex:GetUtterancesView` action.
- */export const getUtterancesView = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/bots/{botName}/utterances?view=aggregation", method: "GET", sdkId: "Lex Model Building Service", sigV4ServiceName: "lex", name: "AWSDeepSenseModelBuildingService.GetUtterancesView" }, GetUtterancesViewRequest, GetUtterancesViewResponse, [BadRequestException, InternalFailureException, LimitExceededException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getUtterancesView = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/bots/{botName}/utterances?view=aggregation", method: "GET", sdkId: "Lex Model Building Service", sigV4ServiceName: "lex", name: "AWSDeepSenseModelBuildingService.GetUtterancesView" }, GetUtterancesViewRequest, GetUtterancesViewResponse, [BadRequestException, InternalFailureException, LimitExceededException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an Amazon Lex conversational bot or replaces an existing bot.
  * When you create or update a bot you are only required to specify a name, a
@@ -673,7 +673,7 @@ export class AccessDeniedException extends S.TaggedError<AccessDeniedException>(
  * 
  * This operation requires permissions for the `lex:PutBot`
  * action. For more information, see security-iam.
- */export const putBot = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/bots/{name}/versions/$LATEST", method: "PUT", sdkId: "Lex Model Building Service", sigV4ServiceName: "lex", name: "AWSDeepSenseModelBuildingService.PutBot" }, PutBotRequest, PutBotResponse, [BadRequestException, ConflictException, InternalFailureException, LimitExceededException, PreconditionFailedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putBot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/bots/{name}/versions/$LATEST", method: "PUT", sdkId: "Lex Model Building Service", sigV4ServiceName: "lex", name: "AWSDeepSenseModelBuildingService.PutBot" }, PutBotRequest, PutBotResponse, [BadRequestException, ConflictException, InternalFailureException, LimitExceededException, PreconditionFailedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an alias for the specified version of the bot or replaces
  * an alias for the specified bot. To change the version of the bot that the
@@ -683,7 +683,7 @@ export class AccessDeniedException extends S.TaggedError<AccessDeniedException>(
  * 
  * This operation requires permissions for the
  * `lex:PutBotAlias` action.
- */export const putBotAlias = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/bots/{botName}/aliases/{name}", method: "PUT", sdkId: "Lex Model Building Service", sigV4ServiceName: "lex", name: "AWSDeepSenseModelBuildingService.PutBotAlias" }, PutBotAliasRequest, PutBotAliasResponse, [BadRequestException, ConflictException, InternalFailureException, LimitExceededException, PreconditionFailedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putBotAlias = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/bots/{botName}/aliases/{name}", method: "PUT", sdkId: "Lex Model Building Service", sigV4ServiceName: "lex", name: "AWSDeepSenseModelBuildingService.PutBotAlias" }, PutBotAliasRequest, PutBotAliasResponse, [BadRequestException, ConflictException, InternalFailureException, LimitExceededException, PreconditionFailedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a custom slot type or replaces an existing custom slot
  * type.
@@ -706,7 +706,7 @@ export class AccessDeniedException extends S.TaggedError<AccessDeniedException>(
  * 
  * This operation requires permissions for the
  * `lex:PutSlotType` action.
- */export const putSlotType = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/slottypes/{name}/versions/$LATEST", method: "PUT", sdkId: "Lex Model Building Service", sigV4ServiceName: "lex", name: "AWSDeepSenseModelBuildingService.PutSlotType" }, PutSlotTypeRequest, PutSlotTypeResponse, [BadRequestException, ConflictException, InternalFailureException, LimitExceededException, PreconditionFailedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putSlotType = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/slottypes/{name}/versions/$LATEST", method: "PUT", sdkId: "Lex Model Building Service", sigV4ServiceName: "lex", name: "AWSDeepSenseModelBuildingService.PutSlotType" }, PutSlotTypeRequest, PutSlotTypeResponse, [BadRequestException, ConflictException, InternalFailureException, LimitExceededException, PreconditionFailedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an intent or replaces an existing intent.
  * 
@@ -786,4 +786,4 @@ export class AccessDeniedException extends S.TaggedError<AccessDeniedException>(
  * 
  * This operation requires permissions for the
  * `lex:PutIntent` action.
- */export const putIntent = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/intents/{name}/versions/$LATEST", method: "PUT", sdkId: "Lex Model Building Service", sigV4ServiceName: "lex", name: "AWSDeepSenseModelBuildingService.PutIntent" }, PutIntentRequest, PutIntentResponse, [BadRequestException, ConflictException, InternalFailureException, LimitExceededException, PreconditionFailedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putIntent = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/intents/{name}/versions/$LATEST", method: "PUT", sdkId: "Lex Model Building Service", sigV4ServiceName: "lex", name: "AWSDeepSenseModelBuildingService.PutIntent" }, PutIntentRequest, PutIntentResponse, [BadRequestException, ConflictException, InternalFailureException, LimitExceededException, PreconditionFailedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

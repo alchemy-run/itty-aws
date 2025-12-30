@@ -436,13 +436,13 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * 
  * For more information about policies, see Managed policies and inline
  * policies in the *IAM User Guide*.
- */export const attachUserPolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.AttachUserPolicy" }, AttachUserPolicyRequest, S.Struct({}), [InvalidInputException, LimitExceededException, NoSuchEntityException, PolicyNotAttachableException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const attachUserPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.AttachUserPolicy" }, AttachUserPolicyRequest, S.Struct({}), [InvalidInputException, LimitExceededException, NoSuchEntityException, PolicyNotAttachableException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Creates an alias for your Amazon Web Services account. For information about using an Amazon Web Services account
  * alias, see Creating, deleting, and
  * listing an Amazon Web Services account alias in the Amazon Web Services Sign-In User
  * Guide.
- */export const createAccountAlias = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.CreateAccountAlias" }, CreateAccountAliasRequest, S.Struct({}), [ConcurrentModificationException, EntityAlreadyExistsException, LimitExceededException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const createAccountAlias = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.CreateAccountAlias" }, CreateAccountAliasRequest, S.Struct({}), [ConcurrentModificationException, EntityAlreadyExistsException, LimitExceededException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deactivates the specified MFA device and removes it from association with the user
  * name for which it was originally enabled.
@@ -451,7 +451,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * For more information about creating and working with virtual MFA devices, see Enabling a virtual
  * multi-factor authentication (MFA) device in the
  * *IAM User Guide*.
- */export const deactivateMFADevice = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.DeactivateMFADevice" }, DeactivateMFADeviceRequest, S.Struct({}), [ConcurrentModificationException, EntityTemporarilyUnmodifiableException, LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deactivateMFADevice = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.DeactivateMFADevice" }, DeactivateMFADeviceRequest, S.Struct({}), [ConcurrentModificationException, EntityTemporarilyUnmodifiableException, LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes the access key pair associated with the specified IAM user.
  * 
@@ -460,16 +460,16 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * the Amazon Web Services access key ID signing the request. This operation works for access keys under
  * the Amazon Web Services account. Consequently, you can use this operation to manage Amazon Web Services account root
  * user credentials even if the Amazon Web Services account has no associated users.
- */export const deleteAccessKey = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.DeleteAccessKey" }, DeleteAccessKeyRequest, S.Struct({}), [LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deleteAccessKey = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.DeleteAccessKey" }, DeleteAccessKeyRequest, S.Struct({}), [LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes the specified Amazon Web Services account alias. For information about using an Amazon Web Services
  * account alias, see Creating, deleting, and
  * listing an Amazon Web Services account alias in the Amazon Web Services Sign-In User
  * Guide.
- */export const deleteAccountAlias = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.DeleteAccountAlias" }, DeleteAccountAliasRequest, S.Struct({}), [ConcurrentModificationException, LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deleteAccountAlias = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.DeleteAccountAlias" }, DeleteAccountAliasRequest, S.Struct({}), [ConcurrentModificationException, LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes the password policy for the Amazon Web Services account. There are no parameters.
- */export const deleteAccountPasswordPolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.DeleteAccountPasswordPolicy" }, S.Struct({}), S.Struct({}), [LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deleteAccountPasswordPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.DeleteAccountPasswordPolicy" }, S.Struct({}), S.Struct({}), [LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes the specified inline policy that is embedded in the specified IAM
  * group.
@@ -479,7 +479,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * a group, use DetachGroupPolicy.
  * For more information about policies, refer to Managed policies and inline
  * policies in the *IAM User Guide*.
- */export const deleteGroupPolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.DeleteGroupPolicy" }, DeleteGroupPolicyRequest, S.Struct({}), [LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deleteGroupPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.DeleteGroupPolicy" }, DeleteGroupPolicyRequest, S.Struct({}), [LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes the specified instance profile. The instance profile must not have an
  * associated role.
@@ -497,7 +497,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * 
  * For more information about instance profiles, see Using
  * instance profiles in the *IAM User Guide*.
- */export const deleteInstanceProfile = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.DeleteInstanceProfile" }, DeleteInstanceProfileRequest, S.Struct({}), [DeleteConflictException, LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deleteInstanceProfile = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.DeleteInstanceProfile" }, DeleteInstanceProfileRequest, S.Struct({}), [DeleteConflictException, LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes the password for the specified IAM user or root user, For more information, see
  * Managing
@@ -517,7 +517,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * either make any access keys inactive or delete them. For more information about
  * making keys inactive or deleting them, see UpdateAccessKey
  * and DeleteAccessKey.
- */export const deleteLoginProfile = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.DeleteLoginProfile" }, DeleteLoginProfileRequest, S.Struct({}), [EntityTemporarilyUnmodifiableException, LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deleteLoginProfile = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.DeleteLoginProfile" }, DeleteLoginProfileRequest, S.Struct({}), [EntityTemporarilyUnmodifiableException, LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes an OpenID Connect identity provider (IdP) resource object in IAM.
  * 
@@ -529,7 +529,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * 
  * This operation is idempotent; it does not fail or return an error if you call the
  * operation for a provider that does not exist.
- */export const deleteOpenIDConnectProvider = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.DeleteOpenIDConnectProvider" }, DeleteOpenIDConnectProviderRequest, S.Struct({}), [InvalidInputException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deleteOpenIDConnectProvider = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.DeleteOpenIDConnectProvider" }, DeleteOpenIDConnectProviderRequest, S.Struct({}), [InvalidInputException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes the specified managed policy.
  * 
@@ -562,7 +562,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * 
  * For information about managed policies, see Managed policies and inline
  * policies in the *IAM User Guide*.
- */export const deletePolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.DeletePolicy" }, DeletePolicyRequest, S.Struct({}), [DeleteConflictException, InvalidInputException, LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deletePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.DeletePolicy" }, DeletePolicyRequest, S.Struct({}), [DeleteConflictException, InvalidInputException, LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes the specified version from the specified managed policy.
  * 
@@ -574,7 +574,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * 
  * For information about versions for managed policies, see Versioning for managed
  * policies in the *IAM User Guide*.
- */export const deletePolicyVersion = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.DeletePolicyVersion" }, DeletePolicyVersionRequest, S.Struct({}), [DeleteConflictException, InvalidInputException, LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deletePolicyVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.DeletePolicyVersion" }, DeletePolicyVersionRequest, S.Struct({}), [DeleteConflictException, InvalidInputException, LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes the specified role. Unlike the Amazon Web Services Management Console, when you delete a role
  * programmatically, you must delete the items attached to the role manually, or the
@@ -607,7 +607,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * Make sure that you do not have any Amazon EC2 instances running with the role you are
  * about to delete. Deleting a role or instance profile that is associated with a
  * running instance will break any applications running on the instance.
- */export const deleteRole = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.DeleteRole" }, DeleteRoleRequest, S.Struct({}), [ConcurrentModificationException, DeleteConflictException, LimitExceededException, NoSuchEntityException, ServiceFailureException, UnmodifiableEntityException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deleteRole = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.DeleteRole" }, DeleteRoleRequest, S.Struct({}), [ConcurrentModificationException, DeleteConflictException, LimitExceededException, NoSuchEntityException, ServiceFailureException, UnmodifiableEntityException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes the permissions boundary for the specified IAM role.
  * 
@@ -620,7 +620,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * Deleting the permissions boundary for a role might increase its permissions. For
  * example, it might allow anyone who assumes the role to perform all the actions
  * granted in its permissions policies.
- */export const deleteRolePermissionsBoundary = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.DeleteRolePermissionsBoundary" }, DeleteRolePermissionsBoundaryRequest, S.Struct({}), [NoSuchEntityException, ServiceFailureException, UnmodifiableEntityException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deleteRolePermissionsBoundary = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.DeleteRolePermissionsBoundary" }, DeleteRolePermissionsBoundaryRequest, S.Struct({}), [NoSuchEntityException, ServiceFailureException, UnmodifiableEntityException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes the specified inline policy that is embedded in the specified IAM
  * role.
@@ -630,7 +630,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * a role, use DetachRolePolicy.
  * For more information about policies, refer to Managed policies and inline
  * policies in the *IAM User Guide*.
- */export const deleteRolePolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.DeleteRolePolicy" }, DeleteRolePolicyRequest, S.Struct({}), [LimitExceededException, NoSuchEntityException, ServiceFailureException, UnmodifiableEntityException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deleteRolePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.DeleteRolePolicy" }, DeleteRolePolicyRequest, S.Struct({}), [LimitExceededException, NoSuchEntityException, ServiceFailureException, UnmodifiableEntityException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes a SAML provider resource in IAM.
  * 
@@ -643,7 +643,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * 
  * 
  * This operation requires Signature Version 4.
- */export const deleteSAMLProvider = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.DeleteSAMLProvider" }, DeleteSAMLProviderRequest, S.Struct({}), [InvalidInputException, LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deleteSAMLProvider = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.DeleteSAMLProvider" }, DeleteSAMLProviderRequest, S.Struct({}), [InvalidInputException, LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes the specified server certificate.
  * 
@@ -664,10 +664,10 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * Balancing before using this command to delete the certificate. For more information,
  * see DeleteLoadBalancerListeners in the Elastic Load Balancing API
  * Reference.
- */export const deleteServerCertificate = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.DeleteServerCertificate" }, DeleteServerCertificateRequest, S.Struct({}), [DeleteConflictException, LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deleteServerCertificate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.DeleteServerCertificate" }, DeleteServerCertificateRequest, S.Struct({}), [DeleteConflictException, LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes the specified service-specific credential.
- */export const deleteServiceSpecificCredential = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.DeleteServiceSpecificCredential" }, DeleteServiceSpecificCredentialRequest, S.Struct({}), [NoSuchEntityException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deleteServiceSpecificCredential = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.DeleteServiceSpecificCredential" }, DeleteServiceSpecificCredentialRequest, S.Struct({}), [NoSuchEntityException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes a signing certificate associated with the specified IAM user.
  * 
@@ -676,7 +676,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * the Amazon Web Services access key ID signing the request. This operation works for access keys under
  * the Amazon Web Services account. Consequently, you can use this operation to manage Amazon Web Services account root
  * user credentials even if the Amazon Web Services account has no associated IAM users.
- */export const deleteSigningCertificate = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.DeleteSigningCertificate" }, DeleteSigningCertificateRequest, S.Struct({}), [ConcurrentModificationException, LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deleteSigningCertificate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.DeleteSigningCertificate" }, DeleteSigningCertificateRequest, S.Struct({}), [ConcurrentModificationException, LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes the specified SSH public key.
  * 
@@ -685,7 +685,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * associated IAM user to an CodeCommit repository. For more information about using SSH keys
  * to authenticate to an CodeCommit repository, see Set up CodeCommit for
  * SSH connections in the *CodeCommit User Guide*.
- */export const deleteSSHPublicKey = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.DeleteSSHPublicKey" }, DeleteSSHPublicKeyRequest, S.Struct({}), [NoSuchEntityException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deleteSSHPublicKey = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.DeleteSSHPublicKey" }, DeleteSSHPublicKeyRequest, S.Struct({}), [NoSuchEntityException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes the specified IAM user. Unlike the Amazon Web Services Management Console, when you delete a user
  * programmatically, you must delete the items attached to the user manually, or the
@@ -727,7 +727,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * 
  * 
  * - Group memberships (RemoveUserFromGroup)
- */export const deleteUser = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.DeleteUser" }, DeleteUserRequest, S.Struct({}), [ConcurrentModificationException, DeleteConflictException, LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deleteUser = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.DeleteUser" }, DeleteUserRequest, S.Struct({}), [ConcurrentModificationException, DeleteConflictException, LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes the permissions boundary for the specified IAM user.
  * 
@@ -736,7 +736,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * 
  * Deleting the permissions boundary for a user might increase its permissions by
  * allowing the user to perform all the actions granted in its permissions policies.
- */export const deleteUserPermissionsBoundary = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.DeleteUserPermissionsBoundary" }, DeleteUserPermissionsBoundaryRequest, S.Struct({}), [NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deleteUserPermissionsBoundary = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.DeleteUserPermissionsBoundary" }, DeleteUserPermissionsBoundaryRequest, S.Struct({}), [NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes the specified inline policy that is embedded in the specified IAM
  * user.
@@ -746,7 +746,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * a user, use DetachUserPolicy.
  * For more information about policies, refer to Managed policies and inline
  * policies in the *IAM User Guide*.
- */export const deleteUserPolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.DeleteUserPolicy" }, DeleteUserPolicyRequest, S.Struct({}), [LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deleteUserPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.DeleteUserPolicy" }, DeleteUserPolicyRequest, S.Struct({}), [LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes a virtual MFA device.
  * 
@@ -755,7 +755,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * 
  * You must deactivate a user's virtual MFA device before you can delete it. For
  * information about deactivating MFA devices, see DeactivateMFADevice.
- */export const deleteVirtualMFADevice = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.DeleteVirtualMFADevice" }, DeleteVirtualMFADeviceRequest, S.Struct({}), [ConcurrentModificationException, DeleteConflictException, LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deleteVirtualMFADevice = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.DeleteVirtualMFADevice" }, DeleteVirtualMFADeviceRequest, S.Struct({}), [ConcurrentModificationException, DeleteConflictException, LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Removes the specified managed policy from the specified IAM group.
  * 
@@ -764,7 +764,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * use DeleteGroupPolicy. For information about policies, see Managed
  * policies and inline policies in the
  * *IAM User Guide*.
- */export const detachGroupPolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.DetachGroupPolicy" }, DetachGroupPolicyRequest, S.Struct({}), [InvalidInputException, LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const detachGroupPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.DetachGroupPolicy" }, DetachGroupPolicyRequest, S.Struct({}), [InvalidInputException, LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Removes the specified managed policy from the specified role.
  * 
@@ -773,7 +773,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * DeleteRolePolicy. For information about policies, see Managed
  * policies and inline policies in the
  * *IAM User Guide*.
- */export const detachRolePolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.DetachRolePolicy" }, DetachRolePolicyRequest, S.Struct({}), [InvalidInputException, LimitExceededException, NoSuchEntityException, ServiceFailureException, UnmodifiableEntityException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const detachRolePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.DetachRolePolicy" }, DetachRolePolicyRequest, S.Struct({}), [InvalidInputException, LimitExceededException, NoSuchEntityException, ServiceFailureException, UnmodifiableEntityException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Removes the specified managed policy from the specified user.
  * 
@@ -782,17 +782,17 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * DeleteUserPolicy. For information about policies, see Managed
  * policies and inline policies in the
  * *IAM User Guide*.
- */export const detachUserPolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.DetachUserPolicy" }, DetachUserPolicyRequest, S.Struct({}), [InvalidInputException, LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const detachUserPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.DetachUserPolicy" }, DetachUserPolicyRequest, S.Struct({}), [InvalidInputException, LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Disables the outbound identity federation feature for your Amazon Web Services account. When disabled, IAM principals in the account cannot
  * use the `GetWebIdentityToken` API to obtain JSON Web Tokens (JWTs) for authentication with external services. This operation
  * does not affect tokens that were issued before the feature was disabled.
- */export const disableOutboundWebIdentityFederation = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.DisableOutboundWebIdentityFederation" }, S.Struct({}), S.Struct({}), [FeatureDisabledException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const disableOutboundWebIdentityFederation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.DisableOutboundWebIdentityFederation" }, S.Struct({}), S.Struct({}), [FeatureDisabledException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Generates a credential report for the Amazon Web Services account. For more information about the
  * credential report, see Getting credential reports in
  * the *IAM User Guide*.
- */export const generateCredentialReport = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.GenerateCredentialReport" }, S.Struct({}), GenerateCredentialReportResponse, [LimitExceededException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const generateCredentialReport = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.GenerateCredentialReport" }, S.Struct({}), GenerateCredentialReportResponse, [LimitExceededException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Gets a list of all of the context keys referenced in all the IAM policies that are
  * attached to the specified IAM entity. The entity can be an IAM user, group, or role.
@@ -815,11 +815,11 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * about the context of an API query request. Context keys can be evaluated by testing
  * against a value in an IAM policy. Use GetContextKeysForPrincipalPolicy to understand what key names and values
  * you must supply when you call SimulatePrincipalPolicy.
- */export const getContextKeysForPrincipalPolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.GetContextKeysForPrincipalPolicy" }, GetContextKeysForPrincipalPolicyRequest, GetContextKeysForPolicyResponse, [InvalidInputException, NoSuchEntityException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const getContextKeysForPrincipalPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.GetContextKeysForPrincipalPolicy" }, GetContextKeysForPrincipalPolicyRequest, GetContextKeysForPolicyResponse, [InvalidInputException, NoSuchEntityException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Retrieves the configuration information for the outbound identity federation feature in your Amazon Web Services account. The response includes the unique issuer URL for your
  * Amazon Web Services account and the current enabled/disabled status of the feature. Use this operation to obtain the issuer URL that you need to configure trust relationships with external services.
- */export const getOutboundWebIdentityFederationInfo = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.GetOutboundWebIdentityFederationInfo" }, S.Struct({}), GetOutboundWebIdentityFederationInfoResponse, [FeatureDisabledException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const getOutboundWebIdentityFederationInfo = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.GetOutboundWebIdentityFederationInfo" }, S.Struct({}), GetOutboundWebIdentityFederationInfoResponse, [FeatureDisabledException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Adds or updates the policy that is specified as the IAM role's permissions boundary.
  * You can use an Amazon Web Services managed policy or a customer managed policy to set the boundary for
@@ -837,7 +837,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * attach a permissions policy to the role. To learn how the effective permissions for
  * a role are evaluated, see IAM JSON policy
  * evaluation logic in the IAM User Guide.
- */export const putRolePermissionsBoundary = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.PutRolePermissionsBoundary" }, PutRolePermissionsBoundaryRequest, S.Struct({}), [InvalidInputException, NoSuchEntityException, PolicyNotAttachableException, ServiceFailureException, UnmodifiableEntityException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const putRolePermissionsBoundary = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.PutRolePermissionsBoundary" }, PutRolePermissionsBoundaryRequest, S.Struct({}), [InvalidInputException, NoSuchEntityException, PolicyNotAttachableException, ServiceFailureException, UnmodifiableEntityException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Adds or updates an inline policy document that is embedded in the specified IAM
  * role.
@@ -876,7 +876,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * calling `PutRolePolicy`. For general information about using the Query
  * API with IAM, see Making query requests in the
  * *IAM User Guide*.
- */export const putRolePolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.PutRolePolicy" }, PutRolePolicyRequest, S.Struct({}), [LimitExceededException, MalformedPolicyDocumentException, NoSuchEntityException, ServiceFailureException, UnmodifiableEntityException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const putRolePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.PutRolePolicy" }, PutRolePolicyRequest, S.Struct({}), [LimitExceededException, MalformedPolicyDocumentException, NoSuchEntityException, ServiceFailureException, UnmodifiableEntityException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Adds or updates the policy that is specified as the IAM user's permissions
  * boundary. You can use an Amazon Web Services managed policy or a customer managed policy to set the
@@ -891,7 +891,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * must also attach a permissions policy to the user. To learn how the effective
  * permissions for a user are evaluated, see IAM JSON policy
  * evaluation logic in the IAM User Guide.
- */export const putUserPermissionsBoundary = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.PutUserPermissionsBoundary" }, PutUserPermissionsBoundaryRequest, S.Struct({}), [InvalidInputException, NoSuchEntityException, PolicyNotAttachableException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const putUserPermissionsBoundary = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.PutUserPermissionsBoundary" }, PutUserPermissionsBoundaryRequest, S.Struct({}), [InvalidInputException, NoSuchEntityException, PolicyNotAttachableException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Adds or updates an inline policy document that is embedded in the specified IAM
  * user.
@@ -918,7 +918,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * calling `PutUserPolicy`. For general information about using the Query
  * API with IAM, see Making query requests in the
  * *IAM User Guide*.
- */export const putUserPolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.PutUserPolicy" }, PutUserPolicyRequest, S.Struct({}), [LimitExceededException, MalformedPolicyDocumentException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const putUserPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.PutUserPolicy" }, PutUserPolicyRequest, S.Struct({}), [LimitExceededException, MalformedPolicyDocumentException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Rejects a delegation request, denying the requested temporary access.
  * 
@@ -933,7 +933,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * For more details, see
  * 
  * Managing Permissions for Delegation Requests.
- */export const rejectDelegationRequest = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.RejectDelegationRequest" }, RejectDelegationRequestRequest, S.Struct({}), [ConcurrentModificationException, InvalidInputException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const rejectDelegationRequest = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.RejectDelegationRequest" }, RejectDelegationRequestRequest, S.Struct({}), [ConcurrentModificationException, InvalidInputException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Removes the specified client ID (also known as audience) from the list of client IDs
  * registered for the specified IAM OpenID Connect (OIDC) provider resource
@@ -942,7 +942,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * 
  * This operation is idempotent; it does not fail or return an error if you try to remove
  * a client ID that does not exist.
- */export const removeClientIDFromOpenIDConnectProvider = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.RemoveClientIDFromOpenIDConnectProvider" }, RemoveClientIDFromOpenIDConnectProviderRequest, S.Struct({}), [ConcurrentModificationException, InvalidInputException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const removeClientIDFromOpenIDConnectProvider = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.RemoveClientIDFromOpenIDConnectProvider" }, RemoveClientIDFromOpenIDConnectProviderRequest, S.Struct({}), [ConcurrentModificationException, InvalidInputException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Removes the specified IAM role from the specified Amazon EC2 instance profile.
  * 
@@ -961,10 +961,10 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * *IAM User Guide*. For more information about instance profiles,
  * see Using
  * instance profiles in the *IAM User Guide*.
- */export const removeRoleFromInstanceProfile = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.RemoveRoleFromInstanceProfile" }, RemoveRoleFromInstanceProfileRequest, S.Struct({}), [LimitExceededException, NoSuchEntityException, ServiceFailureException, UnmodifiableEntityException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const removeRoleFromInstanceProfile = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.RemoveRoleFromInstanceProfile" }, RemoveRoleFromInstanceProfileRequest, S.Struct({}), [LimitExceededException, NoSuchEntityException, ServiceFailureException, UnmodifiableEntityException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Removes the specified user from the specified group.
- */export const removeUserFromGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.RemoveUserFromGroup" }, RemoveUserFromGroupRequest, S.Struct({}), [LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const removeUserFromGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.RemoveUserFromGroup" }, RemoveUserFromGroupRequest, S.Struct({}), [LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Synchronizes the specified MFA device with its IAM resource object on the Amazon Web Services
  * servers.
@@ -972,7 +972,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * 
  * For more information about creating and working with virtual MFA devices, see Using a virtual MFA
  * device in the *IAM User Guide*.
- */export const resyncMFADevice = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.ResyncMFADevice" }, ResyncMFADeviceRequest, S.Struct({}), [ConcurrentModificationException, InvalidAuthenticationCodeException, LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const resyncMFADevice = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.ResyncMFADevice" }, ResyncMFADeviceRequest, S.Struct({}), [ConcurrentModificationException, InvalidAuthenticationCodeException, LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Sends the exchange token for an accepted delegation request.
  * 
@@ -990,7 +990,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * For more details, see
  * 
  * Managing Permissions for Delegation Requests.
- */export const sendDelegationToken = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.SendDelegationToken" }, SendDelegationTokenRequest, S.Struct({}), [ConcurrentModificationException, InvalidInputException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const sendDelegationToken = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.SendDelegationToken" }, SendDelegationTokenRequest, S.Struct({}), [ConcurrentModificationException, InvalidInputException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Sets the specified version of the specified policy as the policy's default (operative)
  * version.
@@ -1002,7 +1002,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * 
  * For information about managed policies, see Managed policies and inline
  * policies in the *IAM User Guide*.
- */export const setDefaultPolicyVersion = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.SetDefaultPolicyVersion" }, SetDefaultPolicyVersionRequest, S.Struct({}), [InvalidInputException, LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const setDefaultPolicyVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.SetDefaultPolicyVersion" }, SetDefaultPolicyVersionRequest, S.Struct({}), [InvalidInputException, LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Sets the specified version of the global endpoint token as the token version used for
  * the Amazon Web Services account.
@@ -1029,7 +1029,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * 
  * To view the current session token version, see the
  * `GlobalEndpointTokenVersion` entry in the response of the GetAccountSummary operation.
- */export const setSecurityTokenServicePreferences = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.SetSecurityTokenServicePreferences" }, SetSecurityTokenServicePreferencesRequest, S.Struct({}), [ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const setSecurityTokenServicePreferences = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.SetSecurityTokenServicePreferences" }, SetSecurityTokenServicePreferencesRequest, S.Struct({}), [ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Adds one or more tags to an IAM instance profile. If a tag with the same key name
  * already exists, then that tag is overwritten with the new value.
@@ -1070,7 +1070,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * - Amazon Web Services always interprets the tag `Value` as a single string. If you
  * need to store an array, you can store comma-separated values in the string. However, you
  * must interpret the value in your code.
- */export const tagInstanceProfile = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.TagInstanceProfile" }, TagInstanceProfileRequest, S.Struct({}), [ConcurrentModificationException, InvalidInputException, LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const tagInstanceProfile = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.TagInstanceProfile" }, TagInstanceProfileRequest, S.Struct({}), [ConcurrentModificationException, InvalidInputException, LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Adds one or more tags to an IAM virtual multi-factor authentication (MFA) device. If
  * a tag with the same key name already exists, then that tag is overwritten with the new
@@ -1112,7 +1112,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * - Amazon Web Services always interprets the tag `Value` as a single string. If you
  * need to store an array, you can store comma-separated values in the string. However, you
  * must interpret the value in your code.
- */export const tagMFADevice = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.TagMFADevice" }, TagMFADeviceRequest, S.Struct({}), [ConcurrentModificationException, InvalidInputException, LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const tagMFADevice = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.TagMFADevice" }, TagMFADeviceRequest, S.Struct({}), [ConcurrentModificationException, InvalidInputException, LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Adds one or more tags to an OpenID Connect (OIDC)-compatible identity provider. For
  * more information about these providers, see About web identity federation. If
@@ -1155,7 +1155,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * - Amazon Web Services always interprets the tag `Value` as a single string. If you
  * need to store an array, you can store comma-separated values in the string. However, you
  * must interpret the value in your code.
- */export const tagOpenIDConnectProvider = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.TagOpenIDConnectProvider" }, TagOpenIDConnectProviderRequest, S.Struct({}), [ConcurrentModificationException, InvalidInputException, LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const tagOpenIDConnectProvider = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.TagOpenIDConnectProvider" }, TagOpenIDConnectProviderRequest, S.Struct({}), [ConcurrentModificationException, InvalidInputException, LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Adds one or more tags to an IAM customer managed policy. If a tag with the same key
  * name already exists, then that tag is overwritten with the new value.
@@ -1196,7 +1196,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * - Amazon Web Services always interprets the tag `Value` as a single string. If you
  * need to store an array, you can store comma-separated values in the string. However, you
  * must interpret the value in your code.
- */export const tagPolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.TagPolicy" }, TagPolicyRequest, S.Struct({}), [ConcurrentModificationException, InvalidInputException, LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const tagPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.TagPolicy" }, TagPolicyRequest, S.Struct({}), [ConcurrentModificationException, InvalidInputException, LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Adds one or more tags to an IAM role. The role can be a regular role or a
  * service-linked role. If a tag with the same key name already exists, then that tag is
@@ -1253,7 +1253,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * 
  * For more information about tagging, see Tagging IAM identities in the
  * *IAM User Guide*.
- */export const tagRole = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.TagRole" }, TagRoleRequest, S.Struct({}), [ConcurrentModificationException, InvalidInputException, LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const tagRole = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.TagRole" }, TagRoleRequest, S.Struct({}), [ConcurrentModificationException, InvalidInputException, LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Adds one or more tags to a Security Assertion Markup Language (SAML) identity provider.
  * For more information about these providers, see About SAML 2.0-based federation .
@@ -1296,7 +1296,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * - Amazon Web Services always interprets the tag `Value` as a single string. If you
  * need to store an array, you can store comma-separated values in the string. However, you
  * must interpret the value in your code.
- */export const tagSAMLProvider = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.TagSAMLProvider" }, TagSAMLProviderRequest, S.Struct({}), [ConcurrentModificationException, InvalidInputException, LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const tagSAMLProvider = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.TagSAMLProvider" }, TagSAMLProviderRequest, S.Struct({}), [ConcurrentModificationException, InvalidInputException, LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Adds one or more tags to an IAM server certificate. If a tag with the same key name
  * already exists, then that tag is overwritten with the new value.
@@ -1353,7 +1353,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * - Amazon Web Services always interprets the tag `Value` as a single string. If you
  * need to store an array, you can store comma-separated values in the string. However, you
  * must interpret the value in your code.
- */export const tagServerCertificate = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.TagServerCertificate" }, TagServerCertificateRequest, S.Struct({}), [ConcurrentModificationException, InvalidInputException, LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const tagServerCertificate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.TagServerCertificate" }, TagServerCertificateRequest, S.Struct({}), [ConcurrentModificationException, InvalidInputException, LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Adds one or more tags to an IAM user. If a tag with the same key name already exists,
  * then that tag is overwritten with the new value.
@@ -1409,36 +1409,36 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * 
  * For more information about tagging, see Tagging IAM identities in the
  * *IAM User Guide*.
- */export const tagUser = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.TagUser" }, TagUserRequest, S.Struct({}), [ConcurrentModificationException, InvalidInputException, LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const tagUser = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.TagUser" }, TagUserRequest, S.Struct({}), [ConcurrentModificationException, InvalidInputException, LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Removes the specified tags from the IAM instance profile. For more information about tagging, see Tagging IAM resources in the
  * *IAM User Guide*.
- */export const untagInstanceProfile = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.UntagInstanceProfile" }, UntagInstanceProfileRequest, S.Struct({}), [ConcurrentModificationException, InvalidInputException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const untagInstanceProfile = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.UntagInstanceProfile" }, UntagInstanceProfileRequest, S.Struct({}), [ConcurrentModificationException, InvalidInputException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Removes the specified tags from the IAM virtual multi-factor authentication (MFA)
  * device. For more information about tagging, see Tagging IAM resources in the
  * *IAM User Guide*.
- */export const untagMFADevice = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.UntagMFADevice" }, UntagMFADeviceRequest, S.Struct({}), [ConcurrentModificationException, InvalidInputException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const untagMFADevice = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.UntagMFADevice" }, UntagMFADeviceRequest, S.Struct({}), [ConcurrentModificationException, InvalidInputException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Removes the specified tags from the specified OpenID Connect (OIDC)-compatible identity
  * provider in IAM. For more information about OIDC providers, see About web identity federation.
  * For more information about tagging, see Tagging IAM resources in the
  * *IAM User Guide*.
- */export const untagOpenIDConnectProvider = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.UntagOpenIDConnectProvider" }, UntagOpenIDConnectProviderRequest, S.Struct({}), [ConcurrentModificationException, InvalidInputException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const untagOpenIDConnectProvider = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.UntagOpenIDConnectProvider" }, UntagOpenIDConnectProviderRequest, S.Struct({}), [ConcurrentModificationException, InvalidInputException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Removes the specified tags from the customer managed policy. For more information about tagging, see Tagging IAM resources in the
  * *IAM User Guide*.
- */export const untagPolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.UntagPolicy" }, UntagPolicyRequest, S.Struct({}), [ConcurrentModificationException, InvalidInputException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const untagPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.UntagPolicy" }, UntagPolicyRequest, S.Struct({}), [ConcurrentModificationException, InvalidInputException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Removes the specified tags from the role. For more information about tagging, see Tagging IAM resources in the
  * *IAM User Guide*.
- */export const untagRole = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.UntagRole" }, UntagRoleRequest, S.Struct({}), [ConcurrentModificationException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const untagRole = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.UntagRole" }, UntagRoleRequest, S.Struct({}), [ConcurrentModificationException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Removes the specified tags from the specified Security Assertion Markup Language (SAML)
  * identity provider in IAM. For more information about these providers, see About web identity
  * federation. For more information about tagging, see Tagging IAM resources in the
  * *IAM User Guide*.
- */export const untagSAMLProvider = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.UntagSAMLProvider" }, UntagSAMLProviderRequest, S.Struct({}), [ConcurrentModificationException, InvalidInputException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const untagSAMLProvider = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.UntagSAMLProvider" }, UntagSAMLProviderRequest, S.Struct({}), [ConcurrentModificationException, InvalidInputException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Removes the specified tags from the IAM server certificate.
  * For more information about tagging, see Tagging IAM resources in the
@@ -1452,11 +1452,11 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * manage, and deploy your server certificates. For more information about IAM server
  * certificates, Working with server
  * certificates in the *IAM User Guide*.
- */export const untagServerCertificate = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.UntagServerCertificate" }, UntagServerCertificateRequest, S.Struct({}), [ConcurrentModificationException, InvalidInputException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const untagServerCertificate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.UntagServerCertificate" }, UntagServerCertificateRequest, S.Struct({}), [ConcurrentModificationException, InvalidInputException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Removes the specified tags from the user. For more information about tagging, see Tagging IAM resources in the
  * *IAM User Guide*.
- */export const untagUser = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.UntagUser" }, UntagUserRequest, S.Struct({}), [ConcurrentModificationException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const untagUser = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.UntagUser" }, UntagUserRequest, S.Struct({}), [ConcurrentModificationException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Changes the status of the specified access key from Active to Inactive, or vice versa.
  * This operation can be used to disable a user's key as part of a key rotation
@@ -1473,7 +1473,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * 
  * For information about rotating keys, see Managing keys and certificates
  * in the *IAM User Guide*.
- */export const updateAccessKey = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.UpdateAccessKey" }, UpdateAccessKeyRequest, S.Struct({}), [InvalidInputException, LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const updateAccessKey = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.UpdateAccessKey" }, UpdateAccessKeyRequest, S.Struct({}), [InvalidInputException, LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Updates the password policy settings for the Amazon Web Services account.
  * 
@@ -1492,13 +1492,13 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * 
  * For more information about using a password policy, see Managing an IAM password
  * policy in the *IAM User Guide*.
- */export const updateAccountPasswordPolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.UpdateAccountPasswordPolicy" }, UpdateAccountPasswordPolicyRequest, S.Struct({}), [LimitExceededException, MalformedPolicyDocumentException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const updateAccountPasswordPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.UpdateAccountPasswordPolicy" }, UpdateAccountPasswordPolicyRequest, S.Struct({}), [LimitExceededException, MalformedPolicyDocumentException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Updates the policy that grants an IAM entity permission to assume a role. This is
  * typically referred to as the "role trust policy". For more information about roles, see
  * Using roles to
  * delegate permissions and federate identities.
- */export const updateAssumeRolePolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.UpdateAssumeRolePolicy" }, UpdateAssumeRolePolicyRequest, S.Struct({}), [LimitExceededException, MalformedPolicyDocumentException, NoSuchEntityException, ServiceFailureException, UnmodifiableEntityException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const updateAssumeRolePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.UpdateAssumeRolePolicy" }, UpdateAssumeRolePolicyRequest, S.Struct({}), [LimitExceededException, MalformedPolicyDocumentException, NoSuchEntityException, ServiceFailureException, UnmodifiableEntityException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Updates an existing delegation request with additional information. When the delegation
  * request is updated, it reaches the `PENDING_APPROVAL` state.
@@ -1509,7 +1509,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * delegation request. For more details, see
  * 
  * Managing Permissions for Delegation Requests.
- */export const updateDelegationRequest = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.UpdateDelegationRequest" }, UpdateDelegationRequestRequest, S.Struct({}), [ConcurrentModificationException, InvalidInputException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const updateDelegationRequest = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.UpdateDelegationRequest" }, UpdateDelegationRequestRequest, S.Struct({}), [ConcurrentModificationException, InvalidInputException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Updates the name and/or the path of the specified IAM group.
  * 
@@ -1531,7 +1531,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * that allows them to update both groups. If the principal has permission to update
  * the `Managers` group, but not the `MGRs` group, then the
  * update fails. For more information about permissions, see Access management.
- */export const updateGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.UpdateGroup" }, UpdateGroupRequest, S.Struct({}), [EntityAlreadyExistsException, LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const updateGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.UpdateGroup" }, UpdateGroupRequest, S.Struct({}), [EntityAlreadyExistsException, LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Replaces the existing list of server certificate thumbprints associated with an OpenID
  * Connect (OIDC) provider resource object with a new list of thumbprints.
@@ -1565,10 +1565,10 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * validated by the thumbprint. Therefore, it is best to limit access to the
  * `UpdateOpenIDConnectProviderThumbprint` operation to highly
  * privileged users.
- */export const updateOpenIDConnectProviderThumbprint = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.UpdateOpenIDConnectProviderThumbprint" }, UpdateOpenIDConnectProviderThumbprintRequest, S.Struct({}), [ConcurrentModificationException, InvalidInputException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const updateOpenIDConnectProviderThumbprint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.UpdateOpenIDConnectProviderThumbprint" }, UpdateOpenIDConnectProviderThumbprintRequest, S.Struct({}), [ConcurrentModificationException, InvalidInputException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Updates the description or maximum session duration setting of a role.
- */export const updateRole = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.UpdateRole" }, UpdateRoleRequest, UpdateRoleResponse, [NoSuchEntityException, ServiceFailureException, UnmodifiableEntityException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const updateRole = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.UpdateRole" }, UpdateRoleRequest, UpdateRoleResponse, [NoSuchEntityException, ServiceFailureException, UnmodifiableEntityException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Updates the name and/or the path of the specified server certificate stored in
  * IAM.
@@ -1598,13 +1598,13 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * principal has permission to update the `ProductionCert` group, but not
  * the `ProdCert` certificate, then the update fails. For more information
  * about permissions, see Access management in the *IAM User Guide*.
- */export const updateServerCertificate = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.UpdateServerCertificate" }, UpdateServerCertificateRequest, S.Struct({}), [EntityAlreadyExistsException, LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const updateServerCertificate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.UpdateServerCertificate" }, UpdateServerCertificateRequest, S.Struct({}), [EntityAlreadyExistsException, LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Sets the status of a service-specific credential to `Active` or
  * `Inactive`. Service-specific credentials that are inactive cannot be used
  * for authentication to the service. This operation can be used to disable a user's
  * service-specific credential as part of a credential rotation work flow.
- */export const updateServiceSpecificCredential = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.UpdateServiceSpecificCredential" }, UpdateServiceSpecificCredentialRequest, S.Struct({}), [NoSuchEntityException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const updateServiceSpecificCredential = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.UpdateServiceSpecificCredential" }, UpdateServiceSpecificCredentialRequest, S.Struct({}), [NoSuchEntityException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Changes the status of the specified user signing certificate from active to disabled,
  * or vice versa. This operation can be used to disable an IAM user's signing
@@ -1616,7 +1616,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * works for access keys under the Amazon Web Services account. Consequently, you can use this operation
  * to manage Amazon Web Services account root user credentials even if the Amazon Web Services account has no associated
  * users.
- */export const updateSigningCertificate = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.UpdateSigningCertificate" }, UpdateSigningCertificateRequest, S.Struct({}), [InvalidInputException, LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const updateSigningCertificate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.UpdateSigningCertificate" }, UpdateSigningCertificateRequest, S.Struct({}), [InvalidInputException, LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Sets the status of an IAM user's SSH public key to active or inactive. SSH public
  * keys that are inactive cannot be used for authentication. This operation can be used to
@@ -1627,7 +1627,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * associated IAM user to an CodeCommit repository. For more information about using SSH keys
  * to authenticate to an CodeCommit repository, see Set up CodeCommit for
  * SSH connections in the *CodeCommit User Guide*.
- */export const updateSSHPublicKey = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.UpdateSSHPublicKey" }, UpdateSSHPublicKeyRequest, S.Struct({}), [InvalidInputException, NoSuchEntityException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const updateSSHPublicKey = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.UpdateSSHPublicKey" }, UpdateSSHPublicKeyRequest, S.Struct({}), [InvalidInputException, NoSuchEntityException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Updates the name and/or the path of the specified IAM user.
  * 
@@ -1648,7 +1648,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * the source object and the target object. For example, to change Bob to Robert, the
  * entity making the request must have permission on Bob and Robert, or must have
  * permission on all (*). For more information about permissions, see Permissions and policies.
- */export const updateUser = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.UpdateUser" }, UpdateUserRequest, S.Struct({}), [ConcurrentModificationException, EntityAlreadyExistsException, EntityTemporarilyUnmodifiableException, LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const updateUser = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.UpdateUser" }, UpdateUserRequest, S.Struct({}), [ConcurrentModificationException, EntityAlreadyExistsException, EntityTemporarilyUnmodifiableException, LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Accepts a delegation request, granting the requested temporary access.
  * 
@@ -1665,7 +1665,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * 
  * 
  * An accepted request may be rejected before the exchange token is sent to the partner.
- */export const acceptDelegationRequest = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.AcceptDelegationRequest" }, AcceptDelegationRequestRequest, S.Struct({}), [ConcurrentModificationException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const acceptDelegationRequest = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.AcceptDelegationRequest" }, AcceptDelegationRequestRequest, S.Struct({}), [ConcurrentModificationException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Adds a new client ID (also known as audience) to the list of client IDs already
  * registered for the specified IAM OpenID Connect (OIDC) provider resource.
@@ -1673,7 +1673,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * 
  * This operation is idempotent; it does not fail or return an error if you add an
  * existing client ID to the provider.
- */export const addClientIDToOpenIDConnectProvider = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.AddClientIDToOpenIDConnectProvider" }, AddClientIDToOpenIDConnectProviderRequest, S.Struct({}), [ConcurrentModificationException, InvalidInputException, LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const addClientIDToOpenIDConnectProvider = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.AddClientIDToOpenIDConnectProvider" }, AddClientIDToOpenIDConnectProviderRequest, S.Struct({}), [ConcurrentModificationException, InvalidInputException, LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Adds the specified IAM role to the specified instance profile. An instance profile
  * can contain only one role, and this quota cannot be increased. You can remove the
@@ -1706,10 +1706,10 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * *IAM User Guide*. For more information about instance profiles,
  * see Using
  * instance profiles in the *IAM User Guide*.
- */export const addRoleToInstanceProfile = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.AddRoleToInstanceProfile" }, AddRoleToInstanceProfileRequest, S.Struct({}), [EntityAlreadyExistsException, LimitExceededException, NoSuchEntityException, ServiceFailureException, UnmodifiableEntityException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const addRoleToInstanceProfile = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.AddRoleToInstanceProfile" }, AddRoleToInstanceProfileRequest, S.Struct({}), [EntityAlreadyExistsException, LimitExceededException, NoSuchEntityException, ServiceFailureException, UnmodifiableEntityException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Adds the specified user to the specified group.
- */export const addUserToGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.AddUserToGroup" }, AddUserToGroupRequest, S.Struct({}), [LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const addUserToGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.AddUserToGroup" }, AddUserToGroupRequest, S.Struct({}), [LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Associates a delegation request with the current identity.
  * 
@@ -1737,7 +1737,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * For more details, see
  * 
  * Managing Permissions for Delegation Requests.
- */export const associateDelegationRequest = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.AssociateDelegationRequest" }, AssociateDelegationRequestRequest, S.Struct({}), [ConcurrentModificationException, InvalidInputException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const associateDelegationRequest = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.AssociateDelegationRequest" }, AssociateDelegationRequestRequest, S.Struct({}), [ConcurrentModificationException, InvalidInputException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Attaches the specified managed policy to the specified IAM group.
  * 
@@ -1755,7 +1755,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * 
  * For more information about policies, see Managed policies and inline
  * policies in the *IAM User Guide*.
- */export const attachGroupPolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.AttachGroupPolicy" }, AttachGroupPolicyRequest, S.Struct({}), [InvalidInputException, LimitExceededException, NoSuchEntityException, PolicyNotAttachableException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const attachGroupPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.AttachGroupPolicy" }, AttachGroupPolicyRequest, S.Struct({}), [InvalidInputException, LimitExceededException, NoSuchEntityException, PolicyNotAttachableException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Attaches the specified managed policy to the specified IAM role. When you attach a
  * managed policy to a role, the managed policy becomes part of the role's permission
@@ -1786,7 +1786,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * As a best practice, you can validate your IAM policies.
  * To learn more, see Validating IAM policies
  * in the *IAM User Guide*.
- */export const attachRolePolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.AttachRolePolicy" }, AttachRolePolicyRequest, S.Struct({}), [InvalidInputException, LimitExceededException, NoSuchEntityException, PolicyNotAttachableException, ServiceFailureException, UnmodifiableEntityException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const attachRolePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.AttachRolePolicy" }, AttachRolePolicyRequest, S.Struct({}), [InvalidInputException, LimitExceededException, NoSuchEntityException, PolicyNotAttachableException, ServiceFailureException, UnmodifiableEntityException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Creates an IAM resource that describes an identity provider (IdP) that supports SAML
  * 2.0.
@@ -1816,7 +1816,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * For more information, see Enabling SAML 2.0
  * federated users to access the Amazon Web Services Management Console and About SAML 2.0-based
  * federation in the *IAM User Guide*.
- */export const createSAMLProvider = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.CreateSAMLProvider" }, CreateSAMLProviderRequest, CreateSAMLProviderResponse, [ConcurrentModificationException, EntityAlreadyExistsException, InvalidInputException, LimitExceededException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const createSAMLProvider = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.CreateSAMLProvider" }, CreateSAMLProviderRequest, CreateSAMLProviderResponse, [ConcurrentModificationException, EntityAlreadyExistsException, InvalidInputException, LimitExceededException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Creates an IAM role that is linked to a specific Amazon Web Services service. The service controls
  * the attached policies and when the role can be deleted. This helps ensure that the
@@ -1829,11 +1829,11 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * 
  * To attach a policy to this service-linked role, you must make the request using the
  * Amazon Web Services service that depends on this role.
- */export const createServiceLinkedRole = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.CreateServiceLinkedRole" }, CreateServiceLinkedRoleRequest, CreateServiceLinkedRoleResponse, [InvalidInputException, LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const createServiceLinkedRole = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.CreateServiceLinkedRole" }, CreateServiceLinkedRoleRequest, CreateServiceLinkedRoleResponse, [InvalidInputException, LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes the specified IAM group. The group must not contain any users or have any
  * attached policies.
- */export const deleteGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.DeleteGroup" }, DeleteGroupRequest, S.Struct({}), [DeleteConflictException, LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deleteGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.DeleteGroup" }, DeleteGroupRequest, S.Struct({}), [DeleteConflictException, LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Submits a service-linked role deletion request and returns a
  * `DeletionTaskId`, which you can use to check the status of the deletion.
@@ -1856,24 +1856,24 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * 
  * For more information about service-linked roles, see Roles terms and concepts: Amazon Web Services service-linked role in the
  * *IAM User Guide*.
- */export const deleteServiceLinkedRole = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.DeleteServiceLinkedRole" }, DeleteServiceLinkedRoleRequest, DeleteServiceLinkedRoleResponse, [LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deleteServiceLinkedRole = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.DeleteServiceLinkedRole" }, DeleteServiceLinkedRoleRequest, DeleteServiceLinkedRoleResponse, [LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Disables the management of privileged root user credentials across member accounts in
  * your organization. When you disable this feature, the management account and the
  * delegated administrator for IAM can no longer manage root user credentials for member
  * accounts in your organization.
- */export const disableOrganizationsRootCredentialsManagement = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.DisableOrganizationsRootCredentialsManagement" }, DisableOrganizationsRootCredentialsManagementRequest, DisableOrganizationsRootCredentialsManagementResponse, [AccountNotManagementOrDelegatedAdministratorException, OrganizationNotFoundException, OrganizationNotInAllFeaturesModeException, ServiceAccessNotEnabledException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const disableOrganizationsRootCredentialsManagement = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.DisableOrganizationsRootCredentialsManagement" }, DisableOrganizationsRootCredentialsManagementRequest, DisableOrganizationsRootCredentialsManagementResponse, [AccountNotManagementOrDelegatedAdministratorException, OrganizationNotFoundException, OrganizationNotInAllFeaturesModeException, ServiceAccessNotEnabledException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Disables root user sessions for privileged tasks across member accounts in your
  * organization. When you disable this feature, the management account and the delegated
  * administrator for IAM can no longer perform privileged tasks on member accounts in
  * your organization.
- */export const disableOrganizationsRootSessions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.DisableOrganizationsRootSessions" }, DisableOrganizationsRootSessionsRequest, DisableOrganizationsRootSessionsResponse, [AccountNotManagementOrDelegatedAdministratorException, OrganizationNotFoundException, OrganizationNotInAllFeaturesModeException, ServiceAccessNotEnabledException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const disableOrganizationsRootSessions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.DisableOrganizationsRootSessions" }, DisableOrganizationsRootSessionsRequest, DisableOrganizationsRootSessionsResponse, [AccountNotManagementOrDelegatedAdministratorException, OrganizationNotFoundException, OrganizationNotInAllFeaturesModeException, ServiceAccessNotEnabledException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Enables the specified MFA device and associates it with the specified IAM user. When
  * enabled, the MFA device is required for every subsequent login by the IAM user
  * associated with the device.
- */export const enableMFADevice = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.EnableMFADevice" }, EnableMFADeviceRequest, S.Struct({}), [ConcurrentModificationException, EntityAlreadyExistsException, EntityTemporarilyUnmodifiableException, InvalidAuthenticationCodeException, LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const enableMFADevice = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.EnableMFADevice" }, EnableMFADeviceRequest, S.Struct({}), [ConcurrentModificationException, EntityAlreadyExistsException, EntityTemporarilyUnmodifiableException, InvalidAuthenticationCodeException, LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Enables the management of privileged root user credentials across member accounts in your
  * organization. When you enable root credentials management for centralized root access, the management account and the delegated
@@ -1893,7 +1893,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * - Enable trusted access for Identity and Access Management in Organizations. For details, see
  * IAM and Organizations in the Organizations User
  * Guide.
- */export const enableOrganizationsRootCredentialsManagement = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.EnableOrganizationsRootCredentialsManagement" }, EnableOrganizationsRootCredentialsManagementRequest, EnableOrganizationsRootCredentialsManagementResponse, [AccountNotManagementOrDelegatedAdministratorException, CallerIsNotManagementAccountException, OrganizationNotFoundException, OrganizationNotInAllFeaturesModeException, ServiceAccessNotEnabledException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const enableOrganizationsRootCredentialsManagement = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.EnableOrganizationsRootCredentialsManagement" }, EnableOrganizationsRootCredentialsManagementRequest, EnableOrganizationsRootCredentialsManagementResponse, [AccountNotManagementOrDelegatedAdministratorException, CallerIsNotManagementAccountException, OrganizationNotFoundException, OrganizationNotInAllFeaturesModeException, ServiceAccessNotEnabledException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Allows the management account or delegated administrator to perform privileged tasks
  * on member accounts in your organization. For more information, see Centrally manage root access for member accounts in the Identity and Access Management
@@ -1912,12 +1912,12 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * - Enable trusted access for Identity and Access Management in Organizations. For details, see
  * IAM and Organizations in the Organizations User
  * Guide.
- */export const enableOrganizationsRootSessions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.EnableOrganizationsRootSessions" }, EnableOrganizationsRootSessionsRequest, EnableOrganizationsRootSessionsResponse, [AccountNotManagementOrDelegatedAdministratorException, CallerIsNotManagementAccountException, OrganizationNotFoundException, OrganizationNotInAllFeaturesModeException, ServiceAccessNotEnabledException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const enableOrganizationsRootSessions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.EnableOrganizationsRootSessions" }, EnableOrganizationsRootSessionsRequest, EnableOrganizationsRootSessionsResponse, [AccountNotManagementOrDelegatedAdministratorException, CallerIsNotManagementAccountException, OrganizationNotFoundException, OrganizationNotInAllFeaturesModeException, ServiceAccessNotEnabledException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Enables the outbound identity federation feature for your Amazon Web Services account. When enabled, IAM principals in your account
  * can use the `GetWebIdentityToken` API to obtain JSON Web Tokens (JWTs) for secure authentication with external services.
  * This operation also generates a unique issuer URL for your Amazon Web Services account.
- */export const enableOutboundWebIdentityFederation = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.EnableOutboundWebIdentityFederation" }, S.Struct({}), EnableOutboundWebIdentityFederationResponse, [FeatureEnabledException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const enableOutboundWebIdentityFederation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.EnableOutboundWebIdentityFederation" }, S.Struct({}), EnableOutboundWebIdentityFederationResponse, [FeatureEnabledException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Generates a report that includes details about when an IAM resource (user, group,
  * role, or policy) was last used in an attempt to access Amazon Web Services services. Recent activity
@@ -1994,13 +1994,13 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * 
  * For more information about service and action last accessed data, see Reducing permissions using service last accessed data in the
  * *IAM User Guide*.
- */export const generateServiceLastAccessedDetails = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.GenerateServiceLastAccessedDetails" }, GenerateServiceLastAccessedDetailsRequest, GenerateServiceLastAccessedDetailsResponse, [InvalidInputException, NoSuchEntityException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const generateServiceLastAccessedDetails = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.GenerateServiceLastAccessedDetails" }, GenerateServiceLastAccessedDetailsRequest, GenerateServiceLastAccessedDetailsResponse, [InvalidInputException, NoSuchEntityException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Retrieves the password policy for the Amazon Web Services account. This tells you the complexity
  * requirements and mandatory rotation periods for the IAM user passwords in your account.
  * For more information about using a password policy, see Managing an IAM password
  * policy.
- */export const getAccountPasswordPolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.GetAccountPasswordPolicy" }, S.Struct({}), GetAccountPasswordPolicyResponse, [NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const getAccountPasswordPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.GetAccountPasswordPolicy" }, S.Struct({}), GetAccountPasswordPolicyResponse, [NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Retrieves information about IAM entity usage and IAM quotas in the Amazon Web Services
  * account.
@@ -2008,7 +2008,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * 
  * For information about IAM quotas, see IAM and STS quotas in the
  * *IAM User Guide*.
- */export const getAccountSummary = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.GetAccountSummary" }, S.Struct({}), GetAccountSummaryResponse, [ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const getAccountSummary = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.GetAccountSummary" }, S.Struct({}), GetAccountSummaryResponse, [ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Gets a list of all of the context keys referenced in the input policies. The policies
  * are supplied as a list of one or more strings. To get the context keys from policies
@@ -2022,11 +2022,11 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * you must supply when you call SimulateCustomPolicy. Note that all parameters are shown in unencoded form
  * here for clarity but must be URL encoded to be included as a part of a real HTML
  * request.
- */export const getContextKeysForCustomPolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.GetContextKeysForCustomPolicy" }, GetContextKeysForCustomPolicyRequest, GetContextKeysForPolicyResponse, [InvalidInputException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const getContextKeysForCustomPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.GetContextKeysForCustomPolicy" }, GetContextKeysForCustomPolicyRequest, GetContextKeysForPolicyResponse, [InvalidInputException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns a list of IAM users that are in the specified IAM group. You can paginate
  * the results using the `MaxItems` and `Marker` parameters.
- */export const getGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.GetGroup" }, GetGroupRequest, GetGroupResponse, [NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const getGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.GetGroup" }, GetGroupRequest, GetGroupResponse, [NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Retrieves the specified inline policy document that is embedded in the specified IAM
  * group.
@@ -2052,7 +2052,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * 
  * For more information about policies, see Managed policies and inline
  * policies in the *IAM User Guide*.
- */export const getGroupPolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.GetGroupPolicy" }, GetGroupPolicyRequest, GetGroupPolicyResponse, [NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const getGroupPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.GetGroupPolicy" }, GetGroupPolicyRequest, GetGroupPolicyResponse, [NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Retrieves a human readable summary for a given entity. At this time, the only supported
  * entity type is `delegation-request`
@@ -2074,7 +2074,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * API behavior, such that a party who has permissions to call
  * GetDelegationRequest
  * for a given delegation request will always be able to retrieve the human readable summary for that request.
- */export const getHumanReadableSummary = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.GetHumanReadableSummary" }, GetHumanReadableSummaryRequest, GetHumanReadableSummaryResponse, [InvalidInputException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const getHumanReadableSummary = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.GetHumanReadableSummary" }, GetHumanReadableSummaryRequest, GetHumanReadableSummaryResponse, [InvalidInputException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Retrieves the user name for the specified IAM user. A login profile is created when
  * you create a password for the user to access the Amazon Web Services Management Console. If the user does not exist
@@ -2090,11 +2090,11 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * for the user to access the Amazon Web Services Management Console, the `CreateDate` reflects the initial
  * password creation date. A user with programmatic access does not have a login profile
  * unless you create a password for the user to access the Amazon Web Services Management Console.
- */export const getLoginProfile = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.GetLoginProfile" }, GetLoginProfileRequest, GetLoginProfileResponse, [NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const getLoginProfile = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.GetLoginProfile" }, GetLoginProfileRequest, GetLoginProfileResponse, [NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns information about the specified OpenID Connect (OIDC) provider resource object
  * in IAM.
- */export const getOpenIDConnectProvider = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.GetOpenIDConnectProvider" }, GetOpenIDConnectProviderRequest, GetOpenIDConnectProviderResponse, [InvalidInputException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const getOpenIDConnectProvider = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.GetOpenIDConnectProvider" }, GetOpenIDConnectProviderRequest, GetOpenIDConnectProviderResponse, [InvalidInputException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Retrieves information about the specified managed policy, including the policy's
  * default version and the total number of IAM users, groups, and roles to which the
@@ -2110,7 +2110,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * 
  * For more information about policies, see Managed policies and inline
  * policies in the *IAM User Guide*.
- */export const getPolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.GetPolicy" }, GetPolicyRequest, GetPolicyResponse, [InvalidInputException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const getPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.GetPolicy" }, GetPolicyRequest, GetPolicyResponse, [InvalidInputException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Retrieves information about the specified version of the specified managed policy,
  * including the policy document.
@@ -2142,7 +2142,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * 
  * For more information about managed policy versions, see Versioning for managed
  * policies in the *IAM User Guide*.
- */export const getPolicyVersion = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.GetPolicyVersion" }, GetPolicyVersionRequest, GetPolicyVersionResponse, [InvalidInputException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const getPolicyVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.GetPolicyVersion" }, GetPolicyVersionRequest, GetPolicyVersionResponse, [InvalidInputException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Retrieves information about the specified role, including the role's path, GUID, ARN,
  * and the role's trust policy that grants permission to assume the role. For more
@@ -2158,7 +2158,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * can use the `decode` method of the `java.net.URLDecoder` utility class in
  * the Java SDK. Other languages and SDKs provide similar functionality, and some SDKs do this decoding
  * automatically.
- */export const getRole = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.GetRole" }, GetRoleRequest, GetRoleResponse, [NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const getRole = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.GetRole" }, GetRoleRequest, GetRoleResponse, [NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Retrieves the specified inline policy document that is embedded with the specified
  * IAM role.
@@ -2188,7 +2188,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * 
  * For more information about roles, see IAM roles in the
  * *IAM User Guide*.
- */export const getRolePolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.GetRolePolicy" }, GetRolePolicyRequest, GetRolePolicyResponse, [NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const getRolePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.GetRolePolicy" }, GetRolePolicyRequest, GetRolePolicyResponse, [NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Retrieves information about the specified IAM user, including the user's creation
  * date, path, unique ID, and ARN.
@@ -2196,7 +2196,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * 
  * If you do not specify a user name, IAM determines the user name implicitly based on
  * the Amazon Web Services access key ID used to sign the request to this operation.
- */export const getUser = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.GetUser" }, GetUserRequest, GetUserResponse, [NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const getUser = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.GetUser" }, GetUserRequest, GetUserResponse, [NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Retrieves the specified inline policy document that is embedded in the specified IAM
  * user.
@@ -2222,13 +2222,13 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * 
  * For more information about policies, see Managed policies and inline
  * policies in the *IAM User Guide*.
- */export const getUserPolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.GetUserPolicy" }, GetUserPolicyRequest, GetUserPolicyResponse, [NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const getUserPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.GetUserPolicy" }, GetUserPolicyRequest, GetUserPolicyResponse, [NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Lists the account alias associated with the Amazon Web Services account (Note: you can have only
  * one). For information about using an Amazon Web Services account alias, see Creating,
  * deleting, and listing an Amazon Web Services account alias in the
  * *IAM User Guide*.
- */export const listAccountAliases = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.ListAccountAliases" }, ListAccountAliasesRequest, ListAccountAliasesResponse, [ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const listAccountAliases = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.ListAccountAliases" }, ListAccountAliasesRequest, ListAccountAliasesResponse, [ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Lists all managed policies that are attached to the specified IAM role.
  * 
@@ -2244,7 +2244,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * policies to only those matching the specified path prefix. If there are no policies
  * attached to the specified role (or none that match the specified path prefix), the
  * operation returns an empty list.
- */export const listAttachedRolePolicies = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.ListAttachedRolePolicies" }, ListAttachedRolePoliciesRequest, ListAttachedRolePoliciesResponse, [InvalidInputException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const listAttachedRolePolicies = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.ListAttachedRolePolicies" }, ListAttachedRolePoliciesRequest, ListAttachedRolePoliciesResponse, [InvalidInputException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Lists all managed policies that are attached to the specified IAM user.
  * 
@@ -2260,7 +2260,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * policies to only those matching the specified path prefix. If there are no policies
  * attached to the specified group (or none that match the specified path prefix), the
  * operation returns an empty list.
- */export const listAttachedUserPolicies = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.ListAttachedUserPolicies" }, ListAttachedUserPoliciesRequest, ListAttachedUserPoliciesResponse, [InvalidInputException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const listAttachedUserPolicies = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.ListAttachedUserPolicies" }, ListAttachedUserPoliciesRequest, ListAttachedUserPoliciesResponse, [InvalidInputException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Lists delegation requests based on the specified criteria.
  * 
@@ -2273,7 +2273,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * For more details, see
  * 
  * Managing Permissions for Delegation Requests.
- */export const listDelegationRequests = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.ListDelegationRequests" }, ListDelegationRequestsRequest, ListDelegationRequestsResponse, [InvalidInputException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const listDelegationRequests = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.ListDelegationRequests" }, ListDelegationRequestsRequest, ListDelegationRequestsResponse, [InvalidInputException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Lists the names of the inline policies that are embedded in the specified IAM
  * group.
@@ -2288,21 +2288,21 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * You can paginate the results using the `MaxItems` and `Marker`
  * parameters. If there are no inline policies embedded with the specified group, the
  * operation returns an empty list.
- */export const listGroupPolicies = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.ListGroupPolicies" }, ListGroupPoliciesRequest, ListGroupPoliciesResponse, [NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const listGroupPolicies = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.ListGroupPolicies" }, ListGroupPoliciesRequest, ListGroupPoliciesResponse, [NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Lists the IAM groups that have the specified path prefix.
  * 
  * 
  * You can paginate the results using the `MaxItems` and `Marker`
  * parameters.
- */export const listGroups = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.ListGroups" }, ListGroupsRequest, ListGroupsResponse, [ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const listGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.ListGroups" }, ListGroupsRequest, ListGroupsResponse, [ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Lists the IAM groups that the specified IAM user belongs to.
  * 
  * 
  * You can paginate the results using the `MaxItems` and `Marker`
  * parameters.
- */export const listGroupsForUser = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.ListGroupsForUser" }, ListGroupsForUserRequest, ListGroupsForUserResponse, [NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const listGroupsForUser = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.ListGroupsForUser" }, ListGroupsForUserRequest, ListGroupsForUserResponse, [NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Lists the instance profiles that have the specified path prefix. If there are none,
  * the operation returns an empty list. For more information about instance profiles, see
@@ -2321,7 +2321,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * 
  * You can paginate the results using the `MaxItems` and `Marker`
  * parameters.
- */export const listInstanceProfiles = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.ListInstanceProfiles" }, ListInstanceProfilesRequest, ListInstanceProfilesResponse, [ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const listInstanceProfiles = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.ListInstanceProfiles" }, ListInstanceProfilesRequest, ListInstanceProfilesResponse, [ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Lists the instance profiles that have the specified associated IAM role. If there
  * are none, the operation returns an empty list. For more information about instance
@@ -2331,17 +2331,17 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * 
  * You can paginate the results using the `MaxItems` and `Marker`
  * parameters.
- */export const listInstanceProfilesForRole = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.ListInstanceProfilesForRole" }, ListInstanceProfilesForRoleRequest, ListInstanceProfilesForRoleResponse, [NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const listInstanceProfilesForRole = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.ListInstanceProfilesForRole" }, ListInstanceProfilesForRoleRequest, ListInstanceProfilesForRoleResponse, [NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Lists the tags that are attached to the specified IAM instance profile. The returned list of tags is sorted by tag key.
  * For more information about tagging, see Tagging IAM resources in the
  * *IAM User Guide*.
- */export const listInstanceProfileTags = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.ListInstanceProfileTags" }, ListInstanceProfileTagsRequest, ListInstanceProfileTagsResponse, [NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const listInstanceProfileTags = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.ListInstanceProfileTags" }, ListInstanceProfileTagsRequest, ListInstanceProfileTagsResponse, [NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Lists the tags that are attached to the specified IAM virtual multi-factor authentication (MFA) device. The returned list of tags is
  * sorted by tag key. For more information about tagging, see Tagging IAM resources in the
  * *IAM User Guide*.
- */export const listMFADeviceTags = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.ListMFADeviceTags" }, ListMFADeviceTagsRequest, ListMFADeviceTagsResponse, [InvalidInputException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const listMFADeviceTags = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.ListMFADeviceTags" }, ListMFADeviceTagsRequest, ListMFADeviceTagsResponse, [InvalidInputException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Lists information about the IAM OpenID Connect (OIDC) provider resource objects
  * defined in the Amazon Web Services account.
@@ -2351,7 +2351,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * 
  * IAM resource-listing operations return a subset of the available
  * attributes for the resource. For example, this operation does not return tags, even though they are an attribute of the returned object. To view all of the information for an OIDC provider, see GetOpenIDConnectProvider.
- */export const listOpenIDConnectProviders = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.ListOpenIDConnectProviders" }, ListOpenIDConnectProvidersRequest, ListOpenIDConnectProvidersResponse, [ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const listOpenIDConnectProviders = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.ListOpenIDConnectProviders" }, ListOpenIDConnectProvidersRequest, ListOpenIDConnectProvidersResponse, [ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Lists the tags that are attached to the specified OpenID Connect (OIDC)-compatible
  * identity provider. The returned list of tags is sorted by tag key. For more information, see About web identity
@@ -2360,11 +2360,11 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * 
  * For more information about tagging, see Tagging IAM resources in the
  * *IAM User Guide*.
- */export const listOpenIDConnectProviderTags = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.ListOpenIDConnectProviderTags" }, ListOpenIDConnectProviderTagsRequest, ListOpenIDConnectProviderTagsResponse, [InvalidInputException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const listOpenIDConnectProviderTags = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.ListOpenIDConnectProviderTags" }, ListOpenIDConnectProviderTagsRequest, ListOpenIDConnectProviderTagsResponse, [InvalidInputException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Lists the centralized root access features enabled for your organization. For more
  * information, see Centrally manage root access for member accounts.
- */export const listOrganizationsFeatures = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.ListOrganizationsFeatures" }, ListOrganizationsFeaturesRequest, ListOrganizationsFeaturesResponse, [AccountNotManagementOrDelegatedAdministratorException, OrganizationNotFoundException, OrganizationNotInAllFeaturesModeException, ServiceAccessNotEnabledException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const listOrganizationsFeatures = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.ListOrganizationsFeatures" }, ListOrganizationsFeaturesRequest, ListOrganizationsFeaturesResponse, [AccountNotManagementOrDelegatedAdministratorException, OrganizationNotFoundException, OrganizationNotInAllFeaturesModeException, ServiceAccessNotEnabledException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Lists all the managed policies that are available in your Amazon Web Services account, including
  * your own customer-defined managed policies and all Amazon Web Services managed policies.
@@ -2390,12 +2390,12 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * IAM resource-listing operations return a subset of the available
  * attributes for the resource. For example, this operation does not return tags, even though they are an attribute of the returned object. To view all of the information for a customer manged policy, see
  * GetPolicy.
- */export const listPolicies = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.ListPolicies" }, ListPoliciesRequest, ListPoliciesResponse, [ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const listPolicies = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.ListPolicies" }, ListPoliciesRequest, ListPoliciesResponse, [ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Lists the tags that are attached to the specified IAM customer managed policy.
  * The returned list of tags is sorted by tag key. For more information about tagging, see Tagging IAM resources in the
  * *IAM User Guide*.
- */export const listPolicyTags = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.ListPolicyTags" }, ListPolicyTagsRequest, ListPolicyTagsResponse, [InvalidInputException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const listPolicyTags = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.ListPolicyTags" }, ListPolicyTagsRequest, ListPolicyTagsResponse, [InvalidInputException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Lists information about the versions of the specified managed policy, including the
  * version that is currently set as the policy's default version.
@@ -2403,7 +2403,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * 
  * For more information about managed policies, see Managed policies and inline
  * policies in the *IAM User Guide*.
- */export const listPolicyVersions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.ListPolicyVersions" }, ListPolicyVersionsRequest, ListPolicyVersionsResponse, [InvalidInputException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const listPolicyVersions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.ListPolicyVersions" }, ListPolicyVersionsRequest, ListPolicyVersionsResponse, [InvalidInputException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Lists the names of the inline policies that are embedded in the specified IAM
  * role.
@@ -2418,7 +2418,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * You can paginate the results using the `MaxItems` and `Marker`
  * parameters. If there are no inline policies embedded with the specified role, the
  * operation returns an empty list.
- */export const listRolePolicies = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.ListRolePolicies" }, ListRolePoliciesRequest, ListRolePoliciesResponse, [NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const listRolePolicies = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.ListRolePolicies" }, ListRolePoliciesRequest, ListRolePoliciesResponse, [NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Lists the IAM roles that have the specified path prefix. If there are none, the
  * operation returns an empty list. For more information about roles, see IAM roles in the
@@ -2453,12 +2453,12 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * 
  * You can paginate the results using the `MaxItems` and `Marker`
  * parameters.
- */export const listRoles = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.ListRoles" }, ListRolesRequest, ListRolesResponse, [ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const listRoles = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.ListRoles" }, ListRolesRequest, ListRolesResponse, [ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Lists the tags that are attached to the specified role. The returned list of tags is
  * sorted by tag key. For more information about tagging, see Tagging IAM resources in the
  * *IAM User Guide*.
- */export const listRoleTags = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.ListRoleTags" }, ListRoleTagsRequest, ListRoleTagsResponse, [NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const listRoleTags = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.ListRoleTags" }, ListRoleTagsRequest, ListRoleTagsResponse, [NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Lists the SAML provider resource objects defined in IAM in the account.
  * IAM resource-listing operations return a subset of the available
@@ -2468,7 +2468,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * 
  * 
  * This operation requires Signature Version 4.
- */export const listSAMLProviders = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.ListSAMLProviders" }, ListSAMLProvidersRequest, ListSAMLProvidersResponse, [ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const listSAMLProviders = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.ListSAMLProviders" }, ListSAMLProvidersRequest, ListSAMLProvidersResponse, [ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Lists the tags that are attached to the specified Security Assertion Markup Language
  * (SAML) identity provider. The returned list of tags is sorted by tag key. For more information, see About SAML 2.0-based
@@ -2477,7 +2477,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * 
  * For more information about tagging, see Tagging IAM resources in the
  * *IAM User Guide*.
- */export const listSAMLProviderTags = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.ListSAMLProviderTags" }, ListSAMLProviderTagsRequest, ListSAMLProviderTagsResponse, [InvalidInputException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const listSAMLProviderTags = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.ListSAMLProviderTags" }, ListSAMLProviderTagsRequest, ListSAMLProviderTagsResponse, [InvalidInputException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Lists the tags that are attached to the specified IAM server certificate. The
  * returned list of tags is sorted by tag key. For more information about tagging, see Tagging IAM resources in the
@@ -2491,7 +2491,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * manage, and deploy your server certificates. For more information about IAM server
  * certificates, Working with server
  * certificates in the *IAM User Guide*.
- */export const listServerCertificateTags = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.ListServerCertificateTags" }, ListServerCertificateTagsRequest, ListServerCertificateTagsResponse, [NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const listServerCertificateTags = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.ListServerCertificateTags" }, ListServerCertificateTagsRequest, ListServerCertificateTagsResponse, [NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Lists the names of the inline policies embedded in the specified IAM user.
  * 
@@ -2505,7 +2505,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * You can paginate the results using the `MaxItems` and `Marker`
  * parameters. If there are no inline policies embedded with the specified user, the
  * operation returns an empty list.
- */export const listUserPolicies = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.ListUserPolicies" }, ListUserPoliciesRequest, ListUserPoliciesResponse, [NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const listUserPolicies = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.ListUserPolicies" }, ListUserPoliciesRequest, ListUserPoliciesResponse, [NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Lists the IAM users that have the specified path prefix. If no path prefix is
  * specified, the operation returns all users in the Amazon Web Services account. If there are none, the
@@ -2536,11 +2536,11 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * 
  * You can paginate the results using the `MaxItems` and `Marker`
  * parameters.
- */export const listUsers = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.ListUsers" }, ListUsersRequest, ListUsersResponse, [ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const listUsers = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.ListUsers" }, ListUsersRequest, ListUsersResponse, [ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Lists the tags that are attached to the specified IAM user. The returned list of tags is sorted by tag key. For more information about tagging, see Tagging IAM resources in the
  * *IAM User Guide*.
- */export const listUserTags = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.ListUserTags" }, ListUserTagsRequest, ListUserTagsResponse, [NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const listUserTags = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.ListUserTags" }, ListUserTagsRequest, ListUserTagsResponse, [NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Lists the virtual MFA devices defined in the Amazon Web Services account by assignment status. If
  * you do not specify an assignment status, the operation returns a list of all virtual MFA
@@ -2558,7 +2558,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * 
  * You can paginate the results using the `MaxItems` and `Marker`
  * parameters.
- */export const listVirtualMFADevices = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.ListVirtualMFADevices" }, ListVirtualMFADevicesRequest, ListVirtualMFADevicesResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const listVirtualMFADevices = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.ListVirtualMFADevices" }, ListVirtualMFADevicesRequest, ListVirtualMFADevicesResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Adds or updates an inline policy document that is embedded in the specified IAM
  * group.
@@ -2585,13 +2585,13 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * calling `PutGroupPolicy`. For general information about using the Query
  * API with IAM, see Making query requests in the
  * *IAM User Guide*.
- */export const putGroupPolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.PutGroupPolicy" }, PutGroupPolicyRequest, S.Struct({}), [LimitExceededException, MalformedPolicyDocumentException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const putGroupPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.PutGroupPolicy" }, PutGroupPolicyRequest, S.Struct({}), [LimitExceededException, MalformedPolicyDocumentException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Resets the password for a service-specific credential. The new password is Amazon Web Services
  * generated and cryptographically strong. It cannot be configured by the user. Resetting
  * the password immediately invalidates the previous password associated with this
  * user.
- */export const resetServiceSpecificCredential = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.ResetServiceSpecificCredential" }, ResetServiceSpecificCredentialRequest, ResetServiceSpecificCredentialResponse, [NoSuchEntityException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const resetServiceSpecificCredential = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.ResetServiceSpecificCredential" }, ResetServiceSpecificCredentialRequest, ResetServiceSpecificCredentialResponse, [NoSuchEntityException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Changes the password for the specified IAM user. You can use the CLI, the Amazon Web Services
  * API, or the **Users** page in the IAM console to change
@@ -2602,19 +2602,19 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * 
  * For more information about modifying passwords, see Managing passwords in the
  * *IAM User Guide*.
- */export const updateLoginProfile = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.UpdateLoginProfile" }, UpdateLoginProfileRequest, S.Struct({}), [EntityTemporarilyUnmodifiableException, LimitExceededException, NoSuchEntityException, PasswordPolicyViolationException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const updateLoginProfile = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.UpdateLoginProfile" }, UpdateLoginProfileRequest, S.Struct({}), [EntityTemporarilyUnmodifiableException, LimitExceededException, NoSuchEntityException, PasswordPolicyViolationException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Use UpdateRole instead.
  * 
  * 
  * Modifies only the description of a role. This operation performs the same function as
  * the `Description` parameter in the `UpdateRole` operation.
- */export const updateRoleDescription = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.UpdateRoleDescription" }, UpdateRoleDescriptionRequest, UpdateRoleDescriptionResponse, [NoSuchEntityException, ServiceFailureException, UnmodifiableEntityException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const updateRoleDescription = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.UpdateRoleDescription" }, UpdateRoleDescriptionRequest, UpdateRoleDescriptionResponse, [NoSuchEntityException, ServiceFailureException, UnmodifiableEntityException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Updates the metadata document, SAML encryption settings, and private keys for an
  * existing SAML provider. To rotate private keys, add your new private key and then remove
  * the old key in a separate request.
- */export const updateSAMLProvider = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.UpdateSAMLProvider" }, UpdateSAMLProviderRequest, UpdateSAMLProviderResponse, [ConcurrentModificationException, InvalidInputException, LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const updateSAMLProvider = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.UpdateSAMLProvider" }, UpdateSAMLProviderRequest, UpdateSAMLProviderResponse, [ConcurrentModificationException, InvalidInputException, LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Changes the password of the IAM user who is calling this operation. This operation
  * can be performed using the CLI, the Amazon Web Services API, or the My
@@ -2627,7 +2627,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * the IAM console to change the password for any IAM user. For more information about
  * modifying passwords, see Managing passwords in the
  * *IAM User Guide*.
- */export const changePassword = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.ChangePassword" }, ChangePasswordRequest, S.Struct({}), [EntityTemporarilyUnmodifiableException, InvalidUserTypeException, LimitExceededException, NoSuchEntityException, PasswordPolicyViolationException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const changePassword = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.ChangePassword" }, ChangePasswordRequest, S.Struct({}), [EntityTemporarilyUnmodifiableException, InvalidUserTypeException, LimitExceededException, NoSuchEntityException, PasswordPolicyViolationException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Creates a new Amazon Web Services secret access key and corresponding Amazon Web Services access key ID for the
  * specified user. The default status for new keys is `Active`.
@@ -2649,14 +2649,14 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * only during key and user creation. You must save the key (for example, in a text
  * file) if you want to be able to access it again. If a secret key is lost, you can
  * delete the access keys for the associated user and then create new keys.
- */export const createAccessKey = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.CreateAccessKey" }, CreateAccessKeyRequest, CreateAccessKeyResponse, [LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const createAccessKey = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.CreateAccessKey" }, CreateAccessKeyRequest, CreateAccessKeyResponse, [LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Creates a new group.
  * 
  * 
  * For information about the number of groups you can create, see IAM and STS
  * quotas in the *IAM User Guide*.
- */export const createGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.CreateGroup" }, CreateGroupRequest, CreateGroupResponse, [EntityAlreadyExistsException, LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const createGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.CreateGroup" }, CreateGroupRequest, CreateGroupResponse, [EntityAlreadyExistsException, LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Creates a new instance profile. For information about instance profiles, see Using
  * roles for applications on Amazon EC2 in the
@@ -2665,7 +2665,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * 
  * For information about the number of instance profiles you can create, see IAM object
  * quotas in the *IAM User Guide*.
- */export const createInstanceProfile = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.CreateInstanceProfile" }, CreateInstanceProfileRequest, CreateInstanceProfileResponse, [ConcurrentModificationException, EntityAlreadyExistsException, InvalidInputException, LimitExceededException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const createInstanceProfile = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.CreateInstanceProfile" }, CreateInstanceProfileRequest, CreateInstanceProfileResponse, [ConcurrentModificationException, EntityAlreadyExistsException, InvalidInputException, LimitExceededException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Creates a password for the specified IAM user. A password allows an IAM user to
  * access Amazon Web Services services through the Amazon Web Services Management Console.
@@ -2677,7 +2677,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * 
  * For more information about managing passwords, see Managing passwords in the
  * *IAM User Guide*.
- */export const createLoginProfile = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.CreateLoginProfile" }, CreateLoginProfileRequest, CreateLoginProfileResponse, [EntityAlreadyExistsException, LimitExceededException, NoSuchEntityException, PasswordPolicyViolationException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const createLoginProfile = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.CreateLoginProfile" }, CreateLoginProfileRequest, CreateLoginProfileResponse, [EntityAlreadyExistsException, LimitExceededException, NoSuchEntityException, PasswordPolicyViolationException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Creates an IAM entity to describe an identity provider (IdP) that supports OpenID Connect (OIDC).
  * 
@@ -2739,7 +2739,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * The trust for the OIDC provider is derived from the IAM provider that this
  * operation creates. Therefore, it is best to limit access to the CreateOpenIDConnectProvider operation to highly privileged
  * users.
- */export const createOpenIDConnectProvider = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.CreateOpenIDConnectProvider" }, CreateOpenIDConnectProviderRequest, CreateOpenIDConnectProviderResponse, [ConcurrentModificationException, EntityAlreadyExistsException, InvalidInputException, LimitExceededException, OpenIdIdpCommunicationErrorException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const createOpenIDConnectProvider = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.CreateOpenIDConnectProvider" }, CreateOpenIDConnectProviderRequest, CreateOpenIDConnectProviderResponse, [ConcurrentModificationException, EntityAlreadyExistsException, InvalidInputException, LimitExceededException, OpenIdIdpCommunicationErrorException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Creates a new managed policy for your Amazon Web Services account.
  * 
@@ -2758,7 +2758,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * For more information about managed policies in general, see Managed
  * policies and inline policies in the
  * *IAM User Guide*.
- */export const createPolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.CreatePolicy" }, CreatePolicyRequest, CreatePolicyResponse, [ConcurrentModificationException, EntityAlreadyExistsException, InvalidInputException, LimitExceededException, MalformedPolicyDocumentException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const createPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.CreatePolicy" }, CreatePolicyRequest, CreatePolicyResponse, [ConcurrentModificationException, EntityAlreadyExistsException, InvalidInputException, LimitExceededException, MalformedPolicyDocumentException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Creates a new version of the specified managed policy. To update a managed policy, you
  * create a new policy version. A managed policy can have up to five versions. If the
@@ -2772,14 +2772,14 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * 
  * For more information about managed policy versions, see Versioning for managed
  * policies in the *IAM User Guide*.
- */export const createPolicyVersion = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.CreatePolicyVersion" }, CreatePolicyVersionRequest, CreatePolicyVersionResponse, [InvalidInputException, LimitExceededException, MalformedPolicyDocumentException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const createPolicyVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.CreatePolicyVersion" }, CreatePolicyVersionRequest, CreatePolicyVersionResponse, [InvalidInputException, LimitExceededException, MalformedPolicyDocumentException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Creates a new IAM user for your Amazon Web Services account.
  * 
  * 
  * For information about quotas for the number of IAM users you can create, see IAM and STS
  * quotas in the *IAM User Guide*.
- */export const createUser = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.CreateUser" }, CreateUserRequest, CreateUserResponse, [ConcurrentModificationException, EntityAlreadyExistsException, InvalidInputException, LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const createUser = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.CreateUser" }, CreateUserRequest, CreateUserResponse, [ConcurrentModificationException, EntityAlreadyExistsException, InvalidInputException, LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Creates a new virtual MFA device for the Amazon Web Services account. After creating the virtual
  * MFA, use EnableMFADevice to
@@ -2799,7 +2799,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * information as you would your Amazon Web Services access keys or your passwords. After you
  * provision your virtual device, you should ensure that the information is destroyed
  * following secure procedures.
- */export const createVirtualMFADevice = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.CreateVirtualMFADevice" }, CreateVirtualMFADeviceRequest, CreateVirtualMFADeviceResponse, [ConcurrentModificationException, EntityAlreadyExistsException, InvalidInputException, LimitExceededException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const createVirtualMFADevice = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.CreateVirtualMFADevice" }, CreateVirtualMFADeviceRequest, CreateVirtualMFADeviceResponse, [ConcurrentModificationException, EntityAlreadyExistsException, InvalidInputException, LimitExceededException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Generates a report for service last accessed data for Organizations. You can generate a
  * report for any entities (organization root, organizational unit, or account) or policies
@@ -2958,12 +2958,12 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * 
  * For more information about service last accessed data, see Reducing policy scope by
  * viewing user activity in the *IAM User Guide*.
- */export const generateOrganizationsAccessReport = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.GenerateOrganizationsAccessReport" }, GenerateOrganizationsAccessReportRequest, GenerateOrganizationsAccessReportResponse, [ReportGenerationLimitExceededException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const generateOrganizationsAccessReport = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.GenerateOrganizationsAccessReport" }, GenerateOrganizationsAccessReportRequest, GenerateOrganizationsAccessReportResponse, [ReportGenerationLimitExceededException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Retrieves information about when the specified access key was last used. The
  * information includes the date and time of last use, along with the Amazon Web Services service and
  * Region that were specified in the last request made with that key.
- */export const getAccessKeyLastUsed = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.GetAccessKeyLastUsed" }, GetAccessKeyLastUsedRequest, GetAccessKeyLastUsedResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const getAccessKeyLastUsed = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.GetAccessKeyLastUsed" }, GetAccessKeyLastUsedRequest, GetAccessKeyLastUsedResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Retrieves information about a specific delegation request.
  * 
@@ -2976,16 +2976,16 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * a default permission to get that delegation request. For more details, see
  * 
  * Managing Permissions for Delegation Requests.
- */export const getDelegationRequest = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.GetDelegationRequest" }, GetDelegationRequestRequest, GetDelegationRequestResponse, [NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const getDelegationRequest = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.GetDelegationRequest" }, GetDelegationRequestRequest, GetDelegationRequestResponse, [NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Retrieves information about the specified instance profile, including the instance
  * profile's path, GUID, ARN, and role. For more information about instance profiles, see
  * Using
  * instance profiles in the *IAM User Guide*.
- */export const getInstanceProfile = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.GetInstanceProfile" }, GetInstanceProfileRequest, GetInstanceProfileResponse, [NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const getInstanceProfile = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.GetInstanceProfile" }, GetInstanceProfileRequest, GetInstanceProfileResponse, [NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Retrieves information about an MFA device for a specified user.
- */export const getMFADevice = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.GetMFADevice" }, GetMFADeviceRequest, GetMFADeviceResponse, [NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const getMFADevice = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.GetMFADevice" }, GetMFADeviceRequest, GetMFADeviceResponse, [NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Retrieves the service last accessed data report for Organizations that was previously
  * generated using the
@@ -3013,7 +3013,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * 
  * 
  * By default, the list is sorted by service namespace.
- */export const getOrganizationsAccessReport = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.GetOrganizationsAccessReport" }, GetOrganizationsAccessReportRequest, GetOrganizationsAccessReportResponse, [NoSuchEntityException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const getOrganizationsAccessReport = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.GetOrganizationsAccessReport" }, GetOrganizationsAccessReportRequest, GetOrganizationsAccessReportResponse, [NoSuchEntityException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns the SAML provider metadocument that was uploaded when the IAM SAML provider
  * resource object was created or updated.
@@ -3022,7 +3022,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * 
  * 
  * This operation requires Signature Version 4.
- */export const getSAMLProvider = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.GetSAMLProvider" }, GetSAMLProviderRequest, GetSAMLProviderResponse, [InvalidInputException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const getSAMLProvider = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.GetSAMLProvider" }, GetSAMLProviderRequest, GetSAMLProviderResponse, [InvalidInputException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Retrieves information about the specified server certificate stored in IAM.
  * 
@@ -3031,7 +3031,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * with server certificates in the *IAM User Guide*. This
  * topic includes a list of Amazon Web Services services that can use the server certificates that you
  * manage with IAM.
- */export const getServerCertificate = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.GetServerCertificate" }, GetServerCertificateRequest, GetServerCertificateResponse, [NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const getServerCertificate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.GetServerCertificate" }, GetServerCertificateRequest, GetServerCertificateResponse, [NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns information about the access key IDs associated with the specified IAM user.
  * If there is none, the operation returns an empty list.
@@ -3056,7 +3056,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * 
  * To ensure the security of your Amazon Web Services account, the secret access key is accessible
  * only during key and user creation.
- */export const listAccessKeys = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.ListAccessKeys" }, ListAccessKeysRequest, ListAccessKeysResponse, [NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const listAccessKeys = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.ListAccessKeys" }, ListAccessKeysRequest, ListAccessKeysResponse, [NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Lists all managed policies that are attached to the specified IAM group.
  * 
@@ -3072,7 +3072,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * policies to only those matching the specified path prefix. If there are no policies
  * attached to the specified group (or none that match the specified path prefix), the
  * operation returns an empty list.
- */export const listAttachedGroupPolicies = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.ListAttachedGroupPolicies" }, ListAttachedGroupPoliciesRequest, ListAttachedGroupPoliciesResponse, [InvalidInputException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const listAttachedGroupPolicies = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.ListAttachedGroupPolicies" }, ListAttachedGroupPoliciesRequest, ListAttachedGroupPoliciesResponse, [InvalidInputException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Lists all IAM users, groups, and roles that the specified managed policy is attached
  * to.
@@ -3086,7 +3086,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * 
  * You can paginate the results using the `MaxItems` and `Marker`
  * parameters.
- */export const listEntitiesForPolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.ListEntitiesForPolicy" }, ListEntitiesForPolicyRequest, ListEntitiesForPolicyResponse, [InvalidInputException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const listEntitiesForPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.ListEntitiesForPolicy" }, ListEntitiesForPolicyRequest, ListEntitiesForPolicyResponse, [InvalidInputException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Lists the MFA devices for an IAM user. If the request includes a IAM user name,
  * then this operation lists all the MFA devices associated with the specified user. If you
@@ -3096,7 +3096,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * 
  * You can paginate the results using the `MaxItems` and `Marker`
  * parameters.
- */export const listMFADevices = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.ListMFADevices" }, ListMFADevicesRequest, ListMFADevicesResponse, [NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const listMFADevices = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.ListMFADevices" }, ListMFADevicesRequest, ListMFADevicesResponse, [NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Lists the server certificates stored in IAM that have the specified path prefix. If
  * none exist, the operation returns an empty list.
@@ -3117,7 +3117,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * IAM resource-listing operations return a subset of the available
  * attributes for the resource. For example, this operation does not return tags, even though they are an attribute of the returned object. To view all of the information for a servercertificate, see
  * GetServerCertificate.
- */export const listServerCertificates = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.ListServerCertificates" }, ListServerCertificatesRequest, ListServerCertificatesResponse, [ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const listServerCertificates = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.ListServerCertificates" }, ListServerCertificatesRequest, ListServerCertificatesResponse, [ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns information about the service-specific credentials associated with the
  * specified IAM user. If none exists, the operation returns an empty list. The
@@ -3125,7 +3125,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * the IAM user to a specific service. For more information about using service-specific
  * credentials to authenticate to an Amazon Web Services service, see Set up service-specific credentials
  * in the CodeCommit User Guide.
- */export const listServiceSpecificCredentials = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.ListServiceSpecificCredentials" }, ListServiceSpecificCredentialsRequest, ListServiceSpecificCredentialsResponse, [NoSuchEntityException, ServiceNotSupportedException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const listServiceSpecificCredentials = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.ListServiceSpecificCredentials" }, ListServiceSpecificCredentialsRequest, ListServiceSpecificCredentialsResponse, [NoSuchEntityException, ServiceNotSupportedException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns information about the signing certificates associated with the specified IAM
  * user. If none exists, the operation returns an empty list.
@@ -3141,7 +3141,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * This operation works for access keys under the Amazon Web Services account. Consequently, you can use
  * this operation to manage Amazon Web Services account root user credentials even if the Amazon Web Services account has no
  * associated users.
- */export const listSigningCertificates = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.ListSigningCertificates" }, ListSigningCertificatesRequest, ListSigningCertificatesResponse, [NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const listSigningCertificates = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.ListSigningCertificates" }, ListSigningCertificatesRequest, ListSigningCertificatesResponse, [NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns information about the SSH public keys associated with the specified IAM
  * user. If none exists, the operation returns an empty list.
@@ -3155,7 +3155,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * 
  * Although each user is limited to a small number of keys, you can still paginate the
  * results using the `MaxItems` and `Marker` parameters.
- */export const listSSHPublicKeys = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.ListSSHPublicKeys" }, ListSSHPublicKeysRequest, ListSSHPublicKeysResponse, [NoSuchEntityException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const listSSHPublicKeys = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.ListSSHPublicKeys" }, ListSSHPublicKeysRequest, ListSSHPublicKeysResponse, [NoSuchEntityException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Simulate how a set of IAM policies and optionally a resource-based policy works with
  * a list of API operations and Amazon Web Services resources to determine the policies' effective
@@ -3191,7 +3191,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * policy simulator, see Testing IAM
  * policies with the IAM policy simulator in the
  * *IAM User Guide*.
- */export const simulateCustomPolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.SimulateCustomPolicy" }, SimulateCustomPolicyRequest, SimulatePolicyResponse, [InvalidInputException, PolicyEvaluationException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const simulateCustomPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.SimulateCustomPolicy" }, SimulateCustomPolicyRequest, SimulatePolicyResponse, [InvalidInputException, PolicyEvaluationException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Creates an IAM delegation request for temporary access delegation.
  * 
@@ -3199,7 +3199,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * This API is not available for general use. In order to use this API, a caller first need to
  * go through an onboarding process described in the
  * partner onboarding documentation.
- */export const createDelegationRequest = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.CreateDelegationRequest" }, CreateDelegationRequestRequest, CreateDelegationRequestResponse, [ConcurrentModificationException, EntityAlreadyExistsException, InvalidInputException, LimitExceededException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const createDelegationRequest = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.CreateDelegationRequest" }, CreateDelegationRequestRequest, CreateDelegationRequestResponse, [ConcurrentModificationException, EntityAlreadyExistsException, InvalidInputException, LimitExceededException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Creates a new role for your Amazon Web Services account.
  * 
@@ -3208,7 +3208,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * *IAM User Guide*. For information about quotas for role names
  * and the number of roles you can create, see IAM and STS quotas in the
  * *IAM User Guide*.
- */export const createRole = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.CreateRole" }, CreateRoleRequest, CreateRoleResponse, [ConcurrentModificationException, EntityAlreadyExistsException, InvalidInputException, LimitExceededException, MalformedPolicyDocumentException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const createRole = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.CreateRole" }, CreateRoleRequest, CreateRoleResponse, [ConcurrentModificationException, EntityAlreadyExistsException, InvalidInputException, LimitExceededException, MalformedPolicyDocumentException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Generates a set of credentials consisting of a user name and password that can be used
  * to access the service specified in the request. These credentials are generated by
@@ -3227,7 +3227,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * 
  * For more information about service-specific credentials, see Service-specific credentials for IAM users in the
  * *IAM User Guide*.
- */export const createServiceSpecificCredential = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.CreateServiceSpecificCredential" }, CreateServiceSpecificCredentialRequest, CreateServiceSpecificCredentialResponse, [LimitExceededException, NoSuchEntityException, ServiceNotSupportedException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const createServiceSpecificCredential = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.CreateServiceSpecificCredential" }, CreateServiceSpecificCredentialRequest, CreateServiceSpecificCredentialResponse, [LimitExceededException, NoSuchEntityException, ServiceNotSupportedException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Retrieves information about all IAM users, groups, roles, and policies in your Amazon Web Services
  * account, including their relationships to one another. Use this operation to obtain a
@@ -3250,12 +3250,12 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * You can optionally filter the results using the `Filter` parameter. You can
  * paginate the results using the `MaxItems` and `Marker`
  * parameters.
- */export const getAccountAuthorizationDetails = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.GetAccountAuthorizationDetails" }, GetAccountAuthorizationDetailsRequest, GetAccountAuthorizationDetailsResponse, [ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const getAccountAuthorizationDetails = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.GetAccountAuthorizationDetails" }, GetAccountAuthorizationDetailsRequest, GetAccountAuthorizationDetailsResponse, [ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Retrieves a credential report for the Amazon Web Services account. For more information about the
  * credential report, see Getting credential reports in
  * the *IAM User Guide*.
- */export const getCredentialReport = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.GetCredentialReport" }, S.Struct({}), GetCredentialReportResponse, [CredentialReportExpiredException, CredentialReportNotPresentException, CredentialReportNotReadyException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const getCredentialReport = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.GetCredentialReport" }, S.Struct({}), GetCredentialReportResponse, [CredentialReportExpiredException, CredentialReportNotPresentException, CredentialReportNotReadyException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Retrieves a service last accessed report that was created using the
  * `GenerateServiceLastAccessedDetails` operation. You can use the
@@ -3324,7 +3324,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * 
  * For more information about service and action last accessed data, see Reducing permissions using service last accessed data in the
  * *IAM User Guide*.
- */export const getServiceLastAccessedDetails = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.GetServiceLastAccessedDetails" }, GetServiceLastAccessedDetailsRequest, GetServiceLastAccessedDetailsResponse, [InvalidInputException, NoSuchEntityException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const getServiceLastAccessedDetails = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.GetServiceLastAccessedDetails" }, GetServiceLastAccessedDetailsRequest, GetServiceLastAccessedDetailsResponse, [InvalidInputException, NoSuchEntityException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * After you generate a group or policy report using the
  * `GenerateServiceLastAccessedDetails` operation, you can use the
@@ -3359,14 +3359,14 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * 
  * By default, the list of associated entities is sorted by date, with the most recent
  * access listed first.
- */export const getServiceLastAccessedDetailsWithEntities = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.GetServiceLastAccessedDetailsWithEntities" }, GetServiceLastAccessedDetailsWithEntitiesRequest, GetServiceLastAccessedDetailsWithEntitiesResponse, [InvalidInputException, NoSuchEntityException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const getServiceLastAccessedDetailsWithEntities = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.GetServiceLastAccessedDetailsWithEntities" }, GetServiceLastAccessedDetailsWithEntitiesRequest, GetServiceLastAccessedDetailsWithEntitiesResponse, [InvalidInputException, NoSuchEntityException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Retrieves the status of your service-linked role deletion. After you use DeleteServiceLinkedRole to submit a service-linked role for deletion, you
  * can use the `DeletionTaskId` parameter in
  * `GetServiceLinkedRoleDeletionStatus` to check the status of the deletion.
  * If the deletion fails, this operation returns the reason that it failed, if that
  * information is returned by the service.
- */export const getServiceLinkedRoleDeletionStatus = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.GetServiceLinkedRoleDeletionStatus" }, GetServiceLinkedRoleDeletionStatusRequest, GetServiceLinkedRoleDeletionStatusResponse, [InvalidInputException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const getServiceLinkedRoleDeletionStatus = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.GetServiceLinkedRoleDeletionStatus" }, GetServiceLinkedRoleDeletionStatusRequest, GetServiceLinkedRoleDeletionStatusResponse, [InvalidInputException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Retrieves the specified SSH public key, including metadata about the key.
  * 
@@ -3375,7 +3375,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * associated IAM user to an CodeCommit repository. For more information about using SSH keys
  * to authenticate to an CodeCommit repository, see Set up CodeCommit for SSH
  * connections in the *CodeCommit User Guide*.
- */export const getSSHPublicKey = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.GetSSHPublicKey" }, GetSSHPublicKeyRequest, GetSSHPublicKeyResponse, [NoSuchEntityException, UnrecognizedPublicKeyEncodingException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const getSSHPublicKey = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.GetSSHPublicKey" }, GetSSHPublicKeyRequest, GetSSHPublicKeyResponse, [NoSuchEntityException, UnrecognizedPublicKeyEncodingException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Retrieves a list of policies that the IAM identity (user, group, or role) can use to
  * access each specified service.
@@ -3428,7 +3428,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * returned. To view which managed policy is currently used to set the permissions boundary
  * for a user or role, use the GetUser or GetRole
  * operations.
- */export const listPoliciesGrantingServiceAccess = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.ListPoliciesGrantingServiceAccess" }, ListPoliciesGrantingServiceAccessRequest, ListPoliciesGrantingServiceAccessResponse, [InvalidInputException, NoSuchEntityException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const listPoliciesGrantingServiceAccess = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.ListPoliciesGrantingServiceAccess" }, ListPoliciesGrantingServiceAccessRequest, ListPoliciesGrantingServiceAccessResponse, [InvalidInputException, NoSuchEntityException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Uploads a server certificate entity for the Amazon Web Services account. The server certificate
  * entity includes a public key certificate, a private key, and an optional certificate
@@ -3462,7 +3462,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * requests in the *Amazon Web Services General Reference*. For general
  * information about using the Query API with IAM, see Calling the API by making HTTP query
  * requests in the *IAM User Guide*.
- */export const uploadServerCertificate = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.UploadServerCertificate" }, UploadServerCertificateRequest, UploadServerCertificateResponse, [ConcurrentModificationException, EntityAlreadyExistsException, InvalidInputException, KeyPairMismatchException, LimitExceededException, MalformedCertificateException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const uploadServerCertificate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.UploadServerCertificate" }, UploadServerCertificateRequest, UploadServerCertificateResponse, [ConcurrentModificationException, EntityAlreadyExistsException, InvalidInputException, KeyPairMismatchException, LimitExceededException, MalformedCertificateException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Uploads an X.509 signing certificate and associates it with the specified IAM user.
  * Some Amazon Web Services services require you to use certificates to validate requests that are signed
@@ -3490,7 +3490,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * Amazon Web Services API requests in the *Amazon Web Services General Reference*. For
  * general information about using the Query API with IAM, see Making query
  * requests in the *IAM User Guide*.
- */export const uploadSigningCertificate = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.UploadSigningCertificate" }, UploadSigningCertificateRequest, UploadSigningCertificateResponse, [ConcurrentModificationException, DuplicateCertificateException, EntityAlreadyExistsException, InvalidCertificateException, LimitExceededException, MalformedCertificateException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const uploadSigningCertificate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.UploadSigningCertificate" }, UploadSigningCertificateRequest, UploadSigningCertificateResponse, [ConcurrentModificationException, DuplicateCertificateException, EntityAlreadyExistsException, InvalidCertificateException, LimitExceededException, MalformedCertificateException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Uploads an SSH public key and associates it with the specified IAM user.
  * 
@@ -3499,7 +3499,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * associated IAM user to an CodeCommit repository. For more information about using SSH keys
  * to authenticate to an CodeCommit repository, see Set up CodeCommit for
  * SSH connections in the *CodeCommit User Guide*.
- */export const uploadSSHPublicKey = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.UploadSSHPublicKey" }, UploadSSHPublicKeyRequest, UploadSSHPublicKeyResponse, [DuplicateSSHPublicKeyException, InvalidPublicKeyException, LimitExceededException, NoSuchEntityException, UnrecognizedPublicKeyEncodingException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const uploadSSHPublicKey = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.UploadSSHPublicKey" }, UploadSSHPublicKeyRequest, UploadSSHPublicKeyResponse, [DuplicateSSHPublicKeyException, InvalidPublicKeyException, LimitExceededException, NoSuchEntityException, UnrecognizedPublicKeyEncodingException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Simulate how a set of IAM policies attached to an IAM entity works with a list of
  * API operations and Amazon Web Services resources to determine the policies' effective permissions. The
@@ -3547,4 +3547,4 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * policy simulator, see Testing IAM
  * policies with the IAM policy simulator in the
  * *IAM User Guide*.
- */export const simulatePrincipalPolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.SimulatePrincipalPolicy" }, SimulatePrincipalPolicyRequest, SimulatePolicyResponse, [InvalidInputException, NoSuchEntityException, PolicyEvaluationException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const simulatePrincipalPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", uri: "/", method: "POST", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.SimulatePrincipalPolicy" }, SimulatePrincipalPolicyRequest, SimulatePolicyResponse, [InvalidInputException, NoSuchEntityException, PolicyEvaluationException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);

@@ -116,41 +116,41 @@ export class RequestThrottledException extends S.TaggedError<RequestThrottledExc
  * template and can be used to start a job run. Job template allows two use cases: avoid
  * repeating recurring StartJobRun API request values, enforcing certain values in StartJobRun
  * API request.
- */export const deleteJobTemplate = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-10-01", uri: "/jobtemplates/{id}", method: "DELETE", sdkId: "EMR containers", sigV4ServiceName: "emr-containers", name: "AwsChicagoWebService.DeleteJobTemplate" }, DeleteJobTemplateRequest, DeleteJobTemplateResponse, [InternalServerException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteJobTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-10-01", uri: "/jobtemplates/{id}", method: "DELETE", sdkId: "EMR containers", sigV4ServiceName: "emr-containers", name: "AwsChicagoWebService.DeleteJobTemplate" }, DeleteJobTemplateRequest, DeleteJobTemplateResponse, [InternalServerException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a managed endpoint. A managed endpoint is a gateway that connects Amazon EMR Studio to Amazon EMR on EKS so that Amazon EMR Studio can
  * communicate with your virtual cluster.
- */export const deleteManagedEndpoint = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-10-01", uri: "/virtualclusters/{virtualClusterId}/endpoints/{id}", method: "DELETE", sdkId: "EMR containers", sigV4ServiceName: "emr-containers", name: "AwsChicagoWebService.DeleteManagedEndpoint" }, DeleteManagedEndpointRequest, DeleteManagedEndpointResponse, [InternalServerException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteManagedEndpoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-10-01", uri: "/virtualclusters/{virtualClusterId}/endpoints/{id}", method: "DELETE", sdkId: "EMR containers", sigV4ServiceName: "emr-containers", name: "AwsChicagoWebService.DeleteManagedEndpoint" }, DeleteManagedEndpointRequest, DeleteManagedEndpointResponse, [InternalServerException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a virtual cluster. Virtual cluster is a managed entity on Amazon EMR on EKS. You can create, describe, list and delete virtual clusters. They do not consume any
  * additional resource in your system. A single virtual cluster maps to a single Kubernetes
  * namespace. Given this relationship, you can model virtual clusters the same way you model
  * Kubernetes namespaces to meet your requirements.
- */export const deleteVirtualCluster = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-10-01", uri: "/virtualclusters/{id}", method: "DELETE", sdkId: "EMR containers", sigV4ServiceName: "emr-containers", name: "AwsChicagoWebService.DeleteVirtualCluster" }, DeleteVirtualClusterRequest, DeleteVirtualClusterResponse, [InternalServerException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteVirtualCluster = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-10-01", uri: "/virtualclusters/{id}", method: "DELETE", sdkId: "EMR containers", sigV4ServiceName: "emr-containers", name: "AwsChicagoWebService.DeleteVirtualCluster" }, DeleteVirtualClusterRequest, DeleteVirtualClusterResponse, [InternalServerException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists job runs based on a set of parameters. A job run is a unit of work, such as a
  * Spark jar, PySpark script, or SparkSQL query, that you submit to Amazon EMR on EKS.
- */export const listJobRuns = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-10-01", uri: "/virtualclusters/{virtualClusterId}/jobruns", method: "GET", sdkId: "EMR containers", sigV4ServiceName: "emr-containers", name: "AwsChicagoWebService.ListJobRuns" }, ListJobRunsRequest, ListJobRunsResponse, [InternalServerException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listJobRuns = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-10-01", uri: "/virtualclusters/{virtualClusterId}/jobruns", method: "GET", sdkId: "EMR containers", sigV4ServiceName: "emr-containers", name: "AwsChicagoWebService.ListJobRuns" }, ListJobRunsRequest, ListJobRunsResponse, [InternalServerException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists job templates based on a set of parameters. Job template stores values of
  * StartJobRun API request in a template and can be used to start a job run. Job template
  * allows two use cases: avoid repeating recurring StartJobRun API request values, enforcing
  * certain values in StartJobRun API request.
- */export const listJobTemplates = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-10-01", uri: "/jobtemplates", method: "GET", sdkId: "EMR containers", sigV4ServiceName: "emr-containers", name: "AwsChicagoWebService.ListJobTemplates" }, ListJobTemplatesRequest, ListJobTemplatesResponse, [InternalServerException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listJobTemplates = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-10-01", uri: "/jobtemplates", method: "GET", sdkId: "EMR containers", sigV4ServiceName: "emr-containers", name: "AwsChicagoWebService.ListJobTemplates" }, ListJobTemplatesRequest, ListJobTemplatesResponse, [InternalServerException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists managed endpoints based on a set of parameters. A managed endpoint is a gateway
  * that connects Amazon EMR Studio to Amazon EMR on EKS so that Amazon EMR Studio can communicate with your virtual cluster.
- */export const listManagedEndpoints = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-10-01", uri: "/virtualclusters/{virtualClusterId}/endpoints", method: "GET", sdkId: "EMR containers", sigV4ServiceName: "emr-containers", name: "AwsChicagoWebService.ListManagedEndpoints" }, ListManagedEndpointsRequest, ListManagedEndpointsResponse, [InternalServerException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listManagedEndpoints = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-10-01", uri: "/virtualclusters/{virtualClusterId}/endpoints", method: "GET", sdkId: "EMR containers", sigV4ServiceName: "emr-containers", name: "AwsChicagoWebService.ListManagedEndpoints" }, ListManagedEndpointsRequest, ListManagedEndpointsResponse, [InternalServerException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists security configurations based on a set of parameters. Security configurations in
  * Amazon EMR on EKS are templates for different security setups. You can use security
  * configurations to configure the Lake Formation integration setup. You can also
  * create a security configuration to re-use a security setup each time you create a virtual
  * cluster.
- */export const listSecurityConfigurations = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-10-01", uri: "/securityconfigurations", method: "GET", sdkId: "EMR containers", sigV4ServiceName: "emr-containers", name: "AwsChicagoWebService.ListSecurityConfigurations" }, ListSecurityConfigurationsRequest, ListSecurityConfigurationsResponse, [InternalServerException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listSecurityConfigurations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-10-01", uri: "/securityconfigurations", method: "GET", sdkId: "EMR containers", sigV4ServiceName: "emr-containers", name: "AwsChicagoWebService.ListSecurityConfigurations" }, ListSecurityConfigurationsRequest, ListSecurityConfigurationsResponse, [InternalServerException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the tags assigned to the resources.
- */export const listTagsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-10-01", uri: "/tags/{resourceArn}", method: "GET", sdkId: "EMR containers", sigV4ServiceName: "emr-containers", name: "AwsChicagoWebService.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-10-01", uri: "/tags/{resourceArn}", method: "GET", sdkId: "EMR containers", sigV4ServiceName: "emr-containers", name: "AwsChicagoWebService.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists information about the specified virtual cluster. Virtual cluster is a managed
  * entity on Amazon EMR on EKS. You can create, describe, list and delete virtual
@@ -158,7 +158,7 @@ export class RequestThrottledException extends S.TaggedError<RequestThrottledExc
  * cluster maps to a single Kubernetes namespace. Given this relationship, you can model
  * virtual clusters the same way you model Kubernetes namespaces to meet your
  * requirements.
- */export const listVirtualClusters = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-10-01", uri: "/virtualclusters", method: "GET", sdkId: "EMR containers", sigV4ServiceName: "emr-containers", name: "AwsChicagoWebService.ListVirtualClusters" }, ListVirtualClustersRequest, ListVirtualClustersResponse, [InternalServerException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listVirtualClusters = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-10-01", uri: "/virtualclusters", method: "GET", sdkId: "EMR containers", sigV4ServiceName: "emr-containers", name: "AwsChicagoWebService.ListVirtualClusters" }, ListVirtualClustersRequest, ListVirtualClustersResponse, [InternalServerException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Assigns tags to resources. A tag is a label that you assign to an Amazon Web Services
  * resource. Each tag consists of a key and an optional value, both of which you define. Tags
@@ -169,33 +169,33 @@ export class RequestThrottledException extends S.TaggedError<RequestThrottledExc
  * cluster's owner and stack level. We recommend that you devise a consistent set of tag keys
  * for each resource type. You can then search and filter the resources based on the tags that
  * you add.
- */export const tagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-10-01", uri: "/tags/{resourceArn}", method: "POST", sdkId: "EMR containers", sigV4ServiceName: "emr-containers", name: "AwsChicagoWebService.TagResource" }, TagResourceRequest, TagResourceResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-10-01", uri: "/tags/{resourceArn}", method: "POST", sdkId: "EMR containers", sigV4ServiceName: "emr-containers", name: "AwsChicagoWebService.TagResource" }, TagResourceRequest, TagResourceResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes tags from resources.
- */export const untagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-10-01", uri: "/tags/{resourceArn}", method: "DELETE", sdkId: "EMR containers", sigV4ServiceName: "emr-containers", name: "AwsChicagoWebService.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-10-01", uri: "/tags/{resourceArn}", method: "DELETE", sdkId: "EMR containers", sigV4ServiceName: "emr-containers", name: "AwsChicagoWebService.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Cancels a job run. A job run is a unit of work, such as a Spark jar, PySpark script, or
  * SparkSQL query, that you submit to Amazon EMR on EKS.
- */export const cancelJobRun = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-10-01", uri: "/virtualclusters/{virtualClusterId}/jobruns/{id}", method: "DELETE", sdkId: "EMR containers", sigV4ServiceName: "emr-containers", name: "AwsChicagoWebService.CancelJobRun" }, CancelJobRunRequest, CancelJobRunResponse, [InternalServerException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const cancelJobRun = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-10-01", uri: "/virtualclusters/{virtualClusterId}/jobruns/{id}", method: "DELETE", sdkId: "EMR containers", sigV4ServiceName: "emr-containers", name: "AwsChicagoWebService.CancelJobRun" }, CancelJobRunRequest, CancelJobRunResponse, [InternalServerException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a virtual cluster. Virtual cluster is a managed entity on Amazon EMR on EKS. You can create, describe, list and delete virtual clusters. They do not consume any
  * additional resource in your system. A single virtual cluster maps to a single Kubernetes
  * namespace. Given this relationship, you can model virtual clusters the same way you model
  * Kubernetes namespaces to meet your requirements.
- */export const createVirtualCluster = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-10-01", uri: "/virtualclusters", method: "POST", sdkId: "EMR containers", sigV4ServiceName: "emr-containers", name: "AwsChicagoWebService.CreateVirtualCluster" }, CreateVirtualClusterRequest, CreateVirtualClusterResponse, [EKSRequestThrottledException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createVirtualCluster = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-10-01", uri: "/virtualclusters", method: "POST", sdkId: "EMR containers", sigV4ServiceName: "emr-containers", name: "AwsChicagoWebService.CreateVirtualCluster" }, CreateVirtualClusterRequest, CreateVirtualClusterResponse, [EKSRequestThrottledException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Displays detailed information about a specified job template. Job template stores values
  * of StartJobRun API request in a template and can be used to start a job run. Job template
  * allows two use cases: avoid repeating recurring StartJobRun API request values, enforcing
  * certain values in StartJobRun API request.
- */export const describeJobTemplate = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-10-01", uri: "/jobtemplates/{id}", method: "GET", sdkId: "EMR containers", sigV4ServiceName: "emr-containers", name: "AwsChicagoWebService.DescribeJobTemplate" }, DescribeJobTemplateRequest, DescribeJobTemplateResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeJobTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-10-01", uri: "/jobtemplates/{id}", method: "GET", sdkId: "EMR containers", sigV4ServiceName: "emr-containers", name: "AwsChicagoWebService.DescribeJobTemplate" }, DescribeJobTemplateRequest, DescribeJobTemplateResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Displays detailed information about a specified security configuration. Security
  * configurations in Amazon EMR on EKS are templates for different security setups. You
  * can use security configurations to configure the Lake Formation integration setup.
  * You can also create a security configuration to re-use a security setup each time you
  * create a virtual cluster.
- */export const describeSecurityConfiguration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-10-01", uri: "/securityconfigurations/{id}", method: "GET", sdkId: "EMR containers", sigV4ServiceName: "emr-containers", name: "AwsChicagoWebService.DescribeSecurityConfiguration" }, DescribeSecurityConfigurationRequest, DescribeSecurityConfigurationResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeSecurityConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-10-01", uri: "/securityconfigurations/{id}", method: "GET", sdkId: "EMR containers", sigV4ServiceName: "emr-containers", name: "AwsChicagoWebService.DescribeSecurityConfiguration" }, DescribeSecurityConfigurationRequest, DescribeSecurityConfigurationResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Displays detailed information about a specified virtual cluster. Virtual cluster is a
  * managed entity on Amazon EMR on EKS. You can create, describe, list and delete virtual
@@ -203,35 +203,35 @@ export class RequestThrottledException extends S.TaggedError<RequestThrottledExc
  * cluster maps to a single Kubernetes namespace. Given this relationship, you can model
  * virtual clusters the same way you model Kubernetes namespaces to meet your
  * requirements.
- */export const describeVirtualCluster = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-10-01", uri: "/virtualclusters/{id}", method: "GET", sdkId: "EMR containers", sigV4ServiceName: "emr-containers", name: "AwsChicagoWebService.DescribeVirtualCluster" }, DescribeVirtualClusterRequest, DescribeVirtualClusterResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeVirtualCluster = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-10-01", uri: "/virtualclusters/{id}", method: "GET", sdkId: "EMR containers", sigV4ServiceName: "emr-containers", name: "AwsChicagoWebService.DescribeVirtualCluster" }, DescribeVirtualClusterRequest, DescribeVirtualClusterResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Displays detailed information about a job run. A job run is a unit of work, such as a
  * Spark jar, PySpark script, or SparkSQL query, that you submit to Amazon EMR on EKS.
- */export const describeJobRun = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-10-01", uri: "/virtualclusters/{virtualClusterId}/jobruns/{id}", method: "GET", sdkId: "EMR containers", sigV4ServiceName: "emr-containers", name: "AwsChicagoWebService.DescribeJobRun" }, DescribeJobRunRequest, DescribeJobRunResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeJobRun = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-10-01", uri: "/virtualclusters/{virtualClusterId}/jobruns/{id}", method: "GET", sdkId: "EMR containers", sigV4ServiceName: "emr-containers", name: "AwsChicagoWebService.DescribeJobRun" }, DescribeJobRunRequest, DescribeJobRunResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Displays detailed information about a managed endpoint. A managed endpoint is a gateway
  * that connects Amazon EMR Studio to Amazon EMR on EKS so that Amazon EMR Studio can communicate with your virtual cluster.
- */export const describeManagedEndpoint = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-10-01", uri: "/virtualclusters/{virtualClusterId}/endpoints/{id}", method: "GET", sdkId: "EMR containers", sigV4ServiceName: "emr-containers", name: "AwsChicagoWebService.DescribeManagedEndpoint" }, DescribeManagedEndpointRequest, DescribeManagedEndpointResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeManagedEndpoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-10-01", uri: "/virtualclusters/{virtualClusterId}/endpoints/{id}", method: "GET", sdkId: "EMR containers", sigV4ServiceName: "emr-containers", name: "AwsChicagoWebService.DescribeManagedEndpoint" }, DescribeManagedEndpointRequest, DescribeManagedEndpointResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Generate a session token to connect to a managed endpoint.
- */export const getManagedEndpointSessionCredentials = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-10-01", uri: "/virtualclusters/{virtualClusterIdentifier}/endpoints/{endpointIdentifier}/credentials", method: "POST", sdkId: "EMR containers", sigV4ServiceName: "emr-containers", name: "AwsChicagoWebService.GetManagedEndpointSessionCredentials" }, GetManagedEndpointSessionCredentialsRequest, GetManagedEndpointSessionCredentialsResponse, [InternalServerException, RequestThrottledException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getManagedEndpointSessionCredentials = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-10-01", uri: "/virtualclusters/{virtualClusterIdentifier}/endpoints/{endpointIdentifier}/credentials", method: "POST", sdkId: "EMR containers", sigV4ServiceName: "emr-containers", name: "AwsChicagoWebService.GetManagedEndpointSessionCredentials" }, GetManagedEndpointSessionCredentialsRequest, GetManagedEndpointSessionCredentialsResponse, [InternalServerException, RequestThrottledException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts a job run. A job run is a unit of work, such as a Spark jar, PySpark script, or
  * SparkSQL query, that you submit to Amazon EMR on EKS.
- */export const startJobRun = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-10-01", uri: "/virtualclusters/{virtualClusterId}/jobruns", method: "POST", sdkId: "EMR containers", sigV4ServiceName: "emr-containers", name: "AwsChicagoWebService.StartJobRun" }, StartJobRunRequest, StartJobRunResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startJobRun = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-10-01", uri: "/virtualclusters/{virtualClusterId}/jobruns", method: "POST", sdkId: "EMR containers", sigV4ServiceName: "emr-containers", name: "AwsChicagoWebService.StartJobRun" }, StartJobRunRequest, StartJobRunResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a managed endpoint. A managed endpoint is a gateway that connects Amazon EMR Studio to Amazon EMR on EKS so that Amazon EMR Studio can
  * communicate with your virtual cluster.
- */export const createManagedEndpoint = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-10-01", uri: "/virtualclusters/{virtualClusterId}/endpoints", method: "POST", sdkId: "EMR containers", sigV4ServiceName: "emr-containers", name: "AwsChicagoWebService.CreateManagedEndpoint" }, CreateManagedEndpointRequest, CreateManagedEndpointResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createManagedEndpoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-10-01", uri: "/virtualclusters/{virtualClusterId}/endpoints", method: "POST", sdkId: "EMR containers", sigV4ServiceName: "emr-containers", name: "AwsChicagoWebService.CreateManagedEndpoint" }, CreateManagedEndpointRequest, CreateManagedEndpointResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a job template. Job template stores values of StartJobRun API request in a
  * template and can be used to start a job run. Job template allows two use cases: avoid
  * repeating recurring StartJobRun API request values, enforcing certain values in StartJobRun
  * API request.
- */export const createJobTemplate = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-10-01", uri: "/jobtemplates", method: "POST", sdkId: "EMR containers", sigV4ServiceName: "emr-containers", name: "AwsChicagoWebService.CreateJobTemplate" }, CreateJobTemplateRequest, CreateJobTemplateResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createJobTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-10-01", uri: "/jobtemplates", method: "POST", sdkId: "EMR containers", sigV4ServiceName: "emr-containers", name: "AwsChicagoWebService.CreateJobTemplate" }, CreateJobTemplateRequest, CreateJobTemplateResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a security configuration. Security configurations in Amazon EMR on EKS are
  * templates for different security setups. You can use security configurations to configure
  * the Lake Formation integration setup. You can also create a security configuration
  * to re-use a security setup each time you create a virtual cluster.
- */export const createSecurityConfiguration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-10-01", uri: "/securityconfigurations", method: "POST", sdkId: "EMR containers", sigV4ServiceName: "emr-containers", name: "AwsChicagoWebService.CreateSecurityConfiguration" }, CreateSecurityConfigurationRequest, CreateSecurityConfigurationResponse, [InternalServerException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createSecurityConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-10-01", uri: "/securityconfigurations", method: "POST", sdkId: "EMR containers", sigV4ServiceName: "emr-containers", name: "AwsChicagoWebService.CreateSecurityConfiguration" }, CreateSecurityConfigurationRequest, CreateSecurityConfigurationResponse, [InternalServerException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

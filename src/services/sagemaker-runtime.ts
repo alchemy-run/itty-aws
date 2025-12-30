@@ -59,7 +59,7 @@ export class ModelNotReadyException extends S.TaggedError<ModelNotReadyException
  * Calls to `InvokeEndpointWithResponseStream` are authenticated by using
  * Amazon Web Services Signature Version 4. For information, see Authenticating Requests (Amazon Web Services Signature Version 4) in the
  * *Amazon S3 API Reference*.
- */export const invokeEndpointWithResponseStream = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-13", uri: "/endpoints/{EndpointName}/invocations-response-stream", method: "POST", sdkId: "SageMaker Runtime", sigV4ServiceName: "sagemaker", name: "AmazonSageMakerRuntime.InvokeEndpointWithResponseStream" }, InvokeEndpointWithResponseStreamInput, InvokeEndpointWithResponseStreamOutput, [InternalFailure, InternalStreamFailure, ModelError, ModelStreamError, ServiceUnavailable, ValidationError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const invokeEndpointWithResponseStream = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-13", uri: "/endpoints/{EndpointName}/invocations-response-stream", method: "POST", sdkId: "SageMaker Runtime", sigV4ServiceName: "sagemaker", name: "AmazonSageMakerRuntime.InvokeEndpointWithResponseStream" }, InvokeEndpointWithResponseStreamInput, InvokeEndpointWithResponseStreamOutput, [InternalFailure, InternalStreamFailure, ModelError, ModelStreamError, ServiceUnavailable, ValidationError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * After you deploy a model into production using Amazon SageMaker AI hosting services,
  * your client applications use this API to get inferences from the model hosted at the
@@ -90,7 +90,7 @@ export class ModelNotReadyException extends S.TaggedError<ModelNotReadyException
  * Endpoints are scoped to an individual account, and are not public. The URL does
  * not contain the account ID, but Amazon SageMaker AI determines the account ID from
  * the authentication token that is supplied by the caller.
- */export const invokeEndpoint = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-13", uri: "/endpoints/{EndpointName}/invocations", method: "POST", sdkId: "SageMaker Runtime", sigV4ServiceName: "sagemaker", name: "AmazonSageMakerRuntime.InvokeEndpoint" }, InvokeEndpointInput, InvokeEndpointOutput, [InternalDependencyException, InternalFailure, ModelError, ModelNotReadyException, ServiceUnavailable, ValidationError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const invokeEndpoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-13", uri: "/endpoints/{EndpointName}/invocations", method: "POST", sdkId: "SageMaker Runtime", sigV4ServiceName: "sagemaker", name: "AmazonSageMakerRuntime.InvokeEndpoint" }, InvokeEndpointInput, InvokeEndpointOutput, [InternalDependencyException, InternalFailure, ModelError, ModelNotReadyException, ServiceUnavailable, ValidationError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * After you deploy a model into production using Amazon SageMaker AI hosting services,
  * your client applications use this API to get inferences from the model hosted at the
@@ -110,4 +110,4 @@ export class ModelNotReadyException extends S.TaggedError<ModelNotReadyException
  * 
  * Calls to `InvokeEndpointAsync` are authenticated by using Amazon Web Services Signature Version 4. For information, see Authenticating
  * Requests (Amazon Web Services Signature Version 4) in the *Amazon S3 API Reference*.
- */export const invokeEndpointAsync = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-13", uri: "/endpoints/{EndpointName}/async-invocations", method: "POST", sdkId: "SageMaker Runtime", sigV4ServiceName: "sagemaker", name: "AmazonSageMakerRuntime.InvokeEndpointAsync" }, InvokeEndpointAsyncInput, InvokeEndpointAsyncOutput, [InternalFailure, ServiceUnavailable, ValidationError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const invokeEndpointAsync = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-13", uri: "/endpoints/{EndpointName}/async-invocations", method: "POST", sdkId: "SageMaker Runtime", sigV4ServiceName: "sagemaker", name: "AmazonSageMakerRuntime.InvokeEndpointAsync" }, InvokeEndpointAsyncInput, InvokeEndpointAsyncOutput, [InternalFailure, ServiceUnavailable, ValidationError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
