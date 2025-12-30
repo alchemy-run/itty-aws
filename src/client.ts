@@ -680,10 +680,12 @@ export const makeOperation = <A extends ReturnType<typeof Operation>>(
     }
 
     const rawResponse = yield* httpClient[effectHttpMethod](signedRequest.url, {
+      // @ts-expect-error - TODO(sam): what are the proper types here
       headers: signedRequest.headers,
       body: signedRequest.body
         ? typeof signedRequest.body === "string"
           ? HttpBody.text(signedRequest.body)
+          // @ts-expect-error - TODO(sam): what are the proper types here
           : HttpBody.stream(signedRequest.body)
         : undefined,
     });

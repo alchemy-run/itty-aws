@@ -22,7 +22,7 @@ import {
   type ShapeTypeMap,
 } from "./model-schema.ts";
 import dedent from "dedent";
-import { schema } from "@effect/platform/Transferable";
+import path from "pathe"
 
 class SdkFile extends Context.Tag("SdkFile")<
   SdkFile,
@@ -955,7 +955,7 @@ const generateClient = Effect.fn(function* (
 });
 
 const AWS_MODELS_PATH = "aws-models";
-const RESULT_ROOT_PATH = "src/services";
+const RESULT_ROOT_PATH = path.resolve("src", "services");
 
 BunRuntime.runMain(
   // generateClient(TEST_MODAL_PATH, TEST_OUTPUT_PATH)

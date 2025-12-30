@@ -9,6 +9,10 @@
     "generate": "bun run scripts/generate-clients.ts",
     "build": "bun generate && tsc -b"
   },
+  "files": [
+    "src",
+    "lib"
+  ],
   "exports": {
     "./*": {
       "bun": "./src/services/*.ts",

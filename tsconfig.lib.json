@@ -4,6 +4,6 @@
     "compilerOptions": {
         "noEmit": false,
         "outDir": "./lib",
-        "rootDir": "./src",
+        "rootDir": "./src"
     }
 }
