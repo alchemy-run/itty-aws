@@ -13,18 +13,14 @@ export const Context = S.Record({key: S.String, value: S.String});
 export class RecommendedAction extends S.Class<RecommendedAction>("RecommendedAction")({id: S.optional(S.String), type: S.optional(S.String), accountId: S.optional(S.String), severity: S.optional(S.String), feature: S.optional(S.String), context: S.optional(Context), nextSteps: S.optional(NextSteps), lastUpdatedTimeStamp: S.optional(S.String)}) {}
 export const RecommendedActions = S.Array(RecommendedAction);
 export class ListRecommendedActionsResponse extends S.Class<ListRecommendedActionsResponse>("ListRecommendedActionsResponse")({recommendedActions: RecommendedActions, nextToken: S.optional(S.String)}) {}
-export class AccessDeniedException extends S.Class<AccessDeniedException>("AccessDeniedException")({message: S.String}) {}
-export class InternalServerException extends S.Class<InternalServerException>("InternalServerException")({message: S.String}) {}
-export class ThrottlingException extends S.Class<ThrottlingException>("ThrottlingException")({message: S.String}) {}
 export class ValidationExceptionField extends S.Class<ValidationExceptionField>("ValidationExceptionField")({name: S.String, message: S.String}) {}
 export const ValidationExceptionFieldList = S.Array(ValidationExceptionField);
-export class ValidationException extends S.Class<ValidationException>("ValidationException")({message: S.String, reason: S.String, fieldList: S.optional(ValidationExceptionFieldList)}) {}
 
 //# Errors
-export class AccessDeniedExceptionError extends S.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
-export class InternalServerExceptionError extends S.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException.fields) {};
-export class ThrottlingExceptionError extends S.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
-export class ValidationExceptionError extends S.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
+export class AccessDeniedException extends S.TaggedError<AccessDeniedException>()("AccessDeniedException", {message: S.String}) {};
+export class InternalServerException extends S.TaggedError<InternalServerException>()("InternalServerException", {message: S.String}) {};
+export class ThrottlingException extends S.TaggedError<ThrottlingException>()("ThrottlingException", {message: S.String}) {};
+export class ValidationException extends S.TaggedError<ValidationException>()("ValidationException", {message: S.String, reason: S.String, fieldList: S.optional(ValidationExceptionFieldList)}) {};
 
 //# Operations
-export const listRecommendedActions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2024-11-14", uri: "/", method: "POST", sdkId: "BCM Recommended Actions", sigV4ServiceName: "bcm-recommended-actions", name: "AWSBillingAndCostManagementRecommendedActions.ListRecommendedActions" }, ListRecommendedActionsRequest, ListRecommendedActionsResponse, [AccessDeniedExceptionError, InternalServerExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const listRecommendedActions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2024-11-14", uri: "/", method: "POST", sdkId: "BCM Recommended Actions", sigV4ServiceName: "bcm-recommended-actions", name: "AWSBillingAndCostManagementRecommendedActions.ListRecommendedActions" }, ListRecommendedActionsRequest, ListRecommendedActionsResponse, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);

@@ -42,6 +42,10 @@ class SdkFile extends Context.Tag("SdkFile")<
     cyclicClasses: Set<string>;
     // Set of ALL struct names (classes can be used directly as types)
     allStructNames: Set<string>;
+    // Set of shape IDs that are error shapes (should be inlined in TaggedError, not separate classes)
+    errorShapeIds: Set<string>;
+    // Map of error shape names to their inline fields definition
+    errorFields: Ref.Ref<Map<string, string>>;
   }
 >() {}
 
@@ -325,6 +329,21 @@ function findCyclicSchemasFromDeps(
   return { cyclicSchemas, cyclicClasses, allStructNames };
 }
 
+// Collect all error shape IDs from operation definitions
+function collectErrorShapeIds(model: SmithyModel): Set<string> {
+  const errorShapeIds = new Set<string>();
+  
+  for (const [shapeId, shape] of Object.entries(model.shapes)) {
+    if (shape.type === "operation" && shape.errors) {
+      for (const error of shape.errors) {
+        errorShapeIds.add(error.target);
+      }
+    }
+  }
+  
+  return errorShapeIds;
+}
+
 const convertShapeToSchema: (
   args_0: string,
 ) => Effect.Effect<
@@ -475,13 +494,18 @@ const convertShapeToSchema: (
               const memberName = formatName(s.member.target);
               const schemaName = getSchemaName();
               const isCyclic = sdkFile.cyclicSchemas.has(schemaName);
+              const isMemberErrorShape = sdkFile.errorShapeIds.has(s.member.target);
               return addAlias(
                 convertShapeToSchema(s.member.target).pipe(
                   Effect.flatMap(Deferred.await),
                   Effect.map((type) => {
-                    // Wrap cyclic references in S.suspend
+                    // Wrap error shape references in S.suspend (they're defined after schemas)
                     let innerType = type;
-                    if (sdkFile.cyclicSchemas.has(memberName)) {
+                    if (isMemberErrorShape) {
+                      innerType = `S.suspend(() => ${type})`;
+                    }
+                    // Wrap cyclic references in S.suspend
+                    else if (sdkFile.cyclicSchemas.has(memberName)) {
                       innerType = sdkFile.cyclicClasses.has(memberName)
                       // TODO(sam): I had to add the any here because encoded type was creting circular errors. hopefully OK since we don't really need it
                         ? `S.suspend((): S.Schema<${type}, any> => ${type})`
@@ -509,53 +533,77 @@ const convertShapeToSchema: (
               );
               const currentSchemaName = getSchemaName();
               const isCurrentCyclic = sdkFile.cyclicSchemas.has(currentSchemaName);
+              const isErrorShape = sdkFile.errorShapeIds.has(target);
+
+              const membersEffect = Effect.all(
+                Object.entries(s.members).map(([memberName, member]) => {
+                  const memberTargetName = formatName(member.target);
+                  const isMemberErrorShape = sdkFile.errorShapeIds.has(member.target);
+                  return convertShapeToSchema(member.target).pipe(
+                    Effect.flatMap(Deferred.await),
+                    Effect.map((baseSchema) => {
+                      let schema = baseSchema;
+
+                      // Wrap error shape references in S.suspend (they're defined after schemas)
+                      if (isMemberErrorShape) {
+                        schema = `S.suspend(() => ${schema})`;
+                      }
+                      // Wrap cyclic references in S.suspend (only if current schema is also cyclic)
+                      else if (isCurrentCyclic && sdkFile.cyclicSchemas.has(memberTargetName)) {
+                        if (sdkFile.cyclicClasses.has(memberTargetName)) {
+                          // TODO(sam): I had to add the any here because encoded type was creting circular errors. hopefully OK since we don't really need it
+                          schema = `S.suspend((): S.Schema<${schema}, any> => ${schema})`;
+                        } else {
+                          schema = `S.suspend(() => ${schema})`;
+                        }
+                      }
+
+                      if (member.traits?.["smithy.api#httpHeader"] != null) {
+                        if (baseSchema === "S.String") {
+                          schema = `H.Header("${member.traits?.["smithy.api#httpHeader"]}")`;
+                        } else {
+                          schema = `H.Header("${member.traits?.["smithy.api#httpHeader"]}", ${schema})`;
+                        }
+                      }
+                      if (member.traits?.["smithy.api#httpPayload"] != null) {
+                        schema = `H.Body("${member.traits?.["smithy.api#xmlName"]}", ${schema})`;
+                      }
+                      if (
+                        member.traits?.["smithy.api#httpLabel"] != null &&
+                        member.traits?.["smithy.rules#contextParam"] != null
+                      ) {
+                        schema = `H.Path("${(member.traits?.["smithy.rules#contextParam"] as { name: string })?.name}", ${schema})`;
+                      }
+
+                      if (member.traits?.["smithy.api#required"] == null) {
+                        schema = `S.optional(${schema})`;
+                      }
+
+                      return `${memberName}: ${schema}`;
+                    }),
+                  );
+                }),
+                { concurrency: "unbounded" },
+              );
+
+              // For error shapes, store the fields separately and don't generate a class
+              if (isErrorShape) {
+                return Effect.gen(function* () {
+                  const tsName = currentSchemaName;
+                  yield* Deferred.succeed(deferredValue, tsName);
+                  const members = yield* membersEffect;
+                  const fields = `{${members.join(", ")}}`;
+                  // Store the fields for later use in TaggedError generation
+                  yield* Ref.update(sdkFile.errorFields, (map) => {
+                    map.set(tsName, fields);
+                    return map;
+                  });
+                  return tsName;
+                });
+              }
 
               return addAlias(
-                Effect.all(
-                  Object.entries(s.members).map(([memberName, member]) => {
-                    const memberTargetName = formatName(member.target);
-                    return convertShapeToSchema(member.target).pipe(
-                      Effect.flatMap(Deferred.await),
-                      Effect.map((baseSchema) => {
-                        let schema = baseSchema;
-
-                        // Wrap cyclic references in S.suspend (only if current schema is also cyclic)
-                        if (isCurrentCyclic && sdkFile.cyclicSchemas.has(memberTargetName)) {
-                          if (sdkFile.cyclicClasses.has(memberTargetName)) {
-                            // TODO(sam): I had to add the any here because encoded type was creting circular errors. hopefully OK since we don't really need it
-                            schema = `S.suspend((): S.Schema<${schema}, any> => ${schema})`;
-                          } else {
-                            schema = `S.suspend(() => ${schema})`;
-                          }
-                        }
-
-                        if (member.traits?.["smithy.api#httpHeader"] != null) {
-                          if (baseSchema === "S.String") {
-                            schema = `H.Header("${member.traits?.["smithy.api#httpHeader"]}")`;
-                          } else {
-                            schema = `H.Header("${member.traits?.["smithy.api#httpHeader"]}", ${schema})`;
-                          }
-                        }
-                        if (member.traits?.["smithy.api#httpPayload"] != null) {
-                          schema = `H.Body("${member.traits?.["smithy.api#xmlName"]}", ${schema})`;
-                        }
-                        if (
-                          member.traits?.["smithy.api#httpLabel"] != null &&
-                          member.traits?.["smithy.rules#contextParam"] != null
-                        ) {
-                          schema = `H.Path("${(member.traits?.["smithy.rules#contextParam"] as { name: string })?.name}", ${schema})`;
-                        }
-
-                        if (member.traits?.["smithy.api#required"] == null) {
-                          schema = `S.optional(${schema})`;
-                        }
-
-                        return `${memberName}: ${schema}`;
-                      }),
-                    );
-                  }),
-                  { concurrency: "unbounded" },
-                ).pipe(
+                membersEffect.pipe(
                   Effect.map((members) => {
                     const fields = `{${members.join(", ")}}`;
                     // Always use S.Class for structs
@@ -579,13 +627,18 @@ const convertShapeToSchema: (
                 Effect.all(
                   Object.entries(s.members).map(([_memberName, member]) => {
                     const memberTargetName = formatName(member.target);
+                    const isMemberErrorShape = sdkFile.errorShapeIds.has(member.target);
                     return convertShapeToSchema(member.target).pipe(
                       Effect.flatMap(Deferred.await),
                       Effect.map((schema) => {
                         // Track both raw schema (for type alias) and wrapped schema (for schema definition)
                         let wrappedSchema = schema;
+                        // Wrap error shape references in S.suspend (they're defined after schemas)
+                        if (isMemberErrorShape) {
+                          wrappedSchema = `S.suspend(() => ${schema})`;
+                        }
                         // Wrap cyclic references in S.suspend
-                        if (isCurrentCyclic && sdkFile.cyclicSchemas.has(memberTargetName)) {
+                        else if (isCurrentCyclic && sdkFile.cyclicSchemas.has(memberTargetName)) {
                           if (sdkFile.cyclicClasses.has(memberTargetName)) {
                             // TODO(sam): I had to add the any here because encoded type was creting circular errors. hopefully OK since we don't really need it
                             wrappedSchema = `S.suspend((): S.Schema<${schema}, any> => ${schema})`;
@@ -660,19 +713,22 @@ const convertShapeToSchema: (
   return deferredValue;
 });
 
-const addError = Effect.fn(function* (error: { name: string; schema: string }) {
+const addError = Effect.fn(function* (error: { name: string }) {
   const sdkFile = yield* SdkFile;
   const existingErrors = yield* Ref.get(sdkFile.errors);
   if (!existingErrors.some((e) => e.name === error.name)) {
+    // Get the inline fields from errorFields map
+    const errorFieldsMap = yield* Ref.get(sdkFile.errorFields);
+    const fields = errorFieldsMap.get(error.name) ?? "{}";
     yield* Ref.update(sdkFile.errors, (errors) => [
       ...errors,
       {
         name: error.name,
-        definition: `export class ${error.name}Error extends S.TaggedError<${error.name}Error>()("${error.name}", ${error.schema}.fields) {};`,
+        definition: `export class ${error.name} extends S.TaggedError<${error.name}>()("${error.name}", ${fields}) {};`,
       },
     ]);
   }
-  return `${error.name}Error`;
+  return error.name;
 });
 
 const generateClient = Effect.fn(function* (
@@ -729,10 +785,9 @@ const generateClient = Effect.fn(function* (
                 ({ target: errorShapeReference }) =>
                   convertShapeToSchema(errorShapeReference).pipe(
                     Effect.flatMap(Deferred.await),
-                    Effect.flatMap((s) =>
+                    Effect.flatMap(() =>
                       addError({
                         name: formatName(errorShapeReference),
-                        schema: s,
                       }),
                     ),
                   ),
@@ -846,6 +901,9 @@ const generateClient = Effect.fn(function* (
   // Pre-compute cyclic schemas from the model before generation
   const shapeDeps = collectShapeDependencies(model);
   const { cyclicSchemas, cyclicClasses, allStructNames } = findCyclicSchemasFromDeps(shapeDeps);
+  
+  // Pre-collect error shape IDs so we can inline their fields in TaggedError
+  const errorShapeIds = collectErrorShapeIds(model);
 
   return yield* client.pipe(
     Effect.provideService(SdkFile, {
@@ -858,6 +916,8 @@ const generateClient = Effect.fn(function* (
       cyclicSchemas,
       cyclicClasses,
       allStructNames,
+      errorShapeIds,
+      errorFields: yield* Ref.make<Map<string, string>>(new Map()),
     }),
     Effect.provideService(ModelService, model),
   );

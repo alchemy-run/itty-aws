@@ -11,7 +11,6 @@ export class DescribeStreamInput extends S.Class<DescribeStreamInput>("DescribeS
 export class GetShardIteratorOutput extends S.Class<GetShardIteratorOutput>("GetShardIteratorOutput")({ShardIterator: S.optional(S.String)}) {}
 export class Stream extends S.Class<Stream>("Stream")({StreamArn: S.optional(S.String), TableName: S.optional(S.String), StreamLabel: S.optional(S.String)}) {}
 export const StreamList = S.Array(Stream);
-export class InternalServerError extends S.Class<InternalServerError>("InternalServerError")({message: S.optional(S.String)}) {}
 export class ListStreamsOutput extends S.Class<ListStreamsOutput>("ListStreamsOutput")({Streams: S.optional(StreamList), LastEvaluatedStreamArn: S.optional(S.String)}) {}
 export class Identity extends S.Class<Identity>("Identity")({PrincipalId: S.optional(S.String), Type: S.optional(S.String)}) {}
 export const StringSetAttributeValue = S.Array(S.String);
@@ -19,12 +18,10 @@ export const NumberSetAttributeValue = S.Array(S.String);
 export const BinarySetAttributeValue = S.Array(H.StreamBody());
 export type ListAttributeValue = AttributeValue[];
 export const ListAttributeValue = S.Array(S.suspend(() => AttributeValue)) as any as S.Schema<ListAttributeValue>;
-export class ResourceNotFoundException extends S.Class<ResourceNotFoundException>("ResourceNotFoundException")({message: S.optional(S.String)}) {}
 export class KeySchemaElement extends S.Class<KeySchemaElement>("KeySchemaElement")({AttributeName: S.String, KeyType: S.String}) {}
 export const KeySchema = S.Array(KeySchemaElement);
 export class SequenceNumberRange extends S.Class<SequenceNumberRange>("SequenceNumberRange")({StartingSequenceNumber: S.optional(S.String), EndingSequenceNumber: S.optional(S.String)}) {}
 export const MapAttributeValue = S.Record({key: S.String, value: AttributeValue});
-export class TrimmedDataAccessException extends S.Class<TrimmedDataAccessException>("TrimmedDataAccessException")({message: S.optional(S.String)}) {}
 export class Shard extends S.Class<Shard>("Shard")({ShardId: S.optional(S.String), SequenceNumberRange: S.optional(SequenceNumberRange), ParentShardId: S.optional(S.String)}) {}
 export const ShardDescriptionList = S.Array(Shard);
 export type AttributeValue = string | H.StreamBody | typeof StringSetAttributeValue["Type"] | typeof NumberSetAttributeValue["Type"] | typeof BinarySetAttributeValue["Type"] | MapAttributeValue | ListAttributeValue | boolean;
@@ -36,18 +33,16 @@ export class StreamRecord extends S.Class<StreamRecord>("StreamRecord")({Approxi
 export class Record extends S.Class<Record>("Record")({eventID: S.optional(S.String), eventName: S.optional(S.String), eventVersion: S.optional(S.String), eventSource: S.optional(S.String), awsRegion: S.optional(S.String), dynamodb: S.optional(StreamRecord), userIdentity: S.optional(Identity)}) {}
 export const RecordList = S.Array(Record);
 export class GetRecordsOutput extends S.Class<GetRecordsOutput>("GetRecordsOutput")({Records: S.optional(RecordList), NextShardIterator: S.optional(S.String)}) {}
-export class ExpiredIteratorException extends S.Class<ExpiredIteratorException>("ExpiredIteratorException")({message: S.optional(S.String)}) {}
-export class LimitExceededException extends S.Class<LimitExceededException>("LimitExceededException")({message: S.optional(S.String)}) {}
 
 //# Errors
-export class InternalServerErrorError extends S.TaggedError<InternalServerErrorError>()("InternalServerError", InternalServerError.fields) {};
-export class ResourceNotFoundExceptionError extends S.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
-export class TrimmedDataAccessExceptionError extends S.TaggedError<TrimmedDataAccessExceptionError>()("TrimmedDataAccessException", TrimmedDataAccessException.fields) {};
-export class ExpiredIteratorExceptionError extends S.TaggedError<ExpiredIteratorExceptionError>()("ExpiredIteratorException", ExpiredIteratorException.fields) {};
-export class LimitExceededExceptionError extends S.TaggedError<LimitExceededExceptionError>()("LimitExceededException", LimitExceededException.fields) {};
+export class InternalServerError extends S.TaggedError<InternalServerError>()("InternalServerError", {message: S.optional(S.String)}) {};
+export class ResourceNotFoundException extends S.TaggedError<ResourceNotFoundException>()("ResourceNotFoundException", {}) {};
+export class TrimmedDataAccessException extends S.TaggedError<TrimmedDataAccessException>()("TrimmedDataAccessException", {message: S.optional(S.String)}) {};
+export class ExpiredIteratorException extends S.TaggedError<ExpiredIteratorException>()("ExpiredIteratorException", {message: S.optional(S.String)}) {};
+export class LimitExceededException extends S.TaggedError<LimitExceededException>()("LimitExceededException", {message: S.optional(S.String)}) {};
 
 //# Operations
-export const listStreams = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB Streams", sigV4ServiceName: "dynamodb", name: "DynamoDBStreams_20120810.ListStreams" }, ListStreamsInput, ListStreamsOutput, [InternalServerErrorError, ResourceNotFoundExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const getShardIterator = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB Streams", sigV4ServiceName: "dynamodb", name: "DynamoDBStreams_20120810.GetShardIterator" }, GetShardIteratorInput, GetShardIteratorOutput, [InternalServerErrorError, ResourceNotFoundExceptionError, TrimmedDataAccessExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeStream = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB Streams", sigV4ServiceName: "dynamodb", name: "DynamoDBStreams_20120810.DescribeStream" }, DescribeStreamInput, DescribeStreamOutput, [InternalServerErrorError, ResourceNotFoundExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const getRecords = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB Streams", sigV4ServiceName: "dynamodb", name: "DynamoDBStreams_20120810.GetRecords" }, GetRecordsInput, GetRecordsOutput, [ExpiredIteratorExceptionError, InternalServerErrorError, LimitExceededExceptionError, ResourceNotFoundExceptionError, TrimmedDataAccessExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const listStreams = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB Streams", sigV4ServiceName: "dynamodb", name: "DynamoDBStreams_20120810.ListStreams" }, ListStreamsInput, ListStreamsOutput, [InternalServerError, ResourceNotFoundException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const getShardIterator = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB Streams", sigV4ServiceName: "dynamodb", name: "DynamoDBStreams_20120810.GetShardIterator" }, GetShardIteratorInput, GetShardIteratorOutput, [InternalServerError, ResourceNotFoundException, TrimmedDataAccessException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const describeStream = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB Streams", sigV4ServiceName: "dynamodb", name: "DynamoDBStreams_20120810.DescribeStream" }, DescribeStreamInput, DescribeStreamOutput, [InternalServerError, ResourceNotFoundException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const getRecords = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB Streams", sigV4ServiceName: "dynamodb", name: "DynamoDBStreams_20120810.GetRecords" }, GetRecordsInput, GetRecordsOutput, [ExpiredIteratorException, InternalServerError, LimitExceededException, ResourceNotFoundException, TrimmedDataAccessException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);

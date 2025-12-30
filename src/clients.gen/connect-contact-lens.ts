@@ -18,18 +18,13 @@ export class Categories extends S.Class<Categories>("Categories")({MatchedCatego
 export class RealtimeContactAnalysisSegment extends S.Class<RealtimeContactAnalysisSegment>("RealtimeContactAnalysisSegment")({Transcript: S.optional(Transcript), Categories: S.optional(Categories), PostContactSummary: S.optional(PostContactSummary)}) {}
 export const RealtimeContactAnalysisSegments = S.Array(RealtimeContactAnalysisSegment);
 export class ListRealtimeContactAnalysisSegmentsResponse extends S.Class<ListRealtimeContactAnalysisSegmentsResponse>("ListRealtimeContactAnalysisSegmentsResponse")({Segments: RealtimeContactAnalysisSegments, NextToken: S.optional(S.String)}) {}
-export class AccessDeniedException extends S.Class<AccessDeniedException>("AccessDeniedException")({Message: S.String}) {}
-export class InternalServiceException extends S.Class<InternalServiceException>("InternalServiceException")({Message: S.optional(S.String)}) {}
-export class InvalidRequestException extends S.Class<InvalidRequestException>("InvalidRequestException")({Message: S.optional(S.String)}) {}
-export class ResourceNotFoundException extends S.Class<ResourceNotFoundException>("ResourceNotFoundException")({Message: S.optional(S.String)}) {}
-export class ThrottlingException extends S.Class<ThrottlingException>("ThrottlingException")({Message: S.String}) {}
 
 //# Errors
-export class AccessDeniedExceptionError extends S.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
-export class InternalServiceExceptionError extends S.TaggedError<InternalServiceExceptionError>()("InternalServiceException", InternalServiceException.fields) {};
-export class InvalidRequestExceptionError extends S.TaggedError<InvalidRequestExceptionError>()("InvalidRequestException", InvalidRequestException.fields) {};
-export class ResourceNotFoundExceptionError extends S.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
-export class ThrottlingExceptionError extends S.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
+export class AccessDeniedException extends S.TaggedError<AccessDeniedException>()("AccessDeniedException", {Message: S.String}) {};
+export class InternalServiceException extends S.TaggedError<InternalServiceException>()("InternalServiceException", {Message: S.optional(S.String)}) {};
+export class InvalidRequestException extends S.TaggedError<InvalidRequestException>()("InvalidRequestException", {Message: S.optional(S.String)}) {};
+export class ResourceNotFoundException extends S.TaggedError<ResourceNotFoundException>()("ResourceNotFoundException", {Message: S.optional(S.String)}) {};
+export class ThrottlingException extends S.TaggedError<ThrottlingException>()("ThrottlingException", {Message: S.String}) {};
 
 //# Operations
-export const listRealtimeContactAnalysisSegments = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-21", uri: "/realtime-contact-analysis/analysis-segments", method: "POST", sdkId: "Connect Contact Lens", sigV4ServiceName: "connect", name: "AmazonConnectContactLens.ListRealtimeContactAnalysisSegments" }, ListRealtimeContactAnalysisSegmentsRequest, ListRealtimeContactAnalysisSegmentsResponse, [AccessDeniedExceptionError, InternalServiceExceptionError, InvalidRequestExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const listRealtimeContactAnalysisSegments = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-21", uri: "/realtime-contact-analysis/analysis-segments", method: "POST", sdkId: "Connect Contact Lens", sigV4ServiceName: "connect", name: "AmazonConnectContactLens.ListRealtimeContactAnalysisSegments" }, ListRealtimeContactAnalysisSegmentsRequest, ListRealtimeContactAnalysisSegmentsResponse, [AccessDeniedException, InternalServiceException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

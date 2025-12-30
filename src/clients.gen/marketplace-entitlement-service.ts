@@ -10,14 +10,11 @@ export class EntitlementValue extends S.Class<EntitlementValue>("EntitlementValu
 export class Entitlement extends S.Class<Entitlement>("Entitlement")({ProductCode: S.optional(S.String), Dimension: S.optional(S.String), CustomerIdentifier: S.optional(S.String), CustomerAWSAccountId: S.optional(S.String), Value: S.optional(EntitlementValue), ExpirationDate: S.optional(S.Date)}) {}
 export const EntitlementList = S.Array(Entitlement);
 export class GetEntitlementsResult extends S.Class<GetEntitlementsResult>("GetEntitlementsResult")({Entitlements: S.optional(EntitlementList), NextToken: S.optional(S.String)}) {}
-export class InternalServiceErrorException extends S.Class<InternalServiceErrorException>("InternalServiceErrorException")({message: S.optional(S.String)}) {}
-export class InvalidParameterException extends S.Class<InvalidParameterException>("InvalidParameterException")({message: S.optional(S.String)}) {}
-export class ThrottlingException extends S.Class<ThrottlingException>("ThrottlingException")({message: S.optional(S.String)}) {}
 
 //# Errors
-export class InternalServiceErrorExceptionError extends S.TaggedError<InternalServiceErrorExceptionError>()("InternalServiceErrorException", InternalServiceErrorException.fields) {};
-export class InvalidParameterExceptionError extends S.TaggedError<InvalidParameterExceptionError>()("InvalidParameterException", InvalidParameterException.fields) {};
-export class ThrottlingExceptionError extends S.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
+export class InternalServiceErrorException extends S.TaggedError<InternalServiceErrorException>()("InternalServiceErrorException", {message: S.optional(S.String)}) {};
+export class InvalidParameterException extends S.TaggedError<InvalidParameterException>()("InvalidParameterException", {message: S.optional(S.String)}) {};
+export class ThrottlingException extends S.TaggedError<ThrottlingException>()("ThrottlingException", {message: S.optional(S.String)}) {};
 
 //# Operations
-export const getEntitlements = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-11", uri: "/", method: "POST", sdkId: "Marketplace Entitlement Service", sigV4ServiceName: "aws-marketplace", name: "AWSMPEntitlementService.GetEntitlements" }, GetEntitlementsRequest, GetEntitlementsResult, [InternalServiceErrorExceptionError, InvalidParameterExceptionError, ThrottlingExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const getEntitlements = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-11", uri: "/", method: "POST", sdkId: "Marketplace Entitlement Service", sigV4ServiceName: "aws-marketplace", name: "AWSMPEntitlementService.GetEntitlements" }, GetEntitlementsRequest, GetEntitlementsResult, [InternalServiceErrorException, InvalidParameterException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

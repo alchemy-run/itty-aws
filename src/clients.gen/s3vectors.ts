@@ -11,16 +11,13 @@ export const TagsMap = S.Record({key: S.String, value: S.String});
 export class ListTagsForResourceOutput extends S.Class<ListTagsForResourceOutput>("ListTagsForResourceOutput")({tags: TagsMap}) {}
 export class TagResourceInput extends S.Class<TagResourceInput>("TagResourceInput")({resourceArn: S.String, tags: TagsMap}) {}
 export class TagResourceOutput extends S.Class<TagResourceOutput>("TagResourceOutput")({}) {}
-export class ConflictException extends S.Class<ConflictException>("ConflictException")({message: S.String}) {}
-export class NotFoundException extends S.Class<NotFoundException>("NotFoundException")({message: S.String}) {}
-export class ServiceUnavailableException extends S.Class<ServiceUnavailableException>("ServiceUnavailableException")({message: S.String}) {}
 
 //# Errors
-export class ConflictExceptionError extends S.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
-export class NotFoundExceptionError extends S.TaggedError<NotFoundExceptionError>()("NotFoundException", NotFoundException.fields) {};
-export class ServiceUnavailableExceptionError extends S.TaggedError<ServiceUnavailableExceptionError>()("ServiceUnavailableException", ServiceUnavailableException.fields) {};
+export class ConflictException extends S.TaggedError<ConflictException>()("ConflictException", {}) {};
+export class NotFoundException extends S.TaggedError<NotFoundException>()("NotFoundException", {}) {};
+export class ServiceUnavailableException extends S.TaggedError<ServiceUnavailableException>()("ServiceUnavailableException", {}) {};
 
 //# Operations
-export const untagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2025-07-15", uri: "/tags/{resourceArn}", method: "DELETE", sdkId: "S3Vectors", sigV4ServiceName: "s3vectors", name: "S3Vectors.UntagResource" }, UntagResourceInput, UntagResourceOutput, [ConflictExceptionError, NotFoundExceptionError, ServiceUnavailableExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listTagsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2025-07-15", uri: "/tags/{resourceArn}", method: "GET", sdkId: "S3Vectors", sigV4ServiceName: "s3vectors", name: "S3Vectors.ListTagsForResource" }, ListTagsForResourceInput, ListTagsForResourceOutput, [NotFoundExceptionError, ServiceUnavailableExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const tagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2025-07-15", uri: "/tags/{resourceArn}", method: "POST", sdkId: "S3Vectors", sigV4ServiceName: "s3vectors", name: "S3Vectors.TagResource" }, TagResourceInput, TagResourceOutput, [ConflictExceptionError, NotFoundExceptionError, ServiceUnavailableExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const untagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2025-07-15", uri: "/tags/{resourceArn}", method: "DELETE", sdkId: "S3Vectors", sigV4ServiceName: "s3vectors", name: "S3Vectors.UntagResource" }, UntagResourceInput, UntagResourceOutput, [ConflictException, NotFoundException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const listTagsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2025-07-15", uri: "/tags/{resourceArn}", method: "GET", sdkId: "S3Vectors", sigV4ServiceName: "s3vectors", name: "S3Vectors.ListTagsForResource" }, ListTagsForResourceInput, ListTagsForResourceOutput, [NotFoundException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const tagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2025-07-15", uri: "/tags/{resourceArn}", method: "POST", sdkId: "S3Vectors", sigV4ServiceName: "s3vectors", name: "S3Vectors.TagResource" }, TagResourceInput, TagResourceOutput, [ConflictException, NotFoundException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

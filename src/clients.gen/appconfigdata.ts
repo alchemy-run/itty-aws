@@ -8,17 +8,13 @@ export class GetLatestConfigurationResponse extends S.Class<GetLatestConfigurati
 export class InvalidParameterDetail extends S.Class<InvalidParameterDetail>("InvalidParameterDetail")({Problem: S.optional(S.String)}) {}
 export const InvalidParameterMap = S.Record({key: S.String, value: InvalidParameterDetail});
 export const BadRequestDetails = S.Union(InvalidParameterMap);
-export class BadRequestException extends S.Class<BadRequestException>("BadRequestException")({Message: S.optional(S.String), Reason: S.optional(S.String), Details: S.optional(BadRequestDetails)}) {}
-export class InternalServerException extends S.Class<InternalServerException>("InternalServerException")({Message: S.optional(S.String)}) {}
 export const StringMap = S.Record({key: S.String, value: S.String});
-export class ResourceNotFoundException extends S.Class<ResourceNotFoundException>("ResourceNotFoundException")({Message: S.optional(S.String), ResourceType: S.optional(S.String), ReferencedBy: S.optional(StringMap)}) {}
-export class ThrottlingException extends S.Class<ThrottlingException>("ThrottlingException")({Message: S.optional(S.String)}) {}
 
 //# Errors
-export class BadRequestExceptionError extends S.TaggedError<BadRequestExceptionError>()("BadRequestException", BadRequestException.fields) {};
-export class InternalServerExceptionError extends S.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException.fields) {};
-export class ResourceNotFoundExceptionError extends S.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
-export class ThrottlingExceptionError extends S.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
+export class BadRequestException extends S.TaggedError<BadRequestException>()("BadRequestException", {Message: S.optional(S.String), Reason: S.optional(S.String), Details: S.optional(BadRequestDetails)}) {};
+export class InternalServerException extends S.TaggedError<InternalServerException>()("InternalServerException", {Message: S.optional(S.String)}) {};
+export class ResourceNotFoundException extends S.TaggedError<ResourceNotFoundException>()("ResourceNotFoundException", {Message: S.optional(S.String), ResourceType: S.optional(S.String), ReferencedBy: S.optional(StringMap)}) {};
+export class ThrottlingException extends S.TaggedError<ThrottlingException>()("ThrottlingException", {Message: S.optional(S.String)}) {};
 
 //# Operations
-export const getLatestConfiguration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-11-11", uri: "/configuration", method: "GET", sdkId: "AppConfigData", sigV4ServiceName: "appconfig", name: "AppConfigData.GetLatestConfiguration" }, GetLatestConfigurationRequest, GetLatestConfigurationResponse, [BadRequestExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const getLatestConfiguration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-11-11", uri: "/configuration", method: "GET", sdkId: "AppConfigData", sigV4ServiceName: "appconfig", name: "AppConfigData.GetLatestConfiguration" }, GetLatestConfigurationRequest, GetLatestConfigurationResponse, [BadRequestException, InternalServerException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

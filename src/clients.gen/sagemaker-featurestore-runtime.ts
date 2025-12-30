@@ -15,29 +15,24 @@ export class FeatureValue extends S.Class<FeatureValue>("FeatureValue")({Feature
 export const Record = S.Array(FeatureValue);
 export class TtlDuration extends S.Class<TtlDuration>("TtlDuration")({Unit: S.String, Value: S.Number}) {}
 export class BatchGetRecordRequest extends S.Class<BatchGetRecordRequest>("BatchGetRecordRequest")({Identifiers: BatchGetRecordIdentifiers, ExpirationTimeResponse: S.optional(S.String)}) {}
-export class AccessForbidden extends S.Class<AccessForbidden>("AccessForbidden")({Message: S.optional(S.String)}) {}
 export class GetRecordResponse extends S.Class<GetRecordResponse>("GetRecordResponse")({Record: S.optional(Record), ExpiresAt: S.optional(S.String)}) {}
 export class PutRecordRequest extends S.Class<PutRecordRequest>("PutRecordRequest")({FeatureGroupName: S.String, Record: Record, TargetStores: S.optional(TargetStores), TtlDuration: S.optional(TtlDuration)}) {}
 export const UnprocessedIdentifiers = S.Array(BatchGetRecordIdentifier);
-export class InternalFailure extends S.Class<InternalFailure>("InternalFailure")({Message: S.optional(S.String)}) {}
-export class ResourceNotFound extends S.Class<ResourceNotFound>("ResourceNotFound")({Message: S.optional(S.String)}) {}
-export class ServiceUnavailable extends S.Class<ServiceUnavailable>("ServiceUnavailable")({Message: S.optional(S.String)}) {}
 export class BatchGetRecordResultDetail extends S.Class<BatchGetRecordResultDetail>("BatchGetRecordResultDetail")({FeatureGroupName: S.String, RecordIdentifierValueAsString: S.String, Record: Record, ExpiresAt: S.optional(S.String)}) {}
 export const BatchGetRecordResultDetails = S.Array(BatchGetRecordResultDetail);
 export class BatchGetRecordError extends S.Class<BatchGetRecordError>("BatchGetRecordError")({FeatureGroupName: S.String, RecordIdentifierValueAsString: S.String, ErrorCode: S.String, ErrorMessage: S.String}) {}
 export const BatchGetRecordErrors = S.Array(BatchGetRecordError);
 export class BatchGetRecordResponse extends S.Class<BatchGetRecordResponse>("BatchGetRecordResponse")({Records: BatchGetRecordResultDetails, Errors: BatchGetRecordErrors, UnprocessedIdentifiers: UnprocessedIdentifiers}) {}
-export class ValidationError extends S.Class<ValidationError>("ValidationError")({Message: S.optional(S.String)}) {}
 
 //# Errors
-export class AccessForbiddenError extends S.TaggedError<AccessForbiddenError>()("AccessForbidden", AccessForbidden.fields) {};
-export class InternalFailureError extends S.TaggedError<InternalFailureError>()("InternalFailure", InternalFailure.fields) {};
-export class ServiceUnavailableError extends S.TaggedError<ServiceUnavailableError>()("ServiceUnavailable", ServiceUnavailable.fields) {};
-export class ResourceNotFoundError extends S.TaggedError<ResourceNotFoundError>()("ResourceNotFound", ResourceNotFound.fields) {};
-export class ValidationErrorError extends S.TaggedError<ValidationErrorError>()("ValidationError", ValidationError.fields) {};
+export class AccessForbidden extends S.TaggedError<AccessForbidden>()("AccessForbidden", {Message: S.optional(S.String)}) {};
+export class InternalFailure extends S.TaggedError<InternalFailure>()("InternalFailure", {}) {};
+export class ServiceUnavailable extends S.TaggedError<ServiceUnavailable>()("ServiceUnavailable", {}) {};
+export class ResourceNotFound extends S.TaggedError<ResourceNotFound>()("ResourceNotFound", {Message: S.optional(S.String)}) {};
+export class ValidationError extends S.TaggedError<ValidationError>()("ValidationError", {}) {};
 
 //# Operations
-export const getRecord = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-07-01", uri: "/FeatureGroup/{FeatureGroupName}", method: "GET", sdkId: "SageMaker FeatureStore Runtime", sigV4ServiceName: "sagemaker", name: "AmazonSageMakerFeatureStoreRuntime.GetRecord" }, GetRecordRequest, GetRecordResponse, [AccessForbiddenError, InternalFailureError, ResourceNotFoundError, ServiceUnavailableError, ValidationErrorError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const putRecord = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-07-01", uri: "/FeatureGroup/{FeatureGroupName}", method: "PUT", sdkId: "SageMaker FeatureStore Runtime", sigV4ServiceName: "sagemaker", name: "AmazonSageMakerFeatureStoreRuntime.PutRecord" }, PutRecordRequest, S.Struct({}), [AccessForbiddenError, InternalFailureError, ServiceUnavailableError, ValidationErrorError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const batchGetRecord = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-07-01", uri: "/BatchGetRecord", method: "POST", sdkId: "SageMaker FeatureStore Runtime", sigV4ServiceName: "sagemaker", name: "AmazonSageMakerFeatureStoreRuntime.BatchGetRecord" }, BatchGetRecordRequest, BatchGetRecordResponse, [AccessForbiddenError, InternalFailureError, ServiceUnavailableError, ValidationErrorError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteRecord = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-07-01", uri: "/FeatureGroup/{FeatureGroupName}", method: "DELETE", sdkId: "SageMaker FeatureStore Runtime", sigV4ServiceName: "sagemaker", name: "AmazonSageMakerFeatureStoreRuntime.DeleteRecord" }, DeleteRecordRequest, S.Struct({}), [AccessForbiddenError, InternalFailureError, ServiceUnavailableError, ValidationErrorError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const getRecord = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-07-01", uri: "/FeatureGroup/{FeatureGroupName}", method: "GET", sdkId: "SageMaker FeatureStore Runtime", sigV4ServiceName: "sagemaker", name: "AmazonSageMakerFeatureStoreRuntime.GetRecord" }, GetRecordRequest, GetRecordResponse, [AccessForbidden, InternalFailure, ResourceNotFound, ServiceUnavailable, ValidationError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const putRecord = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-07-01", uri: "/FeatureGroup/{FeatureGroupName}", method: "PUT", sdkId: "SageMaker FeatureStore Runtime", sigV4ServiceName: "sagemaker", name: "AmazonSageMakerFeatureStoreRuntime.PutRecord" }, PutRecordRequest, S.Struct({}), [AccessForbidden, InternalFailure, ServiceUnavailable, ValidationError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const batchGetRecord = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-07-01", uri: "/BatchGetRecord", method: "POST", sdkId: "SageMaker FeatureStore Runtime", sigV4ServiceName: "sagemaker", name: "AmazonSageMakerFeatureStoreRuntime.BatchGetRecord" }, BatchGetRecordRequest, BatchGetRecordResponse, [AccessForbidden, InternalFailure, ServiceUnavailable, ValidationError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const deleteRecord = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-07-01", uri: "/FeatureGroup/{FeatureGroupName}", method: "DELETE", sdkId: "SageMaker FeatureStore Runtime", sigV4ServiceName: "sagemaker", name: "AmazonSageMakerFeatureStoreRuntime.DeleteRecord" }, DeleteRecordRequest, S.Struct({}), [AccessForbidden, InternalFailure, ServiceUnavailable, ValidationError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

@@ -15,16 +15,12 @@ export const Mapping = S.Union(FrameworkMappingDetails, CommonControlMappingDeta
 export class ControlMapping extends S.Class<ControlMapping>("ControlMapping")({ControlArn: S.String, MappingType: S.String, Mapping: Mapping}) {}
 export const ControlMappings = S.Array(ControlMapping);
 export class ListControlMappingsResponse extends S.Class<ListControlMappingsResponse>("ListControlMappingsResponse")({ControlMappings: ControlMappings, NextToken: S.optional(S.String)}) {}
-export class AccessDeniedException extends S.Class<AccessDeniedException>("AccessDeniedException")({Message: S.optional(S.String)}) {}
-export class InternalServerException extends S.Class<InternalServerException>("InternalServerException")({Message: S.optional(S.String)}) {}
-export class ThrottlingException extends S.Class<ThrottlingException>("ThrottlingException")({Message: S.optional(S.String)}) {}
-export class ValidationException extends S.Class<ValidationException>("ValidationException")({Message: S.optional(S.String)}) {}
 
 //# Errors
-export class AccessDeniedExceptionError extends S.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
-export class InternalServerExceptionError extends S.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException.fields) {};
-export class ThrottlingExceptionError extends S.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
-export class ValidationExceptionError extends S.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
+export class AccessDeniedException extends S.TaggedError<AccessDeniedException>()("AccessDeniedException", {Message: S.optional(S.String)}) {};
+export class InternalServerException extends S.TaggedError<InternalServerException>()("InternalServerException", {Message: S.optional(S.String)}) {};
+export class ThrottlingException extends S.TaggedError<ThrottlingException>()("ThrottlingException", {Message: S.optional(S.String)}) {};
+export class ValidationException extends S.TaggedError<ValidationException>()("ValidationException", {Message: S.optional(S.String)}) {};
 
 //# Operations
-export const listControlMappings = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/list-control-mappings", method: "POST", sdkId: "ControlCatalog", sigV4ServiceName: "controlcatalog", name: "ControlCatalog.ListControlMappings" }, ListControlMappingsRequest, ListControlMappingsResponse, [AccessDeniedExceptionError, InternalServerExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const listControlMappings = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/list-control-mappings", method: "POST", sdkId: "ControlCatalog", sigV4ServiceName: "controlcatalog", name: "ControlCatalog.ListControlMappings" }, ListControlMappingsRequest, ListControlMappingsResponse, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

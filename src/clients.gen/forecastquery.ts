@@ -11,20 +11,15 @@ export const TimeSeries = S.Array(DataPoint);
 export const Predictions = S.Record({key: S.String, value: TimeSeries});
 export class Forecast extends S.Class<Forecast>("Forecast")({Predictions: S.optional(Predictions)}) {}
 export class QueryForecastResponse extends S.Class<QueryForecastResponse>("QueryForecastResponse")({Forecast: S.optional(Forecast)}) {}
-export class InvalidInputException extends S.Class<InvalidInputException>("InvalidInputException")({Message: S.optional(S.String)}) {}
-export class InvalidNextTokenException extends S.Class<InvalidNextTokenException>("InvalidNextTokenException")({Message: S.optional(S.String)}) {}
 export class QueryWhatIfForecastResponse extends S.Class<QueryWhatIfForecastResponse>("QueryWhatIfForecastResponse")({Forecast: S.optional(Forecast)}) {}
-export class LimitExceededException extends S.Class<LimitExceededException>("LimitExceededException")({Message: S.optional(S.String)}) {}
-export class ResourceInUseException extends S.Class<ResourceInUseException>("ResourceInUseException")({Message: S.optional(S.String)}) {}
-export class ResourceNotFoundException extends S.Class<ResourceNotFoundException>("ResourceNotFoundException")({Message: S.optional(S.String)}) {}
 
 //# Errors
-export class InvalidInputExceptionError extends S.TaggedError<InvalidInputExceptionError>()("InvalidInputException", InvalidInputException.fields) {};
-export class InvalidNextTokenExceptionError extends S.TaggedError<InvalidNextTokenExceptionError>()("InvalidNextTokenException", InvalidNextTokenException.fields) {};
-export class LimitExceededExceptionError extends S.TaggedError<LimitExceededExceptionError>()("LimitExceededException", LimitExceededException.fields) {};
-export class ResourceInUseExceptionError extends S.TaggedError<ResourceInUseExceptionError>()("ResourceInUseException", ResourceInUseException.fields) {};
-export class ResourceNotFoundExceptionError extends S.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class InvalidInputException extends S.TaggedError<InvalidInputException>()("InvalidInputException", {Message: S.optional(S.String)}) {};
+export class InvalidNextTokenException extends S.TaggedError<InvalidNextTokenException>()("InvalidNextTokenException", {Message: S.optional(S.String)}) {};
+export class LimitExceededException extends S.TaggedError<LimitExceededException>()("LimitExceededException", {}) {};
+export class ResourceInUseException extends S.TaggedError<ResourceInUseException>()("ResourceInUseException", {}) {};
+export class ResourceNotFoundException extends S.TaggedError<ResourceNotFoundException>()("ResourceNotFoundException", {}) {};
 
 //# Operations
-export const queryWhatIfForecast = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", uri: "/", method: "POST", sdkId: "forecastquery", sigV4ServiceName: "forecast", name: "AmazonForecastRuntime.QueryWhatIfForecast" }, QueryWhatIfForecastRequest, QueryWhatIfForecastResponse, [InvalidInputExceptionError, InvalidNextTokenExceptionError, LimitExceededExceptionError, ResourceInUseExceptionError, ResourceNotFoundExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const queryForecast = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", uri: "/", method: "POST", sdkId: "forecastquery", sigV4ServiceName: "forecast", name: "AmazonForecastRuntime.QueryForecast" }, QueryForecastRequest, QueryForecastResponse, [InvalidInputExceptionError, InvalidNextTokenExceptionError, LimitExceededExceptionError, ResourceInUseExceptionError, ResourceNotFoundExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const queryWhatIfForecast = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", uri: "/", method: "POST", sdkId: "forecastquery", sigV4ServiceName: "forecast", name: "AmazonForecastRuntime.QueryWhatIfForecast" }, QueryWhatIfForecastRequest, QueryWhatIfForecastResponse, [InvalidInputException, InvalidNextTokenException, LimitExceededException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const queryForecast = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", uri: "/", method: "POST", sdkId: "forecastquery", sigV4ServiceName: "forecast", name: "AmazonForecastRuntime.QueryForecast" }, QueryForecastRequest, QueryForecastResponse, [InvalidInputException, InvalidNextTokenException, LimitExceededException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

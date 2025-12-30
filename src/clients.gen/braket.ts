@@ -11,19 +11,16 @@ export const TagsMap = S.Record({key: S.String, value: S.String});
 export class ListTagsForResourceResponse extends S.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({tags: S.optional(TagsMap)}) {}
 export class TagResourceRequest extends S.Class<TagResourceRequest>("TagResourceRequest")({resourceArn: S.String, tags: TagsMap}) {}
 export class TagResourceResponse extends S.Class<TagResourceResponse>("TagResourceResponse")({}) {}
-export class InternalServiceException extends S.Class<InternalServiceException>("InternalServiceException")({message: S.optional(S.String)}) {}
-export class ResourceNotFoundException extends S.Class<ResourceNotFoundException>("ResourceNotFoundException")({message: S.optional(S.String)}) {}
 export const ProgramValidationFailuresList = S.Array(S.String);
 export class ProgramSetValidationFailure extends S.Class<ProgramSetValidationFailure>("ProgramSetValidationFailure")({programIndex: S.Number, inputsIndex: S.optional(S.Number), errors: S.optional(ProgramValidationFailuresList)}) {}
 export const ProgramSetValidationFailuresList = S.Array(ProgramSetValidationFailure);
-export class ValidationException extends S.Class<ValidationException>("ValidationException")({message: S.optional(S.String), reason: S.optional(S.String), programSetValidationFailures: S.optional(ProgramSetValidationFailuresList)}) {}
 
 //# Errors
-export class InternalServiceExceptionError extends S.TaggedError<InternalServiceExceptionError>()("InternalServiceException", InternalServiceException.fields) {};
-export class ResourceNotFoundExceptionError extends S.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
-export class ValidationExceptionError extends S.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
+export class InternalServiceException extends S.TaggedError<InternalServiceException>()("InternalServiceException", {}) {};
+export class ResourceNotFoundException extends S.TaggedError<ResourceNotFoundException>()("ResourceNotFoundException", {}) {};
+export class ValidationException extends S.TaggedError<ValidationException>()("ValidationException", {}) {};
 
 //# Operations
-export const untagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-01", uri: "/tags/{resourceArn}", method: "DELETE", sdkId: "Braket", sigV4ServiceName: "braket", name: "Braket.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [InternalServiceExceptionError, ResourceNotFoundExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listTagsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-01", uri: "/tags/{resourceArn}", method: "GET", sdkId: "Braket", sigV4ServiceName: "braket", name: "Braket.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [InternalServiceExceptionError, ResourceNotFoundExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const tagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-01", uri: "/tags/{resourceArn}", method: "POST", sdkId: "Braket", sigV4ServiceName: "braket", name: "Braket.TagResource" }, TagResourceRequest, TagResourceResponse, [InternalServiceExceptionError, ResourceNotFoundExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const untagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-01", uri: "/tags/{resourceArn}", method: "DELETE", sdkId: "Braket", sigV4ServiceName: "braket", name: "Braket.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [InternalServiceException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const listTagsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-01", uri: "/tags/{resourceArn}", method: "GET", sdkId: "Braket", sigV4ServiceName: "braket", name: "Braket.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [InternalServiceException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const tagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-01", uri: "/tags/{resourceArn}", method: "POST", sdkId: "Braket", sigV4ServiceName: "braket", name: "Braket.TagResource" }, TagResourceRequest, TagResourceResponse, [InternalServiceException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
