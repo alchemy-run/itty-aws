@@ -951,9 +951,7 @@ const generateClient = Effect.fn(function* (
         MutableHashSet.add(clientImports, errorParser);
 
         // Build meta object, omitting uri if "/" and method if "POST"
-        const metaParts: string[] = [
-          `version: "${serviceShape.version}"`,
-        ];
+        const metaParts: string[] = [`version: "${serviceShape.version}"`];
         if (httpTrait["uri"] !== "/") {
           metaParts.push(`uri: "${httpTrait["uri"]}"`);
         }
@@ -1126,5 +1124,8 @@ export function htmlToJsdoc(html: string): string {
 
   // Format as JSDoc
   const lines = text.split("\n").map((line) => ` * ${line.trim()}`);
-  return `/**\n${lines.join("\n")}\n */`;
+  const dedupedLines = lines.filter(
+    (line, i) => !(line === " * " && lines[i - 1] === " * "),
+  );
+  return `/**\n${dedupedLines.join("\n")}\n */`;
 }
