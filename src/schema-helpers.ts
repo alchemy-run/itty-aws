@@ -26,6 +26,7 @@ export const Body = <S extends Schema.Schema.AnyNoContext>(
   bodyName: string,
   schema: S,
 ) => schema.pipe(Schema.annotations({ [requestBodySymbol]: bodyName }));
+export type StreamBody = ReturnType<typeof StreamBody>["Type"];
 export const StreamBody = () =>
   Schema.Union(
     Schema.String,

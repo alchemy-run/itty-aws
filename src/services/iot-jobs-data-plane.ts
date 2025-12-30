@@ -1,0 +1,42 @@
+import * as S from "effect/Schema"
+import { FormatJSONRequest,FormatJSONResponse,FormatAwsRestJSONError, makeOperation } from "../client.ts";
+import * as H from "../schema-helpers.ts";
+
+//# Schemas
+export class DescribeJobExecutionRequest extends S.Class<DescribeJobExecutionRequest>("DescribeJobExecutionRequest")({jobId: S.String, thingName: S.String, includeJobDocument: S.optional(S.Boolean), executionNumber: S.optional(S.Number)}) {}
+export class GetPendingJobExecutionsRequest extends S.Class<GetPendingJobExecutionsRequest>("GetPendingJobExecutionsRequest")({thingName: S.String}) {}
+export const DetailsMap = S.Record({key: S.String, value: S.String});
+export class UpdateJobExecutionRequest extends S.Class<UpdateJobExecutionRequest>("UpdateJobExecutionRequest")({jobId: S.String, thingName: S.String, status: S.String, statusDetails: S.optional(DetailsMap), stepTimeoutInMinutes: S.optional(S.Number), expectedVersion: S.optional(S.Number), includeJobExecutionState: S.optional(S.Boolean), includeJobDocument: S.optional(S.Boolean), executionNumber: S.optional(S.Number)}) {}
+export class StartNextPendingJobExecutionRequest extends S.Class<StartNextPendingJobExecutionRequest>("StartNextPendingJobExecutionRequest")({thingName: S.String, statusDetails: S.optional(DetailsMap), stepTimeoutInMinutes: S.optional(S.Number)}) {}
+export class CommandParameterValue extends S.Class<CommandParameterValue>("CommandParameterValue")({S: S.optional(S.String), B: S.optional(S.Boolean), I: S.optional(S.Number), L: S.optional(S.Number), D: S.optional(S.Number), BIN: S.optional(H.StreamBody()), UL: S.optional(S.String)}) {}
+export class JobExecution extends S.Class<JobExecution>("JobExecution")({jobId: S.optional(S.String), thingName: S.optional(S.String), status: S.optional(S.String), statusDetails: S.optional(DetailsMap), queuedAt: S.optional(S.Number), startedAt: S.optional(S.Number), lastUpdatedAt: S.optional(S.Number), approximateSecondsBeforeTimedOut: S.optional(S.Number), versionNumber: S.optional(S.Number), executionNumber: S.optional(S.Number), jobDocument: S.optional(S.String)}) {}
+export class JobExecutionSummary extends S.Class<JobExecutionSummary>("JobExecutionSummary")({jobId: S.optional(S.String), queuedAt: S.optional(S.Number), startedAt: S.optional(S.Number), lastUpdatedAt: S.optional(S.Number), versionNumber: S.optional(S.Number), executionNumber: S.optional(S.Number)}) {}
+export const JobExecutionSummaryList = S.Array(JobExecutionSummary);
+export const CommandExecutionParameterMap = S.Record({key: S.String, value: CommandParameterValue});
+export class JobExecutionState extends S.Class<JobExecutionState>("JobExecutionState")({status: S.optional(S.String), statusDetails: S.optional(DetailsMap), versionNumber: S.optional(S.Number)}) {}
+export class DescribeJobExecutionResponse extends S.Class<DescribeJobExecutionResponse>("DescribeJobExecutionResponse")({execution: S.optional(JobExecution)}) {}
+export class GetPendingJobExecutionsResponse extends S.Class<GetPendingJobExecutionsResponse>("GetPendingJobExecutionsResponse")({inProgressJobs: S.optional(JobExecutionSummaryList), queuedJobs: S.optional(JobExecutionSummaryList)}) {}
+export class StartCommandExecutionRequest extends S.Class<StartCommandExecutionRequest>("StartCommandExecutionRequest")({targetArn: S.String, commandArn: S.String, parameters: S.optional(CommandExecutionParameterMap), executionTimeoutSeconds: S.optional(S.Number), clientToken: S.optional(S.String)}) {}
+export class StartNextPendingJobExecutionResponse extends S.Class<StartNextPendingJobExecutionResponse>("StartNextPendingJobExecutionResponse")({execution: S.optional(JobExecution)}) {}
+export class UpdateJobExecutionResponse extends S.Class<UpdateJobExecutionResponse>("UpdateJobExecutionResponse")({executionState: S.optional(JobExecutionState), jobDocument: S.optional(S.String)}) {}
+export class StartCommandExecutionResponse extends S.Class<StartCommandExecutionResponse>("StartCommandExecutionResponse")({executionId: S.optional(S.String)}) {}
+
+//# Errors
+export class CertificateValidationException extends S.TaggedError<CertificateValidationException>()("CertificateValidationException", {}) {};
+export class InvalidRequestException extends S.TaggedError<InvalidRequestException>()("InvalidRequestException", {}) {};
+export class ResourceNotFoundException extends S.TaggedError<ResourceNotFoundException>()("ResourceNotFoundException", {}) {};
+export class ServiceUnavailableException extends S.TaggedError<ServiceUnavailableException>()("ServiceUnavailableException", {}) {};
+export class ThrottlingException extends S.TaggedError<ThrottlingException>()("ThrottlingException", {}) {};
+export class InvalidStateTransitionException extends S.TaggedError<InvalidStateTransitionException>()("InvalidStateTransitionException", {message: S.optional(S.String)}) {};
+export class ConflictException extends S.TaggedError<ConflictException>()("ConflictException", {message: S.optional(S.String), resourceId: S.optional(S.String)}) {};
+export class TerminalStateException extends S.TaggedError<TerminalStateException>()("TerminalStateException", {message: S.optional(S.String)}) {};
+export class InternalServerException extends S.TaggedError<InternalServerException>()("InternalServerException", {message: S.optional(S.String)}) {};
+export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExceededException>()("ServiceQuotaExceededException", {message: S.optional(S.String)}) {};
+export class ValidationException extends S.TaggedError<ValidationException>()("ValidationException", {message: S.optional(S.String)}) {};
+
+//# Operations
+export const startNextPendingJobExecution = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-29", uri: "/things/{thingName}/jobs/$next", method: "PUT", sdkId: "IoT Jobs Data Plane", sigV4ServiceName: "iot-jobs-data", name: "IotLaserThingJobManagerExternalService.StartNextPendingJobExecution" }, StartNextPendingJobExecutionRequest, StartNextPendingJobExecutionResponse, [CertificateValidationException, InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const updateJobExecution = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-29", uri: "/things/{thingName}/jobs/{jobId}", method: "POST", sdkId: "IoT Jobs Data Plane", sigV4ServiceName: "iot-jobs-data", name: "IotLaserThingJobManagerExternalService.UpdateJobExecution" }, UpdateJobExecutionRequest, UpdateJobExecutionResponse, [CertificateValidationException, InvalidRequestException, InvalidStateTransitionException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const getPendingJobExecutions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-29", uri: "/things/{thingName}/jobs", method: "GET", sdkId: "IoT Jobs Data Plane", sigV4ServiceName: "iot-jobs-data", name: "IotLaserThingJobManagerExternalService.GetPendingJobExecutions" }, GetPendingJobExecutionsRequest, GetPendingJobExecutionsResponse, [CertificateValidationException, InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const describeJobExecution = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-29", uri: "/things/{thingName}/jobs/{jobId}", method: "GET", sdkId: "IoT Jobs Data Plane", sigV4ServiceName: "iot-jobs-data", name: "IotLaserThingJobManagerExternalService.DescribeJobExecution" }, DescribeJobExecutionRequest, DescribeJobExecutionResponse, [CertificateValidationException, InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, TerminalStateException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const startCommandExecution = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-29", uri: "/command-executions", method: "POST", sdkId: "IoT Jobs Data Plane", sigV4ServiceName: "iot-jobs-data", name: "IotLaserThingJobManagerExternalService.StartCommandExecution" }, StartCommandExecutionRequest, StartCommandExecutionResponse, [ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

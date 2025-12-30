@@ -9,19 +9,36 @@
     "generate": "bun run scripts/generate-clients.ts",
     "build": "bun generate && tsc -b"
   },
+  "files": [
+    "src",
+    "lib"
+  ],
   "exports": {
-    "./*": "./src/clients.gen/*.ts",
-    ".": "./src/index.ts"
+    "./*": {
+      "types": "./lib/services/*.d.ts",
+      "bun": "./src/services/*.ts",
+      "default": "./lib/services/*.js"
+    },
+    ".": {
+      "types": "./lib/index.d.ts",
+      "bun": "./src/index.ts",
+      "default": "./lib/index.js"
+    }
   },
   "dependencies": {
     "@aws-sdk/credential-providers": "^3.933.0",
-    "@effect/platform": "^0.93.3",
-    "@effect/platform-bun": "^0.83.0",
+    "@effect/platform": "latest",
+    "@effect/platform-bun": "latest",
     "aws4fetch": "^1.0.20",
-    "effect": "^3.19.4",
+    "effect": "latest",
     "fast-xml-parser": "^5.3.2"
   },
   "devDependencies": {
+    "@effect/cluster": "latest",
+    "@effect/experimental": "latest",
+    "@effect/rpc": "latest",
+    "@effect/sql": "latest",
+    "@effect/workflow": "latest",
     "@rsbuild/core": "^1.6.7",
     "@types/bun": "latest",
     "@types/node": "^24.10.1",

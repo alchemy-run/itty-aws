@@ -1,6 +1,6 @@
 import { Effect } from "effect";
 import { Region } from "./src/region";
-import { CreateBucket, PutObject, GetObject } from "./src/clients.gen/s3";
+import { createBucket, putObject, getObject } from "./src/services/s3.ts";
 
 import { BunContext, BunRuntime } from "@effect/platform-bun";
 import { Logger, LogLevel } from "effect";
@@ -8,7 +8,7 @@ import { NodeProviderChainCredentialsLive } from "./src/credentials";
 import { FetchHttpClient } from "@effect/platform";
 
 const program = Effect.gen(function* () {
-  const result = yield* CreateBucket({
+  const result = yield* createBucket({
     Bucket: "alchemy-7uzxjcl",
   });
   // const result2 = yield* PutObject({

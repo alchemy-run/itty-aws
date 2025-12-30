@@ -1,0 +1,50 @@
+import * as S from "effect/Schema"
+import { FormatJSONRequest,FormatJSONResponse,FormatAwsRestJSONError, makeOperation } from "../client.ts";
+import * as H from "../schema-helpers.ts";
+
+//# Schemas
+export const FragmentNumberList = S.Array(S.String);
+export class GetMediaForFragmentListInput extends S.Class<GetMediaForFragmentListInput>("GetMediaForFragmentListInput")({StreamName: S.optional(S.String), StreamARN: S.optional(S.String), Fragments: FragmentNumberList}) {}
+export const FormatConfig = S.Record({key: S.String, value: S.String});
+export class GetImagesInput extends S.Class<GetImagesInput>("GetImagesInput")({StreamName: S.optional(S.String), StreamARN: S.optional(S.String), ImageSelectorType: S.String, StartTimestamp: S.Date, EndTimestamp: S.Date, SamplingInterval: S.optional(S.Number), Format: S.String, FormatConfig: S.optional(FormatConfig), WidthPixels: S.optional(S.Number), HeightPixels: S.optional(S.Number), MaxResults: S.optional(S.Number), NextToken: S.optional(S.String)}) {}
+export class GetMediaForFragmentListOutput extends S.Class<GetMediaForFragmentListOutput>("GetMediaForFragmentListOutput")({ContentType: S.optional(H.Header("Content-Type")), Payload: S.optional(H.Body("undefined", H.StreamBody()))}) {}
+export class ClipTimestampRange extends S.Class<ClipTimestampRange>("ClipTimestampRange")({StartTimestamp: S.Date, EndTimestamp: S.Date}) {}
+export class DASHTimestampRange extends S.Class<DASHTimestampRange>("DASHTimestampRange")({StartTimestamp: S.optional(S.Date), EndTimestamp: S.optional(S.Date)}) {}
+export class HLSTimestampRange extends S.Class<HLSTimestampRange>("HLSTimestampRange")({StartTimestamp: S.optional(S.Date), EndTimestamp: S.optional(S.Date)}) {}
+export class TimestampRange extends S.Class<TimestampRange>("TimestampRange")({StartTimestamp: S.Date, EndTimestamp: S.Date}) {}
+export class ClipFragmentSelector extends S.Class<ClipFragmentSelector>("ClipFragmentSelector")({FragmentSelectorType: S.String, TimestampRange: ClipTimestampRange}) {}
+export class DASHFragmentSelector extends S.Class<DASHFragmentSelector>("DASHFragmentSelector")({FragmentSelectorType: S.optional(S.String), TimestampRange: S.optional(DASHTimestampRange)}) {}
+export class HLSFragmentSelector extends S.Class<HLSFragmentSelector>("HLSFragmentSelector")({FragmentSelectorType: S.optional(S.String), TimestampRange: S.optional(HLSTimestampRange)}) {}
+export class FragmentSelector extends S.Class<FragmentSelector>("FragmentSelector")({FragmentSelectorType: S.String, TimestampRange: TimestampRange}) {}
+export class GetClipInput extends S.Class<GetClipInput>("GetClipInput")({StreamName: S.optional(S.String), StreamARN: S.optional(S.String), ClipFragmentSelector: ClipFragmentSelector}) {}
+export class GetDASHStreamingSessionURLInput extends S.Class<GetDASHStreamingSessionURLInput>("GetDASHStreamingSessionURLInput")({StreamName: S.optional(S.String), StreamARN: S.optional(S.String), PlaybackMode: S.optional(S.String), DisplayFragmentTimestamp: S.optional(S.String), DisplayFragmentNumber: S.optional(S.String), DASHFragmentSelector: S.optional(DASHFragmentSelector), Expires: S.optional(S.Number), MaxManifestFragmentResults: S.optional(S.Number)}) {}
+export class GetHLSStreamingSessionURLInput extends S.Class<GetHLSStreamingSessionURLInput>("GetHLSStreamingSessionURLInput")({StreamName: S.optional(S.String), StreamARN: S.optional(S.String), PlaybackMode: S.optional(S.String), HLSFragmentSelector: S.optional(HLSFragmentSelector), ContainerFormat: S.optional(S.String), DiscontinuityMode: S.optional(S.String), DisplayFragmentTimestamp: S.optional(S.String), Expires: S.optional(S.Number), MaxMediaPlaylistFragmentResults: S.optional(S.Number)}) {}
+export class ListFragmentsInput extends S.Class<ListFragmentsInput>("ListFragmentsInput")({StreamName: S.optional(S.String), StreamARN: S.optional(S.String), MaxResults: S.optional(S.Number), NextToken: S.optional(S.String), FragmentSelector: S.optional(FragmentSelector)}) {}
+export class Image extends S.Class<Image>("Image")({TimeStamp: S.optional(S.Date), Error: S.optional(S.String), ImageContent: S.optional(S.String)}) {}
+export const Images = S.Array(Image);
+export class GetClipOutput extends S.Class<GetClipOutput>("GetClipOutput")({ContentType: S.optional(H.Header("Content-Type")), Payload: S.optional(H.Body("undefined", H.StreamBody()))}) {}
+export class GetDASHStreamingSessionURLOutput extends S.Class<GetDASHStreamingSessionURLOutput>("GetDASHStreamingSessionURLOutput")({DASHStreamingSessionURL: S.optional(S.String)}) {}
+export class GetHLSStreamingSessionURLOutput extends S.Class<GetHLSStreamingSessionURLOutput>("GetHLSStreamingSessionURLOutput")({HLSStreamingSessionURL: S.optional(S.String)}) {}
+export class GetImagesOutput extends S.Class<GetImagesOutput>("GetImagesOutput")({Images: S.optional(Images), NextToken: S.optional(S.String)}) {}
+export class Fragment extends S.Class<Fragment>("Fragment")({FragmentNumber: S.optional(S.String), FragmentSizeInBytes: S.optional(S.Number), ProducerTimestamp: S.optional(S.Date), ServerTimestamp: S.optional(S.Date), FragmentLengthInMilliseconds: S.optional(S.Number)}) {}
+export const FragmentList = S.Array(Fragment);
+export class ListFragmentsOutput extends S.Class<ListFragmentsOutput>("ListFragmentsOutput")({Fragments: S.optional(FragmentList), NextToken: S.optional(S.String)}) {}
+
+//# Errors
+export class ClientLimitExceededException extends S.TaggedError<ClientLimitExceededException>()("ClientLimitExceededException", {Message: S.optional(S.String)}) {};
+export class InvalidArgumentException extends S.TaggedError<InvalidArgumentException>()("InvalidArgumentException", {}) {};
+export class InvalidCodecPrivateDataException extends S.TaggedError<InvalidCodecPrivateDataException>()("InvalidCodecPrivateDataException", {}) {};
+export class MissingCodecPrivateDataException extends S.TaggedError<MissingCodecPrivateDataException>()("MissingCodecPrivateDataException", {}) {};
+export class NoDataRetentionException extends S.TaggedError<NoDataRetentionException>()("NoDataRetentionException", {}) {};
+export class NotAuthorizedException extends S.TaggedError<NotAuthorizedException>()("NotAuthorizedException", {}) {};
+export class ResourceNotFoundException extends S.TaggedError<ResourceNotFoundException>()("ResourceNotFoundException", {}) {};
+export class UnsupportedStreamMediaTypeException extends S.TaggedError<UnsupportedStreamMediaTypeException>()("UnsupportedStreamMediaTypeException", {}) {};
+export class InvalidMediaFrameException extends S.TaggedError<InvalidMediaFrameException>()("InvalidMediaFrameException", {Message: S.optional(S.String)}) {};
+
+//# Operations
+export const getHLSStreamingSessionURL = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-30", uri: "/getHLSStreamingSessionURL", method: "POST", sdkId: "Kinesis Video Archived Media", sigV4ServiceName: "kinesisvideo", name: "AWSAcuityReader.GetHLSStreamingSessionURL" }, GetHLSStreamingSessionURLInput, GetHLSStreamingSessionURLOutput, [ClientLimitExceededException, InvalidArgumentException, InvalidCodecPrivateDataException, MissingCodecPrivateDataException, NoDataRetentionException, NotAuthorizedException, ResourceNotFoundException, UnsupportedStreamMediaTypeException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const getImages = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-30", uri: "/getImages", method: "POST", sdkId: "Kinesis Video Archived Media", sigV4ServiceName: "kinesisvideo", name: "AWSAcuityReader.GetImages" }, GetImagesInput, GetImagesOutput, [ClientLimitExceededException, InvalidArgumentException, NoDataRetentionException, NotAuthorizedException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const getMediaForFragmentList = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-30", uri: "/getMediaForFragmentList", method: "POST", sdkId: "Kinesis Video Archived Media", sigV4ServiceName: "kinesisvideo", name: "AWSAcuityReader.GetMediaForFragmentList" }, GetMediaForFragmentListInput, GetMediaForFragmentListOutput, [ClientLimitExceededException, InvalidArgumentException, NotAuthorizedException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const listFragments = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-30", uri: "/listFragments", method: "POST", sdkId: "Kinesis Video Archived Media", sigV4ServiceName: "kinesisvideo", name: "AWSAcuityReader.ListFragments" }, ListFragmentsInput, ListFragmentsOutput, [ClientLimitExceededException, InvalidArgumentException, NotAuthorizedException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const getClip = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-30", uri: "/getClip", method: "POST", sdkId: "Kinesis Video Archived Media", sigV4ServiceName: "kinesisvideo", name: "AWSAcuityReader.GetClip" }, GetClipInput, GetClipOutput, [ClientLimitExceededException, InvalidArgumentException, InvalidCodecPrivateDataException, InvalidMediaFrameException, MissingCodecPrivateDataException, NoDataRetentionException, NotAuthorizedException, ResourceNotFoundException, UnsupportedStreamMediaTypeException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const getDASHStreamingSessionURL = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-30", uri: "/getDASHStreamingSessionURL", method: "POST", sdkId: "Kinesis Video Archived Media", sigV4ServiceName: "kinesisvideo", name: "AWSAcuityReader.GetDASHStreamingSessionURL" }, GetDASHStreamingSessionURLInput, GetDASHStreamingSessionURLOutput, [ClientLimitExceededException, InvalidArgumentException, InvalidCodecPrivateDataException, MissingCodecPrivateDataException, NoDataRetentionException, NotAuthorizedException, ResourceNotFoundException, UnsupportedStreamMediaTypeException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
