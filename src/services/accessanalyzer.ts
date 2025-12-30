@@ -214,7 +214,6 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Immediately starts a scan of the policies applied to the specified resource.
  * 
- * 
  * This action is supported only for external access analyzers.
  */export const startResourceScan = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-01", uri: "/resource/scan", sdkId: "AccessAnalyzer", sigV4ServiceName: "access-analyzer", name: "AccessAnalyzer.StartResourceScan" }, StartResourceScanRequest, S.Struct({}), [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -230,7 +229,6 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  */export const checkNoPublicAccess = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-01", uri: "/policy/check-no-public-access", sdkId: "AccessAnalyzer", sigV4ServiceName: "access-analyzer", name: "AccessAnalyzer.CheckNoPublicAccess" }, CheckNoPublicAccessRequest, CheckNoPublicAccessResponse, [AccessDeniedException, InternalServerException, InvalidParameterException, ThrottlingException, UnprocessableEntityException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves information about a resource that was analyzed.
- * 
  * 
  * This action is supported only for external access analyzers.
  */export const getAnalyzedResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-01", uri: "/analyzed-resource", method: "GET", sdkId: "AccessAnalyzer", sigV4ServiceName: "access-analyzer", name: "AccessAnalyzer.GetAnalyzedResource" }, GetAnalyzedResourceRequest, GetAnalyzedResourceResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -265,12 +263,10 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * 
  * To learn about filter keys that you can use to retrieve a list of findings, see IAM Access Analyzer filter keys in the **IAM User Guide**.
  * 
- * 
  * ListFindings is supported only for external access analyzers. You must use ListFindingsV2 for internal and unused access analyzers.
  */export const listFindings = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-01", uri: "/finding", sdkId: "AccessAnalyzer", sigV4ServiceName: "access-analyzer", name: "AccessAnalyzer.ListFindings" }, ListFindingsRequest, ListFindingsResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves information about the specified finding. GetFinding and GetFindingV2 both use `access-analyzer:GetFinding` in the `Action` element of an IAM policy statement. You must have permission to perform the `access-analyzer:GetFinding` action.
- * 
  * 
  * GetFinding is supported only for external access analyzers. You must use GetFindingV2 for internal and unused access analyzers.
  */export const getFinding = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-01", uri: "/finding/{id}", method: "GET", sdkId: "AccessAnalyzer", sigV4ServiceName: "access-analyzer", name: "AccessAnalyzer.GetFinding" }, GetFindingRequest, GetFindingResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

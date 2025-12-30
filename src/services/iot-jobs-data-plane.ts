@@ -39,24 +39,20 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
  * Gets and starts the next pending (status IN_PROGRESS or QUEUED) job execution for a
  * thing.
  * 
- * 
  * Requires permission to access the StartNextPendingJobExecution action.
  */export const startNextPendingJobExecution = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-29", uri: "/things/{thingName}/jobs/$next", method: "PUT", sdkId: "IoT Jobs Data Plane", sigV4ServiceName: "iot-jobs-data", name: "IotLaserThingJobManagerExternalService.StartNextPendingJobExecution" }, StartNextPendingJobExecutionRequest, StartNextPendingJobExecutionResponse, [CertificateValidationException, InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the status of a job execution.
- * 
  * 
  * Requires permission to access the UpdateJobExecution action.
  */export const updateJobExecution = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-29", uri: "/things/{thingName}/jobs/{jobId}", sdkId: "IoT Jobs Data Plane", sigV4ServiceName: "iot-jobs-data", name: "IotLaserThingJobManagerExternalService.UpdateJobExecution" }, UpdateJobExecutionRequest, UpdateJobExecutionResponse, [CertificateValidationException, InvalidRequestException, InvalidStateTransitionException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets the list of all jobs for a thing that are not in a terminal status.
  * 
- * 
  * Requires permission to access the GetPendingJobExecutions action.
  */export const getPendingJobExecutions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-29", uri: "/things/{thingName}/jobs", method: "GET", sdkId: "IoT Jobs Data Plane", sigV4ServiceName: "iot-jobs-data", name: "IotLaserThingJobManagerExternalService.GetPendingJobExecutions" }, GetPendingJobExecutionsRequest, GetPendingJobExecutionsResponse, [CertificateValidationException, InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets details of a job execution.
- * 
  * 
  * Requires permission to access the DescribeJobExecution action.
  */export const describeJobExecution = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-29", uri: "/things/{thingName}/jobs/{jobId}", method: "GET", sdkId: "IoT Jobs Data Plane", sigV4ServiceName: "iot-jobs-data", name: "IotLaserThingJobManagerExternalService.DescribeJobExecution" }, DescribeJobExecutionRequest, DescribeJobExecutionResponse, [CertificateValidationException, InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, TerminalStateException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

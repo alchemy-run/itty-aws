@@ -1232,7 +1232,6 @@ export class KMSKeyNotAccessibleFault extends S.TaggedError<KMSKeyNotAccessibleF
 /**
  * Retrieves table statistics of columns.
  * 
- * 
  * The Identity and Access Management (IAM) permission required for this operation is `DeleteTable`.
  */export const deleteColumnStatisticsForTable = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-31", sdkId: "Glue", sigV4ServiceName: "glue", name: "AWSGlue.DeleteColumnStatisticsForTable" }, DeleteColumnStatisticsForTableRequest, DeleteColumnStatisticsForTableResponse, [EntityNotFoundException, GlueEncryptionException, InternalServiceException, InvalidInputException, OperationTimeoutException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -1359,9 +1358,7 @@ export class KMSKeyNotAccessibleFault extends S.TaggedError<KMSKeyNotAccessibleF
 /**
  * Removes the specified catalog from the Glue Data Catalog.
  * 
- * 
  * After completing this operation, you no longer have access to the databases, tables (and all table versions and partitions that might belong to the tables) and the user-defined functions in the deleted catalog. Glue deletes these "orphaned" resources asynchronously in a timely manner, at the discretion of the service.
- * 
  * 
  * To ensure the immediate deletion of all related resources before calling the `DeleteCatalog` operation, use `DeleteTableVersion` (or `BatchDeleteTableVersion`), `DeletePartition` (or `BatchDeletePartition`), `DeleteTable` (or `BatchDeleteTable`), `DeleteUserDefinedFunction` and `DeleteDatabase` to delete any resources that belong to the catalog.
  */export const deleteCatalog = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-31", sdkId: "Glue", sigV4ServiceName: "glue", name: "AWSGlue.DeleteCatalog" }, DeleteCatalogRequest, DeleteCatalogResponse, [AccessDeniedException, ConcurrentModificationException, EntityNotFoundException, FederationSourceException, GlueEncryptionException, InternalServiceException, InvalidInputException, OperationTimeoutException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1370,7 +1367,6 @@ export class KMSKeyNotAccessibleFault extends S.TaggedError<KMSKeyNotAccessibleF
  */export const deleteClassifier = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-31", sdkId: "Glue", sigV4ServiceName: "glue", name: "AWSGlue.DeleteClassifier" }, DeleteClassifierRequest, DeleteClassifierResponse, [EntityNotFoundException, OperationTimeoutException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Delete the partition column statistics of a column.
- * 
  * 
  * The Identity and Access Management (IAM) permission required for this operation is `DeletePartition`.
  */export const deleteColumnStatisticsForPartition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-31", sdkId: "Glue", sigV4ServiceName: "glue", name: "AWSGlue.DeleteColumnStatisticsForPartition" }, DeleteColumnStatisticsForPartitionRequest, DeleteColumnStatisticsForPartitionResponse, [EntityNotFoundException, GlueEncryptionException, InternalServiceException, InvalidInputException, OperationTimeoutException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1384,14 +1380,10 @@ export class KMSKeyNotAccessibleFault extends S.TaggedError<KMSKeyNotAccessibleF
 /**
  * Removes a specified database from a Data Catalog.
  * 
- * 
- * 
- * 
  * After completing this operation, you no longer have access to the tables (and all table
  * versions and partitions that might belong to the tables) and the user-defined functions in
  * the deleted database. Glue deletes these "orphaned" resources asynchronously in a timely
  * manner, at the discretion of the service.
- * 
  * 
  * To ensure the immediate deletion of all related resources, before calling
  * `DeleteDatabase`, use `DeleteTableVersion` or
@@ -1458,7 +1450,6 @@ export class KMSKeyNotAccessibleFault extends S.TaggedError<KMSKeyNotAccessibleF
 /**
  * Retrieves table statistics of columns.
  * 
- * 
  * The Identity and Access Management (IAM) permission required for this operation is `GetTable`.
  */export const getColumnStatisticsForTable = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-31", sdkId: "Glue", sigV4ServiceName: "glue", name: "AWSGlue.GetColumnStatisticsForTable" }, GetColumnStatisticsForTableRequest, GetColumnStatisticsForTableResponse, [EntityNotFoundException, GlueEncryptionException, InternalServiceException, InvalidInputException, OperationTimeoutException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -1498,18 +1489,12 @@ export class KMSKeyNotAccessibleFault extends S.TaggedError<KMSKeyNotAccessibleF
 /**
  * Retrieves information about a specified development endpoint.
  * 
- * 
- * 
- * 
  * When you create a development endpoint in a virtual private cloud (VPC), Glue returns only
  * a private IP address, and the public IP address field is not populated. When you create a
  * non-VPC development endpoint, Glue returns only a public IP address.
  */export const getDevEndpoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-31", sdkId: "Glue", sigV4ServiceName: "glue", name: "AWSGlue.GetDevEndpoint" }, GetDevEndpointRequest, GetDevEndpointResponse, [EntityNotFoundException, InternalServiceException, InvalidInputException, OperationTimeoutException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves all the development endpoints in this Amazon Web Services account.
- * 
- * 
- * 
  * 
  * When you create a development endpoint in a virtual private cloud (VPC), Glue returns only a private IP address
  * and the public IP address field is not populated. When you create a non-VPC development
@@ -1526,8 +1511,6 @@ export class KMSKeyNotAccessibleFault extends S.TaggedError<KMSKeyNotAccessibleF
  */export const getJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-31", sdkId: "Glue", sigV4ServiceName: "glue", name: "AWSGlue.GetJob" }, GetJobRequest, GetJobResponse, [EntityNotFoundException, InternalServiceException, InvalidInputException, OperationTimeoutException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves metadata for all runs of a given job definition.
- * 
- * 
  * 
  * `GetJobRuns` returns the job runs in chronological order, with the newest jobs returned first.
  */export const getJobRuns = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-31", sdkId: "Glue", sigV4ServiceName: "glue", name: "AWSGlue.GetJobRuns" }, GetJobRunsRequest, GetJobRunsResponse, [EntityNotFoundException, InternalServiceException, InvalidInputException, OperationTimeoutException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1551,7 +1534,6 @@ export class KMSKeyNotAccessibleFault extends S.TaggedError<KMSKeyNotAccessibleF
  */export const getSchemaByDefinition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-31", sdkId: "Glue", sigV4ServiceName: "glue", name: "AWSGlue.GetSchemaByDefinition" }, GetSchemaByDefinitionInput, GetSchemaByDefinitionResponse, [AccessDeniedException, EntityNotFoundException, InternalServiceException, InvalidInputException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Fetches the schema version difference in the specified difference type between two stored schema versions in the Schema Registry.
- * 
  * 
  * This API allows you to compare two schema versions between two schema definitions under the same schema.
  */export const getSchemaVersionsDiff = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-31", sdkId: "Glue", sigV4ServiceName: "glue", name: "AWSGlue.GetSchemaVersionsDiff" }, GetSchemaVersionsDiffInput, GetSchemaVersionsDiffResponse, [AccessDeniedException, EntityNotFoundException, InternalServiceException, InvalidInputException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1597,7 +1579,6 @@ export class KMSKeyNotAccessibleFault extends S.TaggedError<KMSKeyNotAccessibleF
  * resources with the specified tag. This operation allows you to see which
  * resources are available in your account, and their names.
  * 
- * 
  * This operation takes the optional `Tags` field, which you can use as a filter on
  * the response so that tagged resources can be retrieved as a group. If you choose to use tags
  * filtering, only resources with the tag are retrieved.
@@ -1610,14 +1591,12 @@ export class KMSKeyNotAccessibleFault extends S.TaggedError<KMSKeyNotAccessibleF
  * resources with the specified tag. This operation allows you to see which resources are
  * available in your account, and their names.
  * 
- * 
  * This operation takes the optional `Tags` field, which you can use as a filter on
  * the response so that tagged resources can be retrieved as a group. If you choose to use tags
  * filtering, only resources with the tag are retrieved.
  */export const listDevEndpoints = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-31", sdkId: "Glue", sigV4ServiceName: "glue", name: "AWSGlue.ListDevEndpoints" }, ListDevEndpointsRequest, ListDevEndpointsResponse, [EntityNotFoundException, InternalServiceException, InvalidInputException, OperationTimeoutException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the names of all job resources in this Amazon Web Services account, or the resources with the specified tag. This operation allows you to see which resources are available in your account, and their names.
- * 
  * 
  * This operation takes the optional `Tags` field, which you can use as a filter on
  * the response so that tagged resources can be retrieved as a group. If you choose to use tags
@@ -1638,7 +1617,6 @@ export class KMSKeyNotAccessibleFault extends S.TaggedError<KMSKeyNotAccessibleF
 /**
  * Retrieves the names of all trigger resources in this Amazon Web Services account, or the resources with the specified tag. This operation allows you to see which resources are available in your account, and their names.
  * 
- * 
  * This operation takes the optional `Tags` field, which you can use as a filter on
  * the response so that tagged resources can be retrieved as a group. If you choose to use tags
  * filtering, only resources with the tag are retrieved.
@@ -1655,9 +1633,7 @@ export class KMSKeyNotAccessibleFault extends S.TaggedError<KMSKeyNotAccessibleF
 /**
  * Adds a new version to the existing schema. Returns an error if new version of schema does not meet the compatibility requirements of the schema set. This API will not create a new schema set and will return a 404 error if the schema set is not already present in the Schema Registry.
  * 
- * 
  * If this is the first schema definition to be registered in the Schema Registry, this API will store the schema version and return immediately. Otherwise, this call has the potential to run longer than other operations due to compatibility modes. You can call the `GetSchemaVersion` API with the `SchemaVersionId` to check compatibility modes.
- * 
  * 
  * If the same schema definition is already stored in Schema Registry as a version, the schema ID of the existing schema is returned to the caller.
  */export const registerSchemaVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-31", sdkId: "Glue", sigV4ServiceName: "glue", name: "AWSGlue.RegisterSchemaVersion" }, RegisterSchemaVersionInput, RegisterSchemaVersionResponse, [AccessDeniedException, ConcurrentModificationException, EntityNotFoundException, InternalServiceException, InvalidInputException, ResourceNumberLimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1667,20 +1643,11 @@ export class KMSKeyNotAccessibleFault extends S.TaggedError<KMSKeyNotAccessibleF
 /**
  * Resets a bookmark entry.
  * 
- * 
  * For more information about enabling and using job bookmarks, see:
- * 
- * 
  * 
  * - Tracking processed data using job bookmarks
  * 
- * 
- * 
- * 
  * - Job parameters used by Glue
- * 
- * 
- * 
  * 
  * - Job structure
  */export const resetJobBookmark = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-31", sdkId: "Glue", sigV4ServiceName: "glue", name: "AWSGlue.ResetJobBookmark" }, ResetJobBookmarkRequest, ResetJobBookmarkResponse, [EntityNotFoundException, InternalServiceException, InvalidInputException, OperationTimeoutException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1708,7 +1675,6 @@ export class KMSKeyNotAccessibleFault extends S.TaggedError<KMSKeyNotAccessibleF
  * `StartMLLabelingSetGenerationTaskRun` call and that ultimately results in
  * improving the quality of your machine learning transform.
  * 
- * 
  * After the `StartMLLabelingSetGenerationTaskRun` finishes, Glue machine learning
  * will have generated a series of questions for humans to answer. (Answering these questions is
  * often called 'labeling' in the machine learning workflows). In the case of the
@@ -1719,14 +1685,12 @@ export class KMSKeyNotAccessibleFault extends S.TaggedError<KMSKeyNotAccessibleF
  * all future runs of the machine learning transform use the new and improved labels and perform
  * a higher-quality transformation.
  * 
- * 
  * By default, `StartMLLabelingSetGenerationTaskRun` continually learns from and
  * combines all labels that you upload unless you set `Replace` to true. If you set
  * `Replace` to true, `StartImportLabelsTaskRun` deletes and forgets all
  * previously uploaded labels and learns only from the exact set that you upload. Replacing
  * labels can be helpful if you realize that you previously uploaded incorrect labels, and you
  * believe that they are having a negative effect on your transform quality.
- * 
  * 
  * You can check on the status of your task run by calling the `GetMLTaskRun`
  * operation.
@@ -1738,21 +1702,17 @@ export class KMSKeyNotAccessibleFault extends S.TaggedError<KMSKeyNotAccessibleF
  * Starts the active learning workflow for your machine learning transform to improve the
  * transform's quality by generating label sets and adding labels.
  * 
- * 
  * When the `StartMLLabelingSetGenerationTaskRun` finishes, Glue will have
  * generated a "labeling set" or a set of questions for humans to answer.
- * 
  * 
  * In the case of the `FindMatches` transform, these questions are of the form,
  * “What is the correct way to group these rows together into groups composed entirely of
  * matching records?”
  * 
- * 
  * After the labeling process is finished, you can upload your labels with a call to
  * `StartImportLabelsTaskRun`. After `StartImportLabelsTaskRun` finishes,
  * all future runs of the machine learning transform will use the new and improved labels and
  * perform a higher-quality transformation.
- * 
  * 
  * Note: The role used to write the generated labeling set to the `OutputS3Path` is the role
  * associated with the Machine Learning Transform, specified in the `CreateMLTransform` API.
@@ -1782,9 +1742,7 @@ export class KMSKeyNotAccessibleFault extends S.TaggedError<KMSKeyNotAccessibleF
 /**
  * Tests a connection to a service to validate the service credentials that you provide.
  * 
- * 
  * You can either provide an existing connection name or a `TestConnectionInput` for testing a non-existing connection input. Providing both at the same time will cause an error.
- * 
  * 
  * If the action is successful, the service sends back an HTTP 200 response.
  */export const testConnection = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-31", sdkId: "Glue", sigV4ServiceName: "glue", name: "AWSGlue.TestConnection" }, TestConnectionRequest, TestConnectionResponse, [AccessDeniedException, ConflictException, EntityNotFoundException, FederationSourceException, GlueEncryptionException, InternalServiceException, InvalidInputException, OperationTimeoutException, ResourceNumberLimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1814,18 +1772,15 @@ export class KMSKeyNotAccessibleFault extends S.TaggedError<KMSKeyNotAccessibleF
 /**
  * This API is used to provide optional override properties for the tables that need to be replicated. These properties can include properties for filtering and partitioning for the source and target tables. To set both source and target properties the same API need to be invoked with the Glue connection ARN as `ResourceArn` with `SourceTableConfig`, and the Glue database ARN as `ResourceArn` with `TargetTableConfig` respectively.
  * 
- * 
  * The override will be reflected across all the integrations using same `ResourceArn` and source table.
  */export const updateIntegrationTableProperties = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-31", sdkId: "Glue", sigV4ServiceName: "glue", name: "AWSGlue.UpdateIntegrationTableProperties" }, UpdateIntegrationTablePropertiesRequest, UpdateIntegrationTablePropertiesResponse, [AccessDeniedException, EntityNotFoundException, InternalServerException, InternalServiceException, InvalidInputException, ResourceNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Synchronizes a job from the source control repository. This operation takes the job artifacts that are located in the remote repository and updates the Glue internal stores with these artifacts.
  * 
- * 
  * This API supports optional parameters which take in the repository information.
  */export const updateJobFromSourceControl = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-31", sdkId: "Glue", sigV4ServiceName: "glue", name: "AWSGlue.UpdateJobFromSourceControl" }, UpdateJobFromSourceControlRequest, UpdateJobFromSourceControlResponse, [AccessDeniedException, AlreadyExistsException, EntityNotFoundException, InternalServiceException, InvalidInputException, OperationTimeoutException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates an existing machine learning transform. Call this operation to tune the algorithm parameters to achieve better results.
- * 
  * 
  * After calling this operation, you can call the `StartMLEvaluationTaskRun`
  * operation to assess how well your new parameters achieved your goals (such as improving the
@@ -1837,18 +1792,14 @@ export class KMSKeyNotAccessibleFault extends S.TaggedError<KMSKeyNotAccessibleF
 /**
  * Updates the description, compatibility setting, or version checkpoint for a schema set.
  * 
- * 
  * For updating the compatibility setting, the call will not validate compatibility for the entire set of schema versions with the new compatibility setting. If the value for `Compatibility` is provided, the `VersionNumber` (a checkpoint) is also required. The API will validate the checkpoint version number for consistency.
  * 
- * 
  * If the value for the `VersionNumber` (checkpoint) is provided, `Compatibility` is optional and this can be used to set/reset a checkpoint for the schema.
- * 
  * 
  * This update will happen only if the schema is in the AVAILABLE state.
  */export const updateSchema = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-31", sdkId: "Glue", sigV4ServiceName: "glue", name: "AWSGlue.UpdateSchema" }, UpdateSchemaInput, UpdateSchemaResponse, [AccessDeniedException, ConcurrentModificationException, EntityNotFoundException, InternalServiceException, InvalidInputException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Synchronizes a job to the source control repository. This operation takes the job artifacts from the Glue internal stores and makes a commit to the remote repository that is configured on the job.
- * 
  * 
  * This API supports optional parameters which take in the repository information.
  */export const updateSourceControlFromJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-31", sdkId: "Glue", sigV4ServiceName: "glue", name: "AWSGlue.UpdateSourceControlFromJob" }, UpdateSourceControlFromJobRequest, UpdateSourceControlFromJobResponse, [AccessDeniedException, AlreadyExistsException, EntityNotFoundException, InternalServiceException, InvalidInputException, OperationTimeoutException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1861,13 +1812,9 @@ export class KMSKeyNotAccessibleFault extends S.TaggedError<KMSKeyNotAccessibleF
 /**
  * Deletes multiple tables at once.
  * 
- * 
- * 
- * 
  * After completing this operation, you no longer have access to the table versions and
  * partitions that belong to the deleted table. Glue deletes these "orphaned" resources
  * asynchronously in a timely manner, at the discretion of the service.
- * 
  * 
  * To ensure the immediate deletion of all related resources, before calling
  * `BatchDeleteTable`, use `DeleteTableVersion` or
@@ -1913,12 +1860,10 @@ export class KMSKeyNotAccessibleFault extends S.TaggedError<KMSKeyNotAccessibleF
 /**
  * Creates a custom pattern that is used to detect sensitive data across the columns and rows of your structured data.
  * 
- * 
  * Each custom pattern you create specifies a regular expression and an optional list of context words. If no context words are passed only a regular expression is checked.
  */export const createCustomEntityType = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-31", sdkId: "Glue", sigV4ServiceName: "glue", name: "AWSGlue.CreateCustomEntityType" }, CreateCustomEntityTypeRequest, CreateCustomEntityTypeResponse, [AccessDeniedException, AlreadyExistsException, IdempotentParameterMismatchException, InternalServiceException, InvalidInputException, OperationTimeoutException, ResourceNumberLimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a data quality ruleset with DQDL rules applied to a specified Glue table.
- * 
  * 
  * You create the ruleset using the Data Quality Definition Language (DQDL). For more information, see the Glue developer guide.
  */export const createDataQualityRuleset = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-31", sdkId: "Glue", sigV4ServiceName: "glue", name: "AWSGlue.CreateDataQualityRuleset" }, CreateDataQualityRulesetRequest, CreateDataQualityRulesetResponse, [AlreadyExistsException, InternalServiceException, InvalidInputException, OperationTimeoutException, ResourceNumberLimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1934,9 +1879,7 @@ export class KMSKeyNotAccessibleFault extends S.TaggedError<KMSKeyNotAccessibleF
 /**
  * Creates a new schema set and registers the schema definition. Returns an error if the schema set already exists without actually registering the version.
  * 
- * 
  * When the schema set is created, a version checkpoint will be set to the first version. Compatibility mode "DISABLED" restricts any additional schema versions from being added after the first schema version. For all other compatibility modes, validation of compatibility settings will be applied only from the second version onwards when the `RegisterSchemaVersion` API is used.
- * 
  * 
  * When this API is called without a `RegistryId`, this will create an entry for a "default-registry" in the registry database tables, if it is not already present.
  */export const createSchema = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-31", sdkId: "Glue", sigV4ServiceName: "glue", name: "AWSGlue.CreateSchema" }, CreateSchemaInput, CreateSchemaResponse, [AccessDeniedException, AlreadyExistsException, ConcurrentModificationException, EntityNotFoundException, InternalServiceException, InvalidInputException, ResourceNumberLimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1955,13 +1898,9 @@ export class KMSKeyNotAccessibleFault extends S.TaggedError<KMSKeyNotAccessibleF
 /**
  * Removes a table definition from the Data Catalog.
  * 
- * 
- * 
- * 
  * After completing this operation, you no longer have access to the table versions and
  * partitions that belong to the deleted table. Glue deletes these "orphaned" resources
  * asynchronously in a timely manner, at the discretion of the service.
- * 
  * 
  * To ensure the immediate deletion of all related resources, before calling
  * `DeleteTable`, use `DeleteTableVersion` or
@@ -1977,7 +1916,6 @@ export class KMSKeyNotAccessibleFault extends S.TaggedError<KMSKeyNotAccessibleF
  */export const getCatalogImportStatus = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-31", sdkId: "Glue", sigV4ServiceName: "glue", name: "AWSGlue.GetCatalogImportStatus" }, GetCatalogImportStatusRequest, GetCatalogImportStatusResponse, [InternalServiceException, OperationTimeoutException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves partition statistics of columns.
- * 
  * 
  * The Identity and Access Management (IAM) permission required for this operation is `GetPartition`.
  */export const getColumnStatisticsForPartition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-31", sdkId: "Glue", sigV4ServiceName: "glue", name: "AWSGlue.GetColumnStatisticsForPartition" }, GetColumnStatisticsForPartitionRequest, GetColumnStatisticsForPartitionResponse, [EntityNotFoundException, GlueEncryptionException, InternalServiceException, InvalidInputException, OperationTimeoutException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1999,29 +1937,18 @@ export class KMSKeyNotAccessibleFault extends S.TaggedError<KMSKeyNotAccessibleF
 /**
  * This API is used to query preview data from a given connection type or from a native Amazon S3 based Glue Data Catalog.
  * 
- * 
  * Returns records as an array of JSON blobs. Each record is formatted using Jackson JsonNode based on the field type defined by the `DescribeEntity` API.
- * 
  * 
  * Spark connectors generate schemas according to the same data type mapping as in the `DescribeEntity` API. Spark connectors convert data to the appropriate data types matching the schema when returning rows.
  */export const getEntityRecords = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-31", sdkId: "Glue", sigV4ServiceName: "glue", name: "AWSGlue.GetEntityRecords" }, GetEntityRecordsRequest, GetEntityRecordsResponse, [AccessDeniedException, EntityNotFoundException, FederationSourceException, GlueEncryptionException, InvalidInputException, OperationTimeoutException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information on a job bookmark entry.
  * 
- * 
  * For more information about enabling and using job bookmarks, see:
- * 
- * 
  * 
  * - Tracking processed data using job bookmarks
  * 
- * 
- * 
- * 
  * - Job parameters used by Glue
- * 
- * 
- * 
  * 
  * - Job structure
  */export const getJobBookmark = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-31", sdkId: "Glue", sigV4ServiceName: "glue", name: "AWSGlue.GetJobBookmark" }, GetJobBookmarkRequest, GetJobBookmarkResponse, [EntityNotFoundException, InternalServiceException, InvalidInputException, OperationTimeoutException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -2038,7 +1965,6 @@ export class KMSKeyNotAccessibleFault extends S.TaggedError<KMSKeyNotAccessibleF
  * Retrieves the resource policies set on individual resources by Resource Access Manager
  * during cross-account permission grants. Also retrieves the Data Catalog resource
  * policy.
- * 
  * 
  * If you enabled metadata encryption in Data Catalog settings, and you do not have
  * permission on the KMS key, the operation can't return the Data Catalog resource
@@ -2075,7 +2001,6 @@ export class KMSKeyNotAccessibleFault extends S.TaggedError<KMSKeyNotAccessibleF
 /**
  * Returns a list of schemas with minimal details. Schemas in Deleting status will not be included in the results. Empty results will be returned if there are no schemas available.
  * 
- * 
  * When the `RegistryId` is not provided, all the schemas across registries will be part of the API response.
  */export const listSchemas = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-31", sdkId: "Glue", sigV4ServiceName: "glue", name: "AWSGlue.ListSchemas" }, ListSchemasInput, ListSchemasResponse, [AccessDeniedException, EntityNotFoundException, InternalServiceException, InvalidInputException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -2097,7 +2022,6 @@ export class KMSKeyNotAccessibleFault extends S.TaggedError<KMSKeyNotAccessibleF
 /**
  * Searches a set of tables based on properties in the table metadata as well as on the parent database. You can search against text or filter conditions.
  * 
- * 
  * You can only get tables that you have access to based on the security policies defined in Lake Formation. You need at least a read-only access to the table for it to be returned. If you do not have access to all the columns in the table, these columns will not be searched against when returning the list of tables back to you. If you have access to the columns but not the data in the columns, those columns and the associated metadata for those columns will be included in the search.
  */export const searchTables = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-31", sdkId: "Glue", sigV4ServiceName: "glue", name: "AWSGlue.SearchTables" }, SearchTablesRequest, SearchTablesResponse, [InternalServiceException, InvalidInputException, OperationTimeoutException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -2114,11 +2038,9 @@ export class KMSKeyNotAccessibleFault extends S.TaggedError<KMSKeyNotAccessibleF
 /**
  * Starts a task to estimate the quality of the transform.
  * 
- * 
  * When you provide label sets as examples of truth, Glue machine learning uses some of
  * those examples to learn from them. The rest of the labels are used as a test to estimate
  * quality.
- * 
  * 
  * Returns a unique identifier for the run. You can call `GetMLTaskRun` to get more
  * information about the stats of the `EvaluationTaskRun`.
@@ -2132,7 +2054,6 @@ export class KMSKeyNotAccessibleFault extends S.TaggedError<KMSKeyNotAccessibleF
 /**
  * Creates or updates table statistics of columns.
  * 
- * 
  * The Identity and Access Management (IAM) permission required for this operation is `UpdateTable`.
  */export const updateColumnStatisticsForTable = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-31", sdkId: "Glue", sigV4ServiceName: "glue", name: "AWSGlue.UpdateColumnStatisticsForTable" }, UpdateColumnStatisticsForTableRequest, UpdateColumnStatisticsForTableResponse, [EntityNotFoundException, GlueEncryptionException, InternalServiceException, InvalidInputException, OperationTimeoutException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -2140,7 +2061,6 @@ export class KMSKeyNotAccessibleFault extends S.TaggedError<KMSKeyNotAccessibleF
  */export const updateJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-31", sdkId: "Glue", sigV4ServiceName: "glue", name: "AWSGlue.UpdateJob" }, UpdateJobRequest, UpdateJobResponse, [ConcurrentModificationException, EntityNotFoundException, InternalServiceException, InvalidInputException, OperationTimeoutException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates a trigger definition.
- * 
  * 
  * Job arguments may be logged. Do not pass plaintext secrets as arguments. Retrieve secrets from a Glue Connection, Amazon Web Services Secrets Manager or other secret management mechanism if you intend to keep them within the Job.
  */export const updateTrigger = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-31", sdkId: "Glue", sigV4ServiceName: "glue", name: "AWSGlue.UpdateTrigger" }, UpdateTriggerRequest, UpdateTriggerResponse, [ConcurrentModificationException, EntityNotFoundException, InternalServiceException, InvalidInputException, OperationTimeoutException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -2180,12 +2100,10 @@ export class KMSKeyNotAccessibleFault extends S.TaggedError<KMSKeyNotAccessibleF
  * Creates an Glue machine learning transform. This operation creates the transform and
  * all the necessary parameters to train it.
  * 
- * 
  * Call this operation as the first step in the process of using a machine learning transform
  * (such as the `FindMatches` transform) for deduplicating data. You can provide an
  * optional `Description`, in addition to the parameters that you want to use for your
  * algorithm.
- * 
  * 
  * You must also specify certain parameters for the tasks that Glue runs on your
  * behalf as part of learning from your data and creating a high-quality machine learning
@@ -2205,7 +2123,6 @@ export class KMSKeyNotAccessibleFault extends S.TaggedError<KMSKeyNotAccessibleF
 /**
  * Creates a new trigger.
  * 
- * 
  * Job arguments may be logged. Do not pass plaintext secrets as arguments. Retrieve secrets from a Glue Connection, Amazon Web Services Secrets Manager or other secret management mechanism if you intend to keep them within the Job.
  */export const createTrigger = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-31", sdkId: "Glue", sigV4ServiceName: "glue", name: "AWSGlue.CreateTrigger" }, CreateTriggerRequest, CreateTriggerResponse, [AlreadyExistsException, ConcurrentModificationException, EntityNotFoundException, IdempotentParameterMismatchException, InternalServiceException, InvalidInputException, OperationTimeoutException, ResourceNumberLimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -2214,18 +2131,14 @@ export class KMSKeyNotAccessibleFault extends S.TaggedError<KMSKeyNotAccessibleF
 /**
  * Remove versions from the specified schema. A version number or range may be supplied. If the compatibility mode forbids deleting of a version that is necessary, such as BACKWARDS_FULL, an error is returned. Calling the `GetSchemaVersions` API after this call will list the status of the deleted versions.
  * 
- * 
  * When the range of version numbers contain check pointed version, the API will return a 409 conflict and will not proceed with the deletion. You have to remove the checkpoint first using the `DeleteSchemaCheckpoint` API before using this API.
  * 
- * 
  * You cannot use the `DeleteSchemaVersions` API to delete the first schema version in the schema set. The first schema version can only be deleted by the `DeleteSchema` API. This operation will also delete the attached `SchemaVersionMetadata` under the schema versions. Hard deletes will be enforced on the database.
- * 
  * 
  * If the compatibility mode forbids deleting of a version that is necessary, such as BACKWARDS_FULL, an error is returned.
  */export const deleteSchemaVersions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-31", sdkId: "Glue", sigV4ServiceName: "glue", name: "AWSGlue.DeleteSchemaVersions" }, DeleteSchemaVersionsInput, DeleteSchemaVersionsResponse, [AccessDeniedException, ConcurrentModificationException, EntityNotFoundException, InvalidInputException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Provides details regarding the entity used with the connection type, with a description of the data model for each field in the selected entity.
- * 
  * 
  * The response includes all the fields which make up the entity.
  */export const describeEntity = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-31", sdkId: "Glue", sigV4ServiceName: "glue", name: "AWSGlue.DescribeEntity" }, DescribeEntityRequest, DescribeEntityResponse, [AccessDeniedException, EntityNotFoundException, FederationSourceException, GlueEncryptionException, InvalidInputException, OperationTimeoutException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -2258,7 +2171,6 @@ export class KMSKeyNotAccessibleFault extends S.TaggedError<KMSKeyNotAccessibleF
  * `GetMLTaskRuns` with their parent transform's `TransformID` and other
  * optional parameters as documented in this section.
  * 
- * 
  * This operation returns a list of historic runs and must be paginated.
  */export const getMLTaskRuns = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-31", sdkId: "Glue", sigV4ServiceName: "glue", name: "AWSGlue.GetMLTaskRuns" }, GetMLTaskRunsRequest, GetMLTaskRunsResponse, [EntityNotFoundException, InternalServiceException, InvalidInputException, OperationTimeoutException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -2268,19 +2180,16 @@ export class KMSKeyNotAccessibleFault extends S.TaggedError<KMSKeyNotAccessibleF
  * Retrieves partition metadata from the Data Catalog that contains unfiltered
  * metadata.
  * 
- * 
  * For IAM authorization, the public IAM action associated with this API is `glue:GetPartition`.
  */export const getUnfilteredPartitionMetadata = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-31", sdkId: "Glue", sigV4ServiceName: "glue", name: "AWSGlue.GetUnfilteredPartitionMetadata" }, GetUnfilteredPartitionMetadataRequest, GetUnfilteredPartitionMetadataResponse, [EntityNotFoundException, FederationSourceException, FederationSourceRetryableException, GlueEncryptionException, InternalServiceException, InvalidInputException, OperationTimeoutException, PermissionTypeMismatchException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves partition metadata from the Data Catalog that contains unfiltered
  * metadata.
  * 
- * 
  * For IAM authorization, the public IAM action associated with this API is `glue:GetPartitions`.
  */export const getUnfilteredPartitionsMetadata = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-31", sdkId: "Glue", sigV4ServiceName: "glue", name: "AWSGlue.GetUnfilteredPartitionsMetadata" }, GetUnfilteredPartitionsMetadataRequest, GetUnfilteredPartitionsMetadataResponse, [EntityNotFoundException, FederationSourceException, FederationSourceRetryableException, GlueEncryptionException, InternalServiceException, InvalidInputException, OperationTimeoutException, PermissionTypeMismatchException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Allows a third-party analytical engine to retrieve unfiltered table metadata from the Data Catalog.
- * 
  * 
  * For IAM authorization, the public IAM action associated with this API is `glue:GetTable`.
  */export const getUnfilteredTableMetadata = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-31", sdkId: "Glue", sigV4ServiceName: "glue", name: "AWSGlue.GetUnfilteredTableMetadata" }, GetUnfilteredTableMetadataRequest, GetUnfilteredTableMetadataResponse, [EntityNotFoundException, FederationSourceException, FederationSourceRetryableException, GlueEncryptionException, InternalServiceException, InvalidInputException, OperationTimeoutException, PermissionTypeMismatchException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -2293,22 +2202,13 @@ export class KMSKeyNotAccessibleFault extends S.TaggedError<KMSKeyNotAccessibleF
 /**
  * Returns all the crawls of a specified crawler. Returns only the crawls that have occurred since the launch date of the crawler history feature, and only retains up to 12 months of crawls. Older crawls will not be returned.
  * 
- * 
  * You may use this API to:
- * 
- * 
  * 
  * - Retrive all the crawls of a specified crawler.
  * 
- * 
- * 
  * - Retrieve all the crawls of a specified crawler within a limited count.
  * 
- * 
- * 
  * - Retrieve all the crawls of a specified crawler in a specific time range.
- * 
- * 
  * 
  * - Retrieve all the crawls of a specified crawler with a particular state, crawl ID, or DPU hour value.
  */export const listCrawls = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-31", sdkId: "Glue", sigV4ServiceName: "glue", name: "AWSGlue.ListCrawls" }, ListCrawlsRequest, ListCrawlsResponse, [EntityNotFoundException, InvalidInputException, OperationTimeoutException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -2338,7 +2238,6 @@ export class KMSKeyNotAccessibleFault extends S.TaggedError<KMSKeyNotAccessibleF
  */export const modifyIntegration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-31", sdkId: "Glue", sigV4ServiceName: "glue", name: "AWSGlue.ModifyIntegration" }, ModifyIntegrationRequest, ModifyIntegrationResponse, [AccessDeniedException, ConflictException, EntityNotFoundException, IntegrationConflictOperationFault, IntegrationNotFoundFault, InternalServerException, InternalServiceException, InvalidInputException, InvalidIntegrationStateFault, InvalidStateException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts a recommendation run that is used to generate rules when you don't know what rules to write. Glue Data Quality analyzes the data and comes up with recommendations for a potential ruleset. You can then triage the ruleset and modify the generated ruleset to your liking.
- * 
  * 
  * Recommendation runs are automatically deleted after 90 days.
  */export const startDataQualityRuleRecommendationRun = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-31", sdkId: "Glue", sigV4ServiceName: "glue", name: "AWSGlue.StartDataQualityRuleRecommendationRun" }, StartDataQualityRuleRecommendationRunRequest, StartDataQualityRuleRecommendationRunResponse, [ConflictException, InternalServiceException, InvalidInputException, OperationTimeoutException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -2386,7 +2285,6 @@ export class KMSKeyNotAccessibleFault extends S.TaggedError<KMSKeyNotAccessibleF
 /**
  * Creates a connection definition in the Data Catalog.
  * 
- * 
  * Connections used for creating federated resources require the IAM `glue:PassConnection` permission.
  */export const createConnection = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-31", sdkId: "Glue", sigV4ServiceName: "glue", name: "AWSGlue.CreateConnection" }, CreateConnectionRequest, CreateConnectionResponse, [AlreadyExistsException, GlueEncryptionException, InvalidInputException, OperationTimeoutException, ResourceNumberLimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -2401,7 +2299,6 @@ export class KMSKeyNotAccessibleFault extends S.TaggedError<KMSKeyNotAccessibleF
  */export const getTables = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-31", sdkId: "Glue", sigV4ServiceName: "glue", name: "AWSGlue.GetTables" }, GetTablesRequest, GetTablesResponse, [EntityNotFoundException, FederationSourceException, FederationSourceRetryableException, GlueEncryptionException, InternalServiceException, InvalidInputException, OperationTimeoutException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates or updates partition statistics of columns.
- * 
  * 
  * The Identity and Access Management (IAM) permission required for this operation is `UpdatePartition`.
  */export const updateColumnStatisticsForPartition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-31", sdkId: "Glue", sigV4ServiceName: "glue", name: "AWSGlue.UpdateColumnStatisticsForPartition" }, UpdateColumnStatisticsForPartitionRequest, UpdateColumnStatisticsForPartitionResponse, [EntityNotFoundException, GlueEncryptionException, InternalServiceException, InvalidInputException, OperationTimeoutException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

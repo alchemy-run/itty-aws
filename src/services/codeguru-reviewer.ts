@@ -117,19 +117,12 @@ export class NotFoundException extends S.TaggedError<NotFoundException>()("NotFo
  * information, see Recommendations in
  * Amazon CodeGuru Reviewer in the *Amazon CodeGuru Reviewer User Guide.*
  * 
- * 
- * 
  * If you associate a CodeCommit or S3 repository, it must be in the same Amazon Web Services Region and
  * Amazon Web Services account where its CodeGuru Reviewer code reviews are configured.
- * 
  * 
  * Bitbucket and GitHub Enterprise Server repositories are managed by Amazon Web Services CodeStar
  * Connections to connect to CodeGuru Reviewer. For more information, see Associate a
  * repository in the *Amazon CodeGuru Reviewer User Guide.*
- * 
- * 
- * 
- * 
  * 
  * You cannot use the CodeGuru Reviewer SDK or the Amazon Web Services CLI to associate a GitHub repository with
  * Amazon CodeGuru Reviewer. To associate a GitHub repository, use the console. For more information, see

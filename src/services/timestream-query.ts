@@ -108,36 +108,22 @@ export class QueryExecutionException extends S.TaggedError<QueryExecutionExcepti
  * DescribeEndpoints returns a list of available endpoints to make Timestream
  * API calls against. This API is available through both Write and Query.
  * 
- * 
  * Because the Timestream SDKs are designed to transparently work with the
  * service’s architecture, including the management and mapping of the service endpoints,
  * *it is not recommended that you use this API unless*:
  * 
- * 
- * 
  * - You are using VPC endpoints (Amazon Web Services PrivateLink) with Timestream
- * 
- * 
- * 
- * 
  * 
  * - Your application uses a programming language that does not yet have SDK
  * support
  * 
- * 
- * 
  * - You require better control over the client-side implementation
- * 
- * 
- * 
- * 
  * 
  * For detailed information on how and when to use and implement DescribeEndpoints, see
  * The Endpoint Discovery Pattern.
  */export const describeEndpoints = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-01", sdkId: "Timestream Query", sigV4ServiceName: "timestream", name: "Timestream_20181101.DescribeEndpoints" }, DescribeEndpointsRequest, DescribeEndpointsResponse, [InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * You can use this API to run a scheduled query manually.
- * 
  * 
  * If you enabled `QueryInsights`, this API also returns insights and metrics related to the query that you executed as part of an Amazon SNS notification. `QueryInsights` helps with performance tuning of your query. For more information about `QueryInsights`, see Using query insights to optimize queries in Amazon Timestream.
  */export const executeScheduledQuery = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-01", sdkId: "Timestream Query", sigV4ServiceName: "timestream", name: "Timestream_20181101.ExecuteScheduledQuery" }, ExecuteScheduledQueryRequest, S.Struct({}), [AccessDeniedException, InternalServerException, InvalidEndpointException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -169,7 +155,6 @@ export class QueryExecutionException extends S.TaggedError<QueryExecutionExcepti
 /**
  * Describes the settings for your account that include the query pricing model and the configured maximum TCUs the service can use for your query workload.
  * 
- * 
  * You're charged only for the duration of compute units used for your workloads.
  */export const describeAccountSettings = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-01", sdkId: "Timestream Query", sigV4ServiceName: "timestream", name: "Timestream_20181101.DescribeAccountSettings" }, DescribeAccountSettingsRequest, DescribeAccountSettingsResponse, [AccessDeniedException, InternalServerException, InvalidEndpointException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -179,9 +164,6 @@ export class QueryExecutionException extends S.TaggedError<QueryExecutionExcepti
  */export const prepareQuery = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-01", sdkId: "Timestream Query", sigV4ServiceName: "timestream", name: "Timestream_20181101.PrepareQuery" }, PrepareQueryRequest, PrepareQueryResponse, [AccessDeniedException, InternalServerException, InvalidEndpointException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Transitions your account to use TCUs for query pricing and modifies the maximum query compute units that you've configured. If you reduce the value of `MaxQueryTCU` to a desired configuration, the new value can take up to 24 hours to be effective.
- * 
- * 
- * 
  * 
  * After you've transitioned your account to use TCUs for query pricing, you can't transition to using bytes scanned for query pricing.
  */export const updateAccountSettings = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-01", sdkId: "Timestream Query", sigV4ServiceName: "timestream", name: "Timestream_20181101.UpdateAccountSettings" }, UpdateAccountSettingsRequest, UpdateAccountSettingsResponse, [AccessDeniedException, InternalServerException, InvalidEndpointException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -203,48 +185,28 @@ export class QueryExecutionException extends S.TaggedError<QueryExecutionExcepti
  * `Query` is a synchronous operation that enables you to run a query against
  * your Amazon Timestream data.
  * 
- * 
  * If you enabled `QueryInsights`, this API also returns insights and metrics related to the query that you executed. `QueryInsights` helps with performance tuning of your query. For more information about `QueryInsights`, see Using query insights to optimize queries in Amazon Timestream.
  * 
- * 
- * 
- * 
  * The maximum number of `Query` API requests you're allowed to make with `QueryInsights` enabled is 1 query per second (QPS). If you exceed this query rate, it might result in throttling.
- * 
- * 
- * 
- * 
  * 
  * `Query` will time out after 60 seconds.
  * You must update the default timeout in the SDK to support a timeout of 60 seconds. See
  * the code
  * sample for details.
  * 
- * 
  * Your query request will fail in the following cases:
- * 
- * 
  * 
  * - If you submit a `Query` request with the same client token outside
  * of the 5-minute idempotency window.
  * 
- * 
- * 
  * - If you submit a `Query` request with the same client token, but
  * change other parameters, within the 5-minute idempotency window.
- * 
- * 
  * 
  * - If the size of the row (including the query metadata) exceeds 1 MB, then the
  * query will fail with the following error message:
  * 
- * 
- * 
  * Query aborted as max page response size has been exceeded by the output
  * result row
- * 
- * 
- * 
  * 
  * - If the IAM principal of the query initiator and the result reader are not the
  * same and/or the query initiator and the result reader do not have the same query

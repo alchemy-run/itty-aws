@@ -1293,12 +1293,8 @@ export class ResourceInUseException extends S.TaggedError<ResourceInUseException
 /**
  * The *aggregation Region* is now called the *home Region*.
  * 
- * 
- * 
- * 
  * Deletes a finding aggregator. When you delete the finding aggregator, you stop cross-Region aggregation. Finding replication stops
  * occurring from the linked Regions to the home Region.
- * 
  * 
  * When you stop cross-Region aggregation, findings that were already replicated and sent to the home Region are still visible from
  * the home Region. However, new findings and finding updates are no longer replicated and sent to the home Region.
@@ -1315,14 +1311,11 @@ export class ResourceInUseException extends S.TaggedError<ResourceInUseException
  * Disables Security Hub in your account only in the current Amazon Web Services Region. To disable Security Hub in all
  * Regions, you must submit one request per Region where you have enabled Security Hub.
  * 
- * 
  * You can't disable Security Hub in an account that is currently the Security Hub administrator.
- * 
  * 
  * When you disable Security Hub, your existing findings and insights and any Security Hub configuration
  * settings are deleted after 90 days and cannot be recovered. Any standards that were enabled
  * are disabled, and your administrator and member account associations are removed.
- * 
  * 
  * If you want to save your existing findings, you must export them before you disable
  * Security Hub.
@@ -1334,7 +1327,6 @@ export class ResourceInUseException extends S.TaggedError<ResourceInUseException
  * Disassociates the current Security Hub member account from the associated administrator
  * account.
  * 
- * 
  * This operation is only used by accounts that are not part of an organization. For
  * organization accounts, only the administrator account can
  * disassociate a member account.
@@ -1342,13 +1334,10 @@ export class ResourceInUseException extends S.TaggedError<ResourceInUseException
 /**
  * This method is deprecated. Instead, use `DisassociateFromAdministratorAccount`.
  * 
- * 
  * The Security Hub console continues to use `DisassociateFromMasterAccount`. It will eventually change to use `DisassociateFromAdministratorAccount`. Any IAM policies that specifically control access to this function must continue to use `DisassociateFromMasterAccount`. You should also add `DisassociateFromAdministratorAccount` to your policies to ensure that the correct permissions are in place after the console begins to use `DisassociateFromAdministratorAccount`.
- * 
  * 
  * Disassociates the current Security Hub member account from the associated administrator
  * account.
- * 
  * 
  * This operation is only used by accounts that are not part of an organization. For
  * organization accounts, only the administrator account can
@@ -1357,7 +1346,6 @@ export class ResourceInUseException extends S.TaggedError<ResourceInUseException
 /**
  * Disassociates the specified member accounts from the associated administrator account.
  * 
- * 
  * Can be used to disassociate both accounts that are managed using Organizations and accounts that
  * were invited manually.
  */export const disassociateMembers = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/members/disassociate", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.DisassociateMembers" }, DisassociateMembersRequest, DisassociateMembersResponse, [AccessDeniedException, InternalException, InvalidAccessException, InvalidInputException, LimitExceededException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1365,36 +1353,23 @@ export class ResourceInUseException extends S.TaggedError<ResourceInUseException
  * Enables Security Hub for your account in the current Region or the Region you specify in the
  * request.
  * 
- * 
  * When you enable Security Hub, you grant to Security Hub the permissions necessary to gather findings
  * from other services that are integrated with Security Hub.
- * 
  * 
  * When you use the `EnableSecurityHub` operation to enable Security Hub, you also
  * automatically enable the following standards:
  * 
- * 
- * 
  * - Center for Internet Security (CIS) Amazon Web Services Foundations Benchmark v1.2.0
- * 
- * 
  * 
  * - Amazon Web Services Foundational Security Best Practices
  * 
- * 
- * 
- * 
- * 
  * Other standards are not automatically enabled.
- * 
  * 
  * To opt out of automatically enabled standards, set
  * `EnableDefaultStandards` to `false`.
  * 
- * 
  * After you enable Security Hub, to enable a standard, use the `BatchEnableStandards` operation. To disable a standard, use the
  * `BatchDisableStandards` operation.
- * 
  * 
  * To learn more, see the setup information in the *Security Hub User Guide*.
  */export const enableSecurityHub = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/accounts", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.EnableSecurityHub" }, EnableSecurityHubRequest, EnableSecurityHubResponse, [AccessDeniedException, InternalException, InvalidAccessException, LimitExceededException, ResourceConflictException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1403,21 +1378,15 @@ export class ResourceInUseException extends S.TaggedError<ResourceInUseException
  * For information, see Managing Security Hub administrator and member accounts with Organizations
  * in the *Security Hub User Guide*.
  * 
- * 
- * 
- * 
  * Returns the count of all Security Hub membership invitations that were sent to the
  * calling member account, not including the currently accepted invitation.
  */export const getInvitationsCount = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/invitations/count", method: "GET", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.GetInvitationsCount" }, GetInvitationsCountRequest, GetInvitationsCountResponse, [InternalException, InvalidAccessException, InvalidInputException, LimitExceededException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This method is deprecated. Instead, use `GetAdministratorAccount`.
  * 
- * 
  * The Security Hub console continues to use `GetMasterAccount`. It will eventually change to use `GetAdministratorAccount`. Any IAM policies that specifically control access to this function must continue to use `GetMasterAccount`. You should also add `GetAdministratorAccount` to your policies to ensure that the correct permissions are in place after the console begins to use `GetAdministratorAccount`.
  * 
- * 
  * Provides the details for the Security Hub administrator account for the current member account.
- * 
  * 
  * Can be used by both member accounts that are managed using Organizations and accounts that were
  * invited manually.
@@ -1445,11 +1414,9 @@ export class ResourceInUseException extends S.TaggedError<ResourceInUseException
  * `UpdateFindings` is a deprecated operation. Instead of `UpdateFindings`, use
  * the `BatchUpdateFindings` operation.
  * 
- * 
  * The `UpdateFindings` operation updates the `Note` and `RecordState` of the Security Hub aggregated
  * findings that the filter attributes specify. Any member account that can view the finding
  * can also see the update to the finding.
- * 
  * 
  * Finding updates made with `UpdateFindings` aren't persisted if the same finding is later updated by the
  * finding provider through the `BatchImportFindings` operation. In addition, Security Hub doesn't
@@ -1469,7 +1436,6 @@ export class ResourceInUseException extends S.TaggedError<ResourceInUseException
  * Used to control whether an individual security standard control is enabled or
  * disabled.
  * 
- * 
  * Calls to this operation return a `RESOURCE_NOT_FOUND_EXCEPTION` error when the standard subscription for the control has `StandardsControlsUpdatable` value `NOT_READY_FOR_UPDATES`.
  */export const updateStandardsControl = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/standards/control/{StandardsControlArn+}", method: "PATCH", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.UpdateStandardsControl" }, UpdateStandardsControlRequest, UpdateStandardsControlResponse, [AccessDeniedException, InternalException, InvalidAccessException, InvalidInputException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -1477,16 +1443,11 @@ export class ResourceInUseException extends S.TaggedError<ResourceInUseException
  * For information, see Managing Security Hub administrator and member accounts with Organizations
  * in the *Security Hub User Guide*.
  * 
- * 
- * 
- * 
  * Accepts the invitation to be a member account and be monitored by the Security Hub administrator
  * account that the invitation was sent from.
  * 
- * 
  * This operation is only used by member accounts that are not added through
  * Organizations.
- * 
  * 
  * When the member account accepts the invitation, permission is granted to the administrator
  * account to view findings generated in the member account.
@@ -1494,17 +1455,13 @@ export class ResourceInUseException extends S.TaggedError<ResourceInUseException
 /**
  * This method is deprecated. Instead, use `AcceptAdministratorInvitation`.
  * 
- * 
  * The Security Hub console continues to use `AcceptInvitation`. It will eventually change to use `AcceptAdministratorInvitation`. Any IAM policies that specifically control access to this function must continue to use `AcceptInvitation`. You should also add `AcceptAdministratorInvitation` to your policies to ensure that the correct permissions are in place after the console begins to use `AcceptAdministratorInvitation`.
- * 
  * 
  * Accepts the invitation to be a member account and be monitored by the Security Hub administrator
  * account that the invitation was sent from.
  * 
- * 
  * This operation is only used by member accounts that are not added through
  * Organizations.
- * 
  * 
  * When the member account accepts the invitation, permission is granted to the administrator
  * account to view findings generated in the member account.
@@ -1512,18 +1469,13 @@ export class ResourceInUseException extends S.TaggedError<ResourceInUseException
 /**
  * Creates a custom action target in Security Hub.
  * 
- * 
  * You can use custom actions on findings and insights in Security Hub to trigger target actions
  * in Amazon CloudWatch Events.
  */export const createActionTarget = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/actionTargets", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.CreateActionTarget" }, CreateActionTargetRequest, CreateActionTargetResponse, [InternalException, InvalidAccessException, InvalidInputException, LimitExceededException, ResourceConflictException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * The *aggregation Region* is now called the *home Region*.
  * 
- * 
- * 
- * 
  * Used to enable cross-Region aggregation. This operation can be invoked from the home Region only.
- * 
  * 
  * For information about how cross-Region aggregation works, see Understanding cross-Region aggregation in Security Hub in the *Security Hub User Guide*.
  */export const createFindingAggregator = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/findingAggregator/create", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.CreateFindingAggregator" }, CreateFindingAggregatorRequest, CreateFindingAggregatorResponse, [AccessDeniedException, InternalException, InvalidAccessException, InvalidInputException, LimitExceededException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1532,7 +1484,6 @@ export class ResourceInUseException extends S.TaggedError<ResourceInUseException
  */export const createTicketV2 = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/ticketsv2", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.CreateTicketV2" }, CreateTicketV2Request, CreateTicketV2Response, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a custom action target from Security Hub.
- * 
  * 
  * Deleting a custom action target does not affect any findings or insights that were
  * already sent to Amazon CloudWatch Events using the custom action.
@@ -1559,21 +1510,15 @@ export class ResourceInUseException extends S.TaggedError<ResourceInUseException
  * For information, see Managing Security Hub administrator and member accounts with Organizations
  * in the *Security Hub User Guide*.
  * 
- * 
- * 
- * 
  * Deletes invitations to become a Security Hub member account.
  * 
- * 
  * A Security Hub administrator account can use this operation to delete invitations sent to one or more prospective member accounts.
- * 
  * 
  * This operation is only used to delete invitations that are sent to prospective member accounts that aren't part of an Amazon Web Services organization.
  * Organization accounts don't receive invitations.
  */export const deleteInvitations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/invitations/delete", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.DeleteInvitations" }, DeleteInvitationsRequest, DeleteInvitationsResponse, [InternalException, InvalidAccessException, InvalidInputException, LimitExceededException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the specified member accounts from Security Hub.
- * 
  * 
  * You can invoke this API only to delete accounts that became members through invitation. You can't invoke this
  * API to delete accounts that belong to an Organizations organization.
@@ -1593,7 +1538,6 @@ export class ResourceInUseException extends S.TaggedError<ResourceInUseException
  * Enables the integration of a partner product with Security Hub. Integrated products send
  * findings to Security Hub.
  * 
- * 
  * When you enable a product integration, a permissions policy that grants permission for
  * the product to send findings to Security Hub is applied.
  */export const enableImportFindingsForProduct = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/productSubscriptions", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.EnableImportFindingsForProduct" }, EnableImportFindingsForProductRequest, EnableImportFindingsForProductResponse, [InternalException, InvalidAccessException, InvalidInputException, LimitExceededException, ResourceConflictException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1606,7 +1550,6 @@ export class ResourceInUseException extends S.TaggedError<ResourceInUseException
  */export const enableSecurityHubV2 = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/hubv2", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.EnableSecurityHubV2" }, EnableSecurityHubV2Request, EnableSecurityHubV2Response, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Provides the details for the Security Hub administrator account for the current member account.
- * 
  * 
  * Can be used by both member accounts that are managed using Organizations and accounts that were
  * invited manually.
@@ -1627,9 +1570,6 @@ export class ResourceInUseException extends S.TaggedError<ResourceInUseException
 /**
  * The *aggregation Region* is now called the *home Region*.
  * 
- * 
- * 
- * 
  * Returns the current configuration in the calling account for cross-Region aggregation. A finding aggregator is a resource that establishes
  * the home Region and any linked Regions.
  */export const getFindingAggregator = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/findingAggregator/get/{FindingAggregatorArn+}", method: "GET", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.GetFindingAggregator" }, GetFindingAggregatorRequest, GetFindingAggregatorResponse, [AccessDeniedException, InternalException, InvalidAccessException, InvalidInputException, LimitExceededException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1638,19 +1578,13 @@ export class ResourceInUseException extends S.TaggedError<ResourceInUseException
  * For information, see Managing Security Hub administrator and member accounts with Organizations
  * in the *Security Hub User Guide*.
  * 
- * 
- * 
- * 
  * Invites other Amazon Web Services accounts to become member accounts for the Security Hub administrator account that
  * the invitation is sent from.
- * 
  * 
  * This operation is only used to invite accounts that don't belong to an Amazon Web Services organization.
  * Organization accounts don't receive invitations.
  * 
- * 
  * Before you can use this action to invite a member, you must first use the `CreateMembers` action to create the member account in Security Hub.
- * 
  * 
  * When the account owner enables Security Hub and accepts the invitation to become a member
  * account, the administrator account can view the findings generated in the member account.
@@ -1664,11 +1598,7 @@ export class ResourceInUseException extends S.TaggedError<ResourceInUseException
  * For information, see Managing Security Hub administrator and member accounts with Organizations
  * in the *Security Hub User Guide*.
  * 
- * 
- * 
- * 
  * Lists all Security Hub membership invitations that were sent to the calling account.
- * 
  * 
  * Only accounts that are managed by invitation can use this operation.
  * Accounts that are managed using the integration with Organizations don't receive invitations.
@@ -1676,7 +1606,6 @@ export class ResourceInUseException extends S.TaggedError<ResourceInUseException
 /**
  * Lists details about all member accounts for the current Security Hub administrator
  * account.
- * 
  * 
  * The results include both member accounts that belong to an organization and member
  * accounts that were invited manually.
@@ -1705,12 +1634,8 @@ export class ResourceInUseException extends S.TaggedError<ResourceInUseException
 /**
  * The *aggregation Region* is now called the *home Region*.
  * 
- * 
- * 
- * 
  * Updates cross-Region aggregation settings. You can use this operation to update the Region linking mode and the list
  * of included or excluded Amazon Web Services Regions. However, you can't use this operation to change the home Region.
- * 
  * 
  * You can invoke this operation from the current home Region only.
  */export const updateFindingAggregator = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/findingAggregator/update", method: "PATCH", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.UpdateFindingAggregator" }, UpdateFindingAggregatorRequest, UpdateFindingAggregatorResponse, [AccessDeniedException, InternalException, InvalidAccessException, InvalidInputException, LimitExceededException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1733,55 +1658,33 @@ export class ResourceInUseException extends S.TaggedError<ResourceInUseException
  * used to make the request, which is the administrator account. If you are integrated with
  * Organizations, then the administrator account is designated by the organization management account.
  * 
- * 
- * 
  * `CreateMembers` is always used to add accounts that are not organization
  * members.
- * 
  * 
  * For accounts that are managed using Organizations, `CreateMembers` is only used
  * in the following cases:
  * 
- * 
- * 
  * - Security Hub is not configured to automatically add new organization accounts.
- * 
- * 
  * 
  * - The account was disassociated or deleted in Security Hub.
  * 
- * 
- * 
- * 
- * 
  * This action can only be used by an account that has Security Hub enabled. To enable Security Hub, you
  * can use the `EnableSecurityHub` operation.
- * 
  * 
  * For accounts that are not organization members, you create the account association and
  * then send an invitation to the member account. To send the invitation, you use the
  * `InviteMembers` operation. If the account owner accepts
  * the invitation, the account becomes a member account in Security Hub.
  * 
- * 
  * Accounts that are managed using Organizations don't receive an invitation. They
  * automatically become a member account in Security Hub.
  * 
- * 
- * 
  * - If the organization account does not have Security Hub enabled, then Security Hub and the default standards are automatically enabled. Note that Security Hub cannot be enabled automatically for the organization management account. The organization management account must enable Security Hub before the administrator account enables it as a member account.
- * 
- * 
  * 
  * - For organization accounts that already have Security Hub enabled, Security Hub does not make any other changes to those accounts. It does not change their enabled standards or controls.
  * 
- * 
- * 
- * 
- * 
  * A permissions policy is added that permits the administrator account to view the findings
  * generated in the member account.
- * 
  * 
  * To remove the association between the administrator and member accounts, use the `DisassociateFromMasterAccount` or `DisassociateMembers` operation.
  */export const createMembers = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/members", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.CreateMembers" }, CreateMembersRequest, CreateMembersResponse, [AccessDeniedException, InternalException, InvalidAccessException, InvalidInputException, LimitExceededException, ResourceConflictException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1790,14 +1693,9 @@ export class ResourceInUseException extends S.TaggedError<ResourceInUseException
  * For information, see Managing Security Hub administrator and member accounts with Organizations
  * in the *Security Hub User Guide*.
  * 
- * 
- * 
- * 
  * Declines invitations to become a Security Hub member account.
  * 
- * 
  * A prospective member account uses this operation to decline an invitation to become a member.
- * 
  * 
  * Only member accounts that aren't part of an Amazon Web Services organization should use this operation.
  * Organization accounts don't receive invitations.
@@ -1808,10 +1706,8 @@ export class ResourceInUseException extends S.TaggedError<ResourceInUseException
 /**
  * Returns information about product integrations in Security Hub.
  * 
- * 
  * You can optionally provide an integration ARN. If you provide an integration ARN, then
  * the results only include that integration.
- * 
  * 
  * If you don't provide an integration ARN, then the results include all of the available
  * product integrations.
@@ -1822,10 +1718,8 @@ export class ResourceInUseException extends S.TaggedError<ResourceInUseException
 /**
  * Returns a list of security standards controls.
  * 
- * 
  * For each control, the results include information about whether it is currently enabled,
  * the severity, and a link to remediation information.
- * 
  * 
  * This operation returns an empty list for standard subscriptions where `StandardsControlsUpdatable` has value `NOT_READY_FOR_UPDATES`.
  */export const describeStandardsControls = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/standards/controls/{StandardsSubscriptionArn+}", method: "GET", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.DescribeStandardsControls" }, DescribeStandardsControlsRequest, DescribeStandardsControlsResponse, [InternalException, InvalidAccessException, InvalidInputException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1837,7 +1731,6 @@ export class ResourceInUseException extends S.TaggedError<ResourceInUseException
 /**
  * Returns a list of findings that match the specified criteria.
  * 
- * 
  * If cross-Region aggregation is enabled, then when you call `GetFindings` from the home Region, the results include all of the matching findings from both the home Region and linked Regions.
  */export const getFindings = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/findings", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.GetFindings" }, GetFindingsRequest, GetFindingsResponse, [InternalException, InvalidAccessException, InvalidInputException, LimitExceededException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -1846,10 +1739,8 @@ export class ResourceInUseException extends S.TaggedError<ResourceInUseException
 /**
  * Returns the details for the Security Hub member accounts for the specified account IDs.
  * 
- * 
  * An administrator account can be either the delegated Security Hub administrator account for an
  * organization or an administrator account that enabled Security Hub manually.
- * 
  * 
  * The results include both member accounts that are managed using Organizations and accounts that
  * were invited manually.
@@ -1882,8 +1773,6 @@ export class ResourceInUseException extends S.TaggedError<ResourceInUseException
 /**
  * Specifies whether a control is currently enabled or disabled in each enabled standard in the calling account.
  * 
- * 
- * 
  * This operation omits standards control associations for standard subscriptions where `StandardsControlsUpdatable` has value `NOT_READY_FOR_UPDATES`.
  */export const listStandardsControlAssociations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/associations", method: "GET", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.ListStandardsControlAssociations" }, ListStandardsControlAssociationsRequest, ListStandardsControlAssociationsResponse, [InternalException, InvalidAccessException, InvalidInputException, LimitExceededException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -1893,7 +1782,6 @@ export class ResourceInUseException extends S.TaggedError<ResourceInUseException
  * Disables the standards specified by the provided
  * `StandardsSubscriptionArns`.
  * 
- * 
  * For more information, see Security Standards section of the Security Hub User
  * Guide.
  */export const batchDisableStandards = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/standards/deregister", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.BatchDisableStandards" }, BatchDisableStandardsRequest, BatchDisableStandardsResponse, [AccessDeniedException, InternalException, InvalidAccessException, InvalidInputException, LimitExceededException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1901,7 +1789,6 @@ export class ResourceInUseException extends S.TaggedError<ResourceInUseException
  * Enables the standards specified by the provided `StandardsArn`. To obtain the
  * ARN for a standard, use the `DescribeStandards`
  * operation.
- * 
  * 
  * For more information, see the Security Standards
  * section of the *Security Hub User Guide*.
@@ -1914,9 +1801,6 @@ export class ResourceInUseException extends S.TaggedError<ResourceInUseException
 /**
  * For a batch of security controls and standards, identifies whether each control is currently enabled or disabled in a standard.
  * 
- * 
- * 
- * 
  * Calls to this operation return a `RESOURCE_NOT_FOUND_EXCEPTION` error when the standard subscription for the association has a `NOT_READY_FOR_UPDATES` value for `StandardsControlsUpdatable`.
  */export const batchGetStandardsControlAssociations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/associations/batchGet", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.BatchGetStandardsControlAssociations" }, BatchGetStandardsControlAssociationsRequest, BatchGetStandardsControlAssociationsResponse, [InternalException, InvalidAccessException, InvalidInputException, LimitExceededException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -1926,62 +1810,26 @@ export class ResourceInUseException extends S.TaggedError<ResourceInUseException
  * A member account can update findings only for their own account.
  * Administrator and member accounts can use this operation to update the following fields and objects for one or more findings:
  * 
- * 
- * 
- * 
  * - `Confidence`
- * 
- * 
- * 
  * 
  * - `Criticality`
  * 
- * 
- * 
- * 
  * - `Note`
- * 
- * 
- * 
  * 
  * - `RelatedFindings`
  * 
- * 
- * 
- * 
  * - `Severity`
- * 
- * 
- * 
  * 
  * - `Types`
  * 
- * 
- * 
- * 
  * - `UserDefinedFields`
- * 
- * 
- * 
  * 
  * - `VerificationState`
  * 
- * 
- * 
- * 
  * - `Workflow`
- * 
- * 
- * 
- * 
- * 
- * 
  * 
  * If you use this operation to update a finding, your updates don’t affect the value for the `UpdatedAt` field of the finding.
  * Also note that it can take several minutes for Security Hub to process your request and update each finding specified in the request.
- * 
- * 
- * 
  * 
  * You can configure IAM policies to restrict access to fields and field values.
  * For example, you might not want member accounts to be able to suppress findings or change the finding severity.
@@ -2011,13 +1859,11 @@ export class ResourceInUseException extends S.TaggedError<ResourceInUseException
  * Creates a custom insight in Security Hub. An insight is a consolidation of findings that relate
  * to a security issue that requires attention or remediation.
  * 
- * 
  * To group the related findings in the insight, use the
  * `GroupByAttribute`.
  */export const createInsight = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/insights", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.CreateInsight" }, CreateInsightRequest, CreateInsightResponse, [InternalException, InvalidAccessException, InvalidInputException, LimitExceededException, ResourceConflictException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of the available standards in Security Hub.
- * 
  * 
  * For each standard, the results include the standard ARN, the name, and a description.
  */export const describeStandards = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/standards", method: "GET", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.DescribeStandards" }, DescribeStandardsRequest, DescribeStandardsResponse, [InternalException, InvalidAccessException, InvalidInputException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -2028,8 +1874,6 @@ export class ResourceInUseException extends S.TaggedError<ResourceInUseException
  * Returns the history of a Security Hub finding. The history includes changes made to any fields in
  * the Amazon Web Services Security Finding Format (ASFF) except top-level timestamp fields, such as the `CreatedAt` and
  * `UpdatedAt` fields.
- * 
- * 
  * 
  * This operation might return fewer results than the maximum number of results (`MaxResults`) specified in a request, even
  * when more results are available. If this occurs, the response includes a `NextToken` value, which you should use to retrieve
@@ -2083,11 +1927,7 @@ export class ResourceInUseException extends S.TaggedError<ResourceInUseException
  * This action is requested by the finding provider to import its findings into
  * Security Hub.
  * 
- * 
- * 
  * `BatchImportFindings` must be called by one of the following:
- * 
- * 
  * 
  * - The Amazon Web Services account that is associated with a finding if you are using
  * the default product ARN
@@ -2095,78 +1935,36 @@ export class ResourceInUseException extends S.TaggedError<ResourceInUseException
  * In these cases, the identifier of the account that you are calling `BatchImportFindings`
  * from needs to be the same as the `AwsAccountId` attribute for the finding.
  * 
- * 
- * 
  * - An Amazon Web Services account that Security Hub has allow-listed for an official partner
  * integration. In this case, you can call `BatchImportFindings` from the allow-listed
  * account and send findings from different customer accounts in the same batch.
  * 
- * 
- * 
- * 
- * 
  * The maximum allowed size for a finding is 240 Kb. An error is returned for any finding
  * larger than 240 Kb.
- * 
  * 
  * After a finding is created, `BatchImportFindings` cannot be used to update
  * the following finding fields and objects, which Security Hub customers use to manage their
  * investigation workflow.
  * 
- * 
- * 
  * - `Note`
- * 
- * 
- * 
  * 
  * - `UserDefinedFields`
  * 
- * 
- * 
- * 
  * - `VerificationState`
- * 
- * 
- * 
  * 
  * - `Workflow`
  * 
- * 
- * 
- * 
- * 
- * 
  * Finding providers also should not use `BatchImportFindings` to update the following attributes.
- * 
- * 
  * 
  * - `Confidence`
  * 
- * 
- * 
- * 
  * - `Criticality`
- * 
- * 
- * 
  * 
  * - `RelatedFindings`
  * 
- * 
- * 
- * 
  * - `Severity`
  * 
- * 
- * 
- * 
  * - `Types`
- * 
- * 
- * 
- * 
- * 
  * 
  * Instead, finding providers use `FindingProviderFields` to provide values for these attributes.
  */export const batchImportFindings = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/findings/import", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.BatchImportFindings" }, BatchImportFindingsRequest, BatchImportFindingsResponse, [InternalException, InvalidAccessException, InvalidInputException, LimitExceededException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

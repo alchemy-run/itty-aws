@@ -631,11 +631,9 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
  * version. To delete a specific version, use the
  * `DeleteBotVersion` operation.
  * 
- * 
  * When you delete a bot, all of the resources contained in the bot are
  * also deleted. Deleting a bot removes all locales, intents, slot, and
  * slot types defined for the bot.
- * 
  * 
  * If a bot has an alias, the `DeleteBot` operation returns
  * a `ResourceInUseException` exception. If you want to delete
@@ -647,7 +645,6 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
  */export const deleteBotAlias = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/bots/{botId}/botaliases/{botAliasId}", method: "DELETE", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.DeleteBotAlias" }, DeleteBotAliasRequest, DeleteBotAliasResponse, [ConflictException, InternalServerException, PreconditionFailedException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes a locale from a bot.
- * 
  * 
  * When you delete a locale, all intents, slots, and slot types defined
  * for the locale are also deleted.
@@ -674,7 +671,6 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
 /**
  * Removes the specified intent.
  * 
- * 
  * Deleting an intent also deletes the slots associated with the
  * intent.
  */export const deleteIntent = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/intents/{intentId}", method: "DELETE", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.DeleteIntent" }, DeleteIntentRequest, S.Struct({}), [ConflictException, InternalServerException, PreconditionFailedException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -689,7 +685,6 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
  * alias doesn't have a policy attached, Amazon Lex returns an
  * exception.
  * 
- * 
  * You need to add the `DeleteResourcePolicy` or `UpdateResourcePolicy`
  * action to the bot role in order to call the API.
  */export const deleteResourcePolicyStatement = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/policy/{resourceArn}/statements/{statementId}", method: "DELETE", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.DeleteResourcePolicyStatement" }, DeleteResourcePolicyStatementRequest, DeleteResourcePolicyStatementResponse, [InternalServerException, PreconditionFailedException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -698,7 +693,6 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
  */export const deleteSlot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/intents/{intentId}/slots/{slotId}", method: "DELETE", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.DeleteSlot" }, DeleteSlotRequest, S.Struct({}), [ConflictException, InternalServerException, PreconditionFailedException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a slot type from a bot locale.
- * 
  * 
  * If a slot is using the slot type, Amazon Lex throws a
  * `ResourceInUseException` exception. To avoid the
@@ -711,12 +705,10 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
 /**
  * Deletes stored utterances.
  * 
- * 
  * Amazon Lex stores the utterances that users send to your bot. Utterances
  * are stored for 15 days for use with the ListAggregatedUtterances operation, and
  * then stored indefinitely for use in improving the ability of your bot
  * to respond to user input..
- * 
  * 
  * Use the `DeleteUtterances` operation to manually delete
  * utterances for a specific session. When you use the
@@ -816,7 +808,6 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
 /**
  * Updates the password used to protect an export zip archive.
  * 
- * 
  * The password is not required. If you don't supply a password, Amazon Lex
  * generates a zip file that is not protected by a password. This is the
  * archive that is available at the pre-signed S3 URL provided by the
@@ -890,11 +881,9 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
  * locale. The archive contains a directory structure that contains JSON
  * files that define the bot.
  * 
- * 
  * You can create an archive that contains the complete definition of a
  * bot, or you can specify that the archive contain only the definition of
  * a single bot locale.
- * 
  * 
  * For more information about exporting bots, and about the structure
  * of the export archive, see Importing and
@@ -905,10 +894,8 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
  * resource policy exists, the statement is added to the current resource
  * policy. If a policy doesn't exist, a new policy is created.
  * 
- * 
  * You can't create a resource policy statement that allows
  * cross-account access.
- * 
  * 
  * You need to add the `CreateResourcePolicy` or `UpdateResourcePolicy`
  * action to the bot role in order to call the API.
@@ -934,13 +921,11 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
 /**
  * Gets information about all of the versions of a bot.
  * 
- * 
  * The `ListBotVersions` operation returns a summary of each
  * version of a bot. For example, if a bot has three numbered versions,
  * the `ListBotVersions` operation returns for summaries, one
  * for each numbered version and one for the `DRAFT`
  * version.
- * 
  * 
  * The `ListBotVersions` operation always returns at least
  * one version, the `DRAFT` version.
@@ -948,7 +933,6 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
 /**
  * Gets a list of built-in intents provided by Amazon Lex that you can use
  * in your bot.
- * 
  * 
  * To use a built-in intent as a the base for your own intent, include
  * the built-in intent signature in the `parentIntentSignature`
@@ -970,17 +954,9 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
 /**
  * Retrieves summary statistics for a path of intents that users take over sessions with your bot. The following fields are required:
  * 
- * 
- * 
  * - `startDateTime` and `endDateTime` – Define a time range for which you want to retrieve results.
  * 
- * 
- * 
  * - `intentPath` – Define an order of intents for which you want to retrieve metrics. Separate intents in the path with a forward slash. For example, populate the `intentPath` field with `/BookCar/BookHotel` to see details about how many times users invoked the `BookCar` and `BookHotel` intents in that order.
- * 
- * 
- * 
- * 
  * 
  * Use the optional `filters` field to filter the results.
  */export const listIntentPaths = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/bots/{botId}/analytics/intentpaths", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.ListIntentPaths" }, ListIntentPathsRequest, ListIntentPathsResponse, [InternalServerException, PreconditionFailedException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1009,7 +985,6 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
 /**
  * Creates a custom slot type
  * 
- * 
  * To create a custom slot type, specify a name for the slot type and
  * a set of enumeration values, the values that a slot of this type can
  * assume.
@@ -1025,139 +1000,77 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
  * Provides a list of utterances that users have sent to the
  * bot.
  * 
- * 
  * Utterances are aggregated by the text of the utterance. For example,
  * all instances where customers used the phrase "I want to order pizza"
  * are aggregated into the same line in the response.
- * 
  * 
  * You can see both detected utterances and missed utterances. A
  * detected utterance is where the bot properly recognized the utterance
  * and activated the associated intent. A missed utterance was not
  * recognized by the bot and didn't activate an intent.
  * 
- * 
  * Utterances can be aggregated for a bot alias or for a bot version,
  * but not both at the same time.
- * 
  * 
  * Utterances statistics are not generated under the following
  * conditions:
  * 
- * 
- * 
  * - The `childDirected` field was set to true when the
  * bot was created.
  * 
- * 
- * 
  * - You are using slot obfuscation with one or more slots.
- * 
- * 
  * 
  * - You opted out of participating in improving Amazon Lex.
  */export const listAggregatedUtterances = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/bots/{botId}/aggregatedutterances", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.ListAggregatedUtterances" }, ListAggregatedUtterancesRequest, ListAggregatedUtterancesResponse, [InternalServerException, PreconditionFailedException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves summary metrics for the intents in your bot. The following fields are required:
  * 
- * 
- * 
  * - `metrics` – A list of AnalyticsIntentMetric objects. In each object, use the `name` field to specify the metric to calculate, the `statistic` field to specify whether to calculate the `Sum`, `Average`, or `Max` number, and the `order` field to specify whether to sort the results in `Ascending` or `Descending` order.
- * 
- * 
  * 
  * - `startDateTime` and `endDateTime` – Define a time range for which you want to retrieve results.
  * 
- * 
- * 
- * 
- * 
  * Of the optional fields, you can organize the results in the following ways:
- * 
- * 
  * 
  * - Use the `filters` field to filter the results, the `groupBy` field to specify categories by which to group the results, and the `binBy` field to specify time intervals by which to group the results.
  * 
- * 
- * 
  * - Use the `maxResults` field to limit the number of results to return in a single response and the `nextToken` field to return the next batch of results if the response does not return the full set of results.
- * 
- * 
- * 
- * 
  * 
  * Note that an `order` field exists in both `binBy` and `metrics`. You can specify only one `order` in a given request.
  */export const listIntentMetrics = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/bots/{botId}/analytics/intentmetrics", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.ListIntentMetrics" }, ListIntentMetricsRequest, ListIntentMetricsResponse, [InternalServerException, PreconditionFailedException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves summary metrics for the stages within intents in your bot. The following fields are required:
  * 
- * 
- * 
  * - `metrics` – A list of AnalyticsIntentStageMetric objects. In each object, use the `name` field to specify the metric to calculate, the `statistic` field to specify whether to calculate the `Sum`, `Average`, or `Max` number, and the `order` field to specify whether to sort the results in `Ascending` or `Descending` order.
- * 
- * 
  * 
  * - `startDateTime` and `endDateTime` – Define a time range for which you want to retrieve results.
  * 
- * 
- * 
- * 
- * 
  * Of the optional fields, you can organize the results in the following ways:
- * 
- * 
  * 
  * - Use the `filters` field to filter the results, the `groupBy` field to specify categories by which to group the results, and the `binBy` field to specify time intervals by which to group the results.
  * 
- * 
- * 
  * - Use the `maxResults` field to limit the number of results to return in a single response and the `nextToken` field to return the next batch of results if the response does not return the full set of results.
- * 
- * 
- * 
- * 
  * 
  * Note that an `order` field exists in both `binBy` and `metrics`. You can only specify one `order` in a given request.
  */export const listIntentStageMetrics = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/bots/{botId}/analytics/intentstagemetrics", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.ListIntentStageMetrics" }, ListIntentStageMetricsRequest, ListIntentStageMetricsResponse, [InternalServerException, PreconditionFailedException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves a list of metadata for individual user sessions with your bot. The `startDateTime` and `endDateTime` fields are required. These fields define a time range for which you want to retrieve results. Of the optional fields, you can organize the results in the following ways:
  * 
- * 
- * 
  * - Use the `filters` field to filter the results and the `sortBy` field to specify the values by which to sort the results.
- * 
- * 
  * 
  * - Use the `maxResults` field to limit the number of results to return in a single response and the `nextToken` field to return the next batch of results if the response does not return the full set of results.
  */export const listSessionAnalyticsData = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/bots/{botId}/analytics/sessions", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.ListSessionAnalyticsData" }, ListSessionAnalyticsDataRequest, ListSessionAnalyticsDataResponse, [InternalServerException, PreconditionFailedException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves summary metrics for the user sessions with your bot. The following fields are required:
  * 
- * 
- * 
  * - `metrics` – A list of AnalyticsSessionMetric objects. In each object, use the `name` field to specify the metric to calculate, the `statistic` field to specify whether to calculate the `Sum`, `Average`, or `Max` number, and the `order` field to specify whether to sort the results in `Ascending` or `Descending` order.
- * 
- * 
  * 
  * - `startDateTime` and `endDateTime` – Define a time range for which you want to retrieve results.
  * 
- * 
- * 
- * 
- * 
  * Of the optional fields, you can organize the results in the following ways:
- * 
- * 
  * 
  * - Use the `filters` field to filter the results, the `groupBy` field to specify categories by which to group the results, and the `binBy` field to specify time intervals by which to group the results.
  * 
- * 
- * 
  * - Use the `maxResults` field to limit the number of results to return in a single response and the `nextToken` field to return the next batch of results if the response does not return the full set of results.
- * 
- * 
- * 
- * 
  * 
  * Note that an `order` field exists in both `binBy` and `metrics`. Currently, you can specify it in either field, but not in both.
  */export const listSessionMetrics = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/bots/{botId}/analytics/sessionmetrics", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.ListSessionMetrics" }, ListSessionMetricsRequest, ListSessionMetricsResponse, [InternalServerException, PreconditionFailedException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1167,26 +1080,13 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
  * utterance-related analytics. See Viewing utterance
  * statistics for the IAM policy to apply to the IAM role.
  * 
- * 
- * 
- * 
  * Retrieves a list of metadata for individual user utterances to your bot. The following fields are required:
- * 
- * 
  * 
  * - `startDateTime` and `endDateTime` – Define a time range for which you want to retrieve results.
  * 
- * 
- * 
- * 
- * 
  * Of the optional fields, you can organize the results in the following ways:
  * 
- * 
- * 
  * - Use the `filters` field to filter the results and the `sortBy` field to specify the values by which to sort the results.
- * 
- * 
  * 
  * - Use the `maxResults` field to limit the number of results to return in a single response and the `nextToken` field to return the next batch of results if the response does not return the full set of results.
  */export const listUtteranceAnalyticsData = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/bots/{botId}/analytics/utterances", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.ListUtteranceAnalyticsData" }, ListUtteranceAnalyticsDataRequest, ListUtteranceAnalyticsDataResponse, [InternalServerException, PreconditionFailedException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1196,36 +1096,17 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
  * utterance-related analytics. See Viewing utterance
  * statistics for the IAM policy to apply to the IAM role.
  * 
- * 
- * 
- * 
  * Retrieves summary metrics for the utterances in your bot. The following fields are required:
- * 
- * 
  * 
  * - `metrics` – A list of AnalyticsUtteranceMetric objects. In each object, use the `name` field to specify the metric to calculate, the `statistic` field to specify whether to calculate the `Sum`, `Average`, or `Max` number, and the `order` field to specify whether to sort the results in `Ascending` or `Descending` order.
  * 
- * 
- * 
  * - `startDateTime` and `endDateTime` – Define a time range for which you want to retrieve results.
- * 
- * 
- * 
- * 
  * 
  * Of the optional fields, you can organize the results in the following ways:
  * 
- * 
- * 
  * - Use the `filters` field to filter the results, the `groupBy` field to specify categories by which to group the results, and the `binBy` field to specify time intervals by which to group the results.
  * 
- * 
- * 
  * - Use the `maxResults` field to limit the number of results to return in a single response and the `nextToken` field to return the next batch of results if the response does not return the full set of results.
- * 
- * 
- * 
- * 
  * 
  * Note that an `order` field exists in both `binBy` and `metrics`. Currently, you can specify it in either field, but not in both.
  */export const listUtteranceMetrics = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/bots/{botId}/analytics/utterancemetrics", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.ListUtteranceMetrics" }, ListUtteranceMetricsRequest, ListUtteranceMetricsResponse, [InternalServerException, PreconditionFailedException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1240,7 +1121,6 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
  * Creates an alias for the specified version of a bot. Use an alias to
  * enable you to change the version of a bot without updating applications
  * that use the bot.
- * 
  * 
  * For example, you can create an alias called "PROD" that your
  * applications use to call the Amazon Lex bot.
@@ -1265,29 +1145,21 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
 /**
  * Creates an intent.
  * 
- * 
  * To define the interaction between the user and your bot, you define
  * one or more intents. For example, for a pizza ordering bot you would
  * create an `OrderPizza` intent.
  * 
- * 
  * When you create an intent, you must provide a name. You can
  * optionally provide the following:
- * 
- * 
  * 
  * - Sample utterances. For example, "I want to order a pizza" and
  * "Can I order a pizza." You can't provide utterances for built-in
  * intents.
  * 
- * 
- * 
  * - Information to be gathered. You specify slots for the
  * information that you bot requests from the user. You can specify
  * standard slot types, such as date and time, or custom slot types
  * for your application.
- * 
- * 
  * 
  * - How the intent is fulfilled. You can provide a Lambda function
  * or configure the intent to return the intent information to your
@@ -1295,17 +1167,11 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
  * the function when all of the intent information is
  * available.
  * 
- * 
- * 
  * - A confirmation prompt to send to the user to confirm an
  * intent. For example, "Shall I order your pizza?"
  * 
- * 
- * 
  * - A conclusion statement to send to the user after the intent is
  * fulfilled. For example, "I ordered your pizza."
- * 
- * 
  * 
  * - A follow-up prompt that asks the user for additional activity.
  * For example, "Do you want a drink with your pizza?"

@@ -116,7 +116,6 @@ export class ThrottlingException extends S.TaggedError<ThrottlingException>()("T
 /**
  * Starts a product subscription for a user with the specified identity provider.
  * 
- * 
  * Your estimated bill for charges on the number of users and related costs will take 48 hours to appear for billing periods that haven't closed (marked as **Pending** billing status) in Amazon Web Services Billing. For more information, see Viewing your monthly charges in the *Amazon Web Services Billing User Guide*.
  */export const startProductSubscription = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/user/StartProductSubscription", sdkId: "License Manager User Subscriptions", sigV4ServiceName: "license-manager-user-subscriptions", name: "LicenseManagerUserSubscriptions.StartProductSubscription" }, StartProductSubscriptionRequest, StartProductSubscriptionResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -133,7 +132,6 @@ export class ThrottlingException extends S.TaggedError<ThrottlingException>()("T
  */export const createLicenseServerEndpoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/license-server/CreateLicenseServerEndpoint", sdkId: "License Manager User Subscriptions", sigV4ServiceName: "license-manager-user-subscriptions", name: "LicenseManagerUserSubscriptions.CreateLicenseServerEndpoint" }, CreateLicenseServerEndpointRequest, CreateLicenseServerEndpointResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Associates the user to an EC2 instance to utilize user-based subscriptions.
- * 
  * 
  * Your estimated bill for charges on the number of users and related costs will take 48 hours to appear for billing periods that haven't closed (marked as **Pending** billing status) in Amazon Web Services Billing. For more information, see Viewing your monthly charges in the *Amazon Web Services Billing User Guide*.
  */export const associateUser = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/user/AssociateUser", sdkId: "License Manager User Subscriptions", sigV4ServiceName: "license-manager-user-subscriptions", name: "LicenseManagerUserSubscriptions.AssociateUser" }, AssociateUserRequest, AssociateUserResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

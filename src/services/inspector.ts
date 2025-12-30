@@ -230,7 +230,6 @@ export class AgentsAlreadyRunningAssessmentException extends S.TaggedError<Agent
  * Updates the assessment target that is specified by the ARN of the assessment
  * target.
  * 
- * 
  * If resourceGroupArn is not specified, all EC2 instances in the current AWS account
  * and region are included in the assessment target.
  */export const updateAssessmentTarget = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-02-16", sdkId: "Inspector", sigV4ServiceName: "inspector", name: "InspectorService.UpdateAssessmentTarget" }, UpdateAssessmentTargetRequest, S.Struct({}), [AccessDeniedException, InternalException, InvalidInputException, NoSuchEntityException, ServiceTemporarilyUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

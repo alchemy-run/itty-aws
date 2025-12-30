@@ -268,9 +268,6 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Returns a list of shifts based on rotation configuration parameters.
  * 
- * 
- * 
- * 
  * The Incident Manager primarily uses this operation to populate the **Preview** calendar. It is not typically run by end users.
  */export const listPreviewRotationShifts = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-03", sdkId: "SSM Contacts", sigV4ServiceName: "ssm-contacts", name: "SSMContacts.ListPreviewRotationShifts" }, ListPreviewRotationShiftsRequest, ListPreviewRotationShiftsResult, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**

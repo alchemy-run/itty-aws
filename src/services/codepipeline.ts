@@ -316,9 +316,6 @@ export class PipelineNameInUseException extends S.TaggedError<PipelineNameInUseE
  * Marks a custom action as deleted. `PollForJobs` for the custom action
  * fails after the action is marked for deletion. Used for custom actions only.
  * 
- * 
- * 
- * 
  * To re-create a custom action after it has been deleted you must use a string in
  * the version field that has never been used before. This string can be an incremented
  * version number, for example. To restore a deleted custom action, use a JSON file
@@ -379,17 +376,11 @@ export class PipelineNameInUseException extends S.TaggedError<PipelineNameInUseE
  * account. The output lists all webhooks and includes the webhook URL and ARN and the
  * configuration for each webhook.
  * 
- * 
- * 
- * 
  * If a secret token was provided, it will be redacted in the response.
  */export const listWebhooks = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.ListWebhooks" }, ListWebhooksInput, ListWebhooksOutput, [InvalidNextTokenException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Determines whether there are any third party jobs for a job worker to act on. Used
  * for partner actions only.
- * 
- * 
- * 
  * 
  * When this API is called, CodePipeline returns temporary credentials for
  * the S3 bucket used to store artifacts for the pipeline, if the action requires
@@ -433,9 +424,6 @@ export class PipelineNameInUseException extends S.TaggedError<PipelineNameInUseE
  * field. If the action type contains `AWS` or `ThirdParty` in the
  * owner field, the `PollForJobs` action returns an error.
  * 
- * 
- * 
- * 
  * When this API is called, CodePipeline returns temporary credentials for
  * the S3 bucket used to store artifacts for the pipeline, if the action requires
  * access to that S3 bucket for input or output artifacts. This API also returns any
@@ -471,9 +459,6 @@ export class PipelineNameInUseException extends S.TaggedError<PipelineNameInUseE
  * Requests the details of a job for a third party action. Used for partner actions
  * only.
  * 
- * 
- * 
- * 
  * When this API is called, CodePipeline returns temporary credentials for
  * the S3 bucket used to store artifacts for the pipeline, if the action requires
  * access to that S3 bucket for input or output artifacts. This API also returns any
@@ -489,9 +474,6 @@ export class PipelineNameInUseException extends S.TaggedError<PipelineNameInUseE
 /**
  * Gets a summary of the most recent executions for a pipeline.
  * 
- * 
- * 
- * 
  * When applying the filter for pipeline executions that have succeeded in the stage,
  * the operation returns all executions in the current pipeline version beginning on
  * February 1, 2024.
@@ -506,9 +488,6 @@ export class PipelineNameInUseException extends S.TaggedError<PipelineNameInUseE
  * automatically configure supported third parties to call the generated webhook
  * URL.
  * 
- * 
- * 
- * 
  * When creating CodePipeline webhooks, do not use your own credentials or
  * reuse the same secret token across multiple webhooks. For optimal security, generate
  * a unique secret token for each webhook you create. The secret token is an arbitrary
@@ -516,11 +495,6 @@ export class PipelineNameInUseException extends S.TaggedError<PipelineNameInUseE
  * sent to CodePipeline, for protecting the integrity and authenticity of the
  * webhook payloads. Using your own credentials or reusing the same token across
  * multiple webhooks can lead to security vulnerabilities.
- * 
- * 
- * 
- * 
- * 
  * 
  * If a secret token was provided, it will be redacted in the response.
  */export const putWebhook = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.PutWebhook" }, PutWebhookInput, PutWebhookOutput, [ConcurrentModificationException, InvalidTagsException, InvalidWebhookAuthenticationParametersException, InvalidWebhookFilterPatternException, LimitExceededException, PipelineNotFoundException, TooManyTagsException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -539,9 +513,6 @@ export class PipelineNameInUseException extends S.TaggedError<PipelineNameInUseE
 /**
  * Returns information about a job. Used for custom actions only.
  * 
- * 
- * 
- * 
  * When this API is called, CodePipeline returns temporary credentials for
  * the S3 bucket used to store artifacts for the pipeline, if the action requires
  * access to that S3 bucket for input or output artifacts. This API also returns any
@@ -550,9 +521,6 @@ export class PipelineNameInUseException extends S.TaggedError<PipelineNameInUseE
 /**
  * Returns information about the state of a pipeline, including the stages and
  * actions.
- * 
- * 
- * 
  * 
  * Values returned in the `revisionId` and `revisionUrl`
  * fields indicate the source revision information, such as the commit ID, for the
@@ -570,9 +538,6 @@ export class PipelineNameInUseException extends S.TaggedError<PipelineNameInUseE
  */export const listRuleExecutions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.ListRuleExecutions" }, ListRuleExecutionsInput, ListRuleExecutionsOutput, [InvalidNextTokenException, PipelineExecutionNotFoundException, PipelineNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a pipeline.
- * 
- * 
- * 
  * 
  * In the pipeline structure, you must include either `artifactStore`
  * or `artifactStores` in your pipeline, but you cannot use both. If you

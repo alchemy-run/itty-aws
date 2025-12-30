@@ -103,16 +103,13 @@ export class MalformedCSRException extends S.TaggedError<MalformedCSRException>(
 /**
  * Deletes a private certificate authority (CA). You must provide the Amazon Resource Name (ARN) of the private CA that you want to delete. You can find the ARN by calling the ListCertificateAuthorities action.
  * 
- * 
  * Deleting a CA will invalidate other CAs and certificates below it in your CA hierarchy.
- * 
  * 
  * Before you can delete a CA that you have created and activated, you must disable it. To do this, call the UpdateCertificateAuthority action and set the **CertificateAuthorityStatus** parameter to `DISABLED`.
  * 
  * Additionally, you can delete a CA if you are waiting for it to be created (that is, the status of the CA is `CREATING`). You can also delete it if the CA has been created but you haven't yet imported the signed certificate into Amazon Web Services Private CA (that is, the status of the CA is `PENDING_CERTIFICATE`).
  * 
  * When you successfully call DeleteCertificateAuthority, the CA's status changes to `DELETED`. However, the CA won't be permanently deleted until the restoration period has passed. By default, if you do not set the `PermanentDeletionTimeInDays` parameter, the CA remains restorable for 30 days. You can set the parameter from 7 to 30 days. The DescribeCertificateAuthority action returns the time remaining in the restoration window of a private CA in the `DELETED` state. To restore an eligible CA, call the RestoreCertificateAuthority action.
- * 
  * 
  * A private CA can be deleted if it is in the `PENDING_CERTIFICATE`, `CREATING`, `EXPIRED`, `DISABLED`, or `FAILED` state. To delete a CA in the `ACTIVE` state, you must first disable it, or else the delete request results in an exception. If you are deleting a private CA in the `PENDING_CERTIFICATE` or `DISABLED` state, you can set the length of its restoration period to 7-30 days. The default is 30. During this time, the status is set to `DELETED` and the CA can be restored. A private CA deleted in the `CREATING` or `FAILED` state has no assigned restoration period and cannot be restored.
  */export const deleteCertificateAuthority = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-22", sdkId: "ACM PCA", sigV4ServiceName: "acm-pca", name: "ACMPrivateCA.DeleteCertificateAuthority" }, DeleteCertificateAuthorityRequest, S.Struct({}), [ConcurrentModificationException, InvalidArnException, InvalidStateException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -196,7 +193,6 @@ export class MalformedCSRException extends S.TaggedError<MalformedCSRException>(
 /**
  * Updates the status or configuration of a private certificate authority (CA). Your private CA must be in the `ACTIVE` or `DISABLED` state before you can update it. You can disable a private CA that is in the `ACTIVE` state or make a CA that is in the `DISABLED` state active again.
  * 
- * 
  * Both Amazon Web Services Private CA and the IAM principal must have permission to write to the S3 bucket that you specify. If the IAM principal making the call does not have permission to write to the bucket, then an exception is thrown. For more information, see Access policies for CRLs in Amazon S3.
  */export const updateCertificateAuthority = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-22", sdkId: "ACM PCA", sigV4ServiceName: "acm-pca", name: "ACMPrivateCA.UpdateCertificateAuthority" }, UpdateCertificateAuthorityRequest, S.Struct({}), [ConcurrentModificationException, InvalidArgsException, InvalidArnException, InvalidPolicyException, InvalidStateException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -205,7 +201,6 @@ export class MalformedCSRException extends S.TaggedError<MalformedCSRException>(
  * To save the audit report to your designated Amazon S3 bucket, you must create a bucket policy that grants Amazon Web Services Private CA permission to access and write to it. For an example policy, see Prepare an Amazon S3 bucket for audit reports.
  * 
  * Amazon Web Services Private CA assets that are stored in Amazon S3 can be protected with encryption. For more information, see Encrypting Your Audit Reports.
- * 
  * 
  * You can generate a maximum of one report every 30 minutes.
  */export const createCertificateAuthorityAuditReport = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-22", sdkId: "ACM PCA", sigV4ServiceName: "acm-pca", name: "ACMPrivateCA.CreateCertificateAuthorityAuditReport" }, CreateCertificateAuthorityAuditReportRequest, CreateCertificateAuthorityAuditReportResponse, [InvalidArgsException, InvalidArnException, InvalidStateException, RequestFailedException, RequestInProgressException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -248,7 +243,6 @@ export class MalformedCSRException extends S.TaggedError<MalformedCSRException>(
  * 
  * - Installing a subordinate CA certificate whose parent authority is externally hosted.
  * 
- * 
  * The following additional requirements apply when you import a CA certificate.
  * 
  * - Only a self-signed certificate can be imported as a root CA.
@@ -264,7 +258,6 @@ export class MalformedCSRException extends S.TaggedError<MalformedCSRException>(
  * - The maximum allowed size of a certificate is 32 KB.
  * 
  * - The maximum allowed size of a certificate chain is 2 MB.
- * 
  * 
  * *Enforcement of Critical Constraints*
  * 
@@ -296,7 +289,6 @@ export class MalformedCSRException extends S.TaggedError<MalformedCSRException>(
  * 
  * - Subject information access
  * 
- * 
  * Amazon Web Services Private CA rejects the following extensions when they are marked critical in an imported CA certificate or chain.
  * 
  * - Authority information access
@@ -306,7 +298,6 @@ export class MalformedCSRException extends S.TaggedError<MalformedCSRException>(
  * - Freshest CRL
  * 
  * - Policy constraints
- * 
  * 
  * Amazon Web Services Private Certificate Authority will also reject any other extension marked as critical not contained on the preceding list of allowed extensions.
  */export const importCertificateAuthorityCertificate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-22", sdkId: "ACM PCA", sigV4ServiceName: "acm-pca", name: "ACMPrivateCA.ImportCertificateAuthorityCertificate" }, ImportCertificateAuthorityCertificateRequest, S.Struct({}), [CertificateMismatchException, ConcurrentModificationException, InvalidArnException, InvalidRequestException, InvalidStateException, MalformedCertificateException, RequestFailedException, RequestInProgressException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -330,18 +321,14 @@ export class MalformedCSRException extends S.TaggedError<MalformedCSRException>(
 /**
  * Revokes a certificate that was issued inside Amazon Web Services Private CA. If you enable a certificate revocation list (CRL) when you create or update your private CA, information about the revoked certificates will be included in the CRL. Amazon Web Services Private CA writes the CRL to an S3 bucket that you specify. A CRL is typically updated approximately 30 minutes after a certificate is revoked. If for any reason the CRL update fails, Amazon Web Services Private CA attempts makes further attempts every 15 minutes. With Amazon CloudWatch, you can create alarms for the metrics `CRLGenerated` and `MisconfiguredCRLBucket`. For more information, see Supported CloudWatch Metrics.
  * 
- * 
  * Both Amazon Web Services Private CA and the IAM principal must have permission to write to the S3 bucket that you specify. If the IAM principal making the call does not have permission to write to the bucket, then an exception is thrown. For more information, see Access policies for CRLs in Amazon S3.
  * 
- * 
  * Amazon Web Services Private CA also writes revocation information to the audit report. For more information, see CreateCertificateAuthorityAuditReport.
- * 
  * 
  * You cannot revoke a root CA self-signed certificate.
  */export const revokeCertificate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-22", sdkId: "ACM PCA", sigV4ServiceName: "acm-pca", name: "ACMPrivateCA.RevokeCertificate" }, RevokeCertificateRequest, S.Struct({}), [ConcurrentModificationException, InvalidArnException, InvalidRequestException, InvalidStateException, LimitExceededException, RequestAlreadyProcessedException, RequestFailedException, RequestInProgressException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Adds one or more tags to your private CA. Tags are labels that you can use to identify and organize your Amazon Web Services resources. Each tag consists of a key and an optional value. You specify the private CA on input by its Amazon Resource Name (ARN). You specify the tag by using a key-value pair. You can apply a tag to just one private CA if you want to identify a specific characteristic of that CA, or you can apply the same tag to multiple private CAs if you want to filter for a common relationship among those CAs. To remove one or more tags, use the UntagCertificateAuthority action. Call the ListTags action to see what tags are associated with your CA.
- * 
  * 
  * To attach tags to a private CA during the creation procedure, a CA administrator must first associate an inline IAM policy with the `CreateCertificateAuthority` action and explicitly allow tagging. For more information, see Attaching tags to a CA at the time of creation.
  */export const tagCertificateAuthority = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-22", sdkId: "ACM PCA", sigV4ServiceName: "acm-pca", name: "ACMPrivateCA.TagCertificateAuthority" }, TagCertificateAuthorityRequest, S.Struct({}), [InvalidArnException, InvalidStateException, InvalidTagException, ResourceNotFoundException, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -360,15 +347,12 @@ export class MalformedCSRException extends S.TaggedError<MalformedCSRException>(
 /**
  * Creates a root or subordinate private certificate authority (CA). You must specify the CA configuration, an optional configuration for Online Certificate Status Protocol (OCSP) and/or a certificate revocation list (CRL), the CA type, and an optional idempotency token to avoid accidental creation of multiple CAs. The CA configuration specifies the name of the algorithm and key size to be used to create the CA private key, the type of signing algorithm that the CA uses, and X.500 subject information. The OCSP configuration can optionally specify a custom URL for the OCSP responder. The CRL configuration specifies the CRL expiration period in days (the validity period of the CRL), the Amazon S3 bucket that will contain the CRL, and a CNAME alias for the S3 bucket that is included in certificates issued by the CA. If successful, this action returns the Amazon Resource Name (ARN) of the CA.
  * 
- * 
  * Both Amazon Web Services Private CA and the IAM principal must have permission to write to the S3 bucket that you specify. If the IAM principal making the call does not have permission to write to the bucket, then an exception is thrown. For more information, see Access policies for CRLs in Amazon S3.
- * 
  * 
  * Amazon Web Services Private CA assets that are stored in Amazon S3 can be protected with encryption. For more information, see Encrypting Your CRLs.
  */export const createCertificateAuthority = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-22", sdkId: "ACM PCA", sigV4ServiceName: "acm-pca", name: "ACMPrivateCA.CreateCertificateAuthority" }, CreateCertificateAuthorityRequest, CreateCertificateAuthorityResponse, [InvalidArgsException, InvalidPolicyException, InvalidTagException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Uses your private certificate authority (CA), or one that has been shared with you, to issue a client certificate. This action returns the Amazon Resource Name (ARN) of the certificate. You can retrieve the certificate by calling the GetCertificate action and specifying the ARN.
- * 
  * 
  * You cannot use the ACM **ListCertificateAuthorities** action to retrieve the ARNs of the certificates that you issue by using Amazon Web Services Private CA.
  */export const issueCertificate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-22", sdkId: "ACM PCA", sigV4ServiceName: "acm-pca", name: "ACMPrivateCA.IssueCertificate" }, IssueCertificateRequest, IssueCertificateResponse, [InvalidArgsException, InvalidArnException, InvalidStateException, LimitExceededException, MalformedCSRException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

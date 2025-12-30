@@ -171,9 +171,7 @@ export class ResourceExistsException extends S.TaggedError<ResourceExistsExcepti
 /**
  * Changes the state of a file transfer protocol-enabled server from `ONLINE` to `OFFLINE`. An `OFFLINE` server cannot accept and process file transfer jobs. Information tied to your server, such as server and user properties, are not affected by stopping your server.
  * 
- * 
  * Stopping the server does not reduce or impact your file transfer protocol endpoint billing; you must delete the server to stop being billed.
- * 
  * 
  * The state of `STOPPING` indicates that the server is in an intermediate state, either not fully able to respond, or not fully offline. The values of `STOP_FAILED` can indicate an error condition.
  * 
@@ -238,12 +236,10 @@ export class ResourceExistsException extends S.TaggedError<ResourceExistsExcepti
 /**
  * Lists all in-progress executions for the specified workflow.
  * 
- * 
  * If the specified workflow ID cannot be found, `ListExecutions` returns a `ResourceNotFound` exception.
  */export const listExecutions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-05", sdkId: "Transfer", sigV4ServiceName: "transfer", name: "TransferService.ListExecutions" }, ListExecutionsRequest, ListExecutionsResponse, [InternalServiceError, InvalidNextTokenException, InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns real-time updates and detailed information on the status of each individual file being transferred in a specific file transfer operation. You specify the file transfer by providing its `ConnectorId` and its `TransferId`.
- * 
  * 
  * File transfer results are available up to 7 days after an operation has been requested.
  */export const listFileTransferResults = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-05", uri: "/listFileTransferResults", sdkId: "Transfer", sigV4ServiceName: "transfer", name: "TransferService.ListFileTransferResults" }, ListFileTransferResultsRequest, ListFileTransferResultsResponse, [InternalServiceError, InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -258,7 +254,6 @@ export class ResourceExistsException extends S.TaggedError<ResourceExistsExcepti
  */export const testConnection = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-05", sdkId: "Transfer", sigV4ServiceName: "transfer", name: "TransferService.TestConnection" }, TestConnectionRequest, TestConnectionResponse, [InternalServiceError, InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * You can use `DescribeExecution` to check the details of the execution of the specified workflow.
- * 
  * 
  * This API call only returns details for in-progress workflows.
  * 

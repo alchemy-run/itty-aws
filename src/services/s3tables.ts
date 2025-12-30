@@ -24,9 +24,7 @@ export class TooManyRequestsException extends S.TaggedError<TooManyRequestsExcep
 /**
  * Removes the specified user-defined tags from an Amazon S3 Tables resource. You can pass one or more tag keys.
  * 
- * 
  * For a list of S3 resources that support tagging, see Managing tags for Amazon S3 resources.
- * 
  * 
  * ### Permissions
  * 
@@ -35,9 +33,7 @@ export class TooManyRequestsException extends S.TaggedError<TooManyRequestsExcep
 /**
  * Lists all of the tags applied to a specified Amazon S3 Tables resource. Each tag is a label consisting of a key and value pair. Tags can help you organize, track costs for, and control access to resources.
  * 
- * 
  * For a list of S3 resources that support tagging, see Managing tags for Amazon S3 resources.
- * 
  * 
  * ### Permissions
  * 
@@ -46,9 +42,7 @@ export class TooManyRequestsException extends S.TaggedError<TooManyRequestsExcep
 /**
  * Applies one or more user-defined tags to an Amazon S3 Tables resource or updates existing tags. Each tag is a label consisting of a key and value pair. Tags can help you organize, track costs for, and control access to your resources. You can add up to 50 tags for each S3 resource.
  * 
- * 
  * For a list of S3 resources that support tagging, see Managing tags for Amazon S3 resources.
- * 
  * 
  * ### Permissions
  * 

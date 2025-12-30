@@ -368,40 +368,24 @@ export class AccountSuspendedException extends S.TaggedError<AccountSuspendedExc
  * artifacts are available to the general public. For more information, see Public build
  * projects in the *CodeBuild User Guide*.
  * 
- * 
- * 
- * 
  * The following should be kept in mind when making your projects public:
- * 
- * 
  * 
  * - All of a project's build results, logs, and artifacts, including builds that were run
  * when the project was private, are available to the general public.
- * 
- * 
  * 
  * - All build logs and artifacts are available to the public. Environment variables, source
  * code, and other sensitive information may have been output to the build logs and artifacts.
  * You must be careful about what information is output to the build logs. Some best practice
  * are:
  * 
- * 
- * 
  * - Do not store sensitive values in environment variables. We recommend that you use an Amazon EC2 Systems Manager Parameter Store
  * or Secrets Manager to store sensitive values.
- * 
- * 
  * 
  * - Follow Best
  * practices for using webhooks in the CodeBuild User
  * Guide to limit which entities can trigger a build, and do
  * not store the buildspec in the project itself, to ensure that your webhooks are as
  * secure as possible.
- * 
- * 
- * 
- * 
- * 
  * 
  * - A malicious user can use public builds to distribute malicious artifacts. We recommend
  * that you review all pull requests to verify that the pull request is a legitimate change. We
@@ -440,7 +424,6 @@ export class AccountSuspendedException extends S.TaggedError<AccountSuspendedExc
  * Starts running a build with the settings defined in the project. These setting include: how to run a build,
  * where to get the source code, which build environment to use, which build commands to run, and where to store the build output.
  * 
- * 
  * You can also start a build run by overriding some of the build settings in the project. The overrides only apply for that
  * specific start build request. The settings in the project are unaltered.
  */export const startBuild = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.StartBuild" }, StartBuildInput, StartBuildOutput, [AccountLimitExceededException, InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -452,9 +435,6 @@ export class AccountSuspendedException extends S.TaggedError<AccountSuspendedExc
  */export const startSandboxConnection = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.StartSandboxConnection" }, StartSandboxConnectionInput, StartSandboxConnectionOutput, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the webhook associated with an CodeBuild build project.
- * 
- * 
- * 
  * 
  * If you use Bitbucket for your repository, `rotateSecret` is ignored.
  */export const updateWebhook = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.UpdateWebhook" }, UpdateWebhookInput, UpdateWebhookOutput, [InvalidInputException, OAuthProviderException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -477,9 +457,6 @@ export class AccountSuspendedException extends S.TaggedError<AccountSuspendedExc
  * For an existing CodeBuild build project that has its source code stored in a GitHub or
  * Bitbucket repository, enables CodeBuild to start rebuilding the source code every time a
  * code change is pushed to the repository.
- * 
- * 
- * 
  * 
  * If you enable webhooks for an CodeBuild project, and the project is used as a build
  * step in CodePipeline, then two identical builds are created for each commit. One build is

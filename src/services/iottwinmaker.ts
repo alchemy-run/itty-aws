@@ -315,9 +315,6 @@ export class ConnectorTimeoutException extends S.TaggedError<ConnectorTimeoutExc
  * Run queries to access information from your knowledge graph of entities within
  * individual workspaces.
  * 
- * 
- * 
- * 
  * The ExecuteQuery action only works with Amazon Web Services Java SDK2.
  * ExecuteQuery will not work with any Amazon Web Services Java SDK version < 2.x.
  */export const executeQuery = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-11-29", uri: "/queries/execution", sdkId: "IoTTwinMaker", sigV4ServiceName: "iottwinmaker", name: "AWSIoTTwinMaker.ExecuteQuery" }, ExecuteQueryRequest, ExecuteQueryResponse, [AccessDeniedException, InternalServerException, QueryTimeoutException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -360,14 +357,12 @@ export class ConnectorTimeoutException extends S.TaggedError<ConnectorTimeoutExc
 /**
  * Gets the property values for a component, component type, entity, or workspace.
  * 
- * 
  * You must specify a value for either `componentName`,
  * `componentTypeId`, `entityId`, or `workspaceId`.
  */export const getPropertyValue = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-11-29", uri: "/workspaces/{workspaceId}/entity-properties/value", sdkId: "IoTTwinMaker", sigV4ServiceName: "iottwinmaker", name: "AWSIoTTwinMaker.GetPropertyValue" }, GetPropertyValueRequest, GetPropertyValueResponse, [AccessDeniedException, ConnectorFailureException, ConnectorTimeoutException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves information about the history of a time series property value for a component,
  * component type, entity, or workspace.
- * 
  * 
  * You must specify a value for `workspaceId`. For entity-specific queries,
  * specify values for `componentName` and `entityId`. For cross-entity

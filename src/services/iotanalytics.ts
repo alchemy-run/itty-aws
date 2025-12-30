@@ -182,7 +182,6 @@ export class ResourceAlreadyExistsException extends S.TaggedError<ResourceAlread
 /**
  * Sets or updates the IoT Analytics logging options.
  * 
- * 
  * If you update the value of any `loggingOptions` field, it takes up to one
  * minute for the change to take effect. Also, if you change the policy attached to the role you
  * specified in the `roleArn` field (for example, to correct an invalid policy), it
@@ -217,7 +216,6 @@ export class ResourceAlreadyExistsException extends S.TaggedError<ResourceAlread
  */export const deleteChannel = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/channels/{channelName}", method: "DELETE", sdkId: "IoTAnalytics", sigV4ServiceName: "iotanalytics", name: "AWSIoTAnalytics.DeleteChannel" }, DeleteChannelRequest, S.Struct({}), [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the specified dataset.
- * 
  * 
  * You do not have to delete the content of the dataset before you perform this
  * operation.

@@ -181,7 +181,6 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Deletes the storage configuration for the specified ARN.
  * 
- * 
  * If you try to delete a storage configuration that is used by a Composition, you will get an error (409 ConflictException).
  * To avoid this, for all Compositions that reference the storage configuration, first use StopComposition and wait for it to complete,
  * then use DeleteStorageConfiguration.
@@ -274,7 +273,6 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * or when tokens expire. Tokens always are scoped to the stage for which they are
  * created.
  * 
- * 
  * Encryption keys are owned by Amazon IVS and never used directly by your
  * application.
  */export const createParticipantToken = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-07-14", uri: "/CreateParticipantToken", sdkId: "IVS RealTime", sigV4ServiceName: "ivs", name: "AmazonInteractiveVideoServiceRealTime.CreateParticipantToken" }, CreateParticipantTokenRequest, CreateParticipantTokenResponse, [AccessDeniedException, PendingVerification, ResourceNotFoundException, ServiceQuotaExceededException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -299,29 +297,18 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * Starts a Composition from a stage based on the configuration provided in the
  * request.
  * 
- * 
  * A Composition is an ephemeral resource that exists after this operation returns
  * successfully. Composition stops and the resource is deleted:
  * 
- * 
- * 
  * - When StopComposition is called.
- * 
- * 
  * 
  * - After a 1-minute timeout, when all participants are disconnected from the
  * stage.
  * 
- * 
- * 
  * - After a 1-minute timeout, if there are no participants in the stage when
  * StartComposition is called.
  * 
- * 
- * 
  * - When broadcasting to the IVS channel fails and all retries are exhausted.
- * 
- * 
  * 
  * - When broadcasting is disconnected and all attempts to reconnect are
  * exhausted.

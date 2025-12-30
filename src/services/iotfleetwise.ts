@@ -104,10 +104,8 @@ export class LimitExceededException extends S.TaggedError<LimitExceededException
  * without the Timestream resources parameter so that Amazon Web Services IoT FleetWise can remove the Timestream
  * metadata stored. You should then pass the data destination into the CreateCampaign API operation.
  * 
- * 
  * You must delete any existing campaigns that include an empty data destination
  * before you register your account again. For more information, see the DeleteCampaign API operation.
- * 
  * 
  * If you want to delete the Timestream inline policy from the service-linked role, such
  * as to mitigate an overly permissive policy, you must first delete any existing
@@ -115,16 +113,10 @@ export class LimitExceededException extends S.TaggedError<LimitExceededException
  * enable CloudWatch metrics. For more information, see DeleteServiceLinkedRole in the Identity and Access Management API
  * Reference.
  * 
- * 
- * 
- * 
  * Registers your Amazon Web Services account, IAM, and Amazon Timestream resources so Amazon Web Services IoT FleetWise can
  * transfer your vehicle data to the Amazon Web Services Cloud. For more information, including
  * step-by-step procedures, see Setting up
  * Amazon Web Services IoT FleetWise.
- * 
- * 
- * 
  * 
  * An Amazon Web Services account is **not** the same thing as a
  * "user." An Amazon Web Services user is an identity that you create using Identity and Access Management (IAM) and
@@ -137,25 +129,15 @@ export class LimitExceededException extends S.TaggedError<LimitExceededException
  * Amazon Timestream resources so that Amazon Web Services IoT FleetWise can transfer your vehicle data to the Amazon Web Services
  * Cloud.
  * 
- * 
  * For more information, including step-by-step procedures, see Setting up Amazon Web Services IoT FleetWise.
- * 
- * 
- * 
  * 
  * This API operation doesn't require input parameters.
  */export const getRegisterAccountStatus = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-06-17", uri: "/account/registration_status", method: "GET", sdkId: "IoTFleetWise", sigV4ServiceName: "iotfleetwise", name: "IoTAutobahnControlPlane.GetRegisterAccountStatus" }, GetRegisterAccountStatusRequest, GetRegisterAccountStatusResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates a group, or batch, of vehicles.
  * 
- * 
- * 
- * 
  * You must specify a decoder manifest and a vehicle model (model manifest) for each
  * vehicle.
- * 
- * 
- * 
  * 
  * For more information, see Update multiple
  * vehicles (AWS CLI) in the *Amazon Web Services IoT FleetWise Developer Guide*.
@@ -163,14 +145,8 @@ export class LimitExceededException extends S.TaggedError<LimitExceededException
 /**
  * Creates a group, or batch, of vehicles.
  * 
- * 
- * 
- * 
  * You must specify a decoder manifest and a vehicle model (model manifest) for each
  * vehicle.
- * 
- * 
- * 
  * 
  * For more information, see Create multiple
  * vehicles (AWS CLI) in the *Amazon Web Services IoT FleetWise Developer Guide*.

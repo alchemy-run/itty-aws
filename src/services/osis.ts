@@ -179,7 +179,6 @@ export class ResourceAlreadyExistsException extends S.TaggedError<ResourceAlread
  * pipeline. Currently, this operation only returns information when a pipeline is being
  * created.
  * 
- * 
  * For more information, see Tracking the status of pipeline creation.
  */export const getPipelineChangeProgress = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-01-01", uri: "/2022-01-01/osis/getPipelineChangeProgress/{PipelineName}", method: "GET", sdkId: "OSIS", sigV4ServiceName: "osis", name: "AmazonOpenSearchIngestionService.GetPipelineChangeProgress" }, GetPipelineChangeProgressRequest, GetPipelineChangeProgressResponse, [AccessDeniedException, DisabledOperationException, InternalException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**

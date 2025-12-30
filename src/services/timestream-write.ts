@@ -100,28 +100,16 @@ export class RejectedRecordsException extends S.TaggedError<RejectedRecordsExcep
  * Returns a list of available endpoints to make Timestream API calls against.
  * This API operation is available through both the Write and Query APIs.
  * 
- * 
  * Because the Timestream SDKs are designed to transparently work with the
  * service’s architecture, including the management and mapping of the service endpoints,
  * *we don't recommend that you use this API operation unless*:
  * 
- * 
- * 
  * - You are using VPC endpoints (Amazon Web Services PrivateLink) with Timestream
- * 
- * 
- * 
  * 
  * - Your application uses a programming language that does not yet have SDK
  * support
  * 
- * 
- * 
  * - You require better control over the client-side implementation
- * 
- * 
- * 
- * 
  * 
  * For detailed information on how and when to use and implement DescribeEndpoints, see
  * The
@@ -156,7 +144,6 @@ export class RejectedRecordsException extends S.TaggedError<RejectedRecordsExcep
  * database, you must specify the database name and the identifier of the new KMS key to be used (`KmsKeyId`). If there are any concurrent
  * `UpdateDatabase` requests, first writer wins.
  * 
- * 
  * See code sample
  * for details.
  */export const updateDatabase = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-01", sdkId: "Timestream Write", sigV4ServiceName: "timestream", name: "Timestream_20181101.UpdateDatabase" }, UpdateDatabaseRequest, UpdateDatabaseResponse, [AccessDeniedException, InternalServerException, InvalidEndpointException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -166,7 +153,6 @@ export class RejectedRecordsException extends S.TaggedError<RejectedRecordsExcep
  * then changed to 24 hours, the memory store will be capable of holding 24 hours of data, but
  * will be populated with 24 hours of data 22 hours after this change was made. Timestream does not retrieve data from the magnetic store to populate the memory store.
  * 
- * 
  * See code
  * sample for details.
  */export const updateTable = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-01", sdkId: "Timestream Write", sigV4ServiceName: "timestream", name: "Timestream_20181101.UpdateTable" }, UpdateTableRequest, UpdateTableResponse, [AccessDeniedException, InternalServerException, InvalidEndpointException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -175,19 +161,11 @@ export class RejectedRecordsException extends S.TaggedError<RejectedRecordsExcep
  * operation. After a database is deleted, the time-series data from its tables cannot be
  * recovered.
  * 
- * 
- * 
- * 
- * 
  * All tables in the database must be deleted first, or a ValidationException error will
  * be thrown.
  * 
- * 
  * Due to the nature of distributed retries, the operation can return either success or
  * a ResourceNotFoundException. Clients should consider them equivalent.
- * 
- * 
- * 
  * 
  * See code sample
  * for details.
@@ -197,14 +175,8 @@ export class RejectedRecordsException extends S.TaggedError<RejectedRecordsExcep
  * Timestream database table is deleted, the time-series data stored in the table
  * cannot be recovered.
  * 
- * 
- * 
- * 
  * Due to the nature of distributed retries, the operation can return either success or
  * a ResourceNotFoundException. Clients should consider them equivalent.
- * 
- * 
- * 
  * 
  * See code
  * sample for details.
@@ -262,22 +234,16 @@ export class RejectedRecordsException extends S.TaggedError<RejectedRecordsExcep
  * types for your Timestream tables based on the dimension names and data types of
  * the data points you specify when invoking writes into the database.
  * 
- * 
  * Timestream supports eventual consistency read semantics. This means that when
  * you query data immediately after writing a batch of data into Timestream, the
  * query results might not reflect the results of a recently completed write operation. The
  * results may also include some stale data. If you repeat the query request after a short
  * time, the results should return the latest data. Service quotas apply.
  * 
- * 
  * See code sample for
  * details.
  * 
- * 
- * 
  * **Upserts**
- * 
- * 
  * 
  * You can use the `Version` parameter in a `WriteRecords` request to
  * update data points. Timestream tracks a version number with each record.
@@ -290,7 +256,6 @@ export class RejectedRecordsException extends S.TaggedError<RejectedRecordsExcep
  * `Version`. You can update a data point as many times as desired, as long as
  * the value of `Version` continuously increases.
  * 
- * 
  * For example, suppose you write a new record without indicating `Version` in
  * the request. Timestream stores this record, and set `Version` to
  * `1`. Now, suppose you try to update this record with a
@@ -298,7 +263,6 @@ export class RejectedRecordsException extends S.TaggedError<RejectedRecordsExcep
  * like before, do not provide `Version`. In this case, Timestream will
  * reject this update with a `RejectedRecordsException` since the updated record’s
  * version is not greater than the existing value of Version.
- * 
  * 
  * However, if you were to resend the update request with `Version` set to
  * `2`, Timestream would then succeed in updating the record’s value,

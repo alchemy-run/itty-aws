@@ -187,7 +187,6 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
  * Applies a *tag* to an Amazon Web Services resource. Tags are
  * key-value pairs that can help you manage, filter, and search for your resources.
  * 
- * 
  * These include DataSync resources, such as locations, tasks, and task
  * executions.
  */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.TagResource" }, TagResourceRequest, TagResourceResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -201,13 +200,11 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
  * Modifies the following configurations of the Microsoft Azure Blob Storage transfer
  * location that you're using with DataSync.
  * 
- * 
  * For more information, see Configuring DataSync transfers with Azure Blob Storage.
  */export const updateLocationAzureBlob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.UpdateLocationAzureBlob" }, UpdateLocationAzureBlobRequest, UpdateLocationAzureBlobResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Modifies the following configuration parameters of the Amazon EFS transfer
  * location that you're using with DataSync.
- * 
  * 
  * For more information, see Configuring DataSync
  * transfers with Amazon EFS.
@@ -216,7 +213,6 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
  * Modifies the following configuration parameters of the Amazon FSx for Lustre
  * transfer location that you're using with DataSync.
  * 
- * 
  * For more information, see Configuring DataSync
  * transfers with FSx for Lustre.
  */export const updateLocationFsxLustre = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.UpdateLocationFsxLustre" }, UpdateLocationFsxLustreRequest, UpdateLocationFsxLustreResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -224,12 +220,8 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
  * Modifies the following configuration parameters of the Amazon FSx for OpenZFS
  * transfer location that you're using with DataSync.
  * 
- * 
  * For more information, see Configuring DataSync
  * transfers with FSx for OpenZFS.
- * 
- * 
- * 
  * 
  * Request parameters related to `SMB` aren't supported with the
  * `UpdateLocationFsxOpenZfs` operation.
@@ -238,14 +230,12 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
  * Modifies the following configuration parameters of the Amazon FSx for Windows File Server
  * transfer location that you're using with DataSync.
  * 
- * 
  * For more information, see Configuring DataSync
  * transfers with FSx for Windows File Server.
  */export const updateLocationFsxWindows = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.UpdateLocationFsxWindows" }, UpdateLocationFsxWindowsRequest, UpdateLocationFsxWindowsResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Modifies the following configuration parameters of the Hadoop Distributed File System
  * (HDFS) transfer location that you're using with DataSync.
- * 
  * 
  * For more information, see Configuring DataSync
  * transfers with an HDFS cluster.
@@ -254,14 +244,12 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
  * Modifies the following configuration parameters of the Network File System (NFS) transfer
  * location that you're using with DataSync.
  * 
- * 
  * For more information, see Configuring transfers with an NFS
  * file server.
  */export const updateLocationNfs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.UpdateLocationNfs" }, UpdateLocationNfsRequest, UpdateLocationNfsResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Modifies the following configuration parameters of the object storage transfer location
  * that you're using with DataSync.
- * 
  * 
  * For more information, see Configuring DataSync
  * transfers with an object storage system.
@@ -270,25 +258,16 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
  * Modifies the following configuration parameters of the Amazon S3 transfer location
  * that you're using with DataSync.
  * 
- * 
- * 
- * 
  * Before you begin, make sure that you read the following topics:
- * 
- * 
  * 
  * - Storage
  * class considerations with Amazon S3 locations
- * 
- * 
- * 
  * 
  * - Evaluating S3 request costs when using DataSync
  */export const updateLocationS3 = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.UpdateLocationS3" }, UpdateLocationS3Request, UpdateLocationS3Response, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Modifies the following configuration parameters of the Server Message Block (SMB) transfer
  * location that you're using with DataSync.
- * 
  * 
  * For more information, see Configuring DataSync
  * transfers with an SMB file server.
@@ -299,9 +278,6 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
  */export const updateTask = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.UpdateTask" }, UpdateTaskRequest, UpdateTaskResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the configuration of a running DataSync task execution.
- * 
- * 
- * 
  * 
  * Currently, the only `Option` that you can modify with
  * `UpdateTaskExecution` is
@@ -314,7 +290,6 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
  * files are abruptly interrupted. File contents that're transferred to the destination might be
  * incomplete or inconsistent with the source files.
  * 
- * 
  * However, if you start a new task execution using the same task and allow it to finish,
  * file content on the destination will be complete and consistent. This applies to other
  * unexpected failures that interrupt a task execution. In all of these cases, DataSync
@@ -325,7 +300,6 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
  * system. DataSync can use this location as a source or destination for
  * transferring data.
  * 
- * 
  * Before you begin, make sure that you understand how DataSync
  * accesses FSx for Lustre file systems.
  */export const createLocationFsxLustre = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.CreateLocationFsxLustre" }, CreateLocationFsxLustreRequest, CreateLocationFsxLustreResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -334,13 +308,9 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
  * system. DataSync can use this location as a source or destination for
  * transferring data.
  * 
- * 
  * Before you begin, make sure that you understand how DataSync
  * accesses
  * FSx for OpenZFS file systems.
- * 
- * 
- * 
  * 
  * Request parameters related to `SMB` aren't supported with the
  * `CreateLocationFsxOpenZfs` operation.
@@ -349,7 +319,6 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
  * Creates a transfer *location* for an Amazon FSx for Windows File Server file
  * system. DataSync can use this location as a source or destination for
  * transferring data.
- * 
  * 
  * Before you begin, make sure that you understand how DataSync
  * accesses
@@ -360,12 +329,10 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
  * can make transfers with or without a DataSync
  * agent.
  * 
- * 
  * Before you begin, make sure that you understand the prerequisites for DataSync to work with object storage systems.
  */export const createLocationObjectStorage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.CreateLocationObjectStorage" }, CreateLocationObjectStorageRequest, CreateLocationObjectStorageResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes an DataSync agent resource from your Amazon Web Services account.
- * 
  * 
  * Keep in mind that this operation (which can't be undone) doesn't remove the agent's
  * virtual machine (VM) or Amazon EC2 instance from your storage environment. For next
@@ -381,17 +348,11 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
 /**
  * Provides details about how an DataSync transfer location for an Amazon FSx for NetApp ONTAP file system is configured.
  * 
- * 
- * 
- * 
  * If your location uses SMB, the `DescribeLocationFsxOntap` operation doesn't
  * actually return a `Password`.
  */export const describeLocationFsxOntap = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.DescribeLocationFsxOntap" }, DescribeLocationFsxOntapRequest, DescribeLocationFsxOntapResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Provides details about how an DataSync transfer location for an Amazon FSx for OpenZFS file system is configured.
- * 
- * 
- * 
  * 
  * Response elements related to `SMB` aren't supported with the
  * `DescribeLocationFsxOpenZfs` operation.
@@ -426,11 +387,7 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
  * Starts an DataSync transfer task. For each task, you can only run one task
  * execution at a time.
  * 
- * 
  * There are several steps to a task execution. For more information, see Task execution statuses.
- * 
- * 
- * 
  * 
  * If you're planning to transfer data to or from an Amazon S3 location, review
  * how
@@ -441,7 +398,6 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
  * Activates an DataSync agent that you deploy in your storage environment.
  * The activation process associates the agent with your Amazon Web Services account.
  * 
- * 
  * If you haven't deployed an agent yet, see Do I need a DataSync
  * agent?
  */export const createAgent = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.CreateAgent" }, CreateAgentRequest, CreateAgentResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -451,14 +407,12 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
  * You can make transfers with or without a DataSync agent that connects to your
  * container.
  * 
- * 
  * Before you begin, make sure you know how DataSync accesses Azure Blob Storage and works with access tiers and blob types.
  */export const createLocationAzureBlob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.CreateLocationAzureBlob" }, CreateLocationAzureBlobRequest, CreateLocationAzureBlobResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a transfer *location* for an Amazon EFS file system.
  * DataSync can use this location as a source or destination for transferring
  * data.
- * 
  * 
  * Before you begin, make sure that you understand how DataSync
  * accesses
@@ -469,7 +423,6 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
  * (HDFS). DataSync can use this location as a source or destination for
  * transferring data.
  * 
- * 
  * Before you begin, make sure that you understand how DataSync
  * accesses HDFS
  * clusters.
@@ -478,7 +431,6 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
  * Creates a transfer *location* for a Network File System (NFS) file
  * server. DataSync can use this location as a source or destination for
  * transferring data.
- * 
  * 
  * Before you begin, make sure that you understand how DataSync
  * accesses NFS file
@@ -489,27 +441,12 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
  * DataSync can use this location as a source or destination for transferring
  * data.
  * 
- * 
- * 
- * 
  * Before you begin, make sure that you read the following topics:
- * 
- * 
  * 
  * - Storage
  * class considerations with Amazon S3 locations
  * 
- * 
- * 
- * 
  * - Evaluating S3 request costs when using DataSync
- * 
- * 
- * 
- * 
- * 
- * 
- * 
  * 
  * For more information, see Configuring
  * transfers with Amazon S3.
@@ -518,7 +455,6 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
  * Creates a transfer *location* for a Server Message Block (SMB) file
  * server. DataSync can use this location as a source or destination for
  * transferring data.
- * 
  * 
  * Before you begin, make sure that you understand how DataSync accesses SMB
  * file servers. For more information, see Providing DataSync access to SMB file servers.
@@ -540,9 +476,6 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
  * use this operation to help monitor the progress of an ongoing data transfer or check the
  * results of the transfer.
  * 
- * 
- * 
- * 
  * Some `DescribeTaskExecution` response elements are only relevant to a
  * specific task mode. For information, see Understanding task mode differences and Understanding data
  * transfer performance counters.
@@ -550,12 +483,9 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
 /**
  * Returns a list of DataSync agents that belong to an Amazon Web Services account in the Amazon Web Services Region specified in the request.
  * 
- * 
  * With pagination, you can reduce the number of agents returned in a response. If you get
  * a truncated list of agents in a response, the response contains a marker that you can specify
  * in your next request to fetch the next page of agents.
- * 
- * 
  * 
  * `ListAgents` is eventually consistent. This means the result of running the
  * operation might not reflect that you just created or deleted an agent. For example, if you
@@ -571,7 +501,6 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
  * Modifies the following configuration parameters of the Amazon FSx for NetApp ONTAP
  * transfer location that you're using with DataSync.
  * 
- * 
  * For more information, see Configuring DataSync
  * transfers with FSx for ONTAP.
  */export const updateLocationFsxOntap = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.UpdateLocationFsxOntap" }, UpdateLocationFsxOntapRequest, UpdateLocationFsxOntapResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -580,13 +509,11 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
  * system. DataSync can use this location as a source or destination for
  * transferring data.
  * 
- * 
  * Before you begin, make sure that you understand how DataSync
  * accesses FSx for ONTAP file systems.
  */export const createLocationFsxOntap = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.CreateLocationFsxOntap" }, CreateLocationFsxOntapRequest, CreateLocationFsxOntapResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of source and destination locations.
- * 
  * 
  * If you have more locations than are returned in a response (that is, the response
  * returns only a truncated list of your agents), the response contains a token that you can
@@ -599,12 +526,8 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
  * Configures a *task*, which defines where and how DataSync
  * transfers your data.
  * 
- * 
  * A task includes a source location, destination location, and transfer options (such as
  * bandwidth limits, scheduling, and more).
- * 
- * 
- * 
  * 
  * If you're planning to transfer data to or from an Amazon S3 location, review
  * how

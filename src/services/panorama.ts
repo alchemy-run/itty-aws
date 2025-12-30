@@ -156,9 +156,6 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Deletes a package.
  * 
- * 
- * 
- * 
  * To delete a package, you need permission to call `s3:DeleteObject` in addition to permissions for
  * the AWS Panorama API.
  */export const deletePackage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-07-24", uri: "/packages/{PackageId}", method: "DELETE", sdkId: "Panorama", sigV4ServiceName: "panorama", name: "OmniCloudServiceLambda.DeletePackage" }, DeletePackageRequest, DeletePackageResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

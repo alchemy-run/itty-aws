@@ -176,50 +176,26 @@ export class WorkflowExecutionAlreadyStartedFault extends S.TaggedError<Workflow
  * requests the cancellation of the workflow execution as a whole. It is up to the decider to
  * take appropriate actions when it receives an execution history with this event.
  * 
- * 
- * 
- * 
  * If the runId isn't specified, the `WorkflowExecutionCancelRequested` event
  * is recorded in the history of the current open workflow execution with the specified
  * workflowId in the domain.
- * 
- * 
- * 
- * 
- * 
  * 
  * Because this action allows the workflow to properly clean up and gracefully close, it
  * should be used instead of TerminateWorkflowExecution when
  * possible.
  * 
- * 
- * 
- * 
- * 
  * **Access Control**
- * 
- * 
  * 
  * You can use IAM policies to control this action's access to Amazon SWF resources as
  * follows:
  * 
- * 
- * 
  * - Use a `Resource` element with the domain name to limit the action to
  * only specified domains.
- * 
- * 
  * 
  * - Use an `Action` element to allow or deny permission to call this
  * action.
  * 
- * 
- * 
  * - You cannot use an IAM policy to constrain this action's parameters.
- * 
- * 
- * 
- * 
  * 
  * If the caller doesn't have sufficient permissions to invoke the action, or the
  * parameter values fall outside the specified constraints, the action fails. The associated
@@ -232,18 +208,11 @@ export class WorkflowExecutionAlreadyStartedFault extends S.TaggedError<Workflow
  * by the `taskToken` was successfully canceled. Additional `details` can
  * be provided using the `details` argument.
  * 
- * 
  * These `details` (if provided) appear in the
  * `ActivityTaskCanceled` event added to the workflow history.
  * 
- * 
- * 
- * 
  * Only use this operation if the `canceled` flag of a RecordActivityTaskHeartbeat request returns `true` and if the
  * activity can be safely undone or abandoned.
- * 
- * 
- * 
  * 
  * A task is considered open from the time that it is scheduled until it is closed.
  * Therefore a task is reported as open while a worker is processing it. A task is closed after
@@ -252,32 +221,18 @@ export class WorkflowExecutionAlreadyStartedFault extends S.TaggedError<Workflow
  * timed
  * out.
  * 
- * 
- * 
  * **Access Control**
- * 
- * 
  * 
  * You can use IAM policies to control this action's access to Amazon SWF resources as
  * follows:
  * 
- * 
- * 
  * - Use a `Resource` element with the domain name to limit the action to
  * only specified domains.
- * 
- * 
  * 
  * - Use an `Action` element to allow or deny permission to call this
  * action.
  * 
- * 
- * 
  * - You cannot use an IAM policy to constrain this action's parameters.
- * 
- * 
- * 
- * 
  * 
  * If the caller doesn't have sufficient permissions to invoke the action, or the
  * parameter values fall outside the specified constraints, the action fails. The associated
@@ -291,15 +246,9 @@ export class WorkflowExecutionAlreadyStartedFault extends S.TaggedError<Workflow
  * The `result` appears in the `ActivityTaskCompleted` event in the
  * workflow history.
  * 
- * 
- * 
- * 
  * If the requested task doesn't complete successfully, use RespondActivityTaskFailed instead. If the worker finds that the task is
  * canceled through the `canceled` flag returned by RecordActivityTaskHeartbeat, it should cancel the task, clean up and then call
  * RespondActivityTaskCanceled.
- * 
- * 
- * 
  * 
  * A task is considered open from the time that it is scheduled until it is closed.
  * Therefore a task is reported as open while a worker is processing it. A task is closed after
@@ -307,32 +256,18 @@ export class WorkflowExecutionAlreadyStartedFault extends S.TaggedError<Workflow
  * task has timed
  * out.
  * 
- * 
- * 
  * **Access Control**
- * 
- * 
  * 
  * You can use IAM policies to control this action's access to Amazon SWF resources as
  * follows:
  * 
- * 
- * 
  * - Use a `Resource` element with the domain name to limit the action to
  * only specified domains.
- * 
- * 
  * 
  * - Use an `Action` element to allow or deny permission to call this
  * action.
  * 
- * 
- * 
  * - You cannot use an IAM policy to constrain this action's parameters.
- * 
- * 
- * 
- * 
  * 
  * If the caller doesn't have sufficient permissions to invoke the action, or the
  * parameter values fall outside the specified constraints, the action fails. The associated
@@ -346,38 +281,23 @@ export class WorkflowExecutionAlreadyStartedFault extends S.TaggedError<Workflow
  * `reason` and `details` appear in the `ActivityTaskFailed`
  * event added to the workflow history.
  * 
- * 
  * A task is considered open from the time that it is scheduled until it is closed.
  * Therefore a task is reported as open while a worker is processing it. A task is closed after
  * it has been specified in a call to RespondActivityTaskCompleted, RespondActivityTaskCanceled, RespondActivityTaskFailed, or the task has timed
  * out.
  * 
- * 
- * 
  * **Access Control**
- * 
- * 
  * 
  * You can use IAM policies to control this action's access to Amazon SWF resources as
  * follows:
  * 
- * 
- * 
  * - Use a `Resource` element with the domain name to limit the action to
  * only specified domains.
- * 
- * 
  * 
  * - Use an `Action` element to allow or deny permission to call this
  * action.
  * 
- * 
- * 
  * - You cannot use an IAM policy to constrain this action's parameters.
- * 
- * 
- * 
- * 
  * 
  * If the caller doesn't have sufficient permissions to invoke the action, or the
  * parameter values fall outside the specified constraints, the action fails. The associated
@@ -391,49 +311,25 @@ export class WorkflowExecutionAlreadyStartedFault extends S.TaggedError<Workflow
  * workflowId and runId. The event is recorded with the specified user defined signalName and
  * input (if provided).
  * 
- * 
- * 
- * 
  * If a runId isn't specified, then the `WorkflowExecutionSignaled` event is
  * recorded in the history of the current open workflow with the matching workflowId in the
  * domain.
  * 
- * 
- * 
- * 
- * 
- * 
  * If the specified workflow execution isn't open, this method fails with
  * `UnknownResource`.
  * 
- * 
- * 
- * 
- * 
  * **Access Control**
- * 
- * 
  * 
  * You can use IAM policies to control this action's access to Amazon SWF resources as
  * follows:
  * 
- * 
- * 
  * - Use a `Resource` element with the domain name to limit the action to
  * only specified domains.
- * 
- * 
  * 
  * - Use an `Action` element to allow or deny permission to call this
  * action.
  * 
- * 
- * 
  * - You cannot use an IAM policy to constrain this action's parameters.
- * 
- * 
- * 
- * 
  * 
  * If the caller doesn't have sufficient permissions to invoke the action, or the
  * parameter values fall outside the specified constraints, the action fails. The associated
@@ -447,57 +343,28 @@ export class WorkflowExecutionAlreadyStartedFault extends S.TaggedError<Workflow
  * registered with the workflow type or specified when starting this execution, is applied to any
  * open child workflow executions of this workflow execution.
  * 
- * 
- * 
- * 
  * If the identified workflow execution was in progress, it is terminated
  * immediately.
- * 
- * 
- * 
- * 
- * 
  * 
  * If a runId isn't specified, then the `WorkflowExecutionTerminated` event
  * is recorded in the history of the current open workflow with the matching workflowId in the
  * domain.
  * 
- * 
- * 
- * 
- * 
- * 
  * You should consider using RequestCancelWorkflowExecution action
  * instead because it allows the workflow to gracefully close while TerminateWorkflowExecution doesn't.
  * 
- * 
- * 
- * 
- * 
  * **Access Control**
- * 
- * 
  * 
  * You can use IAM policies to control this action's access to Amazon SWF resources as
  * follows:
  * 
- * 
- * 
  * - Use a `Resource` element with the domain name to limit the action to
  * only specified domains.
- * 
- * 
  * 
  * - Use an `Action` element to allow or deny permission to call this
  * action.
  * 
- * 
- * 
  * - You cannot use an IAM policy to constrain this action's parameters.
- * 
- * 
- * 
- * 
  * 
  * If the caller doesn't have sufficient permissions to invoke the action, or the
  * parameter values fall outside the specified constraints, the action fails. The associated
@@ -509,54 +376,28 @@ export class WorkflowExecutionAlreadyStartedFault extends S.TaggedError<Workflow
  * Undeprecates a previously deprecated *activity type*. After an activity type has
  * been undeprecated, you can create new tasks of that activity type.
  * 
- * 
- * 
- * 
  * This operation is eventually consistent. The results are best effort and may not
  * exactly reflect recent updates and changes.
  * 
- * 
- * 
- * 
- * 
  * **Access Control**
- * 
- * 
  * 
  * You can use IAM policies to control this action's access to Amazon SWF resources as
  * follows:
  * 
- * 
- * 
  * - Use a `Resource` element with the domain name to limit the action to
  * only specified domains.
- * 
- * 
  * 
  * - Use an `Action` element to allow or deny permission to call this
  * action.
  * 
- * 
- * 
  * - Constrain the following parameters by using a `Condition` element with
  * the appropriate keys.
- * 
- * 
  * 
  * - `activityType.name`: String constraint. The key is
  * `swf:activityType.name`.
  * 
- * 
- * 
  * - `activityType.version`: String constraint. The key is
  * `swf:activityType.version`.
- * 
- * 
- * 
- * 
- * 
- * 
- * 
  * 
  * If the caller doesn't have sufficient permissions to invoke the action, or the
  * parameter values fall outside the specified constraints, the action fails. The associated
@@ -568,54 +409,28 @@ export class WorkflowExecutionAlreadyStartedFault extends S.TaggedError<Workflow
  * Undeprecates a previously deprecated *workflow type*. After a workflow type has
  * been undeprecated, you can create new executions of that type.
  * 
- * 
- * 
- * 
  * This operation is eventually consistent. The results are best effort and may not
  * exactly reflect recent updates and changes.
  * 
- * 
- * 
- * 
- * 
  * **Access Control**
- * 
- * 
  * 
  * You can use IAM policies to control this action's access to Amazon SWF resources as
  * follows:
  * 
- * 
- * 
  * - Use a `Resource` element with the domain name to limit the action to
  * only specified domains.
- * 
- * 
  * 
  * - Use an `Action` element to allow or deny permission to call this
  * action.
  * 
- * 
- * 
  * - Constrain the following parameters by using a `Condition` element with
  * the appropriate keys.
- * 
- * 
  * 
  * - `workflowType.name`: String constraint. The key is
  * `swf:workflowType.name`.
  * 
- * 
- * 
  * - `workflowType.version`: String constraint. The key is
  * `swf:workflowType.version`.
- * 
- * 
- * 
- * 
- * 
- * 
- * 
  * 
  * If the caller doesn't have sufficient permissions to invoke the action, or the
  * parameter values fall outside the specified constraints, the action fails. The associated
@@ -630,59 +445,31 @@ export class WorkflowExecutionAlreadyStartedFault extends S.TaggedError<Workflow
  * Returns the number of closed workflow executions within the given domain that meet the
  * specified filtering criteria.
  * 
- * 
- * 
- * 
  * This operation is eventually consistent. The results are best effort and may not
  * exactly reflect recent updates and changes.
  * 
- * 
- * 
- * 
- * 
  * **Access Control**
- * 
- * 
  * 
  * You can use IAM policies to control this action's access to Amazon SWF resources as
  * follows:
  * 
- * 
- * 
  * - Use a `Resource` element with the domain name to limit the action to
  * only specified domains.
- * 
- * 
  * 
  * - Use an `Action` element to allow or deny permission to call this
  * action.
  * 
- * 
- * 
  * - Constrain the following parameters by using a `Condition` element with
  * the appropriate keys.
- * 
- * 
  * 
  * - `tagFilter.tag`: String constraint. The key is
  * `swf:tagFilter.tag`.
  * 
- * 
- * 
  * - `typeFilter.name`: String constraint. The key is
  * `swf:typeFilter.name`.
  * 
- * 
- * 
  * - `typeFilter.version`: String constraint. The key is
  * `swf:typeFilter.version`.
- * 
- * 
- * 
- * 
- * 
- * 
- * 
  * 
  * If the caller doesn't have sufficient permissions to invoke the action, or the
  * parameter values fall outside the specified constraints, the action fails. The associated
@@ -694,59 +481,31 @@ export class WorkflowExecutionAlreadyStartedFault extends S.TaggedError<Workflow
  * Returns the number of open workflow executions within the given domain that meet the
  * specified filtering criteria.
  * 
- * 
- * 
- * 
  * This operation is eventually consistent. The results are best effort and may not
  * exactly reflect recent updates and changes.
  * 
- * 
- * 
- * 
- * 
  * **Access Control**
- * 
- * 
  * 
  * You can use IAM policies to control this action's access to Amazon SWF resources as
  * follows:
  * 
- * 
- * 
  * - Use a `Resource` element with the domain name to limit the action to
  * only specified domains.
- * 
- * 
  * 
  * - Use an `Action` element to allow or deny permission to call this
  * action.
  * 
- * 
- * 
  * - Constrain the following parameters by using a `Condition` element with
  * the appropriate keys.
- * 
- * 
  * 
  * - `tagFilter.tag`: String constraint. The key is
  * `swf:tagFilter.tag`.
  * 
- * 
- * 
  * - `typeFilter.name`: String constraint. The key is
  * `swf:typeFilter.name`.
  * 
- * 
- * 
  * - `typeFilter.version`: String constraint. The key is
  * `swf:typeFilter.version`.
- * 
- * 
- * 
- * 
- * 
- * 
- * 
  * 
  * If the caller doesn't have sufficient permissions to invoke the action, or the
  * parameter values fall outside the specified constraints, the action fails. The associated
@@ -759,34 +518,20 @@ export class WorkflowExecutionAlreadyStartedFault extends S.TaggedError<Workflow
  * returned is an approximation and isn't guaranteed to be exact. If you specify a task list that
  * no activity task was ever scheduled in then `0` is returned.
  * 
- * 
- * 
  * **Access Control**
- * 
- * 
  * 
  * You can use IAM policies to control this action's access to Amazon SWF resources as
  * follows:
  * 
- * 
- * 
  * - Use a `Resource` element with the domain name to limit the action to
  * only specified domains.
- * 
- * 
  * 
  * - Use an `Action` element to allow or deny permission to call this
  * action.
  * 
- * 
- * 
  * - Constrain the `taskList.name` parameter by using a
  * `Condition` element with the `swf:taskList.name` key to allow the
  * action to access only certain task lists.
- * 
- * 
- * 
- * 
  * 
  * If the caller doesn't have sufficient permissions to invoke the action, or the
  * parameter values fall outside the specified constraints, the action fails. The associated
@@ -799,34 +544,20 @@ export class WorkflowExecutionAlreadyStartedFault extends S.TaggedError<Workflow
  * returned is an approximation and isn't guaranteed to be exact. If you specify a task list that
  * no decision task was ever scheduled in then `0` is returned.
  * 
- * 
- * 
  * **Access Control**
- * 
- * 
  * 
  * You can use IAM policies to control this action's access to Amazon SWF resources as
  * follows:
  * 
- * 
- * 
  * - Use a `Resource` element with the domain name to limit the action to
  * only specified domains.
- * 
- * 
  * 
  * - Use an `Action` element to allow or deny permission to call this
  * action.
  * 
- * 
- * 
  * - Constrain the `taskList.name` parameter by using a
  * `Condition` element with the `swf:taskList.name` key to allow the
  * action to access only certain task lists.
- * 
- * 
- * 
- * 
  * 
  * If the caller doesn't have sufficient permissions to invoke the action, or the
  * parameter values fall outside the specified constraints, the action fails. The associated
@@ -837,54 +568,29 @@ export class WorkflowExecutionAlreadyStartedFault extends S.TaggedError<Workflow
 /**
  * Deletes the specified *workflow type*.
  * 
- * 
  * Note: Prior to deletion, workflow types must first be **deprecated**.
- * 
- * 
  * 
  * After a workflow type has been deleted, you cannot create new executions of that type. Executions that
  * started before the type was deleted will continue to run.
  * 
- * 
- * 
- * 
  * **Access Control**
  * 
- * 
- * 
  * You can use IAM policies to control this action's access to Amazon SWF resources as follows:
- * 
- * 
  * 
  * - Use a `Resource` element with the domain name to limit the action to
  * only specified domains.
  * 
- * 
- * 
  * - Use an `Action` element to allow or deny permission to call this
  * action.
- * 
- * 
  * 
  * - Constrain the following parameters by using a `Condition` element with
  * the appropriate keys.
  * 
- * 
- * 
  * - `workflowType.name`: String constraint. The key is
  * `swf:workflowType.name`.
  * 
- * 
- * 
  * - `workflowType.version`: String constraint. The key is
  * `swf:workflowType.version`.
- * 
- * 
- * 
- * 
- * 
- * 
- * 
  * 
  * If the caller doesn't have sufficient permissions to invoke the action, or the
  * parameter values fall outside the specified constraints, the action fails. The associated
@@ -897,46 +603,25 @@ export class WorkflowExecutionAlreadyStartedFault extends S.TaggedError<Workflow
  * been deprecated, you cannot create new tasks of that activity type. Tasks of this type that
  * were scheduled before the type was deprecated continue to run.
  * 
- * 
- * 
  * **Access Control**
- * 
- * 
  * 
  * You can use IAM policies to control this action's access to Amazon SWF resources as
  * follows:
  * 
- * 
- * 
  * - Use a `Resource` element with the domain name to limit the action to
  * only specified domains.
- * 
- * 
  * 
  * - Use an `Action` element to allow or deny permission to call this
  * action.
  * 
- * 
- * 
  * - Constrain the following parameters by using a `Condition` element with
  * the appropriate keys.
- * 
- * 
  * 
  * - `activityType.name`: String constraint. The key is
  * `swf:activityType.name`.
  * 
- * 
- * 
  * - `activityType.version`: String constraint. The key is
  * `swf:activityType.version`.
- * 
- * 
- * 
- * 
- * 
- * 
- * 
  * 
  * If the caller doesn't have sufficient permissions to invoke the action, or the
  * parameter values fall outside the specified constraints, the action fails. The associated
@@ -951,40 +636,21 @@ export class WorkflowExecutionAlreadyStartedFault extends S.TaggedError<Workflow
  * registered in the domain. Executions that were started before the domain was deprecated
  * continues to run.
  * 
- * 
- * 
- * 
  * This operation is eventually consistent. The results are best effort and may not
  * exactly reflect recent updates and changes.
  * 
- * 
- * 
- * 
- * 
  * **Access Control**
- * 
- * 
  * 
  * You can use IAM policies to control this action's access to Amazon SWF resources as
  * follows:
  * 
- * 
- * 
  * - Use a `Resource` element with the domain name to limit the action to
  * only specified domains.
- * 
- * 
  * 
  * - Use an `Action` element to allow or deny permission to call this
  * action.
  * 
- * 
- * 
  * - You cannot use an IAM policy to constrain this action's parameters.
- * 
- * 
- * 
- * 
  * 
  * If the caller doesn't have sufficient permissions to invoke the action, or the
  * parameter values fall outside the specified constraints, the action fails. The associated
@@ -998,54 +664,28 @@ export class WorkflowExecutionAlreadyStartedFault extends S.TaggedError<Workflow
  * before the type was deprecated continues to run. A deprecated workflow type may still be used
  * when calling visibility actions.
  * 
- * 
- * 
- * 
  * This operation is eventually consistent. The results are best effort and may not
  * exactly reflect recent updates and changes.
  * 
- * 
- * 
- * 
- * 
  * **Access Control**
- * 
- * 
  * 
  * You can use IAM policies to control this action's access to Amazon SWF resources as
  * follows:
  * 
- * 
- * 
  * - Use a `Resource` element with the domain name to limit the action to
  * only specified domains.
- * 
- * 
  * 
  * - Use an `Action` element to allow or deny permission to call this
  * action.
  * 
- * 
- * 
  * - Constrain the following parameters by using a `Condition` element with
  * the appropriate keys.
- * 
- * 
  * 
  * - `workflowType.name`: String constraint. The key is
  * `swf:workflowType.name`.
  * 
- * 
- * 
  * - `workflowType.version`: String constraint. The key is
  * `swf:workflowType.version`.
- * 
- * 
- * 
- * 
- * 
- * 
- * 
  * 
  * If the caller doesn't have sufficient permissions to invoke the action, or the
  * parameter values fall outside the specified constraints, the action fails. The associated
@@ -1060,32 +700,18 @@ export class WorkflowExecutionAlreadyStartedFault extends S.TaggedError<Workflow
  * retrieve subsequent pages, make the call again using the `nextPageToken` returned
  * by the initial call.
  * 
- * 
- * 
  * **Access Control**
- * 
- * 
  * 
  * You can use IAM policies to control this action's access to Amazon SWF resources as
  * follows:
  * 
- * 
- * 
  * - Use a `Resource` element with the domain name to limit the action to
  * only specified domains.
- * 
- * 
  * 
  * - Use an `Action` element to allow or deny permission to call this
  * action.
  * 
- * 
- * 
  * - You cannot use an IAM policy to constrain this action's parameters.
- * 
- * 
- * 
- * 
  * 
  * If the caller doesn't have sufficient permissions to invoke the action, or the
  * parameter values fall outside the specified constraints, the action fails. The associated
@@ -1098,42 +724,23 @@ export class WorkflowExecutionAlreadyStartedFault extends S.TaggedError<Workflow
  * multiple pages. To retrieve subsequent pages, make the call again using the nextPageToken
  * returned by the initial call.
  * 
- * 
- * 
- * 
  * This operation is eventually consistent. The results are best effort and may not
  * exactly reflect recent updates and changes.
  * 
- * 
- * 
- * 
- * 
  * **Access Control**
- * 
- * 
  * 
  * You can use IAM policies to control this action's access to Amazon SWF resources as
  * follows:
- * 
- * 
  * 
  * - Use a `Resource` element with the domain name to limit the action to
  * only specified domains. The element must be set to
  * `arn:aws:swf::AccountID:domain/*`, where *AccountID* is
  * the account ID, with no dashes.
  * 
- * 
- * 
  * - Use an `Action` element to allow or deny permission to call this
  * action.
  * 
- * 
- * 
  * - You cannot use an IAM policy to constrain this action's parameters.
- * 
- * 
- * 
- * 
  * 
  * If the caller doesn't have sufficient permissions to invoke the action, or the
  * parameter values fall outside the specified constraints, the action fails. The associated
@@ -1146,59 +753,31 @@ export class WorkflowExecutionAlreadyStartedFault extends S.TaggedError<Workflow
  * filtering criteria. The results may be split into multiple pages. To retrieve subsequent
  * pages, make the call again using the nextPageToken returned by the initial call.
  * 
- * 
- * 
- * 
  * This operation is eventually consistent. The results are best effort and may not
  * exactly reflect recent updates and changes.
  * 
- * 
- * 
- * 
- * 
  * **Access Control**
- * 
- * 
  * 
  * You can use IAM policies to control this action's access to Amazon SWF resources as
  * follows:
  * 
- * 
- * 
  * - Use a `Resource` element with the domain name to limit the action to
  * only specified domains.
- * 
- * 
  * 
  * - Use an `Action` element to allow or deny permission to call this
  * action.
  * 
- * 
- * 
  * - Constrain the following parameters by using a `Condition` element with
  * the appropriate keys.
- * 
- * 
  * 
  * - `tagFilter.tag`: String constraint. The key is
  * `swf:tagFilter.tag`.
  * 
- * 
- * 
  * - `typeFilter.name`: String constraint. The key is
  * `swf:typeFilter.name`.
  * 
- * 
- * 
  * - `typeFilter.version`: String constraint. The key is
  * `swf:typeFilter.version`.
- * 
- * 
- * 
- * 
- * 
- * 
- * 
  * 
  * If the caller doesn't have sufficient permissions to invoke the action, or the
  * parameter values fall outside the specified constraints, the action fails. The associated
@@ -1213,32 +792,18 @@ export class WorkflowExecutionAlreadyStartedFault extends S.TaggedError<Workflow
  * Returns information about workflow types in the specified domain. The results may be
  * split into multiple pages that can be retrieved by making the call repeatedly.
  * 
- * 
- * 
  * **Access Control**
- * 
- * 
  * 
  * You can use IAM policies to control this action's access to Amazon SWF resources as
  * follows:
  * 
- * 
- * 
  * - Use a `Resource` element with the domain name to limit the action to
  * only specified domains.
- * 
- * 
  * 
  * - Use an `Action` element to allow or deny permission to call this
  * action.
  * 
- * 
- * 
  * - You cannot use an IAM policy to constrain this action's parameters.
- * 
- * 
- * 
- * 
  * 
  * If the caller doesn't have sufficient permissions to invoke the action, or the
  * parameter values fall outside the specified constraints, the action fails. The associated
@@ -1255,42 +820,23 @@ export class WorkflowExecutionAlreadyStartedFault extends S.TaggedError<Workflow
  * ActivityTask is returned, but that the value of taskToken is an empty string. If a task is
  * returned, the worker should use its type to identify and process it correctly.
  * 
- * 
- * 
- * 
  * Workers should set their client side socket timeout to at least 70 seconds (10
  * seconds higher than the maximum time service may hold the poll request).
  * 
- * 
- * 
- * 
- * 
  * **Access Control**
- * 
- * 
  * 
  * You can use IAM policies to control this action's access to Amazon SWF resources as
  * follows:
  * 
- * 
- * 
  * - Use a `Resource` element with the domain name to limit the action to
  * only specified domains.
- * 
- * 
  * 
  * - Use an `Action` element to allow or deny permission to call this
  * action.
  * 
- * 
- * 
  * - Constrain the `taskList.name` parameter by using a
  * `Condition` element with the `swf:taskList.name` key to allow the
  * action to access only certain task lists.
- * 
- * 
- * 
- * 
  * 
  * If the caller doesn't have sufficient permissions to invoke the action, or the
  * parameter values fall outside the specified constraints, the action fails. The associated
@@ -1305,23 +851,14 @@ export class WorkflowExecutionAlreadyStartedFault extends S.TaggedError<Workflow
  * workflow execution. The decider should use the workflow type and the history to determine how
  * to properly handle the task.
  * 
- * 
  * This action initiates a long poll, where the service holds the HTTP connection open and
  * responds as soon a task becomes available. If no decision task is available in the specified
  * task list before the timeout of 60 seconds expires, an empty result is returned. An empty
  * result, in this context, means that a DecisionTask is returned, but that the value of
  * taskToken is an empty string.
  * 
- * 
- * 
- * 
  * Deciders should set their client side socket timeout to at least 70 seconds (10
  * seconds higher than the timeout).
- * 
- * 
- * 
- * 
- * 
  * 
  * Because the number of workflow history events for a single workflow execution might
  * be very large, the result returned might be split up across a number of pages. To retrieve
@@ -1331,36 +868,20 @@ export class WorkflowExecutionAlreadyStartedFault extends S.TaggedError<Workflow
  * `nextPageToken`. Instead, call `PollForDecisionTask`
  * again.
  * 
- * 
- * 
- * 
- * 
  * **Access Control**
- * 
- * 
  * 
  * You can use IAM policies to control this action's access to Amazon SWF resources as
  * follows:
  * 
- * 
- * 
  * - Use a `Resource` element with the domain name to limit the action to
  * only specified domains.
- * 
- * 
  * 
  * - Use an `Action` element to allow or deny permission to call this
  * action.
  * 
- * 
- * 
  * - Constrain the `taskList.name` parameter by using a
  * `Condition` element with the `swf:taskList.name` key to allow the
  * action to access only certain task lists.
- * 
- * 
- * 
- * 
  * 
  * If the caller doesn't have sufficient permissions to invoke the action, or the
  * parameter values fall outside the specified constraints, the action fails. The associated
@@ -1376,67 +897,36 @@ export class WorkflowExecutionAlreadyStartedFault extends S.TaggedError<Workflow
  * attempted for the specified task, then the boolean `cancelRequested` flag returned
  * by the service is set to `true`.
  * 
- * 
  * This action resets the `taskHeartbeatTimeout` clock. The
  * `taskHeartbeatTimeout` is specified in RegisterActivityType.
- * 
  * 
  * This action doesn't in itself create an event in the workflow execution history.
  * However, if the task times out, the workflow execution history contains a
  * `ActivityTaskTimedOut` event that contains the information from the last
  * heartbeat generated by the activity worker.
  * 
- * 
- * 
- * 
  * The `taskStartToCloseTimeout` of an activity type is the maximum duration
  * of an activity task, regardless of the number of RecordActivityTaskHeartbeat requests received. The `taskStartToCloseTimeout` is also specified in RegisterActivityType.
  * 
- * 
- * 
- * 
- * 
- * 
  * This operation is only useful for long-lived activities to report liveliness of the
  * task and to determine if a cancellation is being attempted.
- * 
- * 
- * 
- * 
- * 
  * 
  * If the `cancelRequested` flag returns `true`, a cancellation is
  * being attempted. If the worker can cancel the activity, it should respond with RespondActivityTaskCanceled. Otherwise, it should ignore the cancellation
  * request.
  * 
- * 
- * 
- * 
- * 
  * **Access Control**
- * 
- * 
  * 
  * You can use IAM policies to control this action's access to Amazon SWF resources as
  * follows:
  * 
- * 
- * 
  * - Use a `Resource` element with the domain name to limit the action to
  * only specified domains.
- * 
- * 
  * 
  * - Use an `Action` element to allow or deny permission to call this
  * action.
  * 
- * 
- * 
  * - You cannot use an IAM policy to constrain this action's parameters.
- * 
- * 
- * 
- * 
  * 
  * If the caller doesn't have sufficient permissions to invoke the action, or the
  * parameter values fall outside the specified constraints, the action fails. The associated
@@ -1448,59 +938,31 @@ export class WorkflowExecutionAlreadyStartedFault extends S.TaggedError<Workflow
  * Registers a new *activity type* along with its configuration
  * settings in the specified domain.
  * 
- * 
- * 
- * 
  * A `TypeAlreadyExists` fault is returned if the type already exists in the
  * domain. You cannot change any configuration settings of the type after its registration, and
  * it must be registered as a new version.
  * 
- * 
- * 
- * 
- * 
  * **Access Control**
- * 
- * 
  * 
  * You can use IAM policies to control this action's access to Amazon SWF resources as
  * follows:
  * 
- * 
- * 
  * - Use a `Resource` element with the domain name to limit the action to
  * only specified domains.
- * 
- * 
  * 
  * - Use an `Action` element to allow or deny permission to call this
  * action.
  * 
- * 
- * 
  * - Constrain the following parameters by using a `Condition` element with
  * the appropriate keys.
- * 
- * 
  * 
  * - `defaultTaskList.name`: String constraint. The key is
  * `swf:defaultTaskList.name`.
  * 
- * 
- * 
  * - `name`: String constraint. The key is `swf:name`.
- * 
- * 
  * 
  * - `version`: String constraint. The key is
  * `swf:version`.
- * 
- * 
- * 
- * 
- * 
- * 
- * 
  * 
  * If the caller doesn't have sufficient permissions to invoke the action, or the
  * parameter values fall outside the specified constraints, the action fails. The associated
@@ -1511,32 +973,18 @@ export class WorkflowExecutionAlreadyStartedFault extends S.TaggedError<Workflow
 /**
  * Registers a new domain.
  * 
- * 
- * 
  * **Access Control**
- * 
- * 
  * 
  * You can use IAM policies to control this action's access to Amazon SWF resources as
  * follows:
  * 
- * 
- * 
  * - You cannot use an IAM policy to control domain access for this action. The name of
  * the domain being registered is available as the resource of this action.
- * 
- * 
  * 
  * - Use an `Action` element to allow or deny permission to call this
  * action.
  * 
- * 
- * 
  * - You cannot use an IAM policy to constrain this action's parameters.
- * 
- * 
- * 
- * 
  * 
  * If the caller doesn't have sufficient permissions to invoke the action, or the
  * parameter values fall outside the specified constraints, the action fails. The associated
@@ -1548,62 +996,33 @@ export class WorkflowExecutionAlreadyStartedFault extends S.TaggedError<Workflow
  * Registers a new *workflow type* and its configuration settings in
  * the specified domain.
  * 
- * 
  * The retention period for the workflow history is set by the RegisterDomain action.
- * 
- * 
- * 
  * 
  * If the type already exists, then a `TypeAlreadyExists` fault is returned.
  * You cannot change the configuration settings of a workflow type once it is registered and it
  * must be registered as a new version.
  * 
- * 
- * 
- * 
- * 
  * **Access Control**
- * 
- * 
  * 
  * You can use IAM policies to control this action's access to Amazon SWF resources as
  * follows:
  * 
- * 
- * 
  * - Use a `Resource` element with the domain name to limit the action to
  * only specified domains.
- * 
- * 
  * 
  * - Use an `Action` element to allow or deny permission to call this
  * action.
  * 
- * 
- * 
  * - Constrain the following parameters by using a `Condition` element with
  * the appropriate keys.
- * 
- * 
  * 
  * - `defaultTaskList.name`: String constraint. The key is
  * `swf:defaultTaskList.name`.
  * 
- * 
- * 
  * - `name`: String constraint. The key is `swf:name`.
- * 
- * 
  * 
  * - `version`: String constraint. The key is
  * `swf:version`.
- * 
- * 
- * 
- * 
- * 
- * 
- * 
  * 
  * If the caller doesn't have sufficient permissions to invoke the action, or the
  * parameter values fall outside the specified constraints, the action fails. The associated
@@ -1614,49 +1033,27 @@ export class WorkflowExecutionAlreadyStartedFault extends S.TaggedError<Workflow
 /**
  * Add a tag to a Amazon SWF domain.
  * 
- * 
- * 
- * 
  * Amazon SWF supports a maximum of 50 tags per resource.
  */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-01-25", sdkId: "SWF", sigV4ServiceName: "swf", name: "SimpleWorkflowService.TagResource" }, TagResourceInput, S.Struct({}), [LimitExceededFault, OperationNotPermittedFault, TooManyTagsFault, UnknownResourceFault]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Undeprecates a previously deprecated domain. After a domain has been undeprecated it can be used
  * to create new workflow executions or register new types.
  * 
- * 
- * 
- * 
  * This operation is eventually consistent. The results are best effort and may not
  * exactly reflect recent updates and changes.
  * 
- * 
- * 
- * 
- * 
  * **Access Control**
- * 
- * 
  * 
  * You can use IAM policies to control this action's access to Amazon SWF resources as
  * follows:
  * 
- * 
- * 
  * - Use a `Resource` element with the domain name to limit the action to
  * only specified domains.
- * 
- * 
  * 
  * - Use an `Action` element to allow or deny permission to call this
  * action.
  * 
- * 
- * 
  * - You cannot use an IAM policy to constrain this action's parameters.
- * 
- * 
- * 
- * 
  * 
  * If the caller doesn't have sufficient permissions to invoke the action, or the
  * parameter values fall outside the specified constraints, the action fails. The associated
@@ -1667,53 +1064,28 @@ export class WorkflowExecutionAlreadyStartedFault extends S.TaggedError<Workflow
 /**
  * Deletes the specified *activity type*.
  * 
- * 
  * Note: Prior to deletion, activity types must first be **deprecated**.
- * 
- * 
  * 
  * After an activity type has been deleted, you cannot schedule new activities of that type. Activities that started before the type was deleted will continue to run.
  * 
- * 
- * 
- * 
  * **Access Control**
  * 
- * 
- * 
  * You can use IAM policies to control this action's access to Amazon SWF resources as follows:
- * 
- * 
  * 
  * - Use a `Resource` element with the domain name to limit the action to
  * only specified domains.
  * 
- * 
- * 
  * - Use an `Action` element to allow or deny permission to call this
  * action.
- * 
- * 
  * 
  * - Constrain the following parameters by using a `Condition` element with
  * the appropriate keys.
  * 
- * 
- * 
  * - `activityType.name`: String constraint. The key is
  * `swf:activityType.name`.
  * 
- * 
- * 
  * - `activityType.version`: String constraint. The key is
  * `swf:activityType.version`.
- * 
- * 
- * 
- * 
- * 
- * 
- * 
  * 
  * If the caller doesn't have sufficient permissions to invoke the action, or the
  * parameter values fall outside the specified constraints, the action fails. The associated
@@ -1726,46 +1098,25 @@ export class WorkflowExecutionAlreadyStartedFault extends S.TaggedError<Workflow
  * settings provided when the type was registered and other general information about the
  * type.
  * 
- * 
- * 
  * **Access Control**
- * 
- * 
  * 
  * You can use IAM policies to control this action's access to Amazon SWF resources as
  * follows:
  * 
- * 
- * 
  * - Use a `Resource` element with the domain name to limit the action to
  * only specified domains.
- * 
- * 
  * 
  * - Use an `Action` element to allow or deny permission to call this
  * action.
  * 
- * 
- * 
  * - Constrain the following parameters by using a `Condition` element with
  * the appropriate keys.
- * 
- * 
  * 
  * - `activityType.name`: String constraint. The key is
  * `swf:activityType.name`.
  * 
- * 
- * 
  * - `activityType.version`: String constraint. The key is
  * `swf:activityType.version`.
- * 
- * 
- * 
- * 
- * 
- * 
- * 
  * 
  * If the caller doesn't have sufficient permissions to invoke the action, or the
  * parameter values fall outside the specified constraints, the action fails. The associated
@@ -1777,32 +1128,18 @@ export class WorkflowExecutionAlreadyStartedFault extends S.TaggedError<Workflow
  * Returns information about the specified domain, including description and
  * status.
  * 
- * 
- * 
  * **Access Control**
- * 
- * 
  * 
  * You can use IAM policies to control this action's access to Amazon SWF resources as
  * follows:
  * 
- * 
- * 
  * - Use a `Resource` element with the domain name to limit the action to
  * only specified domains.
- * 
- * 
  * 
  * - Use an `Action` element to allow or deny permission to call this
  * action.
  * 
- * 
- * 
  * - You cannot use an IAM policy to constrain this action's parameters.
- * 
- * 
- * 
- * 
  * 
  * If the caller doesn't have sufficient permissions to invoke the action, or the
  * parameter values fall outside the specified constraints, the action fails. The associated
@@ -1815,46 +1152,25 @@ export class WorkflowExecutionAlreadyStartedFault extends S.TaggedError<Workflow
  * includes configuration settings specified when the type was registered and other information
  * such as creation date, current status, etc.
  * 
- * 
- * 
  * **Access Control**
- * 
- * 
  * 
  * You can use IAM policies to control this action's access to Amazon SWF resources as
  * follows:
  * 
- * 
- * 
  * - Use a `Resource` element with the domain name to limit the action to
  * only specified domains.
- * 
- * 
  * 
  * - Use an `Action` element to allow or deny permission to call this
  * action.
  * 
- * 
- * 
  * - Constrain the following parameters by using a `Condition` element with
  * the appropriate keys.
- * 
- * 
  * 
  * - `workflowType.name`: String constraint. The key is
  * `swf:workflowType.name`.
  * 
- * 
- * 
  * - `workflowType.version`: String constraint. The key is
  * `swf:workflowType.version`.
- * 
- * 
- * 
- * 
- * 
- * 
- * 
  * 
  * If the caller doesn't have sufficient permissions to invoke the action, or the
  * parameter values fall outside the specified constraints, the action fails. The associated
@@ -1867,59 +1183,31 @@ export class WorkflowExecutionAlreadyStartedFault extends S.TaggedError<Workflow
  * filtering criteria. The results may be split into multiple pages. To retrieve subsequent
  * pages, make the call again using the nextPageToken returned by the initial call.
  * 
- * 
- * 
- * 
  * This operation is eventually consistent. The results are best effort and may not
  * exactly reflect recent updates and changes.
  * 
- * 
- * 
- * 
- * 
  * **Access Control**
- * 
- * 
  * 
  * You can use IAM policies to control this action's access to Amazon SWF resources as
  * follows:
  * 
- * 
- * 
  * - Use a `Resource` element with the domain name to limit the action to
  * only specified domains.
- * 
- * 
  * 
  * - Use an `Action` element to allow or deny permission to call this
  * action.
  * 
- * 
- * 
  * - Constrain the following parameters by using a `Condition` element with
  * the appropriate keys.
- * 
- * 
  * 
  * - `tagFilter.tag`: String constraint. The key is
  * `swf:tagFilter.tag`.
  * 
- * 
- * 
  * - `typeFilter.name`: String constraint. The key is
  * `swf:typeFilter.name`.
  * 
- * 
- * 
  * - `typeFilter.version`: String constraint. The key is
  * `swf:typeFilter.version`.
- * 
- * 
- * 
- * 
- * 
- * 
- * 
  * 
  * If the caller doesn't have sufficient permissions to invoke the action, or the
  * parameter values fall outside the specified constraints, the action fails. The associated
@@ -1932,16 +1220,11 @@ export class WorkflowExecutionAlreadyStartedFault extends S.TaggedError<Workflow
  * by the `taskToken` has successfully completed. The `decisions` argument
  * specifies the list of decisions made while processing the task.
  * 
- * 
  * A `DecisionTaskCompleted` event is added to the workflow history. The
  * `executionContext` specified is attached to the event in the workflow execution
  * history.
  * 
- * 
- * 
  * **Access Control**
- * 
- * 
  * 
  * If an IAM policy grants permission to use `RespondDecisionTaskCompleted`, it
  * can express permissions for the list of decisions in the `decisions` parameter.
@@ -1956,40 +1239,21 @@ export class WorkflowExecutionAlreadyStartedFault extends S.TaggedError<Workflow
  * Returns information about the specified workflow execution including its type and some
  * statistics.
  * 
- * 
- * 
- * 
  * This operation is eventually consistent. The results are best effort and may not
  * exactly reflect recent updates and changes.
  * 
- * 
- * 
- * 
- * 
  * **Access Control**
- * 
- * 
  * 
  * You can use IAM policies to control this action's access to Amazon SWF resources as
  * follows:
  * 
- * 
- * 
  * - Use a `Resource` element with the domain name to limit the action to
  * only specified domains.
- * 
- * 
  * 
  * - Use an `Action` element to allow or deny permission to call this
  * action.
  * 
- * 
- * 
  * - You cannot use an IAM policy to constrain this action's parameters.
- * 
- * 
- * 
- * 
  * 
  * If the caller doesn't have sufficient permissions to invoke the action, or the
  * parameter values fall outside the specified constraints, the action fails. The associated
@@ -2002,40 +1266,21 @@ export class WorkflowExecutionAlreadyStartedFault extends S.TaggedError<Workflow
  * multiple pages. To retrieve subsequent pages, make the call again using the
  * `nextPageToken` returned by the initial call.
  * 
- * 
- * 
- * 
  * This operation is eventually consistent. The results are best effort and may not
  * exactly reflect recent updates and changes.
  * 
- * 
- * 
- * 
- * 
  * **Access Control**
- * 
- * 
  * 
  * You can use IAM policies to control this action's access to Amazon SWF resources as
  * follows:
  * 
- * 
- * 
  * - Use a `Resource` element with the domain name to limit the action to
  * only specified domains.
- * 
- * 
  * 
  * - Use an `Action` element to allow or deny permission to call this
  * action.
  * 
- * 
- * 
  * - You cannot use an IAM policy to constrain this action's parameters.
- * 
- * 
- * 
- * 
  * 
  * If the caller doesn't have sufficient permissions to invoke the action, or the
  * parameter values fall outside the specified constraints, the action fails. The associated
@@ -2047,74 +1292,40 @@ export class WorkflowExecutionAlreadyStartedFault extends S.TaggedError<Workflow
  * Starts an execution of the workflow type in the specified domain using the provided
  * `workflowId` and input data.
  * 
- * 
  * This action returns the newly started workflow execution.
  * 
- * 
- * 
  * **Access Control**
- * 
- * 
  * 
  * You can use IAM policies to control this action's access to Amazon SWF resources as
  * follows:
  * 
- * 
- * 
  * - Use a `Resource` element with the domain name to limit the action to
  * only specified domains.
- * 
- * 
  * 
  * - Use an `Action` element to allow or deny permission to call this
  * action.
  * 
- * 
- * 
  * - Constrain the following parameters by using a `Condition` element with
  * the appropriate keys.
  * 
- * 
- * 
  * - `tagList.member.0`: The key is `swf:tagList.member.0`.
- * 
- * 
  * 
  * - `tagList.member.1`: The key is `swf:tagList.member.1`.
  * 
- * 
- * 
  * - `tagList.member.2`: The key is `swf:tagList.member.2`.
- * 
- * 
  * 
  * - `tagList.member.3`: The key is `swf:tagList.member.3`.
  * 
- * 
- * 
  * - `tagList.member.4`: The key is `swf:tagList.member.4`.
- * 
- * 
  * 
  * - `taskList`: String constraint. The key is
  * `swf:taskList.name`.
  * 
- * 
- * 
  * - `workflowType.name`: String constraint. The key is
  * `swf:workflowType.name`.
  * 
- * 
- * 
  * - `workflowType.version`: String constraint. The key is
  * `swf:workflowType.version`.
- * 
- * 
- * 
- * 
- * 
- * 
- * 
  * 
  * If the caller doesn't have sufficient permissions to invoke the action, or the
  * parameter values fall outside the specified constraints, the action fails. The associated

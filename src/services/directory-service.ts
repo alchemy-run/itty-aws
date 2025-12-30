@@ -326,9 +326,7 @@ export class ShareLimitExceededException extends S.TaggedError<ShareLimitExceede
 /**
  * Restores a directory using an existing directory snapshot.
  * 
- * 
  * When you restore a directory from a snapshot, any changes made to the directory after the snapshot date are overwritten.
- * 
  * 
  * This action returns as soon as the restore operation is initiated. You can monitor the
  * progress of the restore operation by calling the DescribeDirectories operation with
@@ -355,9 +353,6 @@ export class ShareLimitExceededException extends S.TaggedError<ShareLimitExceede
  * to construct the access URL for the directory, such as
  * `http://.awsapps.com`.
  * 
- * 
- * 
- * 
  * After an alias has been created, it cannot be deleted or reused, so this operation should only be used when absolutely necessary.
  */export const createAlias = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.CreateAlias" }, CreateAliasRequest, CreateAliasResult, [ClientException, EntityAlreadyExistsException, EntityDoesNotExistException, InvalidParameterException, ServiceException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -372,7 +367,6 @@ export class ShareLimitExceededException extends S.TaggedError<ShareLimitExceede
 /**
  * Creates a Microsoft AD directory in the Amazon Web Services Cloud. For more information, see Managed Microsoft AD in the *Directory Service Admin Guide*.
  * 
- * 
  * Before you call *CreateMicrosoftAD*, ensure that all of the required
  * permissions have been explicitly granted through a policy. For details about what permissions
  * are required to run the *CreateMicrosoftAD* operation, see Directory Service API Permissions: Actions, Resources, and Conditions Reference.
@@ -383,7 +377,6 @@ export class ShareLimitExceededException extends S.TaggedError<ShareLimitExceede
  * self-managed Microsoft Active Directory. This would allow you to provide users and groups
  * access to resources in either domain, with a single set of credentials.
  * 
- * 
  * This action initiates the creation of the Amazon Web Services side of a trust relationship between an
  * Managed Microsoft AD directory and an external domain. You can create either a forest trust or an
  * external trust.
@@ -392,7 +385,6 @@ export class ShareLimitExceededException extends S.TaggedError<ShareLimitExceede
  * Deletes a directory assessment and all associated data. This operation permanently
  * removes the assessment results, validation reports, and configuration
  * information.
- * 
  * 
  * You cannot delete system-initiated assessments. You can delete customer-created
  * assessments even if they are in progress.
@@ -403,7 +395,6 @@ export class ShareLimitExceededException extends S.TaggedError<ShareLimitExceede
  */export const deleteConditionalForwarder = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.DeleteConditionalForwarder" }, DeleteConditionalForwarderRequest, DeleteConditionalForwarderResult, [ClientException, DirectoryUnavailableException, EntityDoesNotExistException, InvalidParameterException, ServiceException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes an Directory Service directory.
- * 
  * 
  * Before you call `DeleteDirectory`, ensure that all of the required permissions
  * have been explicitly granted through a policy. For details about what permissions are required
@@ -448,9 +439,6 @@ export class ShareLimitExceededException extends S.TaggedError<ShareLimitExceede
  * Enables certificate authority (CA) enrollment policy for the specified directory. This allows
  * domain-joined clients to automatically request and receive certificates from the specified
  * Amazon Web Services Private Certificate Authority.
- * 
- * 
- * 
  * 
  * Before enabling CA enrollment, ensure that the PCA connector is properly configured and
  * accessible from the directory. The connector must be in an active state and have the
@@ -502,7 +490,6 @@ export class ShareLimitExceededException extends S.TaggedError<ShareLimitExceede
  * Directory Service for Microsoft Active Directory allows you to configure and verify trust
  * relationships.
  * 
- * 
  * This action verifies a trust relationship between your Managed Microsoft AD directory and an
  * external domain.
  */export const verifyTrust = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.VerifyTrust" }, VerifyTrustRequest, VerifyTrustResult, [ClientException, EntityDoesNotExistException, InvalidParameterException, ServiceException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -516,7 +503,6 @@ export class ShareLimitExceededException extends S.TaggedError<ShareLimitExceede
  * also use *AddIpRoutes* to facilitate routing traffic that uses public IP
  * ranges from your Microsoft AD on Amazon Web Services to a peer VPC.
  * 
- * 
  * Before you call *AddIpRoutes*, ensure that all of the required
  * permissions have been explicitly granted through a policy. For details about what
  * permissions are required to run the *AddIpRoutes* operation, see Directory Service API Permissions: Actions, Resources, and Conditions Reference.
@@ -529,14 +515,12 @@ export class ShareLimitExceededException extends S.TaggedError<ShareLimitExceede
 /**
  * Creates an AD Connector to connect to a self-managed directory.
  * 
- * 
  * Before you call `ConnectDirectory`, ensure that all of the required permissions
  * have been explicitly granted through a policy. For details about what permissions are required
  * to run the `ConnectDirectory` operation, see Directory Service API Permissions: Actions, Resources, and Conditions Reference.
  */export const connectDirectory = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.ConnectDirectory" }, ConnectDirectoryRequest, ConnectDirectoryResult, [ClientException, DirectoryLimitExceededException, InvalidParameterException, ServiceException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a Simple AD directory. For more information, see Simple Active Directory in the *Directory Service Admin Guide*.
- * 
  * 
  * Before you call `CreateDirectory`, ensure that all of the required permissions
  * have been explicitly granted through a policy. For details about what permissions are required
@@ -546,19 +530,14 @@ export class ShareLimitExceededException extends S.TaggedError<ShareLimitExceede
  * Creates a hybrid directory that connects your self-managed Active Directory (AD)
  * infrastructure and Amazon Web Services.
  * 
- * 
  * You must have a successful directory assessment using StartADAssessment to validate your environment compatibility before you
  * use this operation.
- * 
  * 
  * Updates are applied asynchronously. Use DescribeDirectories to
  * monitor the progress of directory creation.
  */export const createHybridAD = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.CreateHybridAD" }, CreateHybridADRequest, CreateHybridADResult, [ADAssessmentLimitExceededException, ClientException, DirectoryLimitExceededException, EntityDoesNotExistException, InvalidParameterException, ServiceException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a snapshot of a Simple AD or Microsoft AD directory in the Amazon Web Services cloud.
- * 
- * 
- * 
  * 
  * You cannot take snapshots of AD Connector directories.
  */export const createSnapshot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.CreateSnapshot" }, CreateSnapshotRequest, CreateSnapshotResult, [ClientException, EntityDoesNotExistException, InvalidParameterException, ServiceException, SnapshotLimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -579,7 +558,6 @@ export class ShareLimitExceededException extends S.TaggedError<ShareLimitExceede
 /**
  * Obtains information about the conditional forwarders for this account.
  * 
- * 
  * If no input parameters are provided for RemoteDomainNames, this request describes all
  * conditional forwarders for the specified directory ID.
  */export const describeConditionalForwarders = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.DescribeConditionalForwarders" }, DescribeConditionalForwardersRequest, DescribeConditionalForwardersResult, [ClientException, DirectoryUnavailableException, EntityDoesNotExistException, InvalidParameterException, ServiceException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -589,7 +567,6 @@ export class ShareLimitExceededException extends S.TaggedError<ShareLimitExceede
 /**
  * Obtains information about which Amazon SNS topics receive status messages from the specified
  * directory.
- * 
  * 
  * If no input parameters are provided, such as DirectoryId or TopicName, this request
  * describes all of the associations in the account.
@@ -607,19 +584,16 @@ export class ShareLimitExceededException extends S.TaggedError<ShareLimitExceede
 /**
  * Obtains information about the directory snapshots that belong to this account.
  * 
- * 
  * This operation supports pagination with the use of the *NextToken* request and
  * response parameters. If more results are available, the *DescribeSnapshots.NextToken*
  * member contains a token that you pass in the next call to DescribeSnapshots to
  * retrieve the next set of items.
- * 
  * 
  * You can also specify a maximum number of return results with the *Limit*
  * parameter.
  */export const describeSnapshots = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.DescribeSnapshots" }, DescribeSnapshotsRequest, DescribeSnapshotsResult, [ClientException, EntityDoesNotExistException, InvalidNextTokenException, InvalidParameterException, ServiceException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Obtains information about the trust relationships for this account.
- * 
  * 
  * If no input parameters are provided, such as DirectoryId or TrustIds, this request
  * describes all the trust relationships belonging to the account.
@@ -628,9 +602,6 @@ export class ShareLimitExceededException extends S.TaggedError<ShareLimitExceede
  * Disables the certificate authority (CA) enrollment policy for the specified directory. This stops
  * automatic certificate enrollment and management for domain-joined clients, but does not affect
  * existing certificates.
- * 
- * 
- * 
  * 
  * Disabling the CA enrollment policy prevents new certificates from being automatically
  * enrolled, but existing certificates remain valid and functional until they expire.
@@ -663,17 +634,12 @@ export class ShareLimitExceededException extends S.TaggedError<ShareLimitExceede
  * Resets the password for any user in your Managed Microsoft AD or Simple AD directory. Disabled
  * users will become enabled and can be authenticated following the API call.
  * 
- * 
  * You can reset the password for any user in your directory with the following
  * exceptions:
- * 
- * 
  * 
  * - For Simple AD, you cannot reset the password for any user that is a member of either
  * the **Domain Admins** or Enterprise
  * Admins group except for the administrator user.
- * 
- * 
  * 
  * - For Managed Microsoft AD, you can only reset the password for a user that is in an OU based
  * off of the NetBIOS name that you typed when you created your directory. For example, you
@@ -687,16 +653,13 @@ export class ShareLimitExceededException extends S.TaggedError<ShareLimitExceede
  * hybrid domain join. The assessment checks compatibility and connectivity of the
  * self-managed AD environment.
  * 
- * 
  * A directory assessment is automatically created when you create a hybrid directory.
  * There are two types of assessments: `CUSTOMER` and `SYSTEM`. Your
  * Amazon Web Services account has a limit of 100 `CUSTOMER` directory assessments.
  * 
- * 
  * The assessment process typically takes 30 minutes or more to complete. The assessment
  * process is asynchronous and you can monitor it with
  * `DescribeADAssessment`.
- * 
  * 
  * The `InstanceIds` must have a one-to-one correspondence with
  * `CustomerDnsIps`, meaning that if the IP address for instance i-10243410
@@ -704,7 +667,6 @@ export class ShareLimitExceededException extends S.TaggedError<ShareLimitExceede
  * input arrays must maintain the same order relationship, either [10.24.34.100,
  * 10.24.34.200] paired with [i-10243410, i-10243420] or [10.24.34.200, 10.24.34.100]
  * paired with [i-10243420, i-10243410].
- * 
  * 
  * Note: You must provide exactly one `DirectoryId` or
  * `AssessmentConfiguration`.
@@ -713,10 +675,8 @@ export class ShareLimitExceededException extends S.TaggedError<ShareLimitExceede
  * Updates the configuration of an existing hybrid directory. You can recover hybrid
  * directory administrator account or modify self-managed instance settings.
  * 
- * 
  * Updates are applied asynchronously. Use DescribeHybridADUpdate to
  * monitor the progress of configuration changes.
- * 
  * 
  * The `InstanceIds` must have a one-to-one correspondence with
  * `CustomerDnsIps`, meaning that if the IP address for instance i-10243410
@@ -724,9 +684,6 @@ export class ShareLimitExceededException extends S.TaggedError<ShareLimitExceede
  * input arrays must maintain the same order relationship, either [10.24.34.100,
  * 10.24.34.200] paired with [i-10243410, i-10243420] or [10.24.34.200, 10.24.34.100]
  * paired with [i-10243420, i-10243410].
- * 
- * 
- * 
  * 
  * You must provide at least one update to UpdateHybridADRequest$HybridAdministratorAccountUpdate or UpdateHybridADRequest$SelfManagedInstancesSettings.
  */export const updateHybridAD = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.UpdateHybridAD" }, UpdateHybridADRequest, UpdateHybridADResult, [ADAssessmentLimitExceededException, ClientException, DirectoryDoesNotExistException, InvalidParameterException, ServiceException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -744,18 +701,15 @@ export class ShareLimitExceededException extends S.TaggedError<ShareLimitExceede
 /**
  * Obtains information about the directories that belong to this account.
  * 
- * 
  * You can retrieve information about specific directories by passing the directory
  * identifiers in the `DirectoryIds` parameter. Otherwise, all directories that belong
  * to the current account are returned.
- * 
  * 
  * This operation supports pagination with the use of the `NextToken` request and
  * response parameters. If more results are available, the
  * `DescribeDirectoriesResult.NextToken` member contains a token that you pass in
  * the next call to DescribeDirectories to retrieve the next set of
  * items.
- * 
  * 
  * You can also specify a maximum number of return results with the `Limit`
  * parameter.
@@ -785,18 +739,15 @@ export class ShareLimitExceededException extends S.TaggedError<ShareLimitExceede
  * owner) with another Amazon Web Services account (directory consumer). With this operation you can use your
  * directory from any Amazon Web Services account and from any Amazon VPC within an Amazon Web Services Region.
  * 
- * 
  * When you share your Managed Microsoft AD directory, Directory Service creates a shared directory in the
  * directory consumer account. This shared directory contains the metadata to provide access to
  * the directory within the directory owner account. The shared directory is visible in all VPCs
  * in the directory consumer account.
  * 
- * 
  * The `ShareMethod` parameter determines whether the specified directory can be
  * shared between Amazon Web Services accounts inside the same Amazon Web Services organization (`ORGANIZATIONS`).
  * It also determines whether you can share the directory with any other Amazon Web Services account either
  * inside or outside of the organization (`HANDSHAKE`).
- * 
  * 
  * The `ShareNotes` parameter is only used when `HANDSHAKE` is called,
  * which sends a directory sharing request to the directory consumer.

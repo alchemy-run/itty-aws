@@ -135,7 +135,6 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
  * 
  * - Tags
  * 
- * 
  * For more information, see PITR restore settings in the *Amazon Keyspaces Developer Guide*.
  * 
  * Note that the following settings are not restored, and you must configure them manually for the new table:
@@ -173,7 +172,6 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
  * 
  * - `cassandra:ModifyMultiRegionResource`
  * 
- * 
  * If the keyspace contains a table that is configured in provisioned mode with auto scaling enabled, the following additional IAM actions need to be allowed.
  * 
  * - `application-autoscaling:RegisterScalableTarget`
@@ -186,7 +184,6 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
  * 
  * - `application-autoscaling:DescribeScalingPolicies`
  * 
- * 
  * To use the `UpdateKeyspace` API, the IAM principal also needs permissions to create a service-linked role with the following elements:
  * 
  * - `iam:CreateServiceLinkedRole` - The **action** the principal can perform.
@@ -194,7 +191,6 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
  * - `arn:aws:iam::*:role/aws-service-role/replication.cassandra.amazonaws.com/AWSServiceRoleForKeyspacesReplication` - The **resource** that the action can be performed on.
  * 
  * - `iam:AWSServiceName: replication.cassandra.amazonaws.com` - The only Amazon Web Services service that this role can be attached to is Amazon Keyspaces.
- * 
  * 
  * For more information, see Configure the IAM permissions required to add an Amazon Web Services Region to a keyspace in the *Amazon Keyspaces Developer Guide*.
  */export const updateKeyspace = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-02-10", sdkId: "Keyspaces", sigV4ServiceName: "cassandra", name: "KeyspacesService.UpdateKeyspace" }, UpdateKeyspaceRequest, UpdateKeyspaceResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -231,9 +227,7 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
  * 
  * Amazon Keyspaces auto scaling helps you provision throughput capacity for variable workloads efficiently by increasing and decreasing your table's read and write capacity automatically in response to application traffic. For more information, see Managing throughput capacity automatically with Amazon Keyspaces auto scaling in the *Amazon Keyspaces Developer Guide*.
  * 
- * 
  * `GetTableAutoScalingSettings` can't be used as an action in an IAM policy.
- * 
  * 
  * To define permissions for `GetTableAutoScalingSettings`, you must allow the following two actions in the IAM policy statement's `Action` element:
  * 

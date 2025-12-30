@@ -136,9 +136,6 @@ export class ReferencedImagesNotFoundException extends S.TaggedError<ReferencedI
  * verify if it has been uploaded before. If it has been uploaded, then the image layer is
  * skipped.
  * 
- * 
- * 
- * 
  * This operation is used by the Amazon ECR proxy and is not generally used by customers for pulling and pushing images. In most cases, you should use the `docker` CLI to pull, tag, and push images.
  */export const batchCheckLayerAvailability = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-10-30", sdkId: "ECR PUBLIC", sigV4ServiceName: "ecr-public", name: "SpencerFrontendService.BatchCheckLayerAvailability" }, BatchCheckLayerAvailabilityRequest, BatchCheckLayerAvailabilityResponse, [InvalidParameterException, RegistryNotFoundException, RepositoryNotFoundException, ServerException, UnsupportedCommandException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -160,13 +157,9 @@ export class ReferencedImagesNotFoundException extends S.TaggedError<ReferencedI
 /**
  * Notifies Amazon ECR that you intend to upload an image layer.
  * 
- * 
  * When an image is pushed, the InitiateLayerUpload API is called once for each image layer
  * that hasn't already been uploaded. Whether an image layer uploads is determined by the
  * BatchCheckLayerAvailability API action.
- * 
- * 
- * 
  * 
  * This operation is used by the Amazon ECR proxy and is not generally used by customers for pulling and pushing images. In most cases, you should use the `docker` CLI to pull, tag, and push images.
  */export const initiateLayerUpload = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-10-30", sdkId: "ECR PUBLIC", sigV4ServiceName: "ecr-public", name: "SpencerFrontendService.InitiateLayerUpload" }, InitiateLayerUploadRequest, InitiateLayerUploadResponse, [InvalidParameterException, RegistryNotFoundException, RepositoryNotFoundException, ServerException, UnsupportedCommandException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -181,10 +174,8 @@ export class ReferencedImagesNotFoundException extends S.TaggedError<ReferencedI
  * Images are specified with either an `imageTag` or
  * `imageDigest`.
  * 
- * 
  * You can remove a tag from an image by specifying the image's tag in your request. When
  * you remove the last tag from an image, the image is deleted from your repository.
- * 
  * 
  * You can completely delete an image (and all of its tags) by specifying the digest of the
  * image in your request.
@@ -197,9 +188,6 @@ export class ReferencedImagesNotFoundException extends S.TaggedError<ReferencedI
 /**
  * Returns metadata that's related to the images in a repository in a public
  * registry.
- * 
- * 
- * 
  * 
  * Beginning with Docker version 1.9, the Docker client compresses image layers before
  * pushing them to a V2 Docker registry. The output of the `docker images`
@@ -219,13 +207,9 @@ export class ReferencedImagesNotFoundException extends S.TaggedError<ReferencedI
 /**
  * Uploads an image layer part to Amazon ECR.
  * 
- * 
  * When an image is pushed, each new image layer is uploaded in parts. The maximum size of
  * each image layer part can be 20971520 bytes (about 20MB). The UploadLayerPart API is called
  * once for each new image layer part.
- * 
- * 
- * 
  * 
  * This operation is used by the Amazon ECR proxy and is not generally used by customers for pulling and pushing images. In most cases, you should use the `docker` CLI to pull, tag, and push images.
  */export const uploadLayerPart = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-10-30", sdkId: "ECR PUBLIC", sigV4ServiceName: "ecr-public", name: "SpencerFrontendService.UploadLayerPart" }, UploadLayerPartRequest, UploadLayerPartResponse, [InvalidLayerPartException, InvalidParameterException, LimitExceededException, RegistryNotFoundException, RepositoryNotFoundException, ServerException, UnsupportedCommandException, UploadNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -238,25 +222,17 @@ export class ReferencedImagesNotFoundException extends S.TaggedError<ReferencedI
  * repository name, and upload ID. You can optionally provide a `sha256` digest of
  * the image layer for data validation purposes.
  * 
- * 
  * When an image is pushed, the CompleteLayerUpload API is called once for each new image
  * layer to verify that the upload is complete.
- * 
- * 
- * 
  * 
  * This operation is used by the Amazon ECR proxy and is not generally used by customers for pulling and pushing images. In most cases, you should use the `docker` CLI to pull, tag, and push images.
  */export const completeLayerUpload = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-10-30", sdkId: "ECR PUBLIC", sigV4ServiceName: "ecr-public", name: "SpencerFrontendService.CompleteLayerUpload" }, CompleteLayerUploadRequest, CompleteLayerUploadResponse, [EmptyUploadException, InvalidLayerException, InvalidParameterException, LayerAlreadyExistsException, LayerPartTooSmallException, RegistryNotFoundException, RepositoryNotFoundException, ServerException, UnsupportedCommandException, UploadNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates or updates the image manifest and tags that are associated with an image.
  * 
- * 
  * When an image is pushed and all new image layers have been uploaded, the PutImage API is
  * called once to create or update the image manifest and the tags that are associated with
  * the image.
- * 
- * 
- * 
  * 
  * This operation is used by the Amazon ECR proxy and is not generally used by customers for pulling and pushing images. In most cases, you should use the `docker` CLI to pull, tag, and push images.
  */export const putImage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-10-30", sdkId: "ECR PUBLIC", sigV4ServiceName: "ecr-public", name: "SpencerFrontendService.PutImage" }, PutImageRequest, PutImageResponse, [ImageAlreadyExistsException, ImageDigestDoesNotMatchException, ImageTagAlreadyExistsException, InvalidParameterException, LayersNotFoundException, LimitExceededException, ReferencedImagesNotFoundException, RegistryNotFoundException, RepositoryNotFoundException, ServerException, UnsupportedCommandException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

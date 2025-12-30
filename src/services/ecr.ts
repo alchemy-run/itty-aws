@@ -314,9 +314,6 @@ export class ScanNotFoundException extends S.TaggedError<ScanNotFoundException>(
  * of specifying the image scanning configuration at the registry level. For more
  * information, see PutRegistryScanningConfiguration.
  * 
- * 
- * 
- * 
  * Updates the image scanning configuration for the specified repository.
  */export const putImageScanningConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-09-21", sdkId: "ECR", sigV4ServiceName: "ecr", name: "AmazonEC2ContainerRegistry_V20150921.PutImageScanningConfiguration" }, PutImageScanningConfigurationRequest, PutImageScanningConfigurationResponse, [InvalidParameterException, RepositoryNotFoundException, ServerException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -332,7 +329,6 @@ export class ScanNotFoundException extends S.TaggedError<ScanNotFoundException>(
 /**
  * Creates or updates the permissions policy for your registry.
  * 
- * 
  * A registry policy is used to specify permissions for another Amazon Web Services account and is used
  * when configuring cross-account replication. For more information, see Registry permissions in the *Amazon Elastic Container Registry User Guide*.
  */export const putRegistryPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-09-21", sdkId: "ECR", sigV4ServiceName: "ecr", name: "AmazonEC2ContainerRegistry_V20150921.PutRegistryPolicy" }, PutRegistryPolicyRequest, PutRegistryPolicyResponse, [InvalidParameterException, ServerException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -344,9 +340,6 @@ export class ScanNotFoundException extends S.TaggedError<ScanNotFoundException>(
  * service-linked roles for Amazon ECR in the *Amazon Elastic Container Registry User Guide*.
  * For more information on the custom role for replication, see Creating an IAM role for replication.
  * 
- * 
- * 
- * 
  * When configuring cross-account replication, the destination account must grant the
  * source account permission to replicate. This permission is controlled using a
  * registry permissions policy. For more information, see PutRegistryPolicy.
@@ -355,12 +348,8 @@ export class ScanNotFoundException extends S.TaggedError<ScanNotFoundException>(
  * Creates or updates the registry's signing configuration, which defines
  * rules for automatically signing images with Amazon Web Services Signer.
  * 
- * 
  * For more information, see Managed signing in the
  * *Amazon Elastic Container Registry User Guide*.
- * 
- * 
- * 
  * 
  * To successfully generate a signature, the IAM principal pushing images must have
  * permission to sign payloads with the Amazon Web Services Signer signing profile referenced in the signing
@@ -383,13 +372,9 @@ export class ScanNotFoundException extends S.TaggedError<ScanNotFoundException>(
 /**
  * Checks the availability of one or more image layers in a repository.
  * 
- * 
  * When an image is pushed to a repository, each image layer is checked to verify if it
  * has been uploaded before. If it has been uploaded, then the image layer is
  * skipped.
- * 
- * 
- * 
  * 
  * This operation is used by the Amazon ECR proxy and is not generally used by
  * customers for pulling and pushing images. In most cases, you should use the `docker` CLI to pull, tag, and push images.
@@ -398,10 +383,8 @@ export class ScanNotFoundException extends S.TaggedError<ScanNotFoundException>(
  * Deletes a list of specified images within a repository. Images are specified with
  * either an `imageTag` or `imageDigest`.
  * 
- * 
  * You can remove a tag from an image by specifying the image's tag in your request. When
  * you remove the last tag from an image, the image is deleted from your repository.
- * 
  * 
  * You can completely delete an image (and all of its tags) by specifying the image's
  * digest in your request.
@@ -435,7 +418,6 @@ export class ScanNotFoundException extends S.TaggedError<ScanNotFoundException>(
  * signing rules that reference different signing profiles, a status is returned
  * for each profile.
  * 
- * 
  * For more information, see Managed signing in the
  * *Amazon Elastic Container Registry User Guide*.
  */export const describeImageSigningStatus = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-09-21", sdkId: "ECR", sigV4ServiceName: "ecr", name: "AmazonEC2ContainerRegistry_V20150921.DescribeImageSigningStatus" }, DescribeImageSigningStatusRequest, DescribeImageSigningStatusResponse, [ImageNotFoundException, InvalidParameterException, RepositoryNotFoundException, ServerException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -447,7 +429,6 @@ export class ScanNotFoundException extends S.TaggedError<ScanNotFoundException>(
  * authentication credentials and can be used to access any Amazon ECR registry that your IAM
  * principal has access to. The authorization token is valid for 12 hours.
  * 
- * 
  * The `authorizationToken` returned is a base64 encoded string that can be
  * decoded and used in a `docker login` command to authenticate to a registry.
  * The CLI offers an `get-login-password` command that simplifies the login
@@ -458,27 +439,21 @@ export class ScanNotFoundException extends S.TaggedError<ScanNotFoundException>(
  * Retrieves the registry's signing configuration, which defines
  * rules for automatically signing images using Amazon Web Services Signer.
  * 
- * 
  * For more information, see Managed signing in the
  * *Amazon Elastic Container Registry User Guide*.
  */export const getSigningConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-09-21", sdkId: "ECR", sigV4ServiceName: "ecr", name: "AmazonEC2ContainerRegistry_V20150921.GetSigningConfiguration" }, GetSigningConfigurationRequest, GetSigningConfigurationResponse, [InvalidParameterException, ServerException, SigningConfigurationNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Notifies Amazon ECR that you intend to upload an image layer.
  * 
- * 
  * When an image is pushed, the InitiateLayerUpload API is called once per image layer
  * that has not already been uploaded. Whether or not an image layer has been uploaded is
  * determined by the BatchCheckLayerAvailability API action.
- * 
- * 
- * 
  * 
  * This operation is used by the Amazon ECR proxy and is not generally used by
  * customers for pulling and pushing images. In most cases, you should use the `docker` CLI to pull, tag, and push images.
  */export const initiateLayerUpload = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-09-21", sdkId: "ECR", sigV4ServiceName: "ecr", name: "AmazonEC2ContainerRegistry_V20150921.InitiateLayerUpload" }, InitiateLayerUploadRequest, InitiateLayerUploadResponse, [InvalidParameterException, KmsException, RepositoryNotFoundException, ServerException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists all the image IDs for the specified repository.
- * 
  * 
  * You can filter images based on whether or not they are tagged by using the
  * `tagStatus` filter and specifying either `TAGGED`,
@@ -505,7 +480,6 @@ export class ScanNotFoundException extends S.TaggedError<ScanNotFoundException>(
  * Gets detailed information for an image. Images are specified with either an
  * `imageTag` or `imageDigest`.
  * 
- * 
  * When an image is pulled, the BatchGetImage API is called once to retrieve the image
  * manifest.
  */export const batchGetImage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-09-21", sdkId: "ECR", sigV4ServiceName: "ecr", name: "AmazonEC2ContainerRegistry_V20150921.BatchGetImage" }, BatchGetImageRequest, BatchGetImageResponse, [InvalidParameterException, LimitExceededException, RepositoryNotFoundException, ServerException, UnableToGetUpstreamImageException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -529,12 +503,8 @@ export class ScanNotFoundException extends S.TaggedError<ScanNotFoundException>(
  * Deletes the registry's signing configuration. Images pushed after deletion of the signing
  * configuration will no longer be automatically signed.
  * 
- * 
  * For more information, see Managed signing in the
  * *Amazon Elastic Container Registry User Guide*.
- * 
- * 
- * 
  * 
  * Deleting the signing configuration does not affect existing image signatures.
  */export const deleteSigningConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-09-21", sdkId: "ECR", sigV4ServiceName: "ecr", name: "AmazonEC2ContainerRegistry_V20150921.DeleteSigningConfiguration" }, DeleteSigningConfigurationRequest, DeleteSigningConfigurationResponse, [ServerException, SigningConfigurationNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -545,7 +515,6 @@ export class ScanNotFoundException extends S.TaggedError<ScanNotFoundException>(
  */export const describeRegistry = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-09-21", sdkId: "ECR", sigV4ServiceName: "ecr", name: "AmazonEC2ContainerRegistry_V20150921.DescribeRegistry" }, DescribeRegistryRequest, DescribeRegistryResponse, [InvalidParameterException, ServerException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts a basic image vulnerability scan.
- * 
  * 
  * A basic image scan can only be started once per 24 hours on an individual image. This
  * limit includes if an image was scanned on initial push. You can start up to 100,000
@@ -561,13 +530,9 @@ export class ScanNotFoundException extends S.TaggedError<ScanNotFoundException>(
 /**
  * Uploads an image layer part to Amazon ECR.
  * 
- * 
  * When an image is pushed, each new image layer is uploaded in parts. The maximum size
  * of each image layer part can be 20971520 bytes (or about 20MB). The UploadLayerPart API
  * is called once per each new image layer part.
- * 
- * 
- * 
  * 
  * This operation is used by the Amazon ECR proxy and is not generally used by
  * customers for pulling and pushing images. In most cases, you should use the `docker` CLI to pull, tag, and push images.
@@ -575,18 +540,10 @@ export class ScanNotFoundException extends S.TaggedError<ScanNotFoundException>(
 /**
  * Returns metadata about the images in a repository.
  * 
- * 
- * 
- * 
  * Starting with Docker version 1.9, the Docker client compresses image layers before
  * pushing them to a V2 Docker registry. The output of the `docker images`
  * command shows the uncompressed image size. Therefore, Docker might return a larger
  * image than the image shown in the Amazon Web Services Management Console.
- * 
- * 
- * 
- * 
- * 
  * 
  * The new version of Amazon ECR
  * *Basic Scanning* doesn't use the ImageDetail$imageScanFindingsSummary and ImageDetail$imageScanStatus attributes from the API response to
@@ -598,12 +555,8 @@ export class ScanNotFoundException extends S.TaggedError<ScanNotFoundException>(
  * Retrieves the pre-signed Amazon S3 download URL corresponding to an image layer. You can
  * only get URLs for image layers that are referenced in an image.
  * 
- * 
  * When an image is pulled, the GetDownloadUrlForLayer API is called once per image layer
  * that is not already cached.
- * 
- * 
- * 
  * 
  * This operation is used by the Amazon ECR proxy and is not generally used by
  * customers for pulling and pushing images. In most cases, you should use the `docker` CLI to pull, tag, and push images.
@@ -619,12 +572,8 @@ export class ScanNotFoundException extends S.TaggedError<ScanNotFoundException>(
  * repository name, and upload ID. You can optionally provide a `sha256` digest
  * of the image layer for data validation purposes.
  * 
- * 
  * When an image is pushed, the CompleteLayerUpload API is called once per each new image
  * layer to verify that the upload has completed.
- * 
- * 
- * 
  * 
  * This operation is used by the Amazon ECR proxy and is not generally used by
  * customers for pulling and pushing images. In most cases, you should use the `docker` CLI to pull, tag, and push images.
@@ -642,13 +591,9 @@ export class ScanNotFoundException extends S.TaggedError<ScanNotFoundException>(
 /**
  * Creates or updates the image manifest and tags associated with an image.
  * 
- * 
  * When an image is pushed and all new image layers have been uploaded, the PutImage API
  * is called once to create or update the image manifest and the tags associated with the
  * image.
- * 
- * 
- * 
  * 
  * This operation is used by the Amazon ECR proxy and is not generally used by
  * customers for pulling and pushing images. In most cases, you should use the `docker` CLI to pull, tag, and push images.

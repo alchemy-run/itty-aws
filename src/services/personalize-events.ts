@@ -36,8 +36,6 @@ export class ResourceNotFoundException extends S.TaggedError<ResourceNotFoundExc
  * Records action interaction event data. An *action interaction* event is an interaction between a user and an *action*.
  * For example, a user taking an action, such a enrolling in a membership program or downloading your app.
  * 
- * 
- * 
  * For more information about recording action interactions, see Recording action interaction events.
  * For more information about actions in an Actions dataset, see Actions dataset.
  */export const putActionInteractions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-22", uri: "/action-interactions", sdkId: "Personalize Events", sigV4ServiceName: "personalize", name: "AmazonPersonalizeEvents.PutActionInteractions" }, PutActionInteractionsRequest, S.Struct({}), [InvalidInputException, ResourceInUseException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

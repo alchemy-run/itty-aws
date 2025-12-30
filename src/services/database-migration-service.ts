@@ -456,9 +456,6 @@ export class SNSNoAuthorizationFault extends S.TaggedError<SNSNoAuthorizationFau
 /**
  * End of support notice: On May 20, 2026, Amazon Web Services will end support for Amazon Web Services DMS Fleet Advisor;. After May 20, 2026, you will no longer be able to access the Amazon Web Services DMS Fleet Advisor; console or Amazon Web Services DMS Fleet Advisor; resources. For more information, see Amazon Web Services DMS Fleet Advisor end of support.
  * 
- * 
- * 
- * 
  * Runs large-scale assessment (LSA) analysis on every Fleet Advisor collector in your account.
  */export const runFleetAdvisorLsaAnalysis = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.RunFleetAdvisorLsaAnalysis" }, S.Struct({}), RunFleetAdvisorLsaAnalysisResponse, [InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -485,7 +482,6 @@ export class SNSNoAuthorizationFault extends S.TaggedError<SNSNoAuthorizationFau
 /**
  * Deletes the record of a single premigration assessment run.
  * 
- * 
  * This operation removes all metadata that DMS maintains about this assessment run.
  * However, the operation leaves untouched all information about this assessment run that is
  * stored in your Amazon S3 bucket.
@@ -498,25 +494,21 @@ export class SNSNoAuthorizationFault extends S.TaggedError<SNSNoAuthorizationFau
  * name, current usage toward that quota, and the quota's maximum value. DMS uses the unique
  * account identifier to name each artifact used by DMS in the given region.
  * 
- * 
  * This command does not take any parameters.
  */export const describeAccountAttributes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeAccountAttributes" }, DescribeAccountAttributesMessage, DescribeAccountAttributesResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Provides a list of individual assessments that you can specify for a new premigration
  * assessment run, given one or more parameters.
  * 
- * 
  * If you specify an existing migration task, this operation provides the default
  * individual assessments you can specify for that task. Otherwise, the specified parameters
  * model elements of a possible migration task on which to base a premigration assessment
  * run.
  * 
- * 
  * To use these migration task modeling parameters, you must specify an existing
  * replication instance, a source database engine, a target database engine, and a migration
  * type. This combination of parameters potentially limits the default individual assessments
  * available for an assessment run created for a corresponding migration task.
- * 
  * 
  * If you specify no parameters, this operation provides a list of all possible individual
  * assessments that you can specify for an assessment run. If you specify any one of the task
@@ -547,7 +539,6 @@ export class SNSNoAuthorizationFault extends S.TaggedError<SNSNoAuthorizationFau
  * subscription includes `SubscriptionName`, `SNSTopicARN`,
  * `CustomerID`, `SourceType`, `SourceID`,
  * `CreationTime`, and `Status`.
- * 
  * 
  * If you specify `SubscriptionName`, this action lists the description for that
  * subscription.
@@ -606,12 +597,8 @@ export class SNSNoAuthorizationFault extends S.TaggedError<SNSNoAuthorizationFau
  * Returns a paginated list of premigration assessment runs based on filter
  * settings.
  * 
- * 
  * These filter settings can specify a combination of premigration assessment runs,
  * migration tasks, replication instances, and assessment run status values.
- * 
- * 
- * 
  * 
  * This operation doesn't return information about individual assessments. For this
  * information, see the `DescribeReplicationTaskIndividualAssessments`
@@ -627,7 +614,6 @@ export class SNSNoAuthorizationFault extends S.TaggedError<SNSNoAuthorizationFau
 /**
  * Returns table statistics on the database migration task, including table name, rows
  * inserted, rows updated, and rows deleted.
- * 
  * 
  * Note that the "last updated" column the DMS console only indicates the time that DMS
  * last updated the table statistics record for a table. It does not indicate the time of the
@@ -652,9 +638,6 @@ export class SNSNoAuthorizationFault extends S.TaggedError<SNSNoAuthorizationFau
 /**
  * Modifies the specified data provider using the provided settings.
  * 
- * 
- * 
- * 
  * You must remove the data provider from all migration projects before you can modify
  * it.
  */export const modifyDataProvider = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.ModifyDataProvider" }, ModifyDataProviderMessage, ModifyDataProviderResponse, [AccessDeniedFault, FailedDependencyFault, InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -674,7 +657,6 @@ export class SNSNoAuthorizationFault extends S.TaggedError<SNSNoAuthorizationFau
  */export const refreshSchemas = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.RefreshSchemas" }, RefreshSchemasMessage, RefreshSchemasResponse, [InvalidResourceStateFault, KMSKeyNotAccessibleFault, ResourceNotFoundFault, ResourceQuotaExceededFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Reloads the target database table with the source data.
- * 
  * 
  * You can only use this operation with a task in the `RUNNING` state, otherwise
  * the service will throw an `InvalidResourceStateFault` exception.
@@ -713,19 +695,14 @@ export class SNSNoAuthorizationFault extends S.TaggedError<SNSNoAuthorizationFau
 /**
  * Loads the metadata for all the dependent database objects of the parent object.
  * 
- * 
  * This operation uses your project's Amazon S3 bucket as a metadata cache to improve
  * performance.
  */export const startMetadataModelImport = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.StartMetadataModelImport" }, StartMetadataModelImportMessage, StartMetadataModelImportResponse, [AccessDeniedFault, InvalidResourceStateFault, KMSKeyNotAccessibleFault, ResourceAlreadyExistsFault, ResourceNotFoundFault, ResourceQuotaExceededFault, S3AccessDeniedFault, S3ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * End of support notice: On May 20, 2026, Amazon Web Services will end support for Amazon Web Services DMS Fleet Advisor;. After May 20, 2026, you will no longer be able to access the Amazon Web Services DMS Fleet Advisor; console or Amazon Web Services DMS Fleet Advisor; resources. For more information, see Amazon Web Services DMS Fleet Advisor end of support.
  * 
- * 
- * 
- * 
  * Starts the analysis of your source database to provide recommendations of target
  * engines.
- * 
  * 
  * You can create recommendations for multiple source databases using BatchStartRecommendations.
  */export const startRecommendations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.StartRecommendations" }, StartRecommendationsRequest, S.Struct({}), [AccessDeniedFault, InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -739,7 +716,6 @@ export class SNSNoAuthorizationFault extends S.TaggedError<SNSNoAuthorizationFau
 /**
  * Starts the replication task.
  * 
- * 
  * For more information about DMS tasks, see Working with Migration Tasks in the
  * *Database Migration Service User Guide.*
  */export const startReplicationTask = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.StartReplicationTask" }, StartReplicationTaskMessage, StartReplicationTaskResponse, [AccessDeniedFault, InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -747,24 +723,14 @@ export class SNSNoAuthorizationFault extends S.TaggedError<SNSNoAuthorizationFau
  * Starts the replication task assessment for unsupported data types in the source
  * database.
  * 
- * 
  * You can only use this operation for a task if the following conditions are true:
- * 
- * 
  * 
  * - The task must be in the `stopped` state.
  * 
- * 
- * 
  * - The task must have successful connections to the source and target.
- * 
- * 
- * 
- * 
  * 
  * If either of these conditions are not met, an `InvalidResourceStateFault`
  * error will result.
- * 
  * 
  * For information about DMS task assessments, see Creating a task assessment report in the Database Migration Service User
  * Guide.
@@ -793,7 +759,6 @@ export class SNSNoAuthorizationFault extends S.TaggedError<SNSNoAuthorizationFau
  * earlier than version 3.4.5, some types of events might not be available when you use Amazon
  * EventBridge.
  * 
- * 
  * To call this operation, make sure that you have certain permissions added to your user
  * account. For more information, see Migrating event subscriptions to Amazon EventBridge in the
  * *Amazon Web Services Database Migration Service User Guide*.
@@ -803,9 +768,6 @@ export class SNSNoAuthorizationFault extends S.TaggedError<SNSNoAuthorizationFau
  */export const createDataMigration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.CreateDataMigration" }, CreateDataMigrationMessage, CreateDataMigrationResponse, [FailedDependencyFault, InvalidOperationFault, ResourceAlreadyExistsFault, ResourceNotFoundFault, ResourceQuotaExceededFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an endpoint using the provided settings.
- * 
- * 
- * 
  * 
  * For a MySQL source or target endpoint, don't explicitly specify the database using
  * the `DatabaseName` request parameter on the `CreateEndpoint` API
@@ -817,9 +779,6 @@ export class SNSNoAuthorizationFault extends S.TaggedError<SNSNoAuthorizationFau
 /**
  * End of support notice: On May 20, 2026, Amazon Web Services will end support for Amazon Web Services DMS Fleet Advisor;. After May 20, 2026, you will no longer be able to access the Amazon Web Services DMS Fleet Advisor; console or Amazon Web Services DMS Fleet Advisor; resources. For more information, see Amazon Web Services DMS Fleet Advisor end of support.
  * 
- * 
- * 
- * 
  * Creates a Fleet Advisor collector using the specified parameters.
  */export const createFleetAdvisorCollector = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.CreateFleetAdvisorCollector" }, CreateFleetAdvisorCollectorRequest, CreateFleetAdvisorCollectorResponse, [AccessDeniedFault, InvalidResourceStateFault, ResourceQuotaExceededFault, S3AccessDeniedFault, S3ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -827,7 +786,6 @@ export class SNSNoAuthorizationFault extends S.TaggedError<SNSNoAuthorizationFau
  */export const createInstanceProfile = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.CreateInstanceProfile" }, CreateInstanceProfileMessage, CreateInstanceProfileResponse, [AccessDeniedFault, FailedDependencyFault, InvalidResourceStateFault, KMSKeyNotAccessibleFault, ResourceAlreadyExistsFault, ResourceNotFoundFault, ResourceQuotaExceededFault, S3AccessDeniedFault, S3ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates the migration project using the specified parameters.
- * 
  * 
  * You can run this action only after you create an instance profile and data providers
  * using CreateInstanceProfile and CreateDataProvider.
@@ -846,33 +804,21 @@ export class SNSNoAuthorizationFault extends S.TaggedError<SNSNoAuthorizationFau
 /**
  * Deletes the specified data provider.
  * 
- * 
- * 
- * 
  * All migration projects associated with the data provider must be deleted or modified
  * before you can delete the data provider.
  */export const deleteDataProvider = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DeleteDataProvider" }, DeleteDataProviderMessage, DeleteDataProviderResponse, [AccessDeniedFault, FailedDependencyFault, InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * End of support notice: On May 20, 2026, Amazon Web Services will end support for Amazon Web Services DMS Fleet Advisor;. After May 20, 2026, you will no longer be able to access the Amazon Web Services DMS Fleet Advisor; console or Amazon Web Services DMS Fleet Advisor; resources. For more information, see Amazon Web Services DMS Fleet Advisor end of support.
  * 
- * 
- * 
- * 
  * Deletes the specified Fleet Advisor collector.
  */export const deleteFleetAdvisorCollector = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DeleteFleetAdvisorCollector" }, DeleteCollectorRequest, S.Struct({}), [AccessDeniedFault, CollectorNotFoundFault, InvalidResourceStateFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * End of support notice: On May 20, 2026, Amazon Web Services will end support for Amazon Web Services DMS Fleet Advisor;. After May 20, 2026, you will no longer be able to access the Amazon Web Services DMS Fleet Advisor; console or Amazon Web Services DMS Fleet Advisor; resources. For more information, see Amazon Web Services DMS Fleet Advisor end of support.
  * 
- * 
- * 
- * 
  * Deletes the specified Fleet Advisor collector databases.
  */export const deleteFleetAdvisorDatabases = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DeleteFleetAdvisorDatabases" }, DeleteFleetAdvisorDatabasesRequest, DeleteFleetAdvisorDatabasesResponse, [AccessDeniedFault, InvalidOperationFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the specified instance profile.
- * 
- * 
- * 
  * 
  * All migration projects associated with the instance profile must be deleted or
  * modified before you can delete the instance profile.
@@ -909,17 +855,11 @@ export class SNSNoAuthorizationFault extends S.TaggedError<SNSNoAuthorizationFau
 /**
  * End of support notice: On May 20, 2026, Amazon Web Services will end support for Amazon Web Services DMS Fleet Advisor;. After May 20, 2026, you will no longer be able to access the Amazon Web Services DMS Fleet Advisor; console or Amazon Web Services DMS Fleet Advisor; resources. For more information, see Amazon Web Services DMS Fleet Advisor end of support.
  * 
- * 
- * 
- * 
  * Provides descriptions of large-scale assessment (LSA) analyses produced by your Fleet
  * Advisor collectors.
  */export const describeFleetAdvisorLsaAnalysis = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeFleetAdvisorLsaAnalysis" }, DescribeFleetAdvisorLsaAnalysisRequest, DescribeFleetAdvisorLsaAnalysisResponse, [InvalidResourceStateFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * End of support notice: On May 20, 2026, Amazon Web Services will end support for Amazon Web Services DMS Fleet Advisor;. After May 20, 2026, you will no longer be able to access the Amazon Web Services DMS Fleet Advisor; console or Amazon Web Services DMS Fleet Advisor; resources. For more information, see Amazon Web Services DMS Fleet Advisor end of support.
- * 
- * 
- * 
  * 
  * Provides descriptions of the schemas discovered by your Fleet Advisor
  * collectors.
@@ -933,9 +873,6 @@ export class SNSNoAuthorizationFault extends S.TaggedError<SNSNoAuthorizationFau
  */export const describeOrderableReplicationInstances = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeOrderableReplicationInstances" }, DescribeOrderableReplicationInstancesMessage, DescribeOrderableReplicationInstancesResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * End of support notice: On May 20, 2026, Amazon Web Services will end support for Amazon Web Services DMS Fleet Advisor;. After May 20, 2026, you will no longer be able to access the Amazon Web Services DMS Fleet Advisor; console or Amazon Web Services DMS Fleet Advisor; resources. For more information, see Amazon Web Services DMS Fleet Advisor end of support.
- * 
- * 
- * 
  * 
  * Returns a paginated list of limitations for recommendations of target Amazon Web Services
  * engines.
@@ -954,13 +891,11 @@ export class SNSNoAuthorizationFault extends S.TaggedError<SNSNoAuthorizationFau
  * Returns the task assessment results from the Amazon S3 bucket that DMS creates in your
  * Amazon Web Services account. This action always returns the latest results.
  * 
- * 
  * For more information about DMS task assessments, see Creating a task assessment
  * report in the *Database Migration Service User Guide*.
  */export const describeReplicationTaskAssessmentResults = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeReplicationTaskAssessmentResults" }, DescribeReplicationTaskAssessmentResultsMessage, DescribeReplicationTaskAssessmentResultsResponse, [ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a paginated list of individual assessments based on filter settings.
- * 
  * 
  * These filter settings can specify a combination of premigration assessment runs,
  * migration tasks, and assessment status values.
@@ -975,9 +910,6 @@ export class SNSNoAuthorizationFault extends S.TaggedError<SNSNoAuthorizationFau
 /**
  * Modifies the specified endpoint.
  * 
- * 
- * 
- * 
  * For a MySQL source or target endpoint, don't explicitly specify the database using
  * the `DatabaseName` request parameter on the `ModifyEndpoint` API
  * call. Specifying `DatabaseName` when you modify a MySQL endpoint replicates
@@ -988,17 +920,11 @@ export class SNSNoAuthorizationFault extends S.TaggedError<SNSNoAuthorizationFau
 /**
  * Modifies the specified instance profile using the provided parameters.
  * 
- * 
- * 
- * 
  * All migration projects associated with the instance profile must be deleted or
  * modified before you can modify the instance profile.
  */export const modifyInstanceProfile = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.ModifyInstanceProfile" }, ModifyInstanceProfileMessage, ModifyInstanceProfileResponse, [AccessDeniedFault, FailedDependencyFault, InvalidResourceStateFault, KMSKeyNotAccessibleFault, ResourceNotFoundFault, S3AccessDeniedFault, S3ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Modifies the specified migration project using the provided parameters.
- * 
- * 
- * 
  * 
  * The migration project must be closed before you can modify it.
  */export const modifyMigrationProject = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.ModifyMigrationProject" }, ModifyMigrationProjectMessage, ModifyMigrationProjectResponse, [AccessDeniedFault, FailedDependencyFault, InvalidResourceStateFault, ResourceNotFoundFault, S3AccessDeniedFault, S3ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1010,16 +936,13 @@ export class SNSNoAuthorizationFault extends S.TaggedError<SNSNoAuthorizationFau
  * initially started a replication with a given configuiration, you can't modify that
  * configuration, even if you stop it.
  * 
- * 
  * Other run statuses that allow you to run this command include FAILED and CREATED. A
  * provisioning state that allows you to run this command is FAILED_PROVISION.
  */export const modifyReplicationConfig = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.ModifyReplicationConfig" }, ModifyReplicationConfigMessage, ModifyReplicationConfigResponse, [AccessDeniedFault, InvalidResourceStateFault, InvalidSubnet, KMSKeyNotAccessibleFault, ReplicationSubnetGroupDoesNotCoverEnoughAZs, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Modifies the specified replication task.
  * 
- * 
  * You can't modify the task endpoints. The task must be stopped before you can modify it.
- * 
  * 
  * For more information about DMS tasks, see Working with Migration Tasks in the
  * *Database Migration Service User Guide*.
@@ -1027,7 +950,6 @@ export class SNSNoAuthorizationFault extends S.TaggedError<SNSNoAuthorizationFau
 /**
  * Reloads the target database table with the source data for a given DMS Serverless
  * replication configuration.
- * 
  * 
  * You can only use this operation with a task in the RUNNING state, otherwise the service
  * will throw an `InvalidResourceStateFault` exception.
@@ -1039,12 +961,8 @@ export class SNSNoAuthorizationFault extends S.TaggedError<SNSNoAuthorizationFau
 /**
  * End of support notice: On May 20, 2026, Amazon Web Services will end support for Amazon Web Services DMS Fleet Advisor;. After May 20, 2026, you will no longer be able to access the Amazon Web Services DMS Fleet Advisor; console or Amazon Web Services DMS Fleet Advisor; resources. For more information, see Amazon Web Services DMS Fleet Advisor end of support.
  * 
- * 
- * 
- * 
  * Starts the analysis of up to 20 source databases to recommend target engines for each
  * source database. This is a batch version of StartRecommendations.
- * 
  * 
  * The result of analysis of each source database is reported individually in the
  * response. Because the batch request can result in a combination of successful and
@@ -1053,7 +971,6 @@ export class SNSNoAuthorizationFault extends S.TaggedError<SNSNoAuthorizationFau
  */export const batchStartRecommendations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.BatchStartRecommendations" }, BatchStartRecommendationsRequest, BatchStartRecommendationsResponse, [AccessDeniedFault, InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Cancels a single premigration assessment run.
- * 
  * 
  * This operation prevents any individual assessments from running if they haven't started
  * running. It also attempts to cancel any individual assessments that are currently
@@ -1066,14 +983,10 @@ export class SNSNoAuthorizationFault extends S.TaggedError<SNSNoAuthorizationFau
 /**
  * Creates the replication instance using the specified parameters.
  * 
- * 
  * DMS requires that your account have certain roles with appropriate permissions before
  * you can create a replication instance. For information on the required roles, see Creating the IAM Roles to Use With the CLI and DMS API. For information on
  * the required permissions, see IAM
  * Permissions Needed to Use DMS.
- * 
- * 
- * 
  * 
  * If you don't specify a version when creating a replication instance, DMS will
  * create the instance using the default engine version. For information about the default
@@ -1088,25 +1001,16 @@ export class SNSNoAuthorizationFault extends S.TaggedError<SNSNoAuthorizationFau
 /**
  * Deletes the specified endpoint.
  * 
- * 
- * 
- * 
  * All tasks associated with the endpoint must be deleted before you can delete the
  * endpoint.
  */export const deleteEndpoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DeleteEndpoint" }, DeleteEndpointMessage, DeleteEndpointResponse, [InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the specified migration project.
  * 
- * 
- * 
- * 
  * The migration project must be closed before you can delete it.
  */export const deleteMigrationProject = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DeleteMigrationProject" }, DeleteMigrationProjectMessage, DeleteMigrationProjectResponse, [AccessDeniedFault, FailedDependencyFault, InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the specified replication instance.
- * 
- * 
- * 
  * 
  * You must delete any migration tasks that are associated with the replication instance
  * before you can delete it.
@@ -1114,24 +1018,15 @@ export class SNSNoAuthorizationFault extends S.TaggedError<SNSNoAuthorizationFau
 /**
  * End of support notice: On May 20, 2026, Amazon Web Services will end support for Amazon Web Services DMS Fleet Advisor;. After May 20, 2026, you will no longer be able to access the Amazon Web Services DMS Fleet Advisor; console or Amazon Web Services DMS Fleet Advisor; resources. For more information, see Amazon Web Services DMS Fleet Advisor end of support.
  * 
- * 
- * 
- * 
  * Returns a list of the Fleet Advisor collectors in your account.
  */export const describeFleetAdvisorCollectors = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeFleetAdvisorCollectors" }, DescribeFleetAdvisorCollectorsRequest, DescribeFleetAdvisorCollectorsResponse, [InvalidResourceStateFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * End of support notice: On May 20, 2026, Amazon Web Services will end support for Amazon Web Services DMS Fleet Advisor;. After May 20, 2026, you will no longer be able to access the Amazon Web Services DMS Fleet Advisor; console or Amazon Web Services DMS Fleet Advisor; resources. For more information, see Amazon Web Services DMS Fleet Advisor end of support.
  * 
- * 
- * 
- * 
  * Returns a list of Fleet Advisor databases in your account.
  */export const describeFleetAdvisorDatabases = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeFleetAdvisorDatabases" }, DescribeFleetAdvisorDatabasesRequest, DescribeFleetAdvisorDatabasesResponse, [InvalidResourceStateFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * End of support notice: On May 20, 2026, Amazon Web Services will end support for Amazon Web Services DMS Fleet Advisor;. After May 20, 2026, you will no longer be able to access the Amazon Web Services DMS Fleet Advisor; console or Amazon Web Services DMS Fleet Advisor; resources. For more information, see Amazon Web Services DMS Fleet Advisor end of support.
- * 
- * 
- * 
  * 
  * Returns a list of schemas detected by Fleet Advisor Collectors in your account.
  */export const describeFleetAdvisorSchemas = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.DescribeFleetAdvisorSchemas" }, DescribeFleetAdvisorSchemasRequest, DescribeFleetAdvisorSchemasResponse, [InvalidResourceStateFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1143,7 +1038,6 @@ export class SNSNoAuthorizationFault extends S.TaggedError<SNSNoAuthorizationFau
  * Modifies the replication instance to apply new settings. You can change one or more
  * parameters by specifying these parameters and the new values in the request.
  * 
- * 
  * Some settings are applied during the maintenance window.
  */export const modifyReplicationInstance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.ModifyReplicationInstance" }, ModifyReplicationInstanceMessage, ModifyReplicationInstanceResponse, [AccessDeniedFault, InsufficientResourceCapacityFault, InvalidResourceStateFault, ResourceAlreadyExistsFault, ResourceNotFoundFault, StorageQuotaExceededFault, UpgradeDependencyFailureFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -1152,15 +1046,11 @@ export class SNSNoAuthorizationFault extends S.TaggedError<SNSNoAuthorizationFau
 /**
  * Creates source metadata model of the given type with the specified properties for schema conversion operations.
  * 
- * 
- * 
- * 
  * This action supports only these directions: from SQL Server to Aurora PostgreSQL, or from SQL Server to RDS for PostgreSQL.
  */export const startMetadataModelCreation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.StartMetadataModelCreation" }, StartMetadataModelCreationMessage, StartMetadataModelCreationResponse, [AccessDeniedFault, ResourceAlreadyExistsFault, ResourceNotFoundFault, ResourceQuotaExceededFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts a new premigration assessment run for one or more individual assessments of a
  * migration task.
- * 
  * 
  * The assessments that you can specify depend on the source and target database engine and
  * the migration type defined for the given task. To run this operation, your migration task
@@ -1174,11 +1064,9 @@ export class SNSNoAuthorizationFault extends S.TaggedError<SNSNoAuthorizationFau
 /**
  * Creates a replication subnet group given a list of the subnet IDs in a VPC.
  * 
- * 
  * The VPC needs to have at least one subnet in at least two availability zones in the
  * Amazon Web Services Region, otherwise the service will throw a
  * `ReplicationSubnetGroupDoesNotCoverEnoughAZs` exception.
- * 
  * 
  * If a replication subnet group exists in your Amazon Web Services account, the
  * CreateReplicationSubnetGroup action returns the following error message: The Replication
@@ -1192,7 +1080,6 @@ export class SNSNoAuthorizationFault extends S.TaggedError<SNSNoAuthorizationFau
 /**
  * Creates an DMS event notification subscription.
  * 
- * 
  * You can specify the type of source (`SourceType`) you want to be notified of,
  * provide a list of DMS source IDs (`SourceIds`) that triggers the events, and
  * provide a list of event categories (`EventCategories`) for events you want to be
@@ -1205,15 +1092,11 @@ export class SNSNoAuthorizationFault extends S.TaggedError<SNSNoAuthorizationFau
  * `SourceIdentifier`, you will be notified of events generated from all DMS
  * sources belonging to your customer account.
  * 
- * 
  * For more information about DMS events, see Working with Events and
  * Notifications in the *Database Migration Service User Guide.*
  */export const createEventSubscription = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-01", sdkId: "Database Migration Service", sigV4ServiceName: "dms", name: "AmazonDMSv20160101.CreateEventSubscription" }, CreateEventSubscriptionMessage, CreateEventSubscriptionResponse, [KMSAccessDeniedFault, KMSDisabledFault, KMSInvalidStateFault, KMSNotFoundFault, KMSThrottlingFault, ResourceAlreadyExistsFault, ResourceNotFoundFault, ResourceQuotaExceededFault, SNSInvalidTopicFault, SNSNoAuthorizationFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * End of support notice: On May 20, 2026, Amazon Web Services will end support for Amazon Web Services DMS Fleet Advisor;. After May 20, 2026, you will no longer be able to access the Amazon Web Services DMS Fleet Advisor; console or Amazon Web Services DMS Fleet Advisor; resources. For more information, see Amazon Web Services DMS Fleet Advisor end of support.
- * 
- * 
- * 
  * 
  * Returns a paginated list of target engine recommendations for your source
  * databases.

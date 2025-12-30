@@ -106,15 +106,9 @@ export class UnauthorizedException extends S.TaggedError<UnauthorizedException>(
  * and can take time to complete. You can use GetGroupConfiguration to
  * check the status of the update.
  * 
- * 
- * 
  * **Minimum permissions**
  * 
- * 
- * 
  * To run this command, you must have the following permissions:
- * 
- * 
  * 
  * - `resource-groups:PutGroupConfiguration`
  */export const putGroupConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/put-group-configuration", sdkId: "Resource Groups", sigV4ServiceName: "resource-groups", name: "Ardi.PutGroupConfiguration" }, PutGroupConfigurationInput, PutGroupConfigurationOutput, [BadRequestException, ForbiddenException, InternalServerErrorException, MethodNotAllowedException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -124,28 +118,16 @@ export class UnauthorizedException extends S.TaggedError<UnauthorizedException>(
  * The resource tagging role grants permissions to tag and untag applications resources and must include a
  * trust policy that allows Resource Groups to assume the role and perform resource tagging tasks on your behalf.
  * 
- * 
  * For instructions on creating a tag-sync task, see Create a tag-sync
  * using the Resource Groups API in the *Amazon Web Services Service Catalog AppRegistry Administrator Guide*.
  * 
- * 
- * 
  * **Minimum permissions**
- * 
- * 
  * 
  * To run this command, you must have the following permissions:
  * 
- * 
- * 
  * - `resource-groups:StartTagSyncTask` on the application group
  * 
- * 
- * 
  * - `resource-groups:CreateGroup`
- * 
- * 
- * 
  * 
  * - `iam:PassRole` on the role provided in the request
  */export const startTagSyncTask = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/start-tag-sync-task", sdkId: "Resource Groups", sigV4ServiceName: "resource-groups", name: "Ardi.StartTagSyncTask" }, StartTagSyncTaskInput, StartTagSyncTaskOutput, [BadRequestException, ForbiddenException, InternalServerErrorException, MethodNotAllowedException, NotFoundException, TooManyRequestsException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -153,25 +135,14 @@ export class UnauthorizedException extends S.TaggedError<UnauthorizedException>(
  * Adds tags to a resource group with the specified Amazon resource name (ARN). Existing tags on a resource
  * group are not changed if they are not specified in the request parameters.
  * 
- * 
- * 
- * 
  * Do not store personally identifiable information (PII) or other confidential or
  * sensitive information in tags. We use tags to provide you with billing and
  * administration services. Tags are not intended to be used for private or sensitive
  * data.
  * 
- * 
- * 
- * 
- * 
  * **Minimum permissions**
  * 
- * 
- * 
  * To run this command, you must have the following permissions:
- * 
- * 
  * 
  * - `resource-groups:Tag`
  */export const tag = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/resources/{Arn}/tags", method: "PUT", sdkId: "Resource Groups", sigV4ServiceName: "resource-groups", name: "Ardi.Tag" }, TagInput, TagOutput, [BadRequestException, ForbiddenException, InternalServerErrorException, MethodNotAllowedException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -181,36 +152,23 @@ export class UnauthorizedException extends S.TaggedError<UnauthorizedException>(
  * operation. It doesn't work with any resource groups that are automatically populated by
  * tag-based or CloudFormation stack-based queries.
  * 
- * 
- * 
  * **Minimum permissions**
  * 
- * 
- * 
  * To run this command, you must have the following permissions:
- * 
- * 
  * 
  * - `resource-groups:UngroupResources`
  */export const ungroupResources = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/ungroup-resources", sdkId: "Resource Groups", sigV4ServiceName: "resource-groups", name: "Ardi.UngroupResources" }, UngroupResourcesInput, UngroupResourcesOutput, [BadRequestException, ForbiddenException, InternalServerErrorException, MethodNotAllowedException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes tags from a specified resource group.
  * 
- * 
- * 
  * **Minimum permissions**
  * 
- * 
- * 
  * To run this command, you must have the following permissions:
- * 
- * 
  * 
  * - `resource-groups:Untag`
  */export const untag = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/resources/{Arn}/tags", method: "PATCH", sdkId: "Resource Groups", sigV4ServiceName: "resource-groups", name: "Ardi.Untag" }, UntagInput, UntagOutput, [BadRequestException, ForbiddenException, InternalServerErrorException, MethodNotAllowedException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Turns on or turns off optional features in Resource Groups.
- * 
  * 
  * The preceding example shows that the request to turn on group lifecycle events is
  * `IN_PROGRESS`. You can call the GetAccountSettings
@@ -221,15 +179,9 @@ export class UnauthorizedException extends S.TaggedError<UnauthorizedException>(
  * Updates the description for an existing group. You cannot update the name of a
  * resource group.
  * 
- * 
- * 
  * **Minimum permissions**
  * 
- * 
- * 
  * To run this command, you must have the following permissions:
- * 
- * 
  * 
  * - `resource-groups:UpdateGroup`
  */export const updateGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/update-group", sdkId: "Resource Groups", sigV4ServiceName: "resource-groups", name: "Ardi.UpdateGroup" }, UpdateGroupInput, UpdateGroupOutput, [BadRequestException, ForbiddenException, InternalServerErrorException, MethodNotAllowedException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -237,34 +189,20 @@ export class UnauthorizedException extends S.TaggedError<UnauthorizedException>(
  * Updates the resource query of a group. For more information about resource queries,
  * see Create a tag-based group in Resource Groups.
  * 
- * 
- * 
  * **Minimum permissions**
  * 
- * 
- * 
  * To run this command, you must have the following permissions:
- * 
- * 
  * 
  * - `resource-groups:UpdateGroupQuery`
  */export const updateGroupQuery = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/update-group-query", sdkId: "Resource Groups", sigV4ServiceName: "resource-groups", name: "Ardi.UpdateGroupQuery" }, UpdateGroupQueryInput, UpdateGroupQueryOutput, [BadRequestException, ForbiddenException, InternalServerErrorException, MethodNotAllowedException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Cancels the specified tag-sync task.
  * 
- * 
- * 
  * **Minimum permissions**
- * 
- * 
  * 
  * To run this command, you must have the following permissions:
  * 
- * 
- * 
  * - `resource-groups:CancelTagSyncTask` on the application group
- * 
- * 
  * 
  * - `resource-groups:DeleteGroup`
  */export const cancelTagSyncTask = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/cancel-tag-sync-task", sdkId: "Resource Groups", sigV4ServiceName: "resource-groups", name: "Ardi.CancelTagSyncTask" }, CancelTagSyncTaskInput, S.Struct({}), [BadRequestException, ForbiddenException, InternalServerErrorException, MethodNotAllowedException, TooManyRequestsException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -274,15 +212,9 @@ export class UnauthorizedException extends S.TaggedError<UnauthorizedException>(
 /**
  * Returns information about a specified resource group.
  * 
- * 
- * 
  * **Minimum permissions**
  * 
- * 
- * 
  * To run this command, you must have the following permissions:
- * 
- * 
  * 
  * - `resource-groups:GetGroup`
  */export const getGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/get-group", sdkId: "Resource Groups", sigV4ServiceName: "resource-groups", name: "Ardi.GetGroup" }, GetGroupInput, GetGroupOutput, [BadRequestException, ForbiddenException, InternalServerErrorException, MethodNotAllowedException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -290,15 +222,9 @@ export class UnauthorizedException extends S.TaggedError<UnauthorizedException>(
  * Retrieves the service configuration associated with the specified resource group. For
  * details about the service configuration syntax, see Service configurations for Resource Groups.
  * 
- * 
- * 
  * **Minimum permissions**
  * 
- * 
- * 
  * To run this command, you must have the following permissions:
- * 
- * 
  * 
  * - `resource-groups:GetGroupConfiguration`
  */export const getGroupConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/get-group-configuration", sdkId: "Resource Groups", sigV4ServiceName: "resource-groups", name: "Ardi.GetGroupConfiguration" }, GetGroupConfigurationInput, GetGroupConfigurationOutput, [BadRequestException, ForbiddenException, InternalServerErrorException, MethodNotAllowedException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -307,15 +233,9 @@ export class UnauthorizedException extends S.TaggedError<UnauthorizedException>(
  * information about resource queries, see Create
  * a tag-based group in Resource Groups.
  * 
- * 
- * 
  * **Minimum permissions**
  * 
- * 
- * 
  * To run this command, you must have the following permissions:
- * 
- * 
  * 
  * - `resource-groups:GetGroupQuery`
  */export const getGroupQuery = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/get-group-query", sdkId: "Resource Groups", sigV4ServiceName: "resource-groups", name: "Ardi.GetGroupQuery" }, GetGroupQueryInput, GetGroupQueryOutput, [BadRequestException, ForbiddenException, InternalServerErrorException, MethodNotAllowedException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -323,74 +243,38 @@ export class UnauthorizedException extends S.TaggedError<UnauthorizedException>(
  * Returns a list of tags that are associated with a resource group, specified by an
  * Amazon resource name (ARN).
  * 
- * 
- * 
  * **Minimum permissions**
  * 
- * 
- * 
  * To run this command, you must have the following permissions:
- * 
- * 
  * 
  * - `resource-groups:GetTags`
  */export const getTags = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/resources/{Arn}/tags", method: "GET", sdkId: "Resource Groups", sigV4ServiceName: "resource-groups", name: "Ardi.GetTags" }, GetTagsInput, GetTagsOutput, [BadRequestException, ForbiddenException, InternalServerErrorException, MethodNotAllowedException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about a specified tag-sync task.
  * 
- * 
- * 
  * **Minimum permissions**
  * 
- * 
- * 
  * To run this command, you must have the following permissions:
- * 
- * 
  * 
  * - `resource-groups:GetTagSyncTask` on the application group
  */export const getTagSyncTask = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/get-tag-sync-task", sdkId: "Resource Groups", sigV4ServiceName: "resource-groups", name: "Ardi.GetTagSyncTask" }, GetTagSyncTaskInput, GetTagSyncTaskOutput, [BadRequestException, ForbiddenException, InternalServerErrorException, MethodNotAllowedException, NotFoundException, TooManyRequestsException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Adds the specified resources to the specified group.
  * 
- * 
- * 
- * 
  * You can only use this operation with the following groups:
- * 
- * 
  * 
  * - `AWS::EC2::HostManagement`
  * 
- * 
- * 
- * 
  * - `AWS::EC2::CapacityReservationPool`
  * 
- * 
- * 
- * 
  * - `AWS::ResourceGroups::ApplicationGroup`
- * 
- * 
- * 
- * 
- * 
  * 
  * Other resource group types and resource types are not currently supported by this
  * operation.
  * 
- * 
- * 
- * 
- * 
  * **Minimum permissions**
  * 
- * 
- * 
  * To run this command, you must have the following permissions:
- * 
- * 
  * 
  * - `resource-groups:GroupResources`
  */export const groupResources = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/group-resources", sdkId: "Resource Groups", sigV4ServiceName: "resource-groups", name: "Ardi.GroupResources" }, GroupResourcesInput, GroupResourcesOutput, [BadRequestException, ForbiddenException, InternalServerErrorException, MethodNotAllowedException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -399,30 +283,15 @@ export class UnauthorizedException extends S.TaggedError<UnauthorizedException>(
  * query uses the same format as a resource query in a CreateGroup or
  * UpdateGroupQuery operation.
  * 
- * 
- * 
  * **Minimum permissions**
- * 
- * 
  * 
  * To run this command, you must have the following permissions:
  * 
- * 
- * 
  * - `resource-groups:SearchResources`
- * 
- * 
- * 
  * 
  * - `cloudformation:DescribeStacks`
  * 
- * 
- * 
- * 
  * - `cloudformation:ListStackResources`
- * 
- * 
- * 
  * 
  * - `tag:GetResources`
  */export const searchResources = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/resources/search", sdkId: "Resource Groups", sigV4ServiceName: "resource-groups", name: "Ardi.SearchResources" }, SearchResourcesInput, SearchResourcesOutput, [BadRequestException, ForbiddenException, InternalServerErrorException, MethodNotAllowedException, TooManyRequestsException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -433,15 +302,9 @@ export class UnauthorizedException extends S.TaggedError<UnauthorizedException>(
  * Resource Groups in the *Resource Groups User Guide*. For more information
  * about service-linked groups and service configurations, see Service configurations for Resource Groups.
  * 
- * 
- * 
  * **Minimum permissions**
  * 
- * 
- * 
  * To run this command, you must have the following permissions:
- * 
- * 
  * 
  * - `resource-groups:CreateGroup`
  */export const createGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/groups", sdkId: "Resource Groups", sigV4ServiceName: "resource-groups", name: "Ardi.CreateGroup" }, CreateGroupInput, CreateGroupOutput, [BadRequestException, ForbiddenException, InternalServerErrorException, MethodNotAllowedException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -449,15 +312,9 @@ export class UnauthorizedException extends S.TaggedError<UnauthorizedException>(
  * Deletes the specified resource group. Deleting a resource group does not delete any
  * resources that are members of the group; it only deletes the group structure.
  * 
- * 
- * 
  * **Minimum permissions**
  * 
- * 
- * 
  * To run this command, you must have the following permissions:
- * 
- * 
  * 
  * - `resource-groups:DeleteGroup`
  */export const deleteGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/delete-group", sdkId: "Resource Groups", sigV4ServiceName: "resource-groups", name: "Ardi.DeleteGroup" }, DeleteGroupInput, DeleteGroupOutput, [BadRequestException, ForbiddenException, InternalServerErrorException, MethodNotAllowedException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -468,30 +325,18 @@ export class UnauthorizedException extends S.TaggedError<UnauthorizedException>(
 /**
  * Returns a list of existing Resource Groups in your account.
  * 
- * 
- * 
  * **Minimum permissions**
  * 
- * 
- * 
  * To run this command, you must have the following permissions:
- * 
- * 
  * 
  * - `resource-groups:ListGroups`
  */export const listGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/groups-list", sdkId: "Resource Groups", sigV4ServiceName: "resource-groups", name: "Ardi.ListGroups" }, ListGroupsInput, ListGroupsOutput, [BadRequestException, ForbiddenException, InternalServerErrorException, MethodNotAllowedException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of tag-sync tasks.
  * 
- * 
- * 
  * **Minimum permissions**
  * 
- * 
- * 
  * To run this command, you must have the following permissions:
- * 
- * 
  * 
  * - `resource-groups:ListTagSyncTasks` with the group passed in the filters as the resource
  * or * if using no filters
@@ -500,30 +345,15 @@ export class UnauthorizedException extends S.TaggedError<UnauthorizedException>(
  * Returns a list of Amazon resource names (ARNs) of the resources that are members of a specified resource
  * group.
  * 
- * 
- * 
  * **Minimum permissions**
- * 
- * 
  * 
  * To run this command, you must have the following permissions:
  * 
- * 
- * 
  * - `resource-groups:ListGroupResources`
- * 
- * 
- * 
  * 
  * - `cloudformation:DescribeStacks`
  * 
- * 
- * 
- * 
  * - `cloudformation:ListStackResources`
- * 
- * 
- * 
  * 
  * - `tag:GetResources`
  */export const listGroupResources = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/list-group-resources", sdkId: "Resource Groups", sigV4ServiceName: "resource-groups", name: "Ardi.ListGroupResources" }, ListGroupResourcesInput, ListGroupResourcesOutput, [BadRequestException, ForbiddenException, InternalServerErrorException, MethodNotAllowedException, NotFoundException, TooManyRequestsException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

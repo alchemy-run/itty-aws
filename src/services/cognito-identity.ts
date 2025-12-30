@@ -85,14 +85,12 @@ export class InvalidIdentityPoolConfigurationException extends S.TaggedError<Inv
  * Returns metadata related to the given identity, including when the identity was
  * created and any associated linked logins.
  * 
- * 
  * You must use Amazon Web Services developer credentials to call this
  * operation.
  */export const describeIdentity = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-06-30", sdkId: "Cognito Identity", sigV4ServiceName: "cognito-identity", name: "AWSCognitoIdentityService.DescribeIdentity" }, DescribeIdentityInput, IdentityDescription, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets details about a particular identity pool, including the pool name, ID
  * description, creation date, and current number of users.
- * 
  * 
  * You must use Amazon Web Services developer credentials to call this
  * operation.
@@ -101,12 +99,10 @@ export class InvalidIdentityPoolConfigurationException extends S.TaggedError<Inv
  * Generates (or retrieves) IdentityID. Supplying multiple logins will create an
  * implicit linked account.
  * 
- * 
  * This is a public API. You do not need any credentials to call this API.
  */export const getId = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-06-30", sdkId: "Cognito Identity", sigV4ServiceName: "cognito-identity", name: "AWSCognitoIdentityService.GetId" }, GetIdInput, GetIdResponse, [ExternalServiceException, InternalErrorException, InvalidParameterException, LimitExceededException, NotAuthorizedException, ResourceConflictException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets the roles for an identity pool.
- * 
  * 
  * You must use Amazon Web Services developer credentials to call this
  * operation.
@@ -116,9 +112,7 @@ export class InvalidIdentityPoolConfigurationException extends S.TaggedError<Inv
  * GetId. You can optionally add additional logins for the identity.
  * Supplying multiple logins creates an implicit link.
  * 
- * 
  * The OpenID token is valid for 10 minutes.
- * 
  * 
  * This is a public API. You do not need any credentials to call this API.
  */export const getOpenIdToken = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-06-30", sdkId: "Cognito Identity", sigV4ServiceName: "cognito-identity", name: "AWSCognitoIdentityService.GetOpenIdToken" }, GetOpenIdTokenInput, GetOpenIdTokenResponse, [ExternalServiceException, InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceConflictException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -129,17 +123,14 @@ export class InvalidIdentityPoolConfigurationException extends S.TaggedError<Inv
 /**
  * Lists the identities in an identity pool.
  * 
- * 
  * You must use Amazon Web Services developer credentials to call this
  * operation.
  */export const listIdentities = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-06-30", sdkId: "Cognito Identity", sigV4ServiceName: "cognito-identity", name: "AWSCognitoIdentityService.ListIdentities" }, ListIdentitiesInput, ListIdentitiesResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the tags that are assigned to an Amazon Cognito identity pool.
  * 
- * 
  * A tag is a label that you can apply to identity pools to categorize and manage them in
  * different ways, such as by purpose, owner, environment, or other criteria.
- * 
  * 
  * You can use this action up to 10 times per second, per account.
  */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-06-30", sdkId: "Cognito Identity", sigV4ServiceName: "cognito-identity", name: "AWSCognitoIdentityService.ListTagsForResource" }, ListTagsForResourceInput, ListTagsForResourceResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -155,14 +146,11 @@ export class InvalidIdentityPoolConfigurationException extends S.TaggedError<Inv
  * same as the request. Otherwise, a `ResourceConflictException` is
  * thrown.
  * 
- * 
- * 
  * `LookupDeveloperIdentity` is intended for low-throughput control plane
  * operations: for example, to enable customer service to locate an identity ID by username.
  * If you are using it for higher-volume operations such as user authentication, your requests
  * are likely to be throttled. GetOpenIdTokenForDeveloperIdentity is a
  * better option for higher-volume operations for user authentication.
- * 
  * 
  * You must use Amazon Web Services developer credentials to call this
  * operation.
@@ -177,12 +165,10 @@ export class InvalidIdentityPoolConfigurationException extends S.TaggedError<Inv
  * the same public provider, but as two different users, an exception will be
  * thrown.
  * 
- * 
  * The number of linked logins is limited to 20. So, the number of linked logins for the
  * source user, `SourceUserIdentifier`, and the destination user,
  * `DestinationUserIdentifier`, together should not be larger than 20.
  * Otherwise, an exception will be thrown.
- * 
  * 
  * You must use Amazon Web Services developer credentials to call this
  * operation.
@@ -196,7 +182,6 @@ export class InvalidIdentityPoolConfigurationException extends S.TaggedError<Inv
  * that you can use to categorize and manage identity pools in different ways, such as by
  * purpose, owner, environment, or other criteria.
  * 
- * 
  * Each tag consists of a key and value, both of which you define. A key is a general
  * category for more specific values. For example, if you have two versions of an identity
  * pool, one for testing and another for production, you might assign an
@@ -204,12 +189,10 @@ export class InvalidIdentityPoolConfigurationException extends S.TaggedError<Inv
  * `Test` for one identity pool and `Production` for the
  * other.
  * 
- * 
  * Tags are useful for cost tracking and access control. You can activate your tags so that
  * they appear on the Billing and Cost Management console, where you can track the costs
  * associated with your identity pools. In an IAM policy, you can constrain
  * permissions for identity pools based on specific tags or tag values.
- * 
  * 
  * You can use this action up to 5 times per second, per account. An identity pool can have
  * as many as 50 tags.
@@ -220,7 +203,6 @@ export class InvalidIdentityPoolConfigurationException extends S.TaggedError<Inv
  * Cognito identity, you remove all federated identities as well as the developer user
  * identifier, the Cognito identity becomes inaccessible.
  * 
- * 
  * You must use Amazon Web Services developer credentials to call this
  * operation.
  */export const unlinkDeveloperIdentity = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-06-30", sdkId: "Cognito Identity", sigV4ServiceName: "cognito-identity", name: "AWSCognitoIdentityService.UnlinkDeveloperIdentity" }, UnlinkDeveloperIdentityInput, S.Struct({}), [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceConflictException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -228,7 +210,6 @@ export class InvalidIdentityPoolConfigurationException extends S.TaggedError<Inv
  * Unlinks a federated identity from an existing account. Unlinked logins will be
  * considered new identities next time they are seen. Removing the last linked login will make
  * this identity inaccessible.
- * 
  * 
  * This is a public API. You do not need any credentials to call this API.
  */export const unlinkIdentity = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-06-30", sdkId: "Cognito Identity", sigV4ServiceName: "cognito-identity", name: "AWSCognitoIdentityService.UnlinkIdentity" }, UnlinkIdentityInput, S.Struct({}), [ExternalServiceException, InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceConflictException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -239,14 +220,7 @@ export class InvalidIdentityPoolConfigurationException extends S.TaggedError<Inv
 /**
  * Updates the configuration of an identity pool.
  * 
- * 
- * 
- * 
  * If you don't provide a value for a parameter, Amazon Cognito sets it to its default value.
- * 
- * 
- * 
- * 
  * 
  * You must use Amazon Web Services developer credentials to call this
  * operation.
@@ -256,47 +230,19 @@ export class InvalidIdentityPoolConfigurationException extends S.TaggedError<Inv
  * information that is specific to your Amazon Web Services account. The keys for
  * `SupportedLoginProviders` are as follows:
  * 
- * 
- * 
  * - Facebook: `graph.facebook.com`
- * 
- * 
- * 
  * 
  * - Google: `accounts.google.com`
  * 
- * 
- * 
- * 
  * - Sign in With Apple: `appleid.apple.com`
- * 
- * 
- * 
  * 
  * - Amazon: `www.amazon.com`
  * 
- * 
- * 
- * 
  * - Twitter: `api.twitter.com`
- * 
- * 
- * 
  * 
  * - Digits: `www.digits.com`
  * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
  * If you don't provide a value for a parameter, Amazon Cognito sets it to its default value.
- * 
- * 
- * 
- * 
  * 
  * You must use Amazon Web Services developer credentials to call this
  * operation.
@@ -305,7 +251,6 @@ export class InvalidIdentityPoolConfigurationException extends S.TaggedError<Inv
  * Deletes identities from an identity pool. You can specify a list of 1-60 identities
  * that you want to delete.
  * 
- * 
  * You must use Amazon Web Services developer credentials to call this
  * operation.
  */export const deleteIdentities = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-06-30", sdkId: "Cognito Identity", sigV4ServiceName: "cognito-identity", name: "AWSCognitoIdentityService.DeleteIdentities" }, DeleteIdentitiesInput, DeleteIdentitiesResponse, [InternalErrorException, InvalidParameterException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -313,13 +258,11 @@ export class InvalidIdentityPoolConfigurationException extends S.TaggedError<Inv
  * Deletes an identity pool. Once a pool is deleted, users will not be able to
  * authenticate with the pool.
  * 
- * 
  * You must use Amazon Web Services developer credentials to call this
  * operation.
  */export const deleteIdentityPool = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-06-30", sdkId: "Cognito Identity", sigV4ServiceName: "cognito-identity", name: "AWSCognitoIdentityService.DeleteIdentityPool" }, DeleteIdentityPoolInput, S.Struct({}), [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists all of the Cognito identity pools registered for your account.
- * 
  * 
  * You must use Amazon Web Services developer credentials to call this
  * operation.
@@ -331,7 +274,6 @@ export class InvalidIdentityPoolConfigurationException extends S.TaggedError<Inv
  * as part of the `Logins` map, which is linked to the identity pool. The developer
  * provider is the "domain" by which Cognito will refer to your users.
  * 
- * 
  * You can use `GetOpenIdTokenForDeveloperIdentity` to create a new identity
  * and to link new logins (that is, user credentials issued by a public provider or developer
  * provider) to an existing identity. When you want to create a new identity, the
@@ -339,7 +281,6 @@ export class InvalidIdentityPoolConfigurationException extends S.TaggedError<Inv
  * existing authenticated/unauthenticated identity, you can do so by providing the existing
  * `IdentityId`. This API will create the identity in the specified
  * `IdentityPoolId`.
- * 
  * 
  * You must use Amazon Web Services developer credentials to call this
  * operation.
@@ -349,12 +290,10 @@ export class InvalidIdentityPoolConfigurationException extends S.TaggedError<Inv
  * validated against supported login providers. If the token is for
  * `cognito-identity.amazonaws.com`, it will be passed through to Security Token Service with the appropriate role for the token.
  * 
- * 
  * This is a public API. You do not need any credentials to call this API.
  */export const getCredentialsForIdentity = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-06-30", sdkId: "Cognito Identity", sigV4ServiceName: "cognito-identity", name: "AWSCognitoIdentityService.GetCredentialsForIdentity" }, GetCredentialsForIdentityInput, GetCredentialsForIdentityResponse, [ExternalServiceException, InternalErrorException, InvalidIdentityPoolConfigurationException, InvalidParameterException, NotAuthorizedException, ResourceConflictException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Sets the roles for an identity pool. These roles are used when making calls to GetCredentialsForIdentity action.
- * 
  * 
  * You must use Amazon Web Services developer credentials to call this
  * operation.

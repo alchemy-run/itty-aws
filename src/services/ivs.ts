@@ -140,7 +140,6 @@ export class StreamUnavailable extends S.TaggedError<StreamUnavailable>()("Strea
 /**
  * Deletes the specified channel and its associated stream keys.
  * 
- * 
  * If you try to delete a live channel, you will get an error (409 ConflictException). To
  * delete a channel that is live, call StopStream, wait for the Amazon
  * EventBridge "Stream End" event (to verify that the stream's state is no longer Live), then
@@ -156,7 +155,6 @@ export class StreamUnavailable extends S.TaggedError<StreamUnavailable>()("Strea
  */export const deletePlaybackRestrictionPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-07-14", uri: "/DeletePlaybackRestrictionPolicy", sdkId: "ivs", sigV4ServiceName: "ivs", name: "AmazonInteractiveVideoService.DeletePlaybackRestrictionPolicy" }, DeletePlaybackRestrictionPolicyRequest, S.Struct({}), [AccessDeniedException, ConflictException, PendingVerification, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the recording configuration for the specified ARN.
- * 
  * 
  * If you try to delete a recording configuration that is associated with a channel, you will
  * get an error (409 ConflictException). To avoid this, for all channels that reference the
@@ -206,9 +204,6 @@ export class StreamUnavailable extends S.TaggedError<StreamUnavailable>()("Strea
  * conjunction with DeleteStreamKey to prevent further streaming to a
  * channel.
  * 
- * 
- * 
- * 
  * Many streaming client-software libraries automatically reconnect a dropped RTMPS
  * session, so to stop the stream permanently, you may want to first revoke the
  * `streamKey` attached to the channel.
@@ -236,7 +231,6 @@ export class StreamUnavailable extends S.TaggedError<StreamUnavailable>()("Strea
  */export const createPlaybackRestrictionPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-07-14", uri: "/CreatePlaybackRestrictionPolicy", sdkId: "ivs", sigV4ServiceName: "ivs", name: "AmazonInteractiveVideoService.CreatePlaybackRestrictionPolicy" }, CreatePlaybackRestrictionPolicyRequest, CreatePlaybackRestrictionPolicyResponse, [AccessDeniedException, PendingVerification, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a stream key, used to initiate a stream, for the specified channel ARN.
- * 
  * 
  * Note that CreateChannel creates a stream key. If you subsequently use
  * CreateStreamKey on the same channel, it will fail because a stream key already exists and
@@ -289,15 +283,11 @@ export class StreamUnavailable extends S.TaggedError<StreamUnavailable>()("Strea
 /**
  * Creates a new recording configuration, used to enable recording to Amazon S3.
  * 
- * 
- * 
  * **Known issue:** In the us-east-1 region, if you use the
  * Amazon Web Services CLI to create a recording configuration, it returns success even if the
  * S3 bucket is in a different region. In this case, the `state` of the recording
  * configuration is `CREATE_FAILED` (instead of `ACTIVE`). (In other
  * regions, the CLI correctly returns failure if the bucket is in a different region.)
- * 
- * 
  * 
  * **Workaround:** Ensure that your S3 bucket is in the same
  * region as the recording configuration. If you create a recording configuration in a different

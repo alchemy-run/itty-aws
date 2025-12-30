@@ -279,9 +279,6 @@ export class GoneException extends S.TaggedError<GoneException>()("GoneException
 /**
  * Deletes the origination settings for the specified Amazon Chime SDK Voice Connector.
  * 
- * 
- * 
- * 
  * If emergency calling is configured for the Voice Connector, it must be
  * deleted prior to deleting the origination settings.
  */export const deleteVoiceConnectorOrigination = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-08-03", uri: "/voice-connectors/{VoiceConnectorId}/origination", method: "DELETE", sdkId: "Chime SDK Voice", sigV4ServiceName: "chime", name: "ChimeSDKTelephonyService.DeleteVoiceConnectorOrigination" }, DeleteVoiceConnectorOriginationRequest, S.Struct({}), [BadRequestException, ForbiddenException, NotFoundException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -293,9 +290,6 @@ export class GoneException extends S.TaggedError<GoneException>()("GoneException
  */export const deleteVoiceConnectorStreamingConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-08-03", uri: "/voice-connectors/{VoiceConnectorId}/streaming-configuration", method: "DELETE", sdkId: "Chime SDK Voice", sigV4ServiceName: "chime", name: "ChimeSDKTelephonyService.DeleteVoiceConnectorStreamingConfiguration" }, DeleteVoiceConnectorStreamingConfigurationRequest, S.Struct({}), [BadRequestException, ForbiddenException, NotFoundException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the termination settings for the specified Amazon Chime SDK Voice Connector.
- * 
- * 
- * 
  * 
  * If emergency calling is configured for the Voice Connector, it must be
  * deleted prior to deleting the termination settings.
@@ -336,9 +330,6 @@ export class GoneException extends S.TaggedError<GoneException>()("GoneException
  * Moves phone numbers into the
  * **Deletion queue**. Phone numbers must be disassociated from any users or Amazon Chime SDK Voice Connectors before they can be deleted.
  * 
- * 
- * 
- * 
  * Phone numbers remain in the
  * **Deletion queue** for 7 days before they are deleted permanently.
  */export const batchDeletePhoneNumber = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-08-03", uri: "/phone-numbers?operation=batch-delete", sdkId: "Chime SDK Voice", sigV4ServiceName: "chime", name: "ChimeSDKTelephonyService.BatchDeletePhoneNumber" }, BatchDeletePhoneNumberRequest, BatchDeletePhoneNumberResponse, [BadRequestException, ForbiddenException, NotFoundException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -347,7 +338,6 @@ export class GoneException extends S.TaggedError<GoneException>()("GoneException
  * **Deletion queue**. A phone number must
  * be disassociated from any users or Amazon Chime SDK Voice Connectors before it can be
  * deleted.
- * 
  * 
  * Deleted phone numbers remain in the
  * **Deletion queue** queue for 7 days before
@@ -401,9 +391,6 @@ export class GoneException extends S.TaggedError<GoneException>()("GoneException
  */export const getPhoneNumberOrder = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-08-03", uri: "/phone-number-orders/{PhoneNumberOrderId}", method: "GET", sdkId: "Chime SDK Voice", sigV4ServiceName: "chime", name: "ChimeSDKTelephonyService.GetPhoneNumberOrder" }, GetPhoneNumberOrderRequest, GetPhoneNumberOrderResponse, [BadRequestException, ForbiddenException, NotFoundException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets the Alexa Skill configuration for the SIP media application.
- * 
- * 
- * 
  * 
  * Due to changes made by the Amazon Alexa service, this API is no longer available for use. For more information, refer to
  * the Alexa Smart Properties page.
@@ -487,9 +474,6 @@ export class GoneException extends S.TaggedError<GoneException>()("GoneException
  * Using Amazon Chime SDK voice analytics
  * in the *Amazon Chime SDK Developer Guide*.
  * 
- * 
- * 
- * 
  * Before starting any voice tone analysis tasks, you must provide all notices and obtain all consents from the speaker as required under applicable privacy and biometrics laws, and as required under the
  * AWS service terms for the Amazon Chime SDK.
  */export const startVoiceToneAnalysisTask = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-08-03", uri: "/voice-connectors/{VoiceConnectorId}/voice-tone-analysis-tasks", sdkId: "Chime SDK Voice", sigV4ServiceName: "chime", name: "ChimeSDKTelephonyService.StartVoiceToneAnalysisTask" }, StartVoiceToneAnalysisTaskRequest, StartVoiceToneAnalysisTaskResponse, [AccessDeniedException, BadRequestException, ConflictException, ForbiddenException, GoneException, NotFoundException, ResourceLimitExceededException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException, UnprocessableEntityException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -504,10 +488,8 @@ export class GoneException extends S.TaggedError<GoneException>()("GoneException
  * specified phone number ID. You can update one phone number detail at a time. For
  * example, you can update either the product type, calling name, or phone number name in one action.
  * 
- * 
  * For numbers outside the U.S., you must use the Amazon Chime SDK SIP Media
  * Application Dial-In product type.
- * 
  * 
  * Updates to outbound calling names can take 72 hours to complete. Pending
  * updates to outbound calling names must be complete before you can request another
@@ -531,14 +513,10 @@ export class GoneException extends S.TaggedError<GoneException>()("GoneException
 /**
  * Updates the specified voice profile’s voice print and refreshes its expiration timestamp.
  * 
- * 
- * 
- * 
  * As a condition of using this feature, you acknowledge that the collection, use, storage, and retention of
  * your caller’s biometric identifiers and biometric information (“biometric data”) in the form of a digital voiceprint
  * requires the caller’s informed consent via a written release. Such consent is required under various state laws,
  * including biometrics laws in Illinois, Texas, Washington and other state privacy laws.
- * 
  * 
  * You must provide a written release to each caller through a process that clearly reflects each caller’s informed
  * consent before using Amazon Chime SDK Voice Insights service, as required under the terms of your agreement
@@ -553,10 +531,6 @@ export class GoneException extends S.TaggedError<GoneException>()("GoneException
 /**
  * Updates phone number product types, calling names, or phone number names. You can update one attribute at a time for each
  * `UpdatePhoneNumberRequestItem`. For example, you can update the product type, the calling name, or phone name.
- * 
- * 
- * 
- * 
  * 
  * You cannot have a duplicate `phoneNumberId` in a request.
  */export const batchUpdatePhoneNumber = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-08-03", uri: "/phone-numbers?operation=batch-update", sdkId: "Chime SDK Voice", sigV4ServiceName: "chime", name: "ChimeSDKTelephonyService.BatchUpdatePhoneNumber" }, BatchUpdatePhoneNumberRequest, BatchUpdatePhoneNumberResponse, [BadRequestException, ForbiddenException, NotFoundException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -584,21 +558,14 @@ export class GoneException extends S.TaggedError<GoneException>()("GoneException
  * Voice Connector group by including `VoiceConnectorItems` in the
  * request.
  * 
- * 
  * You can include Voice Connectors from different AWS Regions in your group.
  * This creates a fault tolerant mechanism for fallback in case of availability events.
  */export const createVoiceConnectorGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-08-03", uri: "/voice-connector-groups", sdkId: "Chime SDK Voice", sigV4ServiceName: "chime", name: "ChimeSDKTelephonyService.CreateVoiceConnectorGroup" }, CreateVoiceConnectorGroupRequest, CreateVoiceConnectorGroupResponse, [AccessDeniedException, BadRequestException, ForbiddenException, ResourceLimitExceededException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a voice profile, which consists of an enrolled user and their latest voice print.
  * 
- * 
- * 
- * 
  * Before creating any voice profiles, you must provide all notices and obtain all consents from the speaker as required under applicable privacy and biometrics laws, and as required under the
  * AWS service terms for the Amazon Chime SDK.
- * 
- * 
- * 
  * 
  * For more information about voice profiles and voice analytics, see Using Amazon Chime SDK Voice Analytics
  * in the *Amazon Chime SDK Developer Guide*.
@@ -606,14 +573,8 @@ export class GoneException extends S.TaggedError<GoneException>()("GoneException
 /**
  * Creates a voice profile domain, a collection of voice profiles, their voice prints, and encrypted enrollment audio.
  * 
- * 
- * 
- * 
  * Before creating any voice profiles, you must provide all notices and obtain all consents from the speaker as required under applicable privacy and biometrics laws, and as required under the
  * AWS service terms for the Amazon Chime SDK.
- * 
- * 
- * 
  * 
  * For more information about voice profile domains, see Using Amazon Chime SDK Voice Analytics
  * in the *Amazon Chime SDK Developer Guide*.
@@ -661,9 +622,6 @@ export class GoneException extends S.TaggedError<GoneException>()("GoneException
 /**
  * Updates the Alexa Skill configuration for the SIP media application.
  * 
- * 
- * 
- * 
  * Due to changes made by the Amazon Alexa service, this API is no longer available for use. For more information, refer to
  * the Alexa Smart Properties page.
  */export const putSipMediaApplicationAlexaSkillConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-08-03", uri: "/sip-media-applications/{SipMediaApplicationId}/alexa-skill-configuration", method: "PUT", sdkId: "Chime SDK Voice", sigV4ServiceName: "chime", name: "ChimeSDKTelephonyService.PutSipMediaApplicationAlexaSkillConfiguration" }, PutSipMediaApplicationAlexaSkillConfigurationRequest, PutSipMediaApplicationAlexaSkillConfigurationResponse, [BadRequestException, ForbiddenException, NotFoundException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -678,9 +636,6 @@ export class GoneException extends S.TaggedError<GoneException>()("GoneException
  */export const putVoiceConnectorTermination = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-08-03", uri: "/voice-connectors/{VoiceConnectorId}/termination", method: "PUT", sdkId: "Chime SDK Voice", sigV4ServiceName: "chime", name: "ChimeSDKTelephonyService.PutVoiceConnectorTermination" }, PutVoiceConnectorTerminationRequest, PutVoiceConnectorTerminationResponse, [AccessDeniedException, BadRequestException, ForbiddenException, NotFoundException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts a speaker search task.
- * 
- * 
- * 
  * 
  * Before starting any speaker search tasks, you must provide all notices and obtain all consents from the speaker as required under applicable privacy and biometrics laws, and as required under the
  * AWS service terms for the Amazon Chime SDK.

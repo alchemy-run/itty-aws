@@ -195,9 +195,6 @@ export class ResourceLimitExceededException extends S.TaggedError<ResourceLimitE
  * Using Amazon Chime SDK voice analytics
  * in the *Amazon Chime SDK Developer Guide*.
  * 
- * 
- * 
- * 
  * Before starting any voice tone analysis tasks, you must provide all notices and obtain all consents from the speaker as required under applicable privacy and biometrics laws, and as required under the
  * AWS service terms for the Amazon Chime SDK.
  */export const startVoiceToneAnalysisTask = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-07-15", uri: "/media-insights-pipelines/{Identifier}/voice-tone-analysis-tasks?operation=start", sdkId: "Chime SDK Media Pipelines", sigV4ServiceName: "chime", name: "ChimeSDKMediaPipelinesService.StartVoiceToneAnalysisTask" }, StartVoiceToneAnalysisTaskRequest, StartVoiceToneAnalysisTaskResponse, [BadRequestException, ConflictException, ForbiddenException, NotFoundException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -249,9 +246,6 @@ export class ResourceLimitExceededException extends S.TaggedError<ResourceLimitE
 /**
  * Starts a speaker search task.
  * 
- * 
- * 
- * 
  * Before starting any speaker search tasks, you must provide all notices and obtain all consents from the speaker as required under applicable privacy and biometrics laws, and as required under the
  * AWS service terms for the Amazon Chime SDK.
  */export const startSpeakerSearchTask = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-07-15", uri: "/media-insights-pipelines/{Identifier}/speaker-search-tasks?operation=start", sdkId: "Chime SDK Media Pipelines", sigV4ServiceName: "chime", name: "ChimeSDKMediaPipelinesService.StartSpeakerSearchTask" }, StartSpeakerSearchTaskRequest, StartSpeakerSearchTaskResponse, [BadRequestException, ConflictException, ForbiddenException, NotFoundException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -265,20 +259,15 @@ export class ResourceLimitExceededException extends S.TaggedError<ResourceLimitE
  * Creates an Amazon Kinesis Video Stream pool for use with media stream
  * pipelines.
  * 
- * 
- * 
- * 
  * If a meeting uses an opt-in Region as its
  * MediaRegion,
  * the KVS stream must be in that same Region. For example, if a meeting uses the `af-south-1` Region, the KVS stream must also be in `af-south-1`. However, if the meeting uses a
  * Region that AWS turns on by default, the KVS stream can be in any available Region, including an opt-in Region. For example, if the meeting uses `ca-central-1`, the KVS stream can be in
  * `eu-west-2`, `us-east-1`, `af-south-1`, or any other Region that the Amazon Chime SDK supports.
  * 
- * 
  * To learn which AWS Region a meeting uses, call the GetMeeting API and
  * use the MediaRegion
  * parameter from the response.
- * 
  * 
  * For more information about opt-in Regions, refer to Available Regions in the
  * *Amazon Chime SDK Developer Guide*, and

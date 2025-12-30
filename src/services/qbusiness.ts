@@ -347,7 +347,6 @@ export class ExternalResourceException extends S.TaggedError<ExternalResourceExc
  * 
  * Amazon Q Business offers two subscription tiers: `Q_LITE` and `Q_BUSINESS`. Subscription tier determines feature access for the user. For more information on subscriptions and pricing tiers, see Amazon Q Business pricing.
  * 
- * 
  * For an example IAM role policy for assigning subscriptions, see Set up required permissions in the Amazon Q Business User Guide.
  */export const createSubscription = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-11-27", uri: "/applications/{applicationId}/subscriptions", sdkId: "QBusiness", sigV4ServiceName: "qbusiness", name: "ExpertQ.CreateSubscription" }, CreateSubscriptionRequest, CreateSubscriptionResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -431,7 +430,6 @@ export class ExternalResourceException extends S.TaggedError<ExternalResourceExc
  * - add custom attributes to documents in an Amazon Q Business index.
  * 
  * - attach an access control list to the documents added to an Amazon Q Business index.
- * 
  * 
  * You can see the progress of the deletion, and any error messages related to the process, by using CloudWatch.
  */export const batchPutDocument = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-11-27", uri: "/applications/{applicationId}/indices/{indexId}/documents", sdkId: "QBusiness", sigV4ServiceName: "qbusiness", name: "ExpertQ.BatchPutDocument" }, BatchPutDocumentRequest, BatchPutDocumentResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

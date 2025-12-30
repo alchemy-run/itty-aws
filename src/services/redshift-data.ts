@@ -72,8 +72,6 @@ export class BatchExecuteStatementException extends S.TaggedError<BatchExecuteSt
  * 
  * - When connecting to a cluster as a database user, specify the cluster identifier, the database name, and the database user name. Also, permission to call the `redshift:GetClusterCredentials` operation is required.
  * 
- * 
- * 
  * For more information about the Amazon Redshift Data API and CLI usage examples, see Using the Amazon Redshift Data API in the *Amazon Redshift Management Guide*.
  */export const describeTable = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-20", sdkId: "Redshift Data", sigV4ServiceName: "redshift-data", name: "RedshiftData.DescribeTable" }, DescribeTableRequest, DescribeTableResponse, [DatabaseConnectionException, InternalServerException, QueryTimeoutException, ResourceNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -99,8 +97,6 @@ export class BatchExecuteStatementException extends S.TaggedError<BatchExecuteSt
  * 
  * - When connecting to a cluster as a database user, specify the cluster identifier, the database name, and the database user name. Also, permission to call the `redshift:GetClusterCredentials` operation is required.
  * 
- * 
- * 
  * For more information about the Amazon Redshift Data API and CLI usage examples, see Using the Amazon Redshift Data API in the *Amazon Redshift Management Guide*.
  */export const listDatabases = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-20", sdkId: "Redshift Data", sigV4ServiceName: "redshift-data", name: "RedshiftData.ListDatabases" }, ListDatabasesRequest, ListDatabasesResponse, [DatabaseConnectionException, InternalServerException, QueryTimeoutException, ResourceNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -115,8 +111,6 @@ export class BatchExecuteStatementException extends S.TaggedError<BatchExecuteSt
  * - When connecting to a cluster as an IAM identity, specify the cluster identifier and the database name. The database user name is derived from the IAM identity. For example, `arn:iam::123456789012:user:foo` has the database user name `IAM:foo`. Also, permission to call the `redshift:GetClusterCredentialsWithIAM` operation is required.
  * 
  * - When connecting to a cluster as a database user, specify the cluster identifier, the database name, and the database user name. Also, permission to call the `redshift:GetClusterCredentials` operation is required.
- * 
- * 
  * 
  * For more information about the Amazon Redshift Data API and CLI usage examples, see Using the Amazon Redshift Data API in the *Amazon Redshift Management Guide*.
  */export const listSchemas = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-20", sdkId: "Redshift Data", sigV4ServiceName: "redshift-data", name: "RedshiftData.ListSchemas" }, ListSchemasRequest, ListSchemasResponse, [DatabaseConnectionException, InternalServerException, QueryTimeoutException, ResourceNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -139,8 +133,6 @@ export class BatchExecuteStatementException extends S.TaggedError<BatchExecuteSt
  * - When connecting to a cluster as an IAM identity, specify the cluster identifier and the database name. The database user name is derived from the IAM identity. For example, `arn:iam::123456789012:user:foo` has the database user name `IAM:foo`. Also, permission to call the `redshift:GetClusterCredentialsWithIAM` operation is required.
  * 
  * - When connecting to a cluster as a database user, specify the cluster identifier, the database name, and the database user name. Also, permission to call the `redshift:GetClusterCredentials` operation is required.
- * 
- * 
  * 
  * For more information about the Amazon Redshift Data API and CLI usage examples, see Using the Amazon Redshift Data API in the *Amazon Redshift Management Guide*.
  */export const listTables = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-20", sdkId: "Redshift Data", sigV4ServiceName: "redshift-data", name: "RedshiftData.ListTables" }, ListTablesRequest, ListTablesResponse, [DatabaseConnectionException, InternalServerException, QueryTimeoutException, ResourceNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -167,8 +159,6 @@ export class BatchExecuteStatementException extends S.TaggedError<BatchExecuteSt
  * 
  * - When connecting to a cluster as a database user, specify the cluster identifier, the database name, and the database user name. Also, permission to call the `redshift:GetClusterCredentials` operation is required.
  * 
- * 
- * 
  * For more information about the Amazon Redshift Data API and CLI usage examples, see Using the Amazon Redshift Data API in the *Amazon Redshift Management Guide*.
  */export const executeStatement = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-20", sdkId: "Redshift Data", sigV4ServiceName: "redshift-data", name: "RedshiftData.ExecuteStatement" }, ExecuteStatementInput, ExecuteStatementOutput, [ActiveSessionsExceededException, ActiveStatementsExceededException, ExecuteStatementException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -183,8 +173,6 @@ export class BatchExecuteStatementException extends S.TaggedError<BatchExecuteSt
  * - When connecting to a cluster as an IAM identity, specify the cluster identifier and the database name. The database user name is derived from the IAM identity. For example, `arn:iam::123456789012:user:foo` has the database user name `IAM:foo`. Also, permission to call the `redshift:GetClusterCredentialsWithIAM` operation is required.
  * 
  * - When connecting to a cluster as a database user, specify the cluster identifier, the database name, and the database user name. Also, permission to call the `redshift:GetClusterCredentials` operation is required.
- * 
- * 
  * 
  * For more information about the Amazon Redshift Data API and CLI usage examples, see Using the Amazon Redshift Data API in the *Amazon Redshift Management Guide*.
  */export const batchExecuteStatement = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-20", sdkId: "Redshift Data", sigV4ServiceName: "redshift-data", name: "RedshiftData.BatchExecuteStatement" }, BatchExecuteStatementInput, BatchExecuteStatementOutput, [ActiveSessionsExceededException, ActiveStatementsExceededException, BatchExecuteStatementException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

@@ -407,10 +407,8 @@ export class FeaturedResultsConflictException extends S.TaggedError<FeaturedResu
  * Deletes a group so that all users that belong to the group can no
  * longer access documents only available to that group.
  * 
- * 
  * For example, after deleting the group "Summer Interns", all interns who belonged to
  * that group no longer see intern-only documents in their search results.
- * 
  * 
  * If you want to delete or replace users or sub groups of a group, you need to use the
  * `PutPrincipalMapping` operation. For example, if a user in the group
@@ -420,19 +418,14 @@ export class FeaturedResultsConflictException extends S.TaggedError<FeaturedResu
  * users or sub groups and input this list when calling
  * `PutPrincipalMapping`.
  * 
- * 
- * 
  * `DeletePrincipalMapping` is currently not supported in the Amazon Web Services GovCloud (US-West) region.
  */export const deletePrincipalMapping = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.DeletePrincipalMapping" }, DeletePrincipalMappingRequest, S.Struct({}), [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a block list used for query suggestions for an index.
  * 
- * 
  * A deleted block list might not take effect right away. Amazon Kendra
  * needs to refresh the entire suggestions list to add back the
  * queries that were previously blocked.
- * 
- * 
  * 
  * `DeleteQuerySuggestionsBlockList` is currently not supported in the
  * Amazon Web Services GovCloud (US-West) region.
@@ -458,20 +451,15 @@ export class FeaturedResultsConflictException extends S.TaggedError<FeaturedResu
 /**
  * Updates a block list used for query suggestions for an index.
  * 
- * 
  * Updates to a block list might not take effect right away. Amazon Kendra
  * needs to refresh the entire suggestions list to apply any updates to the
  * block list. Other changes not related to the block list apply immediately.
  * 
- * 
  * If a block list is updating, then you need to wait for the first update to
  * finish before submitting another update.
  * 
- * 
  * Amazon Kendra supports partial updates, so you only need to provide the fields
  * you want to update.
- * 
- * 
  * 
  * `UpdateQuerySuggestionsBlockList` is currently not supported in the
  * Amazon Web Services GovCloud (US-West) region.
@@ -482,7 +470,6 @@ export class FeaturedResultsConflictException extends S.TaggedError<FeaturedResu
 /**
  * Clears existing query suggestions from an index.
  * 
- * 
  * This deletes existing suggestions only, not the queries
  * in the query log. After you clear suggestions, Amazon Kendra learns
  * new suggestions based on new queries added to the query log
@@ -490,33 +477,25 @@ export class FeaturedResultsConflictException extends S.TaggedError<FeaturedResu
  * new suggestions, then please allow Amazon Kendra to collect
  * enough queries to learn new suggestions.
  * 
- * 
- * 
  * `ClearQuerySuggestions` is currently not supported in the
  * Amazon Web Services GovCloud (US-West) region.
  */export const clearQuerySuggestions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.ClearQuerySuggestions" }, ClearQuerySuggestionsRequest, S.Struct({}), [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a block list to exlcude certain queries from suggestions.
  * 
- * 
  * Any query that contains words or phrases specified in the block
  * list is blocked or filtered out from being shown as a suggestion.
- * 
  * 
  * You need to provide the file location of your block list text file
  * in your S3 bucket. In your text file, enter each block word or phrase
  * on a separate line.
  * 
- * 
  * For information on the current quota limits for block lists, see
  * Quotas
  * for Amazon Kendra.
  * 
- * 
- * 
  * `CreateQuerySuggestionsBlockList` is currently not supported in the
  * Amazon Web Services GovCloud (US-West) region.
- * 
  * 
  * For an example of creating a block list for query suggestions using the
  * Python SDK, see Query
@@ -525,7 +504,6 @@ export class FeaturedResultsConflictException extends S.TaggedError<FeaturedResu
 /**
  * Creates a thesaurus for an index. The thesaurus
  * contains a list of synonyms in Solr format.
- * 
  * 
  * For an example of adding a thesaurus file to an index, see
  * Adding
@@ -542,7 +520,6 @@ export class FeaturedResultsConflictException extends S.TaggedError<FeaturedResu
  * data source is already being deleted. While the data source is being deleted, the
  * `Status` field returned by a call to the `DescribeDataSource` API is
  * set to `DELETING`. For more information, see Deleting Data Sources.
- * 
  * 
  * Deleting an entire data source or re-syncing your index after deleting specific documents
  * from a data source could take up to an hour or more, depending on the number of documents you
@@ -577,11 +554,8 @@ export class FeaturedResultsConflictException extends S.TaggedError<FeaturedResu
  * Gets information about a block list used for query suggestions for
  * an index.
  * 
- * 
  * This is used to check the current settings that are applied to a
  * block list.
- * 
- * 
  * 
  * `DescribeQuerySuggestionsBlockList` is currently not supported in the
  * Amazon Web Services GovCloud (US-West) region.
@@ -604,8 +578,6 @@ export class FeaturedResultsConflictException extends S.TaggedError<FeaturedResu
  * Enables you to provide feedback to Amazon Kendra to improve the
  * performance of your index.
  * 
- * 
- * 
  * `SubmitFeedback` is currently not supported in the
  * Amazon Web Services GovCloud (US-West) region.
  */export const submitFeedback = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.SubmitFeedback" }, SubmitFeedbackRequest, S.Struct({}), [AccessDeniedException, InternalServerException, ResourceNotFoundException, ResourceUnavailableException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -619,7 +591,6 @@ export class FeaturedResultsConflictException extends S.TaggedError<FeaturedResu
  * filtering, where search results are filtered based on the user or their group access to
  * documents.
  * 
- * 
  * You can update an access control configuration you created without indexing all of
  * your documents again. For example, your index contains top-secret company documents that
  * only certain employees or users should access. You created an 'allow' access control
@@ -629,7 +600,6 @@ export class FeaturedResultsConflictException extends S.TaggedError<FeaturedResu
  * update the access control configuration to re-configure access control for your
  * documents as circumstances change.
  * 
- * 
  * You call the BatchPutDocument API to
  * apply the updated access control configuration, with the
  * `AccessControlConfigurationId` included in the Document
@@ -637,9 +607,6 @@ export class FeaturedResultsConflictException extends S.TaggedError<FeaturedResu
  * apply the `AccessControlConfigurationId` in the `.metadata.json`
  * file. Amazon Kendra currently only supports access control configuration for S3
  * data sources and documents indexed using the `BatchPutDocument` API.
- * 
- * 
- * 
  * 
  * You can't configure access control using
  * `CreateAccessControlConfiguration` for an Amazon Kendra Gen AI Enterprise
@@ -663,7 +630,6 @@ export class FeaturedResultsConflictException extends S.TaggedError<FeaturedResu
  * access information for your documents. This is useful for user context filtering, where
  * search results are filtered based on the user or their group access to documents.
  * 
- * 
  * You can use this to re-configure your existing document level access control without
  * indexing all of your documents again. For example, your index contains top-secret
  * company documents that only certain employees or users should access. One of these users
@@ -675,16 +641,12 @@ export class FeaturedResultsConflictException extends S.TaggedError<FeaturedResu
  * the 'top-secret' team. You can re-configure access control for your documents as
  * circumstances change.
  * 
- * 
  * To apply your access control configuration to certain documents, you call the BatchPutDocument API with the `AccessControlConfigurationId`
  * included in the Document object. If you use an S3 bucket as a data source, you update the
  * `.metadata.json` with the `AccessControlConfigurationId` and
  * synchronize your data source. Amazon Kendra currently only supports access control
  * configuration for S3 data sources and documents indexed using the
  * `BatchPutDocument` API.
- * 
- * 
- * 
  * 
  * You can't configure access control using
  * `CreateAccessControlConfiguration` for an Amazon Kendra Gen AI Enterprise
@@ -695,9 +657,7 @@ export class FeaturedResultsConflictException extends S.TaggedError<FeaturedResu
  * Creates a set of frequently ask questions (FAQs) using a specified FAQ file stored
  * in an Amazon S3 bucket.
  * 
- * 
  * Adding FAQs to an index is an asynchronous operation.
- * 
  * 
  * For an example of adding an FAQ to an index using Python and Java SDKs, see Using your FAQ file.
  */export const createFaq = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.CreateFaq" }, CreateFaqRequest, CreateFaqResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -720,18 +680,13 @@ export class FeaturedResultsConflictException extends S.TaggedError<FeaturedResu
  * apply after other actions, and useful error messages if an action could not be
  * processed.
  * 
- * 
- * 
  * `DescribePrincipalMapping` is currently not supported in the Amazon Web Services GovCloud (US-West) region.
  */export const describePrincipalMapping = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.DescribePrincipalMapping" }, DescribePrincipalMappingRequest, DescribePrincipalMappingResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets information on the settings of query suggestions for an index.
  * 
- * 
  * This is used to check the current settings applied
  * to query suggestions.
- * 
- * 
  * 
  * `DescribeQuerySuggestionsConfig` is currently not supported in the
  * Amazon Web Services GovCloud (US-West) region.
@@ -778,8 +733,6 @@ export class FeaturedResultsConflictException extends S.TaggedError<FeaturedResu
  * Provides a list of groups that are mapped to users before a given ordering or
  * timestamp identifier.
  * 
- * 
- * 
  * `ListGroupsOlderThanOrderingId` is currently not supported in the Amazon Web Services GovCloud (US-West) region.
  */export const listGroupsOlderThanOrderingId = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.ListGroupsOlderThanOrderingId" }, ListGroupsOlderThanOrderingIdRequest, ListGroupsOlderThanOrderingIdResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -788,12 +741,9 @@ export class FeaturedResultsConflictException extends S.TaggedError<FeaturedResu
 /**
  * Lists the block lists used for query suggestions for an index.
  * 
- * 
  * For information on the current quota limits for block lists, see
  * Quotas
  * for Amazon Kendra.
- * 
- * 
  * 
  * `ListQuerySuggestionsBlockLists` is currently not supported in the
  * Amazon Web Services GovCloud (US-West) region.
@@ -805,18 +755,15 @@ export class FeaturedResultsConflictException extends S.TaggedError<FeaturedResu
  * Maps users to their groups so that you only need to provide the user ID when you issue
  * the query.
  * 
- * 
  * You can also map sub groups to groups. For example, the group "Company Intellectual
  * Property Teams" includes sub groups "Research" and "Engineering". These sub groups
  * include their own list of users or people who work in these teams. Only users who work
  * in research and engineering, and therefore belong in the intellectual property group,
  * can see top-secret company documents in their search results.
  * 
- * 
  * This is useful for user context filtering, where search results are filtered based on
  * the user or their group access to documents. For more information, see Filtering on
  * user context.
- * 
  * 
  * If more than five `PUT` actions for a group are currently processing, a
  * validation exception is thrown.
@@ -825,7 +772,6 @@ export class FeaturedResultsConflictException extends S.TaggedError<FeaturedResu
  * Starts a synchronization job for a data source connector. If a synchronization job is
  * already in progress, Amazon Kendra returns a `ResourceInUseException`
  * exception.
- * 
  * 
  * Re-syncing your data source with your index after modifying, adding, or deleting
  * documents from your data source respository could take up to an hour or more, depending on
@@ -844,23 +790,17 @@ export class FeaturedResultsConflictException extends S.TaggedError<FeaturedResu
 /**
  * Updates the settings of query suggestions for an index.
  * 
- * 
  * Amazon Kendra supports partial updates, so you only need to provide
  * the fields you want to update.
  * 
- * 
  * If an update is currently processing, you
  * need to wait for the update to finish before making another update.
- * 
  * 
  * Updates to query suggestions settings might not take effect right away.
  * The time for your updated settings to take effect depends on the updates
  * made and the number of search queries in your index.
  * 
- * 
  * You can still enable/disable query suggestions at any time.
- * 
- * 
  * 
  * `UpdateQuerySuggestionsConfig` is currently not supported in the
  * Amazon Web Services GovCloud (US-West) region.
@@ -876,14 +816,12 @@ export class FeaturedResultsConflictException extends S.TaggedError<FeaturedResu
  * Removes one or more documents from an index. The documents must have been added with
  * the `BatchPutDocument` API.
  * 
- * 
  * The documents are deleted asynchronously. You can see the progress of the deletion by
  * using Amazon Web Services
  * CloudWatch. Any error messages related to the processing of the batch are sent to
  * your Amazon Web Services
  * CloudWatch log. You can also use the `BatchGetDocumentStatus` API to
  * monitor the progress of deleting your documents.
- * 
  * 
  * Deleting documents from an index using `BatchDeleteDocument` could take up
  * to an hour or more, depending on the number of documents you want to delete.
@@ -900,10 +838,8 @@ export class FeaturedResultsConflictException extends S.TaggedError<FeaturedResu
  * `DescribeIndex`. The `Status` field is set to `ACTIVE` when
  * the index is ready to use.
  * 
- * 
  * Once the index is active, you can index your documents using the
  * `BatchPutDocument` API or using one of the supported data sources.
- * 
  * 
  * For an example of creating an index and data source using the Python SDK, see Getting started with Python
  * SDK. For an example of creating an index and data source using the Java SDK, see
@@ -923,7 +859,6 @@ export class FeaturedResultsConflictException extends S.TaggedError<FeaturedResu
 /**
  * Retrieves relevant passages or text excerpts given an input query.
  * 
- * 
  * This API is similar to the Query API. However, by
  * default, the `Query` API only returns excerpt passages of up to 100 token
  * words. With the `Retrieve` API, you can retrieve longer passages of up to 200
@@ -934,49 +869,27 @@ export class FeaturedResultsConflictException extends S.TaggedError<FeaturedResu
  * `Retrieve` API, you can alternatively use the `Query` API and
  * its types of responses.
  * 
- * 
  * You can also do the following:
- * 
- * 
  * 
  * - Override boosting at the index level
  * 
- * 
- * 
  * - Filter based on document fields or attributes
  * 
- * 
- * 
  * - Filter based on the user or their group access to documents
- * 
- * 
  * 
  * - View the confidence score bucket for a retrieved passage result. The
  * confidence bucket provides a relative ranking that indicates how confident
  * Amazon Kendra is that the response is relevant to the query.
  * 
- * 
- * 
- * 
  * Confidence score buckets are currently available only for English.
- * 
- * 
- * 
- * 
- * 
- * 
  * 
  * You can also include certain fields in the response that might provide useful
  * additional information.
- * 
  * 
  * The `Retrieve` API shares the number of query capacity
  * units that you set for your index. For more information on what's included
  * in a single capacity unit and the default base capacity for an index, see Adjusting
  * capacity.
- * 
- * 
- * 
  * 
  * If you're using an Amazon Kendra Gen AI Enterprise Edition index, you can only use
  * `ATTRIBUTE_FILTER` to filter search results by user context. If
@@ -991,7 +904,6 @@ export class FeaturedResultsConflictException extends S.TaggedError<FeaturedResu
  * contains an exact match, then one or more specific documents are featured in the
  * search results.
  * 
- * 
  * You can create up to 50 sets of featured results per index. You can request to
  * increase this limit by contacting Support.
  */export const createFeaturedResultsSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.CreateFeaturedResultsSet" }, CreateFeaturedResultsSetRequest, CreateFeaturedResultsSetResponse, [AccessDeniedException, ConflictException, FeaturedResultsConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1002,12 +914,10 @@ export class FeaturedResultsConflictException extends S.TaggedError<FeaturedResu
  * Returns the indexing status for one or more documents submitted with the
  * BatchPutDocument API.
  * 
- * 
  * When you use the `BatchPutDocument` API, documents are indexed
  * asynchronously. You can use the `BatchGetDocumentStatus` API to get the
  * current status of a list of documents so that you can determine if they have been
  * successfully indexed.
- * 
  * 
  * You can also use the `BatchGetDocumentStatus` API to check the status of
  * the
@@ -1016,12 +926,10 @@ export class FeaturedResultsConflictException extends S.TaggedError<FeaturedResu
 /**
  * Adds one or more documents to an index.
  * 
- * 
  * The `BatchPutDocument` API enables you to ingest inline documents or a set
  * of documents stored in an Amazon S3 bucket. Use this API to ingest your text and
  * unstructured text into an index, add custom attributes to the documents, and to attach
  * an access control list to the documents added to the index.
- * 
  * 
  * The documents are indexed asynchronously. You can see the progress of the batch using
  * Amazon Web Services
@@ -1030,7 +938,6 @@ export class FeaturedResultsConflictException extends S.TaggedError<FeaturedResu
  * CloudWatch log. You can also use the `BatchGetDocumentStatus` API to
  * monitor the progress of indexing your documents.
  * 
- * 
  * For an example of ingesting inline documents using Python and Java SDKs, see Adding files
  * directly to an index.
  */export const batchPutDocument = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.BatchPutDocument" }, BatchPutDocumentRequest, BatchPutDocumentResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1038,15 +945,11 @@ export class FeaturedResultsConflictException extends S.TaggedError<FeaturedResu
  * Creates a data source connector that you want to use with an Amazon Kendra
  * index.
  * 
- * 
  * You specify a name, data source connector type and description for your data source. You
  * also specify configuration information for the data source connector.
  * 
- * 
- * 
  * `CreateDataSource` is a synchronous operation. The operation returns 200 if the
  * data source was successfully created. Otherwise, an exception is raised.
- * 
  * 
  * For an example of creating an index and data source using the Python SDK, see Getting started with Python
  * SDK. For an example of creating an index and data source using the Java SDK, see
@@ -1056,59 +959,37 @@ export class FeaturedResultsConflictException extends S.TaggedError<FeaturedResu
 /**
  * Fetches the queries that are suggested to your users.
  * 
- * 
- * 
  * `GetQuerySuggestions` is currently not supported in the
  * Amazon Web Services GovCloud (US-West) region.
  */export const getQuerySuggestions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.GetQuerySuggestions" }, GetQuerySuggestionsRequest, GetQuerySuggestionsResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Searches an index given an input query.
  * 
- * 
- * 
- * 
  * If you are working with large language models (LLMs) or implementing retrieval
  * augmented generation (RAG) systems, you can use Amazon Kendra's Retrieve API, which can return longer semantically relevant passages. We
  * recommend using the `Retrieve` API instead of filing a service limit increase
  * to increase the `Query` API document excerpt length.
- * 
- * 
- * 
  * 
  * You can configure boosting or relevance tuning at the query level to override boosting
  * at the index level, filter based on document fields/attributes and faceted search, and
  * filter based on the user or their group access to documents. You can also include certain
  * fields in the response that might provide useful additional information.
  * 
- * 
  * A query response contains three types of results.
- * 
- * 
  * 
  * - Relevant suggested answers. The answers can be either a text excerpt or table
  * excerpt. The answer can be highlighted in the excerpt.
  * 
- * 
- * 
  * - Matching FAQs or questions-answer from your FAQ file.
- * 
- * 
  * 
  * - Relevant documents. This result type includes an excerpt of the document with the
  * document title. The searched terms can be highlighted in the excerpt.
- * 
- * 
- * 
- * 
  * 
  * You can specify that the query return only one type of result using the
  * `QueryResultTypeFilter` parameter. Each query returns the 100 most relevant
  * results. If you filter result type to only question-answers, a maximum of four results are
  * returned. If you filter result type to only answers, a maximum of three results are
  * returned.
- * 
- * 
- * 
  * 
  * If you're using an Amazon Kendra Gen AI Enterprise Edition index, you can only use
  * `ATTRIBUTE_FILTER` to filter search results by user context. If you're

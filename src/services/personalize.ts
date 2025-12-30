@@ -292,24 +292,13 @@ export class InvalidNextTokenException extends S.TaggedError<InvalidNextTokenExc
 /**
  * Stops creating a solution version that is in a state of CREATE_PENDING or CREATE IN_PROGRESS.
  * 
- * 
- * 
  * Depending on the current state of the solution version, the solution version state changes as follows:
- * 
- * 
  * 
  * - CREATE_PENDING > CREATE_STOPPED
  * 
- * 
  * or
  * 
- * 
- * 
  * - CREATE_IN_PROGRESS > CREATE_STOPPING > CREATE_STOPPED
- * 
- * 
- * 
- * 
  * 
  * You are billed for all of the training completed up
  * until you stop the solution version creation. You cannot resume creating a solution version once it has been stopped.
@@ -323,37 +312,21 @@ export class InvalidNextTokenException extends S.TaggedError<InvalidNextTokenExc
  * bucket, see Giving
  * Amazon Personalize Access to Amazon S3 Resources.
  * 
- * 
  * If you already created a recommender or deployed a custom solution version with a campaign, how new bulk records
  * influence recommendations depends on the domain use case or recipe that you use. For more information, see How new data influences
  * real-time recommendations.
- * 
- * 
- * 
  * 
  * By default, a dataset import job replaces any existing data in the
  * dataset that you imported in bulk. To add new records without replacing
  * existing data, specify INCREMENTAL for the import mode in the
  * CreateDatasetImportJob operation.
  * 
- * 
- * 
- * 
- * 
  * **Status**
- * 
- * 
  * 
  * A dataset import job can be in one of the following states:
  * 
- * 
- * 
  * - CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE
  * FAILED
- * 
- * 
- * 
- * 
  * 
  * To get the status of the import job, call DescribeDatasetImportJob, providing the Amazon Resource Name
  * (ARN) of the dataset import job. The dataset import is complete when the
@@ -361,24 +334,12 @@ export class InvalidNextTokenException extends S.TaggedError<InvalidNextTokenExc
  * includes a `failureReason` key, which describes why the job
  * failed.
  * 
- * 
- * 
- * 
  * Importing takes time. You must wait until the status shows as ACTIVE
  * before training a model using the dataset.
  * 
- * 
- * 
- * 
  * **Related APIs**
  * 
- * 
- * 
- * 
  * - ListDatasetImportJobs
- * 
- * 
- * 
  * 
  * - DescribeDatasetImportJob
  */export const createDatasetImportJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.CreateDatasetImportJob" }, CreateDatasetImportJobRequest, CreateDatasetImportJobResponse, [InvalidInputException, LimitExceededException, ResourceAlreadyExistsException, ResourceInUseException, ResourceNotFoundException, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -387,61 +348,30 @@ export class InvalidNextTokenException extends S.TaggedError<InvalidNextTokenExc
  * group using the
  * PutEvents API.
  * 
- * 
- * 
- * 
  * Only one event tracker can be associated with a dataset group. You will get
  * an error if you call `CreateEventTracker` using the same dataset group as an
  * existing event tracker.
- * 
- * 
- * 
  * 
  * When you create an event tracker, the response includes a tracking ID, which you pass as a parameter when you use the
  * PutEvents operation.
  * Amazon Personalize then appends the event data to the Item interactions dataset of the dataset group you specify
  * in your event tracker.
  * 
- * 
- * 
  * The event tracker can be in one of the following states:
- * 
- * 
  * 
  * - CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED
  * 
- * 
- * 
  * - DELETE PENDING > DELETE IN_PROGRESS
- * 
- * 
- * 
- * 
  * 
  * To get the status of the event tracker, call DescribeEventTracker.
  * 
- * 
- * 
- * 
  * The event tracker must be in the ACTIVE state before using the tracking ID.
- * 
- * 
- * 
  * 
  * **Related APIs**
  * 
- * 
- * 
- * 
  * - ListEventTrackers
  * 
- * 
- * 
- * 
  * - DescribeEventTracker
- * 
- * 
- * 
  * 
  * - DeleteEventTracker
  */export const createEventTracker = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.CreateEventTracker" }, CreateEventTrackerRequest, CreateEventTrackerResponse, [InvalidInputException, LimitExceededException, ResourceAlreadyExistsException, ResourceInUseException, ResourceNotFoundException, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -452,27 +382,16 @@ export class InvalidNextTokenException extends S.TaggedError<InvalidNextTokenExc
  * Creates an Amazon Personalize schema from the specified schema string. The schema you create
  * must be in Avro JSON format.
  * 
- * 
  * Amazon Personalize recognizes three schema variants. Each schema is associated with a dataset
  * type and has a set of required field and keywords. If you are creating a schema for a dataset in a Domain dataset group, you
  * provide the domain of the Domain dataset group.
  * You specify a schema when you call CreateDataset.
  * 
- * 
  * **Related APIs**
- * 
- * 
- * 
  * 
  * - ListSchemas
  * 
- * 
- * 
- * 
  * - DescribeSchema
- * 
- * 
- * 
  * 
  * - DeleteSchema
  */export const createSchema = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.CreateSchema" }, CreateSchemaRequest, CreateSchemaResponse, [InvalidInputException, LimitExceededException, ResourceAlreadyExistsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -482,79 +401,39 @@ export class InvalidNextTokenException extends S.TaggedError<InvalidNextTokenExc
  * `CreateSolutionVersion`. A new version of the solution is created every time you
  * call this operation.
  * 
- * 
- * 
  * **Status**
- * 
- * 
  * 
  * A solution version can be in one of the following states:
  * 
- * 
- * 
  * - CREATE PENDING
- * 
- * 
  * 
  * - CREATE IN_PROGRESS
  * 
- * 
- * 
  * - ACTIVE
- * 
- * 
  * 
  * - CREATE FAILED
  * 
- * 
- * 
  * - CREATE STOPPING
  * 
- * 
- * 
  * - CREATE STOPPED
- * 
- * 
- * 
- * 
  * 
  * To get the status of the version, call DescribeSolutionVersion. Wait
  * until the status shows as ACTIVE before calling `CreateCampaign`.
  * 
- * 
  * If the status shows as CREATE FAILED, the response includes a `failureReason`
  * key, which describes why the job failed.
  * 
- * 
  * **Related APIs**
- * 
- * 
- * 
  * 
  * - ListSolutionVersions
  * 
- * 
- * 
- * 
  * - DescribeSolutionVersion
- * 
- * 
- * 
  * 
  * - ListSolutions
  * 
- * 
- * 
- * 
  * - CreateSolution
  * 
- * 
- * 
- * 
  * - DescribeSolution
- * 
- * 
- * 
  * 
  * - DeleteSolution
  */export const createSolutionVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.CreateSolutionVersion" }, CreateSolutionVersionRequest, CreateSolutionVersionResponse, [InvalidInputException, LimitExceededException, ResourceAlreadyExistsException, ResourceInUseException, ResourceNotFoundException, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -576,15 +455,9 @@ export class InvalidNextTokenException extends S.TaggedError<InvalidNextTokenExc
  * Deletes a dataset group. Before you delete a dataset group, you must
  * delete the following:
  * 
- * 
- * 
  * - All associated event trackers.
  * 
- * 
- * 
  * - All associated solutions.
- * 
- * 
  * 
  * - All datasets in the dataset group.
  */export const deleteDatasetGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.DeleteDatasetGroup" }, DeleteDatasetGroupRequest, S.Struct({}), [InvalidInputException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -608,36 +481,18 @@ export class InvalidNextTokenException extends S.TaggedError<InvalidNextTokenExc
  * Updates a campaign to deploy a retrained solution version with an existing campaign, change your campaign's `minProvisionedTPS`,
  * or modify your campaign's configuration. For example, you can set `enableMetadataWithRecommendations` to true for an existing campaign.
  * 
- * 
- * 
  * To update a campaign to start automatically using the latest solution version, specify the following:
- * 
- * 
  * 
  * - For the `SolutionVersionArn` parameter, specify the Amazon Resource Name (ARN) of your solution in
  * `SolutionArn/$LATEST` format.
  * 
- * 
- * 
  * - In the `campaignConfig`, set `syncWithLatestSolutionVersion` to `true`.
- * 
- * 
- * 
- * 
- * 
  * 
  * To update a campaign, the campaign status must be ACTIVE or CREATE FAILED.
  * Check the campaign status using the DescribeCampaign operation.
  * 
- * 
- * 
- * 
  * You can still get recommendations from a campaign while an update is in progress.
  * The campaign will use the previous solution version and campaign configuration to generate recommendations until the latest campaign update status is `Active`.
- * 
- * 
- * 
- * 
  * 
  * For more information about updating a campaign, including code samples, see Updating a campaign.
  * For more information about campaigns, see Creating a campaign.
@@ -666,43 +521,27 @@ export class InvalidNextTokenException extends S.TaggedError<InvalidNextTokenExc
  * You incur campaign costs while it is active. To avoid unnecessary costs, make sure to delete the campaign when you are finished. For information about campaign
  * costs, see Amazon Personalize pricing.
  * 
- * 
- * 
- * 
  * Creates a campaign that deploys a solution version. When a client calls the
  * GetRecommendations
  * and
  * GetPersonalizedRanking
  * APIs, a campaign is specified in the request.
  * 
- * 
- * 
  * **Minimum Provisioned TPS and Auto-Scaling**
- * 
- * 
- * 
- * 
  * 
  * A high `minProvisionedTPS` will increase your cost. We recommend starting with 1 for `minProvisionedTPS` (the default). Track
  * your usage using Amazon CloudWatch metrics, and increase the `minProvisionedTPS`
  * as necessary.
- * 
- * 
- * 
- * 
  * 
  * When you create an Amazon Personalize campaign, you can specify the minimum provisioned transactions per second
  * (`minProvisionedTPS`) for the campaign. This is the baseline transaction throughput for the campaign provisioned by
  * Amazon Personalize. It sets the minimum billing charge for the campaign while it is active. A transaction is a single `GetRecommendations` or
  * `GetPersonalizedRanking` request. The default `minProvisionedTPS` is 1.
  * 
- * 
  * If your TPS increases beyond the `minProvisionedTPS`, Amazon Personalize auto-scales the provisioned capacity up
  * and down, but never below `minProvisionedTPS`.
  * There's a short time delay while the capacity is increased
  * that might cause loss of transactions. When your traffic reduces, capacity returns to the `minProvisionedTPS`.
- * 
- * 
  * 
  * You are charged for the
  * the minimum provisioned TPS or, if your requests exceed the `minProvisionedTPS`, the actual TPS.
@@ -710,59 +549,28 @@ export class InvalidNextTokenException extends S.TaggedError<InvalidNextTokenExc
  * We recommend starting with a low `minProvisionedTPS`, track
  * your usage using Amazon CloudWatch metrics, and then increase the `minProvisionedTPS` as necessary.
  * 
- * 
  * For more information about campaign costs, see Amazon Personalize pricing.
- * 
- * 
  * 
  * **Status**
  * 
- * 
- * 
  * A campaign can be in one of the following states:
- * 
- * 
  * 
  * - CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED
  * 
- * 
- * 
  * - DELETE PENDING > DELETE IN_PROGRESS
  * 
- * 
- * 
- * 
- * 
  * To get the campaign status, call DescribeCampaign.
- * 
- * 
- * 
  * 
  * Wait until the `status` of the campaign
  * is `ACTIVE` before asking the campaign for recommendations.
  * 
- * 
- * 
- * 
  * **Related APIs**
- * 
- * 
- * 
  * 
  * - ListCampaigns
  * 
- * 
- * 
- * 
  * - DescribeCampaign
  * 
- * 
- * 
- * 
  * - UpdateCampaign
- * 
- * 
- * 
  * 
  * - DeleteCampaign
  */export const createCampaign = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.CreateCampaign" }, CreateCampaignRequest, CreateCampaignResponse, [InvalidInputException, LimitExceededException, ResourceAlreadyExistsException, ResourceInUseException, ResourceNotFoundException, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -773,12 +581,8 @@ export class InvalidNextTokenException extends S.TaggedError<InvalidNextTokenExc
  * on the users’ data and no longer considers the users when generating user segments.
  * For more information about creating a data deletion job, see Deleting users.
  * 
- * 
- * 
  * - Your input file must be a CSV file with a single USER_ID column that lists the users IDs. For more information
  * about preparing the CSV file, see Preparing your data deletion file and uploading it to Amazon S3.
- * 
- * 
  * 
  * - To give Amazon Personalize permission to access your input CSV file of userIds, you must specify an IAM service role that has permission to
  * read from the data source. This role
@@ -787,46 +591,23 @@ export class InvalidNextTokenException extends S.TaggedError<InvalidNextTokenExc
  * bucket, see Giving
  * Amazon Personalize Access to Amazon S3 Resources.
  * 
- * 
- * 
- * 
- * 
- * 
  * After you create a job, it can take up to a day to delete all references to the users from datasets and models. Until the job completes,
  * Amazon Personalize continues to use the data when training. And if you use a User Segmentation recipe, the users might appear in user segments.
  * 
- * 
- * 
- * 
  * **Status**
- * 
- * 
  * 
  * A data deletion job can have one of the following statuses:
  * 
- * 
- * 
  * - PENDING > IN_PROGRESS > COMPLETED -or- FAILED
- * 
- * 
- * 
- * 
  * 
  * To get the status of the data deletion job, call DescribeDataDeletionJob API operation and specify the Amazon Resource Name
  * (ARN) of the job. If the status is FAILED, the response
  * includes a `failureReason` key, which describes why the job
  * failed.
  * 
- * 
  * **Related APIs**
  * 
- * 
- * 
- * 
  * - ListDataDeletionJobs
- * 
- * 
- * 
  * 
  * - DescribeDataDeletionJob
  */export const createDataDeletionJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.CreateDataDeletionJob" }, CreateDataDeletionJobRequest, CreateDataDeletionJobResponse, [InvalidInputException, LimitExceededException, ResourceAlreadyExistsException, ResourceInUseException, ResourceNotFoundException, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -835,75 +616,38 @@ export class InvalidNextTokenException extends S.TaggedError<InvalidNextTokenExc
  * Use CreateDatasetImportJob to import your training data to a
  * dataset.
  * 
- * 
  * There are 5 types of datasets:
- * 
- * 
  * 
  * - Item interactions
  * 
- * 
- * 
  * - Items
- * 
- * 
  * 
  * - Users
  * 
- * 
- * 
  * - Action interactions
  * 
- * 
- * 
  * - Actions
- * 
- * 
- * 
- * 
  * 
  * Each dataset type has an associated schema with required field types.
  * Only the `Item interactions` dataset is required in order to train a
  * model (also referred to as creating a solution).
  * 
- * 
  * A dataset can be in one of the following states:
- * 
- * 
  * 
  * - CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE
  * FAILED
  * 
- * 
- * 
  * - DELETE PENDING > DELETE IN_PROGRESS
- * 
- * 
- * 
- * 
  * 
  * To get the status of the dataset, call DescribeDataset.
  * 
- * 
  * **Related APIs**
- * 
- * 
- * 
  * 
  * - CreateDatasetGroup
  * 
- * 
- * 
- * 
  * - ListDatasets
  * 
- * 
- * 
- * 
  * - DescribeDataset
- * 
- * 
- * 
  * 
  * - DeleteDataset
  */export const createDataset = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.CreateDataset" }, CreateDatasetRequest, CreateDatasetResponse, [InvalidInputException, LimitExceededException, ResourceAlreadyExistsException, ResourceInUseException, ResourceNotFoundException, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -913,22 +657,12 @@ export class InvalidNextTokenException extends S.TaggedError<InvalidNextTokenExc
  * service-linked IAM role that gives Amazon Personalize `PutObject`
  * permissions for your Amazon S3 bucket. For information, see Exporting a dataset in the Amazon Personalize developer guide.
  * 
- * 
- * 
  * **Status**
- * 
- * 
  * 
  * A dataset export job can be in one of the following states:
  * 
- * 
- * 
  * - CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE
  * FAILED
- * 
- * 
- * 
- * 
  * 
  * To get the status of the export job, call DescribeDatasetExportJob, and specify the Amazon Resource Name
  * (ARN) of the dataset export job. The dataset export is complete when the
@@ -941,29 +675,15 @@ export class InvalidNextTokenException extends S.TaggedError<InvalidNextTokenExc
  * Amazon Personalize resources. A dataset group can contain at most three datasets, one
  * for each type of dataset:
  * 
- * 
- * 
  * - Item interactions
- * 
- * 
  * 
  * - Items
  * 
- * 
- * 
  * - Users
- * 
- * 
  * 
  * - Actions
  * 
- * 
- * 
  * - Action interactions
- * 
- * 
- * 
- * 
  * 
  * A dataset group can be a Domain dataset group, where you specify a
  * domain and use pre-configured resources like recommenders, or a
@@ -973,76 +693,37 @@ export class InvalidNextTokenException extends S.TaggedError<InvalidNextTokenExc
  * solutions and solution versions trained with recipes for custom use cases
  * and deployed with campaigns.
  * 
- * 
  * A dataset group can be in one of the following states:
- * 
- * 
  * 
  * - CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE
  * FAILED
  * 
- * 
- * 
  * - DELETE PENDING
- * 
- * 
- * 
- * 
  * 
  * To get the status of the dataset group, call DescribeDatasetGroup. If the status shows as CREATE FAILED, the
  * response includes a `failureReason` key, which describes why
  * the creation failed.
  * 
- * 
- * 
- * 
  * You must wait until the `status` of the dataset group is
  * `ACTIVE` before adding a dataset to the group.
- * 
- * 
- * 
  * 
  * You can specify an Key Management Service (KMS) key to encrypt the datasets in
  * the group. If you specify a KMS key, you must also include an Identity and Access Management
  * (IAM) role that has permission to access the key.
  * 
- * 
  * **APIs that require a dataset group ARN in the request**
- * 
- * 
- * 
  * 
  * - CreateDataset
  * 
- * 
- * 
- * 
  * - CreateEventTracker
- * 
- * 
- * 
  * 
  * - CreateSolution
  * 
- * 
- * 
- * 
- * 
- * 
  * **Related APIs**
- * 
- * 
- * 
  * 
  * - ListDatasetGroups
  * 
- * 
- * 
- * 
  * - DescribeDatasetGroup
- * 
- * 
- * 
  * 
  * - DeleteDatasetGroup
  */export const createDatasetGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.CreateDatasetGroup" }, CreateDatasetGroupRequest, CreateDatasetGroupResponse, [InvalidInputException, LimitExceededException, ResourceAlreadyExistsException, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1088,24 +769,13 @@ export class InvalidNextTokenException extends S.TaggedError<InvalidNextTokenExc
 /**
  * Describes a recipe.
  * 
- * 
  * A recipe contains three items:
- * 
- * 
  * 
  * - An algorithm that trains a model.
  * 
- * 
- * 
  * - Hyperparameters that govern the training.
  * 
- * 
- * 
  * - Feature transformation information for modifying the input data before training.
- * 
- * 
- * 
- * 
  * 
  * Amazon Personalize provides a set of predefined recipes. You specify a recipe when you create a
  * solution with the CreateSolution API.
@@ -1217,13 +887,10 @@ export class InvalidNextTokenException extends S.TaggedError<InvalidNextTokenExc
  * automatic training, and you can change the training frequency. For more information about updating a solution, see
  * Updating a solution.
  * 
- * 
  * A solution update can be in one of the
  * following states:
  * 
- * 
  * CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED
- * 
  * 
  * To get the status of a solution update, call the
  * DescribeSolution API operation and find the status
@@ -1233,53 +900,35 @@ export class InvalidNextTokenException extends S.TaggedError<InvalidNextTokenExc
  * Generates batch recommendations based on a list of items or users stored in Amazon S3
  * and exports the recommendations to an Amazon S3 bucket.
  * 
- * 
  * To generate batch recommendations, specify the ARN of a solution version and an Amazon S3 URI for the input and output data.
  * For user personalization, popular items, and personalized ranking solutions, the batch inference job generates a list of
  * recommended items for each user ID in the input file. For related items solutions, the job generates a list of recommended
  * items for each item ID in the input file.
  * 
- * 
  * For more information, see Creating a batch inference job
  * .
- * 
- * 
  * 
  * If you use the Similar-Items recipe, Amazon Personalize can add descriptive themes to batch recommendations.
  * To generate themes, set the job's mode to
  * `THEME_GENERATION` and specify the name of the field that contains item names in the
  * input data.
  * 
- * 
- * 
  * For more information about generating themes, see Batch recommendations with themes from Content Generator
  * .
- * 
- * 
  * 
  * You can't get batch recommendations with the Trending-Now or Next-Best-Action recipes.
  */export const createBatchInferenceJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.CreateBatchInferenceJob" }, CreateBatchInferenceJobRequest, CreateBatchInferenceJobResponse, [InvalidInputException, LimitExceededException, ResourceAlreadyExistsException, ResourceInUseException, ResourceNotFoundException, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes the given campaign, including its status.
  * 
- * 
  * A campaign can be in one of the following states:
- * 
- * 
  * 
  * - CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED
  * 
- * 
- * 
  * - DELETE PENDING > DELETE IN_PROGRESS
- * 
- * 
- * 
- * 
  * 
  * When the `status` is `CREATE FAILED`, the response includes the
  * `failureReason` key, which describes why.
- * 
  * 
  * For more information on campaigns, see CreateCampaign.
  */export const describeCampaign = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.DescribeCampaign" }, DescribeCampaignRequest, DescribeCampaignResponse, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1293,32 +942,19 @@ export class InvalidNextTokenException extends S.TaggedError<InvalidNextTokenExc
 /**
  * Describes the given recommender, including its status.
  * 
- * 
  * A recommender can be in one of the following states:
- * 
- * 
  * 
  * - CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED
  * 
- * 
- * 
  * - STOP PENDING > STOP IN_PROGRESS > INACTIVE > START PENDING > START IN_PROGRESS > ACTIVE
  * 
- * 
- * 
  * - DELETE PENDING > DELETE IN_PROGRESS
- * 
- * 
- * 
- * 
  * 
  * When the `status` is `CREATE FAILED`, the response includes the
  * `failureReason` key, which describes why.
  * 
- * 
  * The `modelMetrics` key is null when
  * the recommender is being created or deleted.
- * 
  * 
  * For more information on recommenders, see CreateRecommender.
  */export const describeRecommender = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.DescribeRecommender" }, DescribeRecommenderRequest, DescribeRecommenderResponse, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1335,21 +971,11 @@ export class InvalidNextTokenException extends S.TaggedError<InvalidNextTokenExc
  * GetRecommendations
  * request.
  * 
- * 
- * 
- * 
  * **Minimum recommendation requests per second**
- * 
- * 
- * 
- * 
  * 
  * A high `minRecommendationRequestsPerSecond` will increase your bill. We recommend starting with 1 for `minRecommendationRequestsPerSecond` (the default). Track
  * your usage using Amazon CloudWatch metrics, and increase the `minRecommendationRequestsPerSecond`
  * as necessary.
- * 
- * 
- * 
  * 
  * When you create a recommender, you can configure the recommender's minimum recommendation requests per second. The minimum recommendation requests per second
  * (`minRecommendationRequestsPerSecond`) specifies the baseline recommendation request throughput provisioned by
@@ -1357,16 +983,11 @@ export class InvalidNextTokenException extends S.TaggedError<InvalidNextTokenExc
  * Request throughput is measured in requests per second and Amazon Personalize uses your requests per second to derive
  * your requests per hour and the price of your recommender usage.
  * 
- * 
- * 
- * 
  * If your requests per second increases beyond
  * `minRecommendationRequestsPerSecond`, Amazon Personalize auto-scales the provisioned capacity up and down,
  * but never below `minRecommendationRequestsPerSecond`.
  * There's a short time delay while the capacity is increased that might cause loss of
  * requests.
- * 
- * 
  * 
  * Your bill is the greater of either the minimum requests per hour (based on minRecommendationRequestsPerSecond)
  * or the actual number of requests. The actual request throughput used is calculated as the average requests/second within a one-hour window.
@@ -1375,61 +996,28 @@ export class InvalidNextTokenException extends S.TaggedError<InvalidNextTokenExc
  * your usage using Amazon CloudWatch metrics, and then increase the `minRecommendationRequestsPerSecond`
  * as necessary.
  * 
- * 
- * 
- * 
  * **Status**
- * 
- * 
  * 
  * A recommender can be in one of the following states:
  * 
- * 
- * 
  * - CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED
- * 
- * 
  * 
  * - STOP PENDING > STOP IN_PROGRESS > INACTIVE > START PENDING > START IN_PROGRESS > ACTIVE
  * 
- * 
- * 
  * - DELETE PENDING > DELETE IN_PROGRESS
  * 
- * 
- * 
- * 
- * 
  * To get the recommender status, call DescribeRecommender.
- * 
- * 
- * 
  * 
  * Wait until the `status` of the recommender
  * is `ACTIVE` before asking the recommender for recommendations.
  * 
- * 
- * 
- * 
  * **Related APIs**
- * 
- * 
- * 
  * 
  * - ListRecommenders
  * 
- * 
- * 
- * 
  * - DescribeRecommender
  * 
- * 
- * 
- * 
  * - UpdateRecommender
- * 
- * 
- * 
  * 
  * - DeleteRecommender
  */export const createRecommender = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.CreateRecommender" }, CreateRecommenderRequest, CreateRecommenderResponse, [InvalidInputException, LimitExceededException, ResourceAlreadyExistsException, ResourceInUseException, ResourceNotFoundException, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1443,32 +1031,21 @@ export class InvalidNextTokenException extends S.TaggedError<InvalidNextTokenExc
  * For information about training
  * costs, see Amazon Personalize pricing.
  * 
- * 
- * 
- * 
  * Creates the configuration for training a model (creating a solution version). This configuration
  * includes the recipe to use for model training and optional training configuration, such as columns to use
  * in training and feature transformation parameters. For more information about configuring a solution, see Creating and configuring a solution.
- * 
- * 
- * 
  * 
  * By default, new solutions use automatic training to create solution versions every 7 days. You can change the training frequency.
  * Automatic solution version creation starts within one hour after the solution is ACTIVE. If you manually create a solution version within
  * the hour, the solution skips the first automatic training. For more information,
  * see Configuring automatic training.
  * 
- * 
- * 
  * To turn off automatic training, set `performAutoTraining` to false. If you turn off automatic training, you must manually create a solution version
  * by calling the CreateSolutionVersion operation.
- * 
  * 
  * After training starts, you can
  * get the solution version's Amazon Resource Name (ARN) with the ListSolutionVersions API operation.
  * To get its status, use the DescribeSolutionVersion.
- * 
- * 
  * 
  * After training completes you can evaluate model accuracy by calling
  * GetSolutionMetrics. When you are satisfied with the solution version, you
@@ -1476,75 +1053,33 @@ export class InvalidNextTokenException extends S.TaggedError<InvalidNextTokenExc
  * to a client through the
  * GetRecommendations API.
  * 
- * 
- * 
- * 
  * Amazon Personalize doesn't support configuring the `hpoObjective`
  * for solution hyperparameter optimization at this time.
  * 
- * 
- * 
- * 
- * 
  * **Status**
- * 
- * 
  * 
  * A solution can be in one of the following states:
  * 
- * 
- * 
  * - CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED
  * 
- * 
- * 
  * - DELETE PENDING > DELETE IN_PROGRESS
- * 
- * 
- * 
- * 
  * 
  * To get the status of the solution, call DescribeSolution. If you use
  * manual training, the status must be ACTIVE before you call `CreateSolutionVersion`.
  * 
- * 
  * **Related APIs**
- * 
- * 
- * 
  * 
  * - UpdateSolution
  * 
- * 
- * 
- * 
  * - ListSolutions
- * 
- * 
- * 
  * 
  * - CreateSolutionVersion
  * 
- * 
- * 
- * 
  * - DescribeSolution
- * 
- * 
- * 
  * 
  * - DeleteSolution
  * 
- * 
- * 
- * 
- * 
- * 
- * 
  * - ListSolutionVersions
- * 
- * 
- * 
  * 
  * - DescribeSolutionVersion
  */export const createSolution = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.CreateSolution" }, CreateSolutionRequest, CreateSolutionResponse, [InvalidInputException, LimitExceededException, ResourceAlreadyExistsException, ResourceInUseException, ResourceNotFoundException, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

@@ -23,13 +23,9 @@ export class MessageRejected extends S.TaggedError<MessageRejected>()("MessageRe
 /**
  * Updates the raw content of an in-transit email message, in MIME format.
  * 
- * 
  * This example describes how to update in-transit email message. For more information and examples for using this API, see
  * 
  * Updating message content with AWS Lambda.
- * 
- * 
- * 
  * 
  * Updates to an in-transit message only appear when you call `PutRawMessageContent` from an AWS Lambda function
  * configured with a synchronous

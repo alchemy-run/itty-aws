@@ -124,7 +124,6 @@ export class UnsupportedAddressException extends S.TaggedError<UnsupportedAddres
  * Returns information about the Snow Family service limit for your account, and also the
  * number of Snow devices your account has in use.
  * 
- * 
  * The default service limit for the number of Snow devices that you can have at one time
  * is 1. If you want to increase your service limit, contact Amazon Web Services Support.
  */export const getSnowballUsage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-30", sdkId: "Snowball", sigV4ServiceName: "snowball", name: "AWSIESnowballJobManagementService.GetSnowballUsage" }, GetSnowballUsageRequest, GetSnowballUsageResult, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -157,7 +156,6 @@ export class UnsupportedAddressException extends S.TaggedError<UnsupportedAddres
  * after this request has been made. To access the manifest file after 60 minutes have passed,
  * you'll have to make another call to the `GetJobManifest` action.
  * 
- * 
  * The manifest is an encrypted file that you can download after your job enters the
  * `WithCustomer` status. This is the only valid status for calling this API as the
  * manifest and `UnlockCode` code value are used for securing your device and should
@@ -165,12 +163,10 @@ export class UnsupportedAddressException extends S.TaggedError<UnsupportedAddres
  * `UnlockCode` code value, when you pass both values to the Snow device through the
  * Snowball client when the client is started for the first time.
  * 
- * 
  * As a best practice, we recommend that you don't save a copy of an
  * `UnlockCode` value in the same location as the manifest file for that job. Saving
  * these separately helps prevent unauthorized parties from gaining access to the Snow device
  * associated with that job.
- * 
  * 
  * The credentials of a given job, including its manifest file and unlock code, expire 360
  * days after the job is created.
@@ -180,14 +176,12 @@ export class UnsupportedAddressException extends S.TaggedError<UnsupportedAddres
  * `UnlockCode` value can be accessed for up to 360 days after the associated job
  * has been created.
  * 
- * 
  * The `UnlockCode` value is a 29-character code with 25 alphanumeric
  * characters and 4 hyphens. This code is used to decrypt the manifest file when it is passed
  * along with the manifest to the Snow device through the Snowball client when the client is
  * started for the first time. The only valid status for calling this API is
  * `WithCustomer` as the manifest and `Unlock` code values are used for
  * securing your device and should only be used when you have the device.
- * 
  * 
  * As a best practice, we recommend that you don't save a copy of the
  * `UnlockCode` in the same location as the manifest file for that job. Saving these
@@ -276,218 +270,78 @@ export class UnsupportedAddressException extends S.TaggedError<UnsupportedAddres
  * only need to provide the `clusterId` value; the other job attributes are inherited
  * from the cluster.
  * 
- * 
- * 
- * 
  * Only the Snowball; Edge device type is supported when ordering clustered jobs.
  * 
- * 
  * The device capacity is optional.
- * 
  * 
  * Availability of device types differ by Amazon Web Services Region. For more information
  * about Region availability, see Amazon Web Services Regional Services.
  * 
- * 
- * 
- * 
- * 
- * 
  * **Snow Family devices and their capacities.**
- * 
- * 
- * 
  * 
  * - Device type: **SNC1_SSD**
  * 
- * 
- * 
- * 
  * - Capacity: T14
  * 
- * 
- * 
  * - Description: Snowcone
- * 
- * 
- * 
- * 
- * 
- * 
- * 
  * 
  * - Device type: **SNC1_HDD**
  * 
- * 
- * 
- * 
  * - Capacity: T8
- * 
- * 
  * 
  * - Description: Snowcone
  * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
  * - Device type: **EDGE_S**
- * 
- * 
- * 
  * 
  * - Capacity: T98
  * 
- * 
- * 
  * - Description: Snowball Edge Storage Optimized for data transfer only
- * 
- * 
- * 
- * 
- * 
- * 
- * 
  * 
  * - Device type: **EDGE_CG**
  * 
- * 
- * 
- * 
  * - Capacity: T42
- * 
- * 
  * 
  * - Description: Snowball Edge Compute Optimized with GPU
  * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
  * - Device type: **EDGE_C**
- * 
- * 
- * 
  * 
  * - Capacity: T42
  * 
- * 
- * 
  * - Description: Snowball Edge Compute Optimized without GPU
- * 
- * 
- * 
- * 
- * 
- * 
- * 
  * 
  * - Device type: **EDGE**
  * 
- * 
- * 
- * 
  * - Capacity: T100
- * 
- * 
  * 
  * - Description: Snowball Edge Storage Optimized with EC2 Compute
  * 
- * 
- * 
- * 
- * 
- * 
- * 
  * This device is replaced with T98.
  * 
- * 
- * 
- * 
- * 
- * 
- * 
  * - Device type: **STANDARD**
- * 
- * 
- * 
  * 
  * - Capacity: T50
  * 
- * 
- * 
  * - Description: Original Snowball device
- * 
- * 
- * 
  * 
  * This device is only available in the Ningxia, Beijing, and Singapore Amazon Web Services Region
  * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
  * - Device type: **STANDARD**
- * 
- * 
- * 
  * 
  * - Capacity: T80
  * 
- * 
- * 
  * - Description: Original Snowball device
- * 
- * 
- * 
  * 
  * This device is only available in the Ningxia, Beijing, and Singapore Amazon Web Services Region.
  * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
  * - Snow Family device type: **RACK_5U_C**
- * 
- * 
- * 
  * 
  * - Capacity: T13
  * 
- * 
- * 
  * - Description: Snowblade.
- * 
- * 
- * 
- * 
- * 
  * 
  * - Device type: **V3_5S**
  * 
- * 
- * 
- * 
  * - Capacity: T240
- * 
- * 
  * 
  * - Description: Snowball Edge Storage Optimized 210TB
  */export const createJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-30", sdkId: "Snowball", sigV4ServiceName: "snowball", name: "AWSIESnowballJobManagementService.CreateJob" }, CreateJobRequest, CreateJobResult, [ClusterLimitExceededException, Ec2RequestFailedException, InvalidInputCombinationException, InvalidResourceException, KMSRequestFailedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

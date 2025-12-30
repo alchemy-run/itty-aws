@@ -95,14 +95,8 @@ export class AttachmentSetSizeLimitExceeded extends S.TaggedError<AttachmentSetS
  * parameter. The `communicationBody` value contains the text of the
  * communication.
  * 
- * 
- * 
- * 
- * 
  * - You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support
  * API.
- * 
- * 
  * 
  * - If you call the Amazon Web Services Support API from an account that doesn't have a
  * Business, Enterprise On-Ramp, or Enterprise Support plan, the
@@ -114,14 +108,8 @@ export class AttachmentSetSizeLimitExceeded extends S.TaggedError<AttachmentSetS
  * severity level for a case is also a field in the CaseDetails data type
  * that you include for a CreateCase request.
  * 
- * 
- * 
- * 
- * 
  * - You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support
  * API.
- * 
- * 
  * 
  * - If you call the Amazon Web Services Support API from an account that doesn't have a
  * Business, Enterprise On-Ramp, or Enterprise Support plan, the
@@ -132,31 +120,18 @@ export class AttachmentSetSizeLimitExceeded extends S.TaggedError<AttachmentSetS
  * Returns the refresh status of the Trusted Advisor checks that have the specified check
  * IDs. You can get the check IDs by calling the DescribeTrustedAdvisorChecks operation.
  * 
- * 
  * Some checks are refreshed automatically, and you can't return their refresh statuses
  * by using the `DescribeTrustedAdvisorCheckRefreshStatuses` operation. If you
  * call this operation for these checks, you might see an
  * `InvalidParameterValue` error.
  * 
- * 
- * 
- * 
- * 
  * - You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support
  * API.
- * 
- * 
  * 
  * - If you call the Amazon Web Services Support API from an account that doesn't have a
  * Business, Enterprise On-Ramp, or Enterprise Support plan, the
  * `SubscriptionRequiredException` error message appears. For
  * information about changing your support plan, see Amazon Web Services Support.
- * 
- * 
- * 
- * 
- * 
- * 
  * 
  * To call the Trusted Advisor operations in
  * the Amazon Web Services Support API, you must use the US East (N. Virginia) endpoint. Currently, the US West (Oregon) and Europe (Ireland)
@@ -167,34 +142,19 @@ export class AttachmentSetSizeLimitExceeded extends S.TaggedError<AttachmentSetS
  * Returns information about all available Trusted Advisor checks, including the name, ID,
  * category, description, and metadata. You must specify a language code.
  * 
- * 
  * The response contains a TrustedAdvisorCheckDescription object for
  * each check. You must set the Amazon Web Services Region to us-east-1.
  * 
- * 
- * 
- * 
- * 
  * - You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support API.
- * 
- * 
  * 
  * - If you call the Amazon Web Services Support API from an account that doesn't have a
  * Business, Enterprise On-Ramp, or Enterprise Support plan, the `SubscriptionRequiredException` error
  * message appears. For information about changing your support plan, see
  * Amazon Web Services Support.
  * 
- * 
- * 
  * - The names and descriptions for Trusted Advisor checks are subject to change. We
  * recommend that you specify the check ID in your code to uniquely identify a
  * check.
- * 
- * 
- * 
- * 
- * 
- * 
  * 
  * To call the Trusted Advisor operations in
  * the Amazon Web Services Support API, you must use the US East (N. Virginia) endpoint. Currently, the US West (Oregon) and Europe (Ireland)
@@ -205,29 +165,16 @@ export class AttachmentSetSizeLimitExceeded extends S.TaggedError<AttachmentSetS
  * Returns the results for the Trusted Advisor check summaries for the check IDs that you
  * specified. You can get the check IDs by calling the DescribeTrustedAdvisorChecks operation.
  * 
- * 
  * The response contains an array of TrustedAdvisorCheckSummary
  * objects.
  * 
- * 
- * 
- * 
- * 
  * - You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support
  * API.
- * 
- * 
  * 
  * - If you call the Amazon Web Services Support API from an account that doesn't have a
  * Business, Enterprise On-Ramp, or Enterprise Support plan, the
  * `SubscriptionRequiredException` error message appears. For
  * information about changing your support plan, see Amazon Web Services Support.
- * 
- * 
- * 
- * 
- * 
- * 
  * 
  * To call the Trusted Advisor operations in
  * the Amazon Web Services Support API, you must use the US East (N. Virginia) endpoint. Currently, the US West (Oregon) and Europe (Ireland)
@@ -239,34 +186,20 @@ export class AttachmentSetSizeLimitExceeded extends S.TaggedError<AttachmentSetS
  * check IDs by calling the DescribeTrustedAdvisorChecks
  * operation.
  * 
- * 
  * Some checks are refreshed automatically. If you call the
  * `RefreshTrustedAdvisorCheck` operation to refresh them, you might see
  * the `InvalidParameterValue` error.
  * 
- * 
  * The response contains a TrustedAdvisorCheckRefreshStatus
  * object.
  * 
- * 
- * 
- * 
- * 
  * - You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support
  * API.
- * 
- * 
  * 
  * - If you call the Amazon Web Services Support API from an account that doesn't have a
  * Business, Enterprise On-Ramp, or Enterprise Support plan, the
  * `SubscriptionRequiredException` error message appears. For
  * information about changing your support plan, see Amazon Web Services Support.
- * 
- * 
- * 
- * 
- * 
- * 
  * 
  * To call the Trusted Advisor operations in
  * the Amazon Web Services Support API, you must use the US East (N. Virginia) endpoint. Currently, the US West (Oregon) and Europe (Ireland)
@@ -277,14 +210,8 @@ export class AttachmentSetSizeLimitExceeded extends S.TaggedError<AttachmentSetS
  * Resolves a support case. This operation takes a `caseId` and returns the
  * initial and final state of the case.
  * 
- * 
- * 
- * 
- * 
  * - You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support
  * API.
- * 
- * 
  * 
  * - If you call the Amazon Web Services Support API from an account that doesn't have a
  * Business, Enterprise On-Ramp, or Enterprise Support plan, the
@@ -296,39 +223,23 @@ export class AttachmentSetSizeLimitExceeded extends S.TaggedError<AttachmentSetS
  * in the Amazon Web Services Support Center Create
  * Case page.
  * 
- * 
  * The Amazon Web Services Support API doesn't support requesting service limit increases. You can submit a
  * service limit increase in the following ways:
  * 
- * 
- * 
  * - Submit a request from the Amazon Web Services Support Center Create Case page.
  * 
- * 
- * 
  * - Use the Service Quotas RequestServiceQuotaIncrease operation.
- * 
- * 
- * 
- * 
  * 
  * A successful `CreateCase` request returns an Amazon Web Services Support case number. You can use
  * the DescribeCases operation and specify the case number to get
  * existing Amazon Web Services Support cases. After you create a case, use the AddCommunicationToCase operation to add additional communication or
  * attachments to an existing case.
  * 
- * 
  * The `caseId` is separate from the `displayId` that appears in
  * the Amazon Web Services Support Center. Use the DescribeCases operation to get the `displayId`.
  * 
- * 
- * 
- * 
- * 
  * - You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support
  * API.
- * 
- * 
  * 
  * - If you call the Amazon Web Services Support API from an account that doesn't have a
  * Business, Enterprise On-Ramp, or Enterprise Support plan, the
@@ -342,14 +253,8 @@ export class AttachmentSetSizeLimitExceeded extends S.TaggedError<AttachmentSetS
  * Attachment IDs are returned in the AttachmentDetails objects that are
  * returned by the DescribeCommunications operation.
  * 
- * 
- * 
- * 
- * 
  * - You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support
  * API.
- * 
- * 
  * 
  * - If you call the Amazon Web Services Support API from an account that doesn't have a
  * Business, Enterprise On-Ramp, or Enterprise Support plan, the
@@ -363,33 +268,18 @@ export class AttachmentSetSizeLimitExceeded extends S.TaggedError<AttachmentSetS
  * `includeCommunications` parameters to specify how much information to
  * return.
  * 
- * 
  * The response returns the following in JSON format:
  * 
- * 
- * 
  * - One or more CaseDetails data types.
- * 
- * 
  * 
  * - One or more `nextToken` values, which specify where to paginate the
  * returned records represented by the `CaseDetails` objects.
  * 
- * 
- * 
- * 
- * 
  * Case data is available for 12 months after creation. If a case was created more than
  * 12 months ago, a request might return an error.
  * 
- * 
- * 
- * 
- * 
  * - You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support
  * API.
- * 
- * 
  * 
  * - If you call the Amazon Web Services Support API from an account that doesn't have a
  * Business, Enterprise On-Ramp, or Enterprise Support plan, the
@@ -402,24 +292,16 @@ export class AttachmentSetSizeLimitExceeded extends S.TaggedError<AttachmentSetS
  * can use the `caseId` parameter to restrict the results to a specific
  * case.
  * 
- * 
  * Case data is available for 12 months after creation. If a case was created more than
  * 12 months ago, a request for data might cause an error.
- * 
  * 
  * You can use the `maxResults` and `nextToken` parameters to
  * control the pagination of the results. Set `maxResults` to the number of
  * cases that you want to display on each page, and use `nextToken` to specify
  * the resumption of pagination.
  * 
- * 
- * 
- * 
- * 
  * - You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support
  * API.
- * 
- * 
  * 
  * - If you call the Amazon Web Services Support API from an account that doesn't have a
  * Business, Enterprise On-Ramp, or Enterprise Support plan, the
@@ -432,14 +314,8 @@ export class AttachmentSetSizeLimitExceeded extends S.TaggedError<AttachmentSetS
  * `categoryCode`,
  * `issueType` and `serviceCode` used to retrieve the CreateCaseOptions.
  * 
- * 
- * 
- * 
- * 
  * - You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support
  * API.
- * 
- * 
  * 
  * - If you call the Amazon Web Services Support API from an account that doesn't have a
  * Business, Enterprise On-Ramp, or Enterprise Support plan, the
@@ -451,7 +327,6 @@ export class AttachmentSetSizeLimitExceeded extends S.TaggedError<AttachmentSetS
  * service. You then use service names and categories in your CreateCase
  * requests. Each Amazon Web Services service has its own set of categories.
  * 
- * 
  * The service codes and category codes correspond to the values that appear in the
  * **Service** and **Category** lists on the Amazon Web Services Support Center Create Case page. The values in those fields
  * don't necessarily match the service codes and categories returned by the
@@ -459,14 +334,8 @@ export class AttachmentSetSizeLimitExceeded extends S.TaggedError<AttachmentSetS
  * that the `DescribeServices` operation returns, so that you have the most
  * recent set of service and category codes.
  * 
- * 
- * 
- * 
- * 
  * - You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support
  * API.
- * 
- * 
  * 
  * - If you call the Amazon Web Services Support API from an account that doesn't have a
  * Business, Enterprise On-Ramp, or Enterprise Support plan, the
@@ -478,14 +347,8 @@ export class AttachmentSetSizeLimitExceeded extends S.TaggedError<AttachmentSetS
  * `issueType` and `serviceCode`. The returned supported languages will
  * include a ISO 639-1 code for the `language`, and the language display name.
  * 
- * 
- * 
- * 
- * 
  * - You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support
  * API.
- * 
- * 
  * 
  * - If you call the Amazon Web Services Support API from an account that doesn't have a
  * Business, Enterprise On-Ramp, or Enterprise Support plan, the
@@ -495,19 +358,12 @@ export class AttachmentSetSizeLimitExceeded extends S.TaggedError<AttachmentSetS
 /**
  * Adds one or more attachments to an attachment set.
  * 
- * 
  * An attachment set is a temporary container for attachments that you add to a case or
  * case communication. The set is available for 1 hour after it's created. The
  * `expiryTime` returned in the response is when the set expires.
  * 
- * 
- * 
- * 
- * 
  * - You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support
  * API.
- * 
- * 
  * 
  * - If you call the Amazon Web Services Support API from an account that doesn't have a
  * Business, Enterprise On-Ramp, or Enterprise Support plan, the
@@ -519,69 +375,34 @@ export class AttachmentSetSizeLimitExceeded extends S.TaggedError<AttachmentSetS
  * can get the check IDs by calling the DescribeTrustedAdvisorChecks
  * operation.
  * 
- * 
  * The response contains a TrustedAdvisorCheckResult object, which
  * contains these three objects:
  * 
- * 
- * 
  * - TrustedAdvisorCategorySpecificSummary
- * 
- * 
- * 
  * 
  * - TrustedAdvisorResourceDetail
  * 
- * 
- * 
- * 
  * - TrustedAdvisorResourcesSummary
  * 
- * 
- * 
- * 
- * 
- * 
  * In addition, the response contains these fields:
- * 
- * 
  * 
  * - **status** - The alert status of the check
  * can be `ok` (green), `warning` (yellow),
  * `error` (red), or `not_available`.
  * 
- * 
- * 
  * - **timestamp** - The time of the last refresh
  * of the check.
- * 
- * 
  * 
  * - **checkId** - The unique identifier for the
  * check.
  * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
  * - You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support
  * API.
- * 
- * 
  * 
  * - If you call the Amazon Web Services Support API from an account that doesn't have a
  * Business, Enterprise On-Ramp, or Enterprise Support plan, the
  * `SubscriptionRequiredException` error message appears. For
  * information about changing your support plan, see Amazon Web Services Support.
- * 
- * 
- * 
- * 
- * 
- * 
  * 
  * To call the Trusted Advisor operations in
  * the Amazon Web Services Support API, you must use the US East (N. Virginia) endpoint. Currently, the US West (Oregon) and Europe (Ireland)

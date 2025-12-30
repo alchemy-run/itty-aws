@@ -55,9 +55,6 @@ export class TooManyRequestsException extends S.TaggedError<TooManyRequestsExcep
 /**
  * Gets status information for an Cloud9 development environment.
  * 
- * 
- * 
- * 
  * Cloud9 is no longer available to new customers. Existing customers of
  * Cloud9 can continue to use the service as normal.
  * Learn more"
@@ -65,18 +62,9 @@ export class TooManyRequestsException extends S.TaggedError<TooManyRequestsExcep
 /**
  * Gets a list of Cloud9 development environment identifiers.
  * 
- * 
- * 
- * 
  * Cloud9 is no longer available to new customers. Existing customers of
  * Cloud9 can continue to use the service as normal.
  * Learn more"
- * 
- * 
- * 
- * 
- * 
- * 
  * 
  * Cloud9 is no longer available to new customers. Existing customers of
  * Cloud9 can continue to use the service as normal.
@@ -85,9 +73,6 @@ export class TooManyRequestsException extends S.TaggedError<TooManyRequestsExcep
 /**
  * Gets a list of the tags associated with an Cloud9 development environment.
  * 
- * 
- * 
- * 
  * Cloud9 is no longer available to new customers. Existing customers of
  * Cloud9 can continue to use the service as normal.
  * Learn more"
@@ -95,18 +80,9 @@ export class TooManyRequestsException extends S.TaggedError<TooManyRequestsExcep
 /**
  * Adds tags to an Cloud9 development environment.
  * 
- * 
- * 
- * 
  * Cloud9 is no longer available to new customers. Existing customers of
  * Cloud9 can continue to use the service as normal.
  * Learn more"
- * 
- * 
- * 
- * 
- * 
- * 
  * 
  * Tags that you add to an Cloud9 environment by using this method will NOT be
  * automatically propagated to underlying resources.
@@ -114,18 +90,12 @@ export class TooManyRequestsException extends S.TaggedError<TooManyRequestsExcep
 /**
  * Removes tags from an Cloud9 development environment.
  * 
- * 
- * 
- * 
  * Cloud9 is no longer available to new customers. Existing customers of
  * Cloud9 can continue to use the service as normal.
  * Learn more"
  */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-23", sdkId: "Cloud9", sigV4ServiceName: "cloud9", name: "AWSCloud9WorkspaceManagementService.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [BadRequestException, ConcurrentAccessException, InternalServerErrorException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Changes the settings of an existing Cloud9 development environment.
- * 
- * 
- * 
  * 
  * Cloud9 is no longer available to new customers. Existing customers of
  * Cloud9 can continue to use the service as normal.
@@ -135,9 +105,6 @@ export class TooManyRequestsException extends S.TaggedError<TooManyRequestsExcep
  * Changes the settings of an existing environment member for an Cloud9 development
  * environment.
  * 
- * 
- * 
- * 
  * Cloud9 is no longer available to new customers. Existing customers of
  * Cloud9 can continue to use the service as normal.
  * Learn more"
@@ -146,18 +113,12 @@ export class TooManyRequestsException extends S.TaggedError<TooManyRequestsExcep
  * Creates an Cloud9 development environment, launches an Amazon Elastic Compute Cloud (Amazon EC2) instance, and
  * then connects from the instance to the environment.
  * 
- * 
- * 
- * 
  * Cloud9 is no longer available to new customers. Existing customers of
  * Cloud9 can continue to use the service as normal.
  * Learn more"
  */export const createEnvironmentEC2 = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-23", sdkId: "Cloud9", sigV4ServiceName: "cloud9", name: "AWSCloud9WorkspaceManagementService.CreateEnvironmentEC2" }, CreateEnvironmentEC2Request, CreateEnvironmentEC2Result, [BadRequestException, ConflictException, ForbiddenException, InternalServerErrorException, LimitExceededException, NotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Adds an environment member to an Cloud9 development environment.
- * 
- * 
- * 
  * 
  * Cloud9 is no longer available to new customers. Existing customers of
  * Cloud9 can continue to use the service as normal.
@@ -167,18 +128,12 @@ export class TooManyRequestsException extends S.TaggedError<TooManyRequestsExcep
  * Deletes an Cloud9 development environment. If an Amazon EC2 instance is connected to the
  * environment, also terminates the instance.
  * 
- * 
- * 
- * 
  * Cloud9 is no longer available to new customers. Existing customers of
  * Cloud9 can continue to use the service as normal.
  * Learn more"
  */export const deleteEnvironment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-23", sdkId: "Cloud9", sigV4ServiceName: "cloud9", name: "AWSCloud9WorkspaceManagementService.DeleteEnvironment" }, DeleteEnvironmentRequest, DeleteEnvironmentResult, [BadRequestException, ConflictException, ForbiddenException, InternalServerErrorException, LimitExceededException, NotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes an environment member from a development environment.
- * 
- * 
- * 
  * 
  * Cloud9 is no longer available to new customers. Existing customers of
  * Cloud9 can continue to use the service as normal.
@@ -187,18 +142,12 @@ export class TooManyRequestsException extends S.TaggedError<TooManyRequestsExcep
 /**
  * Gets information about environment members for an Cloud9 development environment.
  * 
- * 
- * 
- * 
  * Cloud9 is no longer available to new customers. Existing customers of
  * Cloud9 can continue to use the service as normal.
  * Learn more"
  */export const describeEnvironmentMemberships = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-23", sdkId: "Cloud9", sigV4ServiceName: "cloud9", name: "AWSCloud9WorkspaceManagementService.DescribeEnvironmentMemberships" }, DescribeEnvironmentMembershipsRequest, DescribeEnvironmentMembershipsResult, [BadRequestException, ConflictException, ForbiddenException, InternalServerErrorException, LimitExceededException, NotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets information about Cloud9 development environments.
- * 
- * 
- * 
  * 
  * Cloud9 is no longer available to new customers. Existing customers of
  * Cloud9 can continue to use the service as normal.

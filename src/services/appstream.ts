@@ -357,23 +357,18 @@ export class DryRunOperationException extends S.TaggedError<DryRunOperationExcep
 /**
  * Adds or overwrites one or more tags for the specified WorkSpaces Applications resource. You can tag WorkSpaces Applications image builders, images, fleets, and stacks.
  * 
- * 
  * Each tag consists of a key and an optional value. If a resource already has a tag with the same key,
  * this operation updates its value.
  * 
- * 
  * To list the current tags for your resources, use ListTagsForResource.
  * To disassociate tags from your resources, use UntagResource.
- * 
  * 
  * For more information about tags, see Tagging Your Resources in the *Amazon WorkSpaces Applications Administration Guide*.
  */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-12-01", sdkId: "AppStream", sigV4ServiceName: "appstream", name: "PhotonAdminProxyService.TagResource" }, TagResourceRequest, TagResourceResponse, [InvalidAccountStatusException, LimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Disassociates one or more specified tags from the specified WorkSpaces Applications resource.
  * 
- * 
  * To list the current tags for your resources, use ListTagsForResource.
- * 
  * 
  * For more information about tags, see Tagging Your Resources in the *Amazon WorkSpaces Applications Administration Guide*.
  */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-12-01", sdkId: "AppStream", sigV4ServiceName: "appstream", name: "PhotonAdminProxyService.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -406,7 +401,6 @@ export class DryRunOperationException extends S.TaggedError<DryRunOperationExcep
  */export const deleteAppBlock = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-12-01", sdkId: "AppStream", sigV4ServiceName: "appstream", name: "PhotonAdminProxyService.DeleteAppBlock" }, DeleteAppBlockRequest, DeleteAppBlockResult, [ConcurrentModificationException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes an app block builder.
- * 
  * 
  * An app block builder can only be deleted when it has no association with an app
  * block.
@@ -442,11 +436,7 @@ export class DryRunOperationException extends S.TaggedError<DryRunOperationExcep
 /**
  * Retrieves a list that describes the UserStackAssociation objects. You must specify either or both of the following:
  * 
- * 
- * 
  * - The stack name
- * 
- * 
  * 
  * - The user name (email address of the user associated with the stack) and the authentication type for the user
  */export const describeUserStackAssociations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-12-01", sdkId: "AppStream", sigV4ServiceName: "appstream", name: "PhotonAdminProxyService.DescribeUserStackAssociations" }, DescribeUserStackAssociationsRequest, DescribeUserStackAssociationsResult, [InvalidParameterCombinationException, OperationNotPermittedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -462,7 +452,6 @@ export class DryRunOperationException extends S.TaggedError<DryRunOperationExcep
 /**
  * Retrieves a list of all tags for the specified WorkSpaces Applications resource. You can tag WorkSpaces Applications image builders, images, fleets, and stacks.
  * 
- * 
  * For more information about tags, see Tagging Your Resources in the *Amazon WorkSpaces Applications Administration Guide*.
  */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-12-01", sdkId: "AppStream", sigV4ServiceName: "appstream", name: "PhotonAdminProxyService.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -474,7 +463,6 @@ export class DryRunOperationException extends S.TaggedError<DryRunOperationExcep
 /**
  * Stops an app block builder.
  * 
- * 
  * Stopping an app block builder terminates the instance, and the instance state is not
  * persisted.
  */export const stopAppBlockBuilder = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-12-01", sdkId: "AppStream", sigV4ServiceName: "appstream", name: "PhotonAdminProxyService.StopAppBlockBuilder" }, StopAppBlockBuilderRequest, StopAppBlockBuilderResult, [ConcurrentModificationException, OperationNotPermittedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -483,7 +471,6 @@ export class DryRunOperationException extends S.TaggedError<DryRunOperationExcep
  */export const stopImageBuilder = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-12-01", sdkId: "AppStream", sigV4ServiceName: "appstream", name: "PhotonAdminProxyService.StopImageBuilder" }, StopImageBuilderRequest, StopImageBuilderResult, [ConcurrentModificationException, OperationNotPermittedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates an app block builder.
- * 
  * 
  * If the app block builder is in the `STARTING` or `STOPPING`
  * state, you can't update it. If the app block builder is in the `RUNNING`
@@ -502,37 +489,25 @@ export class DryRunOperationException extends S.TaggedError<DryRunOperationExcep
 /**
  * Updates the specified fleet.
  * 
- * 
  * If the fleet is in the `STOPPED` state, you can update any attribute except
  * the fleet name.
- * 
  * 
  * If the fleet is in the `RUNNING` state, you can update the following based
  * on the fleet type:
  * 
- * 
- * 
  * - Always-On and On-Demand fleet types
- * 
  * 
  * You can update the `DisplayName`, `ComputeCapacity`,
  * `ImageARN`, `ImageName`,
  * `IdleDisconnectTimeoutInSeconds`, and
  * `DisconnectTimeoutInSeconds` attributes.
  * 
- * 
- * 
  * - Elastic fleet type
- * 
  * 
  * You can update the `DisplayName`,
  * `IdleDisconnectTimeoutInSeconds`,
  * `DisconnectTimeoutInSeconds`, `MaxConcurrentSessions`, `SessionScriptS3Location`
  * and `UsbDeviceFilterStrings` attributes.
- * 
- * 
- * 
- * 
  * 
  * If the fleet is in the `STARTING` or `STOPPED` state, you can't update it.
  */export const updateFleet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-12-01", sdkId: "AppStream", sigV4ServiceName: "appstream", name: "PhotonAdminProxyService.UpdateFleet" }, UpdateFleetRequest, UpdateFleetResult, [ConcurrentModificationException, IncompatibleImageException, InvalidAccountStatusException, InvalidParameterCombinationException, InvalidRoleException, LimitExceededException, OperationNotPermittedException, RequestLimitExceededException, ResourceInUseException, ResourceNotAvailableException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -563,13 +538,11 @@ export class DryRunOperationException extends S.TaggedError<DryRunOperationExcep
 /**
  * Creates an app block.
  * 
- * 
  * App blocks are a WorkSpaces Applications resource that stores the details about the
  * virtual hard disk in an S3 bucket. It also stores the setup script with details about
  * how to mount the virtual hard disk. The virtual hard disk includes the application
  * binaries and other files necessary to launch your applications. Multiple applications
  * can be assigned to a single app block.
- * 
  * 
  * This is only supported for Elastic fleets.
  */export const createAppBlock = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-12-01", sdkId: "AppStream", sigV4ServiceName: "appstream", name: "PhotonAdminProxyService.CreateAppBlock" }, CreateAppBlockRequest, CreateAppBlockResult, [ConcurrentModificationException, LimitExceededException, OperationNotPermittedException, ResourceAlreadyExistsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -596,8 +569,6 @@ export class DryRunOperationException extends S.TaggedError<DryRunOperationExcep
  */export const describeAppLicenseUsage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-12-01", sdkId: "AppStream", sigV4ServiceName: "appstream", name: "PhotonAdminProxyService.DescribeAppLicenseUsage" }, DescribeAppLicenseUsageRequest, DescribeAppLicenseUsageResult, [InvalidParameterCombinationException, OperationNotPermittedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves a list that describes one or more specified Directory Config objects for WorkSpaces Applications, if the names for these objects are provided. Otherwise, all Directory Config objects in the account are described. These objects include the configuration information required to join fleets and image builders to Microsoft Active Directory domains.
- * 
- * 
  * 
  * Although the response syntax in this topic includes the account password, this password is not returned in the actual response.
  */export const describeDirectoryConfigs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-12-01", sdkId: "AppStream", sigV4ServiceName: "appstream", name: "PhotonAdminProxyService.DescribeDirectoryConfigs" }, DescribeDirectoryConfigsRequest, DescribeDirectoryConfigsResult, [ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -630,10 +601,8 @@ export class DryRunOperationException extends S.TaggedError<DryRunOperationExcep
 /**
  * Starts an app block builder.
  * 
- * 
  * An app block builder can only be started when it's associated with an app
  * block.
- * 
  * 
  * Starting an app block builder starts a new instance, which is equivalent to an elastic
  * fleet instance with application builder assistance functionality.
@@ -641,13 +610,11 @@ export class DryRunOperationException extends S.TaggedError<DryRunOperationExcep
 /**
  * Creates an application.
  * 
- * 
  * Applications are a WorkSpaces Applications resource that stores the details about how to
  * launch applications on Elastic fleet streaming instances. An application consists of the
  * launch details, icon, and display name. Applications are associated with an app block
  * that contains the application binaries and other files. The applications assigned to an
  * Elastic fleet are the applications users can launch.
- * 
  * 
  * This is only supported for Elastic fleets.
  */export const createApplication = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-12-01", sdkId: "AppStream", sigV4ServiceName: "appstream", name: "PhotonAdminProxyService.CreateApplication" }, CreateApplicationRequest, CreateApplicationResult, [ConcurrentModificationException, LimitExceededException, OperationNotPermittedException, ResourceAlreadyExistsException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -665,7 +632,6 @@ export class DryRunOperationException extends S.TaggedError<DryRunOperationExcep
 /**
  * Creates an image builder. An image builder is a virtual machine that is used to create an image.
  * 
- * 
  * The initial state of the builder is `PENDING`. When it is ready, the state is `RUNNING`.
  */export const createImageBuilder = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-12-01", sdkId: "AppStream", sigV4ServiceName: "appstream", name: "PhotonAdminProxyService.CreateImageBuilder" }, CreateImageBuilderRequest, CreateImageBuilderResult, [ConcurrentModificationException, IncompatibleImageException, InvalidAccountStatusException, InvalidParameterCombinationException, InvalidRoleException, LimitExceededException, OperationNotPermittedException, RequestLimitExceededException, ResourceAlreadyExistsException, ResourceNotAvailableException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -673,7 +639,6 @@ export class DryRunOperationException extends S.TaggedError<DryRunOperationExcep
  */export const createImportedImage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-12-01", sdkId: "AppStream", sigV4ServiceName: "appstream", name: "PhotonAdminProxyService.CreateImportedImage" }, CreateImportedImageRequest, CreateImportedImageResult, [DryRunOperationException, IncompatibleImageException, InvalidAccountStatusException, InvalidRoleException, LimitExceededException, OperationNotPermittedException, ResourceAlreadyExistsException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new image with the latest Windows operating system updates, driver updates, and WorkSpaces Applications agent software.
- * 
  * 
  * For more information, see the "Update an Image by Using
  * Managed WorkSpaces Applications Image Updates" section in Administer Your WorkSpaces Applications Images, in the *Amazon WorkSpaces Applications Administration Guide*.

@@ -254,7 +254,6 @@ export class ServiceUnavailableException extends S.TaggedError<ServiceUnavailabl
 /**
  * Deletes the DomainNameAccessAssociation resource.
  * 
- * 
  * Only the AWS account that created the DomainNameAccessAssociation resource can delete it. To stop an access association source in another AWS account from accessing your private custom domain name, use the RejectDomainNameAccessAssociation operation.
  */export const deleteDomainNameAccessAssociation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/domainnameaccessassociations/{domainNameAccessAssociationArn}", method: "DELETE", sdkId: "API Gateway", sigV4ServiceName: "apigateway", name: "BackplaneControlService.DeleteDomainNameAccessAssociation" }, DeleteDomainNameAccessAssociationRequest, S.Struct({}), [BadRequestException, ConflictException, NotFoundException, TooManyRequestsException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -353,7 +352,6 @@ export class ServiceUnavailableException extends S.TaggedError<ServiceUnavailabl
  */export const putRestApi = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/restapis/{restApiId}", method: "PUT", sdkId: "API Gateway", sigV4ServiceName: "apigateway", name: "BackplaneControlService.PutRestApi" }, PutRestApiRequest, RestApi, [BadRequestException, ConflictException, LimitExceededException, NotFoundException, TooManyRequestsException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Rejects a domain name access association with a private custom domain name.
- * 
  * 
  * To reject a domain name access association with an access association source in another AWS account, use this operation. To remove a domain name access association with an access association source in your own account, use the DeleteDomainNameAccessAssociation operation.
  */export const rejectDomainNameAccessAssociation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/rejectdomainnameaccessassociations", sdkId: "API Gateway", sigV4ServiceName: "apigateway", name: "BackplaneControlService.RejectDomainNameAccessAssociation" }, RejectDomainNameAccessAssociationRequest, S.Struct({}), [BadRequestException, ConflictException, NotFoundException, TooManyRequestsException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

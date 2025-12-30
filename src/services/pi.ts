@@ -120,10 +120,6 @@ export class NotAuthorizedException extends S.TaggedError<NotAuthorizedException
 /**
  * For a specific time period, retrieve the top `N` dimension keys for a metric.
  * 
- * 
- * 
- * 
- * 
  * Each response element returns a maximum of 500 bytes. For larger elements, such as SQL statements,
  * only the first 500 bytes are returned.
  */export const describeDimensionKeys = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-02-27", sdkId: "PI", sigV4ServiceName: "pi", name: "PerformanceInsightsv20180227.DescribeDimensionKeys" }, DescribeDimensionKeysRequest, DescribeDimensionKeysResponse, [InternalServiceError, InvalidArgumentException, NotAuthorizedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -131,9 +127,6 @@ export class NotAuthorizedException extends S.TaggedError<NotAuthorizedException
  * Retrieve Performance Insights metrics for a set of data sources over a time period. You can provide
  * specific dimension groups and dimensions, and provide filtering criteria for each group. You must specify an aggregate function for
  * each metric.
- * 
- * 
- * 
  * 
  * Each response element returns a maximum of 500 bytes. For larger elements, such as SQL statements,
  * only the first 500 bytes are returned.

@@ -34,7 +34,6 @@ export class ResourceNotFoundException extends S.TaggedError<ResourceNotFoundExc
 /**
  * For use by AWS Ground Station Agent and shouldn't be called directly.
  * 
- * 
  * Gets a presigned URL for uploading agent task response logs.
  */export const getAgentTaskResponseUrl = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-05-23", uri: "/agentResponseUrl/{agentId}/{taskId}", method: "GET", sdkId: "GroundStation", sigV4ServiceName: "groundstation", name: "GroundStation.GetAgentTaskResponseUrl" }, GetAgentTaskResponseUrlRequest, GetAgentTaskResponseUrlResponse, [DependencyException, InvalidParameterException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**

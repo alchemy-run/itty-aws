@@ -204,7 +204,6 @@ export class ContentTooLargeException extends S.TaggedError<ContentTooLargeExcep
 /**
  * Creates a presigned URL for an S3 POST operation to upload a file. You can use this URL to set a default file for a `FileUploadCard` in a Q App definition or to provide a file for a single Q App run. The `scope` parameter determines how the file will be used, either at the app definition level or the app session level.
  * 
- * 
  * The IAM permissions are derived from the `qapps:ImportDocument` action. For more information on the IAM policy for Amazon Q Apps, see IAM permissions for using Amazon Q Apps.
  */export const createPresignedUrl = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-11-27", uri: "/apps.createPresignedUrl", sdkId: "QApps", sigV4ServiceName: "qapps", name: "QAppsService.CreatePresignedUrl" }, CreatePresignedUrlInput, CreatePresignedUrlOutput, [AccessDeniedException, InternalServerException, ThrottlingException, UnauthorizedException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -233,7 +232,6 @@ export class ContentTooLargeException extends S.TaggedError<ContentTooLargeExcep
  */export const listQAppSessionData = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-11-27", uri: "/runtime.listQAppSessionData", method: "GET", sdkId: "QApps", sigV4ServiceName: "qapps", name: "QAppsService.ListQAppSessionData" }, ListQAppSessionDataInput, ListQAppSessionDataOutput, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, UnauthorizedException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts a new session for an Amazon Q App, allowing inputs to be provided and the app to be run.
- * 
  * 
  * Each Q App session will be condensed into a single conversation in the web experience.
  */export const startQAppSession = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-11-27", uri: "/runtime.startQAppSession", sdkId: "QApps", sigV4ServiceName: "qapps", name: "QAppsService.StartQAppSession" }, StartQAppSessionInput, StartQAppSessionOutput, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, UnauthorizedException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

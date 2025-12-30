@@ -113,14 +113,10 @@ export class SubnetNotFound extends S.TaggedError<SubnetNotFound>()("SubnetNotFo
  * DEPRECATED - `DeleteTags` is deprecated and not maintained. To remove tags from EFS
  * resources, use the API action.
  * 
- * 
- * 
- * 
  * Deletes the specified tags from a file system. If the `DeleteTags` request
  * includes a tag key that doesn't exist, Amazon EFS ignores it and doesn't cause an
  * error. For more information about tags and related restrictions, see Tag restrictions in the
  * *Billing and Cost Management User Guide*.
- * 
  * 
  * This operation requires permissions for the `elasticfilesystem:DeleteTags`
  * action.
@@ -129,13 +125,11 @@ export class SubnetNotFound extends S.TaggedError<SubnetNotFound>()("SubnetNotFo
  * Creates a tag for an EFS resource. You can create tags for EFS file
  * systems and access points using this API operation.
  * 
- * 
  * This operation requires permissions for the `elasticfilesystem:TagResource` action.
  */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-01", uri: "/2015-02-01/resource-tags/{ResourceId}", sdkId: "EFS", sigV4ServiceName: "elasticfilesystem", name: "MagnolioAPIService_v20150201.TagResource" }, TagResourceRequest, S.Struct({}), [AccessPointNotFound, BadRequest, FileSystemNotFound, InternalServerError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes tags from an EFS resource. You can remove tags from EFS file
  * systems and access points using this API operation.
- * 
  * 
  * This operation requires permissions for the `elasticfilesystem:UntagResource` action.
  */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-01", uri: "/2015-02-01/resource-tags/{ResourceId}", method: "DELETE", sdkId: "EFS", sigV4ServiceName: "elasticfilesystem", name: "MagnolioAPIService_v20150201.UntagResource" }, UntagResourceRequest, S.Struct({}), [AccessPointNotFound, BadRequest, FileSystemNotFound, InternalServerError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -143,14 +137,10 @@ export class SubnetNotFound extends S.TaggedError<SubnetNotFound>()("SubnetNotFo
  * DEPRECATED - `CreateTags` is deprecated and not maintained. To create tags for EFS
  * resources, use the API action.
  * 
- * 
- * 
- * 
  * Creates or overwrites tags associated with a file system. Each tag is a key-value pair. If
  * a tag key specified in the request already exists on the file system, this operation
  * overwrites its value with the value provided in the request. If you add the `Name`
  * tag to your file system, Amazon EFS returns it in the response to the DescribeFileSystems operation.
- * 
  * 
  * This operation requires permission for the `elasticfilesystem:CreateTags`
  * action.
@@ -160,7 +150,6 @@ export class SubnetNotFound extends S.TaggedError<SubnetNotFound>()("SubnetNotFo
  * longer connect to the access points. Clients connected to the access point at the time of
  * deletion will continue to function until they terminate their connection.
  * 
- * 
  * This operation requires permissions for the `elasticfilesystem:DeleteAccessPoint` action.
  */export const deleteAccessPoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-01", uri: "/2015-02-01/access-points/{AccessPointId}", method: "DELETE", sdkId: "EFS", sigV4ServiceName: "elasticfilesystem", name: "MagnolioAPIService_v20150201.DeleteAccessPoint" }, DeleteAccessPointRequest, S.Struct({}), [AccessPointNotFound, BadRequest, InternalServerError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -168,33 +157,20 @@ export class SubnetNotFound extends S.TaggedError<SubnetNotFound>()("SubnetNotFo
  * file system no longer exists and you can't access any contents of the deleted file
  * system.
  * 
- * 
  * You need to manually delete mount targets attached to a file system before you can delete
  * an EFS file system. This step is performed for you when you use the Amazon Web Services console
  * to delete a file system.
  * 
- * 
- * 
- * 
  * You cannot delete a file system that is part of an EFS replication configuration.
  * You need to delete the replication configuration first.
  * 
- * 
- * 
- * 
  * You can't delete a file system that is in use. That is, if the file system has
  * any mount targets, you must first delete them. For more information, see DescribeMountTargets and DeleteMountTarget.
- * 
- * 
- * 
  * 
  * The `DeleteFileSystem` call returns while the file system state is still
  * `deleting`. You can check the file system deletion status by calling the DescribeFileSystems operation, which returns a list of file systems in your
  * account. If you pass file system ID or creation token for the deleted file system, the DescribeFileSystems returns a `404 FileSystemNotFound`
  * error.
- * 
- * 
- * 
  * 
  * This operation requires permissions for the
  * `elasticfilesystem:DeleteFileSystem` action.
@@ -204,13 +180,11 @@ export class SubnetNotFound extends S.TaggedError<SubnetNotFound>()("SubnetNotFo
  * The default `FileSystemPolicy` goes into effect once the existing policy is deleted.
  * For more information about the default file system policy, see Using Resource-based Policies with EFS.
  * 
- * 
  * This operation requires permissions for the `elasticfilesystem:DeleteFileSystemPolicy` action.
  */export const deleteFileSystemPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-01", uri: "/2015-02-01/file-systems/{FileSystemId}/policy", method: "DELETE", sdkId: "EFS", sigV4ServiceName: "elasticfilesystem", name: "MagnolioAPIService_v20150201.DeleteFileSystemPolicy" }, DeleteFileSystemPolicyRequest, S.Struct({}), [BadRequest, FileSystemNotFound, IncorrectFileSystemLifeCycleState, InternalServerError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the `FileSystemPolicy` for the specified EFS file
  * system.
- * 
  * 
  * This operation requires permissions for the `elasticfilesystem:DescribeFileSystemPolicy` action.
  */export const describeFileSystemPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-01", uri: "/2015-02-01/file-systems/{FileSystemId}/policy", method: "GET", sdkId: "EFS", sigV4ServiceName: "elasticfilesystem", name: "MagnolioAPIService_v20150201.DescribeFileSystemPolicy" }, DescribeFileSystemPolicyRequest, FileSystemPolicyDescription, [BadRequest, FileSystemNotFound, InternalServerError, PolicyNotFound]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -220,7 +194,6 @@ export class SubnetNotFound extends S.TaggedError<SubnetNotFound>()("SubnetNotFo
  * returns descriptions of all file systems owned by the caller's Amazon Web Services account in the
  * Amazon Web Services Region of the endpoint that you're calling.
  * 
- * 
  * When retrieving all file system descriptions, you can optionally specify the
  * `MaxItems` parameter to limit the number of descriptions in a response.
  * This number is automatically set to 100. If more file system descriptions remain,
@@ -228,18 +201,15 @@ export class SubnetNotFound extends S.TaggedError<SubnetNotFound>()("SubnetNotFo
  * you should send a subsequent request with the `Marker` request parameter set to the
  * value of `NextMarker`.
  * 
- * 
  * To retrieve a list of your file system descriptions, this operation is used in an
  * iterative process, where `DescribeFileSystems` is called first without the
  * `Marker` and then the operation continues to call it with the `Marker`
  * parameter set to the value of the `NextMarker` from the previous response until the
  * response has no `NextMarker`.
  * 
- * 
  * The order of file systems returned in the response of one
  * `DescribeFileSystems` call and the order of file systems returned across the
  * responses of a multi-call iteration is unspecified.
- * 
  * 
  * This operation requires permissions for the
  * `elasticfilesystem:DescribeFileSystems` action.
@@ -251,7 +221,6 @@ export class SubnetNotFound extends S.TaggedError<SubnetNotFound>()("SubnetNotFo
  * `LifecycleConfiguration` object, the call returns an empty array in the
  * response.
  * 
- * 
  * This operation requires permissions for the
  * `elasticfilesystem:DescribeLifecycleConfiguration` operation.
  */export const describeLifecycleConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-01", uri: "/2015-02-01/file-systems/{FileSystemId}/lifecycle-configuration", method: "GET", sdkId: "EFS", sigV4ServiceName: "elasticfilesystem", name: "MagnolioAPIService_v20150201.DescribeLifecycleConfiguration" }, DescribeLifecycleConfigurationRequest, LifecycleConfigurationDescription, [BadRequest, FileSystemNotFound, InternalServerError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -259,7 +228,6 @@ export class SubnetNotFound extends S.TaggedError<SubnetNotFound>()("SubnetNotFo
  * Returns the descriptions of all the current mount targets, or a specific mount target,
  * for a file system. When requesting all of the current mount targets, the order of mount
  * targets returned in the response is unspecified.
- * 
  * 
  * This operation requires permissions for the
  * `elasticfilesystem:DescribeMountTargets` action, on either the file system ID
@@ -271,15 +239,10 @@ export class SubnetNotFound extends S.TaggedError<SubnetNotFound>()("SubnetNotFo
  * requires that the network interface of the mount target has been created and the lifecycle
  * state of the mount target is not `deleted`.
  * 
- * 
  * This operation requires permissions for the following actions:
- * 
- * 
  * 
  * - `elasticfilesystem:DescribeMountTargetSecurityGroups` action on the mount
  * target's file system.
- * 
- * 
  * 
  * - `ec2:DescribeNetworkInterfaceAttribute` action on the mount target's
  * network interface.
@@ -289,13 +252,9 @@ export class SubnetNotFound extends S.TaggedError<SubnetNotFound>()("SubnetNotFo
  * tags associated with EFS resources, use the `ListTagsForResource` API
  * action.
  * 
- * 
- * 
- * 
  * Returns the tags associated with a file system. The order of tags returned in the
  * response of one `DescribeTags` call and the order of tags returned across the
  * responses of a multiple-call iteration (when using pagination) is unspecified.
- * 
  * 
  * This operation requires permissions for the
  * `elasticfilesystem:DescribeTags` action.
@@ -303,7 +262,6 @@ export class SubnetNotFound extends S.TaggedError<SubnetNotFound>()("SubnetNotFo
 /**
  * Lists all tags for a top-level EFS resource. You must provide the ID of the
  * resource that you want to retrieve the tags for.
- * 
  * 
  * This operation requires permissions for the `elasticfilesystem:DescribeAccessPoints` action.
  */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-01", uri: "/2015-02-01/resource-tags/{ResourceId}", method: "GET", sdkId: "EFS", sigV4ServiceName: "elasticfilesystem", name: "MagnolioAPIService_v20150201.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [AccessPointNotFound, BadRequest, FileSystemNotFound, InternalServerError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -314,9 +272,6 @@ export class SubnetNotFound extends S.TaggedError<SubnetNotFound>()("SubnetNotFo
  * affected by any changes you make. You can set the ID preference during the opt-in period as
  * EFS transitions to long resource IDs. For more information, see Managing Amazon EFS resource IDs.
  * 
- * 
- * 
- * 
  * Starting in October, 2021, you will receive an error if you try to set the account preference
  * to use the short 8 character format resource ID. Contact Amazon Web Services support if you
  * receive an error and must use short IDs for file system and mount target resources.
@@ -326,15 +281,11 @@ export class SubnetNotFound extends S.TaggedError<SubnetNotFound>()("SubnetNotFo
  * `LifecycleConfiguration` consists of one or more `LifecyclePolicy`
  * objects that define the following:
  * 
- * 
- * 
  * -
  * `TransitionToIA`
  * –
  * When to move files in the file system from primary storage (Standard storage class) into the Infrequent Access
  * (IA) storage.
- * 
- * 
  * 
  * -
  * `TransitionToArchive`
@@ -342,22 +293,11 @@ export class SubnetNotFound extends S.TaggedError<SubnetNotFound>()("SubnetNotFo
  * When to move files in the file system from their current storage class (either IA or Standard storage) into the
  * Archive storage.
  * 
- * 
  * File systems cannot transition into Archive storage before transitioning into IA storage. Therefore,
  * TransitionToArchive must either not be set or must be later than TransitionToIA.
  * 
- * 
- * 
- * 
  * The Archive storage class is available only for file systems that use the Elastic throughput mode
  * and the General Purpose performance mode.
- * 
- * 
- * 
- * 
- * 
- * 
- * 
  * 
  * -
  * `TransitionToPrimaryStorageClass`
@@ -365,13 +305,8 @@ export class SubnetNotFound extends S.TaggedError<SubnetNotFound>()("SubnetNotFo
  * Whether to move files in the file system back to primary storage (Standard storage class) after they are accessed in IA
  * or Archive storage.
  * 
- * 
- * 
- * 
- * 
  * For more information, see Managing file system
  * storage.
- * 
  * 
  * Each Amazon EFS file system supports one lifecycle configuration, which applies to
  * all files in the file system. If a `LifecycleConfiguration` object already exists
@@ -380,39 +315,24 @@ export class SubnetNotFound extends S.TaggedError<SubnetNotFound>()("SubnetNotFo
  * `LifecyclePolicies` array in the request body deletes any existing
  * `LifecycleConfiguration`. In the request, specify the following:
  * 
- * 
- * 
  * - The ID for the file system for which you are enabling, disabling, or modifying
  * lifecycle management.
- * 
- * 
  * 
  * - A `LifecyclePolicies` array of `LifecyclePolicy` objects that
  * define when to move files to IA storage, to Archive storage,
  * and back to primary storage.
  * 
- * 
- * 
- * 
  * Amazon EFS requires that each `LifecyclePolicy`
  * object have only have a single transition, so the `LifecyclePolicies` array needs to be structured with separate
  * `LifecyclePolicy` objects. See the example requests in the following section for more information.
  * 
- * 
- * 
- * 
- * 
- * 
- * 
  * This operation requires permissions for the `elasticfilesystem:PutLifecycleConfiguration` operation.
- * 
  * 
  * To apply a `LifecycleConfiguration` object to an encrypted file system, you
  * need the same Key Management Service permissions as when you created the encrypted file system.
  */export const putLifecycleConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-01", uri: "/2015-02-01/file-systems/{FileSystemId}/lifecycle-configuration", method: "PUT", sdkId: "EFS", sigV4ServiceName: "elasticfilesystem", name: "MagnolioAPIService_v20150201.PutLifecycleConfiguration" }, PutLifecycleConfigurationRequest, LifecycleConfigurationDescription, [BadRequest, FileSystemNotFound, IncorrectFileSystemLifeCycleState, InternalServerError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the specified mount target.
- * 
  * 
  * This operation forcibly breaks any mounts of the file system by using the mount target
  * that is being deleted, which might disrupt instances or applications using those mounts. To
@@ -422,32 +342,17 @@ export class SubnetNotFound extends S.TaggedError<SubnetNotFound>()("SubnetNotFo
  * corrupt the file system itself. The file system you created remains. You can mount an
  * EC2 instance in your VPC by using another mount target.
  * 
- * 
  * This operation requires permissions for the following action on the file
  * system:
  * 
- * 
- * 
  * - `elasticfilesystem:DeleteMountTarget`
- * 
- * 
- * 
- * 
- * 
- * 
- * 
  * 
  * The `DeleteMountTarget` call returns while the mount target state is still
  * `deleting`. You can check the mount target deletion by calling the DescribeMountTargets operation, which returns a list of mount target
  * descriptions for the given file system.
  * 
- * 
- * 
- * 
  * The operation also requires permissions for the following Amazon EC2 action on the
  * mount target's network interface:
- * 
- * 
  * 
  * - `ec2:DeleteNetworkInterface`
  */export const deleteMountTarget = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-01", uri: "/2015-02-01/mount-targets/{MountTargetId}", method: "DELETE", sdkId: "EFS", sigV4ServiceName: "elasticfilesystem", name: "MagnolioAPIService_v20150201.DeleteMountTarget" }, DeleteMountTargetRequest, S.Struct({}), [BadRequest, DependencyTimeout, InternalServerError, MountTargetNotFound]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -456,7 +361,6 @@ export class SubnetNotFound extends S.TaggedError<SubnetNotFound>()("SubnetNotFo
  * replication process. After a replication configuration is deleted, the destination file system
  * becomes `Writeable` and its replication overwrite protection is re-enabled. For
  * more information, see Delete a replication configuration.
- * 
  * 
  * This operation requires permissions for the
  * `elasticfilesystem:DeleteReplicationConfiguration` action.
@@ -467,7 +371,6 @@ export class SubnetNotFound extends S.TaggedError<SubnetNotFound>()("SubnetNotFo
  * `FileSystemId`, it returns descriptions of all access points for that file
  * system. You can provide either an `AccessPointId` or a `FileSystemId` in
  * the request, but not both.
- * 
  * 
  * This operation requires permissions for the `elasticfilesystem:DescribeAccessPoints` action.
  */export const describeAccessPoints = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-01", uri: "/2015-02-01/access-points", method: "GET", sdkId: "EFS", sigV4ServiceName: "elasticfilesystem", name: "MagnolioAPIService_v20150201.DescribeAccessPoints" }, DescribeAccessPointsRequest, DescribeAccessPointsResponse, [AccessPointNotFound, BadRequest, FileSystemNotFound, InternalServerError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -490,19 +393,12 @@ export class SubnetNotFound extends S.TaggedError<SubnetNotFound>()("SubnetNotFo
  * about the default file system policy, see
  * Default EFS file system policy.
  * 
- * 
- * 
- * 
  * EFS file system policies have a 20,000 character limit.
- * 
- * 
- * 
  * 
  * This operation requires permissions for the `elasticfilesystem:PutFileSystemPolicy` action.
  */export const putFileSystemPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-01", uri: "/2015-02-01/file-systems/{FileSystemId}/policy", method: "PUT", sdkId: "EFS", sigV4ServiceName: "elasticfilesystem", name: "MagnolioAPIService_v20150201.PutFileSystemPolicy" }, PutFileSystemPolicyRequest, FileSystemPolicyDescription, [BadRequest, FileSystemNotFound, IncorrectFileSystemLifeCycleState, InternalServerError, InvalidPolicyException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates protection on the file system.
- * 
  * 
  * This operation requires permissions for the
  * `elasticfilesystem:UpdateFileSystemProtection` action.
@@ -512,32 +408,18 @@ export class SubnetNotFound extends S.TaggedError<SubnetNotFound>()("SubnetNotFo
  * For more information, see Amazon EFS replication in the Amazon EFS User
  * Guide. The replication configuration specifies the following:
  * 
- * 
- * 
  * - **Source file system** – The EFS file
  * system that you want to replicate.
- * 
- * 
  * 
  * - **Destination file system** – The destination file
  * system to which the source file system is replicated. There can only be one destination
  * file system in a replication configuration.
  * 
- * 
- * 
- * 
  * A file system can be part of only one replication configuration.
- * 
- * 
- * 
  * 
  * The destination parameters for the replication configuration depend on
  * whether you are replicating to a new file system or to an existing file system, and if you
  * are replicating across Amazon Web Services accounts. See DestinationToCreate for more information.
- * 
- * 
- * 
- * 
  * 
  * This operation requires permissions for the `elasticfilesystem:CreateReplicationConfiguration`
  * action. Additionally, other permissions are required depending on how you are replicating file systems.
@@ -553,7 +435,6 @@ export class SubnetNotFound extends S.TaggedError<SubnetNotFound>()("SubnetNotFo
 /**
  * Modifies the set of security groups in effect for a mount target.
  * 
- * 
  * When you create a mount target, Amazon EFS also creates a new network interface. For
  * more information, see CreateMountTarget. This operation replaces the security groups in effect for the
  * network interface associated with a mount target, with the `SecurityGroups`
@@ -561,15 +442,10 @@ export class SubnetNotFound extends S.TaggedError<SubnetNotFound>()("SubnetNotFo
  * target has been created and the lifecycle state of the mount target is not
  * `deleted`.
  * 
- * 
  * The operation requires permissions for the following actions:
- * 
- * 
  * 
  * - `elasticfilesystem:ModifyMountTargetSecurityGroups` action on the mount
  * target's file system.
- * 
- * 
  * 
  * - `ec2:ModifyNetworkInterfaceAttribute` action on the mount target's network
  * interface.
@@ -585,30 +461,16 @@ export class SubnetNotFound extends S.TaggedError<SubnetNotFound>()("SubnetNotFo
  * caller's Amazon Web Services account with the specified creation token, this operation does the
  * following:
  * 
- * 
- * 
  * - Creates a new, empty file system. The file system will have an Amazon EFS assigned
  * ID, and an initial lifecycle state `creating`.
  * 
- * 
- * 
  * - Returns with the description of the created file system.
- * 
- * 
- * 
- * 
  * 
  * Otherwise, this operation returns a `FileSystemAlreadyExists` error with the
  * ID of the existing file system.
  * 
- * 
- * 
- * 
  * For basic use cases, you can use a randomly generated UUID for the creation
  * token.
- * 
- * 
- * 
  * 
  * The idempotent operation allows you to retry a `CreateFileSystem` call without
  * risk of creating an extra file system. This can happen when an initial call fails in a way
@@ -617,21 +479,14 @@ export class SubnetNotFound extends S.TaggedError<SubnetNotFound>()("SubnetNotFo
  * the same creation token, if the initial call had succeeded in creating a file system, the
  * client can learn of its existence from the `FileSystemAlreadyExists` error.
  * 
- * 
  * For more information, see
  * Creating a file system
  * in the *Amazon EFS User Guide*.
- * 
- * 
- * 
  * 
  * The `CreateFileSystem` call returns while the file system's lifecycle
  * state is still `creating`. You can check the file system creation status by
  * calling the DescribeFileSystems operation, which among other things returns the file
  * system state.
- * 
- * 
- * 
  * 
  * This operation accepts an optional `PerformanceMode` parameter that you choose
  * for your file system. We recommend `generalPurpose`
@@ -640,15 +495,12 @@ export class SubnetNotFound extends S.TaggedError<SubnetNotFound>()("SubnetNotFo
  * than the `generalPurpose` mode. `MaxIO` mode is not supported for One Zone file systems or
  * file systems that use Elastic throughput.
  * 
- * 
  * The `PerformanceMode` can't be changed after the file system has been
  * created. For more information, see Amazon EFS performance
  * modes.
  * 
- * 
  * You can set the throughput mode for the file system using the `ThroughputMode`
  * parameter.
- * 
  * 
  * After the file system is fully created, Amazon EFS sets its lifecycle state to
  * `available`, at which point you can create one or more mount targets for the file
@@ -656,10 +508,8 @@ export class SubnetNotFound extends S.TaggedError<SubnetNotFound>()("SubnetNotFo
  * your Amazon EFS file system on an EC2 instances in your VPC by using the mount
  * target. For more information, see Amazon EFS: How it Works.
  * 
- * 
  * This operation requires permissions for the
  * `elasticfilesystem:CreateFileSystem` action.
- * 
  * 
  * File systems can be tagged on creation. If tags are specified in the creation action, IAM
  * performs additional authorization on the `elasticfilesystem:TagResource` action to
@@ -678,19 +528,12 @@ export class SubnetNotFound extends S.TaggedError<SubnetNotFound>()("SubnetNotFo
  * Mounting a file
  * system using EFS access points.
  * 
- * 
- * 
- * 
  * If multiple requests to create access points on the same file system are sent in quick
  * succession, and the file system is near the limit of access points, you may experience a
  * throttling response for these requests. This is to ensure that the file system does not
  * exceed the stated access point limit.
  * 
- * 
- * 
- * 
  * This operation requires permissions for the `elasticfilesystem:CreateAccessPoint` action.
- * 
  * 
  * Access points can be tagged on creation. If tags are specified in the creation action, IAM
  * performs additional authorization on the `elasticfilesystem:TagResource` action to
@@ -703,13 +546,11 @@ export class SubnetNotFound extends S.TaggedError<SubnetNotFound>()("SubnetNotFo
  * Creates a mount target for a file system. You can then mount the file system on EC2
  * instances by using the mount target.
  * 
- * 
  * You can create one mount target in each Availability Zone in your VPC. All EC2 instances
  * in a VPC within a given Availability Zone share a single mount target for a given file system. If
  * you have multiple subnets in an Availability Zone, you create a mount target in one of the subnets.
  * EC2 instances do not need to be in the same subnet as the mount target in order to
  * access their file system.
- * 
  * 
  * You can create only one mount target for a One Zone file system. You must
  * create that mount target in the same Availability Zone in which the file system is located. Use the
@@ -717,44 +558,24 @@ export class SubnetNotFound extends S.TaggedError<SubnetNotFound>()("SubnetNotFo
  * `subnetId` associated with the file system's Availability Zone when creating the mount
  * target.
  * 
- * 
  * For more information, see Amazon EFS: How it Works.
- * 
  * 
  * To create a mount target for a file system, the file system's lifecycle state must be
  * `available`. For more information, see DescribeFileSystems.
  * 
- * 
  * In the request, provide the following:
- * 
- * 
  * 
  * - The file system ID for which you are creating the mount
  * target.
  * 
- * 
- * 
  * - A subnet ID, which determines the following:
- * 
- * 
  * 
  * - The VPC in which Amazon EFS creates the mount target
  * 
- * 
- * 
  * - The Availability Zone in which Amazon EFS creates the mount target
- * 
- * 
  * 
  * - The IP address range from which Amazon EFS selects the IP address of the mount target
  * (if you don't specify an IP address in the request)
- * 
- * 
- * 
- * 
- * 
- * 
- * 
  * 
  * After creating the mount target, Amazon EFS returns a response that includes, a
  * `MountTargetId` and an `IpAddress`. You use this IP address when
@@ -764,36 +585,21 @@ export class SubnetNotFound extends S.TaggedError<SubnetNotFound>()("SubnetNotFo
  * address. For more information, see How it Works:
  * Implementation Overview.
  * 
- * 
  * Note that you can create mount targets for a file system in only one VPC, and there can be
  * only one mount target per Availability Zone. That is, if the file system already has one or more
  * mount targets created for it, the subnet specified in the request to add another mount target
  * must meet the following requirements:
  * 
- * 
- * 
  * - Must belong to the same VPC as the subnets of the existing mount targets
- * 
- * 
  * 
  * - Must not be in the same Availability Zone as any of the subnets of the existing mount
  * targets
  * 
- * 
- * 
- * 
- * 
  * If the request satisfies the requirements, Amazon EFS does the following:
- * 
- * 
  * 
  * - Creates a new mount target in the specified subnet.
  * 
- * 
- * 
  * - Also creates a new network interface in the subnet as follows:
- * 
- * 
  * 
  * - If the request provides an `IpAddress`, Amazon EFS assigns that
  * IP address to the network interface. Otherwise, Amazon EFS assigns a free
@@ -801,13 +607,9 @@ export class SubnetNotFound extends S.TaggedError<SubnetNotFound>()("SubnetNotFo
  * `CreateNetworkInterface` call does when a request does not specify a
  * primary private IP address).
  * 
- * 
- * 
  * - If the request provides `SecurityGroups`, this network interface is
  * associated with those security groups. Otherwise, it belongs to the default security
  * group for the subnet's VPC.
- * 
- * 
  * 
  * - Assigns the description Mount target *fsmt-id* for
  * file system *fs-id*
@@ -817,15 +619,9 @@ export class SubnetNotFound extends S.TaggedError<SubnetNotFound>()("SubnetNotFo
  * *fs-id*
  * is the `FileSystemId`.
  * 
- * 
- * 
  * - Sets the `requesterManaged` property of the network interface to
  * `true`, and the `requesterId` value to
  * `EFS`.
- * 
- * 
- * 
- * 
  * 
  * Each Amazon EFS mount target has one corresponding requester-managed
  * EC2 network interface. After the network interface is created, Amazon EFS
@@ -834,19 +630,10 @@ export class SubnetNotFound extends S.TaggedError<SubnetNotFound>()("SubnetNotFo
  * interface creation fails, the entire `CreateMountTarget` operation
  * fails.
  * 
- * 
- * 
- * 
- * 
- * 
- * 
  * The `CreateMountTarget` call returns only after creating the network
  * interface, but while the mount target state is still `creating`, you can check
  * the mount target creation status by calling the DescribeMountTargets operation, which among other things returns the mount
  * target state.
- * 
- * 
- * 
  * 
  * We recommend that you create a mount target in each of the Availability Zones. There are cost
  * considerations for using a file system in an Availability Zone through a mount target created in
@@ -855,33 +642,17 @@ export class SubnetNotFound extends S.TaggedError<SubnetNotFound>()("SubnetNotFo
  * which your mount target is created goes down, then you can't access your file system
  * through that mount target.
  * 
- * 
  * This operation requires permissions for the following action on the file
  * system:
  * 
- * 
- * 
  * - `elasticfilesystem:CreateMountTarget`
- * 
- * 
- * 
- * 
- * 
  * 
  * This operation also requires permissions for the following Amazon EC2
  * actions:
  * 
- * 
- * 
  * - `ec2:DescribeSubnets`
  * 
- * 
- * 
- * 
  * - `ec2:DescribeNetworkInterfaces`
- * 
- * 
- * 
  * 
  * - `ec2:CreateNetworkInterface`
  */export const createMountTarget = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-01", uri: "/2015-02-01/mount-targets", sdkId: "EFS", sigV4ServiceName: "elasticfilesystem", name: "MagnolioAPIService_v20150201.CreateMountTarget" }, CreateMountTargetRequest, MountTargetDescription, [AvailabilityZonesMismatch, BadRequest, FileSystemNotFound, IncorrectFileSystemLifeCycleState, InternalServerError, IpAddressInUse, MountTargetConflict, NetworkInterfaceLimitExceeded, NoFreeAddressesInSubnet, SecurityGroupLimitExceeded, SecurityGroupNotFound, SubnetNotFound, UnsupportedAvailabilityZone]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

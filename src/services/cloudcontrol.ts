@@ -58,15 +58,11 @@ export class UnsupportedActionException extends S.TaggedError<UnsupportedActionE
  * For more information, see Listing active resource operation requests in the
  * *Amazon Web Services Cloud Control API User Guide*.
  * 
- * 
- * 
- * 
  * Resource operation requests expire after 7 days.
  */export const listResourceRequests = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-09-30", sdkId: "CloudControl", sigV4ServiceName: "cloudcontrolapi", name: "CloudApiService.ListResourceRequests" }, ListResourceRequestsInput, ListResourceRequestsOutput, []), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Cancels the specified resource operation request. For more information, see Canceling resource operation requests in the
  * *Amazon Web Services Cloud Control API User Guide*.
- * 
  * 
  * Only resource operations requests with a status of `PENDING` or
  * `IN_PROGRESS` can be canceled.
@@ -80,7 +76,6 @@ export class UnsupportedActionException extends S.TaggedError<UnsupportedActionE
  * Creates the specified resource. For more information, see Creating a
  * resource in the *Amazon Web Services Cloud Control API User Guide*.
  * 
- * 
  * After you have initiated a resource creation request, you can monitor the progress of your
  * request by calling GetResourceRequestStatus using the `RequestToken` of the
  * `ProgressEvent` type returned by `CreateResource`.
@@ -88,7 +83,6 @@ export class UnsupportedActionException extends S.TaggedError<UnsupportedActionE
 /**
  * Deletes the specified resource. For details, see Deleting a
  * resource in the *Amazon Web Services Cloud Control API User Guide*.
- * 
  * 
  * After you have initiated a resource deletion request, you can monitor the progress of your
  * request by calling GetResourceRequestStatus using the `RequestToken` of the
@@ -98,13 +92,11 @@ export class UnsupportedActionException extends S.TaggedError<UnsupportedActionE
  * Returns information about the current state of the specified resource. For details, see
  * Reading a resource's current state.
  * 
- * 
  * You can use this action to return information about an existing resource in your account
  * and Amazon Web Services Region, whether those resources were provisioned using Cloud Control API.
  */export const getResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-09-30", sdkId: "CloudControl", sigV4ServiceName: "cloudcontrolapi", name: "CloudApiService.GetResource" }, GetResourceInput, GetResourceOutput, [AlreadyExistsException, GeneralServiceException, HandlerFailureException, HandlerInternalFailureException, InvalidCredentialsException, InvalidRequestException, NetworkFailureException, NotStabilizedException, NotUpdatableException, PrivateTypeException, ResourceConflictException, ResourceNotFoundException, ServiceInternalErrorException, ServiceLimitExceededException, ThrottlingException, TypeNotFoundException, UnsupportedActionException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about the specified resources. For more information, see Discovering resources in the *Amazon Web Services Cloud Control API User Guide*.
- * 
  * 
  * You can use this action to return information about existing resources in your account and
  * Amazon Web Services Region, whether those resources were provisioned using Cloud Control API.
@@ -112,21 +104,17 @@ export class UnsupportedActionException extends S.TaggedError<UnsupportedActionE
 /**
  * Updates the specified property values in the resource.
  * 
- * 
  * You specify your resource property updates as a list of patch operations contained in a
  * JSON patch document that adheres to the
  * RFC 6902 - JavaScript Object
  * Notation (JSON) Patch
  * standard.
  * 
- * 
  * For details on how Cloud Control API performs resource update operations, see Updating a resource in the *Amazon Web Services Cloud Control API User Guide*.
- * 
  * 
  * After you have initiated a resource update request, you can monitor the progress of your
  * request by calling GetResourceRequestStatus using the `RequestToken` of the
  * `ProgressEvent` returned by `UpdateResource`.
- * 
  * 
  * For more information about the properties of a specific resource, refer to the related
  * topic for the resource in the Resource and property types reference in the *CloudFormation Users Guide*.

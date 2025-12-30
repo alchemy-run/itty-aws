@@ -283,7 +283,6 @@ export class PriorRequestNotCompleteException extends S.TaggedError<PriorRequest
 /**
  * Deletes the specified listener.
  * 
- * 
  * Alternatively, your listener is deleted when you delete the load balancer to which it is
  * attached.
  */export const deleteListener = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.DeleteListener" }, DeleteListenerInput, DeleteListenerOutput, [ListenerNotFoundException, ResourceInUseException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
@@ -291,10 +290,8 @@ export class PriorRequestNotCompleteException extends S.TaggedError<PriorRequest
  * Deletes the specified Application Load Balancer, Network Load Balancer, or Gateway Load
  * Balancer. Deleting a load balancer also deletes its listeners.
  * 
- * 
  * You can't delete a load balancer if deletion protection is enabled. If the load balancer
  * does not exist or has already been deleted, the call succeeds.
- * 
  * 
  * Deleting a load balancer does not affect its registered targets. For example, your EC2
  * instances continue to run and are still registered to their target groups. If you no longer
@@ -303,12 +300,10 @@ export class PriorRequestNotCompleteException extends S.TaggedError<PriorRequest
 /**
  * Deletes the specified rule.
  * 
- * 
  * You can't delete the default rule.
  */export const deleteRule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.DeleteRule" }, DeleteRuleInput, DeleteRuleOutput, [OperationNotPermittedException, RuleNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes the specified target group.
- * 
  * 
  * You can delete a target group if it is not referenced by any actions. Deleting a target
  * group also deletes any associated health checks. Deleting a target group does not affect its
@@ -322,11 +317,9 @@ export class PriorRequestNotCompleteException extends S.TaggedError<PriorRequest
  * Describes the default certificate and the certificate list for the specified HTTPS or TLS
  * listener.
  * 
- * 
  * If the default certificate is also in the certificate list, it appears twice in the
  * results (once with `IsDefault` set to true and once with `IsDefault` set
  * to false).
- * 
  * 
  * For more information, see SSL certificates in the *Application Load Balancers Guide* or
  * Server certificates in the Network Load Balancers
@@ -336,22 +329,13 @@ export class PriorRequestNotCompleteException extends S.TaggedError<PriorRequest
  * Describes the attributes for the specified Application Load Balancer, Network Load
  * Balancer, or Gateway Load Balancer.
  * 
- * 
  * For more information, see the following:
- * 
- * 
  * 
  * - Load balancer attributes in the Application Load Balancers
  * Guide
  * 
- * 
- * 
- * 
  * - Load balancer attributes in the Network Load Balancers
  * Guide
- * 
- * 
- * 
  * 
  * - Load balancer attributes in the Gateway Load Balancers
  * Guide
@@ -359,22 +343,13 @@ export class PriorRequestNotCompleteException extends S.TaggedError<PriorRequest
 /**
  * Describes the attributes for the specified target group.
  * 
- * 
  * For more information, see the following:
- * 
- * 
  * 
  * - Target group attributes in the Application Load Balancers
  * Guide
  * 
- * 
- * 
- * 
  * - Target group attributes in the Network Load Balancers
  * Guide
- * 
- * 
- * 
  * 
  * - Target group attributes in the Gateway Load Balancers
  * Guide
@@ -385,13 +360,11 @@ export class PriorRequestNotCompleteException extends S.TaggedError<PriorRequest
 /**
  * Retrieves the ca certificate bundle.
  * 
- * 
  * This action returns a pre-signed S3 URI which is
  * active for ten minutes.
  */export const getTrustStoreCaCertificatesBundle = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.GetTrustStoreCaCertificatesBundle" }, GetTrustStoreCaCertificatesBundleInput, GetTrustStoreCaCertificatesBundleOutput, [TrustStoreNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Retrieves the specified revocation file.
- * 
  * 
  * This action returns a pre-signed S3 URI which is
  * active for ten minutes.
@@ -407,7 +380,6 @@ export class PriorRequestNotCompleteException extends S.TaggedError<PriorRequest
  * Application Load Balancers, Network Load Balancers, Gateway Load Balancers, target groups,
  * trust stores, listeners, and rules.
  * 
- * 
  * Each tag consists of a key and an optional value. If a resource already has a tag with the
  * same key, `AddTags` updates its value.
  */export const addTags = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.AddTags" }, AddTagsInput, AddTagsOutput, [DuplicateTagKeysException, ListenerNotFoundException, LoadBalancerNotFoundException, RuleNotFoundException, TargetGroupNotFoundException, TooManyTagsException, TrustStoreNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
@@ -421,35 +393,20 @@ export class PriorRequestNotCompleteException extends S.TaggedError<PriorRequest
  * Deregisters the specified targets from the specified target group. After the targets are
  * deregistered, they no longer receive traffic from the load balancer.
  * 
- * 
  * The load balancer stops sending requests to targets that are deregistering, but uses
  * connection draining to ensure that in-flight traffic completes on the existing connections.
  * This deregistration delay is configured by default but can be updated for each target group.
  * 
- * 
  * For more information, see the following:
- * 
- * 
  * 
  * -
  * Deregistration delay in the *Application Load Balancers User Guide*
  * 
- * 
- * 
- * 
  * -
  * Deregistration delay in the *Network Load Balancers User Guide*
  * 
- * 
- * 
- * 
  * -
  * Deregistration delay in the *Gateway Load Balancers User Guide*
- * 
- * 
- * 
- * 
- * 
  * 
  * Note: If the specified target does not exist, the action returns successfully.
  */export const deregisterTargets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.DeregisterTargets" }, DeregisterTargetsInput, DeregisterTargetsOutput, [InvalidTargetException, TargetGroupNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
@@ -457,22 +414,13 @@ export class PriorRequestNotCompleteException extends S.TaggedError<PriorRequest
  * Describes the current Elastic Load Balancing resource limits for your Amazon Web Services
  * account.
  * 
- * 
  * For more information, see the following:
- * 
- * 
  * 
  * - Quotas for your
  * Application Load Balancers
  * 
- * 
- * 
- * 
  * - Quotas for your
  * Network Load Balancers
- * 
- * 
- * 
  * 
  * - Quotas for your Gateway
  * Load Balancers
@@ -509,7 +457,6 @@ export class PriorRequestNotCompleteException extends S.TaggedError<PriorRequest
  * Modifies the specified attributes of the specified Application Load Balancer, Network Load
  * Balancer, or Gateway Load Balancer.
  * 
- * 
  * If any of the specified attributes can't be modified as requested, the call fails. Any
  * existing attributes that you do not modify retain their current values.
  */export const modifyLoadBalancerAttributes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.ModifyLoadBalancerAttributes" }, ModifyLoadBalancerAttributesInput, ModifyLoadBalancerAttributesOutput, [InvalidConfigurationRequestException, LoadBalancerNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
@@ -533,10 +480,8 @@ export class PriorRequestNotCompleteException extends S.TaggedError<PriorRequest
  * Network Load Balancer. The specified security groups override the previously associated
  * security groups.
  * 
- * 
  * You can't perform this operation on a Network Load Balancer unless you specified a
  * security group for the load balancer when you created it.
- * 
  * 
  * You can't associate a security group with a Gateway Load Balancer.
  */export const setSecurityGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.SetSecurityGroups" }, SetSecurityGroupsInput, SetSecurityGroupsOutput, [InvalidConfigurationRequestException, InvalidSecurityGroupException, LoadBalancerNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
@@ -557,39 +502,27 @@ export class PriorRequestNotCompleteException extends S.TaggedError<PriorRequest
 /**
  * Registers the specified targets with the specified target group.
  * 
- * 
  * If the target is an EC2 instance, it must be in the `running` state when you
  * register it.
- * 
  * 
  * By default, the load balancer routes requests to registered targets using the protocol and
  * port for the target group. Alternatively, you can override the port for a target when you
  * register it. You can register each EC2 instance or IP address with the same target group
  * multiple times using different ports.
  * 
- * 
  * For more information, see the following:
- * 
- * 
  * 
  * - Register
  * targets for your Application Load Balancer
  * 
- * 
- * 
- * 
  * - Register targets
  * for your Network Load Balancer
- * 
- * 
- * 
  * 
  * - Register targets for your
  * Gateway Load Balancer
  */export const registerTargets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.RegisterTargets" }, RegisterTargetsInput, RegisterTargetsOutput, [InvalidTargetException, TargetGroupNotFoundException, TooManyRegistrationsForTargetIdException, TooManyTargetsException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Sets the priorities of the specified rules.
- * 
  * 
  * You can reorder the rules as long as there are no priority conflicts in the new order. Any
  * existing rules that you do not specify retain their current priority.
@@ -598,10 +531,8 @@ export class PriorRequestNotCompleteException extends S.TaggedError<PriorRequest
  * Adds the specified SSL server certificate to the certificate list for the specified HTTPS
  * or TLS listener.
  * 
- * 
  * If the certificate in already in the certificate list, the call is successful but the
  * certificate is not added again.
- * 
  * 
  * For more information, see SSL
  * certificates in the *Application Load Balancers Guide* or Server
@@ -610,30 +541,16 @@ export class PriorRequestNotCompleteException extends S.TaggedError<PriorRequest
 /**
  * Creates a target group.
  * 
- * 
  * For more information, see the following:
- * 
- * 
  * 
  * - Target
  * groups for your Application Load Balancers
  * 
- * 
- * 
- * 
  * - Target groups
  * for your Network Load Balancers
  * 
- * 
- * 
- * 
  * - Target groups for your
  * Gateway Load Balancers
- * 
- * 
- * 
- * 
- * 
  * 
  * This operation is idempotent, which means that it completes at most one time. If you
  * attempt to create multiple target groups with the same settings, each call succeeds.
@@ -641,12 +558,10 @@ export class PriorRequestNotCompleteException extends S.TaggedError<PriorRequest
 /**
  * Creates a trust store.
  * 
- * 
  * For more information, see Mutual TLS for Application Load Balancers.
  */export const createTrustStore = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.CreateTrustStore" }, CreateTrustStoreInput, CreateTrustStoreOutput, [CaCertificatesBundleNotFoundException, DuplicateTagKeysException, DuplicateTrustStoreNameException, InvalidCaCertificatesBundleException, TooManyTagsException, TooManyTrustStoresException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Describes the specified policies or all policies used for SSL negotiation.
- * 
  * 
  * For more information, see Security policies in the *Application Load Balancers Guide* and
  * Security policies in the *Network Load Balancers Guide*.
@@ -657,7 +572,6 @@ export class PriorRequestNotCompleteException extends S.TaggedError<PriorRequest
 /**
  * Replaces the specified properties of the specified rule. Any properties that you do not
  * specify are unchanged.
- * 
  * 
  * To add an item to a list, remove an item from a list, or update an item in a list, you
  * must provide the entire list. For example, to add an action, specify a list with the current
@@ -672,7 +586,6 @@ export class PriorRequestNotCompleteException extends S.TaggedError<PriorRequest
  * Creates a rule for the specified listener. The listener must be associated with an
  * Application Load Balancer.
  * 
- * 
  * Each rule consists of a priority, one or more actions, one or more conditions, and
  * up to two optional transforms. Rules are evaluated in priority order, from the lowest value
  * to the highest value. When the conditions for a rule are met, its actions are performed.
@@ -683,11 +596,9 @@ export class PriorRequestNotCompleteException extends S.TaggedError<PriorRequest
  * Replaces the specified properties of the specified listener. Any properties that you do
  * not specify remain unchanged.
  * 
- * 
  * Changing the protocol from HTTPS to HTTP, or from TLS to TCP, removes the security policy
  * and default certificate properties. If you change the protocol from HTTP to HTTPS, or from TCP
  * to TLS, you must add the security policy and default certificate properties.
- * 
  * 
  * To add an item to a list, remove an item from a list, or update an item in a list, you
  * must provide the entire list. For example, to add an action, specify a list with the current
@@ -700,30 +611,16 @@ export class PriorRequestNotCompleteException extends S.TaggedError<PriorRequest
  * Creates a listener for the specified Application Load Balancer, Network Load Balancer, or
  * Gateway Load Balancer.
  * 
- * 
  * For more information, see the following:
- * 
- * 
  * 
  * - Listeners for
  * your Application Load Balancers
  * 
- * 
- * 
- * 
  * - Listeners for
  * your Network Load Balancers
  * 
- * 
- * 
- * 
  * - Listeners for your
  * Gateway Load Balancers
- * 
- * 
- * 
- * 
- * 
  * 
  * This operation is idempotent, which means that it completes at most one time. If you
  * attempt to create multiple listeners with the same settings, each call succeeds.
@@ -732,36 +629,21 @@ export class PriorRequestNotCompleteException extends S.TaggedError<PriorRequest
  * Creates an Application Load Balancer, Network Load Balancer, or Gateway Load
  * Balancer.
  * 
- * 
  * For more information, see the following:
  * 
- * 
- * 
  * - Application Load Balancers
- * 
- * 
- * 
  * 
  * - Network Load
  * Balancers
  * 
- * 
- * 
- * 
  * - Gateway Load
  * Balancers
- * 
- * 
- * 
- * 
- * 
  * 
  * This operation is idempotent, which means that it completes at most one time. If you
  * attempt to create multiple load balancers with the same settings, each call succeeds.
  */export const createLoadBalancer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.CreateLoadBalancer" }, CreateLoadBalancerInput, CreateLoadBalancerOutput, [AllocationIdNotFoundException, AvailabilityZoneNotSupportedException, DuplicateLoadBalancerNameException, DuplicateTagKeysException, InvalidConfigurationRequestException, InvalidSchemeException, InvalidSecurityGroupException, InvalidSubnetException, OperationNotPermittedException, ResourceInUseException, SubnetNotFoundException, TooManyLoadBalancersException, TooManyTagsException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Modifies the capacity reservation of the specified load balancer.
- * 
  * 
  * When modifying capacity reservation, you must include at least one `MinimumLoadBalancerCapacity`
  * or `ResetCapacityReservation`.

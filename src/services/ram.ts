@@ -146,7 +146,6 @@ export class PermissionLimitExceededException extends S.TaggedError<PermissionLi
  * sharing within the organization, you can specify only individual Amazon Web Services accounts, or for
  * supported resource types, IAM roles and users.
  * 
- * 
  * You must call this operation from an IAM role or user in the organization's
  * management account.
  */export const enableSharingWithAwsOrganization = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-04", uri: "/enablesharingwithawsorganization", sdkId: "RAM", sigV4ServiceName: "ram", name: "AmazonResourceSharing.EnableSharingWithAwsOrganization" }, EnableSharingWithAwsOrganizationRequest, EnableSharingWithAwsOrganizationResponse, [OperationNotPermittedException, ServerInternalException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -167,18 +166,13 @@ export class PermissionLimitExceededException extends S.TaggedError<PermissionLi
  * currently use a specified version. This enables you to update to the latest version,
  * without changing the which managed permission is used.
  * 
- * 
  * You can use this operation to update all of your resource shares to use the current
  * default version of the permission by specifying the same value for the
  * `fromPermissionArn` and `toPermissionArn` parameters.
  * 
- * 
  * You can use the optional `fromPermissionVersion` parameter to update only
  * those resources that use a specified version of the managed permission to the new managed
  * permission.
- * 
- * 
- * 
  * 
  * To successfully perform this operation, you must have permission to update the
  * resource-based policy on all affected resource types.
@@ -209,15 +203,11 @@ export class PermissionLimitExceededException extends S.TaggedError<PermissionLi
  * Deletes one version of a customer managed permission. The version you specify must not be attached to any
  * resource share and must not be the default version for the permission.
  * 
- * 
  * If a customer managed permission has the maximum of 5 versions, then you must delete at
  * least one version before you can create another.
  */export const deletePermissionVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-04", uri: "/deletepermissionversion", method: "DELETE", sdkId: "RAM", sigV4ServiceName: "ram", name: "AmazonResourceSharing.DeletePermissionVersion" }, DeletePermissionVersionRequest, DeletePermissionVersionResponse, [IdempotentParameterMismatchException, InvalidClientTokenException, InvalidParameterException, MalformedArnException, OperationNotPermittedException, ServerInternalException, ServiceUnavailableException, UnknownResourceException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the specified resource share.
- * 
- * 
- * 
  * 
  * This doesn't delete any of the resources that were associated with the resource share; it
  * only stops the sharing of those resources through this resource share.
@@ -272,33 +262,23 @@ export class PermissionLimitExceededException extends S.TaggedError<PermissionLi
  * of managed permission is visible to only the resource share owner, and the associated resource share can't be modified by
  * using RAM.
  * 
- * 
  * This operation creates a separate, fully manageable customer managed permission that has the same IAM
  * permissions as the original resource-based policy. You can associate this customer managed permission to any
  * resource shares.
- * 
  * 
  * Before you use PromoteResourceShareCreatedFromPolicy, you should
  * first run this operation to ensure that you have an appropriate customer managed permission that can be
  * associated with the promoted resource share.
  * 
- * 
- * 
- * 
- * 
  * - The original `CREATED_FROM_POLICY` policy isn't deleted, and
  * resource shares using that original policy aren't automatically
  * updated.
- * 
- * 
  * 
  * - You can't modify a `CREATED_FROM_POLICY` resource share so you can't
  * associate the new customer managed permission by using
  * `ReplacePermsissionAssociations`. However, if you use PromoteResourceShareCreatedFromPolicy, that operation
  * automatically associates the fully manageable customer managed permission to the newly promoted
  * `STANDARD` resource share.
- * 
- * 
  * 
  * - After you promote a resource share, if the original `CREATED_FROM_POLICY`
  * managed permission has no other associations to A resource share, then RAM automatically deletes
@@ -311,13 +291,9 @@ export class PermissionLimitExceededException extends S.TaggedError<PermissionLi
  * of managed permission is visible to only the resource share owner, and the associated resource share can't be modified by
  * using RAM.
  * 
- * 
  * This operation promotes the resource share to a `STANDARD` resource share that is fully
  * manageable in RAM. When you promote a resource share, you can then manage the resource share in RAM and
  * it becomes visible to all of the principals you shared it with.
- * 
- * 
- * 
  * 
  * Before you perform this operation, you should first run PromotePermissionCreatedFromPolicyto ensure that you have an
  * appropriate customer managed permission that can be associated with this resource share after its is promoted. If
@@ -342,9 +318,6 @@ export class PermissionLimitExceededException extends S.TaggedError<PermissionLi
  * want to share, a list of principals you want to share the resources with, and the
  * permissions to grant those principals.
  * 
- * 
- * 
- * 
  * Sharing a resource makes it available for use by principals outside of the
  * Amazon Web Services account that created the resource. Sharing doesn't change any permissions or
  * quotas that apply to the resource in the account that created it.
@@ -361,7 +334,6 @@ export class PermissionLimitExceededException extends S.TaggedError<PermissionLi
  * Adds the specified tag keys and values to a resource share or managed permission. If you choose a resource share, the
  * tags are attached to only the resource share, not to the resources that are in the resource share.
  * 
- * 
  * The tags on a managed permission are the same for all versions of the managed permission.
  */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-04", uri: "/tagresource", sdkId: "RAM", sigV4ServiceName: "ram", name: "AmazonResourceSharing.TagResource" }, TagResourceRequest, TagResourceResponse, [InvalidParameterException, MalformedArnException, ResourceArnNotFoundException, ServerInternalException, ServiceUnavailableException, TagLimitExceededException, TagPolicyViolationException, UnknownResourceException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -369,7 +341,6 @@ export class PermissionLimitExceededException extends S.TaggedError<PermissionLi
  * the default version of the customer managed permission. New resource shares automatically use the default
  * permission. Existing resource shares continue to use their original permission versions,
  * but you can use ReplacePermissionAssociations to update them.
- * 
  * 
  * If the specified customer managed permission already has the maximum of 5 versions, then
  * you must delete one of the existing versions before you can create a new one.

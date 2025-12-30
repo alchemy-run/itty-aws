@@ -367,7 +367,6 @@ export class InvalidFilterException extends S.TaggedError<InvalidFilterException
 /**
  * Stops an entity recognizer training job while in progress.
  * 
- * 
  * If the training job state is `TRAINING`, the job is marked for termination and
  * put into the `STOP_REQUESTED` state. If the training job completes before it can be
  * stopped, it is put into the `TRAINED`; otherwise the training job is stopped and
@@ -377,11 +376,9 @@ export class InvalidFilterException extends S.TaggedError<InvalidFilterException
 /**
  * Deletes an entity recognizer.
  * 
- * 
  * Only those recognizers that are in terminated states (IN_ERROR, TRAINED) will be deleted.
  * If an active inference job is using the model, a `ResourceInUseException` will be
  * returned.
- * 
  * 
  * This is an asynchronous action that puts the recognizer into a DELETING state, and it is
  * then removed by a background job. Once removed, the recognizer disappears from your account
@@ -390,7 +387,6 @@ export class InvalidFilterException extends S.TaggedError<InvalidFilterException
 /**
  * Deletes a flywheel. When you delete the flywheel, Amazon Comprehend
  * does not delete the data lake or the model associated with the flywheel.
- * 
  * 
  * For more information about flywheels, see
  * Flywheel overview in the *Amazon Comprehend Developer Guide*.
@@ -409,7 +405,6 @@ export class InvalidFilterException extends S.TaggedError<InvalidFilterException
  */export const putResourcePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.PutResourcePolicy" }, PutResourcePolicyRequest, PutResourcePolicyResponse, [InternalServerException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts an asynchronous entity detection job for a collection of documents. Use the operation to track the status of a job.
- * 
  * 
  * This API can be used for either standard entity detection or custom entity recognition. In
  * order to be used for custom entity recognition, the optional `EntityRecognizerArn`
@@ -446,17 +441,14 @@ export class InvalidFilterException extends S.TaggedError<InvalidFilterException
 /**
  * Stops an entities detection job in progress.
  * 
- * 
  * If the job state is `IN_PROGRESS` the job is marked for termination and put
  * into the `STOP_REQUESTED` state. If the job completes before it can be stopped, it
  * is put into the `COMPLETED` state; otherwise the job is stopped and put into the
  * `STOPPED` state.
  * 
- * 
  * If the job is in the `COMPLETED` or `FAILED` state when you call the
  * `StopDominantLanguageDetectionJob` operation, the operation returns a 400
  * Internal Request Exception.
- * 
  * 
  * When a job is stopped, any documents already processed are written to the output
  * location.
@@ -467,17 +459,14 @@ export class InvalidFilterException extends S.TaggedError<InvalidFilterException
 /**
  * Stops a key phrases detection job in progress.
  * 
- * 
  * If the job state is `IN_PROGRESS` the job is marked for termination and put
  * into the `STOP_REQUESTED` state. If the job completes before it can be stopped, it
  * is put into the `COMPLETED` state; otherwise the job is stopped and put into the
  * `STOPPED` state.
  * 
- * 
  * If the job is in the `COMPLETED` or `FAILED` state when you call the
  * `StopDominantLanguageDetectionJob` operation, the operation returns a 400
  * Internal Request Exception.
- * 
  * 
  * When a job is stopped, any documents already processed are written to the output
  * location.
@@ -488,17 +477,14 @@ export class InvalidFilterException extends S.TaggedError<InvalidFilterException
 /**
  * Stops a sentiment detection job in progress.
  * 
- * 
  * If the job state is `IN_PROGRESS`, the job is marked for termination and put
  * into the `STOP_REQUESTED` state. If the job completes before it can be stopped, it
  * is put into the `COMPLETED` state; otherwise the job is be stopped and put into the
  * `STOPPED` state.
  * 
- * 
  * If the job is in the `COMPLETED` or `FAILED` state when you call the
  * `StopDominantLanguageDetectionJob` operation, the operation returns a 400
  * Internal Request Exception.
- * 
  * 
  * When a job is stopped, any documents already processed are written to the output
  * location.
@@ -506,24 +492,20 @@ export class InvalidFilterException extends S.TaggedError<InvalidFilterException
 /**
  * Stops a targeted sentiment detection job in progress.
  * 
- * 
  * If the job state is `IN_PROGRESS`, the job is marked for termination and put
  * into the `STOP_REQUESTED` state. If the job completes before it can be stopped, it
  * is put into the `COMPLETED` state; otherwise the job is be stopped and put into the
  * `STOPPED` state.
  * 
- * 
  * If the job is in the `COMPLETED` or `FAILED` state when you call the
  * `StopDominantLanguageDetectionJob` operation, the operation returns a 400
  * Internal Request Exception.
- * 
  * 
  * When a job is stopped, any documents already processed are written to the output
  * location.
  */export const stopTargetedSentimentDetectionJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.StopTargetedSentimentDetectionJob" }, StopTargetedSentimentDetectionJobRequest, StopTargetedSentimentDetectionJobResponse, [InternalServerException, InvalidRequestException, JobNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Stops a document classifier training job while in progress.
- * 
  * 
  * If the training job state is `TRAINING`, the job is marked for termination and
  * put into the `STOP_REQUESTED` state. If the training job completes before it can be
@@ -557,7 +539,6 @@ export class InvalidFilterException extends S.TaggedError<InvalidFilterException
  * Inspects a batch of documents and returns a sentiment analysis
  * for each entity identified in the documents.
  * 
- * 
  * For more information about targeted sentiment, see Targeted sentiment in the *Amazon Comprehend Developer Guide*.
  */export const batchDetectTargetedSentiment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.BatchDetectTargetedSentiment" }, BatchDetectTargetedSentimentRequest, BatchDetectTargetedSentimentResponse, [BatchSizeLimitExceededException, InternalServerException, InvalidRequestException, TextSizeLimitExceededException, UnsupportedLanguageException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -573,11 +554,9 @@ export class InvalidFilterException extends S.TaggedError<InvalidFilterException
 /**
  * Deletes a previously created document classifier
  * 
- * 
  * Only those classifiers that are in terminated states (IN_ERROR, TRAINED) will be deleted.
  * If an active inference job is using the model, a `ResourceInUseException` will be
  * returned.
- * 
  * 
  * This is an asynchronous action that puts the classifier into a DELETING state, and it is
  * then removed by a background job. Once removed, the classifier disappears from your account
@@ -652,10 +631,8 @@ export class InvalidFilterException extends S.TaggedError<InvalidFilterException
  * Creates a new custom model that replicates a source custom model that you import. The
  * source model can be in your Amazon Web Services account or another one.
  * 
- * 
  * If the source model is in another Amazon Web Services account, then it must have a resource-based policy
  * that authorizes you to import it.
- * 
  * 
  * The source model must be in the same Amazon Web Services Region that you're using when you import. You
  * can't import a model that's in a different Region.
@@ -684,7 +661,6 @@ export class InvalidFilterException extends S.TaggedError<InvalidFilterException
  * recognizers currently in training. Allows you to filter the list of recognizers based on
  * criteria such as status and submission time. This call returns up to 500 entity recognizers in
  * the list, with a default number of 100 recognizers in the list.
- * 
  * 
  * The results of this list are not in any particular order. Please get the list and sort
  * locally if needed.
@@ -731,17 +707,14 @@ export class InvalidFilterException extends S.TaggedError<InvalidFilterException
 /**
  * Stops a dominant language detection job in progress.
  * 
- * 
  * If the job state is `IN_PROGRESS` the job is marked for termination and put
  * into the `STOP_REQUESTED` state. If the job completes before it can be stopped, it
  * is put into the `COMPLETED` state; otherwise the job is stopped and put into the
  * `STOPPED` state.
  * 
- * 
  * If the job is in the `COMPLETED` or `FAILED` state when you call the
  * `StopDominantLanguageDetectionJob` operation, the operation returns a 400
  * Internal Request Exception.
- * 
  * 
  * When a job is stopped, any documents already processed are written to the output
  * location.
@@ -765,13 +738,9 @@ export class InvalidFilterException extends S.TaggedError<InvalidFilterException
  * Creates a classification request to analyze a single document in real-time. `ClassifyDocument`
  * supports the following model types:
  * 
- * 
- * 
  * - Custom classifier - a custom model that you have created and trained.
  * For input, you can provide plain text, a single-page document (PDF, Word, or image), or
  * Amazon Textract API output. For more information, see Custom classification in the *Amazon Comprehend Developer Guide*.
- * 
- * 
  * 
  * - Prompt safety classifier - Amazon Comprehend provides a pre-trained model for classifying
  * input prompts for generative AI applications.
@@ -779,13 +748,8 @@ export class InvalidFilterException extends S.TaggedError<InvalidFilterException
  * For prompt safety classification, the response includes only the `Classes` field.
  * For more information about prompt safety classifiers, see Prompt safety classification in the *Amazon Comprehend Developer Guide*.
  * 
- * 
- * 
- * 
- * 
  * If the system detects errors while processing a page in the input document,
  * the API response includes an `Errors` field that describes the errors.
- * 
  * 
  * If the system detects a document-level error in your input document, the API returns an
  * `InvalidRequestException` error response.
@@ -810,18 +774,14 @@ export class InvalidFilterException extends S.TaggedError<InvalidFilterException
  * or custom entity recognition. You can create a flywheel to start with an existing trained model, or
  * Comprehend can create and train a new model.
  * 
- * 
  * When you create the flywheel, Comprehend creates a data lake in your account. The data lake holds the training
  * data and test data for all versions of the model.
- * 
  * 
  * To use a flywheel with an existing trained model, you specify the active model version. Comprehend copies the model's
  * training data and test data into the flywheel's data lake.
  * 
- * 
  * To use the flywheel with a new model, you need to provide a dataset for training data (and optional test data)
  * when you create the flywheel.
- * 
  * 
  * For more information about flywheels, see
  * Flywheel overview in the *Amazon Comprehend Developer Guide*.
@@ -859,20 +819,15 @@ export class InvalidFilterException extends S.TaggedError<InvalidFilterException
  * Detects named entities in input text when you use the pre-trained model.
  * Detects custom entities if you have a custom entity recognition model.
  * 
- * 
- * 
  * When detecting named entities using the pre-trained model, use plain text as the input.
  * For more information about named entities, see
  * Entities in the Comprehend Developer Guide.
  * 
- * 
  * When you use a custom entity recognition model,
  * you can input plain text or you can upload a single-page input document (text, PDF, Word, or image).
  * 
- * 
  * If the system detects errors while processing a page in the input document, the API response
  * includes an entry in `Errors` for each error.
- * 
  * 
  * If the system detects a document-level error in your input document, the API returns an
  * `InvalidRequestException` error response.
@@ -882,7 +837,6 @@ export class InvalidFilterException extends S.TaggedError<InvalidFilterException
  */export const detectEntities = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.DetectEntities" }, DetectEntitiesRequest, DetectEntitiesResponse, [InternalServerException, InvalidRequestException, ResourceUnavailableException, TextSizeLimitExceededException, UnsupportedLanguageException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Inspects the input text and returns a sentiment analysis for each entity identified in the text.
- * 
  * 
  * For more information about targeted sentiment, see Targeted sentiment in the *Amazon Comprehend Developer Guide*.
  */export const detectTargetedSentiment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.DetectTargetedSentiment" }, DetectTargetedSentimentRequest, DetectTargetedSentimentResponse, [InternalServerException, InvalidRequestException, TextSizeLimitExceededException, UnsupportedLanguageException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

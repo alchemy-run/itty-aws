@@ -264,22 +264,11 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Describes a resource of the Resilience Hub application.
  * 
- * 
- * 
- * 
  * This API accepts only one of the following parameters to describe the resource:
- * 
- * 
  * 
  * - `resourceName`
  * 
- * 
- * 
- * 
  * - `logicalResourceId`
- * 
- * 
- * 
  * 
  * - `physicalResourceId` (Along with `physicalResourceId`, you can
  * also provide `awsAccountId`, and `awsRegion`)
@@ -350,18 +339,12 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Updates the Resilience Hub application version.
  * 
- * 
- * 
- * 
  * This API updates the Resilience Hub application draft version. To use this
  * information for running resiliency assessments, you must publish the Resilience Hub
  * application using the `PublishAppVersion` API.
  */export const updateAppVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-04-30", uri: "/update-app-version", sdkId: "resiliencehub", sigV4ServiceName: "resiliencehub", name: "AwsResilienceHub.UpdateAppVersion" }, UpdateAppVersionRequest, UpdateAppVersionResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates an existing Application Component in the Resilience Hub application.
- * 
- * 
- * 
  * 
  * This API updates the Resilience Hub application draft version. To use this
  * Application Component for running assessments, you must publish the Resilience Hub
@@ -370,28 +353,17 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Updates the resource details in the Resilience Hub application.
  * 
- * 
- * 
- * 
- * 
  * - This action has no effect outside Resilience Hub.
- * 
- * 
  * 
  * - This API updates the Resilience Hub application draft version. To use this
  * resource for running resiliency assessments, you must publish the Resilience Hub
  * application using the `PublishAppVersion` API.
- * 
- * 
  * 
  * - To update application version with new `physicalResourceID`, you must
  * call `ResolveAppVersionResources` API.
  */export const updateAppVersionResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-04-30", uri: "/update-app-version-resource", sdkId: "resiliencehub", sigV4ServiceName: "resiliencehub", name: "AwsResilienceHub.UpdateAppVersionResource" }, UpdateAppVersionResourceRequest, UpdateAppVersionResourceResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates a resiliency policy.
- * 
- * 
- * 
  * 
  * Resilience Hub allows you to provide a value of zero for `rtoInSecs`
  * and `rpoInSecs` of your resiliency policy. But, while assessing your application,
@@ -409,7 +381,6 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * about the number of resources supported per application, see Service
  * quotas.
  * 
- * 
  * After you create an Resilience Hub application, you publish it so that you can run
  * a resiliency assessment on it. You can then use recommendations from the assessment to improve
  * resiliency by running another assessment, comparing results, and then iterating the process
@@ -418,9 +389,6 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  */export const createApp = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-04-30", uri: "/create-app", sdkId: "resiliencehub", sigV4ServiceName: "resiliencehub", name: "AwsResilienceHub.CreateApp" }, CreateAppRequest, CreateAppResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new Application Component in the Resilience Hub application.
- * 
- * 
- * 
  * 
  * This API updates the Resilience Hub application draft version. To use this
  * Application Component for running assessments, you must publish the Resilience Hub
@@ -431,19 +399,11 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * Application Components. If you specify a new Application Component, Resilience Hub will
  * automatically create the Application Component.
  * 
- * 
- * 
- * 
- * 
  * - This action has no effect outside Resilience Hub.
- * 
- * 
  * 
  * - This API updates the Resilience Hub application draft version. To use this
  * resource for running resiliency assessments, you must publish the Resilience Hub
  * application using the `PublishAppVersion` API.
- * 
- * 
  * 
  * - To update application version with new `physicalResourceID`, you must
  * call `ResolveAppVersionResources` API.
@@ -466,15 +426,9 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Deletes an Application Component from the Resilience Hub application.
  * 
- * 
- * 
- * 
- * 
  * - This API updates the Resilience Hub application draft version. To use this
  * Application Component for running assessments, you must publish the Resilience Hub
  * application using the `PublishAppVersion` API.
- * 
- * 
  * 
  * - You will not be able to delete an Application Component if it has resources associated
  * with it.
@@ -482,18 +436,10 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Deletes a resource from the Resilience Hub application.
  * 
- * 
- * 
- * 
- * 
  * - You can only delete a manually added resource. To exclude non-manually added
  * resources, use the `UpdateAppVersionResource` API.
  * 
- * 
- * 
  * - This action has no effect outside Resilience Hub.
- * 
- * 
  * 
  * - This API updates the Resilience Hub application draft version. To use this
  * resource for running resiliency assessments, you must publish the Resilience Hub
@@ -511,9 +457,6 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  */export const describeApp = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-04-30", uri: "/describe-app", sdkId: "resiliencehub", sigV4ServiceName: "resiliencehub", name: "AwsResilienceHub.DescribeApp" }, DescribeAppRequest, DescribeAppResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes the status of importing resources to an application version.
- * 
- * 
- * 
  * 
  * If you get a 404 error with
  * `ResourceImportStatusNotFoundAppMetadataException`, you must call
@@ -553,14 +496,9 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Lists your Resilience Hub applications.
  * 
- * 
- * 
- * 
  * You can filter applications using only one filter at a time or without using any filter.
  * If you try to filter applications using multiple filters, you will get the following
  * error:
- * 
- * 
  * 
  * An error occurred (ValidationException) when calling the ListApps operation: Only
  * one filter is supported for this operation.
@@ -601,9 +539,6 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  */export const addDraftAppVersionResourceMappings = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-04-30", uri: "/add-draft-app-version-resource-mappings", sdkId: "resiliencehub", sigV4ServiceName: "resiliencehub", name: "AwsResilienceHub.AddDraftAppVersionResourceMappings" }, AddDraftAppVersionResourceMappingsRequest, AddDraftAppVersionResourceMappingsResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a resiliency policy for an application.
- * 
- * 
- * 
  * 
  * Resilience Hub allows you to provide a value of zero for `rtoInSecs`
  * and `rpoInSecs` of your resiliency policy. But, while assessing your application,

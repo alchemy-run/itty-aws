@@ -318,10 +318,6 @@ export class TrailAlreadyExistsException extends S.TaggedError<TrailAlreadyExist
  * created. `DeleteTrail` cannot be called on the shadow trails (replicated trails
  * in other Regions) of a trail that is enabled in all Regions.
  * 
- * 
- * 
- * 
- * 
  * While deleting a CloudTrail trail is an irreversible action, CloudTrail does not
  * delete log files in the Amazon S3 bucket for that trail, the Amazon S3 bucket itself, or the
  * CloudWatchlog group to which the trail delivers events. Deleting a multi-Region trail
@@ -330,15 +326,12 @@ export class TrailAlreadyExistsException extends S.TaggedError<TrailAlreadyExist
  * logging of events in other Regions even if the trails in those other Regions have
  * identical names to the deleted trail.
  * 
- * 
- * 
  * For information about account closure and deletion of CloudTrail trails, see https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-account-closure.html.
  */export const deleteTrail = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-11-01", sdkId: "CloudTrail", sigV4ServiceName: "cloudtrail", name: "CloudTrail_20131101.DeleteTrail" }, DeleteTrailRequest, DeleteTrailResponse, [CloudTrailARNInvalidException, ConflictException, InsufficientDependencyServiceAccessPermissionException, InvalidHomeRegionException, InvalidTrailNameException, NoManagementAccountSLRExistsException, NotOrganizationMasterAccountException, OperationNotPermittedException, ThrottlingException, TrailNotFoundException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns metadata about a query, including query run time in milliseconds, number of
  * events scanned and matched, and query status. If the query results were delivered to an S3 bucket,
  * the response also provides the S3 URI and the delivery status.
- * 
  * 
  * You must specify either `QueryId` or `QueryAlias`. Specifying the `QueryAlias` parameter
  * returns information about the last query run for the alias. You can provide
@@ -353,23 +346,16 @@ export class TrailAlreadyExistsException extends S.TaggedError<TrailAlreadyExist
  * Generates a query from a natural language prompt. This operation uses generative artificial intelligence
  * (generative AI) to produce a ready-to-use SQL query from the prompt.
  * 
- * 
- * 
  * The prompt can be a question or a statement about the event data
  * in your event data store. For example, you can enter prompts like "What are my
  * top errors in the past month?" and “Give me a list of users that used SNS.”
- * 
  * 
  * The prompt must be in English. For information about limitations, permissions, and supported Regions, see
  * Create CloudTrail Lake queries from natural language prompts
  * in the *CloudTrail * user guide.
  * 
- * 
- * 
- * 
  * Do not include any personally identifying, confidential, or sensitive information
  * in your prompts.
- * 
  * 
  * This feature uses generative AI large language models (LLMs); we recommend double-checking the
  * LLM response.
@@ -388,43 +374,23 @@ export class TrailAlreadyExistsException extends S.TaggedError<TrailAlreadyExist
  * Describes the settings for the event selectors that you configured for your trail. The
  * information returned for your event selectors includes the following:
  * 
- * 
- * 
  * - If your event selector includes read-only events, write-only events, or all
  * events. This applies to management events, data events, and network activity events.
  * 
- * 
- * 
  * - If your event selector includes management events.
- * 
- * 
  * 
  * - If your event selector includes network activity events, the event sources
  * for which you are logging network activity events.
  * 
- * 
- * 
  * - If your event selector includes data events, the resources on which you are
  * logging data events.
- * 
- * 
- * 
- * 
  * 
  * For more information about logging management, data, and network activity events, see the following topics
  * in the *CloudTrail User Guide*:
  * 
- * 
- * 
  * - Logging management events
  * 
- * 
- * 
- * 
  * - Logging data events
- * 
- * 
- * 
  * 
  * - Logging network activity events
  */export const getEventSelectors = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-11-01", sdkId: "CloudTrail", sigV4ServiceName: "cloudtrail", name: "CloudTrail_20131101.GetEventSelectors" }, GetEventSelectorsRequest, GetEventSelectorsResponse, [CloudTrailARNInvalidException, InvalidTrailNameException, NoManagementAccountSLRExistsException, OperationNotPermittedException, TrailNotFoundException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -438,11 +404,8 @@ export class TrailAlreadyExistsException extends S.TaggedError<TrailAlreadyExist
  * `GetInsightSelectors` on a trail or event data store that does not have Insights events enabled,
  * the operation throws the exception `InsightNotEnabledException`
  * 
- * 
- * 
  * Specify either the `EventDataStore` parameter to get Insights event selectors for an event data store,
  * or the `TrailName` parameter to the get Insights event selectors for a trail. You cannot specify these parameters together.
- * 
  * 
  * For more information, see Working with CloudTrail Insights in the *CloudTrail User Guide*.
  */export const getInsightSelectors = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-11-01", sdkId: "CloudTrail", sigV4ServiceName: "cloudtrail", name: "CloudTrail_20131101.GetInsightSelectors" }, GetInsightSelectorsRequest, GetInsightSelectorsResponse, [CloudTrailARNInvalidException, InsightNotEnabledException, InvalidParameterCombinationException, InvalidParameterException, InvalidTrailNameException, NoManagementAccountSLRExistsException, OperationNotPermittedException, ThrottlingException, TrailNotFoundException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -470,36 +433,20 @@ export class TrailAlreadyExistsException extends S.TaggedError<TrailAlreadyExist
  * Returns Insights metrics data for trails that have enabled Insights. The request must include the `EventSource`,
  * `EventName`, and `InsightType` parameters.
  * 
- * 
  * If the `InsightType` is set to `ApiErrorRateInsight`, the request must also include the `ErrorCode` parameter.
- * 
  * 
  * The following are the available time periods for `ListInsightsMetricData`. Each cutoff is inclusive.
  * 
- * 
- * 
  * - Data points with a period of 60 seconds (1-minute) are available for 15 days.
- * 
- * 
  * 
  * - Data points with a period of 300 seconds (5-minute) are available for 63 days.
  * 
- * 
- * 
  * - Data points with a period of 3600 seconds (1 hour) are available for 90 days.
- * 
- * 
- * 
- * 
  * 
  * To use `ListInsightsMetricData` operation, you must have the following permissions:
  * 
- * 
- * 
  * - If `ListInsightsMetricData` is invoked with `TrailName` parameter, access to the `ListInsightsMetricData` API operation is linked to the `cloudtrail:LookupEvents` action and `cloudtrail:ListInsightsData`. To use this operation,
  * you must have permissions to perform the `cloudtrail:LookupEvents` and `cloudtrail:ListInsightsData` action on the specific trail.
- * 
- * 
  * 
  * - If `ListInsightsMetricData` is invoked without `TrailName` parameter, access to the `ListInsightsMetricData` API operation is linked to the `cloudtrail:LookupEvents` action only. To use this operation,
  * you must have permissions to perform the `cloudtrail:LookupEvents` action.
@@ -553,14 +500,9 @@ export class TrailAlreadyExistsException extends S.TaggedError<TrailAlreadyExist
 /**
  * Updates the specified dashboard.
  * 
- * 
- * 
  * To set a refresh schedule, CloudTrail must be granted permissions to run the `StartDashboardRefresh` operation to refresh the dashboard on your behalf. To provide permissions, run the `PutResourcePolicy` operation to attach a resource-based policy to the dashboard. For more information,
  * see
  * Resource-based policy example for a dashboard in the *CloudTrail User Guide*.
- * 
- * 
- * 
  * 
  * CloudTrail runs queries to populate the dashboard's widgets during a manual or scheduled refresh. CloudTrail must be granted permissions to run the `StartQuery` operation on your behalf. To provide permissions, run the `PutResourcePolicy` operation to attach a resource-based policy to each event data store. For more information,
  * see Example: Allow CloudTrail to run queries to populate a dashboard in the *CloudTrail User Guide*.
@@ -576,33 +518,19 @@ export class TrailAlreadyExistsException extends S.TaggedError<TrailAlreadyExist
 /**
  * Creates a custom dashboard or the Highlights dashboard.
  * 
- * 
- * 
  * - **Custom dashboards** - Custom dashboards allow you to query
  * events in any event data store type. You can add up to 10 widgets to a custom dashboard. You can manually refresh a custom dashboard, or you can set a refresh schedule.
- * 
- * 
  * 
  * - **Highlights dashboard** - You can create
  * the Highlights dashboard to see a summary of key user activities and API usage across all your event data stores.
  * CloudTrail Lake manages the Highlights dashboard and refreshes the dashboard every 6 hours. To create the Highlights dashboard, you must set and enable a refresh schedule.
  * 
- * 
- * 
- * 
- * 
- * 
  * CloudTrail runs queries to populate the dashboard's widgets during a manual or scheduled refresh. CloudTrail must be granted permissions to run the `StartQuery` operation on your behalf. To provide permissions, run the `PutResourcePolicy` operation to attach a resource-based policy to each event data store. For more information,
  * see Example: Allow CloudTrail to run queries to populate a dashboard in the *CloudTrail User Guide*.
- * 
- * 
- * 
  * 
  * To set a refresh schedule, CloudTrail must be granted permissions to run the `StartDashboardRefresh` operation to refresh the dashboard on your behalf. To provide permissions, run the `PutResourcePolicy` operation to attach a resource-based policy to the dashboard. For more information,
  * see
  * Resource-based policy example for a dashboard in the *CloudTrail User Guide*.
- * 
- * 
  * 
  * For more information about dashboards, see CloudTrail Lake dashboards in the *CloudTrail User Guide*.
  */export const createDashboard = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-11-01", sdkId: "CloudTrail", sigV4ServiceName: "cloudtrail", name: "CloudTrail_20131101.CreateDashboard" }, CreateDashboardRequest, CreateDashboardResponse, [ConflictException, EventDataStoreNotFoundException, InactiveEventDataStoreException, InsufficientEncryptionPolicyException, InvalidQueryStatementException, InvalidTagParameterException, ServiceQuotaExceededException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -615,7 +543,6 @@ export class TrailAlreadyExistsException extends S.TaggedError<TrailAlreadyExist
  * the integration with Glue, Lake Formation, and Amazon Athena.
  * After disabling Lake query federation, you can no longer query your event data in Amazon Athena.
  * 
- * 
  * No CloudTrail Lake data is deleted when you disable federation and you can continue to run queries in CloudTrail Lake.
  */export const disableFederation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-11-01", sdkId: "CloudTrail", sigV4ServiceName: "cloudtrail", name: "CloudTrail_20131101.DisableFederation" }, DisableFederationRequest, DisableFederationResponse, [AccessDeniedException, CloudTrailAccessNotEnabledException, ConcurrentModificationException, EventDataStoreARNInvalidException, EventDataStoreNotFoundException, InactiveEventDataStoreException, InsufficientDependencyServiceAccessPermissionException, InvalidParameterException, NoManagementAccountSLRExistsException, NotOrganizationMasterAccountException, OperationNotPermittedException, OrganizationNotInAllFeaturesModeException, OrganizationsNotInUseException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -624,13 +551,11 @@ export class TrailAlreadyExistsException extends S.TaggedError<TrailAlreadyExist
  * SQL queries against your event data using Amazon Athena. The table metadata stored in the Glue Data Catalog
  * lets the Athena query engine know how to find, read, and process the data that you want to query.
  * 
- * 
  * When you enable Lake query federation, CloudTrail
  * creates a managed database named `aws:cloudtrail` (if the database doesn't already exist) and a managed federated table in
  * the Glue Data Catalog. The event data store ID is used for the table name. CloudTrail registers the role ARN and event data store in
  * Lake Formation, the service responsible for allowing fine-grained access control
  * of the federated resources in the Glue Data Catalog.
- * 
  * 
  * For more information about Lake query federation, see Federate an event data store.
  */export const enableFederation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-11-01", sdkId: "CloudTrail", sigV4ServiceName: "cloudtrail", name: "CloudTrail_20131101.EnableFederation" }, EnableFederationRequest, EnableFederationResponse, [AccessDeniedException, CloudTrailAccessNotEnabledException, ConcurrentModificationException, EventDataStoreARNInvalidException, EventDataStoreFederationEnabledException, EventDataStoreNotFoundException, InactiveEventDataStoreException, InsufficientDependencyServiceAccessPermissionException, InvalidParameterException, NoManagementAccountSLRExistsException, NotOrganizationMasterAccountException, OperationNotPermittedException, OrganizationNotInAllFeaturesModeException, OrganizationsNotInUseException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -649,9 +574,6 @@ export class TrailAlreadyExistsException extends S.TaggedError<TrailAlreadyExist
  * specified time range. The public key is needed to validate digest files that were signed
  * with its corresponding private key.
  * 
- * 
- * 
- * 
  * CloudTrail uses different private and public key pairs per Region. Each digest
  * file is signed with a private key unique to its Region. When you validate a digest file
  * from a specific Region, you must look in the same Region for its corresponding public
@@ -669,83 +591,50 @@ export class TrailAlreadyExistsException extends S.TaggedError<TrailAlreadyExist
  * you apply `AdvancedEventSelectors` to a trail, any existing
  * `EventSelectors` are overwritten.
  * 
- * 
  * You can use `AdvancedEventSelectors` to
  * log management events, data events for all resource types, and network activity events.
  * 
- * 
  * You can use `EventSelectors` to log management events and data events for the following resource types:
- * 
- * 
  * 
  * - `AWS::DynamoDB::Table`
  * 
- * 
- * 
- * 
  * - `AWS::Lambda::Function`
- * 
- * 
- * 
  * 
  * - `AWS::S3::Object`
  * 
- * 
- * 
- * 
- * 
- * 
  * You can't use `EventSelectors` to log network activity events.
- * 
  * 
  * If you want your trail to log Insights events, be sure the event selector or advanced event selector enables
  * logging of the Insights event types you want configured for your trail. For more information about logging Insights events, see Working with CloudTrail Insights in the *CloudTrail User Guide*.
  * By default, trails created without specific event selectors are configured to
  * log all read and write management events, and no data events or network activity events.
  * 
- * 
  * When an event occurs in your account, CloudTrail evaluates the event selectors or
  * advanced event selectors in all trails. For each trail, if the event matches any event
  * selector, the trail processes and logs the event. If the event doesn't match any event
  * selector, the trail doesn't log the event.
  * 
- * 
  * Example
- * 
- * 
  * 
  * - You create an event selector for a trail and specify that you want to log write-only
  * events.
  * 
- * 
- * 
  * - The EC2 `GetConsoleOutput` and `RunInstances` API operations
  * occur in your account.
  * 
- * 
- * 
  * - CloudTrail evaluates whether the events match your event selectors.
- * 
- * 
  * 
  * - The `RunInstances` is a write-only event and it matches your event
  * selector. The trail logs the event.
  * 
- * 
- * 
  * - The `GetConsoleOutput` is a read-only event that doesn't match your
  * event selector. The trail doesn't log the event.
- * 
- * 
- * 
  * 
  * The `PutEventSelectors` operation must be called from the Region in which the
  * trail was created; otherwise, an `InvalidHomeRegionException` exception is
  * thrown.
  * 
- * 
  * You can configure up to five event selectors for each trail.
- * 
  * 
  * You can add advanced event selectors, and conditions for your advanced event selectors,
  * up to a maximum of 500 values for all conditions and selectors on a trail. For more information, see
@@ -759,8 +648,6 @@ export class TrailAlreadyExistsException extends S.TaggedError<TrailAlreadyExist
  */export const registerOrganizationDelegatedAdmin = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-11-01", sdkId: "CloudTrail", sigV4ServiceName: "cloudtrail", name: "CloudTrail_20131101.RegisterOrganizationDelegatedAdmin" }, RegisterOrganizationDelegatedAdminRequest, RegisterOrganizationDelegatedAdminResponse, [AccountNotFoundException, AccountRegisteredException, CannotDelegateManagementAccountException, CloudTrailAccessNotEnabledException, ConflictException, DelegatedAdminAccountLimitExceededException, InsufficientDependencyServiceAccessPermissionException, InsufficientIAMAccessPermissionException, InvalidParameterException, NotOrganizationManagementAccountException, OperationNotPermittedException, OrganizationNotInAllFeaturesModeException, OrganizationsNotInUseException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts a refresh of the specified dashboard.
- * 
- * 
  * 
  * Each time a dashboard is refreshed, CloudTrail runs queries to populate the dashboard's widgets. CloudTrail must be granted permissions to run the `StartQuery` operation on your behalf. To provide permissions, run the `PutResourcePolicy` operation to attach a resource-based policy to each event data store. For more information,
  * see Example: Allow CloudTrail to run queries to populate a dashboard in the *CloudTrail User Guide*.
@@ -788,7 +675,6 @@ export class TrailAlreadyExistsException extends S.TaggedError<TrailAlreadyExist
  * You cannot delete an event data store if `TerminationProtectionEnabled`
  * is `True` or the `FederationStatus` is `ENABLED`.
  * 
- * 
  * After you run `DeleteEventDataStore` on an event data store, you cannot run
  * `ListQueries`, `DescribeQuery`, or `GetQueryResults` on
  * queries that are using an event data store in a `PENDING_DELETION` state. An
@@ -797,29 +683,17 @@ export class TrailAlreadyExistsException extends S.TaggedError<TrailAlreadyExist
 /**
  * Returns Insights events generated on a trail that logs data events. You can list Insights events that occurred in a Region within the last 90 days.
  * 
- * 
  * ListInsightsData supports the following Dimensions for Insights events:
- * 
- * 
  * 
  * - Event ID
  * 
- * 
- * 
  * - Event name
  * 
- * 
- * 
  * - Event source
- * 
- * 
- * 
- * 
  * 
  * All dimensions are optional. The default number of results returned is 50, with a
  * maximum of 50 possible. The response includes a token that you can use to get the next page
  * of results.
- * 
  * 
  * The rate of ListInsightsData requests is limited to two per second, per account, per Region. If
  * this limit is exceeded, a throttling error occurs.
@@ -837,78 +711,38 @@ export class TrailAlreadyExistsException extends S.TaggedError<TrailAlreadyExist
  * Looks up management events or CloudTrail Insights events that are captured by CloudTrail.
  * You can look up events that occurred in a Region within the last 90 days.
  * 
- * 
- * 
- * 
- * 
  * `LookupEvents` returns recent Insights events for trails that enable Insights. To view Insights events for an event data store, you can run queries on your
  * Insights event data store, and you can also view the Lake dashboard for Insights.
  * 
- * 
- * 
- * 
  * Lookup supports the following attributes for management events:
- * 
- * 
  * 
  * - Amazon Web Services access key
  * 
- * 
- * 
  * - Event ID
- * 
- * 
  * 
  * - Event name
  * 
- * 
- * 
  * - Event source
- * 
- * 
  * 
  * - Read only
  * 
- * 
- * 
  * - Resource name
- * 
- * 
  * 
  * - Resource type
  * 
- * 
- * 
  * - User name
- * 
- * 
- * 
- * 
  * 
  * Lookup supports the following attributes for Insights events:
  * 
- * 
- * 
  * - Event ID
- * 
- * 
  * 
  * - Event name
  * 
- * 
- * 
  * - Event source
- * 
- * 
- * 
- * 
  * 
  * All attributes are optional. The default number of results returned is 50, with a
  * maximum of 50 possible. The response includes a token that you can use to get the next page
  * of results.
- * 
- * 
- * 
  * 
  * The rate of lookup requests is limited to two per second, per account, per Region. If
  * this limit is exceeded, a throttling error occurs.
@@ -920,11 +754,9 @@ export class TrailAlreadyExistsException extends S.TaggedError<TrailAlreadyExist
  * `RetentionPeriod` is in days, and valid values are integers between 7 and
  * 3653 if the `BillingMode` is set to `EXTENDABLE_RETENTION_PRICING`, or between 7 and 2557 if `BillingMode` is set to `FIXED_RETENTION_PRICING`. By default, `TerminationProtection` is enabled.
  * 
- * 
  * For event data stores for CloudTrail events, `AdvancedEventSelectors`
  * includes or excludes management, data, or network activity events in your event data store. For more
  * information about `AdvancedEventSelectors`, see AdvancedEventSelectors.
- * 
  * 
  * For event data stores for CloudTrail Insights events, Config configuration items, Audit Manager evidence, or non-Amazon Web Services events,
  * `AdvancedEventSelectors` includes events of that type in your event data store.
@@ -939,37 +771,18 @@ export class TrailAlreadyExistsException extends S.TaggedError<TrailAlreadyExist
  * event types are `ApiErrorRateInsight` and
  * `ApiCallRateInsight`, and valid EventCategories are `Management` and `Data`.
  * 
- * 
- * 
- * 
- * 
  * Insights on data events are not supported on event data stores. For event data stores, you can only enable Insights on management events.
- * 
- * 
- * 
- * 
  * 
  * To enable Insights on an event data store, you must specify the ARNs (or ID suffix of the ARNs) for the source event data store (`EventDataStore`) and the destination event data store (`InsightsDestination`). The source event data store logs management events and enables Insights.
  * The destination event data store logs Insights events based upon the management event activity of the source event data store. The source and destination event data stores must belong to the same Amazon Web Services account.
  * 
- * 
  * To log Insights events for a trail, you must specify the name (`TrailName`) of the CloudTrail trail for which you want to change or add Insights
  * selectors.
- * 
- * 
  * 
  * - For Management events Insights: To log CloudTrail Insights on the API call rate, the trail or event data store must log `write` management events.
  * To log CloudTrail Insights on the API error rate, the trail or event data store must log `read` or `write` management events.
  * 
- * 
- * 
- * 
  * - For Data events Insights: To log CloudTrail Insights on the API call rate or API error rate, the trail must log `read` or `write` data events. Data events Insights are not supported on event data store.
- * 
- * 
- * 
- * 
- * 
  * 
  * To log CloudTrail Insights events on API call volume, the trail or event data store
  * must log `write` management events. To log CloudTrail
@@ -977,7 +790,6 @@ export class TrailAlreadyExistsException extends S.TaggedError<TrailAlreadyExist
  * `write` management events. You can call `GetEventSelectors` on a trail
  * to check whether the trail logs management events. You can call `GetEventDataStore` on an
  * event data store to check whether the event data store logs management events.
- * 
  * 
  * For more information, see Working with CloudTrail Insights in the *CloudTrail User Guide*.
  */export const putInsightSelectors = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-11-01", sdkId: "CloudTrail", sigV4ServiceName: "cloudtrail", name: "CloudTrail_20131101.PutInsightSelectors" }, PutInsightSelectorsRequest, PutInsightSelectorsResponse, [CloudTrailARNInvalidException, InsufficientEncryptionPolicyException, InsufficientS3BucketPolicyException, InvalidHomeRegionException, InvalidInsightSelectorsException, InvalidParameterCombinationException, InvalidParameterException, InvalidTrailNameException, KmsException, NoManagementAccountSLRExistsException, NotOrganizationMasterAccountException, OperationNotPermittedException, S3BucketDoesNotExistException, ThrottlingException, TrailNotFoundException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -989,18 +801,13 @@ export class TrailAlreadyExistsException extends S.TaggedError<TrailAlreadyExist
  * must include the prefix in the `S3LocationUri`. For more considerations about
  * importing trail events, see Considerations for copying trail events in the *CloudTrail User Guide*.
  * 
- * 
  * When you start a new import, the `Destinations` and
  * `ImportSource` parameters are required. Before starting a new import, disable
  * any access control lists (ACLs) attached to the source S3 bucket. For more information
  * about disabling ACLs, see Controlling ownership of
  * objects and disabling ACLs for your bucket.
  * 
- * 
  * When you retry an import, the `ImportID` parameter is required.
- * 
- * 
- * 
  * 
  * If the destination event data store is for an organization, you must use the
  * management account to import trail events. You cannot use the delegated administrator
@@ -1011,8 +818,6 @@ export class TrailAlreadyExistsException extends S.TaggedError<TrailAlreadyExist
  * parameter to provide your SQL query, enclosed in single quotation marks. Use the optional
  * `DeliveryS3Uri` parameter to deliver the query results to an S3
  * bucket.
- * 
- * 
  * 
  * `StartQuery` requires you specify either the `QueryStatement` parameter, or a `QueryAlias` and any `QueryParameters`. In the current release,
  * the `QueryAlias` and `QueryParameters` parameters are used only for the queries that populate the CloudTrail Lake dashboards.

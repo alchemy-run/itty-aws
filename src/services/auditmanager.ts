@@ -237,26 +237,17 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Deletes an assessment report in Audit Manager.
  * 
- * 
  * When you run the `DeleteAssessmentReport` operation, Audit Manager
  * attempts to delete the following data:
  * 
- * 
- * 
  * - The specified assessment report that’s stored in your S3 bucket
  * 
- * 
- * 
  * - The associated metadata that’s stored in Audit Manager
- * 
- * 
- * 
  * 
  * If Audit Manager can’t access the assessment report in your S3 bucket, the report
  * isn’t deleted. In this event, the `DeleteAssessmentReport` operation doesn’t
  * fail. Instead, it proceeds to delete the associated metadata only. You must then delete the
  * assessment report from the S3 bucket yourself.
- * 
  * 
  * This scenario happens when Audit Manager receives a `403 (Forbidden)` or
  * `404 (Not Found)` error from Amazon S3. To avoid this, make sure that
@@ -269,9 +260,6 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Deletes a custom control in Audit Manager.
  * 
- * 
- * 
- * 
  * When you invoke this operation, the custom control is deleted from any frameworks or
  * assessments that it’s currently part of. As a result, Audit Manager will stop
  * collecting evidence for that custom control in all of your assessments. This includes
@@ -280,14 +268,10 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Deregisters an account in Audit Manager.
  * 
- * 
- * 
- * 
  * Before you deregister, you can use the UpdateSettings API operation to set your preferred data retention policy. By
  * default, Audit Manager retains your data. If you want to delete your data, you can
  * use the `DeregistrationPolicy` attribute to request the deletion of your
  * data.
- * 
  * 
  * For more information about data retention, see Data
  * Protection in the *Audit Manager User Guide*.
@@ -296,17 +280,12 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * Removes the specified Amazon Web Services account as a delegated administrator for
  * Audit Manager.
  * 
- * 
  * When you remove a delegated administrator from your Audit Manager settings, you
  * continue to have access to the evidence that you previously collected under that account.
  * This is also the case when you deregister a delegated administrator from Organizations. However, Audit Manager stops collecting and attaching evidence to
  * that delegated administrator account moving forward.
  * 
- * 
- * 
- * 
  * Keep in mind the following cleanup task if you use evidence finder:
- * 
  * 
  * Before you use your management account to remove a delegated administrator, make sure
  * that the current delegated administrator account signs in to Audit Manager and
@@ -317,14 +296,10 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * and manually deletes the
  * event data store.
  * 
- * 
  * This cleanup task is necessary to ensure that you don't end up with multiple event
  * data stores. Audit Manager ignores an unused event data store after you remove or
  * change a delegated administrator account. However, the unused event data store continues
  * to incur storage costs from CloudTrail Lake if you don't delete it.
- * 
- * 
- * 
  * 
  * When you deregister a delegated administrator account for Audit Manager, the data
  * for that account isn’t deleted. If you want to delete resource data for a delegated
@@ -332,40 +307,25 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * account. Either, you can do this in the Audit Manager console. Or, you can use one of
  * the delete API operations that are provided by Audit Manager.
  * 
- * 
  * To delete your Audit Manager resource data, see the following instructions:
- * 
- * 
  * 
  * - DeleteAssessment (see also: Deleting an
  * assessment in the Audit Manager User
  * Guide)
  * 
- * 
- * 
  * - DeleteAssessmentFramework (see also: Deleting a
  * custom framework in the Audit Manager User
  * Guide)
  * 
- * 
- * 
  * - DeleteAssessmentFrameworkShare (see also: Deleting a share request in the Audit Manager User
  * Guide)
- * 
- * 
  * 
  * - DeleteAssessmentReport (see also: Deleting an assessment report in the Audit Manager User
  * Guide)
  * 
- * 
- * 
  * - DeleteControl (see also: Deleting a custom
  * control in the Audit Manager User
  * Guide)
- * 
- * 
- * 
- * 
  * 
  * At this time, Audit Manager doesn't provide an option to delete evidence for a
  * specific delegated administrator. Instead, when your management account deregisters Audit Manager, we perform a cleanup for the current delegated administrator account at the
@@ -417,14 +377,10 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * Gets a list of the Amazon Web Services services from which Audit Manager can collect
  * evidence.
  * 
- * 
  * Audit Manager defines which Amazon Web Services services are in scope for an
  * assessment. Audit Manager infers this scope by examining the assessment’s controls and
  * their data sources, and then mapping this information to one or more of the corresponding
  * Amazon Web Services services that are in this list.
- * 
- * 
- * 
  * 
  * For information about why it's no longer possible to specify services in scope manually, see
  * I can't edit the services in scope for my assessment in
@@ -434,16 +390,12 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Lists analytics data for control domains within a specified active assessment.
  * 
- * 
  * Audit Manager supports the control domains that are provided by Amazon Web Services
  * Control Catalog. For information about how to find a list of available control domains, see
  * 
  * `ListDomains`
  * in the Amazon Web Services Control
  * Catalog API Reference.
- * 
- * 
- * 
  * 
  * A control domain is listed only if at least one of the controls within that domain
  * collected evidence on the `lastUpdated` date of
@@ -467,50 +419,31 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Creates a share request for a custom framework in Audit Manager.
  * 
- * 
  * The share request specifies a recipient and notifies them that a custom framework is
  * available. Recipients have 120 days to accept or decline the request. If no action is
  * taken, the share request expires.
- * 
  * 
  * When you create a share request, Audit Manager stores a snapshot of your custom
  * framework in the US East (N. Virginia) Amazon Web Services Region. Audit Manager also
  * stores a backup of the same snapshot in the US West (Oregon) Amazon Web Services Region.
  * 
- * 
  * Audit Manager deletes the snapshot and the backup snapshot when one of the following
  * events occurs:
  * 
- * 
- * 
  * - The sender revokes the share request.
  * 
- * 
- * 
  * - The recipient declines the share request.
- * 
- * 
  * 
  * - The recipient encounters an error and doesn't successfully accept the share
  * request.
  * 
- * 
- * 
  * - The share request expires before the recipient responds to the request.
- * 
- * 
- * 
- * 
  * 
  * When a sender resends a share request, the snapshot is replaced with an updated version that
  * corresponds with the latest version of the custom framework.
  * 
- * 
  * When a recipient accepts a share request, the snapshot is replicated into their Amazon Web Services account under the Amazon Web Services Region that was specified in the share
  * request.
- * 
- * 
- * 
  * 
  * When you invoke the `StartAssessmentFrameworkShare` API, you are about to
  * share a custom framework with another Amazon Web Services account. You may not share a
@@ -559,25 +492,13 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * evidence. For instructions on how to use this operation, see Upload a file from your browser in the Audit Manager User
  * Guide.
  * 
- * 
  * The following restrictions apply to this operation:
- * 
- * 
  * 
  * - Maximum size of an individual evidence file: 100 MB
  * 
- * 
- * 
  * - Number of daily manual evidence uploads per control: 100
  * 
- * 
- * 
  * - Supported file formats: See Supported file types for manual evidence in the *Audit Manager User Guide*
- * 
- * 
- * 
- * 
- * 
  * 
  * For more information about Audit Manager service restrictions, see Quotas and
  * restrictions for Audit Manager.
@@ -602,16 +523,12 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * Lists the latest analytics data for control domains across all of your active
  * assessments.
  * 
- * 
  * Audit Manager supports the control domains that are provided by Amazon Web Services
  * Control Catalog. For information about how to find a list of available control domains, see
  * 
  * `ListDomains`
  * in the Amazon Web Services Control
  * Catalog API Reference.
- * 
- * 
- * 
  * 
  * A control domain is listed only if at least one of the controls within that domain
  * collected evidence on the `lastUpdated` date of
@@ -621,9 +538,6 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Lists the latest analytics data for controls within a specific control domain across all
  * active assessments.
- * 
- * 
- * 
  * 
  * Control insights are listed only if the control belongs to the control domain that
  * was specified and the control collected evidence on the `lastUpdated` date of
@@ -657,37 +571,21 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Adds one or more pieces of evidence to a control in an Audit Manager assessment.
  * 
- * 
  * You can import manual evidence from any S3 bucket by specifying the S3 URI of the
  * object. You can also upload a file from your browser, or enter plain text in response to a
  * risk assessment question.
  * 
- * 
  * The following restrictions apply to this action:
- * 
- * 
  * 
  * - `manualEvidence` can be only one of the following:
  * `evidenceFileName`, `s3ResourcePath`, or
  * `textResponse`
  * 
- * 
- * 
- * 
  * - Maximum size of an individual evidence file: 100 MB
- * 
- * 
  * 
  * - Number of daily manual evidence uploads per control: 100
  * 
- * 
- * 
  * - Supported file formats: See Supported file types for manual evidence in the *Audit Manager User Guide*
- * 
- * 
- * 
- * 
- * 
  * 
  * For more information about Audit Manager service restrictions, see Quotas and
  * restrictions for Audit Manager.
@@ -713,9 +611,6 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Lists the latest analytics data for controls within a specific control domain and a
  * specific active assessment.
- * 
- * 
- * 
  * 
  * Control insights are listed only if the control belongs to the control domain and
  * assessment that was specified. Moreover, the control must have collected evidence on the

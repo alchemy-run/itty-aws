@@ -348,10 +348,6 @@ export class AnalysisNotFoundException extends S.TaggedError<AnalysisNotFoundExc
  * `GetDimensionValues` in `SAVINGS_PLANS` to determine the possible
  * dimension values.
  * 
- * 
- * 
- * 
- * 
  * `GetSavingsPlanUtilizationDetails` internally groups data by
  * `SavingsPlansArn`.
  */export const getSavingsPlansUtilizationDetails = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.GetSavingsPlansUtilizationDetails" }, GetSavingsPlansUtilizationDetailsRequest, GetSavingsPlansUtilizationDetailsResponse, [DataUnavailableException, InvalidNextTokenException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -392,7 +388,6 @@ export class AnalysisNotFoundException extends S.TaggedError<AnalysisNotFoundExc
 /**
  * Request a cost allocation tag backfill. This will backfill the activation status (either `active` or `inactive`) for all tag keys from `para:BackfillFrom` up to the time this request is made.
  * 
- * 
  * You can request a backfill once every 24 hours.
  */export const startCostAllocationTagBackfill = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.StartCostAllocationTagBackfill" }, StartCostAllocationTagBackfillRequest, StartCostAllocationTagBackfillResponse, [BackfillLimitExceededException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -401,22 +396,16 @@ export class AnalysisNotFoundException extends S.TaggedError<AnalysisNotFoundExc
  * Plans inventory into account. You can refresh Savings Plans recommendations up to three times
  * daily for a consolidated billing family.
  * 
- * 
- * 
- * 
- * 
  * `StartSavingsPlansPurchaseRecommendationGeneration` has no request syntax
  * because no input parameters are needed to support this operation.
  */export const startSavingsPlansPurchaseRecommendationGeneration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.StartSavingsPlansPurchaseRecommendationGeneration" }, StartSavingsPlansPurchaseRecommendationGenerationRequest, StartSavingsPlansPurchaseRecommendationGenerationResponse, [DataUnavailableException, GenerationExistsException, LimitExceededException, ServiceQuotaExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * An API operation for adding one or more tags (key-value pairs) to a resource.
  * 
- * 
  * You can use the `TagResource` operation with a resource that already has tags.
  * If you specify a new tag key for the resource, this tag is appended to the list of tags
  * associated with the resource. If you specify a tag key that is already associated with the
  * resource, the new tag value you specify replaces the previous value for that tag.
- * 
  * 
  * Although the maximum number of array members is 200, user-tag maximum is 50. The remaining
  * are reserved for Amazon Web Services use.
@@ -424,9 +413,6 @@ export class AnalysisNotFoundException extends S.TaggedError<AnalysisNotFoundExc
 /**
  * Updates an existing cost anomaly subscription. Specify the fields that you want to update.
  * Omitted fields are unchanged.
- * 
- * 
- * 
  * 
  * The JSON below describes the generic construct for each type. See Request Parameters for possible values as they apply to
  * `AnomalySubscription`.
@@ -443,7 +429,6 @@ export class AnalysisNotFoundException extends S.TaggedError<AnalysisNotFoundExc
  * Returns the name, Amazon Resource Name (ARN), rules, definition, and effective dates of a
  * cost category that's defined in the account.
  * 
- * 
  * You have the option to use `EffectiveOn` to return a cost category that's
  * active on a specific date. If there's no `EffectiveOn` specified, you see a Cost
  * Category that's effective on the current date. If cost category is still effective,
@@ -455,7 +440,6 @@ export class AnalysisNotFoundException extends S.TaggedError<AnalysisNotFoundExc
  * `BlendedCosts` or `UsageQuantity`. You can also filter and group your
  * data by various dimensions, such as `SERVICE` or `AZ`, in a specific
  * time range. For a complete list of valid dimensions, see the GetDimensionValues operation. Management account in an organization in Organizations have access to all member accounts.
- * 
  * 
  * For information about filter limitations, see Quotas and restrictions
  * in the *Billing and Cost Management User Guide*.
@@ -472,13 +456,9 @@ export class AnalysisNotFoundException extends S.TaggedError<AnalysisNotFoundExc
  * your data by various dimensions, such as `SERVICE` or `AZ`, in a
  * specific time range. For a complete list of valid dimensions, see the GetDimensionValues operation. Management account in an organization in Organizations have access to all member accounts.
  * 
- * 
  * Hourly granularity is only available for EC2-Instances (Elastic Compute Cloud)
  * resource-level data. All other resource-level data is available at daily
  * granularity.
- * 
- * 
- * 
  * 
  * This is an opt-in only feature. You can enable this feature from the Cost Explorer
  * Settings page. For information about how to access the Settings page, see Controlling
@@ -487,9 +467,6 @@ export class AnalysisNotFoundException extends S.TaggedError<AnalysisNotFoundExc
  */export const getCostAndUsageWithResources = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-25", sdkId: "Cost Explorer", sigV4ServiceName: "ce", name: "AWSInsightsIndexService.GetCostAndUsageWithResources" }, GetCostAndUsageWithResourcesRequest, GetCostAndUsageWithResourcesResponse, [BillExpirationException, BillingViewHealthStatusException, DataUnavailableException, InvalidNextTokenException, LimitExceededException, RequestChangedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves an array of cost category names and values incurred cost.
- * 
- * 
- * 
  * 
  * If some cost category names and values are not associated with any cost, they will not
  * be returned by this API.
@@ -507,57 +484,29 @@ export class AnalysisNotFoundException extends S.TaggedError<AnalysisNotFoundExc
  * and nested expressions. For any time period, you can filter data about reservation usage by
  * the following dimensions:
  * 
- * 
- * 
  * - AZ
- * 
- * 
  * 
  * - CACHE_ENGINE
  * 
- * 
- * 
  * - DATABASE_ENGINE
- * 
- * 
  * 
  * - DEPLOYMENT_OPTION
  * 
- * 
- * 
  * - INSTANCE_TYPE
- * 
- * 
  * 
  * - LINKED_ACCOUNT
  * 
- * 
- * 
  * - OPERATING_SYSTEM
- * 
- * 
  * 
  * - PLATFORM
  * 
- * 
- * 
  * - REGION
- * 
- * 
  * 
  * - SERVICE
  * 
- * 
- * 
  * - TAG
  * 
- * 
- * 
  * - TENANCY
- * 
- * 
- * 
- * 
  * 
  * To determine valid values for a dimension, use the `GetDimensionValues`
  * operation.
@@ -579,29 +528,13 @@ export class AnalysisNotFoundException extends S.TaggedError<AnalysisNotFoundExc
  * nested expressions. For any time period, you can filter data for Savings Plans usage with the
  * following dimensions:
  * 
- * 
- * 
  * - `LINKED_ACCOUNT`
- * 
- * 
- * 
  * 
  * - `REGION`
  * 
- * 
- * 
- * 
  * - `SERVICE`
  * 
- * 
- * 
- * 
  * - `INSTANCE_FAMILY`
- * 
- * 
- * 
- * 
- * 
  * 
  * To determine valid values for a dimension, use the `GetDimensionValues`
  * operation.
@@ -611,9 +544,6 @@ export class AnalysisNotFoundException extends S.TaggedError<AnalysisNotFoundExc
  * monthly granularity. Management account in an organization have access to member accounts. You
  * can use `GetDimensionValues` in `SAVINGS_PLANS` to determine the
  * possible dimension values.
- * 
- * 
- * 
  * 
  * You can't group by any dimension values for
  * `GetSavingsPlansUtilization`.
@@ -649,13 +579,11 @@ export class AnalysisNotFoundException extends S.TaggedError<AnalysisNotFoundExc
  * reduce your costs. Reservations provide a discounted hourly rate (up to 75%) compared to
  * On-Demand pricing.
  * 
- * 
  * Amazon Web Services generates your recommendations by identifying your On-Demand usage
  * during a specific time period and collecting your usage into categories that are eligible for
  * a reservation. After Amazon Web Services has these categories, it simulates every combination
  * of reservations in each category of usage to identify the best number of each type of Reserved
  * Instance (RI) to purchase to maximize your estimated savings.
- * 
  * 
  * For example, Amazon Web Services automatically aggregates your Amazon EC2 Linux, shared
  * tenancy, and c4 family usage in the US West (Oregon) Region and recommends that you buy
@@ -669,7 +597,6 @@ export class AnalysisNotFoundException extends S.TaggedError<AnalysisNotFoundExc
 /**
  * Creates recommendations that help you save cost by identifying idle and underutilized
  * Amazon EC2 instances.
- * 
  * 
  * Recommendations are generated to either downsize or terminate instances, along with
  * providing savings detail and metrics. For more information about calculation and function, see

@@ -682,7 +682,6 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Creates a code security integration with a source code repository provider.
  * 
- * 
  * After calling the `CreateCodeSecurityIntegration` operation, you complete
  * authentication and authorization with your provider. Next you call the
  * `UpdateCodeSecurityIntegration` operation to provide the `details`
@@ -703,7 +702,6 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  */export const listUsageTotals = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-06-08", uri: "/usage/list", sdkId: "Inspector2", sigV4ServiceName: "inspector2", name: "Inspector2.ListUsageTotals" }, ListUsageTotalsRequest, ListUsageTotalsResponse, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates an existing code security integration.
- * 
  * 
  * After calling the `CreateCodeSecurityIntegration` operation, you complete
  * authentication and authorization with your provider. Next you call the

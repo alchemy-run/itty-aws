@@ -122,7 +122,6 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Deletes an ingestion destination.
  * 
- * 
  * This deletes the association between an ingestion and it's destination. It doesn't
  * delete previously ingested data or the storage destination, such as the Amazon S3
  * bucket where the data is delivered. If the ingestion destination is deleted while the
@@ -143,7 +142,6 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Updates an app authorization within an app bundle, which allows AppFabric to connect to an
  * application.
- * 
  * 
  * If the app authorization was in a `connected` state, updating the app
  * authorization will set it back to a `PendingConnect` state.
@@ -179,7 +177,6 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Starts the tasks to search user access status for a specific email address.
  * 
- * 
  * The tasks are stopped when the user access status data is found. The tasks are
  * terminated when the API calls to the application time out.
  */export const startUserAccessTasks = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-05-19", uri: "/useraccess/start", sdkId: "AppFabric", sigV4ServiceName: "appfabric", name: "FabricFrontEndService.StartUserAccessTasks" }, StartUserAccessTasksRequest, StartUserAccessTasksResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -192,7 +189,6 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  */export const updateIngestionDestination = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-05-19", uri: "/appbundles/{appBundleIdentifier}/ingestions/{ingestionIdentifier}/ingestiondestinations/{ingestionDestinationIdentifier}", method: "PATCH", sdkId: "AppFabric", sigV4ServiceName: "appfabric", name: "FabricFrontEndService.UpdateIngestionDestination" }, UpdateIngestionDestinationRequest, UpdateIngestionDestinationResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets user access details in a batch request.
- * 
  * 
  * This action polls data from the tasks that are kicked off by the
  * `StartUserAccessTasks` action.

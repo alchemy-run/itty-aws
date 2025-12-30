@@ -272,9 +272,7 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Delete a review template.
  * 
- * 
  * Only the owner of a review template can delete it.
- * 
  * 
  * After the review template is deleted, Amazon Web Services accounts, users,
  * organizations, and organizational units (OUs) that you shared the review template with
@@ -282,7 +280,6 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  */export const deleteReviewTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-03-31", uri: "/reviewTemplates/{TemplateArn}", method: "DELETE", sdkId: "WellArchitected", sigV4ServiceName: "wellarchitected", name: "WellArchitectedApiServiceLambda.DeleteReviewTemplate" }, DeleteReviewTemplateInput, S.Struct({}), [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Delete a review template share.
- * 
  * 
  * After the review template share is deleted, Amazon Web Services accounts, users,
  * organizations, and organizational units (OUs) that you shared the review template with
@@ -297,11 +294,7 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Disassociate a lens from a workload.
  * 
- * 
  * Up to 10 lenses can be disassociated from a workload in a single API operation.
- * 
- * 
- * 
  * 
  * The Amazon Web Services Well-Architected Framework lens (`wellarchitected`) cannot be
  * removed from a workload.
@@ -312,25 +305,14 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Adds one or more tags to the specified resource.
  * 
- * 
- * 
- * 
  * The WorkloadArn parameter can be a workload ARN, a custom lens ARN, a profile ARN, or review template ARN.
  */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-03-31", uri: "/tags/{WorkloadArn}", sdkId: "WellArchitected", sigV4ServiceName: "wellarchitected", name: "WellArchitectedApiServiceLambda.TagResource" }, TagResourceInput, TagResourceOutput, [InternalServerException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes specified tags from a resource.
  * 
- * 
- * 
- * 
  * The WorkloadArn parameter can be a workload ARN, a custom lens ARN, a profile ARN, or review template ARN.
  * 
- * 
- * 
- * 
  * To specify multiple tags, use separate **tagKeys** parameters, for example:
- * 
- * 
  * 
  * `DELETE /tags/WorkloadArn?tagKeys=key1&tagKeys=key2`
  */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-03-31", uri: "/tags/{WorkloadArn}", method: "DELETE", sdkId: "WellArchitected", sigV4ServiceName: "wellarchitected", name: "WellArchitectedApiServiceLambda.UntagResource" }, UntagResourceInput, UntagResourceOutput, [InternalServerException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -346,17 +328,10 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Associate a lens to a workload.
  * 
- * 
  * Up to 10 lenses can be associated with a workload in a single API operation. A
  * maximum of 20 lenses can be associated with a workload.
  * 
- * 
- * 
- * 
- * 
  * **Disclaimer**
- * 
- * 
  * 
  * By accessing and/or applying custom lenses created by another Amazon Web Services user or account,
  * you acknowledge that custom lenses created by other users and shared with you are
@@ -368,30 +343,19 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Create a lens share.
  * 
- * 
  * The owner of a lens can share it with other Amazon Web Services accounts, users, an organization,
  * and organizational units (OUs) in the same Amazon Web Services Region.
  * Lenses provided by Amazon Web Services (Amazon Web Services Official Content) cannot be shared.
  * 
- * 
- * 
  * Shared access to a lens is not removed until the lens invitation is deleted.
- * 
  * 
  * If you share a lens with an organization or OU, all accounts in the organization or OU
  * are granted access to the lens.
  * 
- * 
  * For more information, see Sharing a custom lens in the
  * *Well-Architected Tool User Guide*.
  * 
- * 
- * 
- * 
- * 
  * **Disclaimer**
- * 
- * 
  * 
  * By sharing your custom lenses with other Amazon Web Services accounts,
  * you acknowledge that Amazon Web Services will make your custom lenses available to those
@@ -403,9 +367,7 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Create a new lens version.
  * 
- * 
  * A lens can have up to 100 versions.
- * 
  * 
  * Use this operation to publish a new lens version after you have imported a lens. The `LensAlias`
  * is used to identify the lens to be published.
@@ -421,13 +383,7 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Create a review template.
  * 
- * 
- * 
- * 
- * 
  * **Disclaimer**
- * 
- * 
  * 
  * Do not include or gather personal identifiable information (PII) of end users or
  * other identifiable individuals in or via your review templates. If your review
@@ -439,25 +395,16 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Create a review template share.
  * 
- * 
  * The owner of a review template can share it with other Amazon Web Services accounts,
  * users, an organization, and organizational units (OUs) in the same Amazon Web Services Region.
- * 
  * 
  * Shared access to a review template is not removed until the review template share
  * invitation is deleted.
  * 
- * 
  * If you share a review template with an organization or OU, all accounts in the
  * organization or OU are granted access to the review template.
  * 
- * 
- * 
- * 
- * 
  * **Disclaimer**
- * 
- * 
  * 
  * By sharing your review template with other Amazon Web Services accounts, you
  * acknowledge that Amazon Web Services will make your review template available to
@@ -466,15 +413,12 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Create a workload share.
  * 
- * 
  * The owner of a workload can share it with other Amazon Web Services accounts and users in the same
  * Amazon Web Services Region. Shared access to a workload is not removed until the workload invitation is
  * deleted.
  * 
- * 
  * If you share a workload with an organization or OU, all accounts in the organization or OU
  * are granted access to the workload.
- * 
  * 
  * For more information, see Sharing a workload in the
  * *Well-Architected Tool User Guide*.
@@ -482,18 +426,10 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Delete an existing lens.
  * 
- * 
  * Only the owner of a lens can delete it. After the lens is deleted, Amazon Web Services accounts and users
  * that you shared the lens with can continue to use it, but they will no longer be able to apply it to new workloads.
  * 
- * 
- * 
- * 
- * 
- * 
  * **Disclaimer**
- * 
- * 
  * 
  * By sharing your custom lenses with other Amazon Web Services accounts,
  * you acknowledge that Amazon Web Services will make your custom lenses available to those
@@ -505,18 +441,11 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Delete a lens share.
  * 
- * 
  * After the lens share is deleted, Amazon Web Services accounts, users, organizations,
  * and organizational units (OUs)
  * that you shared the lens with can continue to use it, but they will no longer be able to apply it to new workloads.
  * 
- * 
- * 
- * 
- * 
  * **Disclaimer**
- * 
- * 
  * 
  * By sharing your custom lenses with other Amazon Web Services accounts,
  * you acknowledge that Amazon Web Services will make your custom lenses available to those
@@ -528,13 +457,7 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Delete a profile.
  * 
- * 
- * 
- * 
- * 
  * **Disclaimer**
- * 
- * 
  * 
  * By sharing your profile with other Amazon Web Services accounts,
  * you acknowledge that Amazon Web Services will make your profile available to those
@@ -546,21 +469,13 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Export an existing lens.
  * 
- * 
  * Only the owner of a lens can export it. Lenses provided by Amazon Web Services (Amazon Web Services Official Content)
  * cannot be exported.
- * 
  * 
  * Lenses are defined in JSON. For more information, see JSON format specification
  * in the *Well-Architected Tool User Guide*.
  * 
- * 
- * 
- * 
- * 
  * **Disclaimer**
- * 
- * 
  * 
  * Do not include or gather personal identifiable information (PII) of end users or
  * other identifiable individuals in or via your custom lenses. If your custom
@@ -575,29 +490,19 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Import a new custom lens or update an existing custom lens.
  * 
- * 
  * To update an existing custom lens, specify its ARN as the `LensAlias`. If
  * no ARN is specified, a new custom lens is created.
- * 
  * 
  * The new or updated lens will have a status of `DRAFT`. The lens cannot be
  * applied to workloads or shared with other Amazon Web Services accounts until it's
  * published with CreateLensVersion.
  * 
- * 
  * Lenses are defined in JSON. For more information, see JSON format specification
  * in the *Well-Architected Tool User Guide*.
  * 
- * 
  * A custom lens cannot exceed 500 KB in size.
  * 
- * 
- * 
- * 
- * 
  * **Disclaimer**
- * 
- * 
  * 
  * Do not include or gather personal identifiable information (PII) of end users or
  * other identifiable individuals in or via your custom lenses. If your custom
@@ -608,9 +513,6 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  */export const importLens = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-03-31", uri: "/importLens", method: "PUT", sdkId: "WellArchitected", sigV4ServiceName: "wellarchitected", name: "WellArchitectedApiServiceLambda.ImportLens" }, ImportLensInput, ImportLensOutput, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * List the tags for a resource.
- * 
- * 
- * 
  * 
  * The WorkloadArn parameter can be a workload ARN, a custom lens ARN, a profile ARN, or review template ARN.
  */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-03-31", uri: "/tags/{WorkloadArn}", method: "GET", sdkId: "WellArchitected", sigV4ServiceName: "wellarchitected", name: "WellArchitectedApiServiceLambda.ListTagsForResource" }, ListTagsForResourceInput, ListTagsForResourceOutput, [InternalServerException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -641,47 +543,26 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Create a new workload.
  * 
- * 
  * The owner of a workload can share the workload with other Amazon Web Services accounts, users,
  * an organization, and organizational units (OUs)
  * in the same Amazon Web Services Region. Only the owner of a workload can delete it.
  * 
- * 
  * For more information, see Defining a Workload in the
  * *Well-Architected Tool User Guide*.
- * 
- * 
- * 
  * 
  * Either `AwsRegions`, `NonAwsRegions`, or both must be specified when
  * creating a workload.
  * 
- * 
  * You also must specify `ReviewOwner`, even though the
  * parameter is listed as not being required in the following section.
  * 
- * 
- * 
- * 
- * 
  * When creating a workload using a review template, you must have the following IAM permissions:
- * 
- * 
  * 
  * - `wellarchitected:GetReviewTemplate`
  * 
- * 
- * 
- * 
  * - `wellarchitected:GetReviewTemplateAnswer`
  * 
- * 
- * 
- * 
  * - `wellarchitected:ListReviewTemplateAnswers`
- * 
- * 
- * 
  * 
  * - `wellarchitected:GetReviewTemplateLensReview`
  */export const createWorkload = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-03-31", uri: "/workloads", sdkId: "WellArchitected", sigV4ServiceName: "wellarchitected", name: "WellArchitectedApiServiceLambda.CreateWorkload" }, CreateWorkloadInput, CreateWorkloadOutput, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -733,8 +614,6 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * List the share invitations.
  * 
- * 
- * 
  * `WorkloadNamePrefix`, `LensNamePrefix`,
  * `ProfileNamePrefix`, and `TemplateNamePrefix` are mutually
  * exclusive. Use the parameter that matches your `ShareResourceType`.
@@ -750,9 +629,6 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  */export const listWorkloadShares = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-03-31", uri: "/workloads/{WorkloadId}/shares", method: "GET", sdkId: "WellArchitected", sigV4ServiceName: "wellarchitected", name: "WellArchitectedApiServiceLambda.ListWorkloadShares" }, ListWorkloadSharesInput, ListWorkloadSharesOutput, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Update a workload or custom lens share invitation.
- * 
- * 
- * 
  * 
  * This API operation can be called independently of any resource. Previous documentation implied that a workload ARN must be specified.
  */export const updateShareInvitation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-03-31", uri: "/shareInvitations/{ShareInvitationId}", method: "PATCH", sdkId: "WellArchitected", sigV4ServiceName: "wellarchitected", name: "WellArchitectedApiServiceLambda.UpdateShareInvitation" }, UpdateShareInvitationInput, UpdateShareInvitationOutput, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -803,7 +679,6 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  */export const getProfile = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-03-31", uri: "/profiles/{ProfileArn}", method: "GET", sdkId: "WellArchitected", sigV4ServiceName: "wellarchitected", name: "WellArchitectedApiServiceLambda.GetProfile" }, GetProfileInput, GetProfileOutput, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Get a consolidated report of your workloads.
- * 
  * 
  * You can optionally choose to include workloads that have been shared with you.
  */export const getConsolidatedReport = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-03-31", uri: "/consolidatedReport", method: "GET", sdkId: "WellArchitected", sigV4ServiceName: "wellarchitected", name: "WellArchitectedApiServiceLambda.GetConsolidatedReport" }, GetConsolidatedReportInput, GetConsolidatedReportOutput, [AccessDeniedException, ConflictException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

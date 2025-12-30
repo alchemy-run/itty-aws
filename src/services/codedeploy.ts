@@ -302,9 +302,6 @@ export class TriggerTargetsLimitExceededException extends S.TaggedError<TriggerT
  * Deletes resources linked to an external ID. This action only applies if you have
  * configured blue/green deployments through CloudFormation.
  * 
- * 
- * 
- * 
  * It is not necessary to call this action directly. CloudFormation calls it
  * on your behalf when it needs to delete stack resources. This action is offered
  * publicly in case you need to delete resources to comply with General Data Protection
@@ -341,9 +338,6 @@ export class TriggerTargetsLimitExceededException extends S.TaggedError<TriggerT
  */export const deregisterOnPremisesInstance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-06", sdkId: "CodeDeploy", sigV4ServiceName: "codedeploy", name: "CodeDeploy_20141006.DeregisterOnPremisesInstance" }, DeregisterOnPremisesInstanceInput, S.Struct({}), [InstanceNameRequiredException, InvalidInstanceNameException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets information about a deployment.
- * 
- * 
- * 
  * 
  * The `content` property of the `appSpecContent` object in
  * the returned revision is always null. Use `GetApplicationRevision` and
@@ -405,7 +399,6 @@ export class TriggerTargetsLimitExceededException extends S.TaggedError<TriggerT
 /**
  * Gets a list of names for one or more on-premises instances.
  * 
- * 
  * Unless otherwise specified, both registered and deregistered on-premises instance
  * names are listed. To list only registered or deregistered on-premises instance names,
  * use the registration status parameter.
@@ -424,9 +417,6 @@ export class TriggerTargetsLimitExceededException extends S.TaggedError<TriggerT
  * This method works, but is deprecated. Use `BatchGetDeploymentTargets`
  * instead.
  * 
- * 
- * 
- * 
  * Returns an array of one or more instances associated with a deployment. This method
  * works with EC2/On-premises and Lambda compute platforms. The newer
  * `BatchGetDeploymentTargets` works with all compute platforms. The maximum
@@ -442,9 +432,6 @@ export class TriggerTargetsLimitExceededException extends S.TaggedError<TriggerT
 /**
  * Deletes a deployment configuration.
  * 
- * 
- * 
- * 
  * A deployment configuration cannot be deleted if it is currently in use. Predefined
  * configurations cannot be deleted.
  */export const deleteDeploymentConfig = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-06", sdkId: "CodeDeploy", sigV4ServiceName: "codedeploy", name: "CodeDeploy_20141006.DeleteDeploymentConfig" }, DeleteDeploymentConfigInput, S.Struct({}), [DeploymentConfigInUseException, DeploymentConfigNameRequiredException, InvalidDeploymentConfigNameException, InvalidOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -459,9 +446,6 @@ export class TriggerTargetsLimitExceededException extends S.TaggedError<TriggerT
  * it works with all compute types. `ListDeploymentInstances` throws an
  * exception if it is used with a compute platform other than EC2/On-premises or
  * Lambda.
- * 
- * 
- * 
  * 
  * Lists the instance for a deployment associated with the user or Amazon Web Services account.
  */export const listDeploymentInstances = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-06", sdkId: "CodeDeploy", sigV4ServiceName: "codedeploy", name: "CodeDeploy_20141006.ListDeploymentInstances" }, ListDeploymentInstancesInput, ListDeploymentInstancesOutput, [DeploymentDoesNotExistException, DeploymentIdRequiredException, DeploymentNotStartedException, InvalidComputePlatformException, InvalidDeploymentIdException, InvalidDeploymentInstanceTypeException, InvalidInstanceStatusException, InvalidInstanceTypeException, InvalidNextTokenException, InvalidTargetFilterNameException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -485,24 +469,15 @@ export class TriggerTargetsLimitExceededException extends S.TaggedError<TriggerT
  * `BatchGetDeploymentInstances`. The maximum number of targets that can be
  * returned is 25.
  * 
- * 
  * The type of targets returned depends on the deployment's compute platform or
  * deployment method:
  * 
- * 
- * 
  * - **EC2/On-premises**: Information about Amazon EC2 instance targets.
- * 
- * 
  * 
  * - **Lambda**: Information about
  * Lambda functions targets.
  * 
- * 
- * 
  * - **Amazon ECS**: Information about Amazon ECS service targets.
- * 
- * 
  * 
  * - **CloudFormation**: Information about
  * targets of blue/green deployments initiated by a CloudFormation stack
@@ -523,9 +498,6 @@ export class TriggerTargetsLimitExceededException extends S.TaggedError<TriggerT
  */export const createDeploymentConfig = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-06", sdkId: "CodeDeploy", sigV4ServiceName: "codedeploy", name: "CodeDeploy_20141006.CreateDeploymentConfig" }, CreateDeploymentConfigInput, CreateDeploymentConfigOutput, [DeploymentConfigAlreadyExistsException, DeploymentConfigLimitExceededException, DeploymentConfigNameRequiredException, InvalidComputePlatformException, InvalidDeploymentConfigNameException, InvalidMinimumHealthyHostValueException, InvalidTrafficRoutingConfigurationException, InvalidZonalDeploymentConfigurationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Registers an on-premises instance.
- * 
- * 
- * 
  * 
  * Only one IAM ARN (an IAM session ARN or IAM user ARN) is supported in the request. You cannot use both.
  */export const registerOnPremisesInstance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-06", sdkId: "CodeDeploy", sigV4ServiceName: "codedeploy", name: "CodeDeploy_20141006.RegisterOnPremisesInstance" }, RegisterOnPremisesInstanceInput, S.Struct({}), [IamArnRequiredException, IamSessionArnAlreadyRegisteredException, IamUserArnAlreadyRegisteredException, IamUserArnRequiredException, InstanceNameAlreadyRegisteredException, InstanceNameRequiredException, InvalidIamSessionArnException, InvalidIamUserArnException, InvalidInstanceNameException, MultipleIamArnsProvidedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

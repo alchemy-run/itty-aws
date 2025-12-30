@@ -207,7 +207,6 @@ export class ValidationError extends S.TaggedError<ValidationError>()("Validatio
 /**
  * Creates multiple users in a specified Wickr network. This operation allows you to provision multiple user accounts simultaneously, optionally specifying security groups, and validation requirements for each user.
  * 
- * 
  * `codeValidation`, `inviteCode`, and `inviteCodeTtl` are restricted to networks under preview only.
  */export const batchCreateUser = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2024-02-01", uri: "/networks/{networkId}/users", sdkId: "Wickr", sigV4ServiceName: "wickr", name: "WickrAdminApi.BatchCreateUser" }, BatchCreateUserRequest, BatchCreateUserResponse, [BadRequestError, ForbiddenError, InternalServerError, RateLimitError, ResourceNotFoundError, UnauthorizedError, ValidationError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -269,7 +268,6 @@ export class ValidationError extends S.TaggedError<ValidationError>()("Validatio
  */export const listSecurityGroupUsers = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2024-02-01", uri: "/networks/{networkId}/security-groups/{groupId}/users", method: "GET", sdkId: "Wickr", sigV4ServiceName: "wickr", name: "WickrAdminApi.ListSecurityGroupUsers" }, ListSecurityGroupUsersRequest, ListSecurityGroupUsersResponse, [BadRequestError, ForbiddenError, InternalServerError, RateLimitError, ResourceNotFoundError, UnauthorizedError, ValidationError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the properties of an existing user in a Wickr network. This operation allows you to modify the user's name, password, security group membership, and invite code settings.
- * 
  * 
  * `codeValidation`, `inviteCode`, and `inviteCodeTtl` are restricted to networks under preview only.
  */export const updateUser = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2024-02-01", uri: "/networks/{networkId}/users", method: "PATCH", sdkId: "Wickr", sigV4ServiceName: "wickr", name: "WickrAdminApi.UpdateUser" }, UpdateUserRequest, UpdateUserResponse, [BadRequestError, ForbiddenError, InternalServerError, RateLimitError, ResourceNotFoundError, UnauthorizedError, ValidationError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

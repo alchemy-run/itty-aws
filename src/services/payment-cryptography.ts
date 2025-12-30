@@ -92,9 +92,7 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
 /**
  * Adds or edits tags on an Amazon Web Services Payment Cryptography key.
  * 
- * 
  * Tagging or untagging an Amazon Web Services Payment Cryptography key can allow or deny permission to the key.
- * 
  * 
  * Each tag consists of a tag key and a tag value, both of which are case-sensitive strings. The tag value can be an empty (null) string. To add a tag, specify a new tag key and a tag value. To edit a tag, specify an existing tag key and a new tag value. You can also add tags to an Amazon Web Services Payment Cryptography key when you create it with CreateKey.
  * 
@@ -109,9 +107,7 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
 /**
  * Deletes a tag from an Amazon Web Services Payment Cryptography key.
  * 
- * 
  * Tagging or untagging an Amazon Web Services Payment Cryptography key can allow or deny permission to the key.
- * 
  * 
  * **Cross-account use:** This operation can't be used across different Amazon Web Services accounts.
  * 
@@ -208,9 +204,7 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
  * 
  * The `OptionalBlocks` contain the additional data related to the key. For information on data type that can be included within optional blocks, refer to ASC X9.143-2022.
  * 
- * 
  * Data included in key block headers is signed but transmitted in clear text. Sensitive or confidential information should not be included in optional blocks. Refer to ASC X9.143-2022 standard for information on allowed data type.
- * 
  * 
  * **To export initial keys (KEK) or IPEK using TR-34**
  * 
@@ -234,7 +228,6 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
  * 
  * - `WrappingKeyCertificate`: The public key certificate in PEM format (base64 encoded) of the KRD wrapping key Amazon Web Services Payment Cryptography uses for encryption of the TR-34 export payload. This certificate must be signed by the root certificate (CertificateAuthorityPublicKeyIdentifier) imported into Amazon Web Services Payment Cryptography.
  * 
- * 
  * When this operation is successful, Amazon Web Services Payment Cryptography returns the KEK or IPEK as a TR-34 WrappedKeyBlock.
  * 
  * **To export initial keys (KEK) or IPEK using RSA Wrap and Unwrap**
@@ -248,7 +241,6 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
  * - `KeyMaterial`: Set to `KeyCryptogram`.
  * 
  * - `WrappingKeyCertificate`: The public key certificate in PEM format (base64 encoded) obtained by the receiving HSM and signed by the root certificate (CertificateAuthorityPublicKeyIdentifier) imported into Amazon Web Services Payment Cryptography. The receiving HSM uses its private key component to unwrap the WrappedKeyCryptogram.
- * 
  * 
  * When this operation is successful, Amazon Web Services Payment Cryptography returns the WrappedKeyCryptogram.
  * 
@@ -264,7 +256,6 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
  * 
  * - `KeyMaterial`: Use `Tr31KeyBlock` parameters.
  * 
- * 
  * **To export working keys using ECDH**
  * 
  * You can also use ECDH key agreement to export working keys in a TR-31 keyblock, where the wrapping key is an ECDH derived key.
@@ -278,7 +269,6 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
  * - `PublicKeyCertificate`: The public key certificate of the receiving ECC key pair in PEM format (base64 encoded) to derive a shared KEK.
  * 
  * - `CertificateAuthorityPublicKeyIdentifier`: The `keyARN` of the CA that signed the public key certificate of the receiving ECC key pair.
- * 
  * 
  * When this operation is successful, Amazon Web Services Payment Cryptography returns the working key as a TR-31 WrappedKeyBlock, where the wrapping key is the ECDH derived key.
  * 
@@ -317,7 +307,6 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
  * 
  * - `PublicKeyCertificate`: The public key certificate in PEM format (base64 encoded) of the private root key under import.
  * 
- * 
  * **To import a trusted public key certificate**
  * 
  * The root public key certificate must be in place and operational before you import a trusted public key certificate. Set the following parameters:
@@ -329,7 +318,6 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
  * - `KeyModesOfUse` and `KeyUsage`: Corresponding to the cryptographic operations such as wrap, sign, or encrypt that you will allow the trusted public key certificate to perform.
  * 
  * - `PublicKeyCertificate`: The trusted public key certificate in PEM format (base64 encoded) under import.
- * 
  * 
  * **To import initial keys (KEK or ZMK or similar) using TR-34**
  * 
@@ -351,7 +339,6 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
  * 
  * - `SigningKeyCertificate`: The public key certificate in PEM format (base64 encoded) of the KDH signing key generated under the root certificate (CertificateAuthorityPublicKeyIdentifier) imported in Amazon Web Services Payment Cryptography.
  * 
- * 
  * **To import initial keys (KEK or ZMK or similar) using RSA Wrap and Unwrap**
  * 
  * Using this operation, you can import initial key using asymmetric RSA wrap and unwrap key exchange method. To initiate import, call GetParametersForImport with `KeyMaterial` set to `KEY_CRYPTOGRAM` to generate an import token. This operation also generates an encryption keypair for the purpose of key import, signs the key and returns back the wrapping key certificate in PEM format (base64 encoded) and its root certificate chain. The import token and associated KRD wrapping certificate expires after 30 days.
@@ -368,7 +355,6 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
  * 
  * - `WrappingKeyIdentifier`: The `KeyArn` of the KEK that Amazon Web Services Payment Cryptography uses to decrypt or unwrap the key under import.
  * 
- * 
  * **To import working keys using ECDH**
  * 
  * You can also use ECDH key agreement to import working keys as a TR-31 keyblock, where the wrapping key is an ECDH derived key.
@@ -382,7 +368,6 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
  * - `PublicKeyCertificate`: The public key certificate of the receiving ECC key pair in PEM format (base64 encoded) to derive a shared KEK.
  * 
  * - `CertificateAuthorityPublicKeyIdentifier`: The `keyARN` of the CA that signed the public key certificate of the receiving ECC key pair.
- * 
  * 
  * **Cross-account use:** This operation can't be used across different Amazon Web Services accounts.
  * 

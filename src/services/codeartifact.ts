@@ -176,15 +176,9 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * Deletes the assets in package versions and sets the package versions' status to `Disposed`.
  * A disposed package version cannot be restored in your repository because its assets are deleted.
  * 
- * 
- * 
- * 
  * To view all disposed package versions in a repository, use ListPackageVersions and set the
  * status parameter
  * to `Disposed`.
- * 
- * 
- * 
  * 
  * To view information about a disposed package version, use DescribePackageVersion.
  */export const disposePackageVersions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/package/versions/dispose", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.DisposePackageVersions" }, DisposePackageVersionsRequest, DisposePackageVersionsResult, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -192,7 +186,6 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * Returns the most closely associated package group to the specified package. This API does not require that the package exist
  * in any repository in the domain. As such, `GetAssociatedPackageGroup` can be used to see which package group's origin configuration
  * applies to a package before that package is in a repository. This can be helpful to check if public packages are blocked without ingesting them.
- * 
  * 
  * For information package group association and matching, see
  * Package group
@@ -204,15 +197,10 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * For more information about authorization tokens, see
  * CodeArtifact authentication and tokens.
  * 
- * 
- * 
- * 
- * 
  * CodeArtifact authorization tokens are valid for a period of 12 hours when created with the `login` command.
  * You can call `login` periodically to refresh the token. When
  * you create an authorization token with the `GetAuthorizationToken` API, you can set a custom authorization period,
  * up to a maximum of 12 hours, with the `durationSeconds` parameter.
- * 
  * 
  * The authorization period begins after `login`
  * or `GetAuthorizationToken` is called. If `login` or `GetAuthorizationToken` is called while
@@ -221,18 +209,12 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * generate a CodeArtifact authorization token, the token will be valid for the full authorization period
  * even though this is longer than the 15-minute session duration.
  * 
- * 
  * See
  * Using IAM Roles
  * for more information on controlling session duration.
  */export const getAuthorizationToken = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/authorization-token", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.GetAuthorizationToken" }, GetAuthorizationTokenRequest, GetAuthorizationTokenResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the resource policy attached to the specified domain.
- * 
- * 
- * 
- * 
- * 
  * 
  * The policy is a resource-based policy, not an identity-based policy. For more information, see
  * Identity-based policies
@@ -246,52 +228,25 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Gets the readme file or descriptive text for a package version.
  * 
- * 
- * 
- * 
  * The returned text might contain formatting. For example, it might contain formatting for Markdown or reStructuredText.
  */export const getPackageVersionReadme = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/package/version/readme", method: "GET", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.GetPackageVersionReadme" }, GetPackageVersionReadmeRequest, GetPackageVersionReadmeResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the endpoint of a repository for a specific package format. A repository has one endpoint for each
  * package format:
  * 
- * 
- * 
- * 
  * - `cargo`
- * 
- * 
- * 
  * 
  * - `generic`
  * 
- * 
- * 
- * 
  * - `maven`
- * 
- * 
- * 
  * 
  * - `npm`
  * 
- * 
- * 
- * 
  * - `nuget`
- * 
- * 
- * 
  * 
  * - `pypi`
  * 
- * 
- * 
- * 
  * - `ruby`
- * 
- * 
- * 
  * 
  * - `swift`
  */export const getRepositoryEndpoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/repository/endpoint", method: "GET", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.GetRepositoryEndpoint" }, GetRepositoryEndpointRequest, GetRepositoryEndpointResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -316,7 +271,6 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Returns a list of direct children of the specified package group.
  * 
- * 
  * For information package group hierarchy, see
  * Package group
  * definition syntax and matching behavior in the *CodeArtifact User Guide*.
@@ -327,15 +281,11 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Creates a new package version containing one or more assets (or files).
  * 
- * 
  * The `unfinished` flag can be used to keep the package version in the
  * `Unfinished` state until all of its assets have been uploaded (see Package version status in the *CodeArtifact user guide*). To set
  * the package version’s status to `Published`, omit the `unfinished` flag
  * when uploading the final asset, or set the status using UpdatePackageVersionStatus. Once a package version’s status is set to
  * `Published`, it cannot change back to `Unfinished`.
- * 
- * 
- * 
  * 
  * Only generic packages can be published using this API. For more information, see Using generic
  * packages in the *CodeArtifact User Guide*.
@@ -343,18 +293,12 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Sets a resource policy on a domain that specifies permissions to access it.
  * 
- * 
- * 
- * 
  * When you call `PutDomainPermissionsPolicy`, the resource policy on the domain is ignored when evaluting permissions.
  * This ensures that the owner of a domain cannot lock themselves out of the domain, which would prevent them from being
  * able to update the resource policy.
  */export const putDomainPermissionsPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/domain/permissions/policy", method: "PUT", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.PutDomainPermissionsPolicy" }, PutDomainPermissionsPolicyRequest, PutDomainPermissionsPolicyResult, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Sets the resource policy on a repository that specifies permissions to access it.
- * 
- * 
- * 
  * 
  * When you call `PutRepositoryPermissionsPolicy`, the resource policy on the repository is ignored when evaluting permissions.
  * This ensures that the owner of a repository cannot lock themselves out of the repository, which would prevent them from being
@@ -382,11 +326,6 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Copies package versions from one repository to another repository in the same domain.
  * 
- * 
- * 
- * 
- * 
- * 
  * You must specify `versions` or `versionRevisions`. You cannot specify both.
  */export const copyPackageVersions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/package/versions/copy", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.CopyPackageVersions" }, CopyPackageVersionsRequest, CopyPackageVersionsResult, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -394,8 +333,6 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * organization. You can use a domain to apply permissions across many
  * repositories owned by different Amazon Web Services accounts. An asset is stored only once
  * in a domain, even if it's in multiple repositories.
- * 
- * 
  * 
  * Although you can have multiple domains, we recommend a single production domain that contains all
  * published artifacts so that your development teams can find and share packages. You can use a second
@@ -424,11 +361,6 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Deletes the resource policy that is set on a repository. After a resource policy is deleted, the
  * permissions allowed and denied by the deleted policy are removed. The effect of deleting a resource policy might not be immediate.
- * 
- * 
- * 
- * 
- * 
  * 
  * Use `DeleteRepositoryPermissionsPolicy` with caution. After a policy is deleted, Amazon Web Services users, roles, and accounts lose permissions to perform
  * the repository actions granted by the deleted policy.
@@ -480,12 +412,9 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Sets the package origin configuration for a package.
  * 
- * 
  * The package origin configuration determines how new versions of a package can be added to a repository. You can allow or block direct
  * publishing of new package versions, or ingestion and retaining of new package versions from an external connection or upstream source.
  * For more information about package origin controls and configuration, see Editing package origin controls in the *CodeArtifact User Guide*.
- * 
- * 
  * 
  * `PutPackageOriginConfiguration` can be called on a package that doesn't yet exist in the repository. When called
  * on a package that does not exist, a package is created in the repository with no versions and the requested restrictions are set on the package.
@@ -495,9 +424,6 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Adds an existing external connection to a repository. One external connection is allowed
  * per repository.
- * 
- * 
- * 
  * 
  * A repository can have one or more upstream repositories, or an external connection.
  */export const associateExternalConnection = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/repository/external-connection", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.AssociateExternalConnection" }, AssociateExternalConnectionRequest, AssociateExternalConnectionResult, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -524,7 +450,6 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  */export const describePackageVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/package/version", method: "GET", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.DescribePackageVersion" }, DescribePackageVersionRequest, DescribePackageVersionResult, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the package origin configuration for a package group.
- * 
  * 
  * The package origin configuration determines how new versions of a package can be added to a repository. You can allow or block direct
  * publishing of new package versions, or ingestion and retaining of new package versions from an external connection or upstream source.

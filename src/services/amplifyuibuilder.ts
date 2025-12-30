@@ -34,9 +34,6 @@ export class ThrottlingException extends S.TaggedError<ThrottlingException>()("T
 /**
  * This is for internal use.
  * 
- * 
- * 
- * 
  * Amplify uses this action to exchange an access code for a token.
  */export const exchangeCodeForToken = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-08-11", uri: "/tokens/{provider}", sdkId: "AmplifyUIBuilder", sigV4ServiceName: "amplifyuibuilder", name: "AmplifyUIBuilder.ExchangeCodeForToken" }, ExchangeCodeForTokenRequest, ExchangeCodeForTokenResponse, [InvalidParameterException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -50,9 +47,6 @@ export class ThrottlingException extends S.TaggedError<ThrottlingException>()("T
  */export const putMetadataFlag = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-08-11", uri: "/app/{appId}/environment/{environmentName}/metadata/features/{featureName}", method: "PUT", sdkId: "AmplifyUIBuilder", sigV4ServiceName: "amplifyuibuilder", name: "AmplifyUIBuilder.PutMetadataFlag" }, PutMetadataFlagRequest, S.Struct({}), [InvalidParameterException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is for internal use.
- * 
- * 
- * 
  * 
  * Amplify uses this action to refresh a previously issued access token that might have expired.
  */export const refreshToken = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-08-11", uri: "/tokens/{provider}/refresh", sdkId: "AmplifyUIBuilder", sigV4ServiceName: "amplifyuibuilder", name: "AmplifyUIBuilder.RefreshToken" }, RefreshTokenRequest, RefreshTokenResponse, [InvalidParameterException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

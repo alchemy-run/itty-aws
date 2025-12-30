@@ -339,14 +339,9 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * Disassociates the specified resource from its web ACL
  * association, if it has one.
  * 
- * 
  * Use this for all resource types except for Amazon CloudFront distributions. For Amazon CloudFront, call `UpdateDistribution` for the distribution and provide an empty web ACL ID. For information, see UpdateDistribution in the *Amazon CloudFront API Reference*.
  * 
- * 
- * 
  * **Required permissions for customer-managed IAM policies**
- * 
- * 
  * 
  * This call requires permissions that are specific to the protected resource type.
  * For details, see Permissions for DisassociateWebACL in the *WAF Developer Guide*.
@@ -354,11 +349,9 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
 /**
  * Creates an API key that contains a set of token domains.
  * 
- * 
  * API keys are required for the integration of the CAPTCHA API in your JavaScript client applications.
  * The API lets you customize the placement and characteristics of the CAPTCHA puzzle for your end users.
  * For more information about the CAPTCHA JavaScript integration, see WAF client application integration in the *WAF Developer Guide*.
- * 
  * 
  * You can use a single key for up to 5 domains. After you generate a key, you can copy it for use in your JavaScript
  * integration.
@@ -366,12 +359,10 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
 /**
  * Deletes the specified API key.
  * 
- * 
  * After you delete a key, it can take up to 24 hours for WAF to disallow use of the key in all regions.
  */export const deleteAPIKey = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-07-29", sdkId: "WAFV2", sigV4ServiceName: "wafv2", name: "AWSWAF_20190729.DeleteAPIKey" }, DeleteAPIKeyRequest, DeleteAPIKeyResponse, [WAFInternalErrorException, WAFInvalidOperationException, WAFInvalidParameterException, WAFNonexistentItemException, WAFOptimisticLockException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes all rule groups that are managed by Firewall Manager from the specified WebACL.
- * 
  * 
  * You can only use this if `ManagedByFirewallManager` and `RetrofittedByFirewallManager` are both false in the web ACL.
  */export const deleteFirewallManagerRuleGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-07-29", sdkId: "WAFV2", sigV4ServiceName: "wafv2", name: "AWSWAF_20190729.DeleteFirewallManagerRuleGroups" }, DeleteFirewallManagerRuleGroupsRequest, DeleteFirewallManagerRuleGroupsResponse, [WAFInternalErrorException, WAFInvalidOperationException, WAFInvalidParameterException, WAFNonexistentItemException, WAFOptimisticLockException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -384,7 +375,6 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
 /**
  * Permanently deletes an IAM policy from the specified rule group.
  * 
- * 
  * You must be the owner of the rule group to perform this operation.
  */export const deletePermissionPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-07-29", sdkId: "WAFV2", sigV4ServiceName: "wafv2", name: "AWSWAF_20190729.DeletePermissionPolicy" }, DeletePermissionPolicyRequest, DeletePermissionPolicyResponse, [WAFInternalErrorException, WAFInvalidParameterException, WAFNonexistentItemException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -396,43 +386,24 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
 /**
  * Deletes the specified WebACL.
  * 
- * 
  * You can only use this if `ManagedByFirewallManager` is false in the web ACL.
- * 
- * 
- * 
  * 
  * Before deleting any web ACL, first disassociate it from all resources.
  * 
- * 
- * 
  * - To retrieve a list of the resources that are associated with a web ACL, use the
  * following calls:
- * 
- * 
  * 
  * - For Amazon CloudFront distributions, use the CloudFront call
  * `ListDistributionsByWebACLId`. For information, see ListDistributionsByWebACLId
  * in the *Amazon CloudFront API Reference*.
  * 
- * 
- * 
  * - For all other resources, call ListResourcesForWebACL.
  * 
- * 
- * 
- * 
- * 
- * 
  * - To disassociate a resource from a web ACL, use the following calls:
- * 
- * 
  * 
  * - For Amazon CloudFront distributions, provide an empty web ACL ID in the CloudFront call
  * `UpdateDistribution`. For information, see UpdateDistribution
  * in the *Amazon CloudFront API Reference*.
- * 
- * 
  * 
  * - For all other resources, call DisassociateWebACL.
  */export const deleteWebACL = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-07-29", sdkId: "WAFV2", sigV4ServiceName: "wafv2", name: "AWSWAF_20190729.DeleteWebACL" }, DeleteWebACLRequest, DeleteWebACLResponse, [WAFAssociatedItemException, WAFInternalErrorException, WAFInvalidOperationException, WAFInvalidParameterException, WAFNonexistentItemException, WAFOptimisticLockException, WAFTagOperationException, WAFTagOperationInternalErrorException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -441,7 +412,6 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  */export const describeManagedProductsByVendor = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-07-29", sdkId: "WAFV2", sigV4ServiceName: "wafv2", name: "AWSWAF_20190729.DescribeManagedProductsByVendor" }, DescribeManagedProductsByVendorRequest, DescribeManagedProductsByVendorResponse, [WAFInternalErrorException, WAFInvalidOperationException, WAFInvalidParameterException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Generates a presigned download URL for the specified release of the mobile SDK.
- * 
  * 
  * The mobile SDK is not generally available. Customers who have access to the mobile SDK can use it to establish and manage WAF tokens for use in HTTP(S) requests from a mobile device to WAF. For more information, see
  * WAF client application integration in the *WAF Developer Guide*.
@@ -452,7 +422,6 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
 /**
  * Returns the IAM policy that is attached to the specified rule group.
  * 
- * 
  * You must be the owner of the rule group to perform this operation.
  */export const getPermissionPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-07-29", sdkId: "WAFV2", sigV4ServiceName: "wafv2", name: "AWSWAF_20190729.GetPermissionPolicy" }, GetPermissionPolicyRequest, GetPermissionPolicyResponse, [WAFInternalErrorException, WAFInvalidParameterException, WAFNonexistentItemException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -462,16 +431,11 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * Retrieves an array of the Amazon Resource Names (ARNs) for the resources that
  * are associated with the specified web ACL.
  * 
- * 
  * For Amazon CloudFront, don't use this call. Instead, use the CloudFront call
  * `ListDistributionsByWebACLId`. For information, see ListDistributionsByWebACLId
  * in the *Amazon CloudFront API Reference*.
  * 
- * 
- * 
  * **Required permissions for customer-managed IAM policies**
- * 
- * 
  * 
  * This call requires permissions that are specific to the protected resource type.
  * For details, see Permissions for ListResourcesForWebACL in the *WAF Developer Guide*.
@@ -479,29 +443,17 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
 /**
  * Use this to share a rule group with other accounts.
  * 
- * 
  * This action attaches an IAM policy to the specified resource. You must be the owner of the rule group to perform this operation.
  * 
- * 
  * This action is subject to the following restrictions:
- * 
- * 
  * 
  * - You can attach only one policy with each `PutPermissionPolicy`
  * request.
  * 
- * 
- * 
  * - The ARN in the request must be a valid WAF RuleGroup ARN and the
  * rule group must exist in the same Region.
  * 
- * 
- * 
  * - The user making the request must be the owner of the rule group.
- * 
- * 
- * 
- * 
  * 
  * If a rule group has been shared with your account, you can access it through the call `GetRuleGroup`,
  * and you can reference it in `CreateWebACL` and `UpdateWebACL`.
@@ -513,7 +465,6 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * might set the tag key to "customer" and the value to the customer name or ID. You can
  * specify one or more tags to add to each Amazon Web Services resource, up to 50 tags for a
  * resource.
- * 
  * 
  * You can tag the Amazon Web Services resources that you manage through WAF: web ACLs, rule
  * groups, IP sets, and regex pattern sets. You can't manage or view tags through the WAF
@@ -530,108 +481,58 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * expiration of a managed rule group version. After you initiate expiration for a version,
  * WAF excludes it from the response to ListAvailableManagedRuleGroupVersions for the managed rule group.
  * 
- * 
- * 
- * 
  * This is intended for use only by vendors of managed rule sets. Vendors are Amazon Web Services and Amazon Web Services Marketplace sellers.
- * 
  * 
  * Vendors, you can use the managed rule set APIs to provide controlled rollout of your versioned managed rule group offerings for your customers. The APIs are `ListManagedRuleSets`, `GetManagedRuleSet`, `PutManagedRuleSetVersions`, and `UpdateManagedRuleSetVersionExpiryDate`.
  */export const updateManagedRuleSetVersionExpiryDate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-07-29", sdkId: "WAFV2", sigV4ServiceName: "wafv2", name: "AWSWAF_20190729.UpdateManagedRuleSetVersionExpiryDate" }, UpdateManagedRuleSetVersionExpiryDateRequest, UpdateManagedRuleSetVersionExpiryDateResponse, [WAFInternalErrorException, WAFInvalidOperationException, WAFInvalidParameterException, WAFNonexistentItemException, WAFOptimisticLockException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the specified RegexPatternSet.
  * 
- * 
- * 
- * 
  * This operation completely replaces the mutable specifications that you already have for the regex pattern set with the ones that you provide to this call.
- * 
  * 
  * To modify a regex pattern set, do the following:
  * 
- * 
- * 
  * - Retrieve it by calling GetRegexPatternSet
- * 
- * 
- * 
  * 
  * - Update its settings as needed
  * 
- * 
- * 
  * - Provide the complete regex pattern set specification to this call
- * 
- * 
- * 
- * 
- * 
- * 
  * 
  * **Temporary inconsistencies during updates**
  * 
- * 
- * 
  * When you create or change a web ACL or other WAF resources, the changes take a small amount of time to propagate to all areas where the resources are stored. The propagation time can be from a few seconds to a number of minutes.
- * 
  * 
  * The following are examples of the temporary inconsistencies that you might notice during change propagation:
  * 
- * 
- * 
  * - After you create a web ACL, if you try to associate it with a resource, you might get an exception indicating that the web ACL is unavailable.
- * 
- * 
  * 
  * - After you add a rule group to a web ACL, the new rule group rules might be in effect in one area where the web ACL is used and not in another.
  * 
- * 
- * 
  * - After you change a rule action setting, you might see the old action in some places and the new action in others.
- * 
- * 
  * 
  * - After you add an IP address to an IP set that is in use in a blocking rule, the new address might be blocked in one area while still allowed in another.
  */export const updateRegexPatternSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-07-29", sdkId: "WAFV2", sigV4ServiceName: "wafv2", name: "AWSWAF_20190729.UpdateRegexPatternSet" }, UpdateRegexPatternSetRequest, UpdateRegexPatternSetResponse, [WAFDuplicateItemException, WAFInternalErrorException, WAFInvalidOperationException, WAFInvalidParameterException, WAFLimitsExceededException, WAFNonexistentItemException, WAFOptimisticLockException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Associates a web ACL with a resource, to protect the resource.
  * 
- * 
  * Use this for all resource types except for Amazon CloudFront distributions. For Amazon CloudFront, call `UpdateDistribution` for the distribution and provide the Amazon Resource Name (ARN) of the web ACL in the web ACL ID. For information, see UpdateDistribution in the *Amazon CloudFront Developer Guide*.
  * 
- * 
- * 
  * **Required permissions for customer-managed IAM policies**
- * 
- * 
  * 
  * This call requires permissions that are specific to the protected resource type.
  * For details, see Permissions for AssociateWebACL in the *WAF Developer Guide*.
  * 
- * 
- * 
  * **Temporary inconsistencies during updates**
- * 
- * 
  * 
  * When you create or change a web ACL or other WAF resources, the changes take a small amount of time to propagate to all areas where the resources are stored. The propagation time can be from a few seconds to a number of minutes.
  * 
- * 
  * The following are examples of the temporary inconsistencies that you might notice during change propagation:
- * 
- * 
  * 
  * - After you create a web ACL, if you try to associate it with a resource, you might get an exception indicating that the web ACL is unavailable.
  * 
- * 
- * 
  * - After you add a rule group to a web ACL, the new rule group rules might be in effect in one area where the web ACL is used and not in another.
  * 
- * 
- * 
  * - After you change a rule action setting, you might see the old action in some places and the new action in others.
- * 
- * 
  * 
  * - After you add an IP address to an IP set that is in use in a blocking rule, the new address might be blocked in one area while still allowed in another.
  */export const associateWebACL = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-07-29", sdkId: "WAFV2", sigV4ServiceName: "wafv2", name: "AWSWAF_20190729.AssociateWebACL" }, AssociateWebACLRequest, AssociateWebACLResponse, [WAFFeatureNotIncludedInPricingPlanException, WAFInternalErrorException, WAFInvalidOperationException, WAFInvalidParameterException, WAFLimitsExceededException, WAFNonexistentItemException, WAFUnavailableEntityException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -654,7 +555,6 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
 /**
  * Returns your API key in decrypted form. Use this to check the token domains that you have defined for the key.
  * 
- * 
  * API keys are required for the integration of the CAPTCHA API in your JavaScript client applications.
  * The API lets you customize the placement and characteristics of the CAPTCHA puzzle for your end users.
  * For more information about the CAPTCHA JavaScript integration, see WAF client application integration in the *WAF Developer Guide*.
@@ -665,7 +565,6 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
 /**
  * Retrieves information for the specified mobile SDK release, including release notes and
  * tags.
- * 
  * 
  * The mobile SDK is not generally available. Customers who have access to the mobile SDK can use it to establish and manage WAF tokens for use in HTTP(S) requests from a mobile device to WAF. For more information, see
  * WAF client application integration in the *WAF Developer Guide*.
@@ -679,27 +578,20 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
 /**
  * Retrieves the WebACL for the specified resource.
  * 
- * 
  * This call uses `GetWebACL`, to verify that your account has permission to access the retrieved web ACL.
  * If you get an error that indicates that your account isn't authorized to perform `wafv2:GetWebACL` on the resource,
  * that error won't be included in your CloudTrail event history.
  * 
- * 
  * For Amazon CloudFront, don't use this call. Instead, call the CloudFront action
  * `GetDistributionConfig`. For information, see GetDistributionConfig in the *Amazon CloudFront API Reference*.
  * 
- * 
- * 
  * **Required permissions for customer-managed IAM policies**
- * 
- * 
  * 
  * This call requires permissions that are specific to the protected resource type.
  * For details, see Permissions for GetWebACLForResource in the *WAF Developer Guide*.
  */export const getWebACLForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-07-29", sdkId: "WAFV2", sigV4ServiceName: "wafv2", name: "AWSWAF_20190729.GetWebACLForResource" }, GetWebACLForResourceRequest, GetWebACLForResourceResponse, [WAFInternalErrorException, WAFInvalidOperationException, WAFInvalidParameterException, WAFNonexistentItemException, WAFUnavailableEntityException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves a list of the API keys that you've defined for the specified scope.
- * 
  * 
  * API keys are required for the integration of the CAPTCHA API in your JavaScript client applications.
  * The API lets you customize the placement and characteristics of the CAPTCHA puzzle for your end users.
@@ -720,18 +612,13 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
 /**
  * Retrieves the managed rule sets that you own.
  * 
- * 
- * 
- * 
  * This is intended for use only by vendors of managed rule sets. Vendors are Amazon Web Services and Amazon Web Services Marketplace sellers.
- * 
  * 
  * Vendors, you can use the managed rule set APIs to provide controlled rollout of your versioned managed rule group offerings for your customers. The APIs are `ListManagedRuleSets`, `GetManagedRuleSet`, `PutManagedRuleSetVersions`, and `UpdateManagedRuleSetVersionExpiryDate`.
  */export const listManagedRuleSets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-07-29", sdkId: "WAFV2", sigV4ServiceName: "wafv2", name: "AWSWAF_20190729.ListManagedRuleSets" }, ListManagedRuleSetsRequest, ListManagedRuleSetsResponse, [WAFInternalErrorException, WAFInvalidOperationException, WAFInvalidParameterException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves a list of the available releases for the mobile SDK and the specified device
  * platform.
- * 
  * 
  * The mobile SDK is not generally available. Customers who have access to the mobile SDK can use it to establish and manage WAF tokens for use in HTTP(S) requests from a mobile device to WAF. For more information, see
  * WAF client application integration in the *WAF Developer Guide*.
@@ -751,7 +638,6 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * name or ID. You can specify one or more tags to add to each Amazon Web Services resource, up to 50 tags
  * for a resource.
  * 
- * 
  * You can tag the Amazon Web Services resources that you manage through WAF: web ACLs, rule
  * groups, IP sets, and regex pattern sets. You can't manage or view tags through the WAF
  * console.
@@ -763,55 +649,27 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
 /**
  * Updates the specified IPSet.
  * 
- * 
- * 
- * 
  * This operation completely replaces the mutable specifications that you already have for the IP set with the ones that you provide to this call.
- * 
  * 
  * To modify an IP set, do the following:
  * 
- * 
- * 
  * - Retrieve it by calling GetIPSet
- * 
- * 
- * 
  * 
  * - Update its settings as needed
  * 
- * 
- * 
  * - Provide the complete IP set specification to this call
- * 
- * 
- * 
- * 
- * 
- * 
  * 
  * **Temporary inconsistencies during updates**
  * 
- * 
- * 
  * When you create or change a web ACL or other WAF resources, the changes take a small amount of time to propagate to all areas where the resources are stored. The propagation time can be from a few seconds to a number of minutes.
- * 
  * 
  * The following are examples of the temporary inconsistencies that you might notice during change propagation:
  * 
- * 
- * 
  * - After you create a web ACL, if you try to associate it with a resource, you might get an exception indicating that the web ACL is unavailable.
- * 
- * 
  * 
  * - After you add a rule group to a web ACL, the new rule group rules might be in effect in one area where the web ACL is used and not in another.
  * 
- * 
- * 
  * - After you change a rule action setting, you might see the old action in some places and the new action in others.
- * 
- * 
  * 
  * - After you add an IP address to an IP set that is in use in a blocking rule, the new address might be blocked in one area while still allowed in another.
  */export const updateIPSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-07-29", sdkId: "WAFV2", sigV4ServiceName: "wafv2", name: "AWSWAF_20190729.UpdateIPSet" }, UpdateIPSetRequest, UpdateIPSetResponse, [WAFDuplicateItemException, WAFInternalErrorException, WAFInvalidOperationException, WAFInvalidParameterException, WAFLimitsExceededException, WAFNonexistentItemException, WAFOptimisticLockException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -819,64 +677,34 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * Updates the specified WebACL. While updating a web ACL, WAF provides
  * continuous coverage to the resources that you have associated with the web ACL.
  * 
- * 
- * 
- * 
  * This operation completely replaces the mutable specifications that you already have for the web ACL with the ones that you provide to this call.
- * 
  * 
  * To modify a web ACL, do the following:
  * 
- * 
- * 
  * - Retrieve it by calling GetWebACL
- * 
- * 
- * 
  * 
  * - Update its settings as needed
  * 
- * 
- * 
  * - Provide the complete web ACL specification to this call
- * 
- * 
- * 
- * 
- * 
  * 
  * A web ACL defines a collection of rules to use to inspect and control web requests. Each rule has a statement that defines what to look for in web requests and an action that WAF applies to requests that match the statement. In the web ACL, you assign a default action to take (allow, block) for any request that does not match any of the rules. The rules in a web ACL can be a combination of the types Rule, RuleGroup, and managed rule group. You can associate a web ACL with one or more Amazon Web Services resources to protect. The resource types include Amazon CloudFront distribution, Amazon API Gateway REST API, Application Load Balancer, AppSync GraphQL API, Amazon Cognito user pool, App Runner service, Amplify application, and Amazon Web Services Verified Access instance.
  * 
- * 
- * 
  * **Temporary inconsistencies during updates**
- * 
- * 
  * 
  * When you create or change a web ACL or other WAF resources, the changes take a small amount of time to propagate to all areas where the resources are stored. The propagation time can be from a few seconds to a number of minutes.
  * 
- * 
  * The following are examples of the temporary inconsistencies that you might notice during change propagation:
- * 
- * 
  * 
  * - After you create a web ACL, if you try to associate it with a resource, you might get an exception indicating that the web ACL is unavailable.
  * 
- * 
- * 
  * - After you add a rule group to a web ACL, the new rule group rules might be in effect in one area where the web ACL is used and not in another.
  * 
- * 
- * 
  * - After you change a rule action setting, you might see the old action in some places and the new action in others.
- * 
- * 
  * 
  * - After you add an IP address to an IP set that is in use in a blocking rule, the new address might be blocked in one area while still allowed in another.
  */export const updateWebACL = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-07-29", sdkId: "WAFV2", sigV4ServiceName: "wafv2", name: "AWSWAF_20190729.UpdateWebACL" }, UpdateWebACLRequest, UpdateWebACLResponse, [WAFConfigurationWarningException, WAFDuplicateItemException, WAFExpiredManagedRuleGroupVersionException, WAFFeatureNotIncludedInPricingPlanException, WAFInternalErrorException, WAFInvalidOperationException, WAFInvalidParameterException, WAFInvalidResourceException, WAFLimitsExceededException, WAFNonexistentItemException, WAFOptimisticLockException, WAFSubscriptionNotFoundException, WAFUnavailableEntityException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a RuleGroup per the specifications provided.
- * 
  * 
  * A rule group defines a collection of rules to inspect and control web requests that you can use in a WebACL. When you create a rule group, you define an immutable capacity limit. If you update a rule group, you must stay within the capacity. This allows others to reuse the rule group with confidence in its capacity requirements.
  */export const createRuleGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-07-29", sdkId: "WAFV2", sigV4ServiceName: "wafv2", name: "AWSWAF_20190729.CreateRuleGroup" }, CreateRuleGroupRequest, CreateRuleGroupResponse, [WAFDuplicateItemException, WAFInternalErrorException, WAFInvalidOperationException, WAFInvalidParameterException, WAFLimitsExceededException, WAFNonexistentItemException, WAFOptimisticLockException, WAFSubscriptionNotFoundException, WAFTagOperationException, WAFTagOperationInternalErrorException, WAFUnavailableEntityException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -885,17 +713,14 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * is only available for rate-based rules that aggregate solely on the IP address or on the forwarded IP
  * address.
  * 
- * 
  * The maximum
  * number of addresses that can be blocked for a single rate-based rule instance is 10,000.
  * If more than 10,000 addresses exceed the rate limit, those with the highest rates are
  * blocked.
  * 
- * 
  * For a rate-based rule that you've defined inside a rule group, provide the name of the
  * rule group reference statement in your request, in addition to the rate-based rule name and
  * the web ACL name.
- * 
  * 
  * WAF monitors web requests and manages keys independently for each unique combination
  * of web ACL, optional rule group, and rate-based rule. For example, if you define a
@@ -909,16 +734,9 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * Defines the versions of your managed rule set that you are offering to the customers.
  * Customers see your offerings as managed rule groups with versioning.
  * 
- * 
- * 
- * 
  * This is intended for use only by vendors of managed rule sets. Vendors are Amazon Web Services and Amazon Web Services Marketplace sellers.
  * 
- * 
  * Vendors, you can use the managed rule set APIs to provide controlled rollout of your versioned managed rule group offerings for your customers. The APIs are `ListManagedRuleSets`, `GetManagedRuleSet`, `PutManagedRuleSetVersions`, and `UpdateManagedRuleSetVersionExpiryDate`.
- * 
- * 
- * 
  * 
  * Customers retrieve their managed rule group list by calling ListAvailableManagedRuleGroups. The name that you provide here for your
  * managed rule set is the name the customer sees for the corresponding managed rule group.
@@ -926,75 +744,41 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * specification for each version. For each managed rule set, you must specify a version that
  * you recommend using.
  * 
- * 
  * To initiate the expiration of a managed rule group version, use UpdateManagedRuleSetVersionExpiryDate.
  */export const putManagedRuleSetVersions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-07-29", sdkId: "WAFV2", sigV4ServiceName: "wafv2", name: "AWSWAF_20190729.PutManagedRuleSetVersions" }, PutManagedRuleSetVersionsRequest, PutManagedRuleSetVersionsResponse, [WAFInternalErrorException, WAFInvalidOperationException, WAFInvalidParameterException, WAFNonexistentItemException, WAFOptimisticLockException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the specified RuleGroup.
  * 
- * 
- * 
- * 
  * This operation completely replaces the mutable specifications that you already have for the rule group with the ones that you provide to this call.
- * 
  * 
  * To modify a rule group, do the following:
  * 
- * 
- * 
  * - Retrieve it by calling GetRuleGroup
- * 
- * 
- * 
  * 
  * - Update its settings as needed
  * 
- * 
- * 
  * - Provide the complete rule group specification to this call
- * 
- * 
- * 
- * 
- * 
  * 
  * A rule group defines a collection of rules to inspect and control web requests that you can use in a WebACL. When you create a rule group, you define an immutable capacity limit. If you update a rule group, you must stay within the capacity. This allows others to reuse the rule group with confidence in its capacity requirements.
  * 
- * 
- * 
  * **Temporary inconsistencies during updates**
- * 
- * 
  * 
  * When you create or change a web ACL or other WAF resources, the changes take a small amount of time to propagate to all areas where the resources are stored. The propagation time can be from a few seconds to a number of minutes.
  * 
- * 
  * The following are examples of the temporary inconsistencies that you might notice during change propagation:
- * 
- * 
  * 
  * - After you create a web ACL, if you try to associate it with a resource, you might get an exception indicating that the web ACL is unavailable.
  * 
- * 
- * 
  * - After you add a rule group to a web ACL, the new rule group rules might be in effect in one area where the web ACL is used and not in another.
  * 
- * 
- * 
  * - After you change a rule action setting, you might see the old action in some places and the new action in others.
- * 
- * 
  * 
  * - After you add an IP address to an IP set that is in use in a blocking rule, the new address might be blocked in one area while still allowed in another.
  */export const updateRuleGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-07-29", sdkId: "WAFV2", sigV4ServiceName: "wafv2", name: "AWSWAF_20190729.UpdateRuleGroup" }, UpdateRuleGroupRequest, UpdateRuleGroupResponse, [WAFConfigurationWarningException, WAFDuplicateItemException, WAFInternalErrorException, WAFInvalidOperationException, WAFInvalidParameterException, WAFLimitsExceededException, WAFNonexistentItemException, WAFOptimisticLockException, WAFSubscriptionNotFoundException, WAFUnavailableEntityException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the specified managed rule set.
  * 
- * 
- * 
- * 
  * This is intended for use only by vendors of managed rule sets. Vendors are Amazon Web Services and Amazon Web Services Marketplace sellers.
- * 
  * 
  * Vendors, you can use the managed rule set APIs to provide controlled rollout of your versioned managed rule group offerings for your customers. The APIs are `ListManagedRuleSets`, `GetManagedRuleSet`, `PutManagedRuleSetVersions`, and `UpdateManagedRuleSetVersionExpiryDate`.
  */export const getManagedRuleSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-07-29", sdkId: "WAFV2", sigV4ServiceName: "wafv2", name: "AWSWAF_20190729.GetManagedRuleSet" }, GetManagedRuleSetRequest, GetManagedRuleSetResponse, [WAFInternalErrorException, WAFInvalidOperationException, WAFInvalidParameterException, WAFNonexistentItemException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1003,8 +787,6 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * randomly selects from among the first 5,000 requests that your Amazon Web Services resource received
  * during a time range that you choose. You can specify a sample size of up to 500 requests,
  * and you can specify any time range in the previous three hours.
- * 
- * 
  * 
  * `GetSampledRequests` returns a time range, which is usually the time range that
  * you specified. However, if your resource (such as a CloudFront distribution) received 5,000
@@ -1018,15 +800,12 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
 /**
  * Creates a WebACL per the specifications provided.
  * 
- * 
  * A web ACL defines a collection of rules to use to inspect and control web requests. Each rule has a statement that defines what to look for in web requests and an action that WAF applies to requests that match the statement. In the web ACL, you assign a default action to take (allow, block) for any request that does not match any of the rules. The rules in a web ACL can be a combination of the types Rule, RuleGroup, and managed rule group. You can associate a web ACL with one or more Amazon Web Services resources to protect. The resource types include Amazon CloudFront distribution, Amazon API Gateway REST API, Application Load Balancer, AppSync GraphQL API, Amazon Cognito user pool, App Runner service, Amplify application, and Amazon Web Services Verified Access instance.
  */export const createWebACL = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-07-29", sdkId: "WAFV2", sigV4ServiceName: "wafv2", name: "AWSWAF_20190729.CreateWebACL" }, CreateWebACLRequest, CreateWebACLResponse, [WAFConfigurationWarningException, WAFDuplicateItemException, WAFExpiredManagedRuleGroupVersionException, WAFInternalErrorException, WAFInvalidOperationException, WAFInvalidParameterException, WAFInvalidResourceException, WAFLimitsExceededException, WAFNonexistentItemException, WAFOptimisticLockException, WAFSubscriptionNotFoundException, WAFTagOperationException, WAFTagOperationInternalErrorException, WAFUnavailableEntityException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the web ACL capacity unit (WCU) requirements for a specified scope and set of rules.
  * You can use this to check the capacity requirements for the rules you want to use in a
  * RuleGroup or WebACL.
- * 
- * 
  * 
  * WAF uses WCUs to calculate and control the operating
  * resources that are used to run your rules, rule groups, and web ACLs. WAF
@@ -1041,70 +820,38 @@ export class WAFServiceLinkedRoleErrorException extends S.TaggedError<WAFService
  * Enables the specified LoggingConfiguration, to start logging from a
  * web ACL, according to the configuration provided.
  * 
- * 
  * If you configure data protection for the web ACL, the protection applies to the data that WAF sends to the logs.
- * 
- * 
- * 
  * 
  * This operation completely replaces any mutable specifications that you already have for a logging configuration with the ones that you provide to this call.
  * 
- * 
  * To modify an existing logging configuration, do the following:
- * 
- * 
  * 
  * - Retrieve it by calling GetLoggingConfiguration
  * 
- * 
- * 
- * 
  * - Update its settings as needed
- * 
- * 
  * 
  * - Provide the complete logging configuration specification to this call
  * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
  * You can define one logging destination per web ACL.
- * 
- * 
- * 
  * 
  * You can access information about the traffic that WAF inspects using the following
  * steps:
  * 
- * 
- * 
  * - Create your logging destination. You can use an Amazon CloudWatch Logs log group, an Amazon Simple Storage Service (Amazon S3) bucket, or an Amazon Kinesis Data Firehose.
  * 
- * 
  * The name that you give the destination must start with `aws-waf-logs-`. Depending on the type of destination, you might need to configure additional settings or permissions.
- * 
  * 
  * For configuration requirements and pricing information for each destination type, see
  * Logging web ACL traffic
  * in the *WAF Developer Guide*.
  * 
- * 
- * 
  * - Associate your logging destination to your web ACL using a
  * `PutLoggingConfiguration` request.
- * 
- * 
- * 
  * 
  * When you successfully enable logging using a `PutLoggingConfiguration`
  * request, WAF creates an additional role or policy that is required to write
  * logs to the logging destination. For an Amazon CloudWatch Logs log group, WAF creates a resource policy on the log group.
  * For an Amazon S3 bucket, WAF creates a bucket policy. For an Amazon Kinesis Data Firehose, WAF creates a service-linked role.
- * 
  * 
  * For additional information about web ACL logging, see
  * Logging web ACL traffic information

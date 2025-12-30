@@ -65,11 +65,9 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * 
  * - `application/`: The folder where your application or game is stored.
  * 
- * 
  * - `profile/`: The user profile folder.
  * 
  * - `temp/`: The system temp folder.
- * 
  * 
  * To verify the status of the exported files, use GetStreamSession.
  * 
@@ -103,7 +101,6 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * 
  * - StreamGroup
  * 
- * 
  * **Learn more**
  * 
  * Tagging Amazon Web Services Resources in the *Amazon Web Services General Reference*
@@ -128,7 +125,6 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * 
  * - When a client disconnects or loses connection, the stream session transitions from `CONNECTED` to `PENDING_CLIENT_RECONNECTION`
  * 
- * 
  * - Reconnection time window:
  * 
  * - Clients have `ConnectionTimeoutSeconds` (defined in StartStreamSession) to reconnect before session termination
@@ -136,7 +132,6 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * - Your backend server must call **CreateStreamSessionConnection** to initiate reconnection
  * 
  * - Session transitions to `RECONNECTING` status
- * 
  * 
  * - Reconnection completion:
  * 
@@ -147,7 +142,6 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * - Client must establish connection within `ConnectionTimeoutSeconds`
  * 
  * - Session terminates automatically if client fails to connect in time
- * 
  * 
  * For more information about the stream session lifecycle, see Stream sessions in the *Amazon GameLift Streams Developer Guide*.
  * 
@@ -179,7 +173,6 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * 
  * - You must have at least one application associated to the stream group (use AssociateApplications if needed)
  * 
- * 
  * - Start stream request:
  * 
  * - Your backend server calls **StartStreamSession** to initiate connection
@@ -188,13 +181,11 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * 
  * - Session transitions to `ACTIVATING` status
  * 
- * 
  * - Placement completion:
  * 
  * - If Amazon GameLift Streams is successful in finding capacity for the stream, the stream session status changes to `ACTIVE` status and **StartStreamSession** returns stream connection information
  * 
  * - If Amazon GameLift Streams was not successful in finding capacity within the placement timeout period (defined according to the capacity type and platform type), the stream session status changes to `ERROR` status and **StartStreamSession** returns a `StatusReason` of `placementTimeout`
- * 
  * 
  * - Connection completion:
  * 
@@ -203,7 +194,6 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * - Client must establish connection within `ConnectionTimeoutSeconds` (specified in **StartStreamSession** parameters)
  * 
  * - Session terminates automatically if client fails to connect in time
- * 
  * 
  * For more information about the stream session lifecycle, see Stream sessions in the *Amazon GameLift Streams Developer Guide*.
  * 
@@ -219,14 +209,11 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * 
  * - Windows runtime: 10 minutes
  * 
- * 
- * 
  * - **Connection timeout**: The amount of time that Amazon GameLift Streams waits for a client to connect to a stream session in `ACTIVE` status, or reconnect to a stream session in `PENDING_CLIENT_RECONNECTION` status, the latter of which occurs when a client disconnects or loses connection from a stream session. If no client connects before the timeout, Amazon GameLift Streams terminates the stream session. This value is specified by `ConnectionTimeoutSeconds` in the `StartStreamSession` parameters.
  * 
  * - **Idle timeout**: A stream session will be terminated if no user input has been received for 60 minutes.
  * 
  * - **Maximum session length**: A stream session will be terminated after this amount of time has elapsed since it started, regardless of any existing client connections. This value is specified by `SessionLengthSeconds` in the `StartStreamSession` parameters.
- * 
  * 
  * To start a new stream session, specify a stream group ID and application ID, along with the transport protocol and signal request to use with the stream session.
  * 

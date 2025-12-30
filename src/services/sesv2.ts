@@ -423,8 +423,6 @@ export class InternalServiceErrorException extends S.TaggedError<InternalService
 /**
  * Delete an event destination.
  * 
- * 
- * 
  * *Events* include message sends, deliveries, opens, clicks, bounces,
  * and complaints. *Event destinations* are places that you can send
  * information about these events to. For example, you can send event data to Amazon EventBridge and
@@ -439,11 +437,9 @@ export class InternalServiceErrorException extends S.TaggedError<InternalService
 /**
  * Deletes an existing custom verification email template.
  * 
- * 
  * For more information about custom verification email templates, see Using
  * custom verification email templates in the Amazon SES Developer
  * Guide.
- * 
  * 
  * You can execute this operation no more than once per second.
  */export const deleteCustomVerificationEmailTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/custom-verification-email-templates/{TemplateName}", method: "DELETE", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.DeleteCustomVerificationEmailTemplate" }, DeleteCustomVerificationEmailTemplateRequest, DeleteCustomVerificationEmailTemplateResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -459,26 +455,18 @@ export class InternalServiceErrorException extends S.TaggedError<InternalService
  * address or a domain). This API returns successfully even if a policy with the specified
  * name does not exist.
  * 
- * 
- * 
- * 
  * This API is for the identity owner only. If you have not verified the identity,
  * this API will return an error.
- * 
- * 
- * 
  * 
  * Sending authorization is a feature that enables an identity owner to authorize other
  * senders to use its identities. For information about using sending authorization, see
  * the Amazon SES Developer
  * Guide.
  * 
- * 
  * You can execute this operation no more than once per second.
  */export const deleteEmailIdentityPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/identities/{EmailIdentity}/policies/{PolicyName}", method: "DELETE", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.DeleteEmailIdentityPolicy" }, DeleteEmailIdentityPolicyRequest, DeleteEmailIdentityPolicyResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes an email template.
- * 
  * 
  * You can execute this operation no more than once per second.
  */export const deleteEmailTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/templates/{TemplateName}", method: "DELETE", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.DeleteEmailTemplate" }, DeleteEmailTemplateRequest, DeleteEmailTemplateResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -488,13 +476,11 @@ export class InternalServiceErrorException extends S.TaggedError<InternalService
 /**
  * Delete an existing tenant.
  * 
- * 
  * When you delete a tenant, its associations with resources
  * are removed, but the resources themselves are not deleted.
  */export const deleteTenant = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/tenants/delete", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.DeleteTenant" }, DeleteTenantRequest, DeleteTenantResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Delete an association between a tenant and a resource.
- * 
  * 
  * When you delete a tenant-resource association, the resource itself is not deleted,
  * only its association with the specific tenant is removed. After removal, the resource
@@ -508,7 +494,6 @@ export class InternalServiceErrorException extends S.TaggedError<InternalService
  */export const putAccountSendingAttributes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/account/sending", method: "PUT", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.PutAccountSendingAttributes" }, PutAccountSendingAttributesRequest, PutAccountSendingAttributesResponse, [BadRequestException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Update your Amazon SES account VDM attributes.
- * 
  * 
  * You can execute this operation no more than once per second.
  */export const putAccountVdmAttributes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/account/vdm", method: "PUT", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.PutAccountVdmAttributes" }, PutAccountVdmAttributesRequest, PutAccountVdmAttributesResponse, [BadRequestException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -536,30 +521,19 @@ export class InternalServiceErrorException extends S.TaggedError<InternalService
 /**
  * Specify VDM preferences for email that you send using the configuration set.
  * 
- * 
  * You can execute this operation no more than once per second.
  */export const putConfigurationSetVdmOptions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/configuration-sets/{ConfigurationSetName}/vdm-options", method: "PUT", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.PutConfigurationSetVdmOptions" }, PutConfigurationSetVdmOptionsRequest, PutConfigurationSetVdmOptionsResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Move a dedicated IP address to an existing dedicated IP pool.
  * 
- * 
- * 
- * 
  * The dedicated IP address that you specify must already exist, and must be
  * associated with your Amazon Web Services account.
- * 
- * 
- * 
  * 
  * The dedicated IP pool you specify must already exist. You can create a new pool by
  * using the `CreateDedicatedIpPool` operation.
  */export const putDedicatedIpInPool = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/dedicated-ips/{Ip}/pool", method: "PUT", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.PutDedicatedIpInPool" }, PutDedicatedIpInPoolRequest, PutDedicatedIpInPoolResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Used to convert a dedicated IP pool to a different scaling mode.
- * 
- * 
- * 
- * 
  * 
  * `MANAGED` pools cannot be converted to `STANDARD` scaling mode.
  */export const putDedicatedIpPoolScalingAttributes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/dedicated-ip-pools/{PoolName}/scaling", method: "PUT", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.PutDedicatedIpPoolScalingAttributes" }, PutDedicatedIpPoolScalingAttributesRequest, PutDedicatedIpPoolScalingAttributesResponse, [BadRequestException, ConcurrentModificationException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -570,7 +544,6 @@ export class InternalServiceErrorException extends S.TaggedError<InternalService
  * Enable or disable the Deliverability dashboard. When you enable the Deliverability dashboard, you gain
  * access to reputation, deliverability, and other metrics for the domains that you use to
  * send email. You also gain the ability to perform predictive inbox placement tests.
- * 
  * 
  * When you use the Deliverability dashboard, you pay a monthly subscription charge, in addition
  * to any other fees that you accrue by using Amazon SES and other Amazon Web Services services. For more
@@ -587,11 +560,9 @@ export class InternalServiceErrorException extends S.TaggedError<InternalService
  * what happens when an identity is used to send an email that results in a bounce or
  * complaint event.
  * 
- * 
  * If the value is `true`, you receive email notifications when bounce or
  * complaint events occur. These notifications are sent to the address that you specified
  * in the `Return-Path` header of the original email.
- * 
  * 
  * You're required to have a method of tracking bounces and complaints. If you haven't
  * set up another mechanism for receiving bounce or complaint notifications (for example,
@@ -612,7 +583,6 @@ export class InternalServiceErrorException extends S.TaggedError<InternalService
  * by purpose, owner, environment, or other criteria. A resource can have as many as 50
  * tags.
  * 
- * 
  * Each tag consists of a required *tag key* and an
  * associated *tag value*, both of which you define. A tag key is a
  * general label that acts as a category for more specific tag values. A tag value acts as
@@ -624,8 +594,6 @@ export class InternalServiceErrorException extends S.TaggedError<InternalService
 /**
  * Update the configuration of an event destination for a configuration set.
  * 
- * 
- * 
  * *Events* include message sends, deliveries, opens, clicks, bounces,
  * and complaints. *Event destinations* are places that you can send
  * information about these events to. For example, you can send event data to Amazon EventBridge and
@@ -633,9 +601,6 @@ export class InternalServiceErrorException extends S.TaggedError<InternalService
  */export const updateConfigurationSetEventDestination = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/configuration-sets/{ConfigurationSetName}/event-destinations/{EventDestinationName}", method: "PUT", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.UpdateConfigurationSetEventDestination" }, UpdateConfigurationSetEventDestinationRequest, UpdateConfigurationSetEventDestinationResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates a contact's preferences for a list.
- * 
- * 
- * 
  * 
  * You must specify all existing topic preferences in the
  * `TopicPreferences` object, not just the ones that need updating;
@@ -647,11 +612,9 @@ export class InternalServiceErrorException extends S.TaggedError<InternalService
 /**
  * Updates an existing custom verification email template.
  * 
- * 
  * For more information about custom verification email templates, see Using
  * custom verification email templates in the Amazon SES Developer
  * Guide.
- * 
  * 
  * You can execute this operation no more than once per second.
  */export const updateCustomVerificationEmailTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/custom-verification-email-templates/{TemplateName}", method: "PUT", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.UpdateCustomVerificationEmailTemplate" }, UpdateCustomVerificationEmailTemplateRequest, UpdateCustomVerificationEmailTemplateResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -660,20 +623,13 @@ export class InternalServiceErrorException extends S.TaggedError<InternalService
  * address or a domain). This API returns successfully even if a policy with the specified
  * name does not exist.
  * 
- * 
- * 
- * 
  * This API is for the identity owner only. If you have not verified the identity,
  * this API will return an error.
- * 
- * 
- * 
  * 
  * Sending authorization is a feature that enables an identity owner to authorize other
  * senders to use its identities. For information about using sending authorization, see
  * the Amazon SES Developer
  * Guide.
- * 
  * 
  * You can execute this operation no more than once per second.
  */export const updateEmailIdentityPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/identities/{EmailIdentity}/policies/{PolicyName}", method: "PUT", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.UpdateEmailIdentityPolicy" }, UpdateEmailIdentityPolicyRequest, UpdateEmailIdentityPolicyResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -682,13 +638,11 @@ export class InternalServiceErrorException extends S.TaggedError<InternalService
  * one or more destinations in a single API operation. For more information, see the Amazon SES Developer
  * Guide.
  * 
- * 
  * You can execute this operation no more than once per second.
  */export const updateEmailTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/templates/{TemplateName}", method: "PUT", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.UpdateEmailTemplate" }, UpdateEmailTemplateRequest, UpdateEmailTemplateResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Update the customer-managed sending status for a reputation entity. This allows
  * you to enable, disable, or reinstate sending for the entity.
- * 
  * 
  * The customer-managed status works in conjunction with the Amazon Web Services Amazon SES-managed status
  * to determine the overall sending capability. When you update the customer-managed status,
@@ -702,7 +656,6 @@ export class InternalServiceErrorException extends S.TaggedError<InternalService
  * Update the reputation management policy for a reputation entity. The policy
  * determines how the entity responds to reputation findings, such as automatically
  * pausing sending when certain thresholds are exceeded.
- * 
  * 
  * Reputation management policies are Amazon Web Services Amazon SES-managed (predefined policies).
  * You can select from none, standard, and strict policies.
@@ -720,11 +673,9 @@ export class InternalServiceErrorException extends S.TaggedError<InternalService
 /**
  * Creates a new custom verification email template.
  * 
- * 
  * For more information about custom verification email templates, see Using
  * custom verification email templates in the Amazon SES Developer
  * Guide.
- * 
  * 
  * You can execute this operation no more than once per second.
  */export const createCustomVerificationEmailTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/custom-verification-email-templates", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.CreateCustomVerificationEmailTemplate" }, CreateCustomVerificationEmailTemplateRequest, CreateCustomVerificationEmailTemplateResponse, [AlreadyExistsException, BadRequestException, LimitExceededException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -738,20 +689,13 @@ export class InternalServiceErrorException extends S.TaggedError<InternalService
  * Creates the specified sending authorization policy for the given identity (an email
  * address or a domain).
  * 
- * 
- * 
- * 
  * This API is for the identity owner only. If you have not verified the identity,
  * this API will return an error.
- * 
- * 
- * 
  * 
  * Sending authorization is a feature that enables an identity owner to authorize other
  * senders to use its identities. For information about using sending authorization, see
  * the Amazon SES Developer
  * Guide.
- * 
  * 
  * You can execute this operation no more than once per second.
  */export const createEmailIdentityPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/identities/{EmailIdentity}/policies/{PolicyName}", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.CreateEmailIdentityPolicy" }, CreateEmailIdentityPolicyRequest, CreateEmailIdentityPolicyResponse, [AlreadyExistsException, BadRequestException, LimitExceededException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -760,13 +704,10 @@ export class InternalServiceErrorException extends S.TaggedError<InternalService
  * one or more destinations in a single API operation. For more information, see the Amazon SES Developer
  * Guide.
  * 
- * 
  * You can execute this operation no more than once per second.
  */export const createEmailTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/templates", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.CreateEmailTemplate" }, CreateEmailTemplateRequest, CreateEmailTemplateResponse, [AlreadyExistsException, BadRequestException, LimitExceededException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Create a tenant.
- * 
- * 
  * 
  * *Tenants* are logical containers that group related SES resources together.
  * Each tenant can have its own set of resources like email identities, configuration sets,
@@ -776,20 +717,15 @@ export class InternalServiceErrorException extends S.TaggedError<InternalService
 /**
  * Associate a resource with a tenant.
  * 
- * 
- * 
  * *Resources* can be email identities, configuration sets, or email templates.
  * When you associate a resource with a tenant, you can use that resource when sending emails
  * on behalf of that tenant.
- * 
  * 
  * A single resource can be associated with multiple tenants, allowing for resource sharing
  * across different tenants while maintaining isolation in email sending operations.
  */export const createTenantResourceAssociation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/tenants/resources", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.CreateTenantResourceAssociation" }, CreateTenantResourceAssociationRequest, CreateTenantResourceAssociationResponse, [AlreadyExistsException, BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Delete an existing configuration set.
- * 
- * 
  * 
  * *Configuration sets* are groups of rules that you can apply to the
  * emails you send. You apply a configuration set to an email by including a reference to
@@ -799,7 +735,6 @@ export class InternalServiceErrorException extends S.TaggedError<InternalService
 /**
  * Deletes a multi-region endpoint (global-endpoint).
  * 
- * 
  * Only multi-region endpoints (global-endpoints) whose primary region is the AWS-Region
  * where operation is executed can be deleted.
  */export const deleteMultiRegionEndpoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/multi-region-endpoints/{EndpointName}", method: "DELETE", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.DeleteMultiRegionEndpoint" }, DeleteMultiRegionEndpointRequest, DeleteMultiRegionEndpointResponse, [BadRequestException, ConcurrentModificationException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -807,8 +742,6 @@ export class InternalServiceErrorException extends S.TaggedError<InternalService
  * Get information about an existing configuration set, including the dedicated IP pool
  * that it's associated with, whether or not it's enabled for sending email, and
  * more.
- * 
- * 
  * 
  * *Configuration sets* are groups of rules that you can apply to the
  * emails you send. You apply a configuration set to an email by including a reference to
@@ -826,11 +759,9 @@ export class InternalServiceErrorException extends S.TaggedError<InternalService
  * Returns the custom email verification template for the template name you
  * specify.
  * 
- * 
  * For more information about custom verification email templates, see Using
  * custom verification email templates in the Amazon SES Developer
  * Guide.
- * 
  * 
  * You can execute this operation no more than once per second.
  */export const getCustomVerificationEmailTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/custom-verification-email-templates/{TemplateName}", method: "GET", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.GetCustomVerificationEmailTemplate" }, GetCustomVerificationEmailTemplateRequest, GetCustomVerificationEmailTemplateResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -843,27 +774,19 @@ export class InternalServiceErrorException extends S.TaggedError<InternalService
  * address or a domain). The policies are returned as a map of policy names to policy
  * contents. You can retrieve a maximum of 20 policies at a time.
  * 
- * 
- * 
- * 
  * This API is for the identity owner only. If you have not verified the identity,
  * this API will return an error.
- * 
- * 
- * 
  * 
  * Sending authorization is a feature that enables an identity owner to authorize other
  * senders to use its identities. For information about using sending authorization, see
  * the Amazon SES Developer
  * Guide.
  * 
- * 
  * You can execute this operation no more than once per second.
  */export const getEmailIdentityPolicies = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/identities/{EmailIdentity}/policies", method: "GET", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.GetEmailIdentityPolicies" }, GetEmailIdentityPoliciesRequest, GetEmailIdentityPoliciesResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Displays the template object (which includes the subject line, HTML part and text
  * part) for the template you specify.
- * 
  * 
  * You can execute this operation no more than once per second.
  */export const getEmailTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/templates/{TemplateName}", method: "GET", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.GetEmailTemplate" }, GetEmailTemplateRequest, GetEmailTemplateResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -873,8 +796,6 @@ export class InternalServiceErrorException extends S.TaggedError<InternalService
 /**
  * List all of the configuration sets associated with your account in the current
  * region.
- * 
- * 
  * 
  * *Configuration sets* are groups of rules that you can apply to the
  * emails you send. You apply a configuration set to an email by including a reference to
@@ -913,35 +834,22 @@ export class InternalServiceErrorException extends S.TaggedError<InternalService
  * Used to configure or change the DKIM authentication settings for an email domain
  * identity. You can use this operation to do any of the following:
  * 
- * 
- * 
  * - Update the signing attributes for an identity that uses Bring Your Own DKIM
  * (BYODKIM).
  * 
- * 
- * 
  * - Update the key length that should be used for Easy DKIM.
- * 
- * 
  * 
  * - Change from using no DKIM authentication to using Easy DKIM.
  * 
- * 
- * 
  * - Change from using no DKIM authentication to using BYODKIM.
  * 
- * 
- * 
  * - Change from using Easy DKIM to using BYODKIM.
- * 
- * 
  * 
  * - Change from using BYODKIM to using Easy DKIM.
  */export const putEmailIdentityDkimSigningAttributes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/identities/{EmailIdentity}/dkim/signing", method: "PUT", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.PutEmailIdentityDkimSigningAttributes" }, PutEmailIdentityDkimSigningAttributesRequest, PutEmailIdentityDkimSigningAttributesResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a preview of the MIME content of an email when provided with a template and a
  * set of replacement data.
- * 
  * 
  * You can execute this operation no more than once per second.
  */export const testRenderEmailTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/templates/{TemplateName}/render", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.TestRenderEmailTemplate" }, TestRenderEmailTemplateRequest, TestRenderEmailTemplateResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -959,19 +867,14 @@ export class InternalServiceErrorException extends S.TaggedError<InternalService
  * demonstrate that you're the owner of the identity, and that you've given Amazon SES API v2
  * permission to send email from the identity.
  * 
- * 
  * When you verify an email address, Amazon SES sends an email to the address. Your email
  * address is verified as soon as you follow the link in the verification email.
- * 
- * 
- * 
  * 
  * When you verify a domain without specifying the `DkimSigningAttributes`
  * object, this operation provides a set of DKIM tokens. You can convert these tokens into
  * CNAME records, which you then add to the DNS configuration for your domain. Your domain
  * is verified when Amazon SES detects these records in the DNS configuration for your domain.
  * This verification method is known as Easy DKIM.
- * 
  * 
  * Alternatively, you can perform the verification process by providing your own
  * public-private key pair. This verification method is known as Bring Your Own DKIM
@@ -980,13 +883,11 @@ export class InternalServiceErrorException extends S.TaggedError<InternalService
  * object, you provide a selector (a component of the DNS record name that identifies the
  * public key to use for DKIM authentication) and a private key.
  * 
- * 
  * When you verify a domain, this operation provides a set of DKIM tokens, which you can
  * convert into CNAME tokens. You add these CNAME tokens to the DNS configuration for your
  * domain. Your domain is verified when Amazon SES detects these records in the DNS
  * configuration for your domain. For some DNS providers, it can take 72 hours or more to
  * complete the domain verification process.
- * 
  * 
  * Additionally, you can associate an existing configuration set with the email identity that you're verifying.
  */export const createEmailIdentity = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/identities", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.CreateEmailIdentity" }, CreateEmailIdentityRequest, CreateEmailIdentityResponse, [AlreadyExistsException, BadRequestException, ConcurrentModificationException, LimitExceededException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -997,8 +898,6 @@ export class InternalServiceErrorException extends S.TaggedError<InternalService
 /**
  * Retrieve a list of event destinations that are associated with a configuration
  * set.
- * 
- * 
  * 
  * *Events* include message sends, deliveries, opens, clicks, bounces,
  * and complaints. *Event destinations* are places that you can send
@@ -1019,7 +918,6 @@ export class InternalServiceErrorException extends S.TaggedError<InternalService
  * metrics for the domains that you use to send email. You also gain the ability to perform
  * predictive inbox placement tests.
  * 
- * 
  * When you use the Deliverability dashboard, you pay a monthly subscription charge, in addition
  * to any other fees that you accrue by using Amazon SES and other Amazon Web Services services. For more
  * information about the features and cost of a Deliverability dashboard subscription, see Amazon SES Pricing.
@@ -1038,7 +936,6 @@ export class InternalServiceErrorException extends S.TaggedError<InternalService
 /**
  * Displays the multi-region endpoint (global-endpoint) configuration.
  * 
- * 
  * Only multi-region endpoints (global-endpoints) whose primary region is the AWS-Region
  * where operation is executed can be displayed.
  */export const getMultiRegionEndpoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/multi-region-endpoints/{EndpointName}", method: "GET", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.GetMultiRegionEndpoint" }, GetMultiRegionEndpointRequest, GetMultiRegionEndpointResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1049,7 +946,6 @@ export class InternalServiceErrorException extends S.TaggedError<InternalService
 /**
  * Lists all of the contact lists available.
  * 
- * 
  * If your output includes a "NextToken" field with a string value, this indicates there may be additional
  * contacts on the filtered list - regardless of the number of contacts returned.
  */export const listContactLists = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/contact-lists", method: "GET", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.ListContactLists" }, ListContactListsRequest, ListContactListsResponse, [BadRequestException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1057,11 +953,9 @@ export class InternalServiceErrorException extends S.TaggedError<InternalService
  * Lists the existing custom verification email templates for your account in the current
  * Amazon Web Services Region.
  * 
- * 
  * For more information about custom verification email templates, see Using
  * custom verification email templates in the Amazon SES Developer
  * Guide.
- * 
  * 
  * You can execute this operation no more than once per second.
  */export const listCustomVerificationEmailTemplates = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/custom-verification-email-templates", method: "GET", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.ListCustomVerificationEmailTemplates" }, ListCustomVerificationEmailTemplatesRequest, ListCustomVerificationEmailTemplatesResponse, [BadRequestException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1075,7 +969,6 @@ export class InternalServiceErrorException extends S.TaggedError<InternalService
  * Lists the email templates present in your Amazon SES account in the current Amazon Web Services
  * Region.
  * 
- * 
  * You can execute this operation no more than once per second.
  */export const listEmailTemplates = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/templates", method: "GET", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.ListEmailTemplates" }, ListEmailTemplatesRequest, ListEmailTemplatesResponse, [BadRequestException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -1087,7 +980,6 @@ export class InternalServiceErrorException extends S.TaggedError<InternalService
 /**
  * List the multi-region endpoints (global-endpoints).
  * 
- * 
  * Only multi-region endpoints (global-endpoints) whose primary region is the AWS-Region
  * where operation is executed will be listed.
  */export const listMultiRegionEndpoints = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/multi-region-endpoints", method: "GET", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.ListMultiRegionEndpoints" }, ListMultiRegionEndpointsRequest, ListMultiRegionEndpointsResponse, [BadRequestException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1096,8 +988,6 @@ export class InternalServiceErrorException extends S.TaggedError<InternalService
  * You can filter the results by entity type, reputation impact, sending status,
  * or entity reference prefix.
  * 
- * 
- * 
  * *Reputation entities* represent resources in your account that have reputation
  * tracking and management capabilities. Use this operation to get an overview of
  * all entities and their current reputation status.
@@ -1105,14 +995,12 @@ export class InternalServiceErrorException extends S.TaggedError<InternalService
 /**
  * List all tenants associated with a specific resource.
  * 
- * 
  * This operation returns a list of tenants that are associated with the specified
  * resource. This is useful for understanding which tenants are currently using a particular
  * resource such as an email identity, configuration set, or email template.
  */export const listResourceTenants = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/resources/tenants/list", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.ListResourceTenants" }, ListResourceTenantsRequest, ListResourceTenantsResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * List all tenants associated with your account in the current Amazon Web Services Region.
- * 
  * 
  * This operation returns basic information about each tenant,
  * such as tenant name, ID, ARN, and creation timestamp.
@@ -1124,7 +1012,6 @@ export class InternalServiceErrorException extends S.TaggedError<InternalService
  * to. For example, you can send event data to Amazon EventBridge and associate a rule to send the event
  * to the specified target.
  * 
- * 
  * A single configuration set can include more than one event destination.
  */export const createConfigurationSetEventDestination = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/configuration-sets/{ConfigurationSetName}/event-destinations", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.CreateConfigurationSetEventDestination" }, CreateConfigurationSetEventDestinationRequest, CreateConfigurationSetEventDestinationResponse, [AlreadyExistsException, BadRequestException, LimitExceededException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -1132,7 +1019,6 @@ export class InternalServiceErrorException extends S.TaggedError<InternalService
  */export const createImportJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/import-jobs", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.CreateImportJob" }, CreateImportJobRequest, CreateImportJobResponse, [BadRequestException, LimitExceededException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a multi-region endpoint (global-endpoint).
- * 
  * 
  * The primary region is going to be the AWS-Region where the operation is executed.
  * The secondary region has to be provided in request's parameters.
@@ -1160,8 +1046,6 @@ export class InternalServiceErrorException extends S.TaggedError<InternalService
  * management policy, customer-managed status, Amazon Web Services Amazon SES-managed status, and aggregate
  * sending status.
  * 
- * 
- * 
  * *Reputation entities* represent resources in your Amazon SES account that have reputation
  * tracking and management capabilities. The reputation impact reflects the highest
  * impact reputation finding for the entity. Reputation findings can be retrieved
@@ -1174,7 +1058,6 @@ export class InternalServiceErrorException extends S.TaggedError<InternalService
 /**
  * Lists the recommendations present in your Amazon SES account in the current Amazon Web Services Region.
  * 
- * 
  * You can execute this operation no more than once per second.
  */export const listRecommendations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/vdm/recommendations", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.ListRecommendations" }, ListRecommendationsRequest, ListRecommendationsResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -1183,7 +1066,6 @@ export class InternalServiceErrorException extends S.TaggedError<InternalService
  */export const listSuppressedDestinations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/suppression/addresses", method: "GET", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.ListSuppressedDestinations" }, ListSuppressedDestinationsRequest, ListSuppressedDestinationsResponse, [BadRequestException, InvalidNextTokenException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * List all resources associated with a specific tenant.
- * 
  * 
  * This operation returns a list of resources (email identities, configuration sets,
  * or email templates) that are associated with the specified tenant. You can optionally
@@ -1196,21 +1078,15 @@ export class InternalServiceErrorException extends S.TaggedError<InternalService
  * Sends an email message. You can use the Amazon SES API v2 to send the following types of
  * messages:
  * 
- * 
- * 
  * - **Simple** – A standard email message. When
  * you create this type of message, you specify the sender, the recipient, and the
  * message body, and Amazon SES assembles the message for you.
- * 
- * 
  * 
  * - **Raw** – A raw, MIME-formatted email
  * message. When you send this type of email, you have to specify all of the
  * message headers, as well as the message body. You can use this message type to
  * send messages that contain attachments. The message that you specify has to be a
  * valid MIME message.
- * 
- * 
  * 
  * - **Templated** – A message that contains
  * personalization tags. When you send this type of email, Amazon SES API v2 automatically
@@ -1228,7 +1104,6 @@ export class InternalServiceErrorException extends S.TaggedError<InternalService
 /**
  * Creates an export job for a data source and destination.
  * 
- * 
  * You can execute this operation no more than once per second.
  */export const createExportJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/export-jobs", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.CreateExportJob" }, CreateExportJobRequest, CreateExportJobResponse, [BadRequestException, LimitExceededException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -1239,19 +1114,16 @@ export class InternalServiceErrorException extends S.TaggedError<InternalService
  * Amazon Web Services Region and attempts to verify it. As a result of executing this
  * operation, a customized verification email is sent to the specified address.
  * 
- * 
  * To use this operation, you must first create a custom verification email template. For
  * more information about creating and using custom verification email templates, see
  * Using
  * custom verification email templates in the Amazon SES Developer
  * Guide.
  * 
- * 
  * You can execute this operation no more than once per second.
  */export const sendCustomVerificationEmail = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/outbound-custom-verification-emails", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.SendCustomVerificationEmail" }, SendCustomVerificationEmailRequest, SendCustomVerificationEmailResponse, [BadRequestException, LimitExceededException, MailFromDomainNotVerifiedException, MessageRejected, NotFoundException, SendingPausedException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves batches of metric data collected based on your sending activity.
- * 
  * 
  * You can execute this operation no more than 16 times per second,
  * and with at most 160 queries from the batches per second (cumulative).
@@ -1259,7 +1131,6 @@ export class InternalServiceErrorException extends S.TaggedError<InternalService
 /**
  * Provides information about a specific message, including the from address, the
  * subject, the recipient address, email tags, as well as events associated with the message.
- * 
  * 
  * You can execute this operation no more than once per second.
  */export const getMessageInsights = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/insights/{MessageId}", method: "GET", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.GetMessageInsights" }, GetMessageInsightsRequest, GetMessageInsightsResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

@@ -176,14 +176,12 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Lists the items in the catalog.
  * 
- * 
  * Use filters to return specific results. If you specify multiple filters, the results include only the resources that match
  * all of the specified filters. For a filter where you can specify multiple values, the results include
  * items that match any of the values that you specify for the filter.
  */export const listCatalogItems = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-03", uri: "/catalog/items", method: "GET", sdkId: "Outposts", sigV4ServiceName: "outposts", name: "OutpostsOlafService.ListCatalogItems" }, ListCatalogItemsInput, ListCatalogItemsOutput, [AccessDeniedException, InternalServerException, NotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the Outposts for your Amazon Web Services account.
- * 
  * 
  * Use filters to return specific results. If you specify multiple filters, the results include only the resources that match
  * all of the specified filters. For a filter where you can specify multiple values, the results include
@@ -192,7 +190,6 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Lists the Outpost sites for your Amazon Web Services account. Use filters to return specific
  * results.
- * 
  * 
  * Use filters to return specific results. If you specify multiple filters, the results include only the resources that match
  * all of the specified filters. For a filter where you can specify multiple values, the results include
@@ -204,12 +201,7 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Amazon Web Services uses this action to install Outpost servers.
  * 
- * 
- * 
- * 
  * Starts the connection required for Outpost server installation.
- * 
- * 
  * 
  * Use CloudTrail to monitor this action or Amazon Web Services managed policy for Amazon Web Services Outposts to secure it. For
  * more information, see
@@ -231,10 +223,8 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Updates the address of the specified site.
  * 
- * 
  * You can't update a site address if there is an order in progress. You must wait for the
  * order to complete or cancel the order.
- * 
  * 
  * You can update the operating address before you place an order at the site, or after all
  * Outposts that belong to the site have been deactivated.
@@ -244,14 +234,11 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * about hardware requirements for racks, see Network
  * readiness checklist in the Amazon Web Services Outposts User Guide.
  * 
- * 
- * 
  * To update a rack at a site with an order of `IN_PROGRESS`, you must wait for
  * the order to complete or cancel the order.
  */export const updateSiteRackPhysicalProperties = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-03", uri: "/sites/{SiteId}/rackPhysicalProperties", method: "PATCH", sdkId: "Outposts", sigV4ServiceName: "outposts", name: "OutpostsOlafService.UpdateSiteRackPhysicalProperties" }, UpdateSiteRackPhysicalPropertiesInput, UpdateSiteRackPhysicalPropertiesOutput, [AccessDeniedException, ConflictException, InternalServerException, NotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an Outpost.
- * 
  * 
  * You can specify either an Availability one or an AZ ID.
  */export const createOutpost = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-03", uri: "/outposts", sdkId: "Outposts", sigV4ServiceName: "outposts", name: "OutpostsOlafService.CreateOutpost" }, CreateOutpostInput, CreateOutpostOutput, [AccessDeniedException, ConflictException, InternalServerException, NotFoundException, ServiceQuotaExceededException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -264,12 +251,7 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Amazon Web Services uses this action to install Outpost servers.
  * 
- * 
- * 
- * 
  * Gets information about the specified connection.
- * 
- * 
  * 
  * Use CloudTrail to monitor this action or Amazon Web Services managed policy for Amazon Web Services Outposts to secure it. For
  * more information, see
@@ -300,7 +282,6 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Lists the capacity tasks for your Amazon Web Services account.
  * 
- * 
  * Use filters to return specific results. If you specify multiple filters, the results include only the resources that match
  * all of the specified filters. For a filter where you can specify multiple values, the results include
  * items that match any of the values that you specify for the filter.
@@ -323,7 +304,6 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  */export const getOrder = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-03", uri: "/orders/{OrderId}", method: "GET", sdkId: "Outposts", sigV4ServiceName: "outposts", name: "OutpostsOlafService.GetOrder" }, GetOrderInput, GetOrderOutput, [InternalServerException, NotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the hardware assets for the specified Outpost.
- * 
  * 
  * Use filters to return specific results. If you specify multiple filters, the results include only the resources that match
  * all of the specified filters. For a filter where you can specify multiple values, the results include

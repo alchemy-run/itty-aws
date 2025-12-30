@@ -312,14 +312,12 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
  * see Tag
  * Clusters.
  * 
- * 
  * The following example removes the stack tag with value Prod from a cluster:
  */export const removeTags = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2009-03-31", sdkId: "EMR", sigV4ServiceName: "elasticmapreduce", name: "ElasticMapReduce.RemoveTags" }, RemoveTagsInput, RemoveTagsOutput, [InternalServerException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * You can use the `SetKeepJobFlowAliveWhenNoSteps` to configure a cluster (job flow) to terminate after the step execution, i.e., all your
  * steps are executed. If you want a transient cluster that shuts down after the last of the current executing steps are completed,
  * you can configure `SetKeepJobFlowAliveWhenNoSteps` to false. If you want a long running cluster, configure `SetKeepJobFlowAliveWhenNoSteps` to true.
- * 
  * 
  * For more information, see Managing Cluster Termination in the *Amazon EMR Management Guide*.
  */export const setKeepJobFlowAliveWhenNoSteps = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2009-03-31", sdkId: "EMR", sigV4ServiceName: "elasticmapreduce", name: "ElasticMapReduce.SetKeepJobFlowAliveWhenNoSteps" }, SetKeepJobFlowAliveWhenNoStepsInput, S.Struct({}), [InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -332,18 +330,14 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
  * `DisableAPITermination` API on all Amazon EC2 instances in a
  * cluster.
  * 
- * 
- * 
  * `SetTerminationProtection` is used to prevent accidental termination of a
  * cluster and to ensure that in the event of an error, the instances persist so that you can
  * recover any data stored in their ephemeral instance storage.
- * 
  * 
  * To terminate a cluster that has been locked by setting
  * `SetTerminationProtection` to `true`, you must first unlock the
  * job flow by a subsequent call to `SetTerminationProtection` in which you set the
  * value to `false`.
- * 
  * 
  * For more information, see Managing Cluster
  * Termination in the *Amazon EMR Management Guide*.
@@ -357,11 +351,9 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
  * termination protection. In such cases, Amazon EMR adds
  * the unhealthy nodes to a denylist, reducing job interruptions and failures.
  * 
- * 
  * If unhealthy node replacement is on, Amazon EMR
  * notifies YARN and other applications on the cluster to stop scheduling tasks
  * with these nodes, moves the data, and then terminates the nodes.
- * 
  * 
  * For more information, see graceful
  * node replacement in the *Amazon EMR Management Guide*.
@@ -371,18 +363,13 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
  * visible to all users in your account. To restrict cluster access using an IAM policy, see Identity and Access
  * Management for Amazon EMR.
  * 
- * 
- * 
- * 
  * Sets the Cluster$VisibleToAllUsers value for an Amazon EMR
  * cluster. When `true`, IAM principals in the Amazon Web Services account can perform Amazon EMR cluster actions that their IAM policies allow. When `false`, only the IAM
  * principal that created the cluster and the Amazon Web Services account root user can perform
  * Amazon EMR actions on the cluster, regardless of IAM permissions
  * policies attached to other IAM principals.
  * 
- * 
  * This action works on running clusters. When you create a cluster, use the RunJobFlowInput$VisibleToAllUsers parameter.
- * 
  * 
  * For more information, see Understanding the Amazon EMR Cluster VisibleToAllUsers Setting in the
  * *Amazon EMR Management Guide*.
@@ -394,7 +381,6 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
  * TerminateJobFlows shuts a list of clusters (job flows) down. When a job flow is shut
  * down, any step not yet completed is canceled and the Amazon EC2 instances on which
  * the cluster is running are stopped. Any log files not already saved are uploaded to Amazon S3 if a LogUri was specified when the cluster was created.
- * 
  * 
  * The maximum number of clusters allowed is 10. The call to `TerminateJobFlows`
  * is asynchronous. Depending on the configuration of the cluster, it may take up to 1-5
@@ -457,9 +443,6 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
  * specified InstanceFleetID within the cluster specified using ClusterID. The call either
  * succeeds or fails atomically.
  * 
- * 
- * 
- * 
  * The instance fleet configuration is available only in Amazon EMR releases
  * 4.8.0 and later, excluding 5.0.x versions.
  */export const modifyInstanceFleet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2009-03-31", sdkId: "EMR", sigV4ServiceName: "elasticmapreduce", name: "ElasticMapReduce.ModifyInstanceFleet" }, ModifyInstanceFleetInput, S.Struct({}), [InternalServerException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -467,9 +450,6 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
  * Auto-termination is supported in Amazon EMR releases 5.30.0 and 6.1.0 and
  * later. For more information, see Using an
  * auto-termination policy.
- * 
- * 
- * 
  * 
  * Creates or updates an auto-termination policy for an Amazon EMR cluster. An
  * auto-termination policy defines the amount of idle time in seconds after which a cluster
@@ -580,29 +560,22 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
  * AddJobFlowSteps adds new steps to a running cluster. A maximum of 256 steps are allowed
  * in each job flow.
  * 
- * 
  * If your cluster is long-running (such as a Hive data warehouse) or complex, you may
  * require more than 256 steps to process your data. You can bypass the 256-step limitation in
  * various ways, including using SSH to connect to the master node and submitting queries
  * directly to the software running on the master node, such as Hive and Hadoop.
- * 
  * 
  * A step specifies the location of a JAR file stored either on the master node of the
  * cluster or in Amazon S3. Each step is performed by the main function of the main
  * class of the JAR file. The main class can be specified either in the manifest of the JAR or
  * by using the MainFunction parameter of the step.
  * 
- * 
  * Amazon EMR executes each step in the order listed. For a step to be considered
  * complete, the main function must exit with a zero exit code and all Hadoop jobs started
  * while the step was running must have completed and run successfully.
  * 
- * 
  * You can only add steps to a cluster that is in one of the following states: STARTING,
  * BOOTSTRAPPING, RUNNING, or WAITING.
- * 
- * 
- * 
  * 
  * The string values passed into `HadoopJarStep` object cannot exceed a total
  * of 10240 characters.
@@ -615,33 +588,21 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
  * This API is no longer supported and will eventually be removed. We recommend you use
  * ListClusters, DescribeCluster, ListSteps, ListInstanceGroups and ListBootstrapActions instead.
  * 
- * 
  * DescribeJobFlows returns a list of job flows that match all of the supplied parameters.
  * The parameters can include a list of job flow IDs, job flow states, and restrictions on job
  * flow creation date and time.
  * 
- * 
  * Regardless of supplied parameters, only job flows created within the last two months are
  * returned.
- * 
  * 
  * If no parameters are supplied, then job flows matching either of the following criteria
  * are returned:
  * 
- * 
- * 
  * - Job flows created and completed in the last two weeks
- * 
- * 
  * 
  * - Job flows created within the last two months that are in one of the following
  * states: `RUNNING`, `WAITING`, `SHUTTING_DOWN`,
  * `STARTING`
- * 
- * 
- * 
- * 
- * 
  * 
  * Amazon EMR can return a maximum of 512 job flow descriptions.
  */export const describeJobFlows = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2009-03-31", sdkId: "EMR", sigV4ServiceName: "elasticmapreduce", name: "ElasticMapReduce.DescribeJobFlows" }, DescribeJobFlowsInput, DescribeJobFlowsOutput, [InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -650,9 +611,6 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
  */export const describeStep = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2009-03-31", sdkId: "EMR", sigV4ServiceName: "elasticmapreduce", name: "ElasticMapReduce.DescribeStep" }, DescribeStepInput, DescribeStepOutput, [InternalServerException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists all available details about the instance fleets in a cluster.
- * 
- * 
- * 
  * 
  * The instance fleet configuration is available only in Amazon EMR releases
  * 4.8.0 and later, excluding 5.0.x versions.
@@ -671,15 +629,12 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
  * `KeepJobFlowAliveWhenNoSteps` parameter is set to `TRUE`, the cluster
  * transitions to the WAITING state rather than shutting down after the steps have completed.
  * 
- * 
  * For additional protection, you can set the JobFlowInstancesConfig
  * `TerminationProtected` parameter to `TRUE` to lock the cluster and
  * prevent it from being terminated by API call, user intervention, or in the event of a job
  * flow error.
  * 
- * 
  * A maximum of 256 steps are allowed in each job flow.
- * 
  * 
  * If your cluster is long-running (such as a Hive data warehouse) or complex, you may
  * require more than 256 steps to process your data. You can bypass the 256-step limitation in
@@ -687,11 +642,7 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
  * queries directly to the software running on the master node, such as Hive and
  * Hadoop.
  * 
- * 
  * For long-running clusters, we recommend that you periodically store your results.
- * 
- * 
- * 
  * 
  * The instance fleets configuration is available only in Amazon EMR releases
  * 4.8.0 and later, excluding 5.0.x versions. The RunJobFlow request can contain
@@ -699,9 +650,6 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
  */export const runJobFlow = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2009-03-31", sdkId: "EMR", sigV4ServiceName: "elasticmapreduce", name: "ElasticMapReduce.RunJobFlow" }, RunJobFlowInput, RunJobFlowOutput, [InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Adds an instance fleet to a running cluster.
- * 
- * 
- * 
  * 
  * The instance fleet configuration is available only in Amazon EMR releases
  * 4.8.0 and later, excluding 5.0.x.

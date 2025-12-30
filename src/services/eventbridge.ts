@@ -253,13 +253,11 @@ export class ThrottlingException extends S.TaggedError<ThrottlingException>()("T
  * Disables the specified rule. A disabled rule won't match any events, and won't
  * self-trigger if it has a schedule expression.
  * 
- * 
  * When you disable a rule, incoming events might continue to match to the disabled rule.
  * Allow a short period of time for changes to take effect.
  */export const disableRule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.DisableRule" }, DisableRuleRequest, S.Struct({}), [ConcurrentModificationException, InternalException, ManagedRuleException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Enables the specified rule. If the rule does not exist, the operation fails.
- * 
  * 
  * When you enable a rule, incoming events might not immediately start matching to a newly
  * enabled rule. Allow a short period of time for changes to take effect.
@@ -276,16 +274,13 @@ export class ThrottlingException extends S.TaggedError<ThrottlingException>()("T
  * permissions by granting a user permission to access or change only resources with certain tag
  * values. In EventBridge, rules and event buses can be tagged.
  * 
- * 
  * Tags don't have any semantic meaning to Amazon Web Services and are interpreted strictly as
  * strings of characters.
- * 
  * 
  * You can use the `TagResource` action with a resource that already has tags. If
  * you specify a new tag key, this tag is appended to the list of tags associated with the
  * resource. If you specify a tag key that is already associated with the resource, the new tag
  * value that you specify replaces the previous value for that tag.
- * 
  * 
  * You can associate as many as 50 tags with a resource.
  */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.TagResource" }, TagResourceRequest, TagResourceResponse, [ConcurrentModificationException, InternalException, ManagedRuleException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -296,10 +291,8 @@ export class ThrottlingException extends S.TaggedError<ThrottlingException>()("T
  * You can use this operation to temporarily stop receiving events from the specified partner
  * event source. The matching event bus is not deleted.
  * 
- * 
  * When you deactivate a partner event source, the source goes into PENDING state. If it
  * remains in PENDING state for more than two weeks, it is deleted.
- * 
  * 
  * To activate a deactivated partner event source, use ActivateEventSource.
  */export const deactivateEventSource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.DeactivateEventSource" }, DeactivateEventSourceRequest, S.Struct({}), [ConcurrentModificationException, InternalException, InvalidStateException, OperationDisabledException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -317,25 +310,20 @@ export class ThrottlingException extends S.TaggedError<ThrottlingException>()("T
  * This operation is used by SaaS partners to delete a partner event source. This operation
  * is not used by Amazon Web Services customers.
  * 
- * 
  * When you delete an event source, the status of the corresponding partner event bus in the
  * Amazon Web Services customer account becomes DELETED.
  */export const deletePartnerEventSource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.DeletePartnerEventSource" }, DeletePartnerEventSourceRequest, S.Struct({}), [ConcurrentModificationException, InternalException, OperationDisabledException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the specified rule.
  * 
- * 
  * Before you can delete the rule, you must remove all targets, using RemoveTargets.
- * 
  * 
  * When you delete a rule, incoming events might continue to match to the deleted rule. Allow
  * a short period of time for changes to take effect.
  * 
- * 
  * If you call delete rule multiple times for the same rule, all calls will succeed. When you
  * call delete rule for a non-existent custom eventbus, `ResourceNotFoundException` is
  * returned.
- * 
  * 
  * Managed rules are rules created and managed by another Amazon Web Services service on your
  * behalf. These rules are created by those other Amazon Web Services services to support
@@ -362,10 +350,8 @@ export class ThrottlingException extends S.TaggedError<ThrottlingException>()("T
  * associated policy. For custom event buses and partner event buses, it displays the name, ARN,
  * policy, state, and creation time.
  * 
- * 
  * To enable your account to receive events from other accounts on its default event bus,
  * use PutPermission.
- * 
  * 
  * For more information about partner event buses, see CreateEventBus.
  */export const describeEventBus = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.DescribeEventBus" }, DescribeEventBusRequest, DescribeEventBusResponse, [InternalException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -392,14 +378,12 @@ export class ThrottlingException extends S.TaggedError<ThrottlingException>()("T
 /**
  * Describes the specified rule.
  * 
- * 
  * DescribeRule does not list the targets of a rule. To see the targets associated with a
  * rule, use ListTargetsByRule.
  */export const describeRule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.DescribeRule" }, DescribeRuleRequest, DescribeRuleResponse, [InternalException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the rules for the specified target. You can see which of the rules in Amazon
  * EventBridge can invoke a specific target in your account.
- * 
  * 
  * The maximum number of results per page for requests is 100.
  */export const listRuleNamesByTarget = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.ListRuleNamesByTarget" }, ListRuleNamesByTargetRequest, ListRuleNamesByTargetResponse, [InternalException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -410,28 +394,23 @@ export class ThrottlingException extends S.TaggedError<ThrottlingException>()("T
 /**
  * Lists the targets assigned to the specified rule.
  * 
- * 
  * The maximum number of results per page for requests is 100.
  */export const listTargetsByRule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.ListTargetsByRule" }, ListTargetsByRuleRequest, ListTargetsByRuleResponse, [InternalException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates or updates the specified rule. Rules are enabled by default, or based on value of
  * the state. You can disable a rule using DisableRule.
  * 
- * 
  * A single rule watches for events from a single event bus. Events generated by Amazon Web Services services go to your account's default event bus. Events generated by SaaS partner
  * services or applications go to the matching partner event bus. If you have custom applications
  * or services, you can specify whether their events go to your default event bus or a custom
  * event bus that you have created. For more information, see CreateEventBus.
  * 
- * 
  * If you are updating an existing rule, the rule is replaced with what you specify in this
  * `PutRule` command. If you omit arguments in `PutRule`, the old values
  * for those arguments are not kept. Instead, they are replaced with null values.
  * 
- * 
  * When you create or update a rule, incoming events might not immediately start matching to
  * new or updated rules. Allow a short period of time for changes to take effect.
- * 
  * 
  * A rule must contain at least an EventPattern or ScheduleExpression. Rules with
  * EventPatterns are triggered when a matching event is observed. Rules with ScheduleExpressions
@@ -439,23 +418,19 @@ export class ThrottlingException extends S.TaggedError<ThrottlingException>()("T
  * ScheduleExpression, in which case the rule triggers on matching events as well as on a
  * schedule.
  * 
- * 
  * When you initially create a rule, you can optionally assign one or more tags to the rule.
  * Tags can help you organize and categorize your resources. You can also use them to scope user
  * permissions, by granting a user permission to access or change only rules with certain tag
  * values. To use the `PutRule` operation and assign tags, you must have both the
  * `events:PutRule` and `events:TagResource` permissions.
  * 
- * 
  * If you are updating an existing rule, any tags you specify in the `PutRule`
  * operation are ignored. To update the tags of an existing rule, use TagResource and UntagResource.
- * 
  * 
  * Most services in Amazon Web Services treat : or / as the same character in Amazon Resource
  * Names (ARNs). However, EventBridge uses an exact match in event patterns and rules. Be sure to
  * use the correct ARN characters when creating event patterns so that they match the ARN syntax
  * in the event you want to match.
- * 
  * 
  * In EventBridge, it is possible to create rules that lead to infinite loops, where a rule
  * is fired repeatedly. For example, a rule might detect that ACLs have changed on an S3 bucket,
@@ -463,17 +438,14 @@ export class ThrottlingException extends S.TaggedError<ThrottlingException>()("T
  * carefully, the subsequent change to the ACLs fires the rule again, creating an infinite
  * loop.
  * 
- * 
  * To prevent this, write the rules so that the triggered actions do not re-fire the same
  * rule. For example, your rule could fire only if ACLs are found to be in a bad state, instead
  * of after any change.
- * 
  * 
  * An infinite loop can quickly cause higher than expected charges. We recommend that you use
  * budgeting, which alerts you when charges exceed your specified limit. For more information,
  * see Managing Your Costs with
  * Budgets.
- * 
  * 
  * To create a rule that filters for management events from Amazon Web Services services, see
  * Receiving read-only management events from Amazon Web Services services in the
@@ -481,7 +453,6 @@ export class ThrottlingException extends S.TaggedError<ThrottlingException>()("T
  */export const putRule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.PutRule" }, PutRuleRequest, PutRuleResponse, [ConcurrentModificationException, InternalException, InvalidEventPatternException, LimitExceededException, ManagedRuleException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Tests whether the specified event pattern matches the provided event.
- * 
  * 
  * Most services in Amazon Web Services treat : or / as the same character in Amazon Resource
  * Names (ARNs). However, EventBridge uses an exact match in event patterns and rules. Be
@@ -515,10 +486,8 @@ export class ThrottlingException extends S.TaggedError<ThrottlingException>()("T
  * Creates an API destination, which is an HTTP invocation endpoint configured as a target
  * for events.
  * 
- * 
  * API destinations do not support private destinations, such as interface VPC
  * endpoints.
- * 
  * 
  * For more information, see API destinations in the
  * *EventBridge User Guide*.
@@ -530,12 +499,8 @@ export class ThrottlingException extends S.TaggedError<ThrottlingException>()("T
  * archive, all events are sent to the archive except replayed events. Replayed events are not
  * sent to an archive.
  * 
- * 
- * 
- * 
  * If you have specified that EventBridge use a customer managed key for encrypting the source event bus, we strongly recommend you also specify a
  * customer managed key for any archives for the event bus as well.
- * 
  * 
  * For more information, see Encrypting archives in the *Amazon EventBridge User Guide*.
  */export const createArchive = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.CreateArchive" }, CreateArchiveRequest, CreateArchiveResponse, [ConcurrentModificationException, InternalException, InvalidEventPatternException, LimitExceededException, ResourceAlreadyExistsException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -548,54 +513,34 @@ export class ThrottlingException extends S.TaggedError<ThrottlingException>()("T
  * Called by an SaaS partner to create a partner event source. This operation is not used by
  * Amazon Web Services customers.
  * 
- * 
  * Each partner event source can be used by one Amazon Web Services account to create a
  * matching partner event bus in that Amazon Web Services account. A SaaS partner must create one
  * partner event source for each Amazon Web Services account that wants to receive those event
  * types.
  * 
- * 
  * A partner event source creates events based on resources within the SaaS partner's service
  * or application.
- * 
  * 
  * An Amazon Web Services account that creates a partner event bus that matches the partner
  * event source can use that event bus to receive events from the partner, and then process them
  * using Amazon Web Services Events rules and targets.
  * 
- * 
  * Partner event source names follow this format:
  * 
- * 
- * 
- * 
  * *partner_name*/*event_namespace*/*event_name*
- * 
- * 
- * 
- * 
  * 
  * - *partner_name* is determined during partner registration, and
  * identifies the partner to Amazon Web Services customers.
  * 
- * 
- * 
  * - *event_namespace* is determined by the partner, and is a way for
  * the partner to categorize their events.
- * 
- * 
  * 
  * - *event_name* is determined by the partner, and should uniquely
  * identify an event-generating resource within the partner system.
  * 
- * 
  * The *event_name* must be unique across all Amazon Web Services
  * customers. This is because the event source is a shared resource between the partner and
  * customer accounts, and each partner event source unique in the partner account.
- * 
- * 
- * 
- * 
  * 
  * The combination of *event_namespace* and
  * *event_name* should help Amazon Web Services customers decide whether to
@@ -643,9 +588,7 @@ export class ThrottlingException extends S.TaggedError<ThrottlingException>()("T
  * Lists your Amazon EventBridge rules. You can either list all the rules or you can
  * provide a prefix to match to the rule names.
  * 
- * 
  * The maximum number of results per page for requests is 100.
- * 
  * 
  * ListRules does not list the targets of a rule. To see the targets associated with a rule,
  * use ListTargetsByRule.
@@ -655,10 +598,8 @@ export class ThrottlingException extends S.TaggedError<ThrottlingException>()("T
  * to put events to the specified *event bus*. Amazon EventBridge rules in your account are triggered by these events arriving to an event bus in your
  * account.
  * 
- * 
  * For another account to send events to your account, that external account must have an
  * EventBridge rule with your account's event bus as a target.
- * 
  * 
  * To enable multiple Amazon Web Services accounts to put events to your event bus, run
  * `PutPermission` once for each of these accounts. Or, if all the accounts are
@@ -667,12 +608,10 @@ export class ThrottlingException extends S.TaggedError<ThrottlingException>()("T
  * organization ID in `Condition`, to grant permissions to all accounts in that
  * organization.
  * 
- * 
  * If you grant permissions using an organization, then accounts in that organization must
  * specify a `RoleArn` with proper permissions when they use `PutTarget` to
  * add your account's event bus as a target. For more information, see Sending and
  * Receiving Events Between Amazon Web Services Accounts in the *Amazon EventBridge User Guide*.
- * 
  * 
  * The permission policy on the event bus cannot exceed 10 KB in size.
  */export const putPermission = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.PutPermission" }, PutPermissionRequest, S.Struct({}), [ConcurrentModificationException, InternalException, OperationDisabledException, PolicyLengthExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -680,23 +619,15 @@ export class ThrottlingException extends S.TaggedError<ThrottlingException>()("T
  * Removes the specified targets from the specified rule. When the rule is triggered, those
  * targets are no longer be invoked.
  * 
- * 
- * 
- * 
  * A successful execution of `RemoveTargets` doesn't guarantee all targets are
  * removed from the rule, it means that the target(s) listed in the request are removed.
- * 
- * 
- * 
  * 
  * When you remove a target, when the associated rule triggers, removed targets might
  * continue to be invoked. Allow a short period of time for changes to take effect.
  * 
- * 
  * This action can partially fail if too many requests are made at the same time. If that
  * happens, `FailedEntryCount` is non-zero in the response and each entry in
  * `FailedEntries` provides the ID of the failed target and the error code.
- * 
  * 
  * The maximum number of entries per request is 10.
  */export const removeTargets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.RemoveTargets" }, RemoveTargetsRequest, RemoveTargetsResponse, [ConcurrentModificationException, InternalException, ManagedRuleException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -714,7 +645,6 @@ export class ThrottlingException extends S.TaggedError<ThrottlingException>()("T
 /**
  * Sends custom events to Amazon EventBridge so that they can be matched to rules.
  * 
- * 
  * You can batch multiple event entries into one request for efficiency.
  * However, the total entry size must be less than 256KB. You can calculate the entry size before you send the events.
  * For more information, see Calculating PutEvents event entry
@@ -722,19 +652,14 @@ export class ThrottlingException extends S.TaggedError<ThrottlingException>()("T
  * *Amazon EventBridge User Guide*
  * .
  * 
- * 
  * PutEvents accepts the data in JSON format. For the JSON number (integer) data type, the
  * constraints are: a minimum value of -9,223,372,036,854,775,808 and a maximum value of
  * 9,223,372,036,854,775,807.
- * 
- * 
- * 
  * 
  * PutEvents will only process nested JSON up to 1000 levels deep.
  */export const putEvents = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.PutEvents" }, PutEventsRequest, PutEventsResponse, [InternalException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is used by SaaS partners to write events to a customer's partner event bus. Amazon Web Services customers do not use this operation.
- * 
  * 
  * For information on calculating event batch size, see Calculating EventBridge PutEvents event
  * entry size in the *EventBridge User Guide*.
@@ -754,7 +679,6 @@ export class ThrottlingException extends S.TaggedError<ThrottlingException>()("T
  * Creates a connection. A connection defines the authorization type and credentials to use
  * for authorization with an API destination HTTP endpoint.
  * 
- * 
  * For more information, see Connections for endpoint targets in the *Amazon EventBridge User Guide*.
  */export const createConnection = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.CreateConnection" }, CreateConnectionRequest, CreateConnectionResponse, [AccessDeniedException, InternalException, LimitExceededException, ResourceAlreadyExistsException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -764,82 +688,47 @@ export class ThrottlingException extends S.TaggedError<ThrottlingException>()("T
  * Adds the specified targets to the specified rule, or updates the targets if they are
  * already associated with the rule.
  * 
- * 
  * Targets are the resources that are invoked when a rule is triggered.
- * 
  * 
  * The maximum number of entries per request is 10.
  * 
- * 
- * 
- * 
  * Each rule can have up to five (5) targets associated with it at one time.
- * 
- * 
- * 
  * 
  * For a list of services you can configure as targets for events, see EventBridge targets
  * in the
  * *Amazon EventBridge User Guide*
  * .
  * 
- * 
  * Creating rules with built-in targets is supported only in the Amazon Web Services Management Console. The
  * built-in targets are:
  * 
- * 
- * 
  * - `Amazon EBS CreateSnapshot API call`
- * 
- * 
- * 
  * 
  * - `Amazon EC2 RebootInstances API call`
  * 
- * 
- * 
- * 
  * - `Amazon EC2 StopInstances API call`
  * 
- * 
- * 
- * 
  * - `Amazon EC2 TerminateInstances API call`
- * 
- * 
- * 
- * 
- * 
  * 
  * For some target types, `PutTargets` provides target-specific parameters. If the
  * target is a Kinesis data stream, you can optionally specify which shard the event
  * goes to by using the `KinesisParameters` argument. To invoke a command on multiple
  * EC2 instances with one rule, you can use the `RunCommandParameters` field.
  * 
- * 
  * To be able to make API calls against the resources that you own, Amazon EventBridge
  * needs the appropriate permissions:
  * 
- * 
- * 
  * - For Lambda and Amazon SNS resources, EventBridge relies
  * on resource-based policies.
- * 
- * 
  * 
  * - For EC2 instances, Kinesis Data Streams, Step Functions state machines and
  * API Gateway APIs, EventBridge relies on IAM roles that you specify in the
  * `RoleARN` argument in `PutTargets`.
  * 
- * 
- * 
- * 
- * 
  * For more information, see Authentication
  * and Access Control in the
  * *Amazon EventBridge User Guide*
  * .
- * 
  * 
  * If another Amazon Web Services account is in the same region and has granted you permission
  * (using `PutPermission`), you can send events to that account. Set that account's
@@ -849,15 +738,8 @@ export class ThrottlingException extends S.TaggedError<ThrottlingException>()("T
  * charged for each sent event. Each event sent to another account is charged as a custom event.
  * The account receiving the event is not charged. For more information, see Amazon EventBridge Pricing.
  * 
- * 
- * 
- * 
- * 
  * `Input`, `InputPath`, and `InputTransformer` are not
  * available with `PutTarget` if the target is an event bus of a different Amazon Web Services account.
- * 
- * 
- * 
  * 
  * If you are setting the event bus of another account as the target, and that account
  * granted permission to your account through an organization instead of directly by the account
@@ -865,60 +747,38 @@ export class ThrottlingException extends S.TaggedError<ThrottlingException>()("T
  * `Target` structure. For more information, see Sending and
  * Receiving Events Between Amazon Web Services Accounts in the *Amazon EventBridge User Guide*.
  * 
- * 
- * 
- * 
  * If you have an IAM role on a cross-account event bus target, a `PutTargets`
  * call without a role on the same target (same `Id` and `Arn`) will not
  * remove the role.
  * 
- * 
- * 
- * 
  * For more information about enabling cross-account events, see PutPermission.
- * 
- * 
  * 
  * **Input**, **InputPath**, and
  * **InputTransformer** are mutually exclusive and optional
  * parameters of a target. When a rule is triggered due to a matched event:
  * 
- * 
- * 
  * - If none of the following arguments are specified for a target, then the entire event
  * is passed to the target in JSON format (unless the target is Amazon EC2 Run Command or
  * Amazon ECS task, in which case nothing from the event is passed to the target).
  * 
- * 
- * 
  * - If **Input** is specified in the form of valid JSON, then
  * the matched event is overridden with this constant.
- * 
- * 
  * 
  * - If **InputPath** is specified in the form of JSONPath
  * (for example, `$.detail`), then only the part of the event specified in the
  * path is passed to the target (for example, only the detail part of the event is
  * passed).
  * 
- * 
- * 
  * - If **InputTransformer** is specified, then one or more
  * specified JSONPaths are extracted from the event and used as values in a template that you
  * specify as the input to the target.
  * 
- * 
- * 
- * 
- * 
  * When you specify `InputPath` or `InputTransformer`, you must use
  * JSON dot notation, not bracket notation.
- * 
  * 
  * When you add targets to a rule and the associated rule triggers soon after, new or updated
  * targets might not be immediately invoked. Allow a short period of time for changes to take
  * effect.
- * 
  * 
  * This action can partially fail if too many requests are made at the same time. If that
  * happens, `FailedEntryCount` is non-zero in the response and each entry in

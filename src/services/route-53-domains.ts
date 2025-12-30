@@ -119,14 +119,8 @@ export class DnssecLimitExceeded extends S.TaggedError<DnssecLimitExceeded>()("D
  * Cancels the transfer of a domain from the current Amazon Web Services account to
  * another Amazon Web Services account. You initiate a transfer betweenAmazon Web Services accounts using TransferDomainToAnotherAwsAccount.
  * 
- * 
- * 
- * 
  * You must cancel the transfer before the other Amazon Web Services account accepts
  * the transfer using AcceptDomainTransferFromAnotherAwsAccount.
- * 
- * 
- * 
  * 
  * Use either ListOperations or GetOperationDetail to determine whether the operation succeeded. GetOperationDetail provides additional information, for example,
  * `Domain Transfer from Aws Account 111122223333 has been cancelled`.
@@ -138,7 +132,6 @@ export class DnssecLimitExceeded extends S.TaggedError<DnssecLimitExceeded>()("D
  */export const checkDomainAvailability = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-05-15", sdkId: "Route 53 Domains", sigV4ServiceName: "route53domains", name: "Route53Domains_v20140515.CheckDomainAvailability" }, CheckDomainAvailabilityRequest, CheckDomainAvailabilityResponse, [InvalidInput, UnsupportedTLD]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This operation deletes the specified tags for a domain.
- * 
  * 
  * All tag operations are eventually consistent; subsequent operations might not
  * immediately represent all issued operations.
@@ -164,7 +157,6 @@ export class DnssecLimitExceeded extends S.TaggedError<DnssecLimitExceeded>()("D
  * before the domain registration expires. The cost of renewing your domain registration is
  * billed to your Amazon Web Services account.
  * 
- * 
  * The period during which you can renew a domain name varies by TLD. For a list of TLDs
  * and their renewal policies, see Domains That You Can
  * Register with Amazon Route 53 in the Amazon Route 53 Developer
@@ -183,7 +175,6 @@ export class DnssecLimitExceeded extends S.TaggedError<DnssecLimitExceeded>()("D
  * contact is valid, such as registering a new domain, this operation returns information
  * about whether the registrant contact has responded.
  * 
- * 
  * If you want us to resend the email, use the
  * `ResendContactReachabilityEmail` operation.
  */export const getContactReachabilityStatus = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-05-15", sdkId: "Route 53 Domains", sigV4ServiceName: "route53domains", name: "Route53Domains_v20140515.GetContactReachabilityStatus" }, GetContactReachabilityStatusRequest, GetContactReachabilityStatusResponse, [InvalidInput, OperationLimitExceeded, UnsupportedTLD]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -195,17 +186,13 @@ export class DnssecLimitExceeded extends S.TaggedError<DnssecLimitExceeded>()("D
  * This operation returns all of the tags that are associated with the specified
  * domain.
  * 
- * 
  * All tag operations are eventually consistent; subsequent operations might not
  * immediately represent all issued operations.
  */export const listTagsForDomain = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-05-15", sdkId: "Route 53 Domains", sigV4ServiceName: "route53domains", name: "Route53Domains_v20140515.ListTagsForDomain" }, ListTagsForDomainRequest, ListTagsForDomainResponse, [InvalidInput, OperationLimitExceeded, UnsupportedTLD]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Moves a domain from Amazon Web Services to another registrar.
  * 
- * 
  * Supported actions:
- * 
- * 
  * 
  * - Changes the IPS tags of a .uk domain, and pushes it to transit. Transit means
  * that the domain is ready to be transferred to another registrar.
@@ -214,14 +201,12 @@ export class DnssecLimitExceeded extends S.TaggedError<DnssecLimitExceeded>()("D
  * Rejects the transfer of a domain from another Amazon Web Services account to the
  * current Amazon Web Services account. You initiate a transfer betweenAmazon Web Services accounts using TransferDomainToAnotherAwsAccount.
  * 
- * 
  * Use either ListOperations or GetOperationDetail to determine whether the operation succeeded. GetOperationDetail provides additional information, for example,
  * `Domain Transfer from Aws Account 111122223333 has been cancelled`.
  */export const rejectDomainTransferFromAnotherAwsAccount = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-05-15", sdkId: "Route 53 Domains", sigV4ServiceName: "route53domains", name: "Route53Domains_v20140515.RejectDomainTransferFromAnotherAwsAccount" }, RejectDomainTransferFromAnotherAwsAccountRequest, RejectDomainTransferFromAnotherAwsAccountResponse, [InvalidInput, OperationLimitExceeded, UnsupportedTLD]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This operation renews a domain for the specified number of years. The cost of renewing
  * your domain is billed to your Amazon Web Services account.
- * 
  * 
  * We recommend that you renew your domain several weeks before the expiration date. Some
  * TLD registries delete domains before the expiration date if you haven't renewed far
@@ -241,25 +226,13 @@ export class DnssecLimitExceeded extends S.TaggedError<DnssecLimitExceeded>()("D
 /**
  * Transfers a domain from the current Amazon Web Services account to another Amazon Web Services account. Note the following:
  * 
- * 
- * 
  * - The Amazon Web Services account that you're transferring the domain to must
  * accept the transfer. If the other account doesn't accept the transfer within 3
  * days, we cancel the transfer. See AcceptDomainTransferFromAnotherAwsAccount.
  * 
- * 
- * 
  * - You can cancel the transfer before the other account accepts it. See CancelDomainTransferToAnotherAwsAccount.
  * 
- * 
- * 
  * - The other account can reject the transfer. See RejectDomainTransferFromAnotherAwsAccount.
- * 
- * 
- * 
- * 
- * 
- * 
  * 
  * When you transfer a domain from one Amazon Web Services account to another, Route
  * 53 doesn't transfer the hosted zone that is associated with the domain. DNS
@@ -269,9 +242,6 @@ export class DnssecLimitExceeded extends S.TaggedError<DnssecLimitExceeded>()("D
  * Hosted Zone to a Different Amazon Web Services Account in the
  * *Amazon Route 53 Developer Guide*.
  * 
- * 
- * 
- * 
  * Use either ListOperations or GetOperationDetail to determine whether the operation succeeded. GetOperationDetail provides additional information, for example,
  * `Domain Transfer from Aws Account 111122223333 has been cancelled`.
  */export const transferDomainToAnotherAwsAccount = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-05-15", sdkId: "Route 53 Domains", sigV4ServiceName: "route53domains", name: "Route53Domains_v20140515.TransferDomainToAnotherAwsAccount" }, TransferDomainToAnotherAwsAccountRequest, TransferDomainToAnotherAwsAccountResponse, [DuplicateRequest, InvalidInput, OperationLimitExceeded, UnsupportedTLD]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -280,23 +250,14 @@ export class DnssecLimitExceeded extends S.TaggedError<DnssecLimitExceeded>()("D
  * protection is enabled, your contact information is replaced with contact information for
  * the registrar or with the phrase "REDACTED FOR PRIVACY", or "On behalf of owner."
  * 
- * 
- * 
- * 
  * While some domains may allow different privacy settings per contact, we recommend
  * specifying the same privacy setting for all contacts.
- * 
- * 
- * 
  * 
  * This operation affects only the contact information for the specified contact type
  * (administrative, registrant, or technical). If the request succeeds, Amazon Route 53
  * returns an operation ID that you can use with GetOperationDetail to track the progress and completion of the action. If
  * the request doesn't complete successfully, the domain registrant will be notified by
  * email.
- * 
- * 
- * 
  * 
  * By disabling the privacy service via API, you consent to the publication of the
  * contact information provided for this domain via the public WHOIS database. You
@@ -312,14 +273,12 @@ export class DnssecLimitExceeded extends S.TaggedError<DnssecLimitExceeded>()("D
  * specified set of name servers. If you use Amazon Route 53 as your DNS service, specify
  * the four name servers in the delegation set for the hosted zone for the domain.
  * 
- * 
  * If successful, this operation returns an operation ID that you can use to track the
  * progress and completion of the action. If the request is not completed successfully, the
  * domain registrant will be notified by email.
  */export const updateDomainNameservers = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-05-15", sdkId: "Route 53 Domains", sigV4ServiceName: "route53domains", name: "Route53Domains_v20140515.UpdateDomainNameservers" }, UpdateDomainNameserversRequest, UpdateDomainNameserversResponse, [DuplicateRequest, InvalidInput, OperationLimitExceeded, TLDRulesViolation, UnsupportedTLD]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This operation adds or updates tags for a specified domain.
- * 
  * 
  * All tag operations are eventually consistent; subsequent operations might not
  * immediately represent all issued operations.
@@ -328,11 +287,9 @@ export class DnssecLimitExceeded extends S.TaggedError<DnssecLimitExceeded>()("D
  * Accepts the transfer of a domain from another Amazon Web Services account to the
  * currentAmazon Web Services account. You initiate a transfer between Amazon Web Services accounts using TransferDomainToAnotherAwsAccount.
  * 
- * 
  * If you use the CLI command at accept-domain-transfer-from-another-aws-account, use JSON format as input
  * instead of text because otherwise CLI will throw an error from domain
  * transfer input that includes single quotes.
- * 
  * 
  * Use either ListOperations or GetOperationDetail to determine whether the operation succeeded. GetOperationDetail provides additional information, for example,
  * `Domain Transfer from Aws Account 111122223333 has been cancelled`.
@@ -345,22 +302,14 @@ export class DnssecLimitExceeded extends S.TaggedError<DnssecLimitExceeded>()("D
  * information, see Deleting a domain name
  * registration.
  * 
- * 
  * To transfer the domain registration to another registrar, use the transfer process
  * that’s provided by the registrar to which you want to transfer the registration.
  * Otherwise, the following apply:
  * 
- * 
- * 
  * - You can’t get a refund for the cost of a deleted domain registration.
- * 
- * 
  * 
  * - The registry for the top-level domain might hold the domain name for a brief
  * time before releasing it for other users to register (varies by registry).
- * 
- * 
- * 
  * 
  * - When the registration has been deleted, we'll send you a confirmation to the
  * registrant contact. The email will come from
@@ -379,45 +328,28 @@ export class DnssecLimitExceeded extends S.TaggedError<DnssecLimitExceeded>()("D
  * Returns information about all of the operations that return an operation ID and that
  * have ever been performed on domains that were registered by the current account.
  * 
- * 
  * This command runs only in the us-east-1 Region.
  */export const listOperations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-05-15", sdkId: "Route 53 Domains", sigV4ServiceName: "route53domains", name: "Route53Domains_v20140515.ListOperations" }, ListOperationsRequest, ListOperationsResponse, [InvalidInput]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Transfers a domain from another registrar to Amazon Route 53.
  * 
- * 
  * For more information about transferring domains, see the following topics:
- * 
- * 
  * 
  * - For transfer requirements, a detailed procedure, and information about viewing
  * the status of a domain that you're transferring to Route 53, see Transferring Registration for a Domain to Amazon Route 53 in the
  * *Amazon Route 53 Developer Guide*.
  * 
- * 
- * 
  * - For information about how to transfer a domain from one Amazon Web Services account to another, see TransferDomainToAnotherAwsAccount.
- * 
- * 
  * 
  * - For information about how to transfer a domain to another domain registrar,
  * see Transferring a Domain from Amazon Route 53 to Another Registrar in
  * the *Amazon Route 53 Developer Guide*.
- * 
- * 
- * 
- * 
- * 
- * 
  * 
  * During the transfer of any country code top-level domains (ccTLDs) to Route 53, except for .cc and .tv,
  * updates to the owner contact are ignored and the owner contact data from the registry is used.
  * You can
  * update the owner contact after the transfer is complete. For more information, see
  * UpdateDomainContact.
- * 
- * 
- * 
  * 
  * If the registrar for your domain is also the DNS service provider for the domain, we
  * highly recommend that you transfer your DNS service to Route 53 or to another DNS
@@ -426,15 +358,9 @@ export class DnssecLimitExceeded extends S.TaggedError<DnssecLimitExceeded>()("D
  * previous registrar will not renew your domain registration and could end your DNS
  * service at any time.
  * 
- * 
- * 
- * 
  * If the registrar for your domain is also the DNS service provider for the domain
  * and you don't transfer DNS service to another provider, your website, email, and the
  * web applications associated with the domain might become unavailable.
- * 
- * 
- * 
  * 
  * If the transfer is successful, this method returns an operation ID that you can use to
  * track the progress and completion of the action. If the transfer doesn't complete
@@ -444,7 +370,6 @@ export class DnssecLimitExceeded extends S.TaggedError<DnssecLimitExceeded>()("D
  * This operation updates the contact information for a particular domain. You must
  * specify information for at least one contact: registrant, administrator, or
  * technical.
- * 
  * 
  * If the update is successful, this method returns an operation ID that you can use to
  * track the progress and completion of the operation. If the request is not completed
@@ -456,7 +381,6 @@ export class DnssecLimitExceeded extends S.TaggedError<DnssecLimitExceeded>()("D
 /**
  * Creates a delegation signer (DS) record in the registry zone for this domain
  * name.
- * 
  * 
  * Note that creating DS record at the registry impacts DNSSEC validation of your DNS
  * records. This action may render your domain name unavailable on the internet if the
@@ -473,23 +397,13 @@ export class DnssecLimitExceeded extends S.TaggedError<DnssecLimitExceeded>()("D
  * Lists the following prices for either all the TLDs supported by Route 53, or
  * the specified TLD:
  * 
- * 
- * 
  * - Registration
- * 
- * 
  * 
  * - Transfer
  * 
- * 
- * 
  * - Owner change
  * 
- * 
- * 
  * - Domain renewal
- * 
- * 
  * 
  * - Domain restoration
  */export const listPrices = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-05-15", sdkId: "Route 53 Domains", sigV4ServiceName: "route53domains", name: "Route53Domains_v20140515.ListPrices" }, ListPricesRequest, ListPricesResponse, [InvalidInput, UnsupportedTLD]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -497,22 +411,15 @@ export class DnssecLimitExceeded extends S.TaggedError<DnssecLimitExceeded>()("D
  * This operation registers a domain. For some top-level domains (TLDs), this operation
  * requires extra parameters.
  * 
- * 
  * When you register a domain, Amazon Route 53 does the following:
- * 
- * 
  * 
  * - Creates a Route 53 hosted zone that has the same name as the domain. Route 53
  * assigns four name servers to your hosted zone and automatically updates your
  * domain registration with the names of these name servers.
  * 
- * 
- * 
  * - Enables auto renew, so your domain registration will renew automatically each
  * year. We'll notify you in advance of the renewal date so you can choose whether
  * to renew the registration.
- * 
- * 
  * 
  * - Optionally enables privacy protection, so WHOIS queries return contact for the registrar
  * or the phrase "REDACTED FOR PRIVACY", or "On behalf of owner."
@@ -520,21 +427,12 @@ export class DnssecLimitExceeded extends S.TaggedError<DnssecLimitExceeded>()("D
  * that you entered for the administrative, registrant, and technical
  * contacts.
  * 
- * 
- * 
- * 
  * While some domains may allow different privacy settings per contact, we recommend
  * specifying the same privacy setting for all contacts.
- * 
- * 
- * 
- * 
  * 
  * - If registration is successful, returns an operation ID that you can use to
  * track the progress and completion of the action. If the request is not completed
  * successfully, the domain registrant is notified by email.
- * 
- * 
  * 
  * - Charges your Amazon Web Services account an amount based on the top-level
  * domain. For more information, see Amazon Route 53 Pricing.

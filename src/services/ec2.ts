@@ -3040,9 +3040,7 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Associates a set of DHCP options (that you've previously created) with the specified VPC, or associates no DHCP options with the VPC.
  * 
- * 
  * After you associate the options with the VPC, any existing instances and all new instances that you launch in that VPC use the options. You don't need to restart or relaunch the instances. They automatically pick up the changes within a few hours, depending on how frequently the instance renews its DHCP lease. You can explicitly renew the lease using the operating system on the instance.
- * 
  * 
  * For more information, see DHCP option sets
  * in the *Amazon VPC User Guide*.
@@ -3066,7 +3064,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * Creates a static route associated with a VPN connection between an existing virtual
  * private gateway and a VPN customer gateway. The static route allows traffic to be routed
  * from the virtual private gateway to the VPN customer gateway.
- * 
  * 
  * For more information, see Amazon Web Services Site-to-Site VPN in the Amazon Web Services Site-to-Site VPN
  * User Guide.
@@ -3106,17 +3103,14 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Deletes the specified snapshot.
  * 
- * 
  * When you make periodic snapshots of a volume, the snapshots are incremental, and only the
  * blocks on the device that have changed since your last snapshot are saved in the new snapshot.
  * When you delete a snapshot, only the data not needed for any other snapshot is removed. So
  * regardless of which prior snapshots have been deleted, all active snapshots will have access
  * to all the information needed to restore the volume.
  * 
- * 
  * You cannot delete a snapshot of the root device of an EBS volume used by a registered AMI.
  * You must first deregister the AMI before you can delete the snapshot.
- * 
  * 
  * For more information, see Delete an Amazon EBS snapshot in the
  * *Amazon EBS User Guide*.
@@ -3130,7 +3124,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Deletes the specified set of tags from the specified set of resources.
  * 
- * 
  * To list the current tags, use DescribeTags. For more information about
  * tags, see Tag
  * your Amazon EC2 resources in the Amazon Elastic Compute Cloud User
@@ -3140,9 +3133,7 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * Deletes the specified EBS volume. The volume must be in the `available` state
  * (not attached to an instance).
  * 
- * 
  * The volume can remain in the `deleting` state for several minutes.
- * 
  * 
  * For more information, see Delete an Amazon EBS volume in the
  * *Amazon EBS User Guide*.
@@ -3154,13 +3145,11 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * associated with the VPC (except the default one), and so on. When you delete the VPC, it deletes the
  * default security group, network ACL, and route table for the VPC.
  * 
- * 
  * If you created a flow log for the VPC that you are deleting, note that flow logs for deleted
  * VPCs are eventually automatically removed.
  */export const deleteVpc = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.DeleteVpc" }, DeleteVpcRequest, S.Struct({}), []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
  * Deletes the specified VPN connection.
- * 
  * 
  * If you're deleting the VPC and its associated components, we recommend that you detach
  * the virtual private gateway from the VPC and delete the VPC before deleting the VPN
@@ -3169,7 +3158,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * without needing to delete the VPC or virtual private gateway. If you create a new VPN
  * connection, you must reconfigure the customer gateway device using the new configuration
  * information returned with the new VPN connection ID.
- * 
  * 
  * For certificate-based authentication, delete all Certificate Manager (ACM) private
  * certificates used for the Amazon Web Services-side tunnel endpoints for the VPN
@@ -3204,15 +3192,12 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * detached while the instance is running. To detach the root volume, stop the instance
  * first.
  * 
- * 
  * When a volume with an Amazon Web Services Marketplace product code is detached from an instance, the
  * product code is no longer associated with the instance.
- * 
  * 
  * You can't detach or force detach volumes that are attached to Amazon Web Services-managed resources.
  * Attempting to do this results in the `UnsupportedOperationException`
  * exception.
- * 
  * 
  * For more information, see Detach an Amazon EBS volume in the
  * *Amazon EBS User Guide*.
@@ -3222,7 +3207,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * off the VPC and not use it anymore. You can confirm a virtual private gateway has been
  * completely detached from a VPC by describing the virtual private gateway (any
  * attachments to the virtual private gateway are also described).
- * 
  * 
  * You must wait for the attachment's state to switch to `detached` before you
  * can delete the VPC or attach a different VPC to the virtual private gateway.
@@ -3234,27 +3218,18 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Disassociates an Elastic IP address from the instance or network interface it's associated with.
  * 
- * 
  * This is an idempotent operation. If you perform the operation more than once, Amazon EC2 doesn't return an error.
- * 
  * 
  * An address cannot be disassociated if the all of the following conditions are met:
  * 
- * 
- * 
  * - Network interface has a `publicDualStackDnsName` publicDnsName
  * 
- * 
- * 
  * - Public IPv4 address is the primary public IPv4 address
- * 
- * 
  * 
  * - Network interface only has one remaining public IPv4 address
  */export const disassociateAddress = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.DisassociateAddress" }, DisassociateAddressRequest, S.Struct({}), []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
  * Disassociates a subnet or gateway from a route table.
- * 
  * 
  * After you perform this action, the subnet no longer uses the routes in the route table.
  * Instead, it uses the routes in the VPC's main route table. For more information
@@ -3274,7 +3249,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * user for an account; or all IAM users, IAM roles, and the root user for an account. You can
  * specify that resources should receive longer IDs (17-character IDs) when they are created.
  * 
- * 
  * This request can only be used to modify longer ID settings for resource types that are
  * within the opt-in period. Resources currently in their opt-in period include:
  * `bundle` | `conversion-task` | `customer-gateway` | `dhcp-options` |
@@ -3288,14 +3262,11 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * `subnet-cidr-block-association` | `vpc` |
  * `vpc-cidr-block-association` | `vpc-endpoint` | `vpc-peering-connection` | `vpn-connection` | `vpn-gateway`.
  * 
- * 
  * For more information, see Resource IDs in the
  * *Amazon Elastic Compute Cloud User Guide*.
  * 
- * 
  * This setting applies to the principal specified in the request; it does not apply to the
  * principal that makes the request.
- * 
  * 
  * Resources created with longer IDs are visible to all IAM roles and users, regardless of these
  * settings and provided that they have permission to use the relevant `Describe`
@@ -3305,7 +3276,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * Modifies the ID format for the specified resource on a per-Region basis. You can
  * specify that resources should receive longer IDs (17-character IDs) when they are
  * created.
- * 
  * 
  * This request can only be used to modify longer ID settings for resource types that
  * are within the opt-in period. Resources currently in their opt-in period include:
@@ -3320,14 +3290,12 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * `subnet-cidr-block-association` | `vpc` |
  * `vpc-cidr-block-association` | `vpc-endpoint` | `vpc-peering-connection` | `vpn-connection` | `vpn-gateway`.
  * 
- * 
  * This setting applies to the IAM user who makes the request; it does not apply to the
  * entire Amazon Web Services account. By default, an IAM user defaults to the same settings as the root user. If
  * you're using this action as the root user, then these settings apply to the entire account,
  * unless an IAM user explicitly overrides these settings for themselves. For more information,
  * see Resource IDs
  * in the *Amazon Elastic Compute Cloud User Guide*.
- * 
  * 
  * Resources created with longer IDs are visible to all IAM roles and users, regardless
  * of these settings and provided that they have permission to use the relevant
@@ -3336,46 +3304,30 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Modifies a subnet attribute. You can only modify one attribute at a time.
  * 
- * 
  * Use this action to modify subnets on Amazon Web Services Outposts.
- * 
- * 
  * 
  * - To modify a subnet on an Outpost rack, set both
  * `MapCustomerOwnedIpOnLaunch` and
  * `CustomerOwnedIpv4Pool`. These two parameters act as a single
  * attribute.
  * 
- * 
- * 
  * - To modify a subnet on an Outpost server, set either
  * `EnableLniAtDeviceIndex` or
  * `DisableLniAtDeviceIndex`.
  * 
- * 
- * 
- * 
- * 
  * For more information about Amazon Web Services Outposts, see the following:
  * 
- * 
- * 
  * - Outpost servers
- * 
- * 
- * 
  * 
  * - Outpost racks
  */export const modifySubnetAttribute = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.ModifySubnetAttribute" }, ModifySubnetAttributeRequest, S.Struct({}), []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
  * Modifies a volume attribute.
  * 
- * 
  * By default, all I/O operations for the volume are suspended when the data on the volume is
  * determined to be potentially inconsistent, to prevent undetectable, latent data corruption.
  * The I/O access to the volume can be resumed by first enabling I/O access and then checking the
  * data consistency on your volume.
- * 
  * 
  * You can change the default behavior to resume I/O operations. We recommend that you change
  * this only for boot volumes or for volumes that are stateless or disposable.
@@ -3389,10 +3341,8 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * instances are valid and belong to you. Requests to reboot terminated instances are
  * ignored.
  * 
- * 
  * If an instance does not cleanly shut down within a few minutes, Amazon EC2 performs a
  * hard reboot.
- * 
  * 
  * For more information about troubleshooting, see Troubleshoot an unreachable
  * instance in the *Amazon EC2 User Guide*.
@@ -3400,21 +3350,17 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Releases the specified Elastic IP address.
  * 
- * 
  * [Default VPC] Releasing an Elastic IP address automatically disassociates it
  * from any instance that it's associated with. Alternatively, you can disassociate an Elastic IP address without
  * releasing it.
  * 
- * 
  * [Nondefault VPC] You must disassociate the Elastic IP address
  * before you can release it. Otherwise, Amazon EC2 returns an error (`InvalidIPAddress.InUse`).
- * 
  * 
  * After releasing an Elastic IP address, it is released to the IP address pool.
  * Be sure to update your DNS records and any servers or devices that communicate with the address.
  * If you attempt to release an Elastic IP address that you already released, you'll get an
  * `AuthFailure` error if the address is already allocated to another Amazon Web Services account.
- * 
  * 
  * After you release an Elastic IP address, you might be able to recover it.
  * For more information, see Release an Elastic IP address.
@@ -3426,11 +3372,9 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Replaces an existing route within a route table in a VPC.
  * 
- * 
  * You must specify either a destination CIDR block or a prefix list ID. You must also specify
  * exactly one of the resources from the parameter list, or reset the local route to its default
  * target.
- * 
  * 
  * For more information, see Route tables in the
  * *Amazon VPC User Guide*.
@@ -3440,7 +3384,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * `running` state. If your experience with the instance differs from the
  * instance status returned by DescribeInstanceStatus, use ReportInstanceStatus to report your experience with the instance. Amazon
  * EC2 collects this information to improve the accuracy of status checks.
- * 
  * 
  * Use of this action does not change the value returned by DescribeInstanceStatus.
  */export const reportInstanceStatus = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.ReportInstanceStatus" }, ReportInstanceStatusRequest, S.Struct({}), []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
@@ -3452,7 +3395,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * `kernel` or `ramdisk`, the instance must be in a stopped
  * state. To reset the `sourceDestCheck`, the instance can be either running or
  * stopped.
- * 
  * 
  * The `sourceDestCheck` attribute controls whether source/destination
  * checking is enabled. The default value is `true`, which means checking is
@@ -3467,7 +3409,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Resets permission settings for the specified snapshot.
  * 
- * 
  * For more information about modifying snapshot permissions, see Share a snapshot in the
  * *Amazon EBS User Guide*.
  */export const resetSnapshotAttribute = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.ResetSnapshotAttribute" }, ResetSnapshotAttributeRequest, S.Struct({}), []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
@@ -3478,16 +3419,13 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * instances based on Intel and AMD processors, the interrupt is received as a
  * *non-maskable interrupt* (NMI).
  * 
- * 
  * In general, the operating system crashes and reboots when a kernel panic or stop error
  * is triggered. The operating system can also be configured to perform diagnostic tasks,
  * such as generating a memory dump file, loading a secondary kernel, or obtaining a call
  * trace.
  * 
- * 
  * Before sending a diagnostic interrupt to your instance, ensure that its operating
  * system is configured to perform the required diagnostic tasks.
- * 
  * 
  * For more information about configuring your operating system to generate a crash dump
  * when a kernel panic or stop error occurs, see Send a diagnostic interrupt
@@ -3507,40 +3445,24 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * it with an instance or network interface. After you release an Elastic IP address, it is released to the IP address
  * pool and can be allocated to a different Amazon Web Services account.
  * 
- * 
  * You can allocate an Elastic IP address from one of the following address pools:
  * 
- * 
- * 
  * - Amazon's pool of IPv4 addresses
- * 
- * 
  * 
  * - Public IPv4 address range that you own and bring to your Amazon Web Services account using
  * Bring Your Own IP Addresses (BYOIP)
  * 
- * 
- * 
- * 
  * - An IPv4 IPAM pool with an Amazon-provided or BYOIP public IPv4 address range
- * 
- * 
  * 
  * - IPv4 addresses from your on-premises network made available for use with an Outpost
  * using a customer-owned IP address
  * pool (CoIP pool)
  * 
- * 
- * 
- * 
- * 
  * For more information, see Elastic IP Addresses in the *Amazon EC2 User Guide*.
- * 
  * 
  * If you release an Elastic IP address, you might be able to recover it. You cannot recover
  * an Elastic IP address that you released after it is allocated to another Amazon Web Services account. To attempt to recover an Elastic IP address that you released, specify
  * it in this operation.
- * 
  * 
  * You can allocate a carrier IP address which is a public IP address from a telecommunication carrier,
  * to a network interface which resides in a subnet in a Wavelength Zone (for example an EC2 instance).
@@ -3561,9 +3483,7 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * IPv6 addresses to a network interface as you can assign private IPv4 addresses, and the
  * limit varies by instance type.
  * 
- * 
  * You must specify either the IPv6 addresses or the IPv6 address count in the request.
- * 
  * 
  * You can optionally use Prefix Delegation on the network interface. You must specify
  * either the IPV6 Prefix Delegation prefixes, or the IPv6 Prefix Delegation count. For
@@ -3575,22 +3495,16 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * subnets in Wavelength Zones) with an instance or a network interface. Before you can use an
  * Elastic IP address, you must allocate it to your account.
  * 
- * 
  * If the Elastic IP address is already
  * associated with a different instance, it is disassociated from that instance and associated
  * with the specified instance. If you associate an Elastic IP address with an instance that has
  * an existing Elastic IP address, the existing address is disassociated from the instance, but
  * remains allocated to your account.
  * 
- * 
  * [Subnets in Wavelength Zones] You can associate an IP address from the telecommunication
  * carrier to the instance or network interface.
  * 
- * 
  * You cannot associate an Elastic IP address with an interface in a different network border group.
- * 
- * 
- * 
  * 
  * This is an idempotent operation. If you perform the operation more than once, Amazon EC2
  * doesn't return an error, and you may be charged for each time the Elastic IP address is
@@ -3610,11 +3524,9 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * information, see Certificate Manager for Nitro Enclaves in the Amazon Web Services Nitro Enclaves
  * User Guide.
  * 
- * 
  * When the IAM role is associated with the ACM certificate, the certificate, certificate chain, and encrypted
  * private key are placed in an Amazon S3 location that only the associated IAM role can access. The private key of the certificate
  * is encrypted with an Amazon Web Services managed key that has an attached attestation-based key policy.
- * 
  * 
  * To enable the IAM role to access the Amazon S3 object, you must grant it permission to call `s3:GetObject`
  * on the Amazon S3 bucket returned by the command. To enable the IAM role to access the KMS key,
@@ -3627,12 +3539,8 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * Associates Elastic IP addresses (EIPs) and private IPv4 addresses with a public NAT gateway. For more information,
  * see Work with NAT gateways in the *Amazon VPC User Guide*.
  * 
- * 
  * By default, you can associate up to 2 Elastic IP addresses per public NAT gateway. You can increase the limit by requesting a quota adjustment.
  * For more information, see Elastic IP address quotas in the *Amazon VPC User Guide*.
- * 
- * 
- * 
  * 
  * When you associate an EIP or secondary EIPs with a public NAT gateway, the network border group of the EIPs
  * must match the network border group of the Availability Zone (AZ) that the public NAT gateway is in. If it's not the same,
@@ -3643,31 +3551,18 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Associates a security group with another VPC in the same Region. This enables you to use the same security group with network interfaces and instances in the specified VPC.
  * 
- * 
- * 
- * 
- * 
  * - The VPC you want to associate the security group with must be in the same Region.
- * 
- * 
  * 
  * - You can associate the security group with another VPC if your account owns the VPC or if the VPC was shared with you.
  * 
- * 
- * 
  * - You must own the security group.
  * 
- * 
- * 
  * - You cannot use this feature with default security groups.
- * 
- * 
  * 
  * - You cannot use this feature with the default VPC.
  */export const associateSecurityGroupVpc = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.AssociateSecurityGroupVpc" }, AssociateSecurityGroupVpcRequest, AssociateSecurityGroupVpcResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
  * Associates the specified subnets and transit gateway attachments with the specified transit gateway multicast domain.
- * 
  * 
  * The transit gateway attachment must be in the available state before you can add a resource. Use DescribeTransitGatewayAttachments
  * to see the state of the attachment.
@@ -3675,18 +3570,13 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * This action is deprecated.
  * 
- * 
- * 
- * 
  * Links an EC2-Classic instance to a ClassicLink-enabled VPC through one or more of the VPC
  * security groups. You cannot link an EC2-Classic instance to more than one VPC at a time. You
  * can only link an instance that's in the `running` state. An instance is
  * automatically unlinked from a VPC when it's stopped - you can link it to the VPC again when
  * you restart it.
  * 
- * 
  * After you've linked an instance, you cannot change the VPC security groups that are associated with it. To change the security groups, you must first unlink the instance, and then link it again.
- * 
  * 
  * Linking your instance to a VPC is sometimes referred to as *attaching* your instance.
  */export const attachClassicLinkVpc = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.AttachClassicLinkVpc" }, AttachClassicLinkVpcRequest, AttachClassicLinkVpcResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
@@ -3694,46 +3584,27 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * Attaches an Amazon EBS volume to a `running` or `stopped`
  * instance, and exposes it to the instance with the specified device name.
  * 
- * 
- * 
- * 
  * The maximum number of Amazon EBS volumes that you can attach to an instance depends on the
  * instance type. If you exceed the volume attachment limit for an instance type, the attachment
  * request fails with the `AttachmentLimitExceeded` error. For more information,
  * see Instance
  * volume limits.
  * 
- * 
- * 
- * 
  * After you attach an EBS volume, you must make it available for use. For more information,
  * see Make an
  * EBS volume available for use.
  * 
- * 
  * If a volume has an Amazon Web Services Marketplace product code:
- * 
- * 
  * 
  * - The volume can be attached only to a stopped instance.
  * 
- * 
- * 
  * - Amazon Web Services Marketplace product codes are copied from the volume to the instance.
  * 
- * 
- * 
  * - You must be subscribed to the product.
- * 
- * 
  * 
  * - The instance type and operating system of the instance must support the product. For
  * example, you can't detach a volume from a Windows instance and attach it to a Linux
  * instance.
- * 
- * 
- * 
- * 
  * 
  * For more information, see Attach an Amazon EBS volume to an instance in the
  * *Amazon EBS User Guide*.
@@ -3742,35 +3613,19 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * Cancels the specified Capacity Reservation, releases the reserved capacity, and
  * changes the Capacity Reservation's state to `cancelled`.
  * 
- * 
  * You can cancel a Capacity Reservation that is in the following states:
  * 
- * 
- * 
  * - `assessing`
- * 
- * 
- * 
  * 
  * - `active` and there is no commitment duration or the commitment
  * duration has elapsed. You can't cancel a future-dated Capacity Reservation
  * during the commitment duration.
  * 
- * 
- * 
- * 
- * 
- * 
- * 
  * You can't modify or cancel a Capacity Block. For more information, see Capacity Blocks for ML.
- * 
- * 
- * 
  * 
  * If a future-dated Capacity Reservation enters the `delayed` state, the
  * commitment duration is waived, and you can cancel it as soon as it enters the
  * `active` state.
- * 
  * 
  * Instances running in the reserved capacity continue running until you stop them.
  * Stopped instances that target the Capacity Reservation can no longer launch. Modify
@@ -3781,11 +3636,9 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Cancels the generation of an account status report.
  * 
- * 
  * You can only cancel a report while it has the `running` status. Reports
  * with other statuses (`complete`, `cancelled`, or
  * `error`) can't be canceled.
- * 
  * 
  * For more information, see Generating the account status report for declarative policies in the
  * *Amazon Web Services Organizations User Guide*.
@@ -3811,108 +3664,55 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * and destination locations. The copy operation must be initiated in the destination
  * Region.
  * 
- * 
  * **CopyImage supports the following source to destination copies:**
- * 
- * 
- * 
  * 
  * - Region to Region
  * 
- * 
- * 
  * - Region to Outpost
- * 
- * 
  * 
  * - Parent Region to Local Zone
  * 
- * 
- * 
  * - Local Zone to parent Region
- * 
- * 
  * 
  * - Between Local Zones with the same parent Region (only supported for certain Local
  * Zones)
  * 
- * 
- * 
- * 
- * 
  * **CopyImage does not support the following source to destination copies:**
- * 
- * 
- * 
  * 
  * - Local Zone to non-parent Regions
  * 
- * 
- * 
  * - Between Local Zones with different parent Regions
- * 
- * 
  * 
  * - Local Zone to Outpost
  * 
- * 
- * 
  * - Outpost to Local Zone
- * 
- * 
  * 
  * - Outpost to Region
  * 
- * 
- * 
  * - Between Outposts
- * 
- * 
  * 
  * - Within same Outpost
  * 
- * 
- * 
  * - Cross-partition copies (use CreateStoreImageTask instead)
  * 
- * 
- * 
- * 
- * 
  * **Destination specification**
- * 
- * 
- * 
  * 
  * - Region to Region: The destination Region is the Region in which you initiate the copy
  * operation.
  * 
- * 
- * 
  * - Region to Outpost: Specify the destination using the
  * `DestinationOutpostArn` parameter (the ARN of the Outpost)
- * 
- * 
  * 
  * - Region to Local Zone, and Local Zone to Local Zone copies: Specify the destination
  * using the `DestinationAvailabilityZone` parameter (the name of the destination
  * Local Zone) or `DestinationAvailabilityZoneId` parameter (the ID of the
  * destination Local Zone).
  * 
- * 
- * 
- * 
- * 
  * **Snapshot encryption**
- * 
- * 
- * 
  * 
  * - Region to Outpost: Backing snapshots copied to an Outpost are encrypted by default
  * using the default encryption key for the Region or the key that you specify. Outposts do
  * not support unencrypted snapshots.
- * 
- * 
  * 
  * - Region to Local Zone, and Local Zone to Local Zone: Not all Local Zones require
  * encrypted snapshots. In Local Zones that require encrypted snapshots, backing snapshots
@@ -3920,58 +3720,36 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * snapshots retain their original encryption state (encrypted or unencrypted) by
  * default.
  * 
- * 
- * 
- * 
- * 
  * For more information, including the required permissions for copying an AMI, see Copy an Amazon EC2 AMI in the
  * *Amazon EC2 User Guide*.
  */export const copyImage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.CopyImage" }, CopyImageRequest, CopyImageResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
  * Creates an exact copy of an Amazon EBS snapshot.
  * 
- * 
  * The location of the source snapshot determines whether you can copy it or not,
  * and the allowed destinations for the snapshot copy.
- * 
- * 
  * 
  * - If the source snapshot is in a Region, you can copy it within that Region,
  * to another Region, to an Outpost associated with that Region, or to a Local
  * Zone in that Region.
  * 
- * 
- * 
  * - If the source snapshot is in a Local Zone, you can copy it within that Local Zone,
  * to another Local Zone in the same zone group, or to the parent Region of the Local
  * Zone.
  * 
- * 
- * 
  * - If the source snapshot is on an Outpost, you can't copy it.
- * 
- * 
- * 
- * 
  * 
  * When copying snapshots to a Region, the encryption outcome for the snapshot copy depends on the
  * Amazon EBS encryption by default setting for the destination Region, the encryption status of the source
  * snapshot, and the encryption parameters you specify in the request. For more information, see
  * Encryption and snapshot copying.
  * 
- * 
  * Snapshots copied to an Outpost must be encrypted. Unencrypted snapshots are not supported
  * on Outposts. For more information,
  * Amazon EBS local snapshots on Outposts.
  * 
- * 
- * 
- * 
  * Snapshots copies have an arbitrary source volume ID. Do not use this volume ID for
  * any purpose.
- * 
- * 
- * 
  * 
  * For more information, see Copy an Amazon EBS snapshot in the
  * *Amazon EBS User Guide*.
@@ -4001,14 +3779,11 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * PKCS#1 private key or an unencrypted PPK formatted private key for use with PuTTY. If a
  * key with the specified name already exists, Amazon EC2 returns an error.
  * 
- * 
  * The key pair returned to you is available only in the Amazon Web Services Region in which you create it.
  * If you prefer, you can create your own key pair using a third-party tool and upload it
  * to any Region using ImportKeyPair.
  * 
- * 
  * You can have up to 5,000 key pairs per Amazon Web Services Region.
- * 
  * 
  * For more information, see Amazon EC2 key pairs in the
  * *Amazon EC2 User Guide*.
@@ -4019,13 +3794,10 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * with the ACL, we process the entries in the ACL according to the rule numbers, in ascending order. Each network ACL has a set of
  * ingress rules and a separate set of egress rules.
  * 
- * 
  * We recommend that you leave room between the rule numbers (for example, 100, 110, 120, ...), and not number them one right after the
  * other (for example, 101, 102, 103, ...). This makes it easier to add a rule between existing ones without having to renumber the rules.
  * 
- * 
  * After you add an entry, you can't modify it; you must either replace it, or create an entry and delete the old one.
- * 
  * 
  * For more information about network ACLs, see Network ACLs
  * in the *Amazon VPC User Guide*.
@@ -4037,10 +3809,8 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * Starts a task that restores an AMI from an Amazon S3 object that was previously created by
  * using CreateStoreImageTask.
  * 
- * 
  * To use this API, you must have the required permissions. For more information, see Permissions for storing and restoring AMIs using S3 in the
  * *Amazon EC2 User Guide*.
- * 
  * 
  * For more information, see Store and restore an AMI using
  * S3 in the *Amazon EC2 User Guide*.
@@ -4048,38 +3818,26 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Creates a route in a route table within a VPC.
  * 
- * 
  * You must specify either a destination CIDR block or a prefix list ID. You must also specify
  * exactly one of the resources from the parameter list.
- * 
  * 
  * When determining how to route traffic, we use the route with the most specific match.
  * For example, traffic is destined for the IPv4 address `192.0.2.3`, and the
  * route table includes the following two IPv4 routes:
  * 
- * 
- * 
  * - `192.0.2.0/24` (goes to some target A)
  * 
- * 
- * 
  * - `192.0.2.0/28` (goes to some target B)
- * 
- * 
- * 
- * 
  * 
  * Both routes apply to the traffic destined for `192.0.2.3`. However, the second route
  * in the list covers a smaller number of IP addresses and is therefore more specific,
  * so we use that route to determine where to target the traffic.
- * 
  * 
  * For more information about route tables, see Route tables in the
  * *Amazon VPC User Guide*.
  */export const createRoute = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.CreateRoute" }, CreateRouteRequest, CreateRouteResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
  * Creates a security group.
- * 
  * 
  * A security group acts as a virtual firewall for your instance to control inbound and outbound traffic.
  * For more information, see
@@ -4088,23 +3846,19 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * Security groups for your VPC in the
  * *Amazon VPC User Guide*.
  * 
- * 
  * When you create a security group, you specify a friendly name of your choice.
  * You can't have two security groups for the same VPC with the same name.
- * 
  * 
  * You have a default security group for use in your VPC. If you don't specify a security group
  * when you launch an instance, the instance is launched into the appropriate default security group.
  * A default security group includes a default rule that grants instances unrestricted network access
  * to each other.
  * 
- * 
  * You can add or remove rules from your security groups using
  * AuthorizeSecurityGroupIngress,
  * AuthorizeSecurityGroupEgress,
  * RevokeSecurityGroupIngress, and
  * RevokeSecurityGroupEgress.
- * 
  * 
  * For more information about VPC security group limits, see Amazon VPC Limits.
  */export const createSecurityGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.CreateSecurityGroup" }, CreateSecurityGroupRequest, CreateSecurityGroupResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
@@ -4113,31 +3867,19 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * backups, to make copies of EBS volumes, and to save data before shutting down an
  * instance.
  * 
- * 
  * The location of the source EBS volume determines where you can create the snapshot.
- * 
- * 
  * 
  * - If the source volume is in a Region, you must create the snapshot in the same
  * Region as the volume.
  * 
- * 
- * 
  * - If the source volume is in a Local Zone, you can create the snapshot in the same Local
  * Zone or in its parent Amazon Web Services Region.
- * 
- * 
  * 
  * - If the source volume is on an Outpost, you can create the snapshot on the same
  * Outpost or in its parent Amazon Web Services Region.
  * 
- * 
- * 
- * 
- * 
  * When a snapshot is created, any Amazon Web Services Marketplace product codes that are associated with the
  * source volume are propagated to the snapshot.
- * 
  * 
  * You can take a snapshot of an attached volume that is in use. However, snapshots only
  * capture data that has been written to your Amazon EBS volume at the time the snapshot command is
@@ -4148,10 +3890,8 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * remount the volume to ensure a consistent and complete snapshot. You may remount and use your
  * volume while the snapshot status is `pending`.
  * 
- * 
  * When you create a snapshot for an EBS volume that serves as a root device, we recommend
  * that you stop the instance before taking the snapshot.
- * 
  * 
  * Snapshots that are taken from encrypted volumes are automatically encrypted. Volumes that
  * are created from encrypted snapshots are also automatically encrypted. Your encrypted volumes
@@ -4164,28 +3904,22 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * For an IPv6 only subnet, specify an IPv6 CIDR block. For a dual stack subnet, specify both
  * an IPv4 CIDR block and an IPv6 CIDR block.
  * 
- * 
  * A subnet CIDR block must not overlap the CIDR block of an existing subnet in the VPC.
  * After you create a subnet, you can't change its CIDR block.
- * 
  * 
  * The allowed size for an IPv4 subnet is between a /28 netmask (16 IP addresses) and
  * a /16 netmask (65,536 IP addresses). Amazon Web Services reserves both the first four and
  * the last IPv4 address in each subnet's CIDR block. They're not available for your use.
  * 
- * 
  * If you've associated an IPv6 CIDR block with your VPC, you can associate an IPv6 CIDR
  * block with a subnet when you create it.
- * 
  * 
  * If you add more than one subnet to a VPC, they're set up in a star topology with a
  * logical router in the middle.
  * 
- * 
  * When you stop an instance in a subnet, it retains its private IPv4 address. It's
  * therefore possible to have a subnet with no running instances (they're all stopped), but
  * no remaining IP addresses available.
- * 
  * 
  * For more information, see Subnets in the *Amazon VPC User Guide*.
  */export const createSubnet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.CreateSubnet" }, CreateSubnetRequest, CreateSubnetResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
@@ -4194,7 +3928,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * resources. When you specify an existing tag key, the value is overwritten with
  * the new value. Each resource can have a maximum of 50 tags. Each tag consists of a key and
  * optional value. Tag keys must be unique per resource.
- * 
  * 
  * For more information about tags, see Tag your Amazon EC2 resources in the
  * *Amazon Elastic Compute Cloud User Guide*. For more information about
@@ -4212,19 +3945,12 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * another Amazon Web Services account and can be in a different Region to the requester VPC.
  * The requester VPC and accepter VPC cannot have overlapping CIDR blocks.
  * 
- * 
- * 
- * 
  * Limitations and rules apply to a VPC peering connection. For more information, see
  * the VPC peering limitations in the *VPC Peering Guide*.
- * 
- * 
- * 
  * 
  * The owner of the accepter VPC must accept the peering request to activate the peering
  * connection. The VPC peering connection request expires after 7 days, after which it
  * cannot be accepted or rejected.
- * 
  * 
  * If you create a VPC peering connection request between VPCs with overlapping CIDR
  * blocks, the VPC peering connection has a status of `failed`.
@@ -4234,9 +3960,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  */export const deleteCapacityManagerDataExport = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.DeleteCapacityManagerDataExport" }, DeleteCapacityManagerDataExportRequest, DeleteCapacityManagerDataExportResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
  * Deletes a carrier gateway.
- * 
- * 
- * 
  * 
  * If you do not delete the route that contains the carrier gateway as the
  * Target, the route is a blackhole route. For information about how to delete a route, see
@@ -4266,7 +3989,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Deletes the specified image usage report.
  * 
- * 
  * For more information, see View your AMI usage in the
  * *Amazon EC2 User Guide*.
  */export const deleteImageUsageReport = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.DeleteImageUsageReport" }, DeleteImageUsageReportRequest, DeleteImageUsageReportResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
@@ -4276,18 +3998,15 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Delete a verification token.
  * 
- * 
  * A verification token is an Amazon Web Services-generated random value that you can use to prove ownership of an external resource. For example, you can use a verification token to validate that you control a public IP address range when you bring an IP address range to Amazon Web Services (BYOIP).
  */export const deleteIpamExternalResourceVerificationToken = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.DeleteIpamExternalResourceVerificationToken" }, DeleteIpamExternalResourceVerificationTokenRequest, DeleteIpamExternalResourceVerificationTokenResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
  * Deletes an IPAM policy.
  * 
- * 
  * An IPAM policy is a set of rules that define how public IPv4 addresses from IPAM pools are allocated to Amazon Web Services resources. Each rule maps an Amazon Web Services service to IPAM pools that the service will use to get IP addresses. A single policy can have multiple rules and be applied to multiple Amazon Web Services Regions. If the IPAM pool run out of addresses then the services fallback to Amazon-provided IP addresses. A policy can be applied to an individual Amazon Web Services account or an entity within Amazon Web Services Organizations.
  */export const deleteIpamPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.DeleteIpamPolicy" }, DeleteIpamPolicyRequest, DeleteIpamPolicyResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
  * Deletes an IPAM prefix list resolver target. This removes the association between the resolver and the managed prefix list, stopping automatic CIDR synchronization.
- * 
  * 
  * For more information about IPAM prefix list resolver, see Automate prefix list updates with IPAM in the *Amazon VPC IPAM User Guide*.
  */export const deleteIpamPrefixListResolverTarget = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.DeleteIpamPrefixListResolverTarget" }, DeleteIpamPrefixListResolverTargetRequest, DeleteIpamPrefixListResolverTargetResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
@@ -4344,43 +4063,28 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Deletes the specified route server.
  * 
- * 
  * Amazon VPC Route Server simplifies routing for traffic between workloads that are deployed within a VPC and its internet gateways. With this feature,
  * VPC Route Server dynamically updates VPC and internet gateway route tables with your preferred IPv4 or IPv6 routes to achieve routing fault tolerance for those workloads. This enables you to automatically reroute traffic within a VPC, which increases the manageability of VPC routing and interoperability with third-party workloads.
  * 
- * 
  * Route server supports the follow route table types:
- * 
- * 
  * 
  * - VPC route tables not associated with subnets
  * 
- * 
- * 
  * - Subnet route tables
- * 
- * 
  * 
  * - Internet gateway route tables
  * 
- * 
- * 
- * 
- * 
  * Route server does not support route tables associated with virtual private gateways. To propagate routes into a transit gateway route table, use Transit Gateway Connect.
- * 
  * 
  * For more information see Dynamic routing in your VPC with VPC Route Server in the *Amazon VPC User Guide*.
  */export const deleteRouteServer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.DeleteRouteServer" }, DeleteRouteServerRequest, DeleteRouteServerResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
  * Deletes the specified route server endpoint.
  * 
- * 
  * A route server endpoint is an Amazon Web Services-managed component inside a subnet that facilitates BGP (Border Gateway Protocol) connections between your route server and your BGP peers.
  */export const deleteRouteServerEndpoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.DeleteRouteServerEndpoint" }, DeleteRouteServerEndpointRequest, DeleteRouteServerEndpointResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
  * Deletes a security group.
- * 
  * 
  * If you attempt to delete a security group that is associated with an instance or network interface, is
  * referenced by another security group in the same VPC, or has a VPC association, the operation fails with
@@ -4392,7 +4096,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Deletes the specified Traffic Mirror filter.
  * 
- * 
  * You cannot delete a Traffic Mirror filter that is in use by a Traffic Mirror session.
  */export const deleteTrafficMirrorFilter = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.DeleteTrafficMirrorFilter" }, DeleteTrafficMirrorFilterRequest, DeleteTrafficMirrorFilterResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
@@ -4403,7 +4106,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  */export const deleteTrafficMirrorSession = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.DeleteTrafficMirrorSession" }, DeleteTrafficMirrorSessionRequest, DeleteTrafficMirrorSessionResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
  * Deletes the specified Traffic Mirror target.
- * 
  * 
  * You cannot delete a Traffic Mirror target that is in use by a Traffic Mirror session.
  */export const deleteTrafficMirrorTarget = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.DeleteTrafficMirrorTarget" }, DeleteTrafficMirrorTargetRequest, DeleteTrafficMirrorTargetResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
@@ -4450,7 +4152,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Deletes a VPC Encryption Control configuration. This removes the encryption policy enforcement from the specified VPC.
  * 
- * 
  * For more information, see Enforce VPC encryption in transit in the *Amazon VPC User Guide*.
  */export const deleteVpcEncryptionControl = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.DeleteVpcEncryptionControl" }, DeleteVpcEncryptionControlRequest, DeleteVpcEncryptionControlResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
@@ -4459,13 +4160,10 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Deletes the specified VPC endpoints.
  * 
- * 
  * When you delete a gateway endpoint, we delete the endpoint routes in the route tables for the endpoint.
- * 
  * 
  * When you delete a Gateway Load Balancer endpoint, we delete its endpoint network interfaces.
  * You can only delete Gateway Load Balancer endpoints when the routes that are associated with the endpoint are deleted.
- * 
  * 
  * When you delete an interface endpoint, we delete its endpoint network interfaces.
  */export const deleteVpcEndpoints = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.DeleteVpcEndpoints" }, DeleteVpcEndpointsRequest, DeleteVpcEndpointsResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
@@ -4489,7 +4187,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * Releases the specified address range that you provisioned for use with your Amazon Web Services resources
  * through bring your own IP addresses (BYOIP) and deletes the corresponding address pool.
  * 
- * 
  * Before you can release an address range, you must stop advertising it and you must not
  * have any IP addresses allocated from its address range.
  */export const deprovisionByoipCidr = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.DeprovisionByoipCidr" }, DeprovisionByoipCidrRequest, DeprovisionByoipCidrResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
@@ -4499,18 +4196,10 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Describes the specified bundle tasks or all of your bundle tasks.
  * 
- * 
- * 
- * 
  * Completed bundle tasks are listed for only a limited time. If your bundle task is no
  * longer in the list, you can still register an AMI from it. Just use
  * `RegisterImage` with the Amazon S3 bucket name and image manifest name you provided
  * to the bundle task.
- * 
- * 
- * 
- * 
- * 
  * 
  * The order of the elements in the response, including those within nested structures,
  * might vary. Applications should not assume the elements appear in a particular order.
@@ -4533,7 +4222,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Describes one or more of your VPN customer gateways.
  * 
- * 
  * For more information, see Amazon Web Services Site-to-Site VPN in the Amazon Web Services Site-to-Site VPN
  * User Guide.
  */export const describeCustomerGateways = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.DescribeCustomerGateways" }, DescribeCustomerGatewaysRequest, DescribeCustomerGatewaysResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
@@ -4548,7 +4236,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * returns information about resource types whose ID formats can be modified; it does not return
  * information about other resource types. For more information, see Resource IDs in the *Amazon Elastic Compute Cloud User Guide*.
  * 
- * 
  * The following resource types support longer IDs: `bundle` |
  * `conversion-task` | `customer-gateway` | `dhcp-options` |
  * `elastic-ip-allocation` | `elastic-ip-association` |
@@ -4562,7 +4249,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * `subnet-cidr-block-association` | `volume` | `vpc`
  * | `vpc-cidr-block-association` | `vpc-endpoint` |
  * `vpc-peering-connection` | `vpn-connection` | `vpn-gateway`.
- * 
  * 
  * These settings apply to the principal specified in the request. They do not apply to the
  * principal that makes the request.
@@ -4570,7 +4256,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Describes the ID format settings for your resources on a per-Region basis, for example, to view which resource types are enabled for longer IDs. This request only returns information about resource types whose ID formats can be modified; it does not return information about other resource types.
  * 
- * 
  * The following resource types support longer IDs: `bundle` |
  * `conversion-task` | `customer-gateway` | `dhcp-options` |
  * `elastic-ip-allocation` | `elastic-ip-association` |
@@ -4584,7 +4269,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * `subnet-cidr-block-association` | `volume` | `vpc`
  * | `vpc-cidr-block-association` | `vpc-endpoint` |
  * `vpc-peering-connection` | `vpn-connection` | `vpn-gateway`.
- * 
  * 
  * These settings apply to the IAM user who makes the request; they do not apply to the entire
  * Amazon Web Services account. By default, an IAM user defaults to the same settings as the root user, unless
@@ -4611,12 +4295,10 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Describe verification tokens.
  * 
- * 
  * A verification token is an Amazon Web Services-generated random value that you can use to prove ownership of an external resource. For example, you can use a verification token to validate that you control a public IP address range when you bring an IP address range to Amazon Web Services (BYOIP).
  */export const describeIpamExternalResourceVerificationTokens = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.DescribeIpamExternalResourceVerificationTokens" }, DescribeIpamExternalResourceVerificationTokensRequest, DescribeIpamExternalResourceVerificationTokensResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
  * Describes one or more IPAM policies.
- * 
  * 
  * An IPAM policy is a set of rules that define how public IPv4 addresses from IPAM pools are allocated to Amazon Web Services resources. Each rule maps an Amazon Web Services service to IPAM pools that the service will use to get IP addresses. A single policy can have multiple rules and be applied to multiple Amazon Web Services Regions. If the IPAM pool run out of addresses then the services fallback to Amazon-provided IP addresses. A policy can be applied to an individual Amazon Web Services account or an entity within Amazon Web Services Organizations.
  */export const describeIpamPolicies = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.DescribeIpamPolicies" }, DescribeIpamPoliciesRequest, DescribeIpamPoliciesResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
@@ -4637,7 +4319,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  */export const describeIpamResourceDiscoveryAssociations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.DescribeIpamResourceDiscoveryAssociations" }, DescribeIpamResourceDiscoveryAssociationsRequest, DescribeIpamResourceDiscoveryAssociationsResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
  * Get information about your IPAM pools.
- * 
  * 
  * For more information, see What is IPAM? in the *Amazon VPC IPAM User Guide*.
  */export const describeIpams = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.DescribeIpams" }, DescribeIpamsRequest, DescribeIpamsResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
@@ -4682,7 +4363,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * Alternatively, you can specify specific network ACL IDs or filter the results to
  * include only the network ACLs that match specific criteria.
  * 
- * 
  * For more information, see Network ACLs in the
  * *Amazon VPC User Guide*.
  */export const describeNetworkAcls = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.DescribeNetworkAcls" }, DescribeNetworkAclsRequest, DescribeNetworkAclsResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
@@ -4692,17 +4372,11 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Describes the specified placement groups or all of your placement groups.
  * 
- * 
- * 
- * 
  * To describe a specific placement group that is *shared* with
  * your account, you must specify the ID of the placement group using the
  * `GroupId` parameter. Specifying the name of a
  * *shared* placement group using the `GroupNames`
  * parameter will result in an error.
- * 
- * 
- * 
  * 
  * For more information, see Placement groups in the
  * *Amazon EC2 User Guide*.
@@ -4715,17 +4389,14 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * Describes your account's Reserved Instance listings in the Reserved Instance
  * Marketplace.
  * 
- * 
  * The Reserved Instance Marketplace matches sellers who want to resell Reserved Instance
  * capacity that they no longer need with buyers who want to purchase additional capacity.
  * Reserved Instances bought and sold through the Reserved Instance Marketplace work like any
  * other Reserved Instances.
  * 
- * 
  * As a seller, you choose to list some or all of your Reserved Instances, and you specify
  * the upfront price to receive for them. Your Reserved Instances are then listed in the Reserved
  * Instance Marketplace and are available for purchase.
- * 
  * 
  * As a buyer, you specify the configuration of the Reserved Instance to purchase, and the
  * Marketplace matches what you're searching for with what's available. The Marketplace first
@@ -4733,12 +4404,8 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * Instance listings to you until your demand is met. You are charged based on the total price of
  * all of the listings that you purchase.
  * 
- * 
  * For more information, see Sell in the Reserved Instance
  * Marketplace in the *Amazon EC2 User Guide*.
- * 
- * 
- * 
  * 
  * The order of the elements in the response, including those within nested structures,
  * might vary. Applications should not assume the elements appear in a particular order.
@@ -4746,64 +4413,38 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Describes one or more route server endpoints.
  * 
- * 
  * A route server endpoint is an Amazon Web Services-managed component inside a subnet that facilitates BGP (Border Gateway Protocol) connections between your route server and your BGP peers.
- * 
  * 
  * For more information see Dynamic routing in your VPC with VPC Route Server in the *Amazon VPC User Guide*.
  */export const describeRouteServerEndpoints = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.DescribeRouteServerEndpoints" }, DescribeRouteServerEndpointsRequest, DescribeRouteServerEndpointsResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
  * Describes one or more route server peers.
  * 
- * 
  * A route server peer is a session between a route server endpoint and the device deployed in Amazon Web Services (such as a firewall appliance or other network security function running on an EC2 instance). The device must meet these requirements:
- * 
- * 
  * 
  * - Have an elastic network interface in the VPC
  * 
- * 
- * 
  * - Support BGP (Border Gateway Protocol)
  * 
- * 
- * 
  * - Can initiate BGP sessions
- * 
- * 
- * 
- * 
  * 
  * For more information see Dynamic routing in your VPC with VPC Route Server in the *Amazon VPC User Guide*.
  */export const describeRouteServerPeers = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.DescribeRouteServerPeers" }, DescribeRouteServerPeersRequest, DescribeRouteServerPeersResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
  * Describes one or more route servers.
  * 
- * 
  * Amazon VPC Route Server simplifies routing for traffic between workloads that are deployed within a VPC and its internet gateways. With this feature,
  * VPC Route Server dynamically updates VPC and internet gateway route tables with your preferred IPv4 or IPv6 routes to achieve routing fault tolerance for those workloads. This enables you to automatically reroute traffic within a VPC, which increases the manageability of VPC routing and interoperability with third-party workloads.
  * 
- * 
  * Route server supports the follow route table types:
- * 
- * 
  * 
  * - VPC route tables not associated with subnets
  * 
- * 
- * 
  * - Subnet route tables
- * 
- * 
  * 
  * - Internet gateway route tables
  * 
- * 
- * 
- * 
- * 
  * Route server does not support route tables associated with virtual private gateways. To propagate routes into a transit gateway route table, use Transit Gateway Connect.
- * 
  * 
  * For more information see Dynamic routing in your VPC with VPC Route Server in the *Amazon VPC User Guide*.
  */export const describeRouteServers = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.DescribeRouteServers" }, DescribeRouteServersRequest, DescribeRouteServersResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
@@ -4812,9 +4453,7 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * Alternatively, you can specify specific route table IDs or filter the results to
  * include only the route tables that match specific criteria.
  * 
- * 
  * Each subnet in your VPC must be associated with a route table. If a subnet is not explicitly associated with any route table, it is implicitly associated with the main route table. This command does not return the subnet ID for implicit associations.
- * 
  * 
  * For more information, see Route tables in the
  * *Amazon VPC User Guide*.
@@ -4826,72 +4465,51 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * Describes the specified attribute of the specified snapshot. You can specify only one
  * attribute at a time.
  * 
- * 
  * For more information about EBS snapshots, see Amazon EBS snapshots in the *Amazon EBS User Guide*.
  */export const describeSnapshotAttribute = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.DescribeSnapshotAttribute" }, DescribeSnapshotAttributeRequest, DescribeSnapshotAttributeResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
  * Describes the specified EBS snapshots available to you or all of the EBS snapshots
  * available to you.
  * 
- * 
  * The snapshots available to you include public snapshots, private snapshots that you own,
  * and private snapshots owned by other Amazon Web Services accounts for which you have explicit create volume
  * permissions.
  * 
- * 
  * The create volume permissions fall into the following categories:
- * 
- * 
  * 
  * - *public*: The owner of the snapshot granted create volume
  * permissions for the snapshot to the `all` group. All Amazon Web Services accounts have create
  * volume permissions for these snapshots.
  * 
- * 
- * 
  * - *explicit*: The owner of the snapshot granted create volume
  * permissions to a specific Amazon Web Services account.
- * 
- * 
  * 
  * - *implicit*: An Amazon Web Services account has implicit create volume permissions
  * for all snapshots it owns.
  * 
- * 
- * 
- * 
- * 
  * The list of snapshots returned can be filtered by specifying snapshot IDs, snapshot
  * owners, or Amazon Web Services accounts with create volume permissions. If no options are specified,
  * Amazon EC2 returns all snapshots for which you have create volume permissions.
- * 
  * 
  * If you specify one or more snapshot IDs, only snapshots that have the specified IDs are
  * returned. If you specify an invalid snapshot ID, an error is returned. If you specify a
  * snapshot ID for which you do not have access, it is not included in the returned
  * results.
  * 
- * 
  * If you specify one or more snapshot owners using the `OwnerIds` option, only
  * snapshots from the specified owners and for which you have access are returned. The results
  * can include the Amazon Web Services account IDs of the specified owners, `amazon` for snapshots
  * owned by Amazon, or `self` for snapshots that you own.
- * 
  * 
  * If you specify a list of restorable users, only snapshots with create snapshot permissions
  * for those users are returned. You can specify Amazon Web Services account IDs (if you own the snapshots),
  * `self` for snapshots for which you own or have explicit permissions, or
  * `all` for public snapshots.
  * 
- * 
  * If you are describing a long list of snapshots, we recommend that you paginate the output to make the
  * list more manageable. For more information, see Pagination.
  * 
- * 
  * For more information about EBS snapshots, see Amazon EBS snapshots in the *Amazon EBS User Guide*.
- * 
- * 
- * 
  * 
  * We strongly recommend using only paginated requests. Unpaginated requests are
  * susceptible to throttling and timeouts.
@@ -4907,7 +4525,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * Describes your subnets. The default is to describe all your subnets.
  * Alternatively, you can specify specific subnet IDs or filter the results to
  * include only the subnets that match specific criteria.
- * 
  * 
  * For more information, see Subnets in the
  * *Amazon VPC User Guide*.
@@ -4973,29 +4590,18 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * Describes the specified attribute of the specified volume. You can specify only one
  * attribute at a time.
  * 
- * 
  * For more information about EBS volumes, see Amazon EBS volumes in the *Amazon EBS User Guide*.
  */export const describeVolumeAttribute = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.DescribeVolumeAttribute" }, DescribeVolumeAttributeRequest, DescribeVolumeAttributeResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
  * Describes the specified EBS volumes or all of your EBS volumes.
  * 
- * 
  * If you are describing a long list of volumes, we recommend that you paginate the output to make the list
  * more manageable. For more information, see Pagination.
  * 
- * 
  * For more information about EBS volumes, see Amazon EBS volumes in the *Amazon EBS User Guide*.
- * 
- * 
- * 
  * 
  * We strongly recommend using only paginated requests. Unpaginated requests are
  * susceptible to throttling and timeouts.
- * 
- * 
- * 
- * 
- * 
  * 
  * The order of the elements in the response, including those within nested
  * structures, might vary. Applications should not assume the elements appear in a
@@ -5009,7 +4615,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  */export const describeVpcBlockPublicAccessExclusions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.DescribeVpcBlockPublicAccessExclusions" }, DescribeVpcBlockPublicAccessExclusionsRequest, DescribeVpcBlockPublicAccessExclusionsResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
  * Describes one or more VPC Encryption Control configurations. VPC Encryption Control enables you to enforce encryption for all data in transit within and between VPCs to meet compliance requirements You can filter the results to return information about specific encryption controls or VPCs.
- * 
  * 
  * For more information, see Enforce VPC encryption in transit in the *Amazon VPC User Guide*.
  */export const describeVpcEncryptionControls = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.DescribeVpcEncryptionControls" }, DescribeVpcEncryptionControlsRequest, DescribeVpcEncryptionControlsResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
@@ -5036,15 +4641,11 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Describes one or more of your virtual private gateways.
  * 
- * 
  * For more information, see Amazon Web Services Site-to-Site VPN in the Amazon Web Services Site-to-Site VPN
  * User Guide.
  */export const describeVpnGateways = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.DescribeVpnGateways" }, DescribeVpnGatewaysRequest, DescribeVpnGatewaysResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
  * This action is deprecated.
- * 
- * 
- * 
  * 
  * Unlinks (detaches) a linked EC2-Classic instance from a VPC. After the instance has been unlinked,
  * the VPC security groups are no longer associated with it. An instance is automatically unlinked from
@@ -5062,15 +4663,9 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * restrictions are placed on AMI discoverability or usage. Users in your account can launch
  * instances using any public AMI or AMI shared with your account.
  * 
- * 
- * 
- * 
  * The Allowed AMIs feature does not restrict the AMIs owned by your account. Regardless of
  * the criteria you set, the AMIs created by your account will always be discoverable and
  * usable by users in your account.
- * 
- * 
- * 
  * 
  * For more information, see Control the discovery and use of AMIs in
  * Amazon EC2 with Allowed AMIs in
@@ -5086,14 +4681,11 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Disables EBS encryption by default for your account in the current Region.
  * 
- * 
  * After you disable encryption by default, you can still create encrypted volumes by
  * enabling encryption when you create each volume.
  * 
- * 
  * Disabling encryption by default does not change the encryption status of your
  * existing volumes.
- * 
  * 
  * For more information, see Amazon EBS encryption in the
  * *Amazon EBS User Guide*.
@@ -5102,21 +4694,16 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * Sets the AMI state to `disabled` and removes all launch permissions from the
  * AMI. A disabled AMI can't be used for instance launches.
  * 
- * 
  * A disabled AMI can't be shared. If an AMI was public or previously shared, it is made
  * private. If an AMI was shared with an Amazon Web Services account, organization, or Organizational Unit,
  * they lose access to the disabled AMI.
  * 
- * 
  * A disabled AMI does not appear in DescribeImages API calls by
  * default.
  * 
- * 
  * Only the AMI owner can disable an AMI.
  * 
- * 
  * You can re-enable a disabled AMI using EnableImage.
- * 
  * 
  * For more information, see Disable an AMI in the
  * *Amazon EC2 User Guide*.
@@ -5127,13 +4714,11 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * from your account. With the restriction removed, you can publicly share your AMIs in the
  * specified Amazon Web Services Region.
  * 
- * 
  * For more information, see Block
  * public access to your AMIs in the *Amazon EC2 User Guide*.
  */export const disableImageBlockPublicAccess = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.DisableImageBlockPublicAccess" }, DisableImageBlockPublicAccessRequest, DisableImageBlockPublicAccessResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
  * Cancels the deprecation of the specified AMI.
- * 
  * 
  * For more information, see Deprecate an Amazon EC2 AMI in the
  * *Amazon EC2 User Guide*.
@@ -5142,11 +4727,9 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * Disables deregistration protection for an AMI. When deregistration protection is disabled,
  * the AMI can be deregistered.
  * 
- * 
  * If you chose to include a 24-hour cooldown period when you enabled deregistration
  * protection for the AMI, then, when you disable deregistration protection, you won’t
  * immediately be able to deregister the AMI.
- * 
  * 
  * For more information, see Protect an Amazon EC2 AMI from
  * deregistration in the *Amazon EC2 User Guide*.
@@ -5163,7 +4746,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Disables an IPAM policy.
  * 
- * 
  * An IPAM policy is a set of rules that define how public IPv4 addresses from IPAM pools are allocated to Amazon Web Services resources. Each rule maps an Amazon Web Services service to IPAM pools that the service will use to get IP addresses. A single policy can have multiple rules and be applied to multiple Amazon Web Services Regions. If the IPAM pool run out of addresses then the services fallback to Amazon-provided IP addresses. A policy can be applied to an individual Amazon Web Services account or an entity within Amazon Web Services Organizations.
  */export const disableIpamPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.DisableIpamPolicy" }, DisableIpamPolicyRequest, DisableIpamPolicyResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
@@ -5177,21 +4759,14 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * the account level for the specified Amazon Web Services Region. After you disable block public
  * access for snapshots in a Region, users can publicly share snapshots in that Region.
  * 
- * 
- * 
- * 
  * Enabling block public access for snapshots in *block-all-sharing*
  * mode does not change the permissions for snapshots that are already publicly shared.
  * Instead, it prevents these snapshots from be publicly visible and publicly accessible.
  * Therefore, the attributes for these snapshots still indicate that they are publicly
  * shared, even though they are not publicly available.
  * 
- * 
  * If you disable block public access , these snapshots will become publicly available
  * again.
- * 
- * 
- * 
  * 
  * For more information, see
  * Block public access for snapshots in the *Amazon EBS User Guide* .
@@ -5199,22 +4774,15 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * This action is deprecated.
  * 
- * 
- * 
- * 
  * Disables ClassicLink for a VPC. You cannot disable ClassicLink for a VPC that has EC2-Classic instances
  * linked to it.
  */export const disableVpcClassicLink = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.DisableVpcClassicLink" }, DisableVpcClassicLinkRequest, DisableVpcClassicLinkResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
  * This action is deprecated.
  * 
- * 
- * 
- * 
  * Disables ClassicLink DNS support for a VPC. If disabled, DNS hostnames resolve to
  * public IP addresses when addressed between a linked EC2-Classic instance and instances
  * in the VPC to which it's linked.
- * 
  * 
  * You must specify a VPC ID in the request.
  */export const disableVpcClassicLinkDnsSupport = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.DisableVpcClassicLinkDnsSupport" }, DisableVpcClassicLinkDnsSupportRequest, DisableVpcClassicLinkDnsSupportResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
@@ -5228,19 +4796,11 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * Disassociates a target network from the specified Client VPN endpoint. When you disassociate the
  * last target network from a Client VPN, the following happens:
  * 
- * 
- * 
  * - The route that was automatically added for the VPC is deleted
- * 
- * 
  * 
  * - All active client connections are terminated
  * 
- * 
- * 
  * - New client connections are disallowed
- * 
- * 
  * 
  * - The Client VPN endpoint's status changes to `pending-associate`
  */export const disassociateClientVpnTargetNetwork = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.DisassociateClientVpnTargetNetwork" }, DisassociateClientVpnTargetNetworkRequest, DisassociateClientVpnTargetNetworkResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
@@ -5253,7 +4813,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  */export const disassociateEnclaveCertificateIamRole = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.DisassociateEnclaveCertificateIamRole" }, DisassociateEnclaveCertificateIamRoleRequest, DisassociateEnclaveCertificateIamRoleResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
  * Disassociates an IAM instance profile from a running or stopped instance.
- * 
  * 
  * Use DescribeIamInstanceProfileAssociations to get the association
  * ID.
@@ -5269,9 +4828,7 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * Disassociates secondary Elastic IP addresses (EIPs) from a public NAT gateway.
  * You cannot disassociate your primary EIP. For more information, see Edit secondary IP address associations in the *Amazon VPC User Guide*.
  * 
- * 
  * While disassociating is in progress, you cannot associate/disassociate additional EIPs while the connections are being drained. You are, however, allowed to delete the NAT gateway.
- * 
  * 
  * An EIP is released only at the end of MaxDrainDurationSeconds. It stays
  * associated and supports the existing connections but does not support any new connections
@@ -5282,9 +4839,7 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Disassociates a route server from a VPC.
  * 
- * 
  * A route server association is the connection established between a route server and a VPC.
- * 
  * 
  * For more information see Dynamic routing in your VPC with VPC Route Server in the *Amazon VPC User Guide*.
  */export const disassociateRouteServer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.DisassociateRouteServer" }, DisassociateRouteServerRequest, DisassociateRouteServerResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
@@ -5314,7 +4869,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * DescribeVpcs. You must detach or delete all gateways and resources that
  * are associated with the CIDR block before you can disassociate it.
  * 
- * 
  * You cannot disassociate the CIDR block with which you originally created the VPC (the
  * primary CIDR block).
  */export const disassociateVpcCidrBlock = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.DisassociateVpcCidrBlock" }, DisassociateVpcCidrBlockRequest, DisassociateVpcCidrBlockResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
@@ -5325,18 +4879,13 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * Enables Allowed AMIs for your account in the specified Amazon Web Services Region. Two values are
  * accepted:
  * 
- * 
- * 
  * - `enabled`: The image criteria in your Allowed AMIs settings are applied. As
  * a result, only AMIs matching these criteria are discoverable and can be used by your
  * account to launch instances.
  * 
- * 
- * 
  * - `audit-mode`: The image criteria in your Allowed AMIs settings are not
  * applied. No restrictions are placed on AMI discoverability or usage. Users in your account
  * can launch instances using any public AMI or AMI shared with your account.
- * 
  * 
  * The purpose of `audit-mode` is to indicate which AMIs will be affected when
  * Allowed AMIs is `enabled`. In `audit-mode`, each AMI displays either
@@ -5344,18 +4893,9 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * whether the AMI will be discoverable and available to users in the account when Allowed
  * AMIs is enabled.
  * 
- * 
- * 
- * 
- * 
- * 
- * 
  * The Allowed AMIs feature does not restrict the AMIs owned by your account. Regardless of
  * the criteria you set, the AMIs created by your account will always be discoverable and
  * usable by users in your account.
- * 
- * 
- * 
  * 
  * For more information, see Control the discovery and use of AMIs in
  * Amazon EC2 with Allowed AMIs in
@@ -5371,16 +4911,13 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Enables EBS encryption by default for your account in the current Region.
  * 
- * 
  * After you enable encryption by default, the EBS volumes that you create are
  * always encrypted, either using the default KMS key or the KMS key that you specified
  * when you created each volume. For more information, see Amazon EBS encryption in the
  * *Amazon EBS User Guide*.
  * 
- * 
  * Enabling encryption by default has no effect on the encryption status of your
  * existing volumes.
- * 
  * 
  * After you enable encryption by default, you can no longer launch instances
  * using instance types that do not support encryption. For more information, see Supported
@@ -5393,9 +4930,7 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * disabled do not regain access automatically. Once the AMI is available, it can be shared with
  * them again.
  * 
- * 
  * Only the AMI owner can re-enable a disabled AMI.
- * 
  * 
  * For more information, see Disable an Amazon EC2 AMI
  * in the *Amazon EC2 User Guide*.
@@ -5405,19 +4940,16 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * specified Amazon Web Services Region. This prevents the public sharing of your AMIs. However, if you already
  * have public AMIs, they will remain publicly available.
  * 
- * 
  * The API can take up to 10 minutes to configure this setting. During this time, if you run
  * GetImageBlockPublicAccessState, the response will be `unblocked`. When
  * the API has completed the configuration, the response will be
  * `block-new-sharing`.
- * 
  * 
  * For more information, see Block
  * public access to your AMIs in the *Amazon EC2 User Guide*.
  */export const enableImageBlockPublicAccess = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.EnableImageBlockPublicAccess" }, EnableImageBlockPublicAccessRequest, EnableImageBlockPublicAccessResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
  * Enables deprecation of the specified AMI at the specified date and time.
- * 
  * 
  * For more information, see Deprecate an AMI in the
  * *Amazon EC2 User Guide*.
@@ -5426,9 +4958,7 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * Enables deregistration protection for an AMI. When deregistration protection is enabled,
  * the AMI can't be deregistered.
  * 
- * 
  * To allow the AMI to be deregistered, you must first disable deregistration protection.
- * 
  * 
  * For more information, see Protect an
  * Amazon EC2 AMI from deregistration in the *Amazon EC2 User Guide*.
@@ -5439,7 +4969,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * the instances to determine whether they are active or standby nodes in the SQL Server High Availability cluster.
  * If the instances are determined to be standby failover nodes, Amazon Web Services
  * automatically applies SQL Server licensing fee waiver for those instances.
- * 
  * 
  * To register an instance, it must be running a Windows SQL Server license-included
  * AMI and have the Amazon Web Services Systems Manager agent installed and running. Only Windows Server 2019 and later
@@ -5453,16 +4982,13 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Enables an IPAM policy.
  * 
- * 
  * An IPAM policy is a set of rules that define how public IPv4 addresses from IPAM pools are allocated to Amazon Web Services resources. Each rule maps an Amazon Web Services service to IPAM pools that the service will use to get IP addresses. A single policy can have multiple rules and be applied to multiple Amazon Web Services Regions. If the IPAM pool run out of addresses then the services fallback to Amazon-provided IP addresses. A policy can be applied to an individual Amazon Web Services account or an entity within Amazon Web Services Organizations.
- * 
  * 
  * For more information, see Define public IPv4 allocation strategy with IPAM policies in the *Amazon VPC IPAM User Guide*.
  */export const enableIpamPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.EnableIpamPolicy" }, EnableIpamPolicyRequest, EnableIpamPolicyResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
  * Establishes a trust relationship between Reachability Analyzer and Organizations.
  * This operation must be performed by the management account for the organization.
- * 
  * 
  * After you establish a trust relationship, a user in the management account or
  * a delegated administrator account can run a cross-account analysis using resources
@@ -5471,9 +4997,7 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Defines which route tables the route server can update with routes.
  * 
- * 
  * When enabled, route server propagation installs the routes in the FIB on the route table you've specified. Route server supports IPv4 and IPv6 route propagation.
- * 
  * 
  * For more information see Dynamic routing in your VPC with VPC Route Server in the *Amazon VPC User Guide*.
  */export const enableRouteServerPropagation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.EnableRouteServerPropagation" }, EnableRouteServerPropagationRequest, EnableRouteServerPropagationResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
@@ -5490,21 +5014,14 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * treated as private or they remain publicly shared, depending on the
  * **State** that you specify.
  * 
- * 
- * 
- * 
  * Enabling block public access for snapshots in *block all sharing*
  * mode does not change the permissions for snapshots that are already publicly shared.
  * Instead, it prevents these snapshots from be publicly visible and publicly accessible.
  * Therefore, the attributes for these snapshots still indicate that they are publicly
  * shared, even though they are not publicly available.
  * 
- * 
  * If you later disable block public access or change the mode to block new
  * sharing, these snapshots will become publicly available again.
- * 
- * 
- * 
  * 
  * For more information, see
  * Block public access for snapshots in the *Amazon EBS User Guide*.
@@ -5516,9 +5033,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * This action is deprecated.
  * 
- * 
- * 
- * 
  * Enables a VPC for ClassicLink. You can then link EC2-Classic instances to your
  * ClassicLink-enabled VPC to allow communication over private IP addresses. You cannot
  * enable your VPC for ClassicLink if any of your VPC route tables have existing routes for
@@ -5529,15 +5043,11 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * This action is deprecated.
  * 
- * 
- * 
- * 
  * Enables a VPC to support DNS hostname resolution for ClassicLink. If enabled, the DNS
  * hostname of a linked EC2-Classic instance resolves to its private IP address when
  * addressed from an instance in the VPC to which it's linked. Similarly, the DNS hostname
  * of an instance in a VPC resolves to its private IP address when addressed from a linked
  * EC2-Classic instance.
- * 
  * 
  * You must specify a VPC ID in the request.
  */export const enableVpcClassicLinkDnsSupport = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.EnableVpcClassicLinkDnsSupport" }, EnableVpcClassicLinkDnsSupportRequest, EnableVpcClassicLinkDnsSupportResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
@@ -5549,7 +5059,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Exports routes from the specified transit gateway route table to the specified S3 bucket.
  * By default, all routes are exported. Alternatively, you can filter by CIDR range.
- * 
  * 
  * The routes are saved to the specified bucket in a JSON file. For more information, see
  * Export route tables
@@ -5564,7 +5073,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * physical monitor attached to a computer. For Windows instances, the instance console
  * output includes the last three system event log errors.
  * 
- * 
  * For more information, see Instance
  * console output in the *Amazon EC2 User Guide*.
  */export const getConsoleOutput = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.GetConsoleOutput" }, GetConsoleOutputRequest, GetConsoleOutputResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
@@ -5572,15 +5080,12 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * Retrieve a JPG-format screenshot of a running instance to help with
  * troubleshooting.
  * 
- * 
  * The returned content is Base64-encoded.
- * 
  * 
  * For more information, see Instance console output in the *Amazon EC2 User Guide*.
  */export const getConsoleScreenshot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.GetConsoleScreenshot" }, GetConsoleScreenshotRequest, GetConsoleScreenshotResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
  * Describes the default KMS key for EBS encryption by default for your account in this Region.
- * 
  * 
  * For more information, see Amazon EBS encryption
  * in the *Amazon EBS User Guide*.
@@ -5589,20 +5094,17 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * Describes whether EBS encryption by default is enabled for your account in the current
  * Region.
  * 
- * 
  * For more information, see Amazon EBS encryption
  * in the *Amazon EBS User Guide*.
  */export const getEbsEncryptionByDefault = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.GetEbsEncryptionByDefault" }, GetEbsEncryptionByDefaultRequest, GetEbsEncryptionByDefaultResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
  * Gets the enabled IPAM policy.
  * 
- * 
  * An IPAM policy is a set of rules that define how public IPv4 addresses from IPAM pools are allocated to Amazon Web Services resources. Each rule maps an Amazon Web Services service to IPAM pools that the service will use to get IP addresses. A single policy can have multiple rules and be applied to multiple Amazon Web Services Regions. If the IPAM pool run out of addresses then the services fallback to Amazon-provided IP addresses. A policy can be applied to an individual Amazon Web Services account or an entity within Amazon Web Services Organizations.
  */export const getEnabledIpamPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.GetEnabledIpamPolicy" }, GetEnabledIpamPolicyRequest, GetEnabledIpamPolicyResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
  * Gets the current state of *block public access for AMIs* at the account
  * level in the specified Amazon Web Services Region.
- * 
  * 
  * For more information, see Block
  * public access to your AMIs in the *Amazon EC2 User Guide*.
@@ -5616,7 +5118,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * stored. This is a base64 encoded and zlib compressed binary value that must be properly
  * encoded.
  * 
- * 
  * When you use register-image to create
  * an AMI, you can create an exact copy of your variable store by passing the UEFI data in
  * the `UefiData` parameter. You can modify the UEFI data by using the python-uefivars tool on
@@ -5624,15 +5125,11 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * (JSON), which you can inspect and modify, and then convert back into the binary format
  * to use with register-image.
  * 
- * 
  * For more information, see UEFI Secure Boot in the
  * *Amazon EC2 User Guide*.
  */export const getInstanceUefiData = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.GetInstanceUefiData" }, GetInstanceUefiDataRequest, GetInstanceUefiDataResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
  * Get a list of all the CIDR allocations in an IPAM pool. The Region you use should be the IPAM pool locale. The locale is the Amazon Web Services Region where this IPAM pool is available for allocations.
- * 
- * 
- * 
  * 
  * If you use this action after AllocateIpamPoolCidr or ReleaseIpamPoolAllocation, note that all EC2 API actions follow an eventual consistency model.
  */export const getIpamPoolAllocations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.GetIpamPoolAllocations" }, GetIpamPoolAllocationsRequest, GetIpamPoolAllocationsResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
@@ -5642,20 +5139,16 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Retrieves the encrypted administrator password for a running Windows instance.
  * 
- * 
  * The Windows password is generated at boot by the `EC2Config` service or
  * `EC2Launch` scripts (Windows Server 2016 and later). This usually only
  * happens the first time an instance is launched. For more information, see EC2Config and EC2Launch in the
  * *Amazon EC2 User Guide*.
  * 
- * 
  * For the `EC2Config` service, the password is not generated for rebundled
  * AMIs unless `Ec2SetPassword` is enabled before bundling.
  * 
- * 
  * The password is encrypted using the key pair that you specified when you launched the
  * instance. You must provide the corresponding key pair file.
- * 
  * 
  * When you launch an instance, password generation and encryption may take a few
  * minutes. If you try to retrieve the password before it's available, the output returns
@@ -5665,40 +5158,25 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Gets information about the associations for the specified route server.
  * 
- * 
  * A route server association is the connection established between a route server and a VPC.
- * 
  * 
  * For more information see Dynamic routing in your VPC with VPC Route Server in the *Amazon VPC User Guide*.
  */export const getRouteServerAssociations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.GetRouteServerAssociations" }, GetRouteServerAssociationsRequest, GetRouteServerAssociationsResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
  * Gets information about the route propagations for the specified route server.
  * 
- * 
  * When enabled, route server propagation installs the routes in the FIB on the route table you've specified. Route server supports IPv4 and IPv6 route propagation.
- * 
  * 
  * Amazon VPC Route Server simplifies routing for traffic between workloads that are deployed within a VPC and its internet gateways. With this feature,
  * VPC Route Server dynamically updates VPC and internet gateway route tables with your preferred IPv4 or IPv6 routes to achieve routing fault tolerance for those workloads. This enables you to automatically reroute traffic within a VPC, which increases the manageability of VPC routing and interoperability with third-party workloads.
  * 
- * 
  * Route server supports the follow route table types:
- * 
- * 
  * 
  * - VPC route tables not associated with subnets
  * 
- * 
- * 
  * - Subnet route tables
  * 
- * 
- * 
  * - Internet gateway route tables
- * 
- * 
- * 
- * 
  * 
  * Route server does not support route tables associated with virtual private gateways. To propagate routes into a transit gateway route table, use Transit Gateway Connect.
  */export const getRouteServerPropagations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.GetRouteServerPropagations" }, GetRouteServerPropagationsRequest, GetRouteServerPropagationsResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
@@ -5711,7 +5189,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Gets the current state of *block public access for snapshots* setting
  * for the account and Region.
- * 
  * 
  * For more information, see
  * Block public access for snapshots in the *Amazon EBS User Guide*.
@@ -5741,13 +5218,11 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Uploads a client certificate revocation list to the specified Client VPN endpoint. Uploading a client certificate revocation list overwrites the existing client certificate revocation list.
  * 
- * 
  * Uploading a client certificate revocation list resets existing client connections.
  */export const importClientVpnClientCertificateRevocationList = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.ImportClientVpnClientCertificateRevocationList" }, ImportClientVpnClientCertificateRevocationListRequest, ImportClientVpnClientCertificateRevocationListResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
  * Imports the public key from an RSA or ED25519 key pair that you created using a third-party tool.
  * You give Amazon Web Services only the public key. The private key is never transferred between you and Amazon Web Services.
- * 
  * 
  * For more information about the requirements for importing a key pair, see Create a key pair and import the public key to Amazon EC2 in the *Amazon EC2 User Guide*.
  */export const importKeyPair = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.ImportKeyPair" }, ImportKeyPairRequest, ImportKeyPairResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
@@ -5756,21 +5231,14 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * mode to protect it against accidental or malicious deletions for a specific duration. A locked snapshot
  * can't be deleted.
  * 
- * 
  * You can also use this action to modify the lock settings for a snapshot that is already locked. The
  * allowed modifications depend on the lock mode and lock state:
- * 
- * 
  * 
  * - If the snapshot is locked in governance mode, you can modify the lock mode and the lock duration
  * or lock expiration date.
  * 
- * 
- * 
  * - If the snapshot is locked in compliance mode and it is in the cooling-off period, you can modify
  * the lock mode and the lock duration or lock expiration date.
- * 
- * 
  * 
  * - If the snapshot is locked in compliance mode and the cooling-off period has lapsed, you can
  * only increase the lock duration or extend the lock expiration date.
@@ -5790,31 +5258,20 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * information, see Modify an active
  * Capacity Reservation.
  * 
- * 
  * The allowed modifications depend on the state of the Capacity Reservation:
- * 
- * 
  * 
  * - `assessing` or `scheduled` state - You can modify the
  * tags only.
  * 
- * 
- * 
  * - `pending` state - You can't modify the Capacity Reservation in any
  * way.
- * 
- * 
  * 
  * - `active` state but still within the commitment duration - You can't
  * decrease the instance count or set an end date that is within the commitment
  * duration. All other modifications are allowed.
  * 
- * 
- * 
  * - `active` state with no commitment duration or elapsed commitment
  * duration - All modifications are allowed.
- * 
- * 
  * 
  * - `expired`, `cancelled`, `unsupported`, or
  * `failed` state - You can't modify the Capacity Reservation in any
@@ -5822,7 +5279,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  */export const modifyCapacityReservation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.ModifyCapacityReservation" }, ModifyCapacityReservationRequest, ModifyCapacityReservationResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
  * Modifies a Capacity Reservation Fleet.
- * 
  * 
  * When you modify the total target capacity of a Capacity Reservation Fleet, the Fleet
  * automatically creates new Capacity Reservations, or modifies or cancels existing
@@ -5836,8 +5292,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * is specified per instance family. All new burstable performance instances in the account
  * launch using the default credit option.
  * 
- * 
- * 
  * `ModifyDefaultCreditSpecification` is an asynchronous operation, which
  * works at an Amazon Web Services Region level and modifies the credit option for each
  * Availability Zone. All zones in a Region are updated within five minutes. But if
@@ -5846,22 +5300,18 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * `GetDefaultCreditSpecification` and check
  * `DefaultCreditSpecification` for updates.
  * 
- * 
  * For more information, see Burstable
  * performance instances in the *Amazon EC2 User Guide*.
  */export const modifyDefaultCreditSpecification = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.ModifyDefaultCreditSpecification" }, ModifyDefaultCreditSpecificationRequest, ModifyDefaultCreditSpecificationResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
  * Changes the default KMS key for EBS encryption by default for your account in this Region.
  * 
- * 
  * Amazon Web Services creates a unique Amazon Web Services managed KMS key in each Region for use with encryption by default. If
  * you change the default KMS key to a symmetric customer managed KMS key, it is used instead of the Amazon Web Services
  * managed KMS key. Amazon EBS does not support asymmetric KMS keys.
  * 
- * 
  * If you delete or disable the customer managed KMS key that you specified for use with
  * encryption by default, your instances will fail to launch.
- * 
  * 
  * For more information, see Amazon EBS encryption
  * in the *Amazon EBS User Guide*.
@@ -5869,12 +5319,9 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Modifies the specified EC2 Fleet.
  * 
- * 
  * You can only modify an EC2 Fleet request of type `maintain`.
  * 
- * 
  * While the EC2 Fleet is being modified, it is in the `modifying` state.
- * 
  * 
  * To scale up your EC2 Fleet, increase its target capacity. The EC2 Fleet launches the additional
  * Spot Instances according to the allocation strategy for the EC2 Fleet request. If the allocation
@@ -5883,7 +5330,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * EC2 Fleet distributes the instances across the Spot Instance pools. If the allocation strategy
  * is `capacity-optimized`, EC2 Fleet launches instances from Spot Instance pools with optimal
  * capacity for the number of instances that are launching.
- * 
  * 
  * To scale down your EC2 Fleet, decrease its target capacity. First, the EC2 Fleet cancels any open
  * requests that exceed the new target capacity. You can request that the EC2 Fleet terminate Spot
@@ -5896,7 +5342,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * the fleet at its current size, but not replace any Spot Instances that are interrupted or
  * that you terminate manually.
  * 
- * 
  * If you are finished with your EC2 Fleet for now, but will use it again later, you can set the
  * target capacity to 0.
  */export const modifyFleet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.ModifyFleet" }, ModifyFleetRequest, ModifyFleetResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
@@ -5908,14 +5353,12 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * to have the instance launch onto a specific host. If no host ID is provided, the
  * instance is launched onto a suitable host with auto-placement enabled.
  * 
- * 
  * You can also use this API action to modify a Dedicated Host to support either multiple
  * instance types in an instance family, or to support a specific instance type
  * only.
  */export const modifyHosts = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.ModifyHosts" }, ModifyHostsRequest, ModifyHostsResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
  * Modifies the specified EC2 Instance Connect Endpoint.
- * 
  * 
  * For more information, see Modify an
  * EC2 Instance Connect Endpoint in the
@@ -5926,12 +5369,8 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * configure the number of active vCPUs for the instance, it can help you save on licensing costs and
  * optimize performance. The base cost of the instance remains unchanged.
  * 
- * 
  * The number of active vCPUs equals the number of threads per CPU core multiplied by the number
  * of cores. The instance must be in a `Stopped` state before you make changes.
- * 
- * 
- * 
  * 
  * Some instance type options do not support this capability. For more information, see
  * Supported CPU
@@ -5940,17 +5379,13 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Modifies the specified event window.
  * 
- * 
  * You can define either a set of time ranges or a cron expression when modifying the event
  * window, but not both.
  * 
- * 
  * To modify the targets associated with the event window, use the AssociateInstanceEventWindow and DisassociateInstanceEventWindow API.
- * 
  * 
  * If Amazon Web Services has already scheduled an event, modifying an event window won't change the time
  * of the scheduled event.
- * 
  * 
  * For more information, see Define event windows for scheduled
  * events in the *Amazon EC2 User Guide*.
@@ -5961,16 +5396,12 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * enable simplified automatic recovery for an unsupported instance type. For more
  * information, see Simplified automatic recovery.
  * 
- * 
  * Modifies the reboot migration behavior during a user-initiated reboot of an instance
  * that has a pending `system-reboot` event. For more information, see Enable or disable reboot migration.
  */export const modifyInstanceMaintenanceOptions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.ModifyInstanceMaintenanceOptions" }, ModifyInstanceMaintenanceOptionsRequest, ModifyInstanceMaintenanceOptionsResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
  * Modifies the default instance metadata service (IMDS) settings at the account level in
  * the specified Amazon Web Services  Region.
- * 
- * 
- * 
  * 
  * To remove a parameter's account-level default setting, specify
  * `no-preference`. If an account-level setting is cleared with
@@ -5986,42 +5417,28 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * Modifies the placement attributes for a specified instance. You can do the
  * following:
  * 
- * 
- * 
  * - Modify the affinity between an instance and a Dedicated
  * Host. When affinity is set to `host` and the instance is
  * not associated with a specific Dedicated Host, the next time the instance is
  * started, it is automatically associated with the host on which it lands. If the
  * instance is restarted or rebooted, this relationship persists.
  * 
- * 
- * 
  * - Change the Dedicated Host with which an instance is associated.
  * 
- * 
- * 
  * - Change the instance tenancy of an instance.
- * 
- * 
  * 
  * - Move an instance to or from a placement
  * group.
  * 
- * 
- * 
- * 
- * 
  * At least one attribute for affinity, host ID, tenancy, or placement group name must be
  * specified in the request. Affinity and tenancy can be modified in the same
  * request.
- * 
  * 
  * To modify the host ID, tenancy, placement group, or partition for an instance, the
  * instance must be in the `stopped` state.
  */export const modifyInstancePlacement = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.ModifyInstancePlacement" }, ModifyInstancePlacementRequest, ModifyInstancePlacementResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
  * Modify the configurations of an IPAM pool.
- * 
  * 
  * For more information, see Modify a pool in the *Amazon VPC IPAM User Guide*.
  */export const modifyIpamPool = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.ModifyIpamPool" }, ModifyIpamPoolRequest, ModifyIpamPoolResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
@@ -6033,7 +5450,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  */export const modifyIpamPrefixListResolverTarget = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.ModifyIpamPrefixListResolverTarget" }, ModifyIpamPrefixListResolverTargetRequest, ModifyIpamPrefixListResolverTargetResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
  * Modify a resource CIDR. You can use this action to transfer resource CIDRs between scopes and ignore resource CIDRs that you do not want to manage. If set to false, the resource will not be tracked for overlap, it cannot be auto-imported into a pool, and it will be removed from any pool it has an allocation in.
- * 
  * 
  * For more information, see Move resource CIDRs between scopes and Change the monitoring state of resource CIDRs in the *Amazon VPC IPAM User Guide*.
  */export const modifyIpamResourceCidr = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.ModifyIpamResourceCidr" }, ModifyIpamResourceCidrRequest, ModifyIpamResourceCidrResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
@@ -6062,31 +5478,18 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Modifies the configuration of an existing route server.
  * 
- * 
  * Amazon VPC Route Server simplifies routing for traffic between workloads that are deployed within a VPC and its internet gateways. With this feature,
  * VPC Route Server dynamically updates VPC and internet gateway route tables with your preferred IPv4 or IPv6 routes to achieve routing fault tolerance for those workloads. This enables you to automatically reroute traffic within a VPC, which increases the manageability of VPC routing and interoperability with third-party workloads.
  * 
- * 
  * Route server supports the follow route table types:
- * 
- * 
  * 
  * - VPC route tables not associated with subnets
  * 
- * 
- * 
  * - Subnet route tables
- * 
- * 
  * 
  * - Internet gateway route tables
  * 
- * 
- * 
- * 
- * 
  * Route server does not support route tables associated with virtual private gateways. To propagate routes into a transit gateway route table, use Transit Gateway Connect.
- * 
  * 
  * For more information see Dynamic routing in your VPC with VPC Route Server in the *Amazon VPC User Guide*.
  */export const modifyRouteServer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.ModifyRouteServer" }, ModifyRouteServerRequest, ModifyRouteServerResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
@@ -6100,14 +5503,11 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Allows or restricts mirroring network services.
  * 
- * 
  * By default, Amazon DNS network services are not eligible for Traffic Mirror. Use `AddNetworkServices` to add network services to a Traffic Mirror filter. When a network service is added to the Traffic Mirror filter, all traffic related to that network service will be mirrored.
  * When you no longer want to mirror network services, use `RemoveNetworkServices` to remove the network services from the Traffic Mirror filter.
  */export const modifyTrafficMirrorFilterNetworkServices = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.ModifyTrafficMirrorFilterNetworkServices" }, ModifyTrafficMirrorFilterNetworkServicesRequest, ModifyTrafficMirrorFilterNetworkServicesResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
  * Modifies the specified Traffic Mirror rule.
- * 
- * 
  * 
  * `DestinationCidrBlock` and `SourceCidrBlock` must both be an IPv4
  * range or an IPv6 range.
@@ -6137,17 +5537,13 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * volume from it. For more information about modifying EBS volumes, see Amazon EBS Elastic Volumes
  * in the *Amazon EBS User Guide*.
  * 
- * 
  * When you complete a resize operation on your volume, you need to extend the volume's
  * file-system size to take advantage of the new storage capacity. For more information, see Extend the file system.
  * 
- * 
  * For more information, see Monitor the progress of volume modifications in the *Amazon EBS User Guide*.
- * 
  * 
  * With previous-generation instance types, resizing an EBS volume might require detaching and
  * reattaching the volume or stopping and restarting the instance.
- * 
  * 
  * After modifying a volume, you must wait at least six hours and ensure that the volume
  * is in the `in-use` or `available` state before you can modify the same
@@ -6161,7 +5557,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  */export const modifyVpcBlockPublicAccessOptions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.ModifyVpcBlockPublicAccessOptions" }, ModifyVpcBlockPublicAccessOptionsRequest, ModifyVpcBlockPublicAccessOptionsResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
  * Modifies the encryption control configuration for a VPC. You can update the encryption mode and exclusion settings for various gateway types and peering connections.
- * 
  * 
  * For more information, see Enforce VPC encryption in transit in the *Amazon VPC User Guide*.
  */export const modifyVpcEncryptionControl = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.ModifyVpcEncryptionControl" }, ModifyVpcEncryptionControlRequest, ModifyVpcEncryptionControlResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
@@ -6178,7 +5573,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Modifies the attributes of the specified VPC endpoint service configuration.
  * 
- * 
  * If you set or modify the private DNS name, you must prove that you own the private DNS
  * domain name.
  */export const modifyVpcEndpointServiceConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.ModifyVpcEndpointServiceConfiguration" }, ModifyVpcEndpointServiceConfigurationRequest, ModifyVpcEndpointServiceConfigurationResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
@@ -6190,11 +5584,9 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * instance tenancy attribute of a VPC to `default` only. You cannot change the
  * instance tenancy attribute to `dedicated`.
  * 
- * 
  * After you modify the tenancy of the VPC, any new instances that you launch into the
  * VPC have a tenancy of `default`, unless you specify otherwise during launch.
  * The tenancy of any existing instances in the VPC is not affected.
- * 
  * 
  * For more information, see Dedicated Instances in the
  * *Amazon EC2 User Guide*.
@@ -6203,56 +5595,37 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * Modifies the customer gateway or the target gateway of an Amazon Web Services Site-to-Site VPN connection. To
  * modify the target gateway, the following migration options are available:
  * 
- * 
- * 
  * - An existing virtual private gateway to a new virtual private gateway
- * 
- * 
  * 
  * - An existing virtual private gateway to a transit gateway
  * 
- * 
- * 
  * - An existing transit gateway to a new transit gateway
  * 
- * 
- * 
  * - An existing transit gateway to a virtual private gateway
- * 
- * 
- * 
- * 
  * 
  * Before you perform the migration to the new gateway, you must configure the new
  * gateway. Use CreateVpnGateway to create a virtual private gateway, or
  * CreateTransitGateway to create a transit gateway.
  * 
- * 
  * This step is required when you migrate from a virtual private gateway with static
  * routes to a transit gateway.
  * 
- * 
  * You must delete the static routes before you migrate to the new gateway.
- * 
  * 
  * Keep a copy of the static route before you delete it. You will need to add back these
  * routes to the transit gateway after the VPN connection migration is complete.
- * 
  * 
  * After you migrate to the new gateway, you might need to modify your VPC route table.
  * Use CreateRoute and DeleteRoute to make the changes
  * described in Update VPC route
  * tables in the *Amazon Web Services Site-to-Site VPN User Guide*.
  * 
- * 
  * When the new gateway is a transit gateway, modify the transit gateway route table to
  * allow traffic between the VPC and the Amazon Web Services Site-to-Site VPN connection.
  * Use CreateTransitGatewayRoute to add the routes.
  * 
- * 
  * If you deleted VPN static routes, you must add the static routes to the transit
  * gateway route table.
- * 
  * 
  * After you perform this operation, the VPN endpoint's IP addresses on the Amazon Web Services side and the tunnel options remain intact. Your Amazon Web Services Site-to-Site VPN connection will
  * be temporarily unavailable for a brief period while we provision the new
@@ -6260,7 +5633,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  */export const modifyVpnConnection = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.ModifyVpnConnection" }, ModifyVpnConnectionRequest, ModifyVpnConnectionResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
  * Modifies the connection options for your Site-to-Site VPN connection.
- * 
  * 
  * When you modify the VPN connection options, the VPN endpoint IP addresses on the
  * Amazon Web Services side do not change, and the tunnel options do not change. Your
@@ -6273,9 +5645,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * This action is deprecated.
  * 
- * 
- * 
- * 
  * Moves an Elastic IP address from the EC2-Classic platform to the EC2-VPC platform. The
  * Elastic IP address must be allocated to your account for more than 24 hours, and it must not
  * be associated with an instance. After the Elastic IP address is moved, it is no longer
@@ -6285,7 +5654,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Move a BYOIPv4 CIDR to IPAM from a public IPv4 pool.
  * 
- * 
  * If you already have a BYOIPv4 CIDR with Amazon Web Services, you can move the CIDR to IPAM from a public IPv4 pool. You cannot move an IPv6 CIDR to IPAM. If you are bringing a new IP address to Amazon Web Services for the first time, complete the steps in Tutorial: BYOIP address CIDRs to IPAM.
  */export const moveByoipCidrToIpam = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.MoveByoipCidrToIpam" }, MoveByoipCidrToIpamRequest, MoveByoipCidrToIpamResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
@@ -6293,27 +5661,15 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * Reservation. The source Capacity Reservation and the destination Capacity Reservation
  * must be `active`, owned by your Amazon Web Services account, and share the following:
  * 
- * 
- * 
  * - Instance type
- * 
- * 
  * 
  * - Platform
  * 
- * 
- * 
  * - Availability Zone
- * 
- * 
  * 
  * - Tenancy
  * 
- * 
- * 
  * - Placement group
- * 
- * 
  * 
  * - Capacity Reservation end time - `At specific time` or
  * `Manually`.
@@ -6339,16 +5695,11 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * Create an AMI from a snapshot and Create an instance-store
  * backed AMI in the *Amazon EC2 User Guide*.
  * 
- * 
  * If needed, you can deregister an AMI at any time. Any modifications you make to an AMI
  * backed by an instance store volume invalidates its registration. If you make changes to an
  * image, deregister the previous image and register the new image.
  * 
- * 
- * 
  * **Register a snapshot of a root device volume**
- * 
- * 
  * 
  * You can use `RegisterImage` to create an Amazon EBS-backed Linux AMI from a snapshot
  * of a root device volume. You specify the snapshot using a block device mapping. You can't set
@@ -6356,18 +5707,12 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * encrypted, or encryption by default is enabled, the root volume of an instance launched from
  * the AMI is encrypted.
  * 
- * 
  * For more information, see Create an AMI from a snapshot and Use encryption with EBS-backed AMIs
  * in the *Amazon EC2 User Guide*.
  * 
- * 
- * 
  * **Amazon Web Services Marketplace product codes**
  * 
- * 
- * 
  * If any snapshots have Amazon Web Services Marketplace product codes, they are copied to the new AMI.
- * 
  * 
  * In most cases, AMIs for Windows, RedHat, SUSE, and SQL Server require correct licensing
  * information to be present on the AMI. For more information, see Understand AMI billing
@@ -6380,7 +5725,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * should discard the AMI and instead create the AMI from an instance.
  * For more information, see Create an AMI
  * from an instance in the *Amazon EC2 User Guide*.
- * 
  * 
  * If you purchase a Reserved Instance to apply to an On-Demand Instance that was launched
  * from an AMI with a billing product code, make sure that the Reserved Instance has the matching
@@ -6403,7 +5747,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Rejects a request to attach a VPC to a transit gateway.
  * 
- * 
  * The VPC attachment must be in the `pendingAcceptance` state.
  * Use DescribeTransitGatewayVpcAttachments to view your pending VPC attachment requests.
  * Use AcceptTransitGatewayVpcAttachment to accept a VPC attachment request.
@@ -6424,20 +5767,14 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * request, for example, to modify the host. You must stop or terminate all instances on a
  * host before it can be released.
  * 
- * 
  * When Dedicated Hosts are released, it may take some time for them to stop counting
  * toward your limit and you may receive capacity errors when trying to allocate new
  * Dedicated Hosts. Wait a few minutes and then try again.
- * 
  * 
  * Released hosts still appear in a DescribeHosts response.
  */export const releaseHosts = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.ReleaseHosts" }, ReleaseHostsRequest, ReleaseHostsResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
  * Release an allocation within an IPAM pool. The Region you use should be the IPAM pool locale. The locale is the Amazon Web Services Region where this IPAM pool is available for allocations. You can only use this action to release manual allocations. To remove an allocation for a resource without deleting the resource, set its monitored state to false using ModifyIpamResourceCidr. For more information, see Release an allocation in the *Amazon VPC IPAM User Guide*.
- * 
- * 
- * 
- * 
  * 
  * All EC2 API actions follow an eventual consistency model.
  */export const releaseIpamPoolAllocation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.ReleaseIpamPoolAllocation" }, ReleaseIpamPoolAllocationRequest, ReleaseIpamPoolAllocationResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
@@ -6445,7 +5782,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * Replaces an IAM instance profile for the specified running instance. You can use
  * this action to change the IAM instance profile that's associated with an instance
  * without having to disassociate the existing IAM instance profile first.
- * 
  * 
  * Use DescribeIamInstanceProfileAssociations to get the association
  * ID.
@@ -6455,7 +5791,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * subnet, it's automatically associated with the default network ACL. For more
  * information, see Network ACLs in the *Amazon VPC User Guide*.
  * 
- * 
  * This is an idempotent operation.
  */export const replaceNetworkAclAssociation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.ReplaceNetworkAclAssociation" }, ReplaceNetworkAclAssociationRequest, ReplaceNetworkAclAssociationResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
@@ -6463,7 +5798,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * completes, the subnet or gateway uses the routes in the new route table. For more
  * information about route tables, see Route
  * tables in the *Amazon VPC User Guide*.
- * 
  * 
  * You can also use this operation to change which table is the main route table in the VPC. Specify the main route table's association ID and the route table ID of the new main route table.
  */export const replaceRouteTableAssociation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.ReplaceRouteTableAssociation" }, ReplaceRouteTableAssociationRequest, ReplaceRouteTableAssociationResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
@@ -6480,7 +5814,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * Resets the default KMS key for EBS encryption for your account in this Region
  * to the Amazon Web Services managed KMS key for EBS.
  * 
- * 
  * After resetting the default KMS key to the Amazon Web Services managed KMS key, you can continue to encrypt by a
  * customer managed KMS key by specifying it when you create the volume. For more information, see
  * Amazon EBS encryption
@@ -6492,9 +5825,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  */export const resetFpgaImageAttribute = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.ResetFpgaImageAttribute" }, ResetFpgaImageAttributeRequest, ResetFpgaImageAttributeResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
  * This action is deprecated.
- * 
- * 
- * 
  * 
  * Restores an Elastic IP address that was previously moved to the EC2-VPC platform back to the EC2-Classic platform. You cannot move an Elastic IP address that was originally allocated for use in EC2-VPC. The Elastic IP address must not be associated with an instance or network interface.
  */export const restoreAddressToClassic = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.RestoreAddressToClassic" }, RestoreAddressToClassicRequest, RestoreAddressToClassicResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
@@ -6514,7 +5844,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * Restores an archived Amazon EBS snapshot for use temporarily or permanently, or modifies the restore
  * period or restore type for a snapshot that was previously temporarily restored.
  * 
- * 
  * For more information see
  * Restore an archived snapshot and
  * modify the restore period or restore type for a temporarily restored snapshot in the *Amazon EBS User Guide*.
@@ -6529,7 +5858,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Removes the specified inbound (ingress) rules from a security group.
  * 
- * 
  * You can specify rules using either rule IDs or security group rule properties. If you use
  * rule properties, the values that you specify (for example, ports) must match the existing rule's
  * values exactly. Each rule has a protocol, from and to ports, and source (CIDR range,
@@ -6538,19 +5866,15 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * and code. If the security group rule has a description, you do not need to specify the description
  * to revoke the rule.
  * 
- * 
  * For a default VPC, if the values you specify do not match the existing rule's values,
  * no error is returned, and the output describes the security group rules that were not
  * revoked.
- * 
  * 
  * For a non-default VPC, if the values you specify do not match the existing rule's
  * values, an `InvalidPermission.NotFound` client error is returned, and no
  * rules are revoked.
  * 
- * 
  * Amazon Web Services recommends that you describe the security group to verify that the rules were removed.
- * 
  * 
  * Rule changes are propagated to instances within the security group as quickly as possible.
  * However, a small delay might occur.
@@ -6565,39 +5889,26 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * Generates an account status report. The report is generated asynchronously, and can
  * take several hours to complete.
  * 
- * 
  * The report provides the current status of all attributes supported by declarative
  * policies for the accounts within the specified scope. The scope is determined by the
  * specified `TargetId`, which can represent an individual account, or all the
  * accounts that fall under the specified organizational unit (OU) or root (the entire
  * Amazon Web Services Organization).
  * 
- * 
  * The report is saved to your specified S3 bucket, using the following path structure
  * (with the capitalized placeholders representing your specific values):
  * 
- * 
- * 
  * `s3://AMZN-S3-DEMO-BUCKET/YOUR-OPTIONAL-S3-PREFIX/ec2_TARGETID_REPORTID_YYYYMMDDTHHMMZ.csv`
- * 
- * 
  * 
  * **Prerequisites for generating a report**
  * 
- * 
- * 
- * 
  * - The `StartDeclarativePoliciesReport` API can only be called by the
  * management account or delegated administrators for the organization.
- * 
- * 
  * 
  * - An S3 bucket must be available before generating the report (you can create a
  * new one or use an existing one), it must be in the same Region where the report
  * generation request is made, and it must have an appropriate bucket policy. For a
  * sample S3 policy, see *Sample Amazon S3 policy* under Examples.
- * 
- * 
  * 
  * - Trusted access must be enabled for the service for which the declarative
  * policy will enforce a baseline configuration. If you use the Amazon Web Services Organizations
@@ -6608,14 +5919,8 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * Organizations with other Amazon Web Services services in the
  * *Amazon Web Services Organizations User Guide*.
  * 
- * 
- * 
  * - Only one report per organization can be generated at a time. Attempting to
  * generate a report while another is in progress will result in an error.
- * 
- * 
- * 
- * 
  * 
  * For more information, including the required IAM permissions to run this API, see
  * Generating the account status report for declarative policies in the
@@ -6632,9 +5937,7 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * Initiates the verification process to prove that the service provider owns the private
  * DNS name domain for the endpoint service.
  * 
- * 
  * The service provider must successfully perform the verification before the consumer can use the name to access the service.
- * 
  * 
  * Before the service provider runs this command, they must add a record to the DNS server.
  */export const startVpcEndpointServicePrivateDnsVerification = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.StartVpcEndpointServicePrivateDnsVerification" }, StartVpcEndpointServicePrivateDnsVerificationRequest, StartVpcEndpointServicePrivateDnsVerificationResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
@@ -6643,12 +5946,10 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * the StartInstances API. For more information, see Stop and start Amazon EC2
  * instances in the *Amazon EC2 User Guide*.
  * 
- * 
  * When you stop or hibernate an instance, we shut it down. By default, this includes a
  * graceful operating system (OS) shutdown. To bypass the graceful shutdown, use the
  * `skipOsShutdown` parameter; however, this might risk data
  * integrity.
- * 
  * 
  * You can use the StopInstances operation together with the `Hibernate`
  * parameter to hibernate an instance if the instance is enabled for
@@ -6658,14 +5959,12 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * information, see Hibernate your Amazon EC2
  * instance in the *Amazon EC2 User Guide*.
  * 
- * 
  * If your instance appears stuck in the `stopping` state, there might be an
  * issue with the underlying host computer. You can use the StopInstances operation
  * together with the Force parameter to force stop your instance. For more information, see
  * Troubleshoot
  * Amazon EC2 instance stop issues in the
  * *Amazon EC2 User Guide*.
- * 
  * 
  * Stopping and hibernating an instance differs from rebooting or terminating it. For
  * example, a stopped or hibernated instance retains its root volume and any data volumes,
@@ -6674,12 +5973,10 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * terminating instances, see Amazon EC2
  * instance state changes in the *Amazon EC2 User Guide*.
  * 
- * 
  * We don't charge for instance usage or data transfer fees when an instance is stopped.
  * However, the root volume and any data volumes remain and continue to persist your data,
  * and you're charged for volume usage. Every time you start your instance, Amazon EC2 charges a one-minute minimum for instance usage, followed by per-second
  * billing.
- * 
  * 
  * You can't stop or hibernate instance store-backed instances.
  */export const stopInstances = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.StopInstances" }, StopInstancesRequest, StopInstancesResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
@@ -6687,13 +5984,7 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * Terminates (deletes) the specified instances. This operation is idempotent; if you
  * terminate an instance more than once, each call succeeds.
  * 
- * 
- * 
- * 
- * 
  * **Terminating an instance is permanent and irreversible.**
- * 
- * 
  * 
  * After you terminate an instance, you can no longer connect to it, and it can't be recovered.
  * All attached Amazon EBS volumes that are configured to be deleted on termination are also permanently
@@ -6701,88 +5992,52 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * For more information, see
  * How instance termination works.
  * 
- * 
  * Before you terminate an instance, ensure that you have backed up all data that you need to
  * retain after the termination to persistent storage.
  * 
- * 
- * 
- * 
  * If you specify multiple instances and the request fails (for example, because of a
  * single incorrect instance ID), none of the instances are terminated.
- * 
  * 
  * If you terminate multiple instances across multiple Availability Zones, and one or
  * more of the specified instances are enabled for termination protection, the request
  * fails with the following results:
  * 
- * 
- * 
  * - The specified instances that are in the same Availability Zone as the
  * protected instance are not terminated.
- * 
- * 
  * 
  * - The specified instances that are in different Availability Zones, where no
  * other specified instances are protected, are successfully terminated.
  * 
- * 
- * 
- * 
- * 
  * For example, say you have the following instances:
- * 
- * 
  * 
  * - Instance A: `us-east-1a`; Not protected
  * 
- * 
- * 
  * - Instance B: `us-east-1a`; Not protected
- * 
- * 
  * 
  * - Instance C: `us-east-1b`; Protected
  * 
- * 
- * 
  * - Instance D: `us-east-1b`; not protected
- * 
- * 
- * 
- * 
  * 
  * If you attempt to terminate all of these instances in the same request, the request
  * reports failure with the following results:
- * 
- * 
  * 
  * - Instance A and Instance B are successfully terminated because none of the
  * specified instances in `us-east-1a` are enabled for termination
  * protection.
  * 
- * 
- * 
  * - Instance C and Instance D fail to terminate because at least one of the
  * specified instances in `us-east-1b` (Instance C) is enabled for
  * termination protection.
  * 
- * 
- * 
- * 
- * 
  * Terminated instances remain visible after termination (for approximately one
  * hour).
- * 
  * 
  * By default, Amazon EC2 deletes all EBS volumes that were attached when the instance
  * launched. Volumes attached after instance launch continue running.
  * 
- * 
  * By default, the TerminateInstances operation includes a graceful operating system (OS)
  * shutdown. To bypass the graceful shutdown, use the `skipOsShutdown`
  * parameter; however, this might risk data integrity.
- * 
  * 
  * You can stop, start, and terminate EBS-backed instances. You can only terminate
  * instance store-backed instances. What happens to an instance differs if you stop or
@@ -6792,7 +6047,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * to `true` are automatically deleted. For more information about the
  * differences between stopping and terminating instances, see Amazon EC2
  * instance state changes in the *Amazon EC2 User Guide*.
- * 
  * 
  * When you terminate an instance, we attempt to terminate it forcibly after a short
  * while. If your instance appears stuck in the shutting-down state after a period of time,
@@ -6810,9 +6064,7 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * see Edit secondary IP address associations
  * in the *Amazon VPC User Guide*.
  * 
- * 
  * While unassigning is in progress, you cannot assign/unassign additional IP addresses while the connections are being drained. You are, however, allowed to delete the NAT gateway.
- * 
  * 
  * A private IP address will only be released at the end of MaxDrainDurationSeconds. The
  * private IP addresses stay associated and support the existing connections, but do not
@@ -6846,10 +6098,8 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Stops advertising an address range that is provisioned as an address pool.
  * 
- * 
  * You can perform this operation at most once every 10 seconds, even if you specify different
  * address ranges each time.
- * 
  * 
  * It can take a few minutes before traffic to the specified addresses stops routing to Amazon Web Services
  * because of BGP propagation delays.
@@ -6864,16 +6114,13 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * Advertises an IPv4 or IPv6 address range that is provisioned for use with your Amazon Web Services resources through
  * bring your own IP addresses (BYOIP).
  * 
- * 
  * You can perform this operation at most once every 10 seconds, even if you specify different
  * address ranges each time.
- * 
  * 
  * We recommend that you stop advertising the BYOIP CIDR from other locations when you advertise
  * it from Amazon Web Services. To minimize down time, you can configure your Amazon Web Services resources to use an address from a
  * BYOIP CIDR before it is advertised, and then simultaneously stop advertising it from the current
  * location and start advertising it through Amazon Web Services.
- * 
  * 
  * It can take a few minutes before traffic to the specified addresses starts routing to Amazon Web Services
  * because of BGP propagation delays.
@@ -6881,11 +6128,7 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Allocate a CIDR from an IPAM pool. The Region you use should be the IPAM pool locale. The locale is the Amazon Web Services Region where this IPAM pool is available for allocations.
  * 
- * 
  * In IPAM, an allocation is a CIDR assignment from an IPAM pool to another IPAM pool or to a resource. For more information, see Allocate CIDRs in the *Amazon VPC IPAM User Guide*.
- * 
- * 
- * 
  * 
  * This action creates an allocation with strong consistency. The returned CIDR will not overlap with any other allocations from the same pool.
  */export const allocateIpamPoolCidr = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.AllocateIpamPoolCidr" }, AllocateIpamPoolCidrRequest, AllocateIpamPoolCidrResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
@@ -6893,27 +6136,22 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * Assigns the specified secondary private IP addresses to the specified network
  * interface.
  * 
- * 
  * You can specify specific secondary IP addresses, or you can specify the number of
  * secondary IP addresses to be automatically assigned from the subnet's CIDR block range.
  * The number of secondary IP addresses that you can assign to an instance varies by
  * instance type. For more information about Elastic IP addresses, see Elastic IP
  * Addresses in the *Amazon EC2 User Guide*.
  * 
- * 
  * When you move a secondary private IP address to another network interface, any Elastic
  * IP address that is associated with the IP address is also moved.
- * 
  * 
  * Remapping an IP address is an asynchronous operation. When you move an IP address from
  * one network interface to another, check
  * `network/interfaces/macs/mac/local-ipv4s` in the instance metadata to
  * confirm that the remapping is complete.
  * 
- * 
  * You must specify either the IP addresses or the IP address count in the
  * request.
- * 
  * 
  * You can optionally use Prefix Delegation on the network interface. You must specify
  * either the IPv4 Prefix Delegation prefixes, or the IPv4 Prefix Delegation count. For
@@ -6927,7 +6165,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Associates a target network with a Client VPN endpoint. A target network is a subnet in a VPC. You can associate multiple subnets from the same VPC with a Client VPN endpoint. You can associate only one subnet in each Availability Zone. We recommend that you associate at least two subnets to provide Availability Zone redundancy.
  * 
- * 
  * If you specified a VPC when you created the Client VPN endpoint or if you have previous subnet associations, the specified subnet must be in the same VPC. To specify a subnet that's in a different VPC, you must first modify the Client VPN endpoint (ModifyClientVpnEndpoint) and change the VPC that's associated with it.
  */export const associateClientVpnTargetNetwork = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.AssociateClientVpnTargetNetwork" }, AssociateClientVpnTargetNetworkRequest, AssociateClientVpnTargetNetworkResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
@@ -6938,14 +6175,12 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * Associates one or more targets with an event window. Only one type of target (instance
  * IDs, Dedicated Host IDs, or tags) can be specified with an event window.
  * 
- * 
  * For more information, see Define event windows for scheduled
  * events in the *Amazon EC2 User Guide*.
  */export const associateInstanceEventWindow = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.AssociateInstanceEventWindow" }, AssociateInstanceEventWindowRequest, AssociateInstanceEventWindowResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
  * Associates your Autonomous System Number (ASN) with a BYOIP CIDR that you own in the same Amazon Web Services Region.
  * For more information, see Tutorial: Bring your ASN to IPAM in the *Amazon VPC IPAM guide*.
- * 
  * 
  * After the association succeeds, the ASN is eligible for
  * advertisement. You can view the association with DescribeByoipCidrs. You can advertise the CIDR with AdvertiseByoipCidr.
@@ -6956,9 +6191,7 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Associates a route server with a VPC to enable dynamic route updates.
  * 
- * 
  * A route server association is the connection established between a route server and a VPC.
- * 
  * 
  * For more information see Dynamic routing in your VPC with VPC Route Server in the *Amazon VPC User Guide*.
  */export const associateRouteServer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.AssociateRouteServer" }, AssociateRouteServerRequest, AssociateRouteServerResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
@@ -6968,7 +6201,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * from the subnet or gateway to be routed according to the routes in the route table. The
  * action returns an association ID, which you need in order to disassociate the route
  * table later. A route table can be associated with multiple subnets.
- * 
  * 
  * For more information, see Route tables in the
  * *Amazon VPC User Guide*.
@@ -6983,7 +6215,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Associates a branch network interface with a trunk network interface.
  * 
- * 
  * Before you create the association, use CreateNetworkInterface command and set the interface type
  * to `trunk`. You must also create a network interface for
  * each branch network interface that you want to associate with the trunk
@@ -6992,7 +6223,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Attaches an available virtual private gateway to a VPC. You can attach one virtual private
  * gateway to one VPC at a time.
- * 
  * 
  * For more information, see Amazon Web Services Site-to-Site VPN in the Amazon Web Services Site-to-Site VPN
  * User Guide.
@@ -7004,9 +6234,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  */export const authorizeClientVpnIngress = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.AuthorizeClientVpnIngress" }, AuthorizeClientVpnIngressRequest, AuthorizeClientVpnIngressResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
  * Cancels one or more Spot Instance requests.
- * 
- * 
- * 
  * 
  * Canceling a Spot Instance request does not terminate running Spot Instances
  * associated with the request.
@@ -7036,13 +6263,11 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * interface. The IP address must be static and can be behind a device performing network
  * address translation (NAT).
  * 
- * 
  * For devices that use Border Gateway Protocol (BGP), you can also provide the device's
  * BGP Autonomous System Number (ASN). You can use an existing ASN assigned to your network.
  * If you don't have an ASN already, you can use a private ASN. For more information, see
  * Customer gateway
  * options for your Site-to-Site VPN connection in the *Amazon Web Services Site-to-Site VPN User Guide*.
- * 
  * 
  * To create more than one customer gateway with the same VPN type, IP address, and
  * BGP ASN, specify a unique device name for each customer gateway. An identical request
@@ -7056,7 +6281,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * in the *Amazon VPC User Guide*. You cannot specify the components of the
  * default VPC yourself.
  * 
- * 
  * If you deleted your previous default VPC, you can create a default VPC. You cannot have
  * more than one default VPC per Region.
  */export const createDefaultVpc = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.CreateDefaultVpc" }, CreateDefaultVpcRequest, CreateDefaultVpcResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
@@ -7065,18 +6289,14 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * it with a VPC. After you associate a DHCP option set with a VPC, all existing and newly
  * launched instances in the VPC use this set of DHCP options.
  * 
- * 
  * The following are the individual DHCP options you can specify. For more information, see
  * DHCP option sets
  * in the *Amazon VPC User Guide*.
- * 
- * 
  * 
  * - `domain-name` - If you're using AmazonProvidedDNS in `us-east-1`,
  * specify `ec2.internal`. If you're using AmazonProvidedDNS in any other Region,
  * specify `region.compute.internal`. Otherwise, specify a custom domain name.
  * This value is used to complete unqualified DNS hostnames.
- * 
  * 
  * Some Linux operating systems accept multiple domain names separated by spaces.
  * However, Windows and other Linux operating systems treat the value as a single
@@ -7084,31 +6304,21 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * associated with a VPC that has instances running operating systems that treat
  * the value as a single domain, specify only one domain name.
  * 
- * 
- * 
  * - `domain-name-servers` - The IP addresses of up to four DNS servers,
  * or AmazonProvidedDNS. To specify multiple domain name servers in a single parameter,
  * separate the IP addresses using commas. To have your instances receive custom DNS
  * hostnames as specified in `domain-name`, you must specify a custom DNS
  * server.
  * 
- * 
- * 
  * - `ntp-servers` - The IP addresses of up to eight Network Time Protocol (NTP)
  * servers (four IPv4 addresses and four IPv6 addresses).
- * 
- * 
  * 
  * - `netbios-name-servers` - The IP addresses of up to four NetBIOS name
  * servers.
  * 
- * 
- * 
  * - `netbios-node-type` - The NetBIOS node type (1, 2, 4, or 8). We recommend that
  * you specify 2. Broadcast and multicast are not supported. For more information about
  * NetBIOS node types, see RFC 2132.
- * 
- * 
  * 
  * - `ipv6-address-preferred-lease-time` - A value (in seconds, minutes, hours, or years) for how frequently a running instance with an IPv6 assigned to it goes through DHCPv6 lease renewal.
  * Acceptable values are between 140 and 2147483647 seconds (approximately 68 years). If no value is entered, the default lease time is 140 seconds. If you use long-term addressing for EC2 instances, you can increase the lease time and avoid frequent
@@ -7118,18 +6328,15 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * Creates one or more flow logs to capture information about IP traffic for a specific network interface,
  * subnet, or VPC.
  * 
- * 
  * Flow log data for a monitored network interface is recorded as flow log records, which are log events
  * consisting of fields that describe the traffic flow. For more information, see
  * Flow log records
  * in the *Amazon VPC User Guide*.
  * 
- * 
  * When publishing to CloudWatch Logs, flow log records are published to a log group, and each network
  * interface has a unique log stream in the log group. When publishing to Amazon S3, flow log records for all
  * of the monitored network interfaces are published to a single log file object that is stored in the specified
  * bucket.
- * 
  * 
  * For more information, see VPC Flow Logs
  * in the *Amazon VPC User Guide*.
@@ -7137,10 +6344,8 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Creates an Amazon FPGA Image (AFI) from the specified design checkpoint (DCP).
  * 
- * 
  * The create operation is asynchronous. To verify that the AFI was successfully
  * created and is ready for use, check the output logs.
- * 
  * 
  * An AFI contains the FPGA bitstream that is ready to download to an FPGA.
  * You can securely deploy an AFI on multiple FPGA-accelerated instances.
@@ -7150,47 +6355,29 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * Creates an event window in which scheduled events for the associated Amazon EC2 instances can
  * run.
  * 
- * 
  * You can define either a set of time ranges or a cron expression when creating the event
  * window, but not both. All event window times are in UTC.
  * 
- * 
  * You can create up to 200 event windows per Amazon Web Services Region.
- * 
  * 
  * When you create the event window, targets (instance IDs, Dedicated Host IDs, or tags)
  * are not yet associated with it. To ensure that the event window can be used, you must
  * associate one or more targets with it by using the AssociateInstanceEventWindow API.
  * 
- * 
- * 
- * 
  * Event windows are applicable only for scheduled events that stop, reboot, or
  * terminate instances.
  * 
- * 
  * Event windows are *not* applicable for:
- * 
- * 
  * 
  * - Expedited scheduled events and network maintenance events.
  * 
- * 
- * 
  * - Unscheduled maintenance such as AutoRecovery and unplanned reboots.
- * 
- * 
- * 
- * 
- * 
- * 
  * 
  * For more information, see Define event windows for scheduled
  * events in the *Amazon EC2 User Guide*.
  */export const createInstanceEventWindow = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.CreateInstanceEventWindow" }, CreateInstanceEventWindowRequest, CreateInstanceEventWindowResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
  * Exports a running or stopped instance to an Amazon S3 bucket.
- * 
  * 
  * For information about the prerequisites for your Amazon S3 bucket, supported operating systems,
  * image formats, and known limitations for the types of instances you can export, see Exporting an instance as a VM Using VM
@@ -7199,7 +6386,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Creates an internet gateway for use with a VPC. After creating the internet gateway,
  * you attach it to a VPC using AttachInternetGateway.
- * 
  * 
  * For more information, see Internet gateways in the
  * *Amazon VPC User Guide*.
@@ -7210,42 +6396,34 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * troubleshooting, and auditing IP addresses across Amazon Web Services Regions and accounts
  * throughout your Amazon Web Services Organization.
  * 
- * 
  * For more information, see Create an IPAM in the *Amazon VPC IPAM User Guide*.
  */export const createIpam = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.CreateIpam" }, CreateIpamRequest, CreateIpamResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
  * Create a verification token.
- * 
  * 
  * A verification token is an Amazon Web Services-generated random value that you can use to prove ownership of an external resource. For example, you can use a verification token to validate that you control a public IP address range when you bring an IP address range to Amazon Web Services (BYOIP).
  */export const createIpamExternalResourceVerificationToken = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.CreateIpamExternalResourceVerificationToken" }, CreateIpamExternalResourceVerificationTokenRequest, CreateIpamExternalResourceVerificationTokenResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
  * Creates an IPAM policy.
  * 
- * 
  * An IPAM policy is a set of rules that define how public IPv4 addresses from IPAM pools are allocated to Amazon Web Services resources. Each rule maps an Amazon Web Services service to IPAM pools that the service will use to get IP addresses. A single policy can have multiple rules and be applied to multiple Amazon Web Services Regions. If the IPAM pool run out of addresses then the services fallback to Amazon-provided IP addresses. A policy can be applied to an individual Amazon Web Services account or an entity within Amazon Web Services Organizations.
- * 
  * 
  * For more information, see Define public IPv4 allocation strategy with IPAM policies in the *Amazon VPC IPAM User Guide*.
  */export const createIpamPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.CreateIpamPolicy" }, CreateIpamPolicyRequest, CreateIpamPolicyResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
  * Create an IP address pool for Amazon VPC IP Address Manager (IPAM). In IPAM, a pool is a collection of contiguous IP addresses CIDRs. Pools enable you to organize your IP addresses according to your routing and security needs. For example, if you have separate routing and security needs for development and production applications, you can create a pool for each.
  * 
- * 
  * For more information, see Create a top-level pool in the *Amazon VPC IPAM User Guide*.
  */export const createIpamPool = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.CreateIpamPool" }, CreateIpamPoolRequest, CreateIpamPoolResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
  * Creates an IPAM prefix list resolver target.
  * 
- * 
  * An IPAM prefix list resolver target is an association between a specific customer-managed prefix list and an IPAM prefix list resolver. The target enables the resolver to synchronize CIDRs selected by its rules into the specified prefix list, which can then be referenced in Amazon Web Services resources.
- * 
  * 
  * For more information about IPAM prefix list resolver, see Automate prefix list updates with IPAM in the *Amazon VPC IPAM User Guide*.
  */export const createIpamPrefixListResolverTarget = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.CreateIpamPrefixListResolverTarget" }, CreateIpamPrefixListResolverTargetRequest, CreateIpamPrefixListResolverTargetResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
  * Create an IPAM scope. In IPAM, a scope is the highest-level container within IPAM. An IPAM contains two default scopes. Each scope represents the IP space for a single network. The private scope is intended for all private IP address space. The public scope is intended for all public IP address space. Scopes enable you to reuse IP addresses across multiple unconnected networks without causing IP address overlap or conflict.
- * 
  * 
  * For more information, see Add a scope in the *Amazon VPC IPAM User Guide*.
  */export const createIpamScope = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.CreateIpamScope" }, CreateIpamScopeRequest, CreateIpamScopeResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
@@ -7253,12 +6431,7 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * Creates a static route for the specified local gateway route table. You must specify one of the
  * following targets:
  * 
- * 
- * 
  * - `LocalGatewayVirtualInterfaceGroupId`
- * 
- * 
- * 
  * 
  * - `NetworkInterfaceId`
  */export const createLocalGatewayRoute = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.CreateLocalGatewayRoute" }, CreateLocalGatewayRouteRequest, CreateLocalGatewayRouteResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
@@ -7280,37 +6453,22 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * 
  * Configure SIP for Amazon EC2 instances in the *Amazon EC2 User Guide*.
  * 
- * 
  * When you configure the SIP settings for your instance, you can either enable
  * or disable all SIP settings, or you can specify a custom SIP configuration that
  * selectively enables or disables specific SIP settings.
- * 
- * 
- * 
  * 
  * If you implement a custom configuration,
  * connect to the instance and verify the settings to ensure that your
  * requirements are properly implemented and functioning as intended.
  * 
- * 
  * SIP configurations might change with macOS updates. We recommend that you
  * review custom SIP settings after any macOS version upgrade to ensure
  * continued compatibility and proper functionality of your security configurations.
  * 
- * 
- * 
- * 
  * To enable or disable all SIP settings, use the **MacSystemIntegrityProtectionStatus**
  * parameter only. For example, to enable all SIP settings, specify the following:
  * 
- * 
- * 
  * - `MacSystemIntegrityProtectionStatus=enabled`
- * 
- * 
- * 
- * 
- * 
  * 
  * To specify a custom configuration that selectively enables or disables specific SIP
  * settings, use the **MacSystemIntegrityProtectionStatus**
@@ -7321,12 +6479,7 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * For example, to enable all SIP settings, except `NvramProtections`,
  * specify the following:
  * 
- * 
- * 
  * - `MacSystemIntegrityProtectionStatus=enabled`
- * 
- * 
- * 
  * 
  * - `MacSystemIntegrityProtectionConfigurationRequest "NvramProtections=disabled"`
  */export const createMacSystemIntegrityProtectionModificationTask = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.CreateMacSystemIntegrityProtectionModificationTask" }, CreateMacSystemIntegrityProtectionModificationTaskRequest, CreateMacSystemIntegrityProtectionModificationTaskResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
@@ -7339,21 +6492,15 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * in the specified subnet with a private IP address from the IP address range of the
  * subnet. You can create either a public NAT gateway or a private NAT gateway.
  * 
- * 
  * With a public NAT gateway, internet-bound traffic from a private subnet can be routed
  * to the NAT gateway, so that instances in a private subnet can connect to the internet.
- * 
  * 
  * With a private NAT gateway, private communication is routed across VPCs and on-premises
  * networks through a transit gateway or virtual private gateway. Common use cases include
  * running large workloads behind a small pool of allowlisted IPv4 addresses, preserving
  * private IPv4 addresses, and communicating between overlapping networks.
  * 
- * 
  * For more information, see NAT gateways in the *Amazon VPC User Guide*.
- * 
- * 
- * 
  * 
  * When you create a public NAT gateway and assign it an EIP or secondary EIPs,
  * the network border group of the EIPs must match the network border group of the Availability Zone (AZ)
@@ -7366,10 +6513,8 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Creates a network interface in the specified subnet.
  * 
- * 
  * The number of IP addresses you can assign to a network interface varies by instance
  * type.
- * 
  * 
  * For more information about network interfaces, see Elastic network interfaces in the
  * *Amazon EC2 User Guide*.
@@ -7378,14 +6523,12 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * Creates a placement group in which to launch instances. The strategy of the placement
  * group determines how the instances are organized within the group.
  * 
- * 
  * A `cluster` placement group is a logical grouping of instances within a
  * single Availability Zone that benefit from low network latency, high network throughput.
  * A `spread` placement group places instances on distinct hardware. A
  * `partition` placement group places groups of instances in different
  * partitions, where instances in one partition do not share the same hardware with
  * instances in another partition.
- * 
  * 
  * For more information, see Placement groups in the
  * *Amazon EC2 User Guide*.
@@ -7396,7 +6539,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * specific snapshot taken from the original root volume, or that is restored from an AMI
  * that has the same key characteristics as that of the instance.
  * 
- * 
  * For more information, see Replace a root volume in the *Amazon EC2 User Guide*.
  */export const createReplaceRootVolumeTask = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.CreateReplaceRootVolumeTask" }, CreateReplaceRootVolumeTaskRequest, CreateReplaceRootVolumeTaskResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
@@ -7404,20 +6546,13 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * Instance Marketplace. You can submit one Standard Reserved Instance listing at a time. To get
  * a list of your Standard Reserved Instances, you can use the DescribeReservedInstances operation.
  * 
- * 
- * 
- * 
  * Only Standard Reserved Instances can be sold in the Reserved Instance Marketplace.
  * Convertible Reserved Instances cannot be sold.
- * 
- * 
- * 
  * 
  * The Reserved Instance Marketplace matches sellers who want to resell Standard Reserved
  * Instance capacity that they no longer need with buyers who want to purchase additional
  * capacity. Reserved Instances bought and sold through the Reserved Instance Marketplace work
  * like any other Reserved Instances.
- * 
  * 
  * To sell your Standard Reserved Instances, you must first register as a seller in the
  * Reserved Instance Marketplace. After completing the registration process, you can create a
@@ -7426,81 +6561,52 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * become available for purchase. To view the details of your Standard Reserved Instance listing,
  * you can use the DescribeReservedInstancesListings operation.
  * 
- * 
  * For more information, see Sell in the Reserved Instance
  * Marketplace in the *Amazon EC2 User Guide*.
  */export const createReservedInstancesListing = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.CreateReservedInstancesListing" }, CreateReservedInstancesListingRequest, CreateReservedInstancesListingResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
  * Creates a new route server to manage dynamic routing in a VPC.
  * 
- * 
  * Amazon VPC Route Server simplifies routing for traffic between workloads that are deployed within a VPC and its internet gateways. With this feature,
  * VPC Route Server dynamically updates VPC and internet gateway route tables with your preferred IPv4 or IPv6 routes to achieve routing fault tolerance for those workloads. This enables you to automatically reroute traffic within a VPC, which increases the manageability of VPC routing and interoperability with third-party workloads.
  * 
- * 
  * Route server supports the follow route table types:
- * 
- * 
  * 
  * - VPC route tables not associated with subnets
  * 
- * 
- * 
  * - Subnet route tables
- * 
- * 
  * 
  * - Internet gateway route tables
  * 
- * 
- * 
- * 
- * 
  * Route server does not support route tables associated with virtual private gateways. To propagate routes into a transit gateway route table, use Transit Gateway Connect.
- * 
  * 
  * For more information see Dynamic routing in your VPC with VPC Route Server in the *Amazon VPC User Guide*.
  */export const createRouteServer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.CreateRouteServer" }, CreateRouteServerRequest, CreateRouteServerResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
  * Creates a new endpoint for a route server in a specified subnet.
  * 
- * 
  * A route server endpoint is an Amazon Web Services-managed component inside a subnet that facilitates BGP (Border Gateway Protocol) connections between your route server and your BGP peers.
- * 
  * 
  * For more information see Dynamic routing in your VPC with VPC Route Server in the *Amazon VPC User Guide*.
  */export const createRouteServerEndpoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.CreateRouteServerEndpoint" }, CreateRouteServerEndpointRequest, CreateRouteServerEndpointResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
  * Creates a new BGP peer for a specified route server endpoint.
  * 
- * 
  * A route server peer is a session between a route server endpoint and the device deployed in Amazon Web Services (such as a firewall appliance or other network security function running on an EC2 instance). The device must meet these requirements:
- * 
- * 
  * 
  * - Have an elastic network interface in the VPC
  * 
- * 
- * 
  * - Support BGP (Border Gateway Protocol)
  * 
- * 
- * 
  * - Can initiate BGP sessions
- * 
- * 
- * 
- * 
  * 
  * For more information see Dynamic routing in your VPC with VPC Route Server in the *Amazon VPC User Guide*.
  */export const createRouteServerPeer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.CreateRouteServerPeer" }, CreateRouteServerPeerRequest, CreateRouteServerPeerResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
  * Stores an AMI as a single object in an Amazon S3 bucket.
  * 
- * 
  * To use this API, you must have the required permissions. For more information, see Permissions for storing and restoring AMIs using S3 in the
  * *Amazon EC2 User Guide*.
- * 
  * 
  * For more information, see Store and restore an AMI using
  * S3 in the *Amazon EC2 User Guide*.
@@ -7513,9 +6619,7 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Creates a Traffic Mirror filter.
  * 
- * 
  * A Traffic Mirror filter is a set of rules that defines the traffic to mirror.
- * 
  * 
  * By default, no traffic is mirrored. To mirror traffic, use CreateTrafficMirrorFilterRule
  * to add Traffic Mirror rules to the filter. The rules you add define what traffic gets mirrored.
@@ -7524,23 +6628,18 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Creates a Traffic Mirror filter rule.
  * 
- * 
  * A Traffic Mirror rule defines the Traffic Mirror source traffic to mirror.
- * 
  * 
  * You need the Traffic Mirror filter ID when you create the rule.
  */export const createTrafficMirrorFilterRule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.CreateTrafficMirrorFilterRule" }, CreateTrafficMirrorFilterRuleRequest, CreateTrafficMirrorFilterRuleResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
  * Creates a Traffic Mirror session.
  * 
- * 
  * A Traffic Mirror session actively copies packets from a Traffic Mirror source to a Traffic Mirror target. Create a filter, and then assign it
  * to the session to define a subset of the traffic to mirror, for example all TCP
  * traffic.
  * 
- * 
  * The Traffic Mirror source and the Traffic Mirror target (monitoring appliances) can be in the same VPC, or in a different VPC connected via VPC peering or a transit gateway.
- * 
  * 
  * By default, no traffic is mirrored. Use CreateTrafficMirrorFilter to
  * create filter rules that specify the traffic to mirror.
@@ -7548,33 +6647,26 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Creates a target for your Traffic Mirror session.
  * 
- * 
  * A Traffic Mirror target is the destination for mirrored traffic. The Traffic Mirror source and
  * the Traffic Mirror target (monitoring appliances) can be in the same VPC, or in
  * different VPCs connected via VPC peering or a transit gateway.
  * 
- * 
  * A Traffic Mirror target can be a network interface, a Network Load Balancer, or a Gateway Load Balancer endpoint.
- * 
  * 
  * To use the target in a Traffic Mirror session, use CreateTrafficMirrorSession.
  */export const createTrafficMirrorTarget = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.CreateTrafficMirrorTarget" }, CreateTrafficMirrorTargetRequest, CreateTrafficMirrorTargetResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
  * Creates a transit gateway.
  * 
- * 
  * You can use a transit gateway to interconnect your virtual private clouds (VPC) and on-premises networks.
  * After the transit gateway enters the `available` state, you can attach your VPCs and VPN
  * connections to the transit gateway.
  * 
- * 
  * To attach your VPCs, use CreateTransitGatewayVpcAttachment.
- * 
  * 
  * To attach a VPN connection, use CreateCustomerGateway to create a customer
  * gateway and specify the ID of the customer gateway and the ID of the transit gateway in a call to
  * CreateVpnConnection.
- * 
  * 
  * When you create a transit gateway, we create a default transit gateway route table and use it as the default association route table
  * and the default propagation route table. You can use CreateTransitGatewayRouteTable to create
@@ -7585,16 +6677,13 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Creates a Connect attachment from a specified transit gateway attachment. A Connect attachment is a GRE-based tunnel attachment that you can use to establish a connection between a transit gateway and an appliance.
  * 
- * 
  * A Connect attachment uses an existing VPC or Amazon Web Services Direct Connect attachment as the underlying transport mechanism.
  */export const createTransitGatewayConnect = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.CreateTransitGatewayConnect" }, CreateTransitGatewayConnectRequest, CreateTransitGatewayConnectResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
  * Creates a Connect peer for a specified transit gateway Connect attachment between a
  * transit gateway and an appliance.
  * 
- * 
  * The peer address and transit gateway address must be the same IP address family (IPv4 or IPv6).
- * 
  * 
  * For more information, see Connect peers
  * in the *Amazon Web Services Transit Gateways Guide*.
@@ -7605,14 +6694,12 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Creates a multicast domain using the specified transit gateway.
  * 
- * 
  * The transit gateway must be in the available state before you create a domain. Use DescribeTransitGateways to see the state of transit gateway.
  */export const createTransitGatewayMulticastDomain = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.CreateTransitGatewayMulticastDomain" }, CreateTransitGatewayMulticastDomainRequest, CreateTransitGatewayMulticastDomainResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
  * Requests a transit gateway peering attachment between the specified transit gateway
  * (requester) and a peer transit gateway (accepter). The peer transit gateway can be in
  * your account or a different Amazon Web Services account.
- * 
  * 
  * After you create the peering attachment, the owner of the accepter transit gateway
  * must accept the attachment request.
@@ -7629,10 +6716,8 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Attaches the specified VPC to the specified transit gateway.
  * 
- * 
  * If you attach a VPC with a CIDR range that overlaps the CIDR range of a VPC that is already attached,
  * the new VPC CIDR range is not propagated to the default propagation route table.
- * 
  * 
  * To send VPC traffic to an attached transit gateway, add a route to the VPC route table using CreateRoute.
  */export const createTransitGatewayVpcAttachment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.CreateTransitGatewayVpcAttachment" }, CreateTransitGatewayVpcAttachmentRequest, CreateTransitGatewayVpcAttachmentResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
@@ -7651,27 +6736,22 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Creates an EBS volume that can be attached to an instance in the same Availability Zone.
  * 
- * 
  * You can create a new empty volume or restore a volume from an EBS snapshot.
  * Any Amazon Web Services Marketplace product codes from the snapshot are propagated to the volume.
- * 
  * 
  * You can create encrypted volumes. Encrypted volumes must be attached to instances that
  * support Amazon EBS encryption. Volumes that are created from encrypted snapshots are also automatically
  * encrypted. For more information, see Amazon EBS encryption
  * in the *Amazon EBS User Guide*.
  * 
- * 
  * You can tag your volumes during creation. For more information, see Tag your Amazon EC2
  * resources in the *Amazon EC2 User Guide*.
- * 
  * 
  * For more information, see Create an Amazon EBS volume in the
  * *Amazon EBS User Guide*.
  */export const createVolume = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.CreateVolume" }, CreateVolumeRequest, Volume, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
  * Creates a VPC with the specified CIDR blocks.
- * 
  * 
  * A VPC must have an associated IPv4 CIDR block. You can choose an IPv4 CIDR block or an
  * IPAM-allocated IPv4 CIDR block. You can optionally associate an IPv6 CIDR block with a
@@ -7680,11 +6760,9 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * more information, see IP addressing for your VPCs and
  * subnets in the *Amazon VPC User Guide*.
  * 
- * 
  * By default, each instance that you launch in the VPC has the default DHCP options, which
  * include only a default DNS server that we provide (AmazonProvidedDNS). For more
  * information, see DHCP option sets in the *Amazon VPC User Guide*.
- * 
  * 
  * You can specify DNS options and tenancy for a VPC when you create it. You can't change
  * the tenancy of a VPC after you create it. For more information, see VPC configuration options in the
@@ -7705,7 +6783,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * create an SNS topic to receive notifications. For more information, see Creating an Amazon SNS topic in
  * the *Amazon SNS Developer Guide*.
  * 
- * 
  * You can create a connection notification for interface endpoints only.
  */export const createVpcEndpointConnectionNotification = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.CreateVpcEndpointConnectionNotification" }, CreateVpcEndpointConnectionNotificationRequest, CreateVpcEndpointConnectionNotificationResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
@@ -7715,7 +6792,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * Creates a virtual private gateway. A virtual private gateway is the endpoint on the
  * VPC side of your VPN connection. You can create a virtual private gateway before
  * creating the VPC itself.
- * 
  * 
  * For more information, see Amazon Web Services Site-to-Site VPN in the Amazon Web Services Site-to-Site VPN
  * User Guide.
@@ -7727,13 +6803,11 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Deletes the specified event window.
  * 
- * 
  * For more information, see Define event windows for scheduled
  * events in the *Amazon EC2 User Guide*.
  */export const deleteInstanceEventWindow = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.DeleteInstanceEventWindow" }, DeleteInstanceEventWindowRequest, DeleteInstanceEventWindowResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
  * Delete an IPAM. Deleting an IPAM removes all monitored data associated with the IPAM including the historical data for CIDRs.
- * 
  * 
  * For more information, see Delete an IPAM in the *Amazon VPC IPAM User Guide*.
  */export const deleteIpam = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.DeleteIpam" }, DeleteIpamRequest, DeleteIpamResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
@@ -7755,7 +6829,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * Deregisters the specified AMI. A deregistered AMI can't be used to launch new
  * instances.
  * 
- * 
  * If a deregistered EBS-backed AMI matches a Recycle Bin retention rule, it moves to the
  * Recycle Bin for the specified retention period. It can be restored before its retention period
  * expires, after which it is permanently deleted. If the deregistered AMI doesn't match a
@@ -7763,32 +6836,20 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * snapshots and EBS-backed AMIs with Recycle Bin in the Amazon EBS User
  * Guide.
  * 
- * 
  * When deregistering an EBS-backed AMI, you can optionally delete its associated snapshots
  * at the same time. However, if a snapshot is associated with multiple AMIs, it won't be deleted
  * even if specified for deletion, although the AMI will still be deregistered.
  * 
- * 
  * Deregistering an AMI does not delete the following:
- * 
- * 
  * 
  * - Instances already launched from the AMI. You'll continue to incur usage costs for the
  * instances until you terminate them.
  * 
- * 
- * 
  * - For EBS-backed AMIs: Snapshots that are associated with multiple AMIs. You'll continue
  * to incur snapshot storage costs.
  * 
- * 
- * 
  * - For instance store-backed AMIs: The files uploaded to Amazon S3 during AMI creation. You'll
  * continue to incur S3 storage costs.
- * 
- * 
- * 
- * 
  * 
  * For more information, see Deregister an Amazon EC2 AMI in the
  * *Amazon EC2 User Guide*.
@@ -7806,7 +6867,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Describes an Elastic IP address transfer. For more information, see Transfer Elastic IP addresses in the *Amazon VPC User Guide*.
  * 
- * 
  * When you transfer an Elastic IP address, there is a two-step handshake
  * between the source and transfer Amazon Web Services accounts. When the source account starts the transfer,
  * the transfer account has seven days to accept the Elastic IP address
@@ -7822,9 +6882,7 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * Region. This request is useful for performing a quick audit to determine whether a
  * specific Region is fully opted in for longer IDs (17-character IDs).
  * 
- * 
  * This request only returns information about resource types that support longer IDs.
- * 
  * 
  * The following resource types support longer IDs: `bundle` |
  * `conversion-task` | `customer-gateway` | `dhcp-options` |
@@ -7855,7 +6913,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * Describes Capacity Block offerings available for purchase in the Amazon Web Services Region that you're currently using. With Capacity Blocks, you can
  * purchase a specific GPU instance type or EC2 UltraServer for a period of time.
  * 
- * 
  * To search for an available Capacity Block offering, you specify a reservation duration
  * and instance count.
  */export const describeCapacityBlockOfferings = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.DescribeCapacityBlockOfferings" }, DescribeCapacityBlockOfferingsRequest, DescribeCapacityBlockOfferingsResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
@@ -7872,14 +6929,10 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * Amazon Web Services network before it is launched and use this information to allocate capacity
  * together to support your tightly coupled workloads.
  * 
- * 
  * Capacity Reservation topology is supported for specific instance types only. For more
  * information, see Prerequisites
  * for Amazon EC2 instance topology in the
  * *Amazon EC2 User Guide*.
- * 
- * 
- * 
  * 
  * The Amazon EC2 API follows an eventual consistency model due to the
  * distributed nature of the system supporting it. As a result, when you call the
@@ -7890,17 +6943,11 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * Amazon EC2 API in the Amazon EC2 Developer
  * Guide.
  * 
- * 
- * 
- * 
  * For more information, see Amazon EC2 topology in
  * the *Amazon EC2 User Guide*.
  */export const describeCapacityReservationTopology = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.DescribeCapacityReservationTopology" }, DescribeCapacityReservationTopologyRequest, DescribeCapacityReservationTopologyResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
  * This action is deprecated.
- * 
- * 
- * 
  * 
  * Describes your linked EC2-Classic instances. This request only returns
  * information about EC2-Classic instances linked to a VPC through ClassicLink. You cannot
@@ -7919,14 +6966,12 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * Describes the metadata of an account status report, including the status of the
  * report.
  * 
- * 
  * To view the full report, download it from the Amazon S3 bucket where it was saved.
  * Reports are accessible only when they have the `complete` status. Reports
  * with other statuses (`running`, `cancelled`, or
  * `error`) are not available in the S3 bucket. For more information about
  * downloading objects from an S3 bucket, see Downloading objects in
  * the *Amazon Simple Storage Service User Guide*.
- * 
  * 
  * For more information, see Generating the account status report for declarative policies in the
  * *Amazon Web Services Organizations User Guide*.
@@ -7940,22 +6985,15 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Describes the running instances for the specified EC2 Fleet.
  * 
- * 
- * 
- * 
  * Currently, `DescribeFleetInstances` does not support fleets of type
  * `instant`. Instead, use `DescribeFleets`, specifying the
  * `instant` fleet ID in the request.
- * 
- * 
- * 
  * 
  * For more information, see Describe your
  * EC2 Fleet in the *Amazon EC2 User Guide*.
  */export const describeFleetInstances = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.DescribeFleetInstances" }, DescribeFleetInstancesRequest, DescribeFleetInstancesResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
  * Describes the Dedicated Host reservations that are available to purchase.
- * 
  * 
  * The results describe all of the Dedicated Host reservation offerings, including
  * offerings that might not match the instance family and Region of your Dedicated Hosts.
@@ -7972,9 +7010,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * Describes the specified attribute of the specified AMI. You can specify only one attribute
  * at a time.
  * 
- * 
- * 
- * 
  * The order of the elements in the response, including those within nested structures,
  * might vary. Applications should not assume the elements appear in a particular order.
  */export const describeImageAttribute = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.DescribeImageAttribute" }, DescribeImageAttributeRequest, ImageAttribute, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
@@ -7982,17 +7017,14 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * Describes the specified images (AMIs, AKIs, and ARIs) available to you or all of the
  * images available to you.
  * 
- * 
  * The images available to you include public images, private images that you own, and
  * private images owned by other Amazon Web Services accounts for which you have explicit launch
  * permissions.
- * 
  * 
  * Recently deregistered images appear in the returned results for a short interval and then
  * return empty results. After all instances that reference a deregistered AMI are terminated,
  * specifying the ID of the image will eventually return an error indicating that the AMI ID
  * cannot be found.
- * 
  * 
  * When Allowed AMIs is set to `enabled`, only allowed images are returned in the
  * results, with the `imageAllowed` field set to `true` for each image. In
@@ -8000,23 +7032,14 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * images that meet the account's Allowed AMIs criteria, and `false` for images that
  * don't meet the criteria. For more information, see Allowed AMIs.
  * 
- * 
  * The Amazon EC2 API follows an eventual consistency model. This means that the result of an API
  * command you run that creates or modifies resources might not be immediately available to all
  * subsequent commands you run. For guidance on how to manage eventual consistency, see Eventual
  * consistency in the Amazon EC2 API in the Amazon EC2 Developer
  * Guide.
  * 
- * 
- * 
- * 
  * We strongly recommend using only paginated requests. Unpaginated requests are
  * susceptible to throttling and timeouts.
- * 
- * 
- * 
- * 
- * 
  * 
  * The order of the elements in the response, including those within nested structures,
  * might vary. Applications should not assume the elements appear in a particular order.
@@ -8024,7 +7047,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Describes the entries in image usage reports, showing how your images are used across
  * other Amazon Web Services accounts.
- * 
  * 
  * For more information, see View your AMI usage in the
  * *Amazon EC2 User Guide*.
@@ -8034,7 +7056,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * instances. The credit options are `standard` and
  * `unlimited`.
  * 
- * 
  * If you do not specify an instance ID, Amazon EC2 returns burstable performance
  * instances with the `unlimited` credit option, as well as instances that were
  * previously configured as T2, T3, and T3a with the `unlimited` credit option.
@@ -8042,21 +7063,17 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * `unlimited`, to an M4 instance, Amazon EC2 returns the M4
  * instance.
  * 
- * 
  * If you specify one or more instance IDs, Amazon EC2 returns the credit option
  * (`standard` or `unlimited`) of those instances. If you specify
  * an instance ID that is not valid, such as an instance that is not a burstable
  * performance instance, an error is returned.
  * 
- * 
  * Recently terminated instances might appear in the returned results. This interval is
  * usually less than one hour.
- * 
  * 
  * If an Availability Zone is experiencing a service disruption and you specify instance
  * IDs in the affected zone, or do not specify any instance IDs at all, the call fails. If
  * you specify only instance IDs in an unaffected zone, the call works normally.
- * 
  * 
  * For more information, see Burstable
  * performance instances in the *Amazon EC2 User Guide*.
@@ -8075,14 +7092,10 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * determine the relative proximity of your EC2 instances within the Amazon Web Services network to
  * support your tightly coupled workloads.
  * 
- * 
  * Instance topology is supported for specific instance types only. For more information,
  * see Prerequisites
  * for Amazon EC2 instance topology in the
  * *Amazon EC2 User Guide*.
- * 
- * 
- * 
  * 
  * The Amazon EC2 API follows an eventual consistency model due to the
  * distributed nature of the system supporting it. As a result, when you call the
@@ -8092,9 +7105,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * information, see Eventual consistency in the
  * Amazon EC2 API in the Amazon EC2 Developer
  * Guide.
- * 
- * 
- * 
  * 
  * For more information, see Amazon EC2 topology in
  * the *Amazon EC2 User Guide*.
@@ -8106,7 +7116,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  */export const describeInstanceTypeOfferings = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.DescribeInstanceTypeOfferings" }, DescribeInstanceTypeOfferingsRequest, DescribeInstanceTypeOfferingsResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
  * Describes the specified key pairs or all of your key pairs.
- * 
  * 
  * For more information about key pairs, see Amazon EC2 key pairs
  * in the *Amazon EC2 User Guide*.
@@ -8124,9 +7133,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * This action is deprecated.
  * 
- * 
- * 
- * 
  * Describes your Elastic IP addresses that are being moved from or being restored to the EC2-Classic platform.
  * This request does not return information about any other Elastic IP addresses in your account.
  */export const describeMovingAddresses = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.DescribeMovingAddresses" }, DescribeMovingAddressesRequest, DescribeMovingAddressesResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
@@ -8139,9 +7145,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Describes the Outposts link aggregation groups (LAGs).
  * 
- * 
- * 
- * 
  * LAGs are only available for second-generation Outposts racks at this time.
  */export const describeOutpostLags = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.DescribeOutpostLags" }, DescribeOutpostLagsRequest, DescribeOutpostLagsResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
@@ -8152,11 +7155,9 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * Describes the ID format settings for the root user and all IAM roles and IAM users
  * that have explicitly specified a longer ID (17-character ID) preference.
  * 
- * 
  * By default, all IAM roles and IAM users default to the same ID settings as the root user, unless they
  * explicitly override the settings. This request is useful for identifying those IAM users and IAM roles
  * that have overridden the default ID settings.
- * 
  * 
  * The following resource types support longer IDs: `bundle` |
  * `conversion-task` | `customer-gateway` | `dhcp-options` |
@@ -8178,15 +7179,10 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Describes the Regions that are enabled for your account, or all Regions.
  * 
- * 
  * For a list of the Regions supported by Amazon EC2, see Amazon EC2 service endpoints.
- * 
  * 
  * For information about enabling and disabling Regions for your account, see Specify which Amazon Web Services Regions
  * your account can use in the *Amazon Web Services Account Management Reference Guide*.
- * 
- * 
- * 
  * 
  * The order of the elements in the response, including those within nested structures,
  * might vary. Applications should not assume the elements appear in a particular order.
@@ -8210,11 +7206,9 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * Describes the events for the specified Spot Fleet request during the specified
  * time.
  * 
- * 
  * Spot Fleet events are delayed by up to 30 seconds before they can be described. This
  * ensures that you can query by the last evaluated time and not miss a recorded event.
  * Spot Fleet events are available for 48 hours.
- * 
  * 
  * For more information, see Monitor fleet events using Amazon
  * EventBridge in the *Amazon EC2 User Guide*.
@@ -8222,14 +7216,12 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Describes your Spot Fleet requests.
  * 
- * 
  * Spot Fleet requests are deleted 48 hours after they are canceled and their instances
  * are terminated.
  */export const describeSpotFleetRequests = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.DescribeSpotFleetRequests" }, DescribeSpotFleetRequestsRequest, DescribeSpotFleetRequestsResponse, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
  * Describes the Spot price history. For more information, see Spot Instance pricing history in the
  * *Amazon EC2 User Guide*.
- * 
  * 
  * When you specify a start and end time, the operation returns the prices of the
  * instance types within that time range. It also returns the last price change before the
@@ -8240,19 +7232,15 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * specified AMIs. If you don't specify the AMIs, you get a paginated list of store tasks from
  * the last 31 days.
  * 
- * 
  * For each AMI task, the response indicates if the task is `InProgress`,
  * `Completed`, or `Failed`. For tasks `InProgress`, the
  * response shows the estimated progress as a percentage.
  * 
- * 
  * Tasks are listed in reverse chronological order. Currently, only tasks from the past 31
  * days can be viewed.
  * 
- * 
  * To use this API, you must have the required permissions. For more information, see Permissions for storing and restoring AMIs using S3 in the
  * *Amazon EC2 User Guide*.
- * 
  * 
  * For more information, see Store and restore an AMI using
  * S3 in the *Amazon EC2 User Guide*.
@@ -8260,20 +7248,11 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Describes the specified tags for your EC2 resources.
  * 
- * 
  * For more information about tags, see Tag your Amazon EC2 resources in the
  * *Amazon Elastic Compute Cloud User Guide*.
  * 
- * 
- * 
- * 
  * We strongly recommend using only paginated requests. Unpaginated requests are
  * susceptible to throttling and timeouts.
- * 
- * 
- * 
- * 
- * 
  * 
  * The order of the elements in the response, including those within nested
  * structures, might vary. Applications should not assume the elements appear in a
@@ -8281,7 +7260,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  */export const describeTags = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.DescribeTags" }, DescribeTagsRequest, DescribeTagsResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
  * Describes the most recent volume modification request for the specified EBS volumes.
- * 
  * 
  * For more information, see
  * Monitor the progress of volume modifications in the *Amazon EBS User Guide*.
@@ -8292,16 +7270,10 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * This action is deprecated.
  * 
- * 
- * 
- * 
  * Describes the ClassicLink status of the specified VPCs.
  */export const describeVpcClassicLink = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.DescribeVpcClassicLink" }, DescribeVpcClassicLinkRequest, DescribeVpcClassicLinkResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
  * This action is deprecated.
- * 
- * 
- * 
  * 
  * Describes the ClassicLink DNS support status of one or more VPCs. If enabled, the DNS
  * hostname of a linked EC2-Classic instance resolves to its private IP address when
@@ -8323,43 +7295,26 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * each new instance. Amazon EC2 must remove all pre-provisioned snapshots before you can enable
  * Windows fast launch again.
  * 
- * 
- * 
- * 
  * You can only change these settings for Windows AMIs that you own or that have been
  * shared with you.
  */export const disableFastLaunch = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.DisableFastLaunch" }, DisableFastLaunchRequest, DisableFastLaunchResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
  * Disables route propagation from a route server to a specified route table.
  * 
- * 
  * When enabled, route server propagation installs the routes in the FIB on the route table you've specified. Route server supports IPv4 and IPv6 route propagation.
- * 
  * 
  * Amazon VPC Route Server simplifies routing for traffic between workloads that are deployed within a VPC and its internet gateways. With this feature,
  * VPC Route Server dynamically updates VPC and internet gateway route tables with your preferred IPv4 or IPv6 routes to achieve routing fault tolerance for those workloads. This enables you to automatically reroute traffic within a VPC, which increases the manageability of VPC routing and interoperability with third-party workloads.
  * 
- * 
  * Route server supports the follow route table types:
- * 
- * 
  * 
  * - VPC route tables not associated with subnets
  * 
- * 
- * 
  * - Subnet route tables
- * 
- * 
  * 
  * - Internet gateway route tables
  * 
- * 
- * 
- * 
- * 
  * Route server does not support route tables associated with virtual private gateways. To propagate routes into a transit gateway route table, use Transit Gateway Connect.
- * 
  * 
  * For more information see Dynamic routing in your VPC with VPC Route Server in the *Amazon VPC User Guide*.
  */export const disableRouteServerPropagation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.DisableRouteServerPropagation" }, DisableRouteServerPropagationRequest, DisableRouteServerPropagationResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
@@ -8369,7 +7324,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  */export const disableTransitGatewayRouteTablePropagation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.DisableTransitGatewayRouteTablePropagation" }, DisableTransitGatewayRouteTablePropagationRequest, DisableTransitGatewayRouteTablePropagationResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
  * Disassociates one or more targets from an event window.
- * 
  * 
  * For more information, see Define event windows for scheduled
  * events in the *Amazon EC2 User Guide*.
@@ -8381,9 +7335,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * set of reserved snapshots that are used for subsequent launches. The reserved snapshots are
  * automatically replenished as they are used, depending on your settings for launch
  * frequency.
- * 
- * 
- * 
  * 
  * You can only change these settings for Windows AMIs that you own or that have been
  * shared with you.
@@ -8424,7 +7375,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * Describes the default credit option for CPU usage of a burstable performance instance
  * family.
  * 
- * 
  * For more information, see Burstable
  * performance instances in the *Amazon EC2 User Guide*.
  */export const getDefaultCreditSpecification = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.GetDefaultCreditSpecification" }, GetDefaultCreditSpecificationRequest, GetDefaultCreditSpecificationResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
@@ -8435,7 +7385,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * Preview a reservation purchase with configurations that match those of your Dedicated
  * Host. You must have active Dedicated Hosts in your account before you purchase a
  * reservation.
- * 
  * 
  * This is a preview of the PurchaseHostReservation action and does not
  * result in the offering being purchased.
@@ -8449,7 +7398,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * Gets the default instance metadata service (IMDS) settings that are set at the account
  * level in the specified Amazon Web Services  Region.
  * 
- * 
  * For more information, see Order of precedence for instance metadata options in the
  * *Amazon EC2 User Guide*.
  */export const getInstanceMetadataDefaults = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.GetInstanceMetadataDefaults" }, GetInstanceMetadataDefaultsRequest, GetInstanceMetadataDefaultsResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
@@ -8462,9 +7410,7 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Gets the Amazon Web Services Organizations targets for an IPAM policy.
  * 
- * 
  * An IPAM policy is a set of rules that define how public IPv4 addresses from IPAM pools are allocated to Amazon Web Services resources. Each rule maps an Amazon Web Services service to IPAM pools that the service will use to get IP addresses. A single policy can have multiple rules and be applied to multiple Amazon Web Services Regions. If the IPAM pool run out of addresses then the services fallback to Amazon-provided IP addresses. A policy can be applied to an individual Amazon Web Services account or an entity within Amazon Web Services Organizations.
- * 
  * 
  * A target can be an individual Amazon Web Services account or an entity within an Amazon Web Services Organization to which an IPAM policy can be applied.
  */export const getIpamPolicyOrganizationTargets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.GetIpamPolicyOrganizationTargets" }, GetIpamPolicyOrganizationTargetsRequest, GetIpamPolicyOrganizationTargetsResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
@@ -8474,60 +7420,30 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Retrieves version information for an IPAM prefix list resolver.
  * 
- * 
  * Each version is a snapshot of what CIDRs matched your rules at that moment in time. The version number increments every time the CIDR list
  * changes due to infrastructure changes.
  * 
- * 
- * 
  * **Version example:**
- * 
- * 
- * 
  * 
  * **Initial State (Version 1)**
  * 
- * 
- * 
  * Production environment:
- * 
- * 
  * 
  * - vpc-prod-web (10.1.0.0/16) - tagged env=prod
  * 
- * 
- * 
  * - vpc-prod-db (10.2.0.0/16) - tagged env=prod
- * 
- * 
- * 
- * 
  * 
  * Resolver rule: Include all VPCs tagged env=prod
  * 
- * 
- * 
  * **Version 1 CIDRs:** 10.1.0.0/16, 10.2.0.0/16
- * 
- * 
  * 
  * **Infrastructure Change (Version 2)**
  * 
- * 
- * 
  * New VPC added:
- * 
- * 
  * 
  * - vpc-prod-api (10.3.0.0/16) - tagged env=prod
  * 
- * 
- * 
- * 
- * 
  * IPAM automatically detects the change and creates a new version.
- * 
- * 
  * 
  * **Version 2 CIDRs:** 10.1.0.0/16, 10.2.0.0/16, 10.3.0.0/16
  */export const getIpamPrefixListResolverVersions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.GetIpamPrefixListResolverVersions" }, GetIpamPrefixListResolverVersionsRequest, GetIpamPrefixListResolverVersionsResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
@@ -8564,7 +7480,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Gets information about resources in a VPC that are blocking encryption enforcement.
  * 
- * 
  * For more information, see Enforce VPC encryption in transit in the *Amazon VPC User Guide*.
  */export const getVpcResourcesBlockingEncryptionEnforcement = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.GetVpcResourcesBlockingEncryptionEnforcement" }, GetVpcResourcesBlockingEncryptionEnforcementRequest, GetVpcResourcesBlockingEncryptionEnforcementResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
@@ -8579,7 +7494,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Imports a disk into an EBS snapshot.
  * 
- * 
  * For more information, see Importing a disk as a snapshot using VM Import/Export in the
  * *VM Import/Export User Guide*.
  */export const importSnapshot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.ImportSnapshot" }, ImportSnapshotRequest, ImportSnapshotResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
@@ -8588,14 +7502,9 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * ImportImage instead. To import a disk to a snapshot, use
  * ImportSnapshot instead.
  * 
- * 
- * 
- * 
  * Creates an import volume task using metadata from the specified disk image.
  * 
- * 
  * For information about the import manifest referenced by this API action, see VM Import Manifest.
- * 
  * 
  * This API action is not supported by the Command Line Interface (CLI).
  */export const importVolume = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.ImportVolume" }, ImportVolumeRequest, ImportVolumeResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
@@ -8617,14 +7526,11 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * Modifies the specified attribute of the specified AMI. You can specify only one attribute
  * at a time.
  * 
- * 
  * To specify the attribute, you can use the `Attribute` parameter, or one of the
  * following parameters: `Description`, `ImdsSupport`, or
  * `LaunchPermission`.
  * 
- * 
  * Images with an Amazon Web Services Marketplace product code cannot be made public.
- * 
  * 
  * To enable the SriovNetSupport enhanced networking attribute of an image, enable
  * SriovNetSupport on an instance and create an AMI from the instance.
@@ -8633,14 +7539,11 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * Modifies the specified attribute of the specified instance. You can specify only one
  * attribute at a time.
  * 
- * 
- * 
  * **Note: **Using this action to change the security groups
  * associated with an elastic network interface (ENI) attached to an instance can
  * result in an error if the instance has more than one ENI. To change the security groups
  * associated with an ENI attached to an instance that has multiple ENIs, we recommend that
  * you use the ModifyNetworkInterfaceAttribute action.
- * 
  * 
  * To modify some attributes, the instance must be stopped. For more information, see
  * Modify a stopped instance in the
@@ -8664,9 +7567,7 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Modifies the allocation rules in an IPAM policy.
  * 
- * 
  * An IPAM policy is a set of rules that define how public IPv4 addresses from IPAM pools are allocated to Amazon Web Services resources. Each rule maps an Amazon Web Services service to IPAM pools that the service will use to get IP addresses. A single policy can have multiple rules and be applied to multiple Amazon Web Services Regions. If the IPAM pool run out of addresses then the services fallback to Amazon-provided IP addresses. A policy can be applied to an individual Amazon Web Services account or an entity within Amazon Web Services Organizations.
- * 
  * 
  * Allocation rules are optional configurations within an IPAM policy that map Amazon Web Services resource types to specific IPAM pools. If no rules are defined, the resource types default to using Amazon-provided IP addresses.
  */export const modifyIpamPolicyAllocationRules = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.ModifyIpamPolicyAllocationRules" }, ModifyIpamPolicyAllocationRulesRequest, ModifyIpamPolicyAllocationRulesResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
@@ -8676,10 +7577,8 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Modifies the specified managed prefix list.
  * 
- * 
  * Adding or removing entries in a prefix list creates a new version of the prefix list.
  * Changing the name of the prefix list does not affect the version.
- * 
  * 
  * If you specify a current version number that does not match the true current version
  * number, the request fails.
@@ -8688,7 +7587,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * Modifies the configuration of your Reserved Instances, such as the Availability Zone,
  * instance count, or instance type. The Reserved Instances to be modified must be identical,
  * except for Availability Zone, network platform, and instance type.
- * 
  * 
  * For more information, see Modify Reserved Instances in the
  * *Amazon EC2 User Guide*.
@@ -8699,10 +7597,8 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * do both in a single operation. If you need to both add and remove account IDs for a snapshot,
  * you must use multiple operations. You can make up to 500 modifications to a snapshot in a single operation.
  * 
- * 
  * Encrypted snapshots and snapshots with Amazon Web Services Marketplace product codes cannot be made
  * public. Snapshots encrypted with your default KMS key cannot be shared with other accounts.
- * 
  * 
  * For more information about modifying snapshot permissions, see Share a snapshot in the
  * *Amazon EBS User Guide*.
@@ -8724,7 +7620,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * for service consumers (Amazon Web Services accounts, users, and IAM roles) to connect to
  * your endpoint service. Principal ARNs with path components aren't supported.
  * 
- * 
  * If you grant permissions to all principals, the service is public. Any users who know the name of a
  * public service can send a request to attach an endpoint. If the service does not require manual approval,
  * attachments are automatically approved.
@@ -8734,12 +7629,10 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * addresses (BYOIP) and creates a corresponding address pool. After the address range is
  * provisioned, it is ready to be advertised.
  * 
- * 
  * Amazon Web Services verifies that you own the address range and are authorized to advertise it.
  * You must ensure that the address range is registered to you and that you created an
  * RPKI ROA to authorize Amazon ASNs 16509 and 14618 to advertise the address range.
  * For more information, see Bring your own IP addresses (BYOIP) in the *Amazon EC2 User Guide*.
- * 
  * 
  * Provisioning an address range is an asynchronous operation, so the call returns immediately,
  * but the address range is not ready to use until its status changes from `pending-provision`
@@ -8751,12 +7644,10 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Provision a CIDR to an IPAM pool. You can use this action to provision new CIDRs to a top-level pool or to transfer a CIDR from a top-level pool to a pool within it.
  * 
- * 
  * For more information, see Provision CIDRs to pools in the *Amazon VPC IPAM User Guide*.
  */export const provisionIpamPoolCidr = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.ProvisionIpamPoolCidr" }, ProvisionIpamPoolCidrRequest, ProvisionIpamPoolCidrResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
  * Provision a CIDR to a public IPv4 pool.
- * 
  * 
  * For more information about IPAM, see What is IPAM? in the *Amazon VPC IPAM User Guide*.
  */export const provisionPublicIpv4PoolCidr = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.ProvisionPublicIpv4PoolCidr" }, ProvisionPublicIpv4PoolCidrRequest, ProvisionPublicIpv4PoolCidrResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
@@ -8764,15 +7655,12 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * Purchases a Reserved Instance for use with your account. With Reserved Instances, you pay
  * a lower hourly rate compared to On-Demand instance pricing.
  * 
- * 
  * Use DescribeReservedInstancesOfferings to get a list of Reserved
  * Instance offerings that match your specifications. After you've purchased a Reserved Instance,
  * you can check for your new Reserved Instance with DescribeReservedInstances.
  * 
- * 
  * To queue a purchase for a future date and time, specify a purchase time. If you do not
  * specify a purchase time, the default is the current time.
- * 
  * 
  * For more information, see Reserved
  * Instances and Sell in the Reserved Instance
@@ -8781,25 +7669,18 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * You can no longer purchase Scheduled Instances.
  * 
- * 
- * 
- * 
  * Purchases the Scheduled Instances with the specified schedule.
- * 
  * 
  * Scheduled Instances enable you to purchase Amazon EC2 compute capacity by the hour for a one-year term.
  * Before you can purchase a Scheduled Instance, you must call DescribeScheduledInstanceAvailability
  * to check for available schedules and obtain a purchase token. After you purchase a Scheduled Instance,
  * you must call RunScheduledInstances during each scheduled time period.
  * 
- * 
  * After you purchase a Scheduled Instance, you can't cancel, modify, or resell your purchase.
  */export const purchaseScheduledInstances = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.PurchaseScheduledInstances" }, PurchaseScheduledInstancesRequest, PurchaseScheduledInstancesResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
  * Registers a set of tag keys to include in scheduled event notifications for your
  * resources.
- * 
- * 
  * 
  * To remove tags, use DeregisterInstanceEventNotificationAttributes.
  */export const registerInstanceEventNotificationAttributes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.RegisterInstanceEventNotificationAttributes" }, RegisterInstanceEventNotificationAttributesRequest, RegisterInstanceEventNotificationAttributesResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
@@ -8809,25 +7690,21 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * Multicast
  * on transit gateways in the *Amazon Web Services Transit Gateways Guide*.
  * 
- * 
  * After you add the members, use SearchTransitGatewayMulticastGroups to verify that the members were added
  * to the transit gateway multicast group.
  */export const registerTransitGatewayMulticastGroupMembers = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.RegisterTransitGatewayMulticastGroupMembers" }, RegisterTransitGatewayMulticastGroupMembersRequest, RegisterTransitGatewayMulticastGroupMembersResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
  * Registers sources (network interfaces) with the specified transit gateway multicast group.
  * 
- * 
  * A multicast source is a network interface attached to a supported instance that sends
  * multicast traffic. For more information about supported instances, see Multicast
  * on transit gateways in the *Amazon Web Services Transit Gateways Guide*.
- * 
  * 
  * After you add the source, use SearchTransitGatewayMulticastGroups to verify that the source was added to the multicast
  * group.
  */export const registerTransitGatewayMulticastGroupSources = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.RegisterTransitGatewayMulticastGroupSources" }, RegisterTransitGatewayMulticastGroupSourcesRequest, RegisterTransitGatewayMulticastGroupSourcesResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
  * Removes the specified outbound (egress) rules from the specified security group.
- * 
  * 
  * You can specify rules using either rule IDs or security group rule properties. If you use
  * rule properties, the values that you specify (for example, ports) must match the existing rule's
@@ -8837,13 +7714,10 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * and code. If the security group rule has a description, you do not need to specify the description
  * to revoke the rule.
  * 
- * 
  * For a default VPC, if the values you specify do not match the existing rule's values, no error is
  * returned, and the output describes the security group rules that were not revoked.
  * 
- * 
  * Amazon Web Services recommends that you describe the security group to verify that the rules were removed.
- * 
  * 
  * Rule changes are propagated to instances within the security group as quickly as possible. However,
  * a small delay might occur.
@@ -8854,7 +7728,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Starts an Amazon EBS-backed instance that you've previously stopped.
  * 
- * 
  * Instances that use Amazon EBS volumes as their root devices can be quickly stopped and
  * started. When an instance is stopped, the compute resources are released and you are not
  * billed for instance usage. However, your root partition Amazon EBS volume remains and
@@ -8863,21 +7736,17 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * charges a one-minute minimum for instance usage, and thereafter charges per second for
  * instance usage.
  * 
- * 
  * Before stopping an instance, make sure it is in a state from which it can be
  * restarted. Stopping an instance does not preserve data stored in RAM.
  * 
- * 
  * Performing this operation on an instance that uses an instance store as its root
  * device returns an error.
- * 
  * 
  * If you attempt to start a T3 instance with `host` tenancy and the
  * `unlimited` CPU credit option, the request fails. The
  * `unlimited` CPU credit option is not supported on Dedicated Hosts. Before
  * you start the instance, either change its CPU credit option to `standard`, or
  * change its tenancy to `default` or `dedicated`.
- * 
  * 
  * For more information, see Stop and start Amazon EC2
  * instances in the *Amazon EC2 User Guide*.
@@ -8901,7 +7770,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Accepts a request to attach a VPC to a transit gateway.
  * 
- * 
  * The VPC attachment must be in the `pendingAcceptance` state.
  * Use DescribeTransitGatewayVpcAttachments to view your pending VPC attachment requests.
  * Use RejectTransitGatewayVpcAttachment to reject a VPC attachment request.
@@ -8918,10 +7786,8 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * an Amazon-provided IPv6 CIDR block, or an IPv6 CIDR block from an IPv6 address pool that
  * you provisioned through bring your own IP addresses (BYOIP).
  * 
- * 
  * You must specify one of the following in the request: an IPv4 CIDR block, an IPv6
  * pool, or an Amazon-provided IPv6 CIDR block.
- * 
  * 
  * For more information about associating CIDR blocks with your VPC and applicable
  * restrictions, see IP addressing for your VPCs and subnets
@@ -8936,62 +7802,48 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Adds the specified outbound (egress) rules to a security group.
  * 
- * 
  * An outbound rule permits instances to send traffic to the specified IPv4 or IPv6
  * address ranges, the IP address ranges specified by a prefix list, or the instances
  * that are associated with a source security group. For more information, see Security group rules.
- * 
  * 
  * You must specify exactly one of the following destinations: an IPv4 or IPv6 address range,
  * a prefix list, or a security group. You must specify a protocol for each rule (for example, TCP).
  * If the protocol is TCP or UDP, you must also specify a port or port range. If the protocol is
  * ICMP or ICMPv6, you must also specify the ICMP type and code.
  * 
- * 
  * Rule changes are propagated to instances associated with the security group as quickly
  * as possible. However, a small delay might occur.
  * 
- * 
  * For examples of rules that you can add to security groups for specific access scenarios,
  * see Security group rules for different use cases in the *Amazon EC2 User Guide*.
- * 
  * 
  * For information about security group quotas, see Amazon VPC quotas in the *Amazon VPC User Guide*.
  */export const authorizeSecurityGroupEgress = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.AuthorizeSecurityGroupEgress" }, AuthorizeSecurityGroupEgressRequest, AuthorizeSecurityGroupEgressResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
  * Adds the specified inbound (ingress) rules to a security group.
  * 
- * 
  * An inbound rule permits instances to receive traffic from the specified IPv4 or IPv6
  * address range, the IP address ranges that are specified by a prefix list, or the instances
  * that are associated with a destination security group. For more information, see Security group rules.
- * 
  * 
  * You must specify exactly one of the following sources: an IPv4 or IPv6 address range,
  * a prefix list, or a security group. You must specify a protocol for each rule (for example, TCP).
  * If the protocol is TCP or UDP, you must also specify a port or port range. If the protocol is
  * ICMP or ICMPv6, you must also specify the ICMP/ICMPv6 type and code.
  * 
- * 
  * Rule changes are propagated to instances associated with the security group as quickly
  * as possible. However, a small delay might occur.
  * 
- * 
  * For examples of rules that you can add to security groups for specific access scenarios,
  * see Security group rules for different use cases in the *Amazon EC2 User Guide*.
- * 
  * 
  * For more information about security group quotas, see Amazon VPC quotas in the *Amazon VPC User Guide*.
  */export const authorizeSecurityGroupIngress = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.AuthorizeSecurityGroupIngress" }, AuthorizeSecurityGroupIngressRequest, AuthorizeSecurityGroupIngressResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
  * Bundles an Amazon instance store-backed Windows instance.
  * 
- * 
  * During bundling, only the root device volume (C:\) is bundled. Data on other instance
  * store volumes is not preserved.
- * 
- * 
- * 
  * 
  * This action is not applicable for Linux/Unix instances or Windows instances that are
  * backed by Amazon EBS.
@@ -9003,18 +7855,12 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * Cancels one or more Capacity Reservation Fleets. When you cancel a Capacity
  * Reservation Fleet, the following happens:
  * 
- * 
- * 
  * - The Capacity Reservation Fleet's status changes to
  * `cancelled`.
- * 
- * 
  * 
  * - The individual Capacity Reservations in the Fleet are cancelled. Instances
  * running in the Capacity Reservations at the time of cancelling the Fleet
  * continue to run in shared capacity.
- * 
- * 
  * 
  * - The Fleet stops creating new Capacity Reservations.
  */export const cancelCapacityReservationFleets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.CancelCapacityReservationFleets" }, CancelCapacityReservationFleetsRequest, CancelCapacityReservationFleetsResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
@@ -9022,16 +7868,13 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * Cancels the specified Reserved Instance listing in the Reserved Instance
  * Marketplace.
  * 
- * 
  * For more information, see Sell in the Reserved Instance
  * Marketplace in the *Amazon EC2 User Guide*.
  */export const cancelReservedInstancesListing = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.CancelReservedInstancesListing" }, CancelReservedInstancesListingRequest, CancelReservedInstancesListingResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
  * Cancels the specified Spot Fleet requests.
  * 
- * 
  * After you cancel a Spot Fleet request, the Spot Fleet launches no new instances.
- * 
  * 
  * You must also specify whether a canceled Spot Fleet request should terminate its instances. If you
  * choose to terminate the instances, the Spot Fleet request enters the
@@ -9039,13 +7882,7 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * the `cancelled_running` state and the instances continue to run until they
  * are interrupted or you terminate them manually.
  * 
- * 
- * 
- * 
- * 
  * **Terminating an instance is permanent and irreversible.**
- * 
- * 
  * 
  * After you terminate an instance, you can no longer connect to it, and it can't be recovered.
  * All attached Amazon EBS volumes that are configured to be deleted on termination are also permanently
@@ -9053,17 +7890,10 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * For more information, see
  * How instance termination works.
  * 
- * 
  * Before you terminate an instance, ensure that you have backed up all data that you need to
  * retain after the termination to persistent storage.
  * 
- * 
- * 
- * 
  * **Restrictions**
- * 
- * 
- * 
  * 
  * - You can delete up to 100 fleets in a single request. If you exceed the specified
  * number, no fleets are deleted.
@@ -9073,27 +7903,20 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * Reservations enable you to reserve capacity for your Amazon EC2 instances in a specific
  * Availability Zone for any duration.
  * 
- * 
  * You can create a Capacity Reservation at any time, and you can choose when it starts.
  * You can create a Capacity Reservation for immediate use or you can request a Capacity
  * Reservation for a future date.
- * 
  * 
  * For more information, see Reserve compute
  * capacity with On-Demand Capacity Reservations in the
  * *Amazon EC2 User Guide*.
  * 
- * 
  * Your request to create a Capacity Reservation could fail if:
- * 
- * 
  * 
  * - Amazon EC2 does not have sufficient capacity. In this case, try again
  * at a later time, try in a different Availability Zone, or request a smaller
  * Capacity Reservation. If your workload is flexible across instance types and
  * sizes, try with different instance attributes.
- * 
- * 
  * 
  * - The requested quantity exceeds your On-Demand Instance quota. In this case,
  * increase your On-Demand Instance quota for the requested instance type and try
@@ -9126,29 +7949,19 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * Creates an Amazon EBS-backed AMI from an Amazon EBS-backed instance that is either running or
  * stopped.
  * 
- * 
  * If you customized your instance with instance store volumes or Amazon EBS volumes in addition
  * to the root device volume, the new AMI contains block device mapping information for those
  * volumes. When you launch an instance from this new AMI, the instance automatically launches
  * with those additional volumes.
  * 
- * 
  * The location of the source instance determines where you can create the snapshots of the
  * AMI:
- * 
- * 
  * 
  * - If the source instance is in a Region, you must create the snapshots in the same
  * Region as the instance.
  * 
- * 
- * 
  * - If the source instance is in a Local Zone, you can create the snapshots in the same
  * Local Zone or in its parent Region.
- * 
- * 
- * 
- * 
  * 
  * For more information, see Create an Amazon EBS-backed AMI in
  * the *Amazon Elastic Compute Cloud User Guide*.
@@ -9158,16 +7971,13 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * provides visibility into which accounts are using the specified image, and how many resources
  * (EC2 instances or launch templates) are referencing it.
  * 
- * 
  * For more information, see View your AMI usage in the
  * *Amazon EC2 User Guide*.
  */export const createImageUsageReport = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.CreateImageUsageReport" }, CreateImageUsageReportRequest, CreateImageUsageReportResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
  * Creates an IPAM prefix list resolver.
  * 
- * 
  * An IPAM prefix list resolver is a component that manages the synchronization between IPAM's CIDR selection rules and customer-managed prefix lists. It automates connectivity configurations by selecting CIDRs from IPAM's database based on your business logic and synchronizing them with prefix lists used in resources such as VPC route tables and security groups.
- * 
  * 
  * For more information about IPAM prefix list resolver, see Automate prefix list updates with IPAM in the *Amazon VPC IPAM User Guide*.
  */export const createIpamPrefixListResolver = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.CreateIpamPrefixListResolver" }, CreateIpamPrefixListResolverRequest, CreateIpamPrefixListResolverResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
@@ -9179,15 +7989,12 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * template, either by name or ID. You can determine whether the new version inherits
  * parameters from a source version, and add or overwrite parameters as needed.
  * 
- * 
  * Launch template versions are numbered in the order in which they are created. You
  * can't specify, change, or replace the numbering of launch template versions.
- * 
  * 
  * Launch templates are immutable; after you create a launch template, you can't modify
  * it. Instead, you can create a new version of the launch template that includes the
  * changes that you require.
- * 
  * 
  * For more information, see Modify a launch
  * template (manage launch template versions) in the
@@ -9199,13 +8006,11 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Creates a network ACL in a VPC. Network ACLs provide an optional layer of security (in addition to security groups) for the instances in your VPC.
  * 
- * 
  * For more information, see Network ACLs in the
  * *Amazon VPC User Guide*.
  */export const createNetworkAcl = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.CreateNetworkAcl" }, CreateNetworkAclRequest, CreateNetworkAclResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
  * Creates a path to analyze for reachability.
- * 
  * 
  * Reachability Analyzer enables you to analyze and debug network reachability between
  * two resources in your virtual private cloud (VPC). For more information, see the
@@ -9215,13 +8020,11 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * Grants an Amazon Web Services-authorized account permission to attach the specified
  * network interface to an instance in their account.
  * 
- * 
  * You can grant permission to a single Amazon Web Services account only, and only one
  * account at a time.
  */export const createNetworkInterfacePermission = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.CreateNetworkInterfacePermission" }, CreateNetworkInterfacePermissionRequest, CreateNetworkInterfacePermissionResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
  * Creates a route table for the specified VPC. After you create a route table, you can add routes and associate the table with a subnet.
- * 
  * 
  * For more information, see Route tables in the
  * *Amazon VPC User Guide*.
@@ -9233,20 +8036,13 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * the volumes currently attached to the instance, or you can exclude the root volume or specific
  * data (non-root) volumes from the multi-volume snapshot set.
  * 
- * 
  * The location of the source instance determines where you can create the snapshots.
- * 
- * 
  * 
  * - If the source instance is in a Region, you must create the snapshots in the same
  * Region as the instance.
  * 
- * 
- * 
  * - If the source instance is in a Local Zone, you can create the snapshots in the same
  * Local Zone or in its parent Amazon Web Services Region.
- * 
- * 
  * 
  * - If the source instance is on an Outpost, you can create the snapshots on the same
  * Outpost or in its parent Amazon Web Services Region.
@@ -9273,26 +8069,16 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * Creates a VPC endpoint service to which service consumers (Amazon Web Services accounts,
  * users, and IAM roles) can connect.
  * 
- * 
  * Before you create an endpoint service, you must create one of the following for your service:
- * 
- * 
  * 
  * - A Network Load Balancer.
  * Service consumers connect to your service using an interface endpoint.
  * 
- * 
- * 
  * - A Gateway Load Balancer.
  * Service consumers connect to your service using a Gateway Load Balancer endpoint.
  * 
- * 
- * 
- * 
- * 
  * If you set the private DNS name, you must prove that you own the private DNS domain
  * name.
- * 
  * 
  * For more information, see the Amazon Web Services PrivateLink
  * Guide.
@@ -9302,28 +8088,19 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * gateway and a customer gateway. The supported connection type is
  * `ipsec.1`.
  * 
- * 
  * The response includes information that you need to give to your network administrator
  * to configure your customer gateway.
- * 
- * 
- * 
  * 
  * We strongly recommend that you use HTTPS when calling this operation because the
  * response contains sensitive cryptographic information for configuring your customer
  * gateway device.
  * 
- * 
- * 
- * 
  * If you decide to shut down your VPN connection for any reason and later create a new
  * VPN connection, you must reconfigure your customer gateway with the new information
  * returned from this call.
  * 
- * 
  * This is an idempotent operation. If you perform the operation more than once, Amazon
  * EC2 doesn't return an error.
- * 
  * 
  * For more information, see Amazon Web Services Site-to-Site VPN in the Amazon Web Services Site-to-Site VPN
  * User Guide.
@@ -9331,9 +8108,7 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Deletes the specified EC2 Fleet request.
  * 
- * 
  * After you delete an EC2 Fleet request, it launches no new instances.
- * 
  * 
  * You must also specify whether a deleted EC2 Fleet request should terminate its instances. If
  * you choose to terminate the instances, the EC2 Fleet request enters the
@@ -9341,20 +8116,13 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * `deleted_running` state, and the instances continue to run until they are
  * interrupted or you terminate them manually.
  * 
- * 
  * A deleted `instant` fleet with running instances is not supported. When you
  * delete an `instant` fleet, Amazon EC2 automatically terminates all its instances. For
  * fleets with more than 1000 instances, the deletion request might fail. If your fleet has
  * more than 1000 instances, first terminate most of the instances manually, leaving 1000 or
  * fewer. Then delete the fleet, and the remaining instances will be terminated automatically.
  * 
- * 
- * 
- * 
- * 
  * **Terminating an instance is permanent and irreversible.**
- * 
- * 
  * 
  * After you terminate an instance, you can no longer connect to it, and it can't be recovered.
  * All attached Amazon EBS volumes that are configured to be deleted on termination are also permanently
@@ -9362,39 +8130,22 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * For more information, see
  * How instance termination works.
  * 
- * 
  * Before you terminate an instance, ensure that you have backed up all data that you need to
  * retain after the termination to persistent storage.
  * 
- * 
- * 
- * 
  * **Restrictions**
- * 
- * 
- * 
  * 
  * - You can delete up to 25 fleets of type `instant` in a single
  * request.
  * 
- * 
- * 
  * - You can delete up to 100 fleets of type `maintain` or
  * `request` in a single request.
- * 
- * 
  * 
  * - You can delete up to 125 fleets in a single request, provided you do not exceed
  * the quota for each fleet type, as specified above.
  * 
- * 
- * 
  * - If you exceed the specified number of fleets to delete, no fleets are
  * deleted.
- * 
- * 
- * 
- * 
  * 
  * For more information, see Delete an EC2 Fleet request and the instances
  * in the fleet in the *Amazon EC2 User Guide*.
@@ -9402,37 +8153,27 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Delete an IPAM pool.
  * 
- * 
- * 
- * 
  * You cannot delete an IPAM pool if there are allocations in it or CIDRs provisioned to it. To release
  * allocations, see ReleaseIpamPoolAllocation. To deprovision pool
  * CIDRs, see DeprovisionIpamPoolCidr.
- * 
- * 
- * 
  * 
  * For more information, see Delete a pool in the *Amazon VPC IPAM User Guide*.
  */export const deleteIpamPool = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.DeleteIpamPool" }, DeleteIpamPoolRequest, DeleteIpamPoolResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
  * Delete the scope for an IPAM. You cannot delete the default scopes.
  * 
- * 
  * For more information, see Delete a scope in the *Amazon VPC IPAM User Guide*.
  */export const deleteIpamScope = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.DeleteIpamScope" }, DeleteIpamScopeRequest, DeleteIpamScopeResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
  * Deletes one or more versions of a launch template.
  * 
- * 
  * You can't delete the default version of a launch template; you must first assign a
  * different version as the default. If the default version is the only version for the
  * launch template, you must delete the entire launch template using DeleteLaunchTemplate.
  * 
- * 
  * You can delete up to 200 launch template versions in a single request. To delete more
  * than 200 versions in a single request, use DeleteLaunchTemplate, which
  * deletes the launch template and all of its versions.
- * 
  * 
  * For more information, see Delete a launch template version in the
  * *Amazon EC2 User Guide*.
@@ -9443,18 +8184,11 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Deletes the specified BGP peer from a route server.
  * 
- * 
  * A route server peer is a session between a route server endpoint and the device deployed in Amazon Web Services (such as a firewall appliance or other network security function running on an EC2 instance). The device must meet these requirements:
- * 
- * 
  * 
  * - Have an elastic network interface in the VPC
  * 
- * 
- * 
  * - Support BGP (Border Gateway Protocol)
- * 
- * 
  * 
  * - Can initiate BGP sessions
  */export const deleteRouteServerPeer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.DeleteRouteServerPeer" }, DeleteRouteServerPeerRequest, DeleteRouteServerPeerResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
@@ -9471,39 +8205,21 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Describes attributes of your Amazon Web Services account. The following are the supported account attributes:
  * 
- * 
- * 
  * - `default-vpc`: The ID of the default VPC for your account, or `none`.
- * 
- * 
  * 
  * - `max-instances`: This attribute is no longer supported. The returned
  * value does not reflect your actual vCPU limit for running On-Demand Instances.
  * For more information, see On-Demand Instance Limits in the
  * *Amazon Elastic Compute Cloud User Guide*.
  * 
- * 
- * 
  * - `max-elastic-ips`: The maximum number of Elastic IP addresses that you can allocate.
- * 
- * 
  * 
  * - `supported-platforms`: This attribute is deprecated.
  * 
- * 
- * 
  * - `vpc-max-elastic-ips`: The maximum number of Elastic IP addresses that you can allocate.
- * 
- * 
  * 
  * - `vpc-max-security-groups-per-interface`: The maximum number of security groups
  * that you can assign to a network interface.
- * 
- * 
- * 
- * 
- * 
- * 
  * 
  * The order of the elements in the response, including those within nested
  * structures, might vary. Applications should not assume the elements appear in a
@@ -9519,13 +8235,9 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * Describes the Availability Zones, Local Zones, and Wavelength Zones that are available to
  * you.
  * 
- * 
  * For more information about Availability Zones, Local Zones, and Wavelength Zones, see
  * Regions and zones
  * in the *Amazon EC2 User Guide*.
- * 
- * 
- * 
  * 
  * The order of the elements in the response, including those within nested
  * structures, might vary. Applications should not assume the elements appear in a
@@ -9551,15 +8263,11 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * Alternatively, you can specify specific DHCP option set IDs or filter the results to
  * include only the DHCP option sets that match specific criteria.
  * 
- * 
  * For more information, see DHCP option sets in the
  * *Amazon VPC User Guide*.
  */export const describeDhcpOptions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.DescribeDhcpOptions" }, DescribeDhcpOptionsRequest, DescribeDhcpOptionsResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
  * Amazon Elastic Graphics reached end of life on January 8, 2024.
- * 
- * 
- * 
  * 
  * Describes the Elastic Graphics accelerator associated with your instances.
  */export const describeElasticGpus = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.DescribeElasticGpus" }, DescribeElasticGpusRequest, DescribeElasticGpusResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
@@ -9572,18 +8280,15 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Describes the events for the specified EC2 Fleet during the specified time.
  * 
- * 
  * EC2 Fleet events are delayed by up to 30 seconds before they can be described. This ensures
  * that you can query by the last evaluated time and not miss a recorded event. EC2 Fleet events
  * are available for 48 hours.
- * 
  * 
  * For more information, see Monitor fleet events using Amazon EventBridge in the
  * *Amazon EC2 User Guide*.
  */export const describeFleetHistory = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.DescribeFleetHistory" }, DescribeFleetHistoryRequest, DescribeFleetHistoryResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
  * Describes one or more flow logs.
- * 
  * 
  * To view the published flow log records, you must view the log destination. For example,
  * the CloudWatch Logs log group, the Amazon S3 bucket, or the Kinesis Data Firehose delivery stream.
@@ -9610,14 +8315,12 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Describes the specified event windows or all event windows.
  * 
- * 
  * If you specify event window IDs, the output includes information for only the specified
  * event windows. If you specify filters, the output includes information for only those event
  * windows that meet the filter criteria. If you do not specify event windows IDs or filters,
  * the output includes information for all event windows, which can affect performance. We
  * recommend that you use pagination to ensure that the operation returns quickly and
  * successfully.
- * 
  * 
  * For more information, see Define event windows for scheduled
  * events in the *Amazon EC2 User Guide*.
@@ -9627,29 +8330,22 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * deregistered, made private (no longer public or shared with your account), or not
  * allowed.
  * 
- * 
  * If you specify instance IDs, the output includes information for only the specified
  * instances. If you specify filters, the output includes information for only those instances
  * that meet the filter criteria. If you do not specify instance IDs or filters, the output
  * includes information for all instances, which can affect performance.
  * 
- * 
  * If you specify an instance ID that is not valid, an instance that doesn't exist, or an
  * instance that you do not own, an error (`InvalidInstanceID.NotFound`) is
  * returned.
  * 
- * 
  * Recently terminated instances might appear in the returned results. This interval is
  * usually less than one hour.
- * 
  * 
  * In the rare case where an Availability Zone is experiencing a service disruption and you
  * specify instance IDs that are in the affected Availability Zone, or do not specify any
  * instance IDs at all, the call fails. If you specify only instance IDs that are in an
  * unaffected Availability Zone, the call works normally.
- * 
- * 
- * 
  * 
  * The order of the elements in the response, including those within nested structures,
  * might vary. Applications should not assume the elements appear in a particular order.
@@ -9665,15 +8361,11 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Describes the specified network interfaces or all your network interfaces.
  * 
- * 
  * If you have a large number of network interfaces, the operation fails unless you use
  * pagination or one of the following filters: `group-id`,
  * `mac-address`, `private-dns-name`,
  * `private-ip-address`, `subnet-id`, or
  * `vpc-id`.
- * 
- * 
- * 
  * 
  * We strongly recommend using only paginated requests. Unpaginated requests are
  * susceptible to throttling and timeouts.
@@ -9681,12 +8373,8 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Describes one or more of the Reserved Instances that you purchased.
  * 
- * 
  * For more information about Reserved Instances, see Reserved
  * Instances in the *Amazon EC2 User Guide*.
- * 
- * 
- * 
  * 
  * The order of the elements in the response, including those within nested structures,
  * might vary. Applications should not assume the elements appear in a particular order.
@@ -9697,12 +8385,8 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * modification ID is specified, only information about the specific modification is
  * returned.
  * 
- * 
  * For more information, see Modify Reserved Instances in the
  * *Amazon EC2 User Guide*.
- * 
- * 
- * 
  * 
  * The order of the elements in the response, including those within nested structures,
  * might vary. Applications should not assume the elements appear in a particular order.
@@ -9713,17 +8397,12 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * period, you do not receive insufficient capacity errors, and you pay a lower usage rate than
  * the rate charged for On-Demand instances for the actual time used.
  * 
- * 
  * If you have listed your own Reserved Instances for sale in the Reserved Instance
  * Marketplace, they will be excluded from these results. This is to ensure that you do not
  * purchase your own Reserved Instances.
  * 
- * 
  * For more information, see Sell in the Reserved Instance
  * Marketplace in the *Amazon EC2 User Guide*.
- * 
- * 
- * 
  * 
  * The order of the elements in the response, including those within nested structures,
  * might vary. Applications should not assume the elements appear in a particular order.
@@ -9734,14 +8413,12 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Describes the specified Spot Instance requests.
  * 
- * 
  * You can use `DescribeSpotInstanceRequests` to find a running Spot Instance by
  * examining the response. If the status of the Spot Instance is `fulfilled`, the
  * instance ID appears in the response and contains the identifier of the instance.
  * Alternatively, you can use DescribeInstances
  * with a filter to look for instances where the instance lifecycle is
  * `spot`.
- * 
  * 
  * We recommend that you set `MaxResults` to a value between 5 and 1000 to
  * limit the number of items returned. This paginates the output, which makes the list
@@ -9750,7 +8427,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * `NextToken` value that can be passed to a subsequent
  * `DescribeSpotInstanceRequests` request to retrieve the remaining
  * items.
- * 
  * 
  * Spot Instance requests are deleted four hours after they are canceled and their instances are
  * terminated.
@@ -9784,7 +8460,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Describes available services to which you can create a VPC endpoint.
  * 
- * 
  * When the service provider and the consumer have different accounts in multiple
  * Availability Zones, and the consumer views the VPC endpoint service information, the
  * response only includes the common Availability Zones. For example, when the service
@@ -9800,15 +8475,9 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * Gets the current state of the Allowed AMIs setting and the list of Allowed AMIs criteria
  * at the account level in the specified Region.
  * 
- * 
- * 
- * 
  * The Allowed AMIs feature does not restrict the AMIs owned by your account. Regardless of
  * the criteria you set, the AMIs created by your account will always be discoverable and
  * usable by users in your account.
- * 
- * 
- * 
  * 
  * For more information, see Control the discovery and use of AMIs in
  * Amazon EC2 with Allowed AMIs in
@@ -9817,14 +8486,12 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Retrieves a summary of the account status report.
  * 
- * 
  * To view the full report, download it from the Amazon S3 bucket where it was saved.
  * Reports are accessible only when they have the `complete` status. Reports
  * with other statuses (`running`, `cancelled`, or
  * `error`) are not available in the S3 bucket. For more information about
  * downloading objects from an S3 bucket, see Downloading objects in
  * the *Amazon Simple Storage Service User Guide*.
- * 
  * 
  * For more information, see Generating the account status report for declarative policies in the
  * *Amazon Web Services Organizations User Guide*.
@@ -9834,29 +8501,14 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * with Amazon Athena. This make it easier for you to query and gain insights from VPC flow logs data.
  * Based on the information that you provide, we configure resources in the template to do the following:
  * 
- * 
- * 
  * - Create a table in Athena that maps fields to a custom log format
- * 
- * 
  * 
  * - Create a Lambda function that updates the table with new partitions on a daily, weekly, or
  * monthly basis
  * 
- * 
- * 
  * - Create a table partitioned between two timestamps in the past
  * 
- * 
- * 
  * - Create a set of named queries in Athena that you can use to get started quickly
- * 
- * 
- * 
- * 
- * 
- * 
- * 
  * 
  * `GetFlowLogsIntegrationTemplate` does not support integration between
  * Amazon Web Services Transit Gateway Flow Logs and Amazon Athena.
@@ -9867,9 +8519,7 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Gets the allocation rules for an IPAM policy.
  * 
- * 
  * An IPAM policy is a set of rules that define how public IPv4 addresses from IPAM pools are allocated to Amazon Web Services resources. Each rule maps an Amazon Web Services service to IPAM pools that the service will use to get IP addresses. A single policy can have multiple rules and be applied to multiple Amazon Web Services Regions. If the IPAM pool run out of addresses then the services fallback to Amazon-provided IP addresses. A policy can be applied to an individual Amazon Web Services account or an entity within Amazon Web Services Organizations.
- * 
  * 
  * Allocation rules are optional configurations within an IPAM policy that map Amazon Web Services resource types to specific IPAM pools. If no rules are defined, the resource types default to using Amazon-provided IP addresses.
  */export const getIpamPolicyAllocationRules = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.GetIpamPolicyAllocationRules" }, GetIpamPolicyAllocationRulesRequest, GetIpamPolicyAllocationRulesResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
@@ -9884,28 +8534,16 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Gets the routing database for the specified route server. The Routing Information Base (RIB) serves as a database that stores all the routing information and network topology data collected by a router or routing system, such as routes learned from BGP peers. The RIB is constantly updated as new routing information is received or existing routes change. This ensures that the route server always has the most current view of the network topology and can make optimal routing decisions.
  * 
- * 
  * Amazon VPC Route Server simplifies routing for traffic between workloads that are deployed within a VPC and its internet gateways. With this feature,
  * VPC Route Server dynamically updates VPC and internet gateway route tables with your preferred IPv4 or IPv6 routes to achieve routing fault tolerance for those workloads. This enables you to automatically reroute traffic within a VPC, which increases the manageability of VPC routing and interoperability with third-party workloads.
  * 
- * 
  * Route server supports the follow route table types:
- * 
- * 
  * 
  * - VPC route tables not associated with subnets
  * 
- * 
- * 
  * - Subnet route tables
  * 
- * 
- * 
  * - Internet gateway route tables
- * 
- * 
- * 
- * 
  * 
  * Route server does not support route tables associated with virtual private gateways. To propagate routes into a transit gateway route table, use Transit Gateway Connect.
  */export const getRouteServerRoutingDatabase = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.GetRouteServerRoutingDatabase" }, GetRouteServerRoutingDatabaseRequest, GetRouteServerRoutingDatabaseResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
@@ -9913,12 +8551,10 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * Calculates the Spot placement score for a Region or Availability Zone based on the
  * specified target capacity and compute requirements.
  * 
- * 
  * You can specify your compute requirements either by using
  * `InstanceRequirementsWithMetadata` and letting Amazon EC2 choose the optimal
  * instance types to fulfill your Spot request, or you can specify the instance types by using
  * `InstanceTypes`.
- * 
  * 
  * For more information, see Spot placement score in
  * the *Amazon EC2 User Guide*.
@@ -9930,21 +8566,12 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * *Migration Hub Orchestrator User Guide*
  * .
  * 
- * 
- * 
- * 
  * Import single or multi-volume disk images or EBS snapshots into an Amazon Machine Image (AMI).
- * 
- * 
- * 
  * 
  * Amazon Web Services VM Import/Export strongly recommends specifying a value for either the
  * `--license-type` or `--usage-operation` parameter when you create a new
  * VM Import task. This ensures your operating system is licensed appropriately and your billing is
  * optimized.
- * 
- * 
- * 
  * 
  * For more information, see Importing a
  * VM as an image using VM Import/Export in the *VM Import/Export User Guide*.
@@ -9956,18 +8583,12 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * API instead. For more information, see Importing a VM as an image using VM
  * Import/Export in the *VM Import/Export User Guide*.
  * 
- * 
- * 
- * 
  * Creates an import instance task using metadata from the specified disk image.
- * 
  * 
  * This API action supports only single-volume VMs. To import multi-volume VMs, use ImportImage
  * instead.
  * 
- * 
  * For information about the import manifest referenced by this API action, see VM Import Manifest.
- * 
  * 
  * This API action is not supported by the Command Line Interface (CLI).
  */export const importInstance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.ImportInstance" }, ImportInstanceRequest, ImportInstanceResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
@@ -9992,7 +8613,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Modifies the VPC peering connection options on one side of a VPC peering connection.
  * 
- * 
  * If the peered VPCs are in the same Amazon Web Services account, you can enable DNS
  * resolution for queries from the local VPC. This ensures that queries from the local VPC
  * resolve to private IP addresses in the peer VPC. This option is not available if the
@@ -10009,21 +8629,14 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * enabled. For more information, see Monitor your instances using
  * CloudWatch in the *Amazon EC2 User Guide*.
  * 
- * 
  * To disable detailed monitoring, see UnmonitorInstances.
  */export const monitorInstances = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.MonitorInstances" }, MonitorInstancesRequest, MonitorInstancesResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
  * Sets or replaces the criteria for Allowed AMIs.
  * 
- * 
- * 
- * 
  * The Allowed AMIs feature does not restrict the AMIs owned by your account. Regardless of
  * the criteria you set, the AMIs created by your account will always be discoverable and
  * usable by users in your account.
- * 
- * 
- * 
  * 
  * For more information, see Control the discovery and use of AMIs in
  * Amazon EC2 with Allowed AMIs in
@@ -10032,12 +8645,8 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Creates a Spot Instance request.
  * 
- * 
  * For more information, see Work with Spot Instance in
  * the *Amazon EC2 User Guide*.
- * 
- * 
- * 
  * 
  * We strongly discourage using the RequestSpotInstances API because it is a legacy
  * API with no planned investment. For options for requesting Spot Instances, see
@@ -10049,58 +8658,39 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * Launches the specified number of instances using an AMI for which you have
  * permissions.
  * 
- * 
  * You can specify a number of options, or leave the default options. The following rules
  * apply:
- * 
- * 
  * 
  * - If you don't specify a subnet ID, we choose a default subnet from
  * your default VPC for you. If you don't have a default VPC, you must specify a
  * subnet ID in the request.
  * 
- * 
- * 
  * - All instances have a network interface with a primary private IPv4
  * address. If you don't specify this address, we choose one from the IPv4 range of
  * your subnet.
- * 
- * 
  * 
  * - Not all instance types support IPv6 addresses. For more information, see
  * Instance
  * types.
  * 
- * 
- * 
  * - If you don't specify a security group ID, we use the default security group
  * for the VPC. For more information, see Security
  * groups.
  * 
- * 
- * 
  * - If any of the AMIs have a product code attached for which the user has not
  * subscribed, the request fails.
- * 
- * 
- * 
- * 
  * 
  * You can create a launch template,
  * which is a resource that contains the parameters to launch an instance. When you launch
  * an instance using RunInstances, you can specify the launch template
  * instead of specifying the launch parameters.
  * 
- * 
  * To ensure faster instance launches, break up large requests into smaller batches. For
  * example, create five separate launch requests for 100 instances each instead of one
  * launch request for 500 instances.
  * 
- * 
- * 
  * `RunInstances` is subject to both request rate limiting and resource rate
  * limiting. For more information, see Request throttling.
- * 
  * 
  * An instance is ready for you to use when it's in the `running` state. You
  * can check the state of your instance using DescribeInstances. You can
@@ -10108,12 +8698,10 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * information, see CreateTags and Tagging your Amazon EC2
  * resources.
  * 
- * 
  * Linux instances have access to the public key of the key pair at boot. You can use
  * this key to provide secure access to the instance. Amazon EC2 public images use this
  * feature to provide secure access without passwords. For more information, see Key
  * pairs.
- * 
  * 
  * For troubleshooting, see What to do if
  * an instance immediately terminates, and Troubleshooting connecting to your instance.
@@ -10124,13 +8712,11 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * Use DescribeVpcPeeringConnections to view your outstanding VPC
  * peering connection requests.
  * 
- * 
  * For an inter-Region VPC peering connection request, you must accept the VPC peering
  * connection in the Region of the accepter VPC.
  */export const acceptVpcPeeringConnection = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.AcceptVpcPeeringConnection" }, AcceptVpcPeeringConnectionRequest, AcceptVpcPeeringConnectionResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
  * Creates an EC2 Instance Connect Endpoint.
- * 
  * 
  * An EC2 Instance Connect Endpoint allows you to connect to an instance, without
  * requiring the instance to have a public IPv4 or public IPv6 address. For more
@@ -10140,13 +8726,11 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Creates a launch template.
  * 
- * 
  * A launch template contains the parameters to launch an instance. When you launch an
  * instance using RunInstances, you can specify a launch template instead
  * of providing the launch parameters in the request. For more information, see Store
  * instance launch parameters in Amazon EC2 launch templates in the
  * *Amazon EC2 User Guide*.
- * 
  * 
  * To clone an existing launch template as the basis for a new launch template, use the
  * Amazon EC2 console. The API, SDKs, and CLI do not support cloning a template. For more
@@ -10156,14 +8740,12 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Creates a Network Access Scope.
  * 
- * 
  * Amazon Web Services Network Access Analyzer enables cloud networking and cloud operations teams
  * to verify that their networks on Amazon Web Services conform to their network security and governance
  * objectives. For more information, see the Amazon Web Services Network Access Analyzer Guide.
  */export const createNetworkInsightsAccessScope = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.CreateNetworkInsightsAccessScope" }, CreateNetworkInsightsAccessScopeRequest, CreateNetworkInsightsAccessScopeResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
  * Creates a VPC Encryption Control configuration for a specified VPC. VPC Encryption Control enables you to enforce encryption for all data in transit within and between VPCs to meet compliance requirements for standards like HIPAA, FedRAMP, and PCI DSS.
- * 
  * 
  * For more information, see Enforce VPC encryption in transit in the *Amazon VPC User Guide*.
  */export const createVpcEncryptionControl = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.CreateVpcEncryptionControl" }, CreateVpcEncryptionControlRequest, CreateVpcEncryptionControlResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
@@ -10183,12 +8765,10 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * Describes the specified conversion tasks or all your conversion tasks. For more information, see the
  * VM Import/Export User Guide.
  * 
- * 
  * For information about the import manifest referenced by this API action, see VM Import Manifest.
  */export const describeConversionTasks = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.DescribeConversionTasks" }, DescribeConversionTasksRequest, DescribeConversionTasksResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
  * Describes the specified Dedicated Hosts or all your Dedicated Hosts.
- * 
  * 
  * The results describe only the Dedicated Hosts in the Region you're currently using.
  * All listed instances consume capacity on your Dedicated Host. Dedicated Hosts that have
@@ -10197,14 +8777,12 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Describes your Amazon Web Services resources that are referencing the specified images.
  * 
- * 
  * For more information, see Identify your resources referencing
  * specified AMIs in the *Amazon EC2 User Guide*.
  */export const describeImageReferences = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.DescribeImageReferences" }, DescribeImageReferencesRequest, DescribeImageReferencesResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
  * Describes the configuration and status of image usage reports, filtered by report IDs or
  * image IDs.
- * 
  * 
  * For more information, see View your AMI usage in the
  * *Amazon EC2 User Guide*.
@@ -10217,10 +8795,7 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * only running instances are described, unless you specifically indicate to return the
  * status of all instances.
  * 
- * 
  * Instance status includes the following components:
- * 
- * 
  * 
  * - **Status checks** - Amazon EC2 performs status
  * checks on running EC2 instances to identify hardware and software issues. For
@@ -10228,24 +8803,16 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * instances with failed status checks in the Amazon EC2 User
  * Guide.
  * 
- * 
- * 
  * - **Scheduled events** - Amazon EC2 can schedule
  * events (such as reboot, stop, or terminate) for your instances related to
  * hardware issues, software updates, or system maintenance. For more information,
  * see Scheduled events for your instances in the Amazon EC2 User
  * Guide.
  * 
- * 
- * 
  * - **Instance state** - You can manage your instances
  * from the moment you launch them through their termination. For more information,
  * see Instance
  * lifecycle in the *Amazon EC2 User Guide*.
- * 
- * 
- * 
- * 
  * 
  * The Amazon EC2 API follows an eventual consistency model. This means that the result of an
  * API command you run that creates or modifies resources might not be immediately
@@ -10253,9 +8820,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * consistency, see Eventual consistency in the
  * Amazon EC2 API in the Amazon EC2 Developer
  * Guide.
- * 
- * 
- * 
  * 
  * The order of the elements in the response, including those within nested
  * structures, might vary. Applications should not assume the elements appear in a
@@ -10271,9 +8835,7 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Finds available schedules that meet the specified criteria.
  * 
- * 
  * You can search for an available schedule no more than 3 months in advance. You must meet the minimum required duration of 1,200 hours per year. For example, the minimum daily schedule is 4 hours, the minimum weekly schedule is 24 hours, and the minimum monthly schedule is 100 hours.
- * 
  * 
  * After you find a schedule that meets your needs, call PurchaseScheduledInstances
  * to purchase Scheduled Instances with that schedule.
@@ -10287,11 +8849,8 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * notify you if this occurs. Volume actions notify you if any action needs to be taken in
  * response to the event.
  * 
- * 
  * The `DescribeVolumeStatus` operation provides the following information about
  * the specified volumes:
- * 
- * 
  * 
  * *Status*: Reflects the current status of the volume. The possible
  * values are `ok`, `impaired` , `warning`, or
@@ -10301,15 +8860,11 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * volume at the time. We recommend that you retry the request. For more information about volume
  * status, see Monitor the status of your volumes in the *Amazon EBS User Guide*.
  * 
- * 
- * 
  * *Events*: Reflect the cause of a volume status and might require you to
  * take action. For example, if your volume returns an `impaired` status, then the
  * volume event might be `potential-data-inconsistency`. This means that your volume
  * has been affected by an issue with the underlying host, has all I/O operations disabled, and
  * might have inconsistent data.
- * 
- * 
  * 
  * *Actions*: Reflect the actions you might have to take in response to an
  * event. For example, if the status of the volume is `impaired` and the volume event
@@ -10319,13 +8874,9 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * Work with an
  * impaired EBS volume.
  * 
- * 
  * Volume status is based on the volume status checks, and does not reflect the volume state.
  * Therefore, volume status does not indicate volumes in the `error` state (for
  * example, when a volume is incapable of accepting I/O.)
- * 
- * 
- * 
  * 
  * The order of the elements in the response, including those within nested
  * structures, might vary. Applications should not assume the elements appear in a
@@ -10337,9 +8888,7 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Enables fast snapshot restores for the specified snapshots in the specified Availability Zones.
  * 
- * 
  * You get the full benefit of fast snapshot restores after they enter the `enabled` state.
- * 
  * 
  * For more information, see Amazon EBS fast snapshot
  * restore in the *Amazon EBS User Guide*.
@@ -10358,7 +8907,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * instance. The credit options are `standard` and
  * `unlimited`.
  * 
- * 
  * For more information, see Burstable
  * performance instances in the *Amazon EC2 User Guide*.
  */export const modifyInstanceCreditSpecification = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.ModifyInstanceCreditSpecification" }, ModifyInstanceCreditSpecificationRequest, ModifyInstanceCreditSpecificationResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
@@ -10371,9 +8919,7 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Launches the specified Scheduled Instances.
  * 
- * 
  * Before you can launch a Scheduled Instance, you must purchase it and obtain an identifier using PurchaseScheduledInstances.
- * 
  * 
  * You must launch a Scheduled Instance during its scheduled time period. You can't stop or
  * reboot a Scheduled Instance, but you can terminate it as needed. If you terminate a
@@ -10398,7 +8944,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * Retrieves the configuration data of the specified instance. You can use this data to
  * create a launch template.
  * 
- * 
  * This action calls on other describe actions to get instance information. Depending on
  * your instance configuration, you may need to allow the following actions in your IAM
  * policy: `DescribeSpotInstanceRequests`,
@@ -10412,39 +8957,30 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Creates a Spot Fleet request.
  * 
- * 
  * The Spot Fleet request specifies the total target capacity and the On-Demand target
  * capacity. Amazon EC2 calculates the difference between the total capacity and On-Demand
  * capacity, and launches the difference as Spot capacity.
  * 
- * 
  * You can submit a single request that includes multiple launch specifications that vary
  * by instance type, AMI, Availability Zone, or subnet.
- * 
  * 
  * By default, the Spot Fleet requests Spot Instances in the Spot Instance pool where the
  * price per unit is the lowest. Each launch specification can include its own instance
  * weighting that reflects the value of the instance type to your application
  * workload.
  * 
- * 
  * Alternatively, you can specify that the Spot Fleet distribute the target capacity
  * across the Spot pools included in its launch specifications. By ensuring that the Spot
  * Instances in your Spot Fleet are in different Spot pools, you can improve the
  * availability of your fleet.
- * 
  * 
  * You can specify tags for the Spot Fleet request and instances launched by the fleet.
  * You cannot tag other resource types in a Spot Fleet request because only the
  * `spot-fleet-request` and `instance` resource types are
  * supported.
  * 
- * 
  * For more information, see Spot Fleet requests
  * in the *Amazon EC2 User Guide*.
- * 
- * 
- * 
  * 
  * We strongly discourage using the RequestSpotFleet API because it is a legacy
  * API with no planned investment. For options for requesting Spot Instances, see
@@ -10456,31 +8992,22 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * Creates an EC2 Fleet that contains the configuration information for On-Demand Instances and Spot Instances.
  * Instances are launched immediately if there is available capacity.
  * 
- * 
  * A single EC2 Fleet can include multiple launch specifications that vary by instance type,
  * AMI, Availability Zone, or subnet.
- * 
  * 
  * For more information, see EC2 Fleet in the *Amazon EC2 User Guide*.
  */export const createFleet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.CreateFleet" }, CreateFleetRequest, CreateFleetResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
  * Describes the specified EC2 Fleet or all of your EC2 Fleets.
  * 
- * 
- * 
- * 
  * If a fleet is of type `instant`, you must specify the fleet ID in the
  * request, otherwise the fleet does not appear in the response.
- * 
- * 
- * 
  * 
  * For more information, see Describe your
  * EC2 Fleet in the *Amazon EC2 User Guide*.
  */export const describeFleets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-15", sdkId: "EC2", sigV4ServiceName: "ec2", name: "AmazonEC2.DescribeFleets" }, DescribeFleetsRequest, DescribeFleetsResult, []), FormatAwsQueryRequest, FormatAwsEc2QueryResponse, FormatAwsXMLError);
 /**
  * Describes one or more of your VPN connections.
- * 
  * 
  * For more information, see Amazon Web Services Site-to-Site VPN in the Amazon Web Services Site-to-Site VPN
  * User Guide.
@@ -10490,11 +9017,9 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * use the response to preview the instance types without launching instances. Note
  * that the response does not consider capacity.
  * 
- * 
  * When you specify multiple parameters, you get instance types that satisfy all of the
  * specified parameters. If you specify multiple values for a parameter, you get instance
  * types that satisfy any of the specified values.
- * 
  * 
  * For more information, see Preview instance types with specified attributes, Specify attributes for instance type selection for EC2 Fleet or Spot Fleet, and Spot
  * placement score in the *Amazon EC2 User Guide*, and Creating
@@ -10504,7 +9029,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Describes the specified instances or all instances.
  * 
- * 
  * If you specify instance IDs, the output includes information for only the specified
  * instances. If you specify filters, the output includes information for only those
  * instances that meet the filter criteria. If you do not specify instance IDs or filters,
@@ -10512,25 +9036,20 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * recommend that you use pagination to ensure that the operation returns quickly and
  * successfully.
  * 
- * 
  * The response includes SQL license exemption status information for instances registered
  * with the SQL LE service, providing visibility into license exemption configuration and status.
- * 
  * 
  * If you specify an instance ID that is not valid, an error is returned. If you specify
  * an instance that you do not own, it is not included in the output.
  * 
- * 
  * Recently terminated instances might appear in the returned results. This interval is
  * usually less than one hour.
- * 
  * 
  * If you describe instances in the rare case where an Availability Zone is experiencing
  * a service disruption and you specify instance IDs that are in the affected zone, or do
  * not specify any instance IDs at all, the call fails. If you describe instances and
  * specify only instance IDs that are in an unaffected zone, the call works
  * normally.
- * 
  * 
  * The Amazon EC2 API follows an eventual consistency model. This means that the result of an
  * API command you run that creates or modifies resources might not be immediately
@@ -10539,16 +9058,8 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * Amazon EC2 API in the Amazon EC2 Developer
  * Guide.
  * 
- * 
- * 
- * 
  * We strongly recommend using only paginated requests. Unpaginated requests are
  * susceptible to throttling and timeouts.
- * 
- * 
- * 
- * 
- * 
  * 
  * The order of the elements in the response, including those within nested
  * structures, might vary. Applications should not assume the elements appear in a
@@ -10557,13 +9068,10 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
 /**
  * Modifies the specified Spot Fleet request.
  * 
- * 
  * You can only modify a Spot Fleet request of type `maintain`.
- * 
  * 
  * While the Spot Fleet request is being modified, it is in the `modifying`
  * state.
- * 
  * 
  * To scale up your Spot Fleet, increase its target capacity. The Spot Fleet launches the
  * additional Spot Instances according to the allocation strategy for the Spot Fleet
@@ -10573,7 +9081,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * Instance pools. If the allocation strategy is `capacityOptimized`, Spot Fleet
  * launches instances from Spot Instance pools with optimal capacity for the number of instances
  * that are launching.
- * 
  * 
  * To scale down your Spot Fleet, decrease its target capacity. First, the Spot Fleet
  * cancels any open requests that exceed the new target capacity. You can request that the
@@ -10586,7 +9093,6 @@ export class ModifySpotFleetRequestResponse extends S.Class<ModifySpotFleetReque
  * Spot Instance pools. Alternatively, you can request that the Spot Fleet keep the fleet
  * at its current size, but not replace any Spot Instances that are interrupted or that you
  * terminate manually.
- * 
  * 
  * If you are finished with your Spot Fleet for now, but will use it again later, you can
  * set the target capacity to 0.

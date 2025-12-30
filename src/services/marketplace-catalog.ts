@@ -237,7 +237,6 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * `ChangeSetName`, and status. If you provide more than one filter, the API
  * operation applies a logical AND between the filters.
  * 
- * 
  * You can describe a change during the 60-day request history retention period for API
  * calls.
  */export const listChangeSets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-17", uri: "/ListChangeSets", sdkId: "Marketplace Catalog", sigV4ServiceName: "aws-marketplace", name: "AWSMPSeymour.ListChangeSets" }, ListChangeSetsRequest, ListChangeSetsResponse, [AccessDeniedException, InternalServiceException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -253,16 +252,13 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * against an entity that is already locked, you will receive a
  * `ResourceInUseException` error.
  * 
- * 
  * For example, you can't start the `ChangeSet` described in the example later in this topic because it contains two changes to run the same
  * change type (`AddRevisions`) against the same entity
  * (`entity-id@1`).
  * 
- * 
  * For more information about working with change sets, see Working with change sets. For information about change types for
  * single-AMI products, see Working with single-AMI products. Also, for more information about change
  * types available for container-based products, see Working with container products.
- * 
  * 
  * To download "DetailsDocument" shapes, see Python
  * and Java shapes on GitHub.

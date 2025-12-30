@@ -67,17 +67,11 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
 /**
  * Gets the balance of a specific token, including native tokens, for a given address (wallet or contract) on the blockchain.
  * 
- * 
- * 
- * 
  * Only the native tokens BTC and ETH, and the ERC-20,
  * ERC-721, and ERC 1155 token standards are supported.
  */export const getTokenBalance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-05-04", uri: "/get-token-balance", sdkId: "ManagedBlockchain Query", sigV4ServiceName: "managedblockchain-query", name: "TietonChainQueryService.GetTokenBalance" }, GetTokenBalanceInput, GetTokenBalanceOutput, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets the details of a transaction.
- * 
- * 
- * 
  * 
  * This action will return transaction details for all transactions
  * that are *confirmed* on the blockchain, even if they have not reached
@@ -87,48 +81,29 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
  * Lists all the contracts for a given contract type deployed by an address
  * (either a contract address or a wallet address).
  * 
- * 
  * The Bitcoin blockchain networks do not support this
  * operation.
  */export const listAssetContracts = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-05-04", uri: "/list-asset-contracts", sdkId: "ManagedBlockchain Query", sigV4ServiceName: "managedblockchain-query", name: "TietonChainQueryService.ListAssetContracts" }, ListAssetContractsInput, ListAssetContractsOutput, [AccessDeniedException, InternalServerException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists all the transaction events for an address on the blockchain.
  * 
- * 
- * 
- * 
  * This operation is only supported on the Bitcoin networks.
  */export const listFilteredTransactionEvents = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-05-04", uri: "/list-filtered-transaction-events", sdkId: "ManagedBlockchain Query", sigV4ServiceName: "managedblockchain-query", name: "TietonChainQueryService.ListFilteredTransactionEvents" }, ListFilteredTransactionEventsInput, ListFilteredTransactionEventsOutput, [AccessDeniedException, InternalServerException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This action returns the following for a given blockchain network:
  * 
- * 
- * 
  * - Lists all token balances owned by an address (either a contract
  * address or a wallet address).
  * 
- * 
- * 
  * - Lists all token balances for all tokens created by a contract.
  * 
- * 
- * 
  * - Lists all token balances for a given token.
- * 
- * 
- * 
- * 
- * 
- * 
  * 
  * You must always specify the network property of
  * the `tokenFilter` when using this operation.
  */export const listTokenBalances = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-05-04", uri: "/list-token-balances", sdkId: "ManagedBlockchain Query", sigV4ServiceName: "managedblockchain-query", name: "TietonChainQueryService.ListTokenBalances" }, ListTokenBalancesInput, ListTokenBalancesOutput, [AccessDeniedException, InternalServerException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists all the transaction events for a transaction
- * 
- * 
- * 
  * 
  * This action will return transaction details for all transactions
  * that are *confirmed* on the blockchain, even if they have not reached
@@ -141,23 +116,14 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
  * Gets the token balance for a batch of tokens by using the `BatchGetTokenBalance`
  * action for every token in the request.
  * 
- * 
- * 
- * 
  * Only the native tokens BTC and ETH, and the ERC-20,
  * ERC-721, and ERC 1155 token standards are supported.
  */export const batchGetTokenBalance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-05-04", uri: "/batch-get-token-balance", sdkId: "ManagedBlockchain Query", sigV4ServiceName: "managedblockchain-query", name: "TietonChainQueryService.BatchGetTokenBalance" }, BatchGetTokenBalanceInput, BatchGetTokenBalanceOutput, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets the information about a specific contract deployed on the blockchain.
  * 
- * 
- * 
- * 
- * 
  * - The Bitcoin blockchain networks do not support this
  * operation.
- * 
- * 
  * 
  * - Metadata is currently only available for some `ERC-20` contracts.
  * Metadata will be available for additional contracts in the future.

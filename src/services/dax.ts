@@ -132,20 +132,16 @@ export class SubnetQuotaExceededFault extends S.TaggedError<SubnetQuotaExceededF
  * specified, or about a specific DAX cluster if a cluster identifier is
  * supplied.
  * 
- * 
  * If the cluster is in the CREATING state, only cluster level information will be
  * displayed until all of the nodes are successfully provisioned.
  * 
- * 
  * If the cluster is in the DELETING state, only cluster level information will be
  * displayed.
- * 
  * 
  * If nodes are currently being added to the DAX cluster, node endpoint information
  * and creation time for the additional nodes will not be displayed until they are
  * completely provisioned. When the DAX cluster state is
  * *available*, the cluster is ready for use.
- * 
  * 
  * If nodes are currently being removed from the DAX cluster, no
  * endpoint information for the removed nodes is displayed.
@@ -154,7 +150,6 @@ export class SubnetQuotaExceededFault extends S.TaggedError<SubnetQuotaExceededF
  * Returns events related to DAX clusters and parameter groups. You can
  * obtain events specific to a particular DAX cluster or parameter group by
  * providing the name as a parameter.
- * 
  * 
  * By default, only the events occurring within the last 24 hours are returned;
  * however, you can retrieve up to 14 days' worth of events if necessary.
@@ -192,18 +187,12 @@ export class SubnetQuotaExceededFault extends S.TaggedError<SubnetQuotaExceededF
 /**
  * Removes one or more nodes from a DAX cluster.
  * 
- * 
- * 
- * 
  * You cannot use `DecreaseReplicationFactor` to remove the last node
  * in a DAX cluster. If you need to do this, use
  * `DeleteCluster` instead.
  */export const decreaseReplicationFactor = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", sdkId: "DAX", sigV4ServiceName: "dax", name: "AmazonDAXV3.DecreaseReplicationFactor" }, DecreaseReplicationFactorRequest, DecreaseReplicationFactorResponse, [ClusterNotFoundFault, InvalidClusterStateFault, InvalidParameterCombinationException, InvalidParameterValueException, NodeNotFoundFault, ServiceLinkedRoleNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a subnet group.
- * 
- * 
- * 
  * 
  * You cannot delete a subnet group if it is associated with any DAX
  * clusters.
@@ -216,10 +205,6 @@ export class SubnetQuotaExceededFault extends S.TaggedError<SubnetQuotaExceededF
  * Reboots a single node of a DAX cluster. The reboot action takes
  * place as soon as possible. During the reboot, the node status is set to
  * REBOOTING.
- * 
- * 
- * 
- * 
  * 
  * `RebootNode` restarts the DAX engine process and does not remove the
  * contents of the cache.

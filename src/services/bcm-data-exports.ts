@@ -101,16 +101,13 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * Creates a data export and specifies the data query, the delivery preference, and any
  * optional resource tags.
  * 
- * 
  * A `DataQuery` consists of both a `QueryStatement` and
  * `TableConfigurations`.
- * 
  * 
  * The `QueryStatement` is an SQL statement. Data Exports only supports a limited
  * subset of the SQL syntax. For more information on the SQL syntax that is supported, see Data query. To
  * view the available tables and columns, see the Data Exports table
  * dictionary.
- * 
  * 
  * The `TableConfigurations` is a collection of specified
  * `TableProperties` for the table being queried in the `QueryStatement`.

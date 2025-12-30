@@ -93,7 +93,6 @@ export class InvalidArgsException extends S.TaggedError<InvalidArgsException>()(
 /**
  * Deletes a certificate and its associated private key. If this action succeeds, the certificate no longer appears in the list that can be displayed by calling the ListCertificates action or be retrieved by calling the GetCertificate action. The certificate will not be available for use by Amazon Web Services services integrated with ACM.
  * 
- * 
  * You cannot delete an ACM certificate that is being used by another Amazon Web Services service. To delete a certificate that is in use, the certificate association must first be removed.
  */export const deleteCertificate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-08", sdkId: "ACM", sigV4ServiceName: "acm", name: "CertificateManager.DeleteCertificate" }, DeleteCertificateRequest, S.Struct({}), [AccessDeniedException, ConflictException, InvalidArnException, ResourceInUseException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -107,9 +106,7 @@ export class InvalidArgsException extends S.TaggedError<InvalidArgsException>()(
 /**
  * Imports a certificate into Certificate Manager (ACM) to use with services that are integrated with ACM. Note that integrated services allow only certificate types and keys they support to be associated with their resources. Further, their support differs depending on whether the certificate is imported into IAM or into ACM. For more information, see the documentation for each service. For more information about importing certificates into ACM, see Importing Certificates in the *Certificate Manager User Guide*.
  * 
- * 
  * ACM does not provide managed renewal for certificates that you import.
- * 
  * 
  * Note the following guidelines when importing third party certificates:
  * 
@@ -135,7 +132,6 @@ export class InvalidArgsException extends S.TaggedError<InvalidArgsException>()(
  * 
  * - The cryptographic algorithm of an imported certificate must match the algorithm of the signing CA. For example, if the signing CA key type is RSA, then the certificate key type must also be RSA.
  * 
- * 
  * This operation returns the Amazon Resource Name (ARN) of the imported certificate.
  */export const importCertificate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-08", sdkId: "ACM", sigV4ServiceName: "acm", name: "CertificateManager.ImportCertificate" }, ImportCertificateRequest, ImportCertificateResponse, [InvalidArnException, InvalidParameterException, InvalidTagException, LimitExceededException, ResourceNotFoundException, TagPolicyException, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -153,9 +149,7 @@ export class InvalidArgsException extends S.TaggedError<InvalidArgsException>()(
  * 
  * If you are requesting a private certificate, domain validation is not required. If you are requesting a public certificate, each domain name that you specify must be validated to verify that you own or control the domain. You can use DNS validation or email validation. We recommend that you use DNS validation.
  * 
- * 
  * ACM behavior differs from the RFC 6125 specification of the certificate validation process. ACM first checks for a Subject Alternative Name, and, if it finds one, ignores the common name (CN).
- * 
  * 
  * After successful completion of the `RequestCertificate` action, there is a delay of several seconds before you can retrieve information about the new certificate.
  */export const requestCertificate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-08", sdkId: "ACM", sigV4ServiceName: "acm", name: "CertificateManager.RequestCertificate" }, RequestCertificateRequest, RequestCertificateResponse, [InvalidArnException, InvalidDomainValidationOptionsException, InvalidParameterException, InvalidTagException, LimitExceededException, TagPolicyException, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

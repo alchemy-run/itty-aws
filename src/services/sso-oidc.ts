@@ -48,9 +48,6 @@ export class UnsupportedGrantTypeException extends S.TaggedError<UnsupportedGran
  * role or user. These tokens might contain defined scopes that specify permissions such as `read:profile` or `write:data`. Through downscoping, you can use the scopes parameter to request tokens with reduced permissions compared to the original client application's permissions or, if applicable, the refresh token's scopes. The access token can be used to fetch short-lived credentials for the assigned
  * Amazon Web Services accounts or to access application APIs using `bearer` authentication.
  * 
- * 
- * 
- * 
  * This API is used with Signature Version 4. For more information, see Amazon Web Services Signature
  * Version 4 for API Requests.
  */export const createTokenWithIAM = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-06-10", uri: "/token?aws_iam=t", sdkId: "SSO OIDC", sigV4ServiceName: "sso-oauth", name: "AWSSSOOIDCService.CreateTokenWithIAM" }, CreateTokenWithIAMRequest, CreateTokenWithIAMResponse, [AccessDeniedException, AuthorizationPendingException, ExpiredTokenException, InternalServerException, InvalidClientException, InvalidGrantException, InvalidRequestException, InvalidRequestRegionException, InvalidScopeException, SlowDownException, UnauthorizedClientException, UnsupportedGrantTypeException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

@@ -258,7 +258,6 @@ export class ThrottlingException extends S.TaggedError<ThrottlingException>()("T
  * 
  * - neptune-db:DeleteDataViaQuery
  * 
- * 
  * Note also that the neptune-db:QueryLanguage:OpenCypher IAM condition key can be used in the policy document to restrict the use of openCypher queries (see Condition keys available in Neptune IAM data-access policy statements).
  */export const executeOpenCypherQuery = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-08-01", uri: "/opencypher", sdkId: "neptunedata", sigV4ServiceName: "neptune-db", name: "AmazonNeptuneDataplane.ExecuteOpenCypherQuery" }, ExecuteOpenCypherQueryInput, ExecuteOpenCypherQueryOutput, [BadRequestException, CancelledByUserException, ClientTimeoutException, ConcurrentModificationException, ConstraintViolationException, FailureByQueryException, IllegalArgumentException, InvalidArgumentException, InvalidNumericDataException, InvalidParameterException, MalformedQueryException, MemoryLimitExceededException, MissingParameterException, ParsingException, PreconditionsFailedException, QueryLimitExceededException, QueryLimitException, QueryTooLargeException, TimeLimitExceededException, TooManyRequestsException, UnsupportedOperationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -374,7 +373,6 @@ export class ThrottlingException extends S.TaggedError<ThrottlingException>()("T
  * 
  * - neptune-db:DeleteDataViaQuery
  * 
- * 
  * Note that the neptune-db:QueryLanguage:Gremlin IAM condition key can be used in the policy document to restrict the use of Gremlin queries (see Condition keys available in Neptune IAM data-access policy statements).
  */export const executeGremlinExplainQuery = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-08-01", uri: "/gremlin/explain", sdkId: "neptunedata", sigV4ServiceName: "neptune-db", name: "AmazonNeptuneDataplane.ExecuteGremlinExplainQuery" }, ExecuteGremlinExplainQueryInput, ExecuteGremlinExplainQueryOutput, [BadRequestException, CancelledByUserException, ClientTimeoutException, ConcurrentModificationException, ConstraintViolationException, FailureByQueryException, IllegalArgumentException, InvalidArgumentException, InvalidParameterException, MalformedQueryException, MemoryLimitExceededException, MissingParameterException, ParsingException, PreconditionsFailedException, QueryLimitExceededException, QueryLimitException, QueryTooLargeException, TimeLimitExceededException, TooManyRequestsException, UnsupportedOperationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -394,7 +392,6 @@ export class ThrottlingException extends S.TaggedError<ThrottlingException>()("T
  * - neptune-db:WriteDataViaQuery
  * 
  * - neptune-db:DeleteDataViaQuery
- * 
  * 
  * Note that the neptune-db:QueryLanguage:Gremlin IAM condition key can be used in the policy document to restrict the use of Gremlin queries (see Condition keys available in Neptune IAM data-access policy statements).
  */export const executeGremlinQuery = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-08-01", uri: "/gremlin", sdkId: "neptunedata", sigV4ServiceName: "neptune-db", name: "AmazonNeptuneDataplane.ExecuteGremlinQuery" }, ExecuteGremlinQueryInput, ExecuteGremlinQueryOutput, [BadRequestException, CancelledByUserException, ClientTimeoutException, ConcurrentModificationException, ConstraintViolationException, FailureByQueryException, IllegalArgumentException, InvalidArgumentException, InvalidParameterException, MalformedQueryException, MemoryLimitExceededException, MissingParameterException, ParsingException, PreconditionsFailedException, QueryLimitExceededException, QueryLimitException, QueryTooLargeException, TimeLimitExceededException, TooManyRequestsException, UnsupportedOperationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -453,7 +450,6 @@ export class ThrottlingException extends S.TaggedError<ThrottlingException>()("T
  * - neptune-db:QueryLanguage:Gremlin
  * 
  * - neptune-db:QueryLanguage:OpenCypher
- * 
  * 
  * See Condition keys available in Neptune IAM data-access policy statements).
  */export const getPropertygraphStream = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-08-01", uri: "/propertygraph/stream", method: "GET", sdkId: "neptunedata", sigV4ServiceName: "neptune-db", name: "AmazonNeptuneDataplane.GetPropertygraphStream" }, GetPropertygraphStreamInput, GetPropertygraphStreamOutput, [ClientTimeoutException, ConstraintViolationException, ExpiredStreamException, IllegalArgumentException, InvalidArgumentException, InvalidParameterException, MemoryLimitExceededException, PreconditionsFailedException, StreamRecordsNotFoundException, ThrottlingException, TooManyRequestsException, UnsupportedOperationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

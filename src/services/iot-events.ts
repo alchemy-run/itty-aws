@@ -164,9 +164,6 @@ export class ResourceAlreadyExistsException extends S.TaggedError<ResourceAlread
 /**
  * Retrieves runtime information about a detector model analysis.
  * 
- * 
- * 
- * 
  * After AWS IoT Events starts analyzing your detector model, you have up to 24 hours to retrieve the analysis results.
  */export const describeDetectorModelAnalysis = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-07-27", uri: "/analysis/detector-models/{analysisId}", method: "GET", sdkId: "IoT Events", sigV4ServiceName: "iotevents", name: "IotColumboService.DescribeDetectorModelAnalysis" }, DescribeDetectorModelAnalysisRequest, DescribeDetectorModelAnalysisResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -224,7 +221,6 @@ export class ResourceAlreadyExistsException extends S.TaggedError<ResourceAlread
 /**
  * Sets or updates the AWS IoT Events logging options.
  * 
- * 
  * If you update the value of any `loggingOptions` field, it takes up to one
  * minute for the change to take effect. If you change the policy attached to the role you
  * specified in the `roleArn` field (for example, to correct an invalid policy), it
@@ -239,9 +235,6 @@ export class ResourceAlreadyExistsException extends S.TaggedError<ResourceAlread
  */export const updateInput = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-07-27", uri: "/inputs/{inputName}", method: "PUT", sdkId: "IoT Events", sigV4ServiceName: "iotevents", name: "IotColumboService.UpdateInput" }, UpdateInputRequest, UpdateInputResponse, [InternalFailureException, InvalidRequestException, ResourceInUseException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves one or more analysis results of the detector model.
- * 
- * 
- * 
  * 
  * After AWS IoT Events starts analyzing your detector model, you have up to 24 hours to retrieve the analysis results.
  */export const getDetectorModelAnalysisResults = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-07-27", uri: "/analysis/detector-models/{analysisId}/results", method: "GET", sdkId: "IoT Events", sigV4ServiceName: "iotevents", name: "IotColumboService.GetDetectorModelAnalysisResults" }, GetDetectorModelAnalysisResultsRequest, GetDetectorModelAnalysisResultsResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

@@ -465,16 +465,10 @@ export class TargetsRequiredException extends S.TaggedError<TargetsRequiredExcep
 /**
  * Sets or changes the default branch name for the specified repository.
  * 
- * 
- * 
- * 
  * If you use this operation to change the default branch name to the current default branch name, a success message is returned even though the default branch did not change.
  */export const updateDefaultBranch = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-13", sdkId: "CodeCommit", sigV4ServiceName: "codecommit", name: "CodeCommit_20150413.UpdateDefaultBranch" }, UpdateDefaultBranchInput, S.Struct({}), [BranchDoesNotExistException, BranchNameRequiredException, EncryptionIntegrityChecksFailedException, EncryptionKeyAccessDeniedException, EncryptionKeyDisabledException, EncryptionKeyNotFoundException, EncryptionKeyUnavailableException, InvalidBranchNameException, InvalidRepositoryNameException, RepositoryDoesNotExistException, RepositoryNameRequiredException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about one or more repositories.
- * 
- * 
- * 
  * 
  * The description field for a repository accepts all HTML characters and all valid
  * Unicode characters. Applications that do not HTML-encode the description and display
@@ -488,9 +482,6 @@ export class TargetsRequiredException extends S.TaggedError<TargetsRequiredExcep
 /**
  * Deletes a repository. If a specified repository was already deleted, a null repository
  * ID is returned.
- * 
- * 
- * 
  * 
  * Deleting a repository also deletes all associated objects and metadata. After a repository is
  * deleted, all future push calls to the deleted repository fail.
@@ -510,9 +501,6 @@ export class TargetsRequiredException extends S.TaggedError<TargetsRequiredExcep
 /**
  * Returns information about comments made on the comparison between two commits.
  * 
- * 
- * 
- * 
  * Reaction counts might include numbers from user identities who were deleted after the reaction was made. For a count of
  * reactions from active identities, use GetCommentReactions.
  */export const getCommentsForComparedCommit = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-13", sdkId: "CodeCommit", sigV4ServiceName: "codecommit", name: "CodeCommit_20150413.GetCommentsForComparedCommit" }, GetCommentsForComparedCommitInput, GetCommentsForComparedCommitOutput, [CommitDoesNotExistException, CommitIdRequiredException, EncryptionIntegrityChecksFailedException, EncryptionKeyAccessDeniedException, EncryptionKeyDisabledException, EncryptionKeyNotFoundException, EncryptionKeyUnavailableException, InvalidCommitIdException, InvalidContinuationTokenException, InvalidMaxResultsException, InvalidRepositoryNameException, RepositoryDoesNotExistException, RepositoryNameRequiredException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -524,9 +512,6 @@ export class TargetsRequiredException extends S.TaggedError<TargetsRequiredExcep
  */export const getMergeCommit = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-13", sdkId: "CodeCommit", sigV4ServiceName: "codecommit", name: "CodeCommit_20150413.GetMergeCommit" }, GetMergeCommitInput, GetMergeCommitOutput, [CommitDoesNotExistException, CommitRequiredException, EncryptionIntegrityChecksFailedException, EncryptionKeyAccessDeniedException, EncryptionKeyDisabledException, EncryptionKeyNotFoundException, EncryptionKeyUnavailableException, InvalidCommitException, InvalidConflictDetailLevelException, InvalidConflictResolutionStrategyException, InvalidRepositoryNameException, RepositoryDoesNotExistException, RepositoryNameRequiredException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about a repository.
- * 
- * 
- * 
  * 
  * The description field for a repository accepts all HTML characters and all valid
  * Unicode characters. Applications that do not HTML-encode the description and display
@@ -556,9 +541,6 @@ export class TargetsRequiredException extends S.TaggedError<TargetsRequiredExcep
  */export const updateApprovalRuleTemplateName = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-13", sdkId: "CodeCommit", sigV4ServiceName: "codecommit", name: "CodeCommit_20150413.UpdateApprovalRuleTemplateName" }, UpdateApprovalRuleTemplateNameInput, UpdateApprovalRuleTemplateNameOutput, [ApprovalRuleTemplateDoesNotExistException, ApprovalRuleTemplateNameAlreadyExistsException, ApprovalRuleTemplateNameRequiredException, InvalidApprovalRuleTemplateNameException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Sets or changes the comment or description for a repository.
- * 
- * 
- * 
  * 
  * The description field for a repository accepts all HTML characters and all valid
  * Unicode characters. Applications that do not HTML-encode the description and display
@@ -591,9 +573,6 @@ export class TargetsRequiredException extends S.TaggedError<TargetsRequiredExcep
 /**
  * Creates a branch in a repository and points the branch to a commit.
  * 
- * 
- * 
- * 
  * Calling the create branch operation does not set a repository's default branch. To do this, call the update default branch operation.
  */export const createBranch = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-13", sdkId: "CodeCommit", sigV4ServiceName: "codecommit", name: "CodeCommit_20150413.CreateBranch" }, CreateBranchInput, S.Struct({}), [BranchNameExistsException, BranchNameRequiredException, CommitDoesNotExistException, CommitIdRequiredException, EncryptionIntegrityChecksFailedException, EncryptionKeyAccessDeniedException, EncryptionKeyDisabledException, EncryptionKeyNotFoundException, EncryptionKeyUnavailableException, InvalidBranchNameException, InvalidCommitIdException, InvalidRepositoryNameException, RepositoryDoesNotExistException, RepositoryNameRequiredException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -604,9 +583,6 @@ export class TargetsRequiredException extends S.TaggedError<TargetsRequiredExcep
  */export const deleteCommentContent = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-13", sdkId: "CodeCommit", sigV4ServiceName: "codecommit", name: "CodeCommit_20150413.DeleteCommentContent" }, DeleteCommentContentInput, DeleteCommentContentOutput, [CommentDeletedException, CommentDoesNotExistException, CommentIdRequiredException, InvalidCommentIdException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the content of a comment made on a change, file, or commit in a repository.
- * 
- * 
- * 
  * 
  * Reaction counts might include numbers from user identities who were deleted after the reaction was made. For a count of
  * reactions from active identities, use GetCommentReactions.
@@ -681,9 +657,6 @@ export class TargetsRequiredException extends S.TaggedError<TargetsRequiredExcep
 /**
  * Returns comments made on a pull request.
  * 
- * 
- * 
- * 
  * Reaction counts might include numbers from user identities who were deleted after the reaction was made. For a count of
  * reactions from active identities, use GetCommentReactions.
  */export const getCommentsForPullRequest = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-13", sdkId: "CodeCommit", sigV4ServiceName: "codecommit", name: "CodeCommit_20150413.GetCommentsForPullRequest" }, GetCommentsForPullRequestInput, GetCommentsForPullRequestOutput, [CommitDoesNotExistException, CommitIdRequiredException, EncryptionIntegrityChecksFailedException, EncryptionKeyAccessDeniedException, EncryptionKeyDisabledException, EncryptionKeyNotFoundException, EncryptionKeyUnavailableException, InvalidCommitIdException, InvalidContinuationTokenException, InvalidMaxResultsException, InvalidPullRequestIdException, InvalidRepositoryNameException, PullRequestDoesNotExistException, PullRequestIdRequiredException, RepositoryDoesNotExistException, RepositoryNameRequiredException, RepositoryNotAssociatedWithPullRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -744,9 +717,6 @@ export class TargetsRequiredException extends S.TaggedError<TargetsRequiredExcep
  * using a specified merge strategy. This can help you determine the outcome of a potential
  * merge. This API cannot be used with the fast-forward merge strategy because that
  * strategy does not create a merge commit.
- * 
- * 
- * 
  * 
  * This unreferenced merge commit
  * can only be accessed using the GetCommit API or through git commands such as git fetch. To retrieve this commit, you must specify its commit ID or otherwise reference it.

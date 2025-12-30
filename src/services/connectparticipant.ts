@@ -64,28 +64,15 @@ export class ResourceNotFoundException extends S.TaggedError<ResourceNotFoundExc
  * Provides a pre-signed URL for download of a completed attachment. This is an
  * asynchronous API for use with active contacts.
  * 
- * 
  * For security recommendations, see Amazon Connect Chat security best practices.
- * 
- * 
- * 
- * 
  * 
  * - The participant role `CUSTOM_BOT` is not permitted to access
  * attachments customers may upload. An `AccessDeniedException` can
  * indicate that the participant may be a CUSTOM_BOT, and it doesn't have
  * access to attachments.
  * 
- * 
- * 
  * - `ConnectionToken` is used for invoking this API instead of
  * `ParticipantToken`.
- * 
- * 
- * 
- * 
- * 
- * 
  * 
  * The Amazon Connect Participant Service APIs do not use Signature Version 4
  * authentication.
@@ -94,35 +81,16 @@ export class ResourceNotFoundException extends S.TaggedError<ResourceNotFoundExc
  * Retrieves the AuthenticationUrl for the current authentication session for the
  * AuthenticateCustomer flow block.
  * 
- * 
  * For security recommendations, see Amazon Connect Chat security best practices.
- * 
- * 
- * 
- * 
  * 
  * - This API can only be called within one minute of receiving the
  * authenticationInitiated event.
  * 
- * 
- * 
  * - The current supported channel is chat. This API is not supported for Apple
  * Messages for Business, WhatsApp, or SMS chats.
  * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
  * `ConnectionToken` is used for invoking this API instead of
  * `ParticipantToken`.
- * 
- * 
- * 
  * 
  * The Amazon Connect Participant Service APIs do not use Signature Version 4
  * authentication.
@@ -133,25 +101,14 @@ export class ResourceNotFoundException extends S.TaggedError<ResourceNotFoundExc
  * migrated to the CreateParticipantConnection API using the
  * `ConnectParticipant` field.
  * 
- * 
- * 
- * 
  * Sends an event. Message receipts are not supported when there are more than two active
  * participants in the chat. Using the SendEvent API for message receipts when a supervisor
  * is barged-in will result in a conflict exception.
  * 
- * 
  * For security recommendations, see Amazon Connect Chat security best practices.
- * 
- * 
- * 
- * 
  * 
  * `ConnectionToken` is used for invoking this API instead of
  * `ParticipantToken`.
- * 
- * 
- * 
  * 
  * The Amazon Connect Participant Service APIs do not use Signature Version 4
  * authentication.
@@ -160,23 +117,11 @@ export class ResourceNotFoundException extends S.TaggedError<ResourceNotFoundExc
  * Cancels the authentication session. The opted out branch of the Authenticate Customer
  * flow block will be taken.
  * 
- * 
- * 
- * 
  * The current supported channel is chat. This API is not supported for Apple
  * Messages for Business, WhatsApp, or SMS chats.
  * 
- * 
- * 
- * 
- * 
- * 
- * 
  * `ConnectionToken` is used for invoking this API instead of
  * `ParticipantToken`.
- * 
- * 
- * 
  * 
  * The Amazon Connect Participant Service APIs do not use Signature Version 4
  * authentication.
@@ -186,18 +131,10 @@ export class ResourceNotFoundException extends S.TaggedError<ResourceNotFoundExc
  * provided in StartAttachmentUpload API. A conflict exception is thrown when an attachment
  * with that identifier is already being uploaded.
  * 
- * 
  * For security recommendations, see Amazon Connect Chat security best practices.
- * 
- * 
- * 
- * 
  * 
  * `ConnectionToken` is used for invoking this API instead of
  * `ParticipantToken`.
- * 
- * 
- * 
  * 
  * The Amazon Connect Participant Service APIs do not use Signature Version 4
  * authentication.
@@ -205,18 +142,10 @@ export class ResourceNotFoundException extends S.TaggedError<ResourceNotFoundExc
 /**
  * Disconnects a participant.
  * 
- * 
  * For security recommendations, see Amazon Connect Chat security best practices.
- * 
- * 
- * 
- * 
  * 
  * `ConnectionToken` is used for invoking this API instead of
  * `ParticipantToken`.
- * 
- * 
- * 
  * 
  * The Amazon Connect Participant Service APIs do not use Signature Version 4
  * authentication.
@@ -224,18 +153,10 @@ export class ResourceNotFoundException extends S.TaggedError<ResourceNotFoundExc
 /**
  * Sends a message.
  * 
- * 
  * For security recommendations, see Amazon Connect Chat security best practices.
- * 
- * 
- * 
- * 
  * 
  * `ConnectionToken` is used for invoking this API instead of
  * `ParticipantToken`.
- * 
- * 
- * 
  * 
  * The Amazon Connect Participant Service APIs do not use Signature Version 4
  * authentication.
@@ -244,18 +165,10 @@ export class ResourceNotFoundException extends S.TaggedError<ResourceNotFoundExc
  * Provides a pre-signed Amazon S3 URL in response for uploading the file directly to
  * S3.
  * 
- * 
  * For security recommendations, see Amazon Connect Chat security best practices.
- * 
- * 
- * 
- * 
  * 
  * `ConnectionToken` is used for invoking this API instead of
  * `ParticipantToken`.
- * 
- * 
- * 
  * 
  * The Amazon Connect Participant Service APIs do not use Signature Version 4
  * authentication.
@@ -263,75 +176,50 @@ export class ResourceNotFoundException extends S.TaggedError<ResourceNotFoundExc
 /**
  * Retrieves the view for the specified view token.
  * 
- * 
  * For security recommendations, see Amazon Connect Chat security best practices.
  */export const describeView = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-07", uri: "/participant/views/{ViewToken}", method: "GET", sdkId: "ConnectParticipant", sigV4ServiceName: "execute-api", name: "AmazonConnectParticipantServiceLambda.DescribeView" }, DescribeViewRequest, DescribeViewResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates the participant's connection.
  * 
- * 
  * For security recommendations, see Amazon Connect Chat security best practices.
- * 
  * 
  * For WebRTC security recommendations, see Amazon Connect WebRTC security best practices.
  * 
- * 
- * 
- * 
- * 
  * `ParticipantToken` is used for invoking this API instead of
  * `ConnectionToken`.
- * 
- * 
- * 
  * 
  * The participant token is valid for the lifetime of the participant – until they are
  * part of a contact. For WebRTC participants, if they leave or are disconnected for 60
  * seconds, a new participant needs to be created using the CreateParticipant API.
  * 
- * 
- * 
  * **For `WEBSOCKET` Type**:
- * 
  * 
  * The response URL for has a connect expiry timeout of 100s. Clients must manually
  * connect to the returned websocket URL and subscribe to the desired topic.
  * 
- * 
  * For chat, you need to publish the following on the established websocket
  * connection:
  * 
- * 
- * 
  * `{"topic":"aws/subscribe","content":{"topics":["aws/chat"]}}`
- * 
- * 
  * 
  * Upon websocket URL expiry, as specified in the response ConnectionExpiry parameter,
  * clients need to call this API again to obtain a new websocket URL and perform the same
  * steps as before.
  * 
- * 
  * The expiry time for the connection token is different than the
  * `ChatDurationInMinutes`. Expiry time for the connection token is 1
  * day.
  * 
- * 
- * 
  * **For `WEBRTC_CONNECTION` Type**:
- * 
  * 
  * The response includes connection data required for the client application to join the
  * call using the Amazon Chime SDK client libraries. The WebRTCConnection response contains
  * Meeting and Attendee information needed to establish the media connection.
  * 
- * 
  * The attendee join token in WebRTCConnection response is valid for the lifetime of the
  * participant in the call. If a participant leaves or is disconnected for 60 seconds,
  * their participant credentials will no longer be valid, and a new participant will need
  * to be created to rejoin the call.
- * 
- * 
  * 
  * **Message streaming support**: This API can also be used
  * together with the StartContactStreaming API to create a participant connection for chat
@@ -340,10 +228,7 @@ export class ResourceNotFoundException extends S.TaggedError<ResourceNotFoundExc
  * message streaming in the Amazon Connect Administrator
  * Guide.
  * 
- * 
- * 
  * **Multi-user web, in-app, video calling support**:
- * 
  * 
  * For WebRTC calls, this API is used in conjunction with the CreateParticipant API to
  * enable multi-party calling. The StartWebRTCContact API creates the initial contact and
@@ -351,15 +236,10 @@ export class ResourceNotFoundException extends S.TaggedError<ResourceNotFoundExc
  * ongoing call. For more information about multi-party WebRTC calls, see Enable multi-user web, in-app, and video calling in the Amazon Connect
  * Administrator Guide.
  * 
- * 
- * 
  * **Feature specifications**: For information about feature
  * specifications, such as the allowed number of open websocket connections per participant
  * or maximum number of WebRTC participants, see Feature specifications in the Amazon Connect Administrator
  * Guide.
- * 
- * 
- * 
  * 
  * The Amazon Connect Participant Service APIs do not use Signature Version 4
  * authentication.
@@ -369,56 +249,26 @@ export class ResourceNotFoundException extends S.TaggedError<ResourceNotFoundExc
  * information about accessing past chat contact transcripts for a persistent chat, see
  * Enable persistent chat.
  * 
- * 
  * For security recommendations, see Amazon Connect Chat security best practices.
- * 
  * 
  * If you have a process that consumes events in the transcript of an chat that has
  * ended, note that chat transcripts contain the following event content types if the event
  * has occurred during the chat session:
  * 
- * 
- * 
  * - `application/vnd.amazonaws.connect.event.participant.invited`
- * 
- * 
- * 
  * 
  * - `application/vnd.amazonaws.connect.event.participant.joined`
  * 
- * 
- * 
- * 
  * - `application/vnd.amazonaws.connect.event.participant.left`
- * 
- * 
- * 
  * 
  * - `application/vnd.amazonaws.connect.event.chat.ended`
  * 
- * 
- * 
- * 
  * - `application/vnd.amazonaws.connect.event.transfer.succeeded`
- * 
- * 
- * 
  * 
  * - `application/vnd.amazonaws.connect.event.transfer.failed`
  * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
  * `ConnectionToken` is used for invoking this API instead of
  * `ParticipantToken`.
- * 
- * 
- * 
  * 
  * The Amazon Connect Participant Service APIs do not use Signature Version 4
  * authentication.

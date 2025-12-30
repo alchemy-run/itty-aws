@@ -157,7 +157,6 @@ export class TooManyTagsException extends S.TaggedError<TooManyTagsException>()(
  * asynchronous operation analyzes your quota usage across all Amazon Web Services services and returns
  * a unique report identifier that you can use to retrieve the results.
  * 
- * 
  * The report generation process may take several seconds to complete, depending on the
  * number of quotas in your account. Use the `GetQuotaUtilizationReport` operation
  * to check the status and retrieve the results when the report is ready.
@@ -194,12 +193,10 @@ export class TooManyTagsException extends S.TaggedError<TooManyTagsException>()(
  * paginated results showing your quota usage across all Amazon Web Services services, sorted by utilization
  * percentage in descending order (highest utilization first).
  * 
- * 
  * You must first initiate a report using the `StartQuotaUtilizationReport`
  * operation. The report generation process is asynchronous and may take several seconds to
  * complete. Poll this operation periodically to check the status and retrieve results when
  * the report is ready.
- * 
  * 
  * Each report contains up to 1,000 quota records per page. Use the `NextToken`
  * parameter to retrieve additional pages of results. Reports are automatically deleted after

@@ -946,7 +946,6 @@ export class InvalidResponseException extends S.TaggedError<InvalidResponseExcep
 /**
  * Adds a thing to a thing group.
  * 
- * 
  * Requires permission to access the AddThingToThingGroup action.
  */export const addThingToThingGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/thing-groups/addThingToThingGroup", method: "PUT", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.AddThingToThingGroup" }, AddThingToThingGroupRequest, AddThingToThingGroupResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -954,25 +953,20 @@ export class InvalidResponseException extends S.TaggedError<InvalidResponseExcep
  * is not
  * in progress, an InvalidRequestException occurs.
  * 
- * 
  * Requires permission to access the CancelAuditMitigationActionsTask action.
  */export const cancelAuditMitigationActionsTask = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/audit/mitigationactions/tasks/{taskId}/cancel", method: "PUT", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.CancelAuditMitigationActionsTask" }, CancelAuditMitigationActionsTaskRequest, CancelAuditMitigationActionsTaskResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Cancels an audit that is in progress. The audit can be either scheduled or on demand. If the audit isn't in progress, an "InvalidRequestException" occurs.
- * 
  * 
  * Requires permission to access the CancelAuditTask action.
  */export const cancelAuditTask = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/audit/tasks/{taskId}/cancel", method: "PUT", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.CancelAuditTask" }, CancelAuditTaskRequest, CancelAuditTaskResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Cancels a Device Defender ML Detect mitigation action.
  * 
- * 
- * 
  * Requires permission to access the CancelDetectMitigationActionsTask action.
  */export const cancelDetectMitigationActionsTask = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/detect/mitigationactions/tasks/{taskId}/cancel", method: "PUT", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.CancelDetectMitigationActionsTask" }, CancelDetectMitigationActionsTaskRequest, CancelDetectMitigationActionsTaskResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Clears the default authorizer.
- * 
  * 
  * Requires permission to access the ClearDefaultAuthorizer action.
  */export const clearDefaultAuthorizer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/default-authorizer", method: "DELETE", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.ClearDefaultAuthorizer" }, ClearDefaultAuthorizerRequest, ClearDefaultAuthorizerResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -981,40 +975,31 @@ export class InvalidResponseException extends S.TaggedError<InvalidResponseExcep
  * configuration data you entered is deleted and all audit checks are reset to
  * disabled.
  * 
- * 
  * Requires permission to access the DeleteAccountAuditConfiguration action.
  */export const deleteAccountAuditConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/audit/configuration", method: "DELETE", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.DeleteAccountAuditConfiguration" }, DeleteAccountAuditConfigurationRequest, DeleteAccountAuditConfigurationResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a Device Defender audit suppression.
- * 
- * 
  * 
  * Requires permission to access the DeleteAuditSuppression action.
  */export const deleteAuditSuppression = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/audit/suppressions/delete", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.DeleteAuditSuppression" }, DeleteAuditSuppressionRequest, DeleteAuditSuppressionResponse, [InternalFailureException, InvalidRequestException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the billing group.
  * 
- * 
  * Requires permission to access the DeleteBillingGroup action.
  */export const deleteBillingGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/billing-groups/{billingGroupName}", method: "DELETE", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.DeleteBillingGroup" }, DeleteBillingGroupRequest, DeleteBillingGroupResponse, [InternalFailureException, InvalidRequestException, ThrottlingException, VersionConflictException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the specified certificate.
  * 
- * 
  * A certificate cannot be deleted if it has a policy or IoT thing attached to it or if
  * its status is set to ACTIVE. To delete a certificate, first use the DetachPolicy action to detach all policies. Next, use the UpdateCertificate action to set the certificate to the INACTIVE
  * status.
- * 
  * 
  * Requires permission to access the DeleteCertificate action.
  */export const deleteCertificate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/certificates/{certificateId}", method: "DELETE", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.DeleteCertificate" }, DeleteCertificateRequest, S.Struct({}), [CertificateStateException, DeleteConflictException, InternalFailureException, InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a certificate provider.
  * 
- * 
  * Requires permission to access the DeleteCertificateProvider action.
- * 
- * 
  * 
  * If you delete the certificate provider resource, the behavior of
  * `CreateCertificateFromCsr` will resume, and IoT will create
@@ -1023,12 +1008,7 @@ export class InvalidResponseException extends S.TaggedError<InvalidResponseExcep
 /**
  * Deletes a Device Defender detect custom metric.
  * 
- * 
- * 
  * Requires permission to access the DeleteCustomMetric action.
- * 
- * 
- * 
  * 
  * Before you can delete a custom metric, you must first remove the custom metric from all
  * security profiles it's a part of.
@@ -1040,18 +1020,15 @@ export class InvalidResponseException extends S.TaggedError<InvalidResponseExcep
 /**
  * Removes the specified dimension from your Amazon Web Services accounts.
  * 
- * 
  * Requires permission to access the DeleteDimension action.
  */export const deleteDimension = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/dimensions/{name}", method: "DELETE", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.DeleteDimension" }, DeleteDimensionRequest, DeleteDimensionResponse, [InternalFailureException, InvalidRequestException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the specified domain configuration.
  * 
- * 
  * Requires permission to access the DeleteDomainConfiguration action.
  */export const deleteDomainConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/domainConfigurations/{domainConfigurationName}", method: "DELETE", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.DeleteDomainConfiguration" }, DeleteDomainConfigurationRequest, DeleteDomainConfigurationResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a dynamic thing group.
- * 
  * 
  * Requires permission to access the DeleteDynamicThingGroup action.
  */export const deleteDynamicThingGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/dynamic-thing-groups/{thingGroupName}", method: "DELETE", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.DeleteDynamicThingGroup" }, DeleteDynamicThingGroupRequest, DeleteDynamicThingGroupResponse, [InternalFailureException, InvalidRequestException, ThrottlingException, VersionConflictException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1059,12 +1036,10 @@ export class InvalidResponseException extends S.TaggedError<InvalidResponseExcep
  * Deletes the specified fleet metric.
  * Returns successfully with no error if the deletion is successful or you specify a fleet metric that doesn't exist.
  * 
- * 
  * Requires permission to access the DeleteFleetMetric action.
  */export const deleteFleetMetric = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/fleet-metric/{metricName}", method: "DELETE", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.DeleteFleetMetric" }, DeleteFleetMetricRequest, S.Struct({}), [InternalFailureException, InvalidRequestException, ServiceUnavailableException, ThrottlingException, UnauthorizedException, VersionConflictException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a job execution.
- * 
  * 
  * Requires permission to access the DeleteJobExecution action.
  */export const deleteJobExecution = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/things/{thingName}/jobs/{jobId}/executionNumber/{executionNumber}", method: "DELETE", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.DeleteJobExecution" }, DeleteJobExecutionRequest, S.Struct({}), [InvalidRequestException, InvalidStateTransitionException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1074,39 +1049,28 @@ export class InvalidResponseException extends S.TaggedError<InvalidResponseExcep
 /**
  * Deletes a defined mitigation action from your Amazon Web Services accounts.
  * 
- * 
  * Requires permission to access the DeleteMitigationAction action.
  */export const deleteMitigationAction = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/mitigationactions/actions/{actionName}", method: "DELETE", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.DeleteMitigationAction" }, DeleteMitigationActionRequest, DeleteMitigationActionResponse, [InternalFailureException, InvalidRequestException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Delete an OTA update.
- * 
  * 
  * Requires permission to access the DeleteOTAUpdate action.
  */export const deleteOTAUpdate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/otaUpdates/{otaUpdateId}", method: "DELETE", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.DeleteOTAUpdate" }, DeleteOTAUpdateRequest, DeleteOTAUpdateResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException, UnauthorizedException, VersionConflictException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the specified policy.
  * 
- * 
  * A policy cannot be deleted if it has non-default versions or it is attached to any
  * certificate.
- * 
  * 
  * To delete a policy, use the DeletePolicyVersion action to delete all non-default
  * versions of the policy; use the DetachPolicy action to detach the policy from any
  * certificate; and then use the DeletePolicy action to delete the policy.
  * 
- * 
  * When a policy is deleted using DeletePolicy, its default version is deleted with
  * it.
  * 
- * 
- * 
- * 
  * Because of the distributed nature of Amazon Web Services, it can take up to five minutes after
  * a policy is detached before it's ready to be deleted.
- * 
- * 
- * 
  * 
  * Requires permission to access the DeletePolicy action.
  */export const deletePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/policies/{policyName}", method: "DELETE", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.DeletePolicy" }, DeletePolicyRequest, S.Struct({}), [DeleteConflictException, InternalFailureException, InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1115,48 +1079,40 @@ export class InvalidResponseException extends S.TaggedError<InvalidResponseExcep
  * version of a policy using this action. To delete the default version of a policy, use DeletePolicy. To find out which version of a policy is marked as the default
  * version, use ListPolicyVersions.
  * 
- * 
  * Requires permission to access the DeletePolicyVersion action.
  */export const deletePolicyVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/policies/{policyName}/version/{policyVersionId}", method: "DELETE", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.DeletePolicyVersion" }, DeletePolicyVersionRequest, S.Struct({}), [DeleteConflictException, InternalFailureException, InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a provisioning template.
- * 
  * 
  * Requires permission to access the DeleteProvisioningTemplate action.
  */export const deleteProvisioningTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/provisioning-templates/{templateName}", method: "DELETE", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.DeleteProvisioningTemplate" }, DeleteProvisioningTemplateRequest, DeleteProvisioningTemplateResponse, [ConflictingResourceUpdateException, DeleteConflictException, InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a provisioning template version.
  * 
- * 
  * Requires permission to access the DeleteProvisioningTemplateVersion action.
  */export const deleteProvisioningTemplateVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/provisioning-templates/{templateName}/versions/{versionId}", method: "DELETE", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.DeleteProvisioningTemplateVersion" }, DeleteProvisioningTemplateVersionRequest, DeleteProvisioningTemplateVersionResponse, [ConflictingResourceUpdateException, DeleteConflictException, InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a CA certificate registration code.
- * 
  * 
  * Requires permission to access the DeleteRegistrationCode action.
  */export const deleteRegistrationCode = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/registrationcode", method: "DELETE", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.DeleteRegistrationCode" }, DeleteRegistrationCodeRequest, DeleteRegistrationCodeResponse, [InternalFailureException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a role alias
  * 
- * 
  * Requires permission to access the DeleteRoleAlias action.
  */export const deleteRoleAlias = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/role-aliases/{roleAlias}", method: "DELETE", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.DeleteRoleAlias" }, DeleteRoleAliasRequest, DeleteRoleAliasResponse, [DeleteConflictException, InternalFailureException, InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a scheduled audit.
- * 
  * 
  * Requires permission to access the DeleteScheduledAudit action.
  */export const deleteScheduledAudit = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/audit/scheduledaudits/{scheduledAuditName}", method: "DELETE", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.DeleteScheduledAudit" }, DeleteScheduledAuditRequest, DeleteScheduledAuditResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a Device Defender security profile.
  * 
- * 
  * Requires permission to access the DeleteSecurityProfile action.
  */export const deleteSecurityProfile = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/security-profiles/{securityProfileName}", method: "DELETE", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.DeleteSecurityProfile" }, DeleteSecurityProfileRequest, DeleteSecurityProfileResponse, [InternalFailureException, InvalidRequestException, ThrottlingException, VersionConflictException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a stream.
- * 
  * 
  * Requires permission to access the DeleteStream action.
  */export const deleteStream = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/streams/{streamId}", method: "DELETE", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.DeleteStream" }, DeleteStreamRequest, DeleteStreamResponse, [DeleteConflictException, InternalFailureException, InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1164,12 +1120,10 @@ export class InvalidResponseException extends S.TaggedError<InvalidResponseExcep
  * Deletes the specified thing. Returns successfully with no error if the deletion is
  * successful or you specify a thing that doesn't exist.
  * 
- * 
  * Requires permission to access the DeleteThing action.
  */export const deleteThing = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/things/{thingName}", method: "DELETE", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.DeleteThing" }, DeleteThingRequest, DeleteThingResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException, UnauthorizedException, VersionConflictException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a thing group.
- * 
  * 
  * Requires permission to access the DeleteThingGroup action.
  */export const deleteThingGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/thing-groups/{thingGroupName}", method: "DELETE", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.DeleteThingGroup" }, DeleteThingGroupRequest, DeleteThingGroupResponse, [InternalFailureException, InvalidRequestException, ThrottlingException, VersionConflictException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1178,18 +1132,15 @@ export class InvalidResponseException extends S.TaggedError<InvalidResponseExcep
  * associated with it. To delete a thing type, first mark it as deprecated by calling DeprecateThingType, then remove any associated things by calling UpdateThing to change the thing type on any associated thing, and
  * finally use DeleteThingType to delete the thing type.
  * 
- * 
  * Requires permission to access the DeleteThingType action.
  */export const deleteThingType = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/thing-types/{thingTypeName}", method: "DELETE", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.DeleteThingType" }, DeleteThingTypeRequest, DeleteThingTypeResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a topic rule destination.
  * 
- * 
  * Requires permission to access the DeleteTopicRuleDestination action.
  */export const deleteTopicRuleDestination = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/destinations/{arn+}", method: "DELETE", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.DeleteTopicRuleDestination" }, DeleteTopicRuleDestinationRequest, DeleteTopicRuleDestinationResponse, [ConflictingResourceUpdateException, InternalException, InvalidRequestException, ServiceUnavailableException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a logging level.
- * 
  * 
  * Requires permission to access the DeleteV2LoggingLevel action.
  */export const deleteV2LoggingLevel = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/v2LoggingLevel", method: "DELETE", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.DeleteV2LoggingLevel" }, DeleteV2LoggingLevelRequest, S.Struct({}), [InternalException, InvalidRequestException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1197,37 +1148,26 @@ export class InvalidResponseException extends S.TaggedError<InvalidResponseExcep
  * Deprecates a thing type. You can not associate new things with deprecated thing
  * type.
  * 
- * 
  * Requires permission to access the DeprecateThingType action.
  */export const deprecateThingType = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/thing-types/{thingTypeName}/deprecate", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.DeprecateThingType" }, DeprecateThingTypeRequest, DeprecateThingTypeResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Detaches a policy from the specified target.
  * 
- * 
- * 
- * 
  * Because of the distributed nature of Amazon Web Services, it can take up to five minutes after
  * a policy is detached before it's ready to be deleted.
- * 
- * 
- * 
  * 
  * Requires permission to access the DetachPolicy action.
  */export const detachPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/target-policies/{policyName}", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.DetachPolicy" }, DetachPolicyRequest, S.Struct({}), [InternalFailureException, InvalidRequestException, LimitExceededException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes the specified policy from the specified certificate.
  * 
- * 
- * 
  * **Note:** This action is deprecated and works as
  * expected for backward compatibility, but we won't add enhancements. Use DetachPolicy instead.
- * 
  * 
  * Requires permission to access the DetachPrincipalPolicy action.
  */export const detachPrincipalPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/principal-policies/{policyName}", method: "DELETE", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.DetachPrincipalPolicy" }, DetachPrincipalPolicyRequest, S.Struct({}), [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Disassociates a Device Defender security profile from a thing group or from this account.
- * 
  * 
  * Requires permission to access the DetachSecurityProfile action.
  */export const detachSecurityProfile = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/security-profiles/{securityProfileName}/targets", method: "DELETE", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.DetachSecurityProfile" }, DetachSecurityProfileRequest, DetachSecurityProfileResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1236,53 +1176,40 @@ export class InvalidResponseException extends S.TaggedError<InvalidResponseExcep
  * certificates, IAM users, groups, and roles, Amazon Cognito identities or federated
  * identities.
  * 
- * 
- * 
- * 
  * This call is asynchronous. It might take several seconds for the detachment to
  * propagate.
- * 
- * 
- * 
  * 
  * Requires permission to access the DetachThingPrincipal action.
  */export const detachThingPrincipal = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/things/{thingName}/principals", method: "DELETE", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.DetachThingPrincipal" }, DetachThingPrincipalRequest, DetachThingPrincipalResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Disables the rule.
  * 
- * 
  * Requires permission to access the DisableTopicRule action.
  */export const disableTopicRule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/rules/{ruleName}/disable", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.DisableTopicRule" }, DisableTopicRuleRequest, S.Struct({}), [ConflictingResourceUpdateException, InternalException, InvalidRequestException, ServiceUnavailableException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Disassociates the selected software bill of materials (SBOM) from a specific software package version.
- * 
  * 
  * Requires permission to access the DisassociateSbomWithPackageVersion action.
  */export const disassociateSbomFromPackageVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/packages/{packageName}/versions/{versionName}/sbom", method: "DELETE", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.DisassociateSbomFromPackageVersion" }, DisassociateSbomFromPackageVersionRequest, DisassociateSbomFromPackageVersionResponse, [ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Enables the rule.
  * 
- * 
  * Requires permission to access the EnableTopicRule action.
  */export const enableTopicRule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/rules/{ruleName}/enable", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.EnableTopicRule" }, EnableTopicRuleRequest, S.Struct({}), [ConflictingResourceUpdateException, InternalException, InvalidRequestException, ServiceUnavailableException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets the logging options.
  * 
- * 
  * NOTE: use of this command is not recommended. Use `GetV2LoggingOptions`
  * instead.
- * 
  * 
  * Requires permission to access the GetLoggingOptions action.
  */export const getLoggingOptions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/loggingOptions", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.GetLoggingOptions" }, GetLoggingOptionsRequest, GetLoggingOptionsResponse, [InternalException, InvalidRequestException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets a registration code used to register a CA certificate with IoT.
  * 
- * 
  * IoT will create a registration code as part of this API call if the registration
  * code doesn't exist or has been deleted. If you already have a registration code, this API
  * call will return the same registration code.
- * 
  * 
  * Requires permission to access the GetRegistrationCode action.
  */export const getRegistrationCode = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/registrationcode", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.GetRegistrationCode" }, GetRegistrationCodeRequest, GetRegistrationCodeResponse, [InternalFailureException, InvalidRequestException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1294,38 +1221,28 @@ export class InvalidResponseException extends S.TaggedError<InvalidResponseExcep
  * the certificate status changes from **PENDING_TRANSFER** to
  * **INACTIVE**.
  * 
- * 
  * To check for pending certificate transfers, call ListCertificates
  * to enumerate your certificates.
  * 
- * 
  * This operation can only be called by the transfer destination. After it is called,
  * the certificate will be returned to the source's account in the INACTIVE state.
- * 
  * 
  * Requires permission to access the RejectCertificateTransfer action.
  */export const rejectCertificateTransfer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/reject-certificate-transfer/{certificateId}", method: "PATCH", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.RejectCertificateTransfer" }, RejectCertificateTransferRequest, S.Struct({}), [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException, TransferAlreadyCompletedException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes the given thing from the billing group.
  * 
- * 
  * Requires permission to access the RemoveThingFromBillingGroup action.
- * 
- * 
- * 
  * 
  * This call is asynchronous. It might take several seconds for the detachment to propagate.
  */export const removeThingFromBillingGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/billing-groups/removeThingFromBillingGroup", method: "PUT", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.RemoveThingFromBillingGroup" }, RemoveThingFromBillingGroupRequest, RemoveThingFromBillingGroupResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Remove the specified thing from the specified group.
  * 
- * 
  * You must specify either a `thingGroupArn` or a
  * `thingGroupName` to identify the thing group and
  * either a `thingArn` or a `thingName` to
  * identify the thing to remove from the thing group.
- * 
- * 
  * 
  * Requires permission to access the RemoveThingFromThingGroup action.
  */export const removeThingFromThingGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/thing-groups/removeThingFromThingGroup", method: "PUT", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.RemoveThingFromThingGroup" }, RemoveThingFromThingGroupRequest, RemoveThingFromThingGroupResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1335,12 +1252,10 @@ export class InvalidResponseException extends S.TaggedError<InvalidResponseExcep
  * To list the principals the policy is attached to, use the ListPrincipalPolicies
  * action.
  * 
- * 
  * Requires permission to access the SetDefaultPolicyVersion action.
  */export const setDefaultPolicyVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/policies/{policyName}/version/{policyVersionId}", method: "PATCH", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.SetDefaultPolicyVersion" }, SetDefaultPolicyVersionRequest, S.Struct({}), [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Cancels a bulk thing provisioning task.
- * 
  * 
  * Requires permission to access the StopThingRegistrationTask action.
  */export const stopThingRegistrationTask = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/thing-registration-tasks/{taskId}/cancel", method: "PUT", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.StopThingRegistrationTask" }, StopThingRegistrationTaskRequest, StopThingRegistrationTaskResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1348,12 +1263,10 @@ export class InvalidResponseException extends S.TaggedError<InvalidResponseExcep
  * Adds to or modifies the tags of the given resource. Tags are metadata which can be
  * used to manage a resource.
  * 
- * 
  * Requires permission to access the TagResource action.
  */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/tags", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.TagResource" }, TagResourceRequest, TagResourceResponse, [InternalFailureException, InvalidRequestException, LimitExceededException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes the given tags (metadata) from the resource.
- * 
  * 
  * Requires permission to access the UntagResource action.
  */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/untag", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1361,7 +1274,6 @@ export class InvalidResponseException extends S.TaggedError<InvalidResponseExcep
  * Configures or reconfigures the Device Defender audit settings for this account.
  * Settings include how audit notifications are sent and which audit checks are
  * enabled or disabled.
- * 
  * 
  * Requires permission to access the UpdateAccountAuditConfiguration action.
  */export const updateAccountAuditConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/audit/configuration", method: "PATCH", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.UpdateAccountAuditConfiguration" }, UpdateAccountAuditConfigurationRequest, UpdateAccountAuditConfigurationResponse, [InternalFailureException, InvalidRequestException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1371,20 +1283,16 @@ export class InvalidResponseException extends S.TaggedError<InvalidResponseExcep
 /**
  * Updates a registered CA certificate.
  * 
- * 
  * Requires permission to access the UpdateCACertificate action.
  */export const updateCACertificate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/cacertificate/{certificateId}", method: "PUT", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.UpdateCACertificate" }, UpdateCACertificateRequest, S.Struct({}), [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the status of the specified certificate. This operation is
  * idempotent.
  * 
- * 
  * Requires permission to access the UpdateCertificate action.
- * 
  * 
  * Certificates must be in the ACTIVE state to authenticate devices that use
  * a certificate to connect to IoT.
- * 
  * 
  * Within a few minutes of updating a certificate from the ACTIVE state to any other
  * state, IoT disconnects all devices that used that certificate to connect. Devices cannot
@@ -1395,60 +1303,50 @@ export class InvalidResponseException extends S.TaggedError<InvalidResponseExcep
  * from Key Management Service (KMS). With customer managed keys, you create, own, and
  * manage the KMS keys in your Amazon Web Services account.
  * 
- * 
  * Before using this API, you must set up permissions for Amazon Web Services IoT Core to access KMS. For more information, see Data encryption at rest in the *Amazon Web Services IoT Core Developer Guide*.
  */export const updateEncryptionConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/encryption-configuration", method: "PATCH", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.UpdateEncryptionConfiguration" }, UpdateEncryptionConfigurationRequest, UpdateEncryptionConfigurationResponse, [InternalFailureException, InvalidRequestException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the event configurations.
- * 
  * 
  * Requires permission to access the UpdateEventConfigurations action.
  */export const updateEventConfigurations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/event-configurations", method: "PATCH", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.UpdateEventConfigurations" }, UpdateEventConfigurationsRequest, UpdateEventConfigurationsResponse, [InternalFailureException, InvalidRequestException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the search configuration.
  * 
- * 
  * Requires permission to access the UpdateIndexingConfiguration action.
  */export const updateIndexingConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/indexing/config", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.UpdateIndexingConfiguration" }, UpdateIndexingConfigurationRequest, UpdateIndexingConfigurationResponse, [InternalFailureException, InvalidRequestException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates supported fields of the specified job.
- * 
  * 
  * Requires permission to access the UpdateJob action.
  */export const updateJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/jobs/{jobId}", method: "PATCH", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.UpdateJob" }, UpdateJobRequest, S.Struct({}), [InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the supported fields for a specific software package.
  * 
- * 
  * Requires permission to access the UpdatePackage and GetIndexingConfiguration actions.
  */export const updatePackage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/packages/{packageName}", method: "PATCH", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.UpdatePackage" }, UpdatePackageRequest, UpdatePackageResponse, [ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the software package configuration.
- * 
  * 
  * Requires permission to access the UpdatePackageConfiguration and iam:PassRole actions.
  */export const updatePackageConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/package-configuration", method: "PATCH", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.UpdatePackageConfiguration" }, UpdatePackageConfigurationRequest, UpdatePackageConfigurationResponse, [ConflictException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the supported fields for a specific package version.
  * 
- * 
  * Requires permission to access the UpdatePackageVersion and GetIndexingConfiguration actions.
  */export const updatePackageVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/packages/{packageName}/versions/{versionName}", method: "PATCH", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.UpdatePackageVersion" }, UpdatePackageVersionRequest, UpdatePackageVersionResponse, [ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates a provisioning template.
- * 
  * 
  * Requires permission to access the UpdateProvisioningTemplate action.
  */export const updateProvisioningTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/provisioning-templates/{templateName}", method: "PATCH", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.UpdateProvisioningTemplate" }, UpdateProvisioningTemplateRequest, UpdateProvisioningTemplateResponse, [ConflictingResourceUpdateException, InternalFailureException, InvalidRequestException, ResourceNotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the data for a thing.
  * 
- * 
  * Requires permission to access the UpdateThing action.
  */export const updateThing = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/things/{thingName}", method: "PATCH", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.UpdateThing" }, UpdateThingRequest, UpdateThingResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException, UnauthorizedException, VersionConflictException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the groups to which the thing belongs.
- * 
  * 
  * Requires permission to access the UpdateThingGroupsForThing action.
  */export const updateThingGroupsForThing = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/thing-groups/updateThingGroupsForThing", method: "PUT", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.UpdateThingGroupsForThing" }, UpdateThingGroupsForThingRequest, UpdateThingGroupsForThingResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1459,46 +1357,32 @@ export class InvalidResponseException extends S.TaggedError<InvalidResponseExcep
  * Updates a topic rule destination. You use this to change the status, endpoint URL, or
  * confirmation URL of the destination.
  * 
- * 
  * Requires permission to access the UpdateTopicRuleDestination action.
  */export const updateTopicRuleDestination = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/destinations", method: "PATCH", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.UpdateTopicRuleDestination" }, UpdateTopicRuleDestinationRequest, UpdateTopicRuleDestinationResponse, [ConflictingResourceUpdateException, InternalException, InvalidRequestException, ServiceUnavailableException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Accepts a pending certificate transfer. The default state of the certificate is
  * INACTIVE.
  * 
- * 
  * To check for pending certificate transfers, call ListCertificates
  * to enumerate your certificates.
- * 
  * 
  * Requires permission to access the AcceptCertificateTransfer action.
  */export const acceptCertificateTransfer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/accept-certificate-transfer/{certificateId}", method: "PATCH", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.AcceptCertificateTransfer" }, AcceptCertificateTransferRequest, S.Struct({}), [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException, TransferAlreadyCompletedException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Adds a thing to a billing group.
  * 
- * 
  * Requires permission to access the AddThingToBillingGroup action.
  */export const addThingToBillingGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/billing-groups/addThingToBillingGroup", method: "PUT", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.AddThingToBillingGroup" }, AddThingToBillingGroupRequest, AddThingToBillingGroupResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Associates a group with a continuous job. The following criteria must be met:
  * 
- * 
- * 
  * - The job must have been created with the `targetSelection` field
  * set to "CONTINUOUS".
  * 
- * 
- * 
  * - The job status must currently be "IN_PROGRESS".
- * 
- * 
  * 
  * - The total number of targets associated with a job must not exceed
  * 100.
- * 
- * 
- * 
- * 
  * 
  * Requires permission to access the AssociateTargetsWithJob action.
  */export const associateTargetsWithJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/jobs/{jobId}/targets", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.AssociateTargetsWithJob" }, AssociateTargetsWithJobRequest, AssociateTargetsWithJobResponse, [InvalidRequestException, LimitExceededException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1506,18 +1390,14 @@ export class InvalidResponseException extends S.TaggedError<InvalidResponseExcep
  * Attaches the specified policy to the specified principal (certificate or other
  * credential).
  * 
- * 
  * Requires permission to access the AttachPolicy action.
  */export const attachPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/target-policies/{policyName}", method: "PUT", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.AttachPolicy" }, AttachPolicyRequest, S.Struct({}), [InternalFailureException, InvalidRequestException, LimitExceededException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Attaches the specified policy to the specified principal (certificate or other
  * credential).
  * 
- * 
- * 
  * **Note:** This action is deprecated and works as
  * expected for backward compatibility, but we won't add enhancements. Use AttachPolicy instead.
- * 
  * 
  * Requires permission to access the AttachPrincipalPolicy action.
  */export const attachPrincipalPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/principal-policies/{policyName}", method: "PUT", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.AttachPrincipalPolicy" }, AttachPrincipalPolicyRequest, S.Struct({}), [InternalFailureException, InvalidRequestException, LimitExceededException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1525,42 +1405,34 @@ export class InvalidResponseException extends S.TaggedError<InvalidResponseExcep
  * Associates a Device Defender security profile with a thing group or this account. Each
  * thing group or account can have up to five security profiles associated with it.
  * 
- * 
  * Requires permission to access the AttachSecurityProfile action.
  */export const attachSecurityProfile = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/security-profiles/{securityProfileName}/targets", method: "PUT", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.AttachSecurityProfile" }, AttachSecurityProfileRequest, AttachSecurityProfileResponse, [InternalFailureException, InvalidRequestException, LimitExceededException, ResourceNotFoundException, ThrottlingException, VersionConflictException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Attaches the specified principal to the specified thing. A principal can be X.509
  * certificates, Amazon Cognito identities or federated identities.
  * 
- * 
  * Requires permission to access the AttachThingPrincipal action.
  */export const attachThingPrincipal = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/things/{thingName}/principals", method: "PUT", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.AttachThingPrincipal" }, AttachThingPrincipalRequest, AttachThingPrincipalResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Cancels a pending transfer for the specified certificate.
- * 
- * 
  * 
  * **Note** Only the transfer source account can use this
  * operation to cancel a transfer. (Transfer destinations can use RejectCertificateTransfer instead.) After transfer, IoT returns the
  * certificate to the source account in the INACTIVE state. After the destination account has
  * accepted the transfer, the transfer cannot be cancelled.
  * 
- * 
  * After a certificate transfer is cancelled, the status of the certificate changes from
  * PENDING_TRANSFER to INACTIVE.
- * 
  * 
  * Requires permission to access the CancelCertificateTransfer action.
  */export const cancelCertificateTransfer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/cancel-certificate-transfer/{certificateId}", method: "PATCH", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.CancelCertificateTransfer" }, CancelCertificateTransferRequest, S.Struct({}), [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException, TransferAlreadyCompletedException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Cancels a job.
  * 
- * 
  * Requires permission to access the CancelJob action.
  */export const cancelJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/jobs/{jobId}/cancel", method: "PUT", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.CancelJob" }, CancelJobRequest, CancelJobResponse, [InvalidRequestException, LimitExceededException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Cancels the execution of a job for a given thing.
- * 
  * 
  * Requires permission to access the CancelJobExecution action.
  */export const cancelJobExecution = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/things/{thingName}/jobs/{jobId}/cancel", method: "PUT", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.CancelJobExecution" }, CancelJobExecutionRequest, S.Struct({}), [InvalidRequestException, InvalidStateTransitionException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException, VersionConflictException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1570,35 +1442,20 @@ export class InvalidResponseException extends S.TaggedError<InvalidResponseExcep
  * includes a token which you pass back when calling `ConfirmTopicRuleDestination`
  * to confirm that you own or have access to the endpoint.
  * 
- * 
  * Requires permission to access the ConfirmTopicRuleDestination action.
  */export const confirmTopicRuleDestination = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/confirmdestination/{confirmationToken+}", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.ConfirmTopicRuleDestination" }, ConfirmTopicRuleDestinationRequest, ConfirmTopicRuleDestinationResponse, [ConflictingResourceUpdateException, InternalException, InvalidRequestException, ServiceUnavailableException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an X.509 certificate using the specified certificate signing
  * request.
  * 
- * 
- * 
  * Requires permission to access the CreateCertificateFromCsr action.
- * 
- * 
- * 
- * 
  * 
  * The CSR must include a public key that is either an RSA key with a length of at least
  * 2048 bits or an ECC key from NIST P-256, NIST P-384, or NIST P-521 curves. For supported
  * certificates, consult Certificate signing algorithms supported by IoT.
  * 
- * 
- * 
- * 
- * 
- * 
  * Reusing the same certificate signing request (CSR)
  * results in a distinct certificate.
- * 
- * 
- * 
  * 
  * You can create multiple certificates in a batch by creating a directory, copying
  * multiple `.csr` files into that directory, and then specifying that directory on the command
@@ -1606,47 +1463,29 @@ export class InvalidResponseException extends S.TaggedError<InvalidResponseExcep
  * CSRs. In the following commands, we assume that a set of CSRs are located inside of the
  * directory my-csr-directory:
  * 
- * 
  * On Linux and OS X, the command is:
- * 
- * 
  * 
  * $ ls my-csr-directory/ | xargs -I {} aws iot create-certificate-from-csr
  * --certificate-signing-request file://my-csr-directory/{}
- * 
- * 
  * 
  * This command lists all of the CSRs in my-csr-directory and pipes each CSR file name
  * to the `aws iot create-certificate-from-csr` Amazon Web Services CLI command to create a certificate for
  * the corresponding CSR.
  * 
- * 
  * You can also run the `aws iot create-certificate-from-csr` part of the
  * command in parallel to speed up the certificate creation process:
- * 
- * 
  * 
  * $ ls my-csr-directory/ | xargs -P 10 -I {} aws iot create-certificate-from-csr
  * --certificate-signing-request file://my-csr-directory/{}
  * 
- * 
- * 
- * 
  * On Windows PowerShell, the command to create certificates for all CSRs in
  * my-csr-directory is:
- * 
- * 
  * 
  * > ls -Name my-csr-directory | %{aws iot create-certificate-from-csr
  * --certificate-signing-request file://my-csr-directory/$_}
  * 
- * 
- * 
- * 
  * On a Windows command prompt, the command to create certificates for all CSRs in
  * my-csr-directory is:
- * 
- * 
  * 
  * > forfiles /p my-csr-directory /c "cmd /c aws iot create-certificate-from-csr
  * --certificate-signing-request file://@path"
@@ -1657,36 +1496,28 @@ export class InvalidResponseException extends S.TaggedError<InvalidResponseExcep
  * Metric
  * published by your devices to Device Defender.
  * 
- * 
  * Requires permission to access the CreateCustomMetric action.
  */export const createCustomMetric = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/custom-metric/{metricName}", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.CreateCustomMetric" }, CreateCustomMetricRequest, CreateCustomMetricResponse, [InternalFailureException, InvalidRequestException, LimitExceededException, ResourceAlreadyExistsException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Create a dimension that you can use to limit the scope of a metric used in a security profile for IoT Device Defender.
  * For example, using a `TOPIC_FILTER` dimension, you can narrow down the scope of the metric only to MQTT topics whose name match the pattern specified in the dimension.
  * 
- * 
  * Requires permission to access the CreateDimension action.
  */export const createDimension = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/dimensions/{name}", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.CreateDimension" }, CreateDimensionRequest, CreateDimensionResponse, [InternalFailureException, InvalidRequestException, LimitExceededException, ResourceAlreadyExistsException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a provisioning claim.
- * 
  * 
  * Requires permission to access the CreateProvisioningClaim action.
  */export const createProvisioningClaim = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/provisioning-templates/{templateName}/provisioning-claim", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.CreateProvisioningClaim" }, CreateProvisioningClaimRequest, CreateProvisioningClaimResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new version of a provisioning template.
  * 
- * 
  * Requires permission to access the CreateProvisioningTemplateVersion action.
  */export const createProvisioningTemplateVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/provisioning-templates/{templateName}/versions", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.CreateProvisioningTemplateVersion" }, CreateProvisioningTemplateVersionRequest, CreateProvisioningTemplateVersionResponse, [ConflictingResourceUpdateException, InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException, UnauthorizedException, VersionsLimitExceededException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a role alias.
  * 
- * 
  * Requires permission to access the CreateRoleAlias action.
- * 
- * 
- * 
  * 
  * The value of
  * `credentialDurationSeconds`
@@ -1699,37 +1530,26 @@ export class InvalidResponseException extends S.TaggedError<InvalidResponseExcep
  * Creates a scheduled audit that is run at a specified
  * time interval.
  * 
- * 
  * Requires permission to access the CreateScheduledAudit action.
  */export const createScheduledAudit = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/audit/scheduledaudits/{scheduledAuditName}", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.CreateScheduledAudit" }, CreateScheduledAuditRequest, CreateScheduledAuditResponse, [InternalFailureException, InvalidRequestException, LimitExceededException, ResourceAlreadyExistsException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Create a thing group.
  * 
- * 
- * 
- * 
  * This is a control plane operation. See Authorization for
  * information about authorizing control plane actions.
  * 
- * 
  * If the `ThingGroup` that you create has the exact same attributes as an existing
  * `ThingGroup`, you will get a 200 success response.
- * 
- * 
- * 
- * 
  * 
  * Requires permission to access the CreateThingGroup action.
  */export const createThingGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/thing-groups/{thingGroupName}", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.CreateThingGroup" }, CreateThingGroupRequest, CreateThingGroupResponse, [InternalFailureException, InvalidRequestException, ResourceAlreadyExistsException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes an authorizer.
  * 
- * 
  * Requires permission to access the DeleteAuthorizer action.
  */export const deleteAuthorizer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/authorizer/{authorizerName}", method: "DELETE", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.DeleteAuthorizer" }, DeleteAuthorizerRequest, DeleteAuthorizerResponse, [DeleteConflictException, InternalFailureException, InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a registered CA certificate.
- * 
  * 
  * Requires permission to access the DeleteCACertificate action.
  */export const deleteCACertificate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/cacertificate/{certificateId}", method: "DELETE", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.DeleteCACertificate" }, DeleteCACertificateRequest, DeleteCACertificateResponse, [CertificateStateException, InternalFailureException, InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1739,48 +1559,36 @@ export class InvalidResponseException extends S.TaggedError<InvalidResponseExcep
 /**
  * Delete a command execution.
  * 
- * 
- * 
- * 
  * Only command executions that enter a terminal state can be deleted from
  * your account.
  */export const deleteCommandExecution = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/command-executions/{executionId}", method: "DELETE", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.DeleteCommandExecution" }, DeleteCommandExecutionRequest, DeleteCommandExecutionResponse, [ConflictException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a job and its related job executions.
  * 
- * 
  * Deleting a job may take time, depending on the number of job executions created for
  * the job and various other factors. While the job is being deleted, the status of the job
  * will be shown as "DELETION_IN_PROGRESS". Attempting to delete or cancel a job whose
  * status is already "DELETION_IN_PROGRESS" will result in an error.
  * 
- * 
  * Only 10 jobs may have status "DELETION_IN_PROGRESS" at the same time, or a
  * LimitExceededException will occur.
- * 
  * 
  * Requires permission to access the DeleteJob action.
  */export const deleteJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/jobs/{jobId}", method: "DELETE", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.DeleteJob" }, DeleteJobRequest, S.Struct({}), [InvalidRequestException, InvalidStateTransitionException, LimitExceededException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a specific version from a software package.
  * 
- * 
- * 
  * **Note:** All package versions must be deleted before deleting the software package.
- * 
  * 
  * Requires permission to access the DeletePackageVersion action.
  */export const deletePackage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/packages/{packageName}", method: "DELETE", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.DeletePackage" }, DeletePackageRequest, DeletePackageResponse, [InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a specific version from a software package.
  * 
- * 
- * 
  * **Note:** If a package version is designated as default, you must remove the designation from the software package using the UpdatePackage action.
  */export const deletePackageVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/packages/{packageName}/versions/{versionName}", method: "DELETE", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.DeletePackageVersion" }, DeletePackageVersionRequest, DeletePackageVersionResponse, [InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the rule.
- * 
  * 
  * Requires permission to access the DeleteTopicRule action.
  */export const deleteTopicRule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/rules/{ruleName}", method: "DELETE", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.DeleteTopicRule" }, DeleteTopicRuleRequest, S.Struct({}), [ConflictingResourceUpdateException, InternalException, InvalidRequestException, ServiceUnavailableException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1790,31 +1598,25 @@ export class InvalidResponseException extends S.TaggedError<InvalidResponseExcep
 /**
  * Describes an authorizer.
  * 
- * 
  * Requires permission to access the DescribeAuthorizer action.
  */export const describeAuthorizer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/authorizer/{authorizerName}", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.DescribeAuthorizer" }, DescribeAuthorizerRequest, DescribeAuthorizerResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes a certificate provider.
- * 
  * 
  * Requires permission to access the DescribeCertificateProvider action.
  */export const describeCertificateProvider = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/certificate-providers/{certificateProviderName}", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.DescribeCertificateProvider" }, DescribeCertificateProviderRequest, DescribeCertificateProviderResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets information about a Device Defender detect custom metric.
  * 
- * 
- * 
  * Requires permission to access the DescribeCustomMetric action.
  */export const describeCustomMetric = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/custom-metric/{metricName}", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.DescribeCustomMetric" }, DescribeCustomMetricRequest, DescribeCustomMetricResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes the default authorizer.
  * 
- * 
  * Requires permission to access the DescribeDefaultAuthorizer action.
  */export const describeDefaultAuthorizer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/default-authorizer", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.DescribeDefaultAuthorizer" }, DescribeDefaultAuthorizerRequest, DescribeDefaultAuthorizerResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Provides details about a dimension that is defined in your Amazon Web Services accounts.
- * 
  * 
  * Requires permission to access the DescribeDimension action.
  */export const describeDimension = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/dimensions/{name}", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.DescribeDimension" }, DescribeDimensionRequest, DescribeDimensionResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1827,25 +1629,17 @@ export class InvalidResponseException extends S.TaggedError<InvalidResponseExcep
  * Returns or creates a unique endpoint specific to the Amazon Web Services account making the
  * call.
  * 
- * 
- * 
- * 
  * The first time `DescribeEndpoint` is called, an endpoint is created. All subsequent calls to `DescribeEndpoint` return the same endpoint.
- * 
- * 
- * 
  * 
  * Requires permission to access the DescribeEndpoint action.
  */export const describeEndpoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/endpoint", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.DescribeEndpoint" }, DescribeEndpointRequest, DescribeEndpointResponse, [InternalFailureException, InvalidRequestException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets information about the specified fleet metric.
  * 
- * 
  * Requires permission to access the DescribeFleetMetric action.
  */export const describeFleetMetric = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/fleet-metric/{metricName}", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.DescribeFleetMetric" }, DescribeFleetMetricRequest, DescribeFleetMetricResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes a search index.
- * 
  * 
  * Requires permission to access the DescribeIndex action.
  */export const describeIndex = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/indices/{indexName}", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.DescribeIndex" }, DescribeIndexRequest, DescribeIndexResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1855,42 +1649,35 @@ export class InvalidResponseException extends S.TaggedError<InvalidResponseExcep
 /**
  * Gets information about a mitigation action.
  * 
- * 
  * Requires permission to access the DescribeMitigationAction action.
  */export const describeMitigationAction = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/mitigationactions/actions/{actionName}", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.DescribeMitigationAction" }, DescribeMitigationActionRequest, DescribeMitigationActionResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about a provisioning template.
- * 
  * 
  * Requires permission to access the DescribeProvisioningTemplate action.
  */export const describeProvisioningTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/provisioning-templates/{templateName}", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.DescribeProvisioningTemplate" }, DescribeProvisioningTemplateRequest, DescribeProvisioningTemplateResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about a provisioning template version.
  * 
- * 
  * Requires permission to access the DescribeProvisioningTemplateVersion action.
  */export const describeProvisioningTemplateVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/provisioning-templates/{templateName}/versions/{versionId}", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.DescribeProvisioningTemplateVersion" }, DescribeProvisioningTemplateVersionRequest, DescribeProvisioningTemplateVersionResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets information about a scheduled audit.
- * 
  * 
  * Requires permission to access the DescribeScheduledAudit action.
  */export const describeScheduledAudit = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/audit/scheduledaudits/{scheduledAuditName}", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.DescribeScheduledAudit" }, DescribeScheduledAuditRequest, DescribeScheduledAuditResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets information about a Device Defender security profile.
  * 
- * 
  * Requires permission to access the DescribeSecurityProfile action.
  */export const describeSecurityProfile = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/security-profiles/{securityProfileName}", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.DescribeSecurityProfile" }, DescribeSecurityProfileRequest, DescribeSecurityProfileResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets information about the specified thing.
  * 
- * 
  * Requires permission to access the DescribeThing action.
  */export const describeThing = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/things/{thingName}", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.DescribeThing" }, DescribeThingRequest, DescribeThingResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes a bulk thing provisioning task.
- * 
  * 
  * Requires permission to access the DescribeThingRegistrationTask action.
  */export const describeThingRegistrationTask = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/thing-registration-tasks/{taskId}", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.DescribeThingRegistrationTask" }, DescribeThingRegistrationTaskRequest, DescribeThingRegistrationTaskResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1900,24 +1687,20 @@ export class InvalidResponseException extends S.TaggedError<InvalidResponseExcep
 /**
  * Gets a job document.
  * 
- * 
  * Requires permission to access the GetJobDocument action.
  */export const getJobDocument = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/jobs/{jobId}/job-document", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.GetJobDocument" }, GetJobDocumentRequest, GetJobDocumentResponse, [InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets information about the specified software package.
- * 
  * 
  * Requires permission to access the GetPackage action.
  */export const getPackage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/packages/{packageName}", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.GetPackage" }, GetPackageRequest, GetPackageResponse, [InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets information about the specified software package's configuration.
  * 
- * 
  * Requires permission to access the GetPackageConfiguration action.
  */export const getPackageConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/package-configuration", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.GetPackageConfiguration" }, GetPackageConfigurationRequest, GetPackageConfigurationResponse, [InternalServerException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets information about the specified package version.
- * 
  * 
  * Requires permission to access the GetPackageVersion action.
  */export const getPackageVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/packages/{packageName}/versions/{versionName}", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.GetPackageVersion" }, GetPackageVersionRequest, GetPackageVersionResponse, [InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1925,12 +1708,10 @@ export class InvalidResponseException extends S.TaggedError<InvalidResponseExcep
  * Gets information about the specified policy with the policy document of the default
  * version.
  * 
- * 
  * Requires permission to access the GetPolicy action.
  */export const getPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/policies/{policyName}", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.GetPolicy" }, GetPolicyRequest, GetPolicyResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets information about the specified policy version.
- * 
  * 
  * Requires permission to access the GetPolicyVersion action.
  */export const getPolicyVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/policies/{policyName}/version/{policyVersionId}", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.GetPolicyVersion" }, GetPolicyVersionRequest, GetPolicyVersionResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1941,55 +1722,43 @@ export class InvalidResponseException extends S.TaggedError<InvalidResponseExcep
  * Lists the findings (results) of a Device Defender audit or of the audits
  * performed during a specified time period. (Findings are retained for 90 days.)
  * 
- * 
  * Requires permission to access the ListAuditFindings action.
  */export const listAuditFindings = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/audit/findings", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.ListAuditFindings" }, ListAuditFindingsRequest, ListAuditFindingsResponse, [InternalFailureException, InvalidRequestException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * List the device certificates signed by the specified CA certificate.
- * 
  * 
  * Requires permission to access the ListCertificatesByCA action.
  */export const listCertificatesByCA = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/certificates-by-ca/{caCertificateId}", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.ListCertificatesByCA" }, ListCertificatesByCARequest, ListCertificatesByCAResponse, [InternalFailureException, InvalidRequestException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists your Device Defender detect custom metrics.
  * 
- * 
- * 
  * Requires permission to access the ListCustomMetrics action.
  */export const listCustomMetrics = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/custom-metrics", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.ListCustomMetrics" }, ListCustomMetricsRequest, ListCustomMetricsResponse, [InternalFailureException, InvalidRequestException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * List of Device Defender ML Detect mitigation actions tasks.
- * 
- * 
  * 
  * Requires permission to access the ListDetectMitigationActionsTasks action.
  */export const listDetectMitigationActionsTasks = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/detect/mitigationactions/tasks", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.ListDetectMitigationActionsTasks" }, ListDetectMitigationActionsTasksRequest, ListDetectMitigationActionsTasksResponse, [InternalFailureException, InvalidRequestException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * List the set of dimensions that are defined for your Amazon Web Services accounts.
  * 
- * 
  * Requires permission to access the ListDimensions action.
  */export const listDimensions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/dimensions", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.ListDimensions" }, ListDimensionsRequest, ListDimensionsResponse, [InternalFailureException, InvalidRequestException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the search indices.
- * 
  * 
  * Requires permission to access the ListIndices action.
  */export const listIndices = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/indices", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.ListIndices" }, ListIndicesRequest, ListIndicesResponse, [InternalFailureException, InvalidRequestException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists your policies.
  * 
- * 
  * Requires permission to access the ListPolicies action.
  */export const listPolicies = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/policies", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.ListPolicies" }, ListPoliciesRequest, ListPoliciesResponse, [InternalFailureException, InvalidRequestException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the principals associated with the specified policy.
  * 
- * 
- * 
  * **Note:** This action is deprecated and works as
  * expected for backward compatibility, but we won't add enhancements. Use ListTargetsForPolicy instead.
- * 
  * 
  * Requires permission to access the ListPolicyPrincipals action.
  */export const listPolicyPrincipals = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/policy-principals", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.ListPolicyPrincipals" }, ListPolicyPrincipalsRequest, ListPolicyPrincipalsResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1997,11 +1766,8 @@ export class InvalidResponseException extends S.TaggedError<InvalidResponseExcep
  * Lists the policies attached to the specified principal. If you use an Cognito
  * identity, the ID must be in AmazonCognito Identity format.
  * 
- * 
- * 
  * **Note:** This action is deprecated and works as
  * expected for backward compatibility, but we won't add enhancements. Use ListAttachedPolicies instead.
- * 
  * 
  * Requires permission to access the ListPrincipalPolicies action.
  */export const listPrincipalPolicies = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/principal-policies", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.ListPrincipalPolicies" }, ListPrincipalPoliciesRequest, ListPrincipalPoliciesResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -2010,36 +1776,30 @@ export class InvalidResponseException extends S.TaggedError<InvalidResponseExcep
  * certificates, IAM users, groups, and roles, Amazon Cognito identities or federated
  * identities.
  * 
- * 
  * Requires permission to access the ListPrincipalThings action.
  */export const listPrincipalThings = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/principals/things", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.ListPrincipalThings" }, ListPrincipalThingsRequest, ListPrincipalThingsResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the role aliases registered in your account.
- * 
  * 
  * Requires permission to access the ListRoleAliases action.
  */export const listRoleAliases = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/role-aliases", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.ListRoleAliases" }, ListRoleAliasesRequest, ListRoleAliasesResponse, [InternalFailureException, InvalidRequestException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the tags (metadata) you have assigned to the resource.
  * 
- * 
  * Requires permission to access the ListTagsForResource action.
  */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/tags", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * List targets for the specified policy.
- * 
  * 
  * Requires permission to access the ListTargetsForPolicy action.
  */export const listTargetsForPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/policy-targets/{policyName}", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.ListTargetsForPolicy" }, ListTargetsForPolicyRequest, ListTargetsForPolicyResponse, [InternalFailureException, InvalidRequestException, LimitExceededException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * List the thing groups in your account.
  * 
- * 
  * Requires permission to access the ListThingGroups action.
  */export const listThingGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/thing-groups", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.ListThingGroups" }, ListThingGroupsRequest, ListThingGroupsResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * List the thing groups to which the specified thing belongs.
- * 
  * 
  * Requires permission to access the ListThingGroupsForThing action.
  */export const listThingGroupsForThing = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/things/{thingName}/thing-groups", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.ListThingGroupsForThing" }, ListThingGroupsForThingRequest, ListThingGroupsForThingResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -2047,7 +1807,6 @@ export class InvalidResponseException extends S.TaggedError<InvalidResponseExcep
  * Lists the principals associated with the specified thing. A principal can be X.509
  * certificates, IAM users, groups, and roles, Amazon Cognito identities or federated
  * identities.
- * 
  * 
  * Requires permission to access the ListThingPrincipals action.
  */export const listThingPrincipals = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/things/{thingName}/principals", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.ListThingPrincipals" }, ListThingPrincipalsRequest, ListThingPrincipalsResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -2057,18 +1816,15 @@ export class InvalidResponseException extends S.TaggedError<InvalidResponseExcep
 /**
  * List bulk thing provisioning tasks.
  * 
- * 
  * Requires permission to access the ListThingRegistrationTasks action.
  */export const listThingRegistrationTasks = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/thing-registration-tasks", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.ListThingRegistrationTasks" }, ListThingRegistrationTasksRequest, ListThingRegistrationTasksResponse, [InternalFailureException, InvalidRequestException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the things you have added to the given billing group.
  * 
- * 
  * Requires permission to access the ListThingsInBillingGroup action.
  */export const listThingsInBillingGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/billing-groups/{billingGroupName}/things", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.ListThingsInBillingGroup" }, ListThingsInBillingGroupRequest, ListThingsInBillingGroupResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the things in the specified group.
- * 
  * 
  * Requires permission to access the ListThingsInThingGroup action.
  */export const listThingsInThingGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/thing-groups/{thingGroupName}/things", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.ListThingsInThingGroup" }, ListThingsInThingGroupRequest, ListThingsInThingGroupResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -2077,65 +1833,54 @@ export class InvalidResponseException extends S.TaggedError<InvalidResponseExcep
  * is an administrator-level action. Any user who has permission to create rules will be able
  * to access data processed by the rule.
  * 
- * 
  * Requires permission to access the ReplaceTopicRule action.
  */export const replaceTopicRule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/rules/{ruleName}", method: "PATCH", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.ReplaceTopicRule" }, ReplaceTopicRuleRequest, S.Struct({}), [ConflictingResourceUpdateException, InternalException, InvalidRequestException, ServiceUnavailableException, SqlParseException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Sets the default authorizer. This will be used if a websocket connection is made
  * without specifying an authorizer.
  * 
- * 
  * Requires permission to access the SetDefaultAuthorizer action.
  */export const setDefaultAuthorizer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/default-authorizer", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.SetDefaultAuthorizer" }, SetDefaultAuthorizerRequest, SetDefaultAuthorizerResponse, [InternalFailureException, InvalidRequestException, ResourceAlreadyExistsException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Sets the logging options.
  * 
- * 
  * NOTE: use of this command is not recommended. Use `SetV2LoggingOptions`
  * instead.
- * 
  * 
  * Requires permission to access the SetLoggingOptions action.
  */export const setLoggingOptions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/loggingOptions", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.SetLoggingOptions" }, SetLoggingOptionsRequest, S.Struct({}), [InternalException, InvalidRequestException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Sets the logging level.
  * 
- * 
  * Requires permission to access the SetV2LoggingLevel action.
  */export const setV2LoggingLevel = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/v2LoggingLevel", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.SetV2LoggingLevel" }, SetV2LoggingLevelRequest, S.Struct({}), [InternalException, InvalidRequestException, LimitExceededException, NotConfiguredException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Sets the logging options for the V2 logging service.
- * 
  * 
  * Requires permission to access the SetV2LoggingOptions action.
  */export const setV2LoggingOptions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/v2LoggingOptions", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.SetV2LoggingOptions" }, SetV2LoggingOptionsRequest, S.Struct({}), [InternalException, InvalidRequestException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts an on-demand Device Defender audit.
  * 
- * 
  * Requires permission to access the StartOnDemandAuditTask action.
  */export const startOnDemandAuditTask = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/audit/tasks", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.StartOnDemandAuditTask" }, StartOnDemandAuditTaskRequest, StartOnDemandAuditTaskResponse, [InternalFailureException, InvalidRequestException, LimitExceededException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a bulk thing provisioning task.
- * 
  * 
  * Requires permission to access the StartThingRegistrationTask action.
  */export const startThingRegistrationTask = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/thing-registration-tasks", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.StartThingRegistrationTask" }, StartThingRegistrationTaskRequest, StartThingRegistrationTaskResponse, [InternalFailureException, InvalidRequestException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates an authorizer.
  * 
- * 
  * Requires permission to access the UpdateAuthorizer action.
  */export const updateAuthorizer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/authorizer/{authorizerName}", method: "PUT", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.UpdateAuthorizer" }, UpdateAuthorizerRequest, UpdateAuthorizerResponse, [InternalFailureException, InvalidRequestException, LimitExceededException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates information about the billing group.
  * 
- * 
  * Requires permission to access the UpdateBillingGroup action.
  */export const updateBillingGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/billing-groups/{billingGroupName}", method: "PATCH", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.UpdateBillingGroup" }, UpdateBillingGroupRequest, UpdateBillingGroupResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException, VersionConflictException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates a certificate provider.
- * 
  * 
  * Requires permission to access the UpdateCertificateProvider action.
  */export const updateCertificateProvider = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/certificate-providers/{certificateProviderName}", method: "PUT", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.UpdateCertificateProvider" }, UpdateCertificateProviderRequest, UpdateCertificateProviderResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -2145,7 +1890,6 @@ export class InvalidResponseException extends S.TaggedError<InvalidResponseExcep
 /**
  * Updates a
  * Device Defender detect custom metric.
- * 
  * 
  * Requires permission to access the UpdateCustomMetric action.
  */export const updateCustomMetric = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/custom-metric/{metricName}", method: "PATCH", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.UpdateCustomMetric" }, UpdateCustomMetricRequest, UpdateCustomMetricResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -2157,36 +1901,28 @@ export class InvalidResponseException extends S.TaggedError<InvalidResponseExcep
  * recreate
  * it).
  * 
- * 
  * Requires permission to access the UpdateDimension action.
  */export const updateDimension = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/dimensions/{name}", method: "PATCH", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.UpdateDimension" }, UpdateDimensionRequest, UpdateDimensionResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates values stored in the domain configuration. Domain configurations for default
  * endpoints can't be updated.
  * 
- * 
  * Requires permission to access the UpdateDomainConfiguration action.
  */export const updateDomainConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/domainConfigurations/{domainConfigurationName}", method: "PUT", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.UpdateDomainConfiguration" }, UpdateDomainConfigurationRequest, UpdateDomainConfigurationResponse, [CertificateValidationException, InternalFailureException, InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the data for a fleet metric.
- * 
  * 
  * Requires permission to access the UpdateFleetMetric action.
  */export const updateFleetMetric = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/fleet-metric/{metricName}", method: "PATCH", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.UpdateFleetMetric" }, UpdateFleetMetricRequest, S.Struct({}), [IndexNotReadyException, InternalFailureException, InvalidAggregationException, InvalidQueryException, InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException, UnauthorizedException, VersionConflictException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the definition for the specified mitigation action.
  * 
- * 
  * Requires permission to access the UpdateMitigationAction action.
  */export const updateMitigationAction = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/mitigationactions/actions/{actionName}", method: "PATCH", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.UpdateMitigationAction" }, UpdateMitigationActionRequest, UpdateMitigationActionResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates a role alias.
  * 
- * 
  * Requires permission to access the UpdateRoleAlias action.
- * 
- * 
- * 
  * 
  * The value of
  * `credentialDurationSeconds`
@@ -2199,37 +1935,30 @@ export class InvalidResponseException extends S.TaggedError<InvalidResponseExcep
  * Updates a scheduled audit, including which checks are performed and
  * how often the audit takes place.
  * 
- * 
  * Requires permission to access the UpdateScheduledAudit action.
  */export const updateScheduledAudit = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/audit/scheduledaudits/{scheduledAuditName}", method: "PATCH", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.UpdateScheduledAudit" }, UpdateScheduledAuditRequest, UpdateScheduledAuditResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates a Device Defender security profile.
- * 
  * 
  * Requires permission to access the UpdateSecurityProfile action.
  */export const updateSecurityProfile = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/security-profiles/{securityProfileName}", method: "PATCH", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.UpdateSecurityProfile" }, UpdateSecurityProfileRequest, UpdateSecurityProfileResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException, VersionConflictException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates an existing stream. The stream version will be incremented by one.
  * 
- * 
  * Requires permission to access the UpdateStream action.
  */export const updateStream = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/streams/{streamId}", method: "PUT", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.UpdateStream" }, UpdateStreamRequest, UpdateStreamResponse, [InternalFailureException, InvalidRequestException, LimitExceededException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Update a thing group.
- * 
  * 
  * Requires permission to access the UpdateThingGroup action.
  */export const updateThingGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/thing-groups/{thingGroupName}", method: "PATCH", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.UpdateThingGroup" }, UpdateThingGroupRequest, UpdateThingGroupResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException, VersionConflictException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a Device Defender audit suppression.
  * 
- * 
- * 
  * Requires permission to access the CreateAuditSuppression action.
  */export const createAuditSuppression = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/audit/suppressions/create", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.CreateAuditSuppression" }, CreateAuditSuppressionRequest, CreateAuditSuppressionResponse, [InternalFailureException, InvalidRequestException, LimitExceededException, ResourceAlreadyExistsException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an authorizer.
- * 
  * 
  * Requires permission to access the CreateAuthorizer action.
  */export const createAuthorizer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/authorizer/{authorizerName}", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.CreateAuthorizer" }, CreateAuthorizerRequest, CreateAuthorizerResponse, [InternalFailureException, InvalidRequestException, LimitExceededException, ResourceAlreadyExistsException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -2237,7 +1966,6 @@ export class InvalidResponseException extends S.TaggedError<InvalidResponseExcep
  * Creates a billing group. If this call is made multiple times using
  * the same billing group name and configuration, the call will succeed. If this call is made with
  * the same billing group name but different configuration a `ResourceAlreadyExistsException` is thrown.
- * 
  * 
  * Requires permission to access the CreateBillingGroup action.
  */export const createBillingGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/billing-groups/{billingGroupName}", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.CreateBillingGroup" }, CreateBillingGroupRequest, CreateBillingGroupResponse, [InternalFailureException, InvalidRequestException, ResourceAlreadyExistsException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -2248,11 +1976,7 @@ export class InvalidResponseException extends S.TaggedError<InvalidResponseExcep
  * signing using Amazon Web Services IoT Core certificate provider from Amazon Web Services IoT Core Developer
  * Guide.
  * 
- * 
  * Requires permission to access the CreateCertificateProvider action.
- * 
- * 
- * 
  * 
  * After you create a certificate provider, the behavior of
  * `CreateCertificateFromCsr` API for fleet provisioning will
@@ -2263,24 +1987,20 @@ export class InvalidResponseException extends S.TaggedError<InvalidResponseExcep
 /**
  * Creates a domain configuration.
  * 
- * 
  * Requires permission to access the CreateDomainConfiguration action.
  */export const createDomainConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/domainConfigurations/{domainConfigurationName}", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.CreateDomainConfiguration" }, CreateDomainConfigurationRequest, CreateDomainConfigurationResponse, [CertificateValidationException, InternalFailureException, InvalidRequestException, LimitExceededException, ResourceAlreadyExistsException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a dynamic thing group.
- * 
  * 
  * Requires permission to access the CreateDynamicThingGroup action.
  */export const createDynamicThingGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/dynamic-thing-groups/{thingGroupName}", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.CreateDynamicThingGroup" }, CreateDynamicThingGroupRequest, CreateDynamicThingGroupResponse, [InternalFailureException, InvalidQueryException, InvalidRequestException, LimitExceededException, ResourceAlreadyExistsException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a fleet metric.
  * 
- * 
  * Requires permission to access the CreateFleetMetric action.
  */export const createFleetMetric = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/fleet-metric/{metricName}", method: "PUT", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.CreateFleetMetric" }, CreateFleetMetricRequest, CreateFleetMetricResponse, [IndexNotReadyException, InternalFailureException, InvalidAggregationException, InvalidQueryException, InvalidRequestException, LimitExceededException, ResourceAlreadyExistsException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a job template.
- * 
  * 
  * Requires permission to access the CreateJobTemplate action.
  */export const createJobTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/job-templates/{jobTemplateId}", method: "PUT", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.CreateJobTemplate" }, CreateJobTemplateRequest, CreateJobTemplateResponse, [ConflictException, InternalFailureException, InvalidRequestException, LimitExceededException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -2289,28 +2009,22 @@ export class InvalidResponseException extends S.TaggedError<InvalidResponseExcep
  * public key. You can also call `CreateKeysAndCertificate` over MQTT from a
  * device, for more information, see Provisioning MQTT API.
  * 
- * 
- * 
  * **Note** This is the only time IoT issues the private key
  * for this certificate, so it is important to keep it in a secure location.
- * 
  * 
  * Requires permission to access the CreateKeysAndCertificate action.
  */export const createKeysAndCertificate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/keys-and-certificate", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.CreateKeysAndCertificate" }, CreateKeysAndCertificateRequest, CreateKeysAndCertificateResponse, [InternalFailureException, InvalidRequestException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new version for an existing IoT software package.
  * 
- * 
  * Requires permission to access the CreatePackageVersion and GetIndexingConfiguration actions.
  */export const createPackageVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/packages/{packageName}/versions/{versionName}", method: "PUT", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.CreatePackageVersion" }, CreatePackageVersionRequest, CreatePackageVersionResponse, [ConflictException, InternalServerException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an IoT policy.
  * 
- * 
  * The created policy is the default version for the policy. This operation creates a
  * policy version with a version identifier of **1** and sets
  * **1** as the policy's default version.
- * 
  * 
  * Requires permission to access the CreatePolicy action.
  */export const createPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/policies/{policyName}", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.CreatePolicy" }, CreatePolicyRequest, CreatePolicyResponse, [InternalFailureException, InvalidRequestException, MalformedPolicyException, ResourceAlreadyExistsException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -2320,17 +2034,14 @@ export class InvalidResponseException extends S.TaggedError<InvalidResponseExcep
  * versions, you must use DeletePolicyVersion to delete an existing version
  * before you create a new one.
  * 
- * 
  * Optionally, you can set the new version as the policy's default version. The default
  * version is the operative version (that is, the version that is in effect for the
  * certificates to which the policy is attached).
- * 
  * 
  * Requires permission to access the CreatePolicyVersion action.
  */export const createPolicyVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/policies/{policyName}/version", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.CreatePolicyVersion" }, CreatePolicyVersionRequest, CreatePolicyVersionResponse, [InternalFailureException, InvalidRequestException, MalformedPolicyException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException, UnauthorizedException, VersionsLimitExceededException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a provisioning template.
- * 
  * 
  * Requires permission to access the CreateProvisioningTemplate action.
  */export const createProvisioningTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/provisioning-templates", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.CreateProvisioningTemplate" }, CreateProvisioningTemplateRequest, CreateProvisioningTemplateResponse, [InternalFailureException, InvalidRequestException, LimitExceededException, ResourceAlreadyExistsException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -2339,24 +2050,20 @@ export class InvalidResponseException extends S.TaggedError<InvalidResponseExcep
  * bytes in chunks or blocks packaged as MQTT messages from a source like S3. You can have one or more files
  * associated with a stream.
  * 
- * 
  * Requires permission to access the CreateStream action.
  */export const createStream = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/streams/{streamId}", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.CreateStream" }, CreateStreamRequest, CreateStreamResponse, [InternalFailureException, InvalidRequestException, LimitExceededException, ResourceAlreadyExistsException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about a billing group.
- * 
  * 
  * Requires permission to access the DescribeBillingGroup action.
  */export const describeBillingGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/billing-groups/{billingGroupName}", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.DescribeBillingGroup" }, DescribeBillingGroupRequest, DescribeBillingGroupResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets summary information about a domain configuration.
  * 
- * 
  * Requires permission to access the DescribeDomainConfiguration action.
  */export const describeDomainConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/domainConfigurations/{domainConfigurationName}", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.DescribeDomainConfiguration" }, DescribeDomainConfigurationRequest, DescribeDomainConfigurationResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes event configurations.
- * 
  * 
  * Requires permission to access the DescribeEventConfigurations action.
  */export const describeEventConfigurations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/event-configurations", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.DescribeEventConfigurations" }, DescribeEventConfigurationsRequest, DescribeEventConfigurationsResponse, [InternalFailureException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -2366,44 +2073,36 @@ export class InvalidResponseException extends S.TaggedError<InvalidResponseExcep
 /**
  * Describes a role alias.
  * 
- * 
  * Requires permission to access the DescribeRoleAlias action.
  */export const describeRoleAlias = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/role-aliases/{roleAlias}", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.DescribeRoleAlias" }, DescribeRoleAliasRequest, DescribeRoleAliasResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets information about a stream.
- * 
  * 
  * Requires permission to access the DescribeStream action.
  */export const describeStream = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/streams/{streamId}", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.DescribeStream" }, DescribeStreamRequest, DescribeStreamResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describe a thing group.
  * 
- * 
  * Requires permission to access the DescribeThingGroup action.
  */export const describeThingGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/thing-groups/{thingGroupName}", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.DescribeThingGroup" }, DescribeThingGroupRequest, DescribeThingGroupResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets information about the specified thing type.
- * 
  * 
  * Requires permission to access the DescribeThingType action.
  */export const describeThingType = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/thing-types/{thingTypeName}", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.DescribeThingType" }, DescribeThingTypeRequest, DescribeThingTypeResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a Device Defender's ML Detect Security Profile training model's status.
  * 
- * 
- * 
  * Requires permission to access the GetBehaviorModelTrainingSummaries action.
  */export const getBehaviorModelTrainingSummaries = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/behavior-model-training/summaries", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.GetBehaviorModelTrainingSummaries" }, GetBehaviorModelTrainingSummariesRequest, GetBehaviorModelTrainingSummariesResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the approximate count of unique values that match the query.
- * 
  * 
  * Requires permission to access the GetCardinality action.
  */export const getCardinality = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/indices/cardinality", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.GetCardinality" }, GetCardinalityRequest, GetCardinalityResponse, [IndexNotReadyException, InternalFailureException, InvalidAggregationException, InvalidQueryException, InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets a list of the policies that have an effect on the authorization behavior of the
  * specified device when it connects to the IoT device gateway.
- * 
  * 
  * Requires permission to access the GetEffectivePolicies action.
  */export const getEffectivePolicies = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/effective-policies", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.GetEffectivePolicies" }, GetEffectivePoliciesRequest, GetEffectivePoliciesResponse, [InternalFailureException, InvalidRequestException, LimitExceededException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -2418,7 +2117,6 @@ export class InvalidResponseException extends S.TaggedError<InvalidResponseExcep
  * The result is an approximation, the more values that match the query, the more accurate
  * the percentile values.
  * 
- * 
  * Requires permission to access the GetPercentiles action.
  */export const getPercentiles = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/indices/percentiles", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.GetPercentiles" }, GetPercentilesRequest, GetPercentilesResponse, [IndexNotReadyException, InternalFailureException, InvalidAggregationException, InvalidQueryException, InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -2426,24 +2124,20 @@ export class InvalidResponseException extends S.TaggedError<InvalidResponseExcep
  * and standard deviation for the specified aggregated field. If the aggregation field is of type
  * `String`, only the count statistic is returned.
  * 
- * 
  * Requires permission to access the GetStatistics action.
  */export const getStatistics = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/indices/statistics", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.GetStatistics" }, GetStatisticsRequest, GetStatisticsResponse, [IndexNotReadyException, InternalFailureException, InvalidAggregationException, InvalidQueryException, InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets information about the rule.
- * 
  * 
  * Requires permission to access the GetTopicRule action.
  */export const getTopicRule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/rules/{ruleName}", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.GetTopicRule" }, GetTopicRuleRequest, GetTopicRuleResponse, [InternalException, InvalidRequestException, ServiceUnavailableException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets the fine grained logging options.
  * 
- * 
  * Requires permission to access the GetV2LoggingOptions action.
  */export const getV2LoggingOptions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/v2LoggingOptions", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.GetV2LoggingOptions" }, GetV2LoggingOptionsRequest, GetV2LoggingOptionsResponse, [InternalException, NotConfiguredException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the policies attached to the specified thing group.
- * 
  * 
  * Requires permission to access the ListAttachedPolicies action.
  */export const listAttachedPolicies = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/attached-policies/{target}", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.ListAttachedPolicies" }, ListAttachedPoliciesRequest, ListAttachedPoliciesResponse, [InternalFailureException, InvalidRequestException, LimitExceededException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -2451,19 +2145,15 @@ export class InvalidResponseException extends S.TaggedError<InvalidResponseExcep
  * Gets the status of audit mitigation action tasks that were
  * executed.
  * 
- * 
  * Requires permission to access the ListAuditMitigationActionsExecutions action.
  */export const listAuditMitigationActionsExecutions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/audit/mitigationactions/executions", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.ListAuditMitigationActionsExecutions" }, ListAuditMitigationActionsExecutionsRequest, ListAuditMitigationActionsExecutionsResponse, [InternalFailureException, InvalidRequestException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets a list of audit mitigation action tasks that match the specified filters.
  * 
- * 
  * Requires permission to access the ListAuditMitigationActionsTasks action.
  */export const listAuditMitigationActionsTasks = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/audit/mitigationactions/tasks", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.ListAuditMitigationActionsTasks" }, ListAuditMitigationActionsTasksRequest, ListAuditMitigationActionsTasksResponse, [InternalFailureException, InvalidRequestException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists your Device Defender audit listings.
- * 
- * 
  * 
  * Requires permission to access the ListAuditSuppressions action.
  */export const listAuditSuppressions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/audit/suppressions/list", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.ListAuditSuppressions" }, ListAuditSuppressionsRequest, ListAuditSuppressionsResponse, [InternalFailureException, InvalidRequestException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -2471,44 +2161,36 @@ export class InvalidResponseException extends S.TaggedError<InvalidResponseExcep
  * Lists the Device Defender audits that have been performed during a given
  * time period.
  * 
- * 
  * Requires permission to access the ListAuditTasks action.
  */export const listAuditTasks = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/audit/tasks", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.ListAuditTasks" }, ListAuditTasksRequest, ListAuditTasksResponse, [InternalFailureException, InvalidRequestException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the authorizers registered in your account.
- * 
  * 
  * Requires permission to access the ListAuthorizers action.
  */export const listAuthorizers = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/authorizers", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.ListAuthorizers" }, ListAuthorizersRequest, ListAuthorizersResponse, [InternalFailureException, InvalidRequestException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the billing groups you have created.
  * 
- * 
  * Requires permission to access the ListBillingGroups action.
  */export const listBillingGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/billing-groups", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.ListBillingGroups" }, ListBillingGroupsRequest, ListBillingGroupsResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the CA certificates registered for your Amazon Web Services account.
  * 
- * 
  * The results are paginated with a default page size of 25. You can use the returned
  * marker to retrieve additional results.
- * 
  * 
  * Requires permission to access the ListCACertificates action.
  */export const listCACertificates = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/cacertificates", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.ListCACertificates" }, ListCACertificatesRequest, ListCACertificatesResponse, [InternalFailureException, InvalidRequestException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists all your certificate providers in your Amazon Web Services account.
  * 
- * 
  * Requires permission to access the ListCertificateProviders action.
  */export const listCertificateProviders = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/certificate-providers", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.ListCertificateProviders" }, ListCertificateProvidersRequest, ListCertificateProvidersResponse, [InternalFailureException, InvalidRequestException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the certificates registered in your Amazon Web Services account.
  * 
- * 
  * The results are paginated with a default page size of 25. You can use the returned
  * marker to retrieve additional results.
- * 
  * 
  * Requires permission to access the ListCertificates action.
  */export const listCertificates = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/certificates", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.ListCertificates" }, ListCertificatesRequest, ListCertificatesResponse, [InternalFailureException, InvalidRequestException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -2518,38 +2200,31 @@ export class InvalidResponseException extends S.TaggedError<InvalidResponseExcep
 /**
  * Lists mitigation actions executions for a Device Defender ML Detect Security Profile.
  * 
- * 
- * 
  * Requires permission to access the ListDetectMitigationActionsExecutions action.
  */export const listDetectMitigationActionsExecutions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/detect/mitigationactions/executions", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.ListDetectMitigationActionsExecutions" }, ListDetectMitigationActionsExecutionsRequest, ListDetectMitigationActionsExecutionsResponse, [InternalFailureException, InvalidRequestException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets a list of domain configurations for the user. This list is sorted
  * alphabetically by domain configuration name.
  * 
- * 
  * Requires permission to access the ListDomainConfigurations action.
  */export const listDomainConfigurations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/domainConfigurations", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.ListDomainConfigurations" }, ListDomainConfigurationsRequest, ListDomainConfigurationsResponse, [InternalFailureException, InvalidRequestException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists all your fleet metrics.
- * 
  * 
  * Requires permission to access the ListFleetMetrics action.
  */export const listFleetMetrics = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/fleet-metrics", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.ListFleetMetrics" }, ListFleetMetricsRequest, ListFleetMetricsResponse, [InternalFailureException, InvalidRequestException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the job executions for the specified thing.
  * 
- * 
  * Requires permission to access the ListJobExecutionsForThing action.
  */export const listJobExecutionsForThing = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/things/{thingName}/jobs", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.ListJobExecutionsForThing" }, ListJobExecutionsForThingRequest, ListJobExecutionsForThingResponse, [InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists jobs.
  * 
- * 
  * Requires permission to access the ListJobs action.
  */export const listJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/jobs", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.ListJobs" }, ListJobsRequest, ListJobsResponse, [InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of job templates.
- * 
  * 
  * Requires permission to access the ListJobTemplates action.
  */export const listJobTemplates = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/job-templates", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.ListJobTemplates" }, ListJobTemplatesRequest, ListJobTemplatesResponse, [InternalFailureException, InvalidRequestException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -2563,30 +2238,25 @@ export class InvalidResponseException extends S.TaggedError<InvalidResponseExcep
 /**
  * Gets a list of all mitigation actions that match the specified filter criteria.
  * 
- * 
  * Requires permission to access the ListMitigationActions action.
  */export const listMitigationActions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/mitigationactions/actions", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.ListMitigationActions" }, ListMitigationActionsRequest, ListMitigationActionsResponse, [InternalFailureException, InvalidRequestException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists OTA updates.
- * 
  * 
  * Requires permission to access the ListOTAUpdates action.
  */export const listOTAUpdates = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/otaUpdates", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.ListOTAUpdates" }, ListOTAUpdatesRequest, ListOTAUpdatesResponse, [InternalFailureException, InvalidRequestException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists certificates that are being transferred but not yet accepted.
  * 
- * 
  * Requires permission to access the ListOutgoingCertificates action.
  */export const listOutgoingCertificates = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/certificates-out-going", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.ListOutgoingCertificates" }, ListOutgoingCertificatesRequest, ListOutgoingCertificatesResponse, [InternalFailureException, InvalidRequestException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the software packages associated to the account.
  * 
- * 
  * Requires permission to access the ListPackages action.
  */export const listPackages = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/packages", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.ListPackages" }, ListPackagesRequest, ListPackagesResponse, [InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the software package versions associated to the account.
- * 
  * 
  * Requires permission to access the ListPackageVersions action.
  */export const listPackageVersions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/packages/{packageName}/versions", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.ListPackageVersions" }, ListPackageVersionsRequest, ListPackageVersionsResponse, [InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -2594,37 +2264,31 @@ export class InvalidResponseException extends S.TaggedError<InvalidResponseExcep
  * Lists the versions of the specified policy and identifies the default
  * version.
  * 
- * 
  * Requires permission to access the ListPolicyVersions action.
  */export const listPolicyVersions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/policies/{policyName}/version", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.ListPolicyVersions" }, ListPolicyVersionsRequest, ListPolicyVersionsResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the things associated with the specified principal. A principal can be an X.509
  * certificate or an Amazon Cognito ID.
  * 
- * 
  * Requires permission to access the ListPrincipalThings action.
  */export const listPrincipalThingsV2 = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/principals/things-v2", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.ListPrincipalThingsV2" }, ListPrincipalThingsV2Request, ListPrincipalThingsV2Response, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the provisioning templates in your Amazon Web Services account.
- * 
  * 
  * Requires permission to access the ListProvisioningTemplates action.
  */export const listProvisioningTemplates = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/provisioning-templates", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.ListProvisioningTemplates" }, ListProvisioningTemplatesRequest, ListProvisioningTemplatesResponse, [InternalFailureException, InvalidRequestException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * A list of provisioning template versions.
  * 
- * 
  * Requires permission to access the ListProvisioningTemplateVersions action.
  */export const listProvisioningTemplateVersions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/provisioning-templates/{templateName}/versions", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.ListProvisioningTemplateVersions" }, ListProvisioningTemplateVersionsRequest, ListProvisioningTemplateVersionsResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * The validation results for all software bill of materials (SBOM) attached to a specific software package version.
  * 
- * 
  * Requires permission to access the ListSbomValidationResults action.
  */export const listSbomValidationResults = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/packages/{packageName}/versions/{versionName}/sbom-validation-results", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.ListSbomValidationResults" }, ListSbomValidationResultsRequest, ListSbomValidationResultsResponse, [InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists all of your scheduled audits.
- * 
  * 
  * Requires permission to access the ListScheduledAudits action.
  */export const listScheduledAudits = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/audit/scheduledaudits", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.ListScheduledAudits" }, ListScheduledAuditsRequest, ListScheduledAuditsResponse, [InternalFailureException, InvalidRequestException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -2633,37 +2297,28 @@ export class InvalidResponseException extends S.TaggedError<InvalidResponseExcep
  * you've
  * created. You can filter security profiles by dimension or custom metric.
  * 
- * 
  * Requires permission to access the ListSecurityProfiles action.
- * 
- * 
- * 
- * 
  * 
  * `dimensionName` and `metricName` cannot be used in the same request.
  */export const listSecurityProfiles = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/security-profiles", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.ListSecurityProfiles" }, ListSecurityProfilesRequest, ListSecurityProfilesResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the Device Defender security profiles attached to a target (thing group).
  * 
- * 
  * Requires permission to access the ListSecurityProfilesForTarget action.
  */export const listSecurityProfilesForTarget = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/security-profiles-for-target", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.ListSecurityProfilesForTarget" }, ListSecurityProfilesForTargetRequest, ListSecurityProfilesForTargetResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists all of the streams in your Amazon Web Services account.
- * 
  * 
  * Requires permission to access the ListStreams action.
  */export const listStreams = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/streams", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.ListStreams" }, ListStreamsRequest, ListStreamsResponse, [InternalFailureException, InvalidRequestException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the targets (thing groups) associated with a given Device Defender security profile.
  * 
- * 
  * Requires permission to access the ListTargetsForSecurityProfile action.
  */export const listTargetsForSecurityProfile = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/security-profiles/{securityProfileName}/targets", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.ListTargetsForSecurityProfile" }, ListTargetsForSecurityProfileRequest, ListTargetsForSecurityProfileResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the principals associated with the specified thing. A principal can be an X.509
  * certificate or an Amazon Cognito ID.
- * 
  * 
  * Requires permission to access the ListThingPrincipals action.
  */export const listThingPrincipalsV2 = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/things/{thingName}/principals-v2", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.ListThingPrincipalsV2" }, ListThingPrincipalsV2Request, ListThingPrincipalsV2Response, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -2674,29 +2329,22 @@ export class InvalidResponseException extends S.TaggedError<InvalidResponseExcep
  * information, see List Things from the Amazon Web Services IoT Core Developer
  * Guide.
  * 
- * 
  * Requires permission to access the ListThings action.
- * 
- * 
- * 
  * 
  * You will not be charged for calling this API if an `Access denied` error is returned. You will also not be charged if no attributes or pagination token was provided in request and no pagination token and no results were returned.
  */export const listThings = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/things", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.ListThings" }, ListThingsRequest, ListThingsResponse, [InternalFailureException, InvalidRequestException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the existing thing types.
  * 
- * 
  * Requires permission to access the ListThingTypes action.
  */export const listThingTypes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/thing-types", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.ListThingTypes" }, ListThingTypesRequest, ListThingTypesResponse, [InternalFailureException, InvalidRequestException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the rules for the specific topic.
  * 
- * 
  * Requires permission to access the ListTopicRules action.
  */export const listTopicRules = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/rules", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.ListTopicRules" }, ListTopicRulesRequest, ListTopicRulesResponse, [InternalException, InvalidRequestException, ServiceUnavailableException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists logging levels.
- * 
  * 
  * Requires permission to access the ListV2LoggingLevels action.
  */export const listV2LoggingLevels = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/v2LoggingLevel", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.ListV2LoggingLevels" }, ListV2LoggingLevelsRequest, ListV2LoggingLevelsResponse, [InternalException, InvalidRequestException, NotConfiguredException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -2705,14 +2353,12 @@ export class InvalidResponseException extends S.TaggedError<InvalidResponseExcep
  * You can use filters to limit the results to those alerts issued for a particular security profile,
  * behavior, or thing (device).
  * 
- * 
  * Requires permission to access the ListViolationEvents action.
  */export const listViolationEvents = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/violation-events", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.ListViolationEvents" }, ListViolationEventsRequest, ListViolationEventsResponse, [InternalFailureException, InvalidRequestException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Registers a device certificate with IoT in the same certificate mode as the signing CA. If you have more than one CA certificate that has the same subject field, you must
  * specify the CA certificate that was used to sign the device certificate being
  * registered.
- * 
  * 
  * Requires permission to access the RegisterCertificate action.
  */export const registerCertificate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/certificate/register", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.RegisterCertificate" }, RegisterCertificateRequest, RegisterCertificateResponse, [CertificateConflictException, CertificateStateException, CertificateValidationException, InternalFailureException, InvalidRequestException, ResourceAlreadyExistsException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -2724,60 +2370,44 @@ export class InvalidResponseException extends S.TaggedError<InvalidResponseExcep
 /**
  * Transfers the specified certificate to the specified Amazon Web Services account.
  * 
- * 
  * Requires permission to access the TransferCertificate action.
- * 
  * 
  * You can cancel the transfer until it is accepted by the recipient.
  * 
- * 
  * No notification is sent to the transfer destination's account. The caller is responsible for notifying the transfer target.
- * 
  * 
  * The certificate being transferred must not be in the `ACTIVE` state. You can use the
  * UpdateCertificate action to deactivate it.
  * 
- * 
  * The certificate must not have any policies attached to it. You can use the
  * DetachPolicy action to detach them.
- * 
- * 
  * 
  * **Customer managed key behavior:** When you use a customer managed key to encrypt your data and then transfer
  * the certificate to a customer in a different account using the `TransferCertificate` operation, the certificates will no longer be encrypted by their
  * customer managed key configuration. During the transfer process, certificates are encrypted using Amazon Web Services IoT Core owned keys.
  * 
- * 
  * While a certificate is in the **PENDING_TRANSFER** state, it's always protected by Amazon Web Services IoT Core owned keys, regardless of the customer managed key configuration of either the source or destination account.
- * 
  * 
  * Once the transfer is completed through AcceptCertificateTransfer, RejectCertificateTransfer, or
  * CancelCertificateTransfer, the certificate will be protected by the customer managed key configuration of the account that owns
  * the certificate after the transfer operation:
  * 
- * 
- * 
  * - If the transfer is accepted: The certificate is encrypted by the target account's customer managed key configuration.
- * 
- * 
  * 
  * - If the transfer is rejected or cancelled: The certificate is protected by the source account's customer managed key configuration.
  */export const transferCertificate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/transfer-certificate/{certificateId}", method: "PATCH", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.TransferCertificate" }, TransferCertificateRequest, TransferCertificateResponse, [CertificateStateException, InternalFailureException, InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException, TransferConflictException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates a dynamic thing group.
  * 
- * 
  * Requires permission to access the UpdateDynamicThingGroup action.
  */export const updateDynamicThingGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/dynamic-thing-groups/{thingGroupName}", method: "PATCH", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.UpdateDynamicThingGroup" }, UpdateDynamicThingGroupRequest, UpdateDynamicThingGroupResponse, [InternalFailureException, InvalidQueryException, InvalidRequestException, ResourceNotFoundException, ThrottlingException, VersionConflictException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Validates a Device Defender security profile behaviors specification.
  * 
- * 
  * Requires permission to access the ValidateSecurityProfileBehaviors action.
  */export const validateSecurityProfileBehaviors = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/security-profile-behaviors/validate", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.ValidateSecurityProfileBehaviors" }, ValidateSecurityProfileBehaviorsRequest, ValidateSecurityProfileBehaviorsResponse, [InternalFailureException, InvalidRequestException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Associates the selected software bill of materials (SBOM) with a specific software package version.
- * 
  * 
  * Requires permission to access the AssociateSbomWithPackageVersion action.
  */export const associateSbomWithPackageVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/packages/{packageName}/versions/{versionName}/sbom", method: "PUT", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.AssociateSbomWithPackageVersion" }, AssociateSbomWithPackageVersionRequest, AssociateSbomWithPackageVersionResponse, [ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -2785,12 +2415,10 @@ export class InvalidResponseException extends S.TaggedError<InvalidResponseExcep
  * Defines an action that can be applied to audit findings by using StartAuditMitigationActionsTask. Only certain types of mitigation actions can be applied to specific check names.
  * For more information, see Mitigation actions. Each mitigation action can apply only one type of change.
  * 
- * 
  * Requires permission to access the CreateMitigationAction action.
  */export const createMitigationAction = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/mitigationactions/actions/{actionName}", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.CreateMitigationAction" }, CreateMitigationActionRequest, CreateMitigationActionResponse, [InternalFailureException, InvalidRequestException, LimitExceededException, ResourceAlreadyExistsException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an IoT software package that can be deployed to your fleet.
- * 
  * 
  * Requires permission to access the CreatePackage and GetIndexingConfiguration actions.
  */export const createPackage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/packages/{packageName}", method: "PUT", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.CreatePackage" }, CreatePackageRequest, CreatePackageResponse, [ConflictException, InternalServerException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -2800,20 +2428,13 @@ export class InvalidResponseException extends S.TaggedError<InvalidResponseExcep
  * the same thing name but different configuration a
  * `ResourceAlreadyExistsException` is thrown.
  * 
- * 
- * 
- * 
  * This is a control plane operation. See Authorization for
  * information about authorizing control plane actions.
- * 
- * 
- * 
  * 
  * Requires permission to access the CreateThing action.
  */export const createThing = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/things/{thingName}", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.CreateThing" }, CreateThingRequest, CreateThingResponse, [InternalFailureException, InvalidRequestException, ResourceAlreadyExistsException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a topic rule destination. The destination must be confirmed prior to use.
- * 
  * 
  * Requires permission to access the CreateTopicRuleDestination action.
  */export const createTopicRuleDestination = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/destinations", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.CreateTopicRuleDestination" }, CreateTopicRuleDestinationRequest, CreateTopicRuleDestinationResponse, [ConflictingResourceUpdateException, InternalException, InvalidRequestException, ResourceAlreadyExistsException, ServiceUnavailableException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -2821,7 +2442,6 @@ export class InvalidResponseException extends S.TaggedError<InvalidResponseExcep
  * Gets information about the Device Defender audit settings for this account.
  * Settings include how audit notifications are sent and which audit checks are
  * enabled or disabled.
- * 
  * 
  * Requires permission to access the DescribeAccountAuditConfiguration action.
  */export const describeAccountAuditConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/audit/configuration", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.DescribeAccountAuditConfiguration" }, DescribeAccountAuditConfigurationRequest, DescribeAccountAuditConfigurationResponse, [InternalFailureException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -2832,7 +2452,6 @@ export class InvalidResponseException extends S.TaggedError<InvalidResponseExcep
  * when the audit that returned the
  * finding.
  * 
- * 
  * Requires permission to access the DescribeAuditFinding action.
  */export const describeAuditFinding = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/audit/findings/{findingId}", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.DescribeAuditFinding" }, DescribeAuditFindingRequest, DescribeAuditFindingResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -2841,37 +2460,30 @@ export class InvalidResponseException extends S.TaggedError<InvalidResponseExcep
 /**
  * Gets information about a Device Defender audit.
  * 
- * 
  * Requires permission to access the DescribeAuditTask action.
  */export const describeAuditTask = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/audit/tasks/{taskId}", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.DescribeAuditTask" }, DescribeAuditTaskRequest, DescribeAuditTaskResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes a registered CA certificate.
- * 
  * 
  * Requires permission to access the DescribeCACertificate action.
  */export const describeCACertificate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/cacertificate/{certificateId}", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.DescribeCACertificate" }, DescribeCACertificateRequest, DescribeCACertificateResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets information about the specified certificate.
  * 
- * 
  * Requires permission to access the DescribeCertificate action.
  */export const describeCertificate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/certificates/{certificateId}", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.DescribeCertificate" }, DescribeCertificateRequest, DescribeCertificateResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets information about a Device Defender ML Detect mitigation action.
- * 
- * 
  * 
  * Requires permission to access the DescribeDetectMitigationActionsTask action.
  */export const describeDetectMitigationActionsTask = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/detect/mitigationactions/tasks/{taskId}", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.DescribeDetectMitigationActionsTask" }, DescribeDetectMitigationActionsTaskRequest, DescribeDetectMitigationActionsTaskResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes a job.
  * 
- * 
  * Requires permission to access the DescribeJob action.
  */export const describeJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/jobs/{jobId}", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.DescribeJob" }, DescribeJobRequest, DescribeJobResponse, [InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes a job execution.
- * 
  * 
  * Requires permission to access the DescribeJobExecution action.
  */export const describeJobExecution = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/things/{thingName}/jobs/{jobId}", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.DescribeJobExecution" }, DescribeJobExecutionRequest, DescribeJobExecutionResponse, [InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -2881,33 +2493,25 @@ export class InvalidResponseException extends S.TaggedError<InvalidResponseExcep
 /**
  * Gets the indexing configuration.
  * 
- * 
  * Requires permission to access the GetIndexingConfiguration action.
  */export const getIndexingConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/indexing/config", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.GetIndexingConfiguration" }, GetIndexingConfigurationRequest, GetIndexingConfigurationResponse, [InternalFailureException, InvalidRequestException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets an OTA update.
- * 
  * 
  * Requires permission to access the GetOTAUpdate action.
  */export const getOTAUpdate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/otaUpdates/{otaUpdateId}", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.GetOTAUpdate" }, GetOTAUpdateRequest, GetOTAUpdateResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets information about a topic rule destination.
  * 
- * 
  * Requires permission to access the GetTopicRuleDestination action.
  */export const getTopicRuleDestination = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/destinations/{arn+}", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.GetTopicRuleDestination" }, GetTopicRuleDestinationRequest, GetTopicRuleDestinationResponse, [InternalException, InvalidRequestException, ServiceUnavailableException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the active violations for a given Device Defender security profile.
  * 
- * 
  * Requires permission to access the ListActiveViolations action.
  */export const listActiveViolations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/active-violations", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.ListActiveViolations" }, ListActiveViolationsRequest, ListActiveViolationsResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * List all command executions.
- * 
- * 
- * 
- * 
  * 
  * - You must provide only the `startedTimeFilter` or
  * the `completedTimeFilter` information. If you provide
@@ -2915,16 +2519,10 @@ export class InvalidResponseException extends S.TaggedError<InvalidResponseExcep
  * this information to retrieve a list of command executions
  * within a specific timeframe.
  * 
- * 
- * 
  * - You must provide only the `commandArn` or
  * the `thingArn` information depending on whether you want
  * to list executions for a specific command or an IoT thing. If you provide
  * both fields, the API will generate an error.
- * 
- * 
- * 
- * 
  * 
  * For more information about considerations for using this API, see
  * List
@@ -2933,54 +2531,29 @@ export class InvalidResponseException extends S.TaggedError<InvalidResponseExcep
 /**
  * Lists the job executions for a job.
  * 
- * 
  * Requires permission to access the ListJobExecutionsForJob action.
  */export const listJobExecutionsForJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/jobs/{jobId}/things", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.ListJobExecutionsForJob" }, ListJobExecutionsForJobRequest, ListJobExecutionsForJobResponse, [InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * The related resources of an Audit finding.
  * The following resources can be returned from calling this API:
  * 
- * 
- * 
  * - DEVICE_CERTIFICATE
- * 
- * 
  * 
  * - CA_CERTIFICATE
  * 
- * 
- * 
  * - IOT_POLICY
- * 
- * 
  * 
  * - COGNITO_IDENTITY_POOL
  * 
- * 
- * 
  * - CLIENT_ID
- * 
- * 
  * 
  * - ACCOUNT_SETTINGS
  * 
- * 
- * 
  * - ROLE_ALIAS
- * 
- * 
  * 
  * - IAM_ROLE
  * 
- * 
- * 
  * - ISSUER_CERTIFICATE
- * 
- * 
- * 
- * 
- * 
- * 
  * 
  * This API is similar to DescribeAuditFinding's RelatedResources
  * but provides pagination and is not limited to 10 resources.
@@ -2990,7 +2563,6 @@ export class InvalidResponseException extends S.TaggedError<InvalidResponseExcep
 /**
  * Lists all the topic rule destinations in your Amazon Web Services account.
  * 
- * 
  * Requires permission to access the ListTopicRuleDestinations action.
  */export const listTopicRuleDestinations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/destinations", method: "GET", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.ListTopicRuleDestinations" }, ListTopicRuleDestinationsRequest, ListTopicRuleDestinationsResponse, [InternalException, InvalidRequestException, ServiceUnavailableException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -2998,37 +2570,30 @@ export class InvalidResponseException extends S.TaggedError<InvalidResponseExcep
  * certificates you can register in your Amazon Web Services account. You can register up to 10 CA
  * certificates with the same `CA subject field` per Amazon Web Services account.
  * 
- * 
  * Requires permission to access the RegisterCACertificate action.
  */export const registerCACertificate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/cacertificate", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.RegisterCACertificate" }, RegisterCACertificateRequest, RegisterCACertificateResponse, [CertificateValidationException, InternalFailureException, InvalidRequestException, LimitExceededException, RegistrationCodeValidationException, ResourceAlreadyExistsException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * The query search index.
- * 
  * 
  * Requires permission to access the SearchIndex action.
  */export const searchIndex = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/indices/search", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.SearchIndex" }, SearchIndexRequest, SearchIndexResponse, [IndexNotReadyException, InternalFailureException, InvalidQueryException, InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts a task that applies a set of mitigation actions to the specified target.
  * 
- * 
  * Requires permission to access the StartAuditMitigationActionsTask action.
  */export const startAuditMitigationActionsTask = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/audit/mitigationactions/tasks/{taskId}", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.StartAuditMitigationActionsTask" }, StartAuditMitigationActionsTaskRequest, StartAuditMitigationActionsTaskResponse, [InternalFailureException, InvalidRequestException, LimitExceededException, TaskAlreadyExistsException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts a Device Defender ML Detect mitigation actions task.
- * 
- * 
  * 
  * Requires permission to access the StartDetectMitigationActionsTask action.
  */export const startDetectMitigationActionsTask = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/detect/mitigationactions/tasks/{taskId}", method: "PUT", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.StartDetectMitigationActionsTask" }, StartDetectMitigationActionsTaskRequest, StartDetectMitigationActionsTaskResponse, [InternalFailureException, InvalidRequestException, LimitExceededException, TaskAlreadyExistsException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a job.
  * 
- * 
  * Requires permission to access the CreateJob action.
  */export const createJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/jobs/{jobId}", method: "PUT", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.CreateJob" }, CreateJobRequest, CreateJobResponse, [InvalidRequestException, LimitExceededException, ResourceAlreadyExistsException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a Device Defender security profile.
- * 
  * 
  * Requires permission to access the CreateSecurityProfile action.
  */export const createSecurityProfile = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/security-profiles/{securityProfileName}", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.CreateSecurityProfile" }, CreateSecurityProfileRequest, CreateSecurityProfileResponse, [InternalFailureException, InvalidRequestException, ResourceAlreadyExistsException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -3037,13 +2602,10 @@ export class InvalidResponseException extends S.TaggedError<InvalidResponseExcep
  * the same thing type name and configuration, the call will succeed. If this call is made with
  * the same thing type name but different configuration a `ResourceAlreadyExistsException` is thrown.
  * 
- * 
- * 
  * Requires permission to access the CreateThingType action.
  */export const createThingType = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/thing-types/{thingTypeName}", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.CreateThingType" }, CreateThingTypeRequest, CreateThingTypeResponse, [InternalFailureException, InvalidRequestException, ResourceAlreadyExistsException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Aggregates on indexed data with search queries pertaining to particular fields.
- * 
  * 
  * Requires permission to access the GetBucketsAggregation action.
  */export const getBucketsAggregation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/indices/buckets", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.GetBucketsAggregation" }, GetBucketsAggregationRequest, GetBucketsAggregationResponse, [IndexNotReadyException, InternalFailureException, InvalidAggregationException, InvalidQueryException, InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -3053,14 +2615,12 @@ export class InvalidResponseException extends S.TaggedError<InvalidResponseExcep
  * IoT Throttling Limits and cause throttle errors. Please contact Amazon Web Services Customer Support to raise
  * your throttling limits if necessary.
  * 
- * 
  * Requires permission to access the RegisterThing action.
  */export const registerThing = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/things", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.RegisterThing" }, RegisterThingRequest, RegisterThingResponse, [ConflictingResourceUpdateException, InternalFailureException, InvalidRequestException, ResourceRegistrationFailureException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Tests a custom authorization behavior by invoking a specified custom authorizer. Use
  * this to test and debug the custom authorization behavior of devices that connect to the IoT
  * device gateway.
- * 
  * 
  * Requires permission to access the TestInvokeAuthorizer action.
  */export const testInvokeAuthorizer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/authorizer/{authorizerName}/test", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.TestInvokeAuthorizer" }, TestInvokeAuthorizerRequest, TestInvokeAuthorizerResponse, [InternalFailureException, InvalidRequestException, InvalidResponseException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -3073,19 +2633,16 @@ export class InvalidResponseException extends S.TaggedError<InvalidResponseExcep
  * specified resource. Use this to test and debug the authorization behavior of devices that
  * connect to the IoT device gateway.
  * 
- * 
  * Requires permission to access the TestAuthorization action.
  */export const testAuthorization = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/test-authorization", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.TestAuthorization" }, TestAuthorizationRequest, TestAuthorizationResponse, [InternalFailureException, InvalidRequestException, LimitExceededException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an IoT OTA update on a target group of things or groups.
- * 
  * 
  * Requires permission to access the CreateOTAUpdate action.
  */export const createOTAUpdate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/otaUpdates/{otaUpdateId}", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.CreateOTAUpdate" }, CreateOTAUpdateRequest, CreateOTAUpdateResponse, [InternalFailureException, InvalidRequestException, LimitExceededException, ResourceAlreadyExistsException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a rule. Creating rules is an administrator-level action. Any user who has
  * permission to create rules will be able to access data processed by the rule.
- * 
  * 
  * Requires permission to access the CreateTopicRule action.
  */export const createTopicRule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/rules/{ruleName}", sdkId: "IoT", sigV4ServiceName: "iot", name: "AWSIotService.CreateTopicRule" }, CreateTopicRuleRequest, S.Struct({}), [ConflictingResourceUpdateException, InternalException, InvalidRequestException, ResourceAlreadyExistsException, ServiceUnavailableException, SqlParseException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

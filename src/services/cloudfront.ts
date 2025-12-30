@@ -942,7 +942,6 @@ export class TrustedKeyGroupDoesNotExist extends S.TaggedError<TrustedKeyGroupDo
 /**
  * We recommend that you use the `UpdateDomainAssociation` API operation to move a domain association, as it supports both standard distributions and distribution tenants. AssociateAlias performs similar checks but only supports standard distributions.
  * 
- * 
  * Moves a domain from its current standard distribution or distribution tenant to another one.
  * 
  * You must first disable the source distribution (standard distribution or distribution tenant) and then separately call this operation to move the domain to another target distribution (standard distribution or distribution tenant).
@@ -994,7 +993,6 @@ export class TrustedKeyGroupDoesNotExist extends S.TaggedError<TrustedKeyGroupDo
  */export const deleteContinuousDeploymentPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-05-31", uri: "/2020-05-31/continuous-deployment-policy/{Id}", method: "DELETE", sdkId: "CloudFront", sigV4ServiceName: "cloudfront", name: "Cloudfront2020_05_31.DeleteContinuousDeploymentPolicy" }, DeleteContinuousDeploymentPolicyRequest, S.Struct({}), [AccessDenied, ContinuousDeploymentPolicyInUse, InvalidArgument, InvalidIfMatchVersion, NoSuchContinuousDeploymentPolicy, PreconditionFailed]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * Delete a distribution.
- * 
  * 
  * Before you can delete a distribution, you must disable it, which requires permission to update the distribution. Once deleted, a distribution cannot be recovered.
  */export const deleteDistribution = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-05-31", uri: "/2020-05-31/distribution/{Id}", method: "DELETE", sdkId: "CloudFront", sigV4ServiceName: "cloudfront", name: "Cloudfront2020_05_31.DeleteDistribution" }, DeleteDistributionRequest, S.Struct({}), [AccessDenied, DistributionNotDisabled, InvalidIfMatchVersion, NoSuchDistribution, PreconditionFailed, ResourceInUse]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
@@ -1068,7 +1066,6 @@ export class TrustedKeyGroupDoesNotExist extends S.TaggedError<TrustedKeyGroupDo
  * 
  * - The date and time when the policy was last modified.
  * 
- * 
  * To get a cache policy, you must provide the policy's identifier. If the cache policy is attached to a distribution's cache behavior, you can get the policy's identifier using `ListDistributions` or `GetDistribution`. If the cache policy is not attached to a cache behavior, you can get the identifier using `ListCachePolicies`.
  */export const getCachePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-05-31", uri: "/2020-05-31/cache-policy/{Id}", method: "GET", sdkId: "CloudFront", sigV4ServiceName: "cloudfront", name: "Cloudfront2020_05_31.GetCachePolicy" }, GetCachePolicyRequest, GetCachePolicyResult, [AccessDenied, NoSuchCachePolicy]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
@@ -1100,7 +1097,6 @@ export class TrustedKeyGroupDoesNotExist extends S.TaggedError<TrustedKeyGroupDo
  * - The policy's identifier.
  * 
  * - The date and time when the policy was last modified.
- * 
  * 
  * To get an origin request policy, you must provide the policy's identifier. If the origin request policy is attached to a distribution's cache behavior, you can get the policy's identifier using `ListDistributions` or `GetDistribution`. If the origin request policy is not attached to a cache behavior, you can get the identifier using `ListOriginRequestPolicies`.
  */export const getOriginRequestPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-05-31", uri: "/2020-05-31/origin-request-policy/{Id}", method: "GET", sdkId: "CloudFront", sigV4ServiceName: "cloudfront", name: "Cloudfront2020_05_31.GetOriginRequestPolicy" }, GetOriginRequestPolicyRequest, GetOriginRequestPolicyResult, [AccessDenied, NoSuchOriginRequestPolicy]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
@@ -1203,7 +1199,6 @@ export class TrustedKeyGroupDoesNotExist extends S.TaggedError<TrustedKeyGroupDo
 /**
  * The `AssociateAlias` API operation only supports standard distributions. To move domains between distribution tenants and/or standard distributions, we recommend that you use the UpdateDomainAssociation API operation instead.
  * 
- * 
  * Associates an alias with a CloudFront standard distribution. An alias is commonly known as a custom domain or vanity domain. It can also be called a CNAME or alternate domain name.
  * 
  * With this operation, you can move an alias that's already used for a standard distribution to a different standard distribution. This prevents the downtime that could occur if you first remove the alias from one standard distribution and then separately add the alias to another standard distribution.
@@ -1278,7 +1273,6 @@ export class TrustedKeyGroupDoesNotExist extends S.TaggedError<TrustedKeyGroupDo
 /**
  * The `ListConflictingAliases` API operation only supports standard distributions. To list domain conflicts for both standard distributions and distribution tenants, we recommend that you use the ListDomainConflicts API operation instead.
  * 
- * 
  * Gets a list of aliases that conflict or overlap with the provided alias, and the associated CloudFront standard distribution and Amazon Web Services accounts for each conflicting alias. An alias is commonly known as a custom domain or vanity domain. It can also be called a CNAME or alternate domain name.
  * 
  * In the returned list, the standard distribution and account IDs are partially hidden, which allows you to identify the standard distribution and accounts that you own, and helps to protect the information of ones that you don't own.
@@ -1306,7 +1300,6 @@ export class TrustedKeyGroupDoesNotExist extends S.TaggedError<TrustedKeyGroupDo
 /**
  * We recommend that you use the `ListDomainConflicts` API operation to check for domain conflicts, as it supports both standard distributions and distribution tenants. ListConflictingAliases performs similar checks but only supports standard distributions.
  * 
- * 
  * Lists existing domain associations that conflict with the domain that you specify.
  * 
  * You can use this API operation to identify potential domain conflicts when moving domains between standard distributions and/or distribution tenants. Domain conflicts must be resolved first before they can be moved.
@@ -1318,7 +1311,6 @@ export class TrustedKeyGroupDoesNotExist extends S.TaggedError<TrustedKeyGroupDo
  * - The domain to search for
  * 
  * - The ID of a standard distribution or distribution tenant in your account that has an attached TLS certificate, which covers the specified domain
- * 
  * 
  * For more information, including how to set up the standard distribution or distribution tenant, and the certificate, see Moving an alternate domain name to a different standard distribution or distribution tenant in the *Amazon CloudFront Developer Guide*.
  * 
@@ -1342,7 +1334,6 @@ export class TrustedKeyGroupDoesNotExist extends S.TaggedError<TrustedKeyGroupDo
  * Gets the list of CloudFront origin access controls (OACs) in this Amazon Web Services account.
  * 
  * You can optionally specify the maximum number of items to receive in the response. If the total number of items in the list exceeds the maximum that you specify, or the default maximum, the response is paginated. To get the next page of items, send another request that specifies the `NextMarker` value from the current response as the `Marker` value in the next request.
- * 
  * 
  * If you're not using origin access controls for your Amazon Web Services account, the `ListOriginAccessControls` operation doesn't return the `Items` element in the response.
  */export const listOriginAccessControls = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-05-31", uri: "/2020-05-31/origin-access-control", method: "GET", sdkId: "CloudFront", sigV4ServiceName: "cloudfront", name: "Cloudfront2020_05_31.ListOriginAccessControls" }, ListOriginAccessControlsRequest, ListOriginAccessControlsResult, [InvalidArgument]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
@@ -1432,10 +1423,7 @@ export class TrustedKeyGroupDoesNotExist extends S.TaggedError<TrustedKeyGroupDo
  * 
  * - The default, minimum, and maximum time to live (TTL) values that you want objects to stay in the CloudFront cache.
  * 
- * 
  * If your minimum TTL is greater than 0, CloudFront will cache content for at least the duration specified in the cache policy's minimum TTL, even if the `Cache-Control: no-cache`, `no-store`, or `private` directives are present in the origin headers.
- * 
- * 
  * 
  * The headers, cookies, and query strings that are included in the cache key are also included in requests that CloudFront sends to the origin. CloudFront sends a request when it can't find an object in its cache that matches the request's cache key. If you want to send values to the origin but *not* include them in the cache key, use `OriginRequestPolicy`.
  * 
@@ -1460,7 +1448,6 @@ export class TrustedKeyGroupDoesNotExist extends S.TaggedError<TrustedKeyGroupDo
  * - The headers that CloudFront automatically includes in every origin request, including `Host`, `User-Agent`, and `X-Amz-Cf-Id`.
  * 
  * - All HTTP headers, cookies, and URL query strings that are specified in the cache policy or the origin request policy. These can include items from the viewer request and, in the case of headers, additional ones that are added by CloudFront.
- * 
  * 
  * CloudFront sends a request when it can't find a valid object in its cache that matches the request. If you want to send values to the origin and also include them in the cache key, use `CachePolicy`.
  * 
@@ -1489,7 +1476,6 @@ export class TrustedKeyGroupDoesNotExist extends S.TaggedError<TrustedKeyGroupDo
  * - Locally modify the fields in the cache policy configuration that you want to update.
  * 
  * - Call `UpdateCachePolicy` by providing the entire cache policy configuration, including the fields that you modified and those that you didn't.
- * 
  * 
  * If your minimum TTL is greater than 0, CloudFront will cache content for at least the duration specified in the cache policy's minimum TTL, even if the `Cache-Control: no-cache`, `no-store`, or `private` directives are present in the origin headers.
  */export const updateCachePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-05-31", uri: "/2020-05-31/cache-policy/{Id}", method: "PUT", sdkId: "CloudFront", sigV4ServiceName: "cloudfront", name: "Cloudfront2020_05_31.UpdateCachePolicy" }, UpdateCachePolicyRequest, UpdateCachePolicyResult, [AccessDenied, CachePolicyAlreadyExists, IllegalUpdate, InconsistentQuantities, InvalidArgument, InvalidIfMatchVersion, NoSuchCachePolicy, PreconditionFailed, TooManyCookiesInCachePolicy, TooManyHeadersInCachePolicy, TooManyQueryStringsInCachePolicy]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
@@ -1550,7 +1536,6 @@ export class TrustedKeyGroupDoesNotExist extends S.TaggedError<TrustedKeyGroupDo
  * - You must copy the `ETag` field value from the response. (You'll use it for the `IfMatch` parameter in your request.) Then, remove the `ETag` field from the distribution configuration.
  * 
  * - You can't change the value of `CallerReference`.
- * 
  * 
  * - Submit an `UpdateDistribution` request, providing the updated distribution configuration. The new configuration replaces the existing configuration. The values that you specify in an `UpdateDistribution` request are not merged into your existing configuration. Make sure to include all fields: the ones that you modified and also the ones that you didn't.
  */export const updateDistribution = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-05-31", uri: "/2020-05-31/distribution/{Id}/config", method: "PUT", sdkId: "CloudFront", sigV4ServiceName: "cloudfront", name: "Cloudfront2020_05_31.UpdateDistribution" }, UpdateDistributionRequest, UpdateDistributionResult, [AccessDenied, CNAMEAlreadyExists, ContinuousDeploymentPolicyInUse, EntityNotFound, IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior, IllegalOriginAccessConfiguration, IllegalUpdate, InconsistentQuantities, InvalidArgument, InvalidDefaultRootObject, InvalidDomainNameForOriginAccessControl, InvalidErrorCode, InvalidForwardCookies, InvalidFunctionAssociation, InvalidGeoRestrictionParameter, InvalidHeadersForS3Origin, InvalidIfMatchVersion, InvalidLambdaFunctionAssociation, InvalidLocationCode, InvalidMinimumProtocolVersion, InvalidOriginAccessControl, InvalidOriginAccessIdentity, InvalidOriginKeepaliveTimeout, InvalidOriginReadTimeout, InvalidQueryStringParameters, InvalidRelativePath, InvalidRequiredProtocol, InvalidResponseCode, InvalidTTLOrder, InvalidViewerCertificate, InvalidWebACLId, MissingBody, NoSuchCachePolicy, NoSuchContinuousDeploymentPolicy, NoSuchDistribution, NoSuchFieldLevelEncryptionConfig, NoSuchOrigin, NoSuchOriginRequestPolicy, NoSuchRealtimeLogConfig, NoSuchResponseHeadersPolicy, PreconditionFailed, RealtimeLogConfigOwnerMismatch, StagingDistributionInUse, TooManyCacheBehaviors, TooManyCertificates, TooManyCookieNamesInWhiteList, TooManyDistributionCNAMEs, TooManyDistributionsAssociatedToCachePolicy, TooManyDistributionsAssociatedToFieldLevelEncryptionConfig, TooManyDistributionsAssociatedToKeyGroup, TooManyDistributionsAssociatedToOriginAccessControl, TooManyDistributionsAssociatedToOriginRequestPolicy, TooManyDistributionsAssociatedToResponseHeadersPolicy, TooManyDistributionsWithFunctionAssociations, TooManyDistributionsWithLambdaAssociations, TooManyDistributionsWithSingleFunctionARN, TooManyFunctionAssociations, TooManyHeadersInForwardedValues, TooManyKeyGroupsAssociatedToDistribution, TooManyLambdaFunctionAssociations, TooManyOriginCustomHeaders, TooManyOriginGroupsPerDistribution, TooManyOrigins, TooManyQueryStringParameters, TooManyTrustedSigners, TrustedKeyGroupDoesNotExist, TrustedSignerDoesNotExist]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);

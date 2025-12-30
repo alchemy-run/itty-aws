@@ -431,9 +431,6 @@ export class SessionAlreadyExistsException extends S.TaggedError<SessionAlreadyE
  * `STOPPED`, `FAILED`, or `COMPLETED`) succeeds but
  * has no effect.
  * 
- * 
- * 
- * 
  * Cancelling a calculation is done on a best effort basis. If a calculation cannot
  * be cancelled, you can be charged for its completion. If you are concerned about
  * being charged for a calculation that cannot be cancelled, consider terminating the
@@ -468,23 +465,16 @@ export class SessionAlreadyExistsException extends S.TaggedError<SessionAlreadyE
  * Creates (registers) a data catalog with the specified name and properties. Catalogs
  * created are visible to all users of the same Amazon Web Services account.
  * 
- * 
  * For a `FEDERATED` catalog, this API operation creates the following
  * resources.
- * 
- * 
  * 
  * - CFN Stack Name with a maximum length of 128 characters and prefix
  * `athenafederatedcatalog-CATALOG_NAME_SANITIZED` with length 23
  * characters.
  * 
- * 
- * 
  * - Lambda Function Name with a maximum length of 64 characters and prefix
  * `athenafederatedcatalog_CATALOG_NAME_SANITIZED` with length 23
  * characters.
- * 
- * 
  * 
  * - Glue Connection Name with a maximum length of 255 characters and a prefix
  * `athenafederatedcatalog_CATALOG_NAME_SANITIZED` with length 23
@@ -527,9 +517,6 @@ export class SessionAlreadyExistsException extends S.TaggedError<SessionAlreadyE
 /**
  * Lists the data catalogs in the current Amazon Web Services account.
  * 
- * 
- * 
- * 
  * In the Athena console, data catalogs are listed as "data sources" on
  * the **Data sources** page under the **Data source name** column.
  */export const listDataCatalogs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.ListDataCatalogs" }, ListDataCatalogsInput, ListDataCatalogsOutput, [InternalServerException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -562,9 +549,6 @@ export class SessionAlreadyExistsException extends S.TaggedError<SessionAlreadyE
 /**
  * Submits calculations for execution within a session. You can supply the code to run as
  * an inline code block within the request.
- * 
- * 
- * 
  * 
  * The request syntax requires the StartCalculationExecutionRequest$CodeBlock parameter or the CalculationConfiguration$CodeBlock parameter, but not both. Because
  * CalculationConfiguration$CodeBlock is deprecated, use the
@@ -608,13 +592,9 @@ export class SessionAlreadyExistsException extends S.TaggedError<SessionAlreadyE
  * output files in the *Amazon Athena User Guide*.
  * This request does not execute the query but returns results. Use StartQueryExecution to run a query.
  * 
- * 
  * To stream query results successfully, the IAM principal with permission to call
  * `GetQueryResults` also must have permissions to the Amazon S3
  * `GetObject` action for the Athena query results location.
- * 
- * 
- * 
  * 
  * IAM principals with permission to the Amazon S3
  * `GetObject` action for the query results location are able to retrieve

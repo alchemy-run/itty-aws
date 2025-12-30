@@ -171,13 +171,11 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * Pause an active App Runner service. App Runner reduces compute capacity for the service to zero and loses state (for example, ephemeral storage is
  * removed).
  * 
- * 
  * This is an asynchronous operation. On a successful call, you can use the returned `OperationId` and the ListOperations
  * call to track the operation's progress.
  */export const pauseService = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-05-15", sdkId: "AppRunner", sigV4ServiceName: "apprunner", name: "AppRunner.PauseService" }, PauseServiceRequest, PauseServiceResponse, [InternalServiceErrorException, InvalidRequestException, InvalidStateException, ResourceNotFoundException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Resume an active App Runner service. App Runner provisions compute capacity for the service.
- * 
  * 
  * This is an asynchronous operation. On a successful call, you can use the returned `OperationId` and the ListOperations
  * call to track the operation's progress.
@@ -186,10 +184,8 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * Initiate a manual deployment of the latest commit in a source code repository or the latest image in a source image repository to an App Runner
  * service.
  * 
- * 
  * For a source code repository, App Runner retrieves the commit and builds a Docker image. For a source image repository, App Runner retrieves the latest Docker
  * image. In both cases, App Runner then deploys the new image to your service and starts a new container instance.
- * 
  * 
  * This is an asynchronous operation. On a successful call, you can use the returned `OperationId` and the ListOperations
  * call to track the operation's progress.
@@ -209,9 +205,7 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * scaling configuration resource that's associated with the service. However, you can't change the name or the encryption configuration of the service.
  * These can be set only when you create the service.
  * 
- * 
  * To update the tags applied to your service, use the separate actions TagResource and UntagResource.
- * 
  * 
  * This is an asynchronous operation. On a successful call, you can use the returned `OperationId` and the ListOperations
  * call to track the operation's progress.
@@ -219,24 +213,15 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Update an existing App Runner VPC Ingress Connection resource. The VPC Ingress Connection must be in one of the following states to be updated:
  * 
- * 
- * 
  * - AVAILABLE
  * 
- * 
- * 
- * 
  * - FAILED_CREATION
- * 
- * 
- * 
  * 
  * - FAILED_UPDATE
  */export const updateVpcIngressConnection = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-05-15", sdkId: "AppRunner", sigV4ServiceName: "apprunner", name: "AppRunner.UpdateVpcIngressConnection" }, UpdateVpcIngressConnectionRequest, UpdateVpcIngressConnectionResponse, [InternalServiceErrorException, InvalidRequestException, InvalidStateException, ResourceNotFoundException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Create an App Runner connection resource. App Runner requires a connection resource when you create App Runner services that access private repositories from
  * certain third-party providers. You can share a connection across multiple services.
- * 
  * 
  * A connection resource is needed to access GitHub and Bitbucket repositories. Both require
  * a user interface approval process through the App Runner console before you can use the
@@ -246,12 +231,10 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * Create an App Runner observability configuration resource. App Runner requires this resource when you create or update App Runner services and you want to enable
  * non-default observability features. You can share an observability configuration across multiple services.
  * 
- * 
  * Create multiple revisions of a configuration by calling this action multiple times using the same `ObservabilityConfigurationName`. The
  * call returns incremental `ObservabilityConfigurationRevision` values. When you create a service and configure an observability configuration
  * resource, the service uses the latest active revision of the observability configuration by default. You can optionally configure the service to use a
  * specific revision.
- * 
  * 
  * The observability configuration resource is designed to configure multiple features (currently one feature, tracing). This action takes optional
  * parameters that describe the configuration of these features (currently one parameter, `TraceConfiguration`). If you don't specify a feature
@@ -280,41 +263,24 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Delete an App Runner service.
  * 
- * 
  * This is an asynchronous operation. On a successful call, you can use the returned `OperationId` and the ListOperations
  * call to track the operation's progress.
- * 
- * 
- * 
  * 
  * Make sure that you don't have any active VPCIngressConnections associated with the service you want to delete.
  */export const deleteService = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-05-15", sdkId: "AppRunner", sigV4ServiceName: "apprunner", name: "AppRunner.DeleteService" }, DeleteServiceRequest, DeleteServiceResponse, [InternalServiceErrorException, InvalidRequestException, InvalidStateException, ResourceNotFoundException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Delete an App Runner VPC Ingress Connection resource that's associated with an App Runner service. The VPC Ingress Connection must be in one of the following states to be deleted:
  * 
- * 
- * 
- * 
  * - `AVAILABLE`
- * 
- * 
- * 
  * 
  * - `FAILED_CREATION`
  * 
- * 
- * 
- * 
  * - `FAILED_UPDATE`
- * 
- * 
- * 
  * 
  * - `FAILED_DELETION`
  */export const deleteVpcIngressConnection = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-05-15", sdkId: "AppRunner", sigV4ServiceName: "apprunner", name: "AppRunner.DeleteVpcIngressConnection" }, DeleteVpcIngressConnectionRequest, DeleteVpcIngressConnectionResponse, [InternalServiceErrorException, InvalidRequestException, InvalidStateException, ResourceNotFoundException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Disassociate a custom domain name from an App Runner service.
- * 
  * 
  * Certificates tracking domain validity are associated with a custom domain and are stored in AWS
  * Certificate Manager (ACM). These certificates aren't deleted as part of this action. App Runner delays certificate deletion for
@@ -324,7 +290,6 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * Returns a list of active App Runner automatic scaling configurations in your Amazon Web Services account. You can query the revisions for a specific
  * configuration name or the revisions for all active configurations in your account. You can optionally query only the latest revision of each requested
  * name.
- * 
  * 
  * To retrieve a full description of a particular configuration revision, call and provide one of
  * the ARNs returned by `ListAutoScalingConfigurations`.
@@ -337,13 +302,11 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * configuration name or the revisions for all active configurations in your account. You can optionally query only the latest revision of each requested
  * name.
  * 
- * 
  * To retrieve a full description of a particular configuration revision, call and provide one
  * of the ARNs returned by `ListObservabilityConfigurations`.
  */export const listObservabilityConfigurations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-05-15", sdkId: "AppRunner", sigV4ServiceName: "apprunner", name: "AppRunner.ListObservabilityConfigurations" }, ListObservabilityConfigurationsRequest, ListObservabilityConfigurationsResponse, [InternalServiceErrorException, InvalidRequestException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Return a list of operations that occurred on an App Runner service.
- * 
  * 
  * The resulting list of OperationSummary objects is sorted in reverse chronological order. The first object on the list represents the
  * last started operation.
@@ -354,7 +317,6 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Associate your own domain name with the App Runner subdomain URL of your App Runner service.
  * 
- * 
  * After you call `AssociateCustomDomain` and receive a successful response, use the information in the CustomDomain record
  * that's returned to add CNAME records to your Domain Name System (DNS). For each mapped domain name, add a mapping to the target App Runner subdomain and one or
  * more certificate validation records. App Runner then performs DNS validation to verify that you own or control the domain name that you associated. App Runner tracks
@@ -364,16 +326,13 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * Create an App Runner automatic scaling configuration resource. App Runner requires this resource when you create or update App Runner services and you require
  * non-default auto scaling settings. You can share an auto scaling configuration across multiple services.
  * 
- * 
  * Create multiple revisions of a configuration by calling this action multiple times using the same `AutoScalingConfigurationName`. The call
  * returns incremental `AutoScalingConfigurationRevision` values. When you create a service and configure an auto scaling configuration resource,
  * the service uses the latest active revision of the auto scaling configuration by default. You can optionally configure the service to use a specific
  * revision.
  * 
- * 
  * Configure a higher `MinSize` to increase the spread of your App Runner service over more Availability Zones in the Amazon Web Services Region. The
  * tradeoff is a higher minimal cost.
- * 
  * 
  * Configure a lower `MaxSize` to control your cost. The tradeoff is lower responsiveness during peak demand.
  */export const createAutoScalingConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-05-15", sdkId: "AppRunner", sigV4ServiceName: "apprunner", name: "AppRunner.CreateAutoScalingConfiguration" }, CreateAutoScalingConfigurationRequest, CreateAutoScalingConfigurationResponse, [InternalServiceErrorException, InvalidRequestException, ServiceQuotaExceededException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -382,7 +341,6 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  */export const listVpcIngressConnections = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-05-15", sdkId: "AppRunner", sigV4ServiceName: "apprunner", name: "AppRunner.ListVpcIngressConnections" }, ListVpcIngressConnectionsRequest, ListVpcIngressConnectionsResponse, [InternalServiceErrorException, InvalidRequestException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Create an App Runner service. After the service is created, the action also automatically starts a deployment.
- * 
  * 
  * This is an asynchronous operation. On a successful call, you can use the returned `OperationId` and the ListOperations call to track the operation's progress.
  */export const createService = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-05-15", sdkId: "AppRunner", sigV4ServiceName: "apprunner", name: "AppRunner.CreateService" }, CreateServiceRequest, CreateServiceResponse, [InternalServiceErrorException, InvalidRequestException, ServiceQuotaExceededException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);

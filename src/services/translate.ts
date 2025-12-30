@@ -103,12 +103,10 @@ export class TextSizeLimitExceededException extends S.TaggedError<TextSizeLimitE
 /**
  * Stops an asynchronous batch translation job that is in progress.
  * 
- * 
  * If the job's state is `IN_PROGRESS`, the job will be marked for termination and
  * put into the `STOP_REQUESTED` state. If the job completes before it can be stopped,
  * it is put into the `COMPLETED` state. Otherwise, the job is put into the
  * `STOPPED` state.
- * 
  * 
  * Asynchronous batch translation jobs are started with the StartTextTranslationJob operation. You can use the DescribeTextTranslationJob or ListTextTranslationJobs
  * operations to get a batch translation job's `JobId`.
@@ -157,7 +155,6 @@ export class TextSizeLimitExceededException extends S.TaggedError<TextSizeLimitE
  * is OVERWRITE, where the imported terminology overwrites the existing terminology of the same
  * name.
  * 
- * 
  * If you import a terminology that overwrites an existing one, the new terminology takes up
  * to 10 minutes to fully propagate. After that, translations have access to the new
  * terminology.
@@ -177,7 +174,6 @@ export class TextSizeLimitExceededException extends S.TaggedError<TextSizeLimitE
  * For more information, see
  * Asynchronous batch processing.
  * 
- * 
  * Batch translation jobs can be described with the DescribeTextTranslationJob operation, listed with the ListTextTranslationJobs operation, and stopped with the StopTextTranslationJob operation.
  */export const startTextTranslationJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-01", sdkId: "Translate", sigV4ServiceName: "translate", name: "AWSShineFrontendService_20170701.StartTextTranslationJob" }, StartTextTranslationJobRequest, StartTextTranslationJobResponse, [InternalServerException, InvalidParameterValueException, InvalidRequestException, ResourceNotFoundException, TooManyRequestsException, UnsupportedLanguagePairException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -187,8 +183,6 @@ export class TextSizeLimitExceededException extends S.TaggedError<TextSizeLimitE
  * `TranslateDocument` supports translations from English to any supported language,
  * and from any supported language to English. Therefore, specify either the source language code
  * or the target language code as “en” (English).
- * 
- * 
  * 
  * If you set the `Formality` parameter, the request will fail if the target language does
  * not support formality. For a list of target languages that support formality, see

@@ -1464,9 +1464,6 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
 /**
  * Deletes an attached file along with the underlying S3 Object.
  * 
- * 
- * 
- * 
  * The attached file is **permanently deleted** if S3 bucket versioning is not
  * enabled.
  */export const deleteAttachedFile = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-08", uri: "/attached-files/{InstanceId}/{FileId}", method: "DELETE", sdkId: "Connect", sigV4ServiceName: "connect", name: "AmazonConnectService.DeleteAttachedFile" }, DeleteAttachedFileRequest, DeleteAttachedFileResponse, [AccessDeniedException, InternalServiceException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1495,11 +1492,7 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
 /**
  * Deletes an evaluation form in the specified Amazon Connect instance.
  * 
- * 
- * 
  * - If the version property is provided, only the specified version of the evaluation form is deleted.
- * 
- * 
  * 
  * - If no version is provided, then the full form (all versions) is deleted.
  */export const deleteEvaluationForm = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-08", uri: "/evaluation-forms/{InstanceId}/{EvaluationFormId}", method: "DELETE", sdkId: "Connect", sigV4ServiceName: "connect", name: "AmazonConnectService.DeleteEvaluationForm" }, DeleteEvaluationFormRequest, S.Struct({}), [InternalServiceException, InvalidParameterException, ResourceConflictException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1512,10 +1505,8 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
 /**
  * This API is in preview release for Amazon Connect and is subject to change.
  * 
- * 
  * Deletes the Amazon Connect instance. For more information, see Delete your Amazon Connect instance in the
  * *Amazon Connect Administrator Guide*.
- * 
  * 
  * Amazon Connect enforces a limit on the total number of instances that you can create or delete in 30 days.
  * If you exceed this limit, you will get an error message indicating there has been an excessive number of attempts at creating or deleting instances.
@@ -1537,21 +1528,12 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
 /**
  * Deletes a quick connect.
  * 
- * 
- * 
- * 
  * After calling DeleteUser, it's important to call `DeleteQuickConnect` to delete any records related to the
  * deleted users. This will help you:
  * 
- * 
- * 
  * - Avoid dangling resources that impact your service quotas.
  * 
- * 
- * 
  * - Remove deleted users so they don't appear to agents as transfer options.
- * 
- * 
  * 
  * - Avoid the disruption of other Amazon Connect processes, such as instance replication and syncing if
  * you're using Amazon Connect Global Resiliency.
@@ -1571,7 +1553,6 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
 /**
  * Deletes a traffic distribution group. This API can be called only in the Region where the traffic distribution group is created.
  * 
- * 
  * For more information about deleting traffic distribution groups, see Delete traffic distribution groups in the
  * *Amazon Connect Administrator Guide*.
  */export const deleteTrafficDistributionGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-08", uri: "/traffic-distribution-group/{TrafficDistributionGroupId}", method: "DELETE", sdkId: "Connect", sigV4ServiceName: "connect", name: "AmazonConnectService.DeleteTrafficDistributionGroup" }, DeleteTrafficDistributionGroupRequest, DeleteTrafficDistributionGroupResponse, [AccessDeniedException, InternalServiceException, InvalidRequestException, ResourceInUseException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1581,25 +1562,15 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
 /**
  * Deletes a user account from the specified Amazon Connect instance.
  * 
- * 
  * For information about what happens to a user's data when their account is deleted, see Delete Users from Your Amazon Connect
  * Instance in the *Amazon Connect Administrator Guide*.
- * 
- * 
- * 
  * 
  * After calling DeleteUser, call DeleteQuickConnect to delete any records
  * related to the deleted users. This will help you:
  * 
- * 
- * 
  * - Avoid dangling resources that impact your service quotas.
  * 
- * 
- * 
  * - Remove deleted users so they don't appear to agents as transfer options.
- * 
- * 
  * 
  * - Avoid the disruption of other Amazon Connect processes, such as instance replication and syncing if
  * you're using Amazon Connect Global Resiliency.
@@ -1627,12 +1598,10 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
 /**
  * This API is in preview release for Amazon Connect and is subject to change.
  * 
- * 
  * Revokes access to integrated applications from Amazon Connect.
  */export const disassociateApprovedOrigin = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-08", uri: "/instance/{InstanceId}/approved-origin", method: "DELETE", sdkId: "Connect", sigV4ServiceName: "connect", name: "AmazonConnectService.DisassociateApprovedOrigin" }, DisassociateApprovedOriginRequest, S.Struct({}), [InternalServiceException, InvalidParameterException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This API is in preview release for Amazon Connect and is subject to change.
- * 
  * 
  * Revokes authorization from the specified instance to access the specified Amazon Lex or Amazon Lex V2 bot.
  */export const disassociateBot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-08", uri: "/instance/{InstanceId}/bot", sdkId: "Connect", sigV4ServiceName: "connect", name: "AmazonConnectService.DisassociateBot" }, DisassociateBotRequest, S.Struct({}), [InternalServiceException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1641,109 +1610,54 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
  * disassociation, emails sent to the former alias email address are no longer forwarded to the primary email address.
  * Both email addresses continue to exist independently and can receive emails directly.
  * 
- * 
- * 
  * **Use cases**
  * 
- * 
- * 
  * Following are common uses cases for this API:
- * 
- * 
  * 
  * - **Department separation**: Remove alias relationships when splitting a
  * consolidated support queue back into separate department-specific queues.
  * 
- * 
- * 
  * - **Email address retirement**: Cleanly remove forwarding relationships before
  * decommissioning old email addresses.
- * 
- * 
  * 
  * - **Organizational restructuring**: Reconfigure email routing when business
  * processes change and aliases are no longer needed.
  * 
- * 
- * 
- * 
- * 
- * 
  * **Important things to know**
- * 
- * 
- * 
  * 
  * - Concurrent operations: This API uses distributed locking, so concurrent operations on the same email addresses
  * may be temporarily blocked.
  * 
- * 
- * 
  * - Emails sent to the former alias address are still delivered directly to that address if it exists.
- * 
- * 
  * 
  * - You do not need to delete the email addresses after disassociation. Both addresses remain active
  * independently.
  * 
- * 
- * 
  * - After a successful disassociation, you can immediately create a new alias relationship with the same
  * addresses.
  * 
- * 
- * 
  * - 200 status means alias was successfully disassociated.
- * 
- * 
- * 
- * 
- * 
  * 
  * `DisassociateEmailAddressAlias` does not return the following information:
  * 
- * 
- * 
  * - Details in the response about the email that was disassociated. The response returns an empty body.
- * 
- * 
  * 
  * - The timestamp of when the disassociation occurred.
  * 
- * 
- * 
- * 
- * 
- * 
  * **Endpoints**: See Amazon Connect endpoints and quotas.
  * 
- * 
- * 
  * **Related operations**
- * 
- * 
- * 
  * 
  * - AssociateEmailAddressAlias: Associates an email address alias with an existing email address in an
  * Amazon Connect instance.
  * 
- * 
- * 
  * - DescribeEmailAddress: View current alias configurations for an email address.
- * 
- * 
  * 
  * - SearchEmailAddresses: Find email addresses and their alias relationships across an instance.
  * 
- * 
- * 
  * - CreateEmailAddress: Create new email addresses that can participate in alias relationships.
  * 
- * 
- * 
  * - DeleteEmailAddress: Remove email addresses (automatically removes any alias relationships).
- * 
- * 
  * 
  * - UpdateEmailAddressMetadata: Modify email address properties (does not affect alias relationships).
  */export const disassociateEmailAddressAlias = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-08", uri: "/email-addresses/{InstanceId}/{EmailAddressId}/disassociate-alias", sdkId: "Connect", sigV4ServiceName: "connect", name: "AmazonConnectService.DisassociateEmailAddressAlias" }, DisassociateEmailAddressAliasRequest, DisassociateEmailAddressAliasResponse, [AccessDeniedException, InternalServiceException, InvalidParameterException, InvalidRequestException, ResourceConflictException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1753,26 +1667,20 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
 /**
  * This API is in preview release for Amazon Connect and is subject to change.
  * 
- * 
  * Removes the storage type configurations for the specified resource type and association ID.
  */export const disassociateInstanceStorageConfig = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-08", uri: "/instance/{InstanceId}/storage-config/{AssociationId}", method: "DELETE", sdkId: "Connect", sigV4ServiceName: "connect", name: "AmazonConnectService.DisassociateInstanceStorageConfig" }, DisassociateInstanceStorageConfigRequest, S.Struct({}), [InternalServiceException, InvalidParameterException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This API is in preview release for Amazon Connect and is subject to change.
- * 
  * 
  * Remove the Lambda function from the dropdown options available in the relevant flow blocks.
  */export const disassociateLambdaFunction = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-08", uri: "/instance/{InstanceId}/lambda-function", method: "DELETE", sdkId: "Connect", sigV4ServiceName: "connect", name: "AmazonConnectService.DisassociateLambdaFunction" }, DisassociateLambdaFunctionRequest, S.Struct({}), [InternalServiceException, InvalidParameterException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This API is in preview release for Amazon Connect and is subject to change.
  * 
- * 
  * Revokes authorization from the specified instance to access the specified Amazon Lex bot.
  */export const disassociateLexBot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-08", uri: "/instance/{InstanceId}/lex-bot", method: "DELETE", sdkId: "Connect", sigV4ServiceName: "connect", name: "AmazonConnectService.DisassociateLexBot" }, DisassociateLexBotRequest, S.Struct({}), [InternalServiceException, InvalidParameterException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes the flow association from a phone number claimed to your Amazon Connect instance.
- * 
- * 
- * 
  * 
  * If the number is claimed to a traffic distribution group, and you are calling this API using an instance in the Amazon Web Services Region where the traffic distribution group was created, you can use either a full phone number ARN or UUID value for the
  * `PhoneNumberId` URI request parameter. However, if the number is claimed to a traffic distribution group and you are calling
@@ -1785,7 +1693,6 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
  */export const disassociateQueueQuickConnects = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-08", uri: "/queues/{InstanceId}/{QueueId}/disassociate-quick-connects", sdkId: "Connect", sigV4ServiceName: "connect", name: "AmazonConnectService.DisassociateQueueQuickConnects" }, DisassociateQueueQuickConnectsRequest, S.Struct({}), [InternalServiceException, InvalidParameterException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This API is in preview release for Amazon Connect and is subject to change.
- * 
  * 
  * Deletes the specified security key.
  */export const disassociateSecurityKey = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-08", uri: "/instance/{InstanceId}/security-key/{AssociationId}", method: "DELETE", sdkId: "Connect", sigV4ServiceName: "connect", name: "AmazonConnectService.DisassociateSecurityKey" }, DisassociateSecurityKeyRequest, S.Struct({}), [InternalServiceException, InvalidParameterException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1808,7 +1715,6 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
  * Changes the current status of a user or agent in Amazon Connect. If the agent is currently handling a
  * contact, this sets the agent's next status.
  * 
- * 
  * For more information, see Agent status and Set your
  * next status in the *Amazon Connect Administrator Guide*.
  */export const putUserStatus = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-08", uri: "/users/{InstanceId}/{UserId}/status", method: "PUT", sdkId: "Connect", sigV4ServiceName: "connect", name: "AmazonConnectService.PutUserStatus" }, PutUserStatusRequest, PutUserStatusResponse, [AccessDeniedException, InternalServiceException, InvalidParameterException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1828,7 +1734,6 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
  * scenarios where the recording has started and you want to suspend it for sensitive information (for example, to
  * collect a credit card number), and then restart it, use SuspendContactRecording and ResumeContactRecording.
  * 
- * 
  * Only voice recordings are supported at this time.
  */export const stopContactRecording = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-08", uri: "/contact/stop-recording", sdkId: "Connect", sigV4ServiceName: "connect", name: "AmazonConnectService.StopContactRecording" }, StopContactRecordingRequest, StopContactRecordingResponse, [InternalServiceException, InvalidActiveRegionException, InvalidRequestException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -1842,19 +1747,15 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
  * credit card number. Then use ResumeContactRecording to restart
  * recording the screen.
  * 
- * 
  * The period of time that the recording is suspended is filled with silence in the final recording.
- * 
  * 
  * Voice (IVR, agent) and screen recordings are supported.
  */export const suspendContactRecording = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-08", uri: "/contact/suspend-recording", sdkId: "Connect", sigV4ServiceName: "connect", name: "AmazonConnectService.SuspendContactRecording" }, SuspendContactRecordingRequest, SuspendContactRecordingResponse, [InternalServiceException, InvalidActiveRegionException, InvalidRequestException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Adds the specified tags to the specified resource.
  * 
- * 
  * Some of the supported resource types are agents, routing profiles, queues, quick connects, flows, agent
  * statuses, hours of operation, phone numbers, security profiles, and task templates. For a complete list, see Tagging resources in Amazon Connect.
- * 
  * 
  * For sample policies that use tags, see Amazon Connect Identity-Based Policy
  * Examples in the *Amazon Connect Administrator Guide*.
@@ -1873,19 +1774,16 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
  * This API is in preview release for Amazon Connect and is subject to change. To
  * request access to this API, contact Amazon Web Services Support.
  * 
- * 
  * Updates the selected authentication profile.
  */export const updateAuthenticationProfile = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-08", uri: "/authentication-profiles/{InstanceId}/{AuthenticationProfileId}", sdkId: "Connect", sigV4ServiceName: "connect", name: "AmazonConnectService.UpdateAuthenticationProfile" }, UpdateAuthenticationProfileRequest, S.Struct({}), [InternalServiceException, InvalidParameterException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates or updates user-defined contact
  * attributes associated with the specified contact.
  * 
- * 
  * You can create or update user-defined attributes for both ongoing and completed contacts. For example, while the
  * call is active, you can update the customer's name or the reason the customer called. You can add notes about steps
  * that the agent took during the call that display to the next agent that takes the call. You can also update
  * attributes for a contact using data from your CRM application and save the data with the contact in Amazon Connect. You could also flag calls for additional analysis, such as legal review or to identify abusive callers.
- * 
  * 
  * Contact attributes are available in Amazon Connect for 24 months, and are then deleted. For information
  * about contact record retention and the maximum size of the contact record attributes section, see Feature
@@ -1903,7 +1801,6 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
 /**
  * The name of the flow.
  * 
- * 
  * You can also create and update flows using the Amazon Connect
  * Flow language.
  */export const updateContactFlowName = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-08", uri: "/contact-flows/{InstanceId}/{ContactFlowId}/name", sdkId: "Connect", sigV4ServiceName: "connect", name: "AmazonConnectService.UpdateContactFlowName" }, UpdateContactFlowNameRequest, UpdateContactFlowNameResponse, [DuplicateResourceException, InternalServiceException, InvalidParameterException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1919,12 +1816,10 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
 /**
  * This API is in preview release for Amazon Connect and is subject to change.
  * 
- * 
  * Updates the value for the specified attribute type.
  */export const updateInstanceAttribute = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-08", uri: "/instance/{InstanceId}/attribute/{AttributeType}", sdkId: "Connect", sigV4ServiceName: "connect", name: "AmazonConnectService.UpdateInstanceAttribute" }, UpdateInstanceAttributeRequest, S.Struct({}), [InternalServiceException, InvalidParameterException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This API is in preview release for Amazon Connect and is subject to change.
- * 
  * 
  * Updates an existing configuration for a resource type. This API is idempotent.
  */export const updateInstanceStorageConfig = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-08", uri: "/instance/{InstanceId}/storage-config/{AssociationId}", sdkId: "Connect", sigV4ServiceName: "connect", name: "AmazonConnectService.UpdateInstanceStorageConfig" }, UpdateInstanceStorageConfigRequest, S.Struct({}), [InternalServiceException, InvalidParameterException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1932,21 +1827,11 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
  * Instructs Amazon Connect to resume the authentication process. The subsequent actions depend on the request
  * body contents:
  * 
- * 
- * 
  * - **If a code is provided**: Connect retrieves the identity information from Amazon
  * Cognito and imports it into Connect Customer Profiles.
  * 
- * 
- * 
  * - **If an error is provided**: The error branch of the Authenticate Customer block
  * is executed.
- * 
- * 
- * 
- * 
- * 
- * 
  * 
  * The API returns a success response to acknowledge the request. However, the interaction and exchange of
  * identity information occur asynchronously after the response is returned.
@@ -1954,43 +1839,26 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
 /**
  * Updates a phone number’s metadata.
  * 
- * 
- * 
- * 
  * To verify the status of a previous UpdatePhoneNumberMetadata operation, call the DescribePhoneNumber API.
  */export const updatePhoneNumberMetadata = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-08", uri: "/phone-number/{PhoneNumberId}/metadata", method: "PUT", sdkId: "Connect", sigV4ServiceName: "connect", name: "AmazonConnectService.UpdatePhoneNumberMetadata" }, UpdatePhoneNumberMetadataRequest, S.Struct({}), [AccessDeniedException, IdempotencyException, InternalServiceException, InvalidParameterException, InvalidRequestException, ResourceInUseException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates a predefined attribute for the specified Amazon Connect instance. A *predefined attribute* is
  * made up of a name and a value.
  * 
- * 
  * For the predefined attributes per instance quota, see Amazon Connect
  * quotas.
  * 
- * 
- * 
  * **Use cases**
  * 
- * 
- * 
  * Following are common uses cases for this API:
- * 
- * 
  * 
  * - Update routing proficiency (for example, agent certification) that has predefined values (for example, a list
  * of possible certifications). For more information, see Create predefined attributes for routing contacts to
  * agents.
  * 
- * 
- * 
  * - Update an attribute for business unit name that has a list of predefined business unit names used in your
  * organization. This is a use case where information for a contact varies between transfers or conferences. For more
  * information, see Use contact segment attributes.
- * 
- * 
- * 
- * 
- * 
  * 
  * **Endpoints**: See Amazon Connect endpoints and quotas.
  */export const updatePredefinedAttribute = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-08", uri: "/predefined-attributes/{InstanceId}/{Name}", sdkId: "Connect", sigV4ServiceName: "connect", name: "AmazonConnectService.UpdatePredefinedAttribute" }, UpdatePredefinedAttributeRequest, S.Struct({}), [InternalServiceException, InvalidParameterException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -2006,10 +1874,6 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
 /**
  * Updates the outbound caller ID name, number, and outbound whisper flow for a specified queue.
  * 
- * 
- * 
- * 
- * 
  * - If the phone number is claimed to a traffic distribution group that was created in the
  * same Region as the Amazon Connect instance where you are calling this API, then you can use a
  * full phone number ARN or a UUID for `OutboundCallerIdNumberId`. However, if the phone number is claimed
@@ -2017,13 +1881,9 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
  * UUID is provided in this scenario, you will receive a
  * `ResourceNotFoundException`.
  * 
- * 
- * 
  * - Only use the phone number ARN format that doesn't contain `instance` in the path, for example,
  * `arn:aws:connect:us-east-1:1234567890:phone-number/uuid`. This is the same ARN format that is returned
  * when you call the ListPhoneNumbersV2 API.
- * 
- * 
  * 
  * - If you plan to use IAM policies to allow/deny access to this API for phone number resources
  * claimed to a traffic distribution group, see Allow or Deny queue API actions for phone numbers in a replica Region.
@@ -2059,13 +1919,11 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
 /**
  * Updates a rule for the specified Amazon Connect instance.
  * 
- * 
  * Use the Rules Function
  * language to code conditions for the rule.
  */export const updateRule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-08", uri: "/rules/{InstanceId}/{RuleId}", method: "PUT", sdkId: "Connect", sigV4ServiceName: "connect", name: "AmazonConnectService.UpdateRule" }, UpdateRuleRequest, S.Struct({}), [AccessDeniedException, InternalServiceException, InvalidRequestException, ResourceConflictException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates a security profile.
- * 
  * 
  * For information about security profiles, see Security Profiles in the *Amazon Connect Administrator Guide*. For a mapping of the API name and user interface name of the security
  * profile permissions, see List
@@ -2079,9 +1937,6 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
  */export const updateUserHierarchyGroupName = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-08", uri: "/user-hierarchy-groups/{InstanceId}/{HierarchyGroupId}/name", sdkId: "Connect", sigV4ServiceName: "connect", name: "AmazonConnectService.UpdateUserHierarchyGroupName" }, UpdateUserHierarchyGroupNameRequest, S.Struct({}), [DuplicateResourceException, InternalServiceException, InvalidParameterException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the identity information for the specified user.
- * 
- * 
- * 
  * 
  * We strongly recommend limiting who has the ability to invoke `UpdateUserIdentityInfo`. Someone with
  * that ability can change the login credentials of other users by changing their email address. This poses a security
@@ -2129,12 +1984,10 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
 /**
  * This API is in preview release for Amazon Connect and is subject to change.
  * 
- * 
  * Associates an approved origin to an Amazon Connect instance.
  */export const associateApprovedOrigin = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-08", uri: "/instance/{InstanceId}/approved-origin", method: "PUT", sdkId: "Connect", sigV4ServiceName: "connect", name: "AmazonConnectService.AssociateApprovedOrigin" }, AssociateApprovedOriginRequest, S.Struct({}), [InternalServiceException, InvalidParameterException, InvalidRequestException, ResourceConflictException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This API is in preview release for Amazon Connect and is subject to change.
- * 
  * 
  * Allows the specified Amazon Connect instance to access the specified Amazon Lex or Amazon Lex V2
  * bot.
@@ -2142,61 +1995,32 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
 /**
  * Associates a queued contact with an agent.
  * 
- * 
- * 
  * **Use cases**
- * 
- * 
  * 
  * Following are common uses cases for this API:
  * 
- * 
- * 
  * - Programmatically assign queued contacts to available users.
- * 
- * 
  * 
  * - Leverage the IAM context key `connect:PreferredUserArn` to restrict contact association to specific
  * preferred user.
  * 
- * 
- * 
- * 
- * 
- * 
  * **Important things to know**
  * 
- * 
- * 
- * 
  * - Use this API with chat, email, and task contacts. It does not support voice contacts.
- * 
- * 
  * 
  * - Use it to associate contacts with users regardless of their current state, including custom states. Ensure
  * your application logic accounts for user availability before making associations.
  * 
- * 
- * 
  * - It honors the IAM context key `connect:PreferredUserArn` to prevent unauthorized contact
  * associations.
- * 
- * 
  * 
  * - It respects the IAM context key `connect:PreferredUserArn` to enforce authorization controls and
  * prevent unauthorized contact associations. Verify that your IAM policies are properly configured to support your
  * intended use cases.
  * 
- * 
- * 
  * - The service quota *Queues per routing profile per instance* applies to manually assigned
  * queues, too. For more information about this quota, see Amazon Connect
  * quotas in the *Amazon Connect Administrator Guide*.
- * 
- * 
- * 
- * 
- * 
  * 
  * **Endpoints**: See Amazon Connect endpoints and quotas.
  */export const associateContactWithUser = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-08", uri: "/contacts/{InstanceId}/{ContactId}/associate-user", sdkId: "Connect", sigV4ServiceName: "connect", name: "AmazonConnectService.AssociateContactWithUser" }, AssociateContactWithUserRequest, AssociateContactWithUserResponse, [AccessDeniedException, InternalServiceException, InvalidParameterException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -2205,105 +2029,52 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
  * a forwarding relationship where emails sent to the alias email address are automatically forwarded to the primary
  * email address.
  * 
- * 
- * 
  * **Use cases**
  * 
- * 
- * 
  * Following are common uses cases for this API:
- * 
- * 
  * 
  * - **Unified customer support**: Create multiple entry points (for example,
  * support@example.com, help@example.com, customercare@example.com) that all forward to a single agent queue for
  * streamlined management.
  * 
- * 
- * 
  * - **Department consolidation**: Forward emails from legacy department addresses
  * (for example, sales@example.com, info@example.com) to a centralized customer service email during organizational
  * restructuring.
  * 
- * 
- * 
  * - **Brand management**: Enable you to use familiar brand-specific email addresses
  * that forward to the appropriate Amazon Connect instance email address.
  * 
- * 
- * 
- * 
- * 
- * 
  * **Important things to know**
- * 
- * 
- * 
  * 
  * - Each email address can have a maximum of one alias. You cannot create multiple aliases for the same email
  * address.
  * 
- * 
- * 
  * - If the alias email address already receives direct emails, it continues to receive direct emails plus
  * forwarded emails.
  * 
- * 
- * 
  * - You cannot chain email aliases together (that is, create an alias of an alias).
- * 
- * 
- * 
- * 
- * 
  * 
  * `AssociateEmailAddressAlias` does not return the following information:
  * 
- * 
- * 
  * - A confirmation of the alias relationship details (you must call DescribeEmailAddress to verify).
- * 
- * 
  * 
  * - The timestamp of when the association occurred.
  * 
- * 
- * 
  * - The status of the forwarding configuration.
- * 
- * 
- * 
- * 
- * 
  * 
  * **Endpoints**: See Amazon Connect endpoints and quotas.
  * 
- * 
- * 
  * **Related operations**
- * 
- * 
- * 
  * 
  * - DisassociateEmailAddressAlias: Removes the alias association between two email addresses in an Amazon Connect instance.
  * 
- * 
- * 
  * - DescribeEmailAddress: View current alias configurations for an email address.
- * 
- * 
  * 
  * - SearchEmailAddresses: Find email addresses and their alias relationships across an instance.
  * 
- * 
- * 
  * - CreateEmailAddress: Create new email addresses that can participate in alias relationships.
  * 
- * 
- * 
  * - DeleteEmailAddress: Remove email addresses (automatically removes any alias relationships).
- * 
- * 
  * 
  * - UpdateEmailAddressMetadata: Modify email address properties (does not affect alias relationships).
  */export const associateEmailAddressAlias = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-08", uri: "/email-addresses/{InstanceId}/{EmailAddressId}/associate-alias", sdkId: "Connect", sigV4ServiceName: "connect", name: "AmazonConnectService.AssociateEmailAddressAlias" }, AssociateEmailAddressAliasRequest, AssociateEmailAddressAliasResponse, [AccessDeniedException, IdempotencyException, InternalServiceException, InvalidParameterException, InvalidRequestException, ResourceConflictException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -2313,21 +2084,16 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
 /**
  * This API is in preview release for Amazon Connect and is subject to change.
  * 
- * 
  * Allows the specified Amazon Connect instance to access the specified Lambda function.
  */export const associateLambdaFunction = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-08", uri: "/instance/{InstanceId}/lambda-function", method: "PUT", sdkId: "Connect", sigV4ServiceName: "connect", name: "AmazonConnectService.AssociateLambdaFunction" }, AssociateLambdaFunctionRequest, S.Struct({}), [InternalServiceException, InvalidParameterException, InvalidRequestException, ResourceConflictException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This API is in preview release for Amazon Connect and is subject to change.
- * 
  * 
  * Allows the specified Amazon Connect instance to access the specified Amazon Lex V1 bot. This API
  * only supports the association of Amazon Lex V1 bots.
  */export const associateLexBot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-08", uri: "/instance/{InstanceId}/lex-bot", method: "PUT", sdkId: "Connect", sigV4ServiceName: "connect", name: "AmazonConnectService.AssociateLexBot" }, AssociateLexBotRequest, S.Struct({}), [InternalServiceException, InvalidParameterException, InvalidRequestException, ResourceConflictException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Associates a flow with a phone number claimed to your Amazon Connect instance.
- * 
- * 
- * 
  * 
  * If the number is claimed to a traffic distribution group, and you are calling this API using an instance in the Amazon Web Services Region where the traffic distribution group was created, you can use either a full phone number ARN or UUID value for the
  * `PhoneNumberId` URI request parameter. However, if the number is claimed to a traffic distribution group and you are calling
@@ -2344,7 +2110,6 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
  */export const associateRoutingProfileQueues = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-08", uri: "/routing-profiles/{InstanceId}/{RoutingProfileId}/associate-queues", sdkId: "Connect", sigV4ServiceName: "connect", name: "AmazonConnectService.AssociateRoutingProfileQueues" }, AssociateRoutingProfileQueuesRequest, S.Struct({}), [InternalServiceException, InvalidParameterException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This API is in preview release for Amazon Connect and is subject to change.
- * 
  * 
  * Associates a security key to the instance.
  */export const associateSecurityKey = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-08", uri: "/instance/{InstanceId}/security-key", method: "PUT", sdkId: "Connect", sigV4ServiceName: "connect", name: "AmazonConnectService.AssociateSecurityKey" }, AssociateSecurityKeyRequest, AssociateSecurityKeyResponse, [InternalServiceException, InvalidParameterException, InvalidRequestException, ResourceConflictException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -2363,7 +2128,6 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
  */export const createAgentStatus = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-08", uri: "/agent-status/{InstanceId}", method: "PUT", sdkId: "Connect", sigV4ServiceName: "connect", name: "AmazonConnectService.CreateAgentStatus" }, CreateAgentStatusRequest, CreateAgentStatusResponse, [DuplicateResourceException, InternalServiceException, InvalidParameterException, InvalidRequestException, LimitExceededException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a flow for the specified Amazon Connect instance.
- * 
  * 
  * You can also create and update flows using the Amazon Connect
  * Flow language.
@@ -2394,15 +2158,12 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
 /**
  * This API is in preview release for Amazon Connect and is subject to change.
  * 
- * 
  * Initiates an Amazon Connect instance with all the supported channels enabled. It does not attach any
  * storage, such as Amazon Simple Storage Service (Amazon S3) or Amazon Kinesis. It also does not allow for any
  * configurations on features, such as Contact Lens for Amazon Connect.
  * 
- * 
  * For more information, see Create an Amazon Connect instance in the
  * *Amazon Connect Administrator Guide*.
- * 
  * 
  * Amazon Connect enforces a limit on the total number of instances that you can create or delete in 30 days.
  * If you exceed this limit, you will get an error message indicating there has been an excessive number of attempts at creating or deleting instances.
@@ -2420,34 +2181,20 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
  * Creates a new predefined attribute for the specified Amazon Connect instance. A *predefined attribute*
  * is made up of a name and a value.
  * 
- * 
  * For the predefined attributes per instance quota, see Amazon Connect
  * quotas.
  * 
- * 
- * 
  * **Use cases**
  * 
- * 
- * 
  * Following are common uses cases for this API:
- * 
- * 
  * 
  * - Create an attribute for routing proficiency (for example, agent certification) that has predefined values (for
  * example, a list of possible certifications). For more information, see Create predefined attributes for routing contacts to
  * agents.
  * 
- * 
- * 
  * - Create an attribute for business unit name that has a list of predefined business unit names used in your
  * organization. This is a use case where information for a contact varies between transfers or conferences. For more
  * information, see Use contact segment attributes.
- * 
- * 
- * 
- * 
- * 
  * 
  * **Endpoints**: See Amazon Connect endpoints and quotas.
  */export const createPredefinedAttribute = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-08", uri: "/predefined-attributes/{InstanceId}", method: "PUT", sdkId: "Connect", sigV4ServiceName: "connect", name: "AmazonConnectService.CreatePredefinedAttribute" }, CreatePredefinedAttributeRequest, S.Struct({}), [DuplicateResourceException, InternalServiceException, InvalidParameterException, InvalidRequestException, LimitExceededException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -2499,20 +2246,15 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
 /**
  * This API is in preview release for Amazon Connect and is subject to change.
  * 
- * 
  * Retrieves the current storage configurations for the specified resource type, association ID, and instance
  * ID.
  */export const describeInstanceStorageConfig = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-08", uri: "/instance/{InstanceId}/storage-config/{AssociationId}", method: "GET", sdkId: "Connect", sigV4ServiceName: "connect", name: "AmazonConnectService.DescribeInstanceStorageConfig" }, DescribeInstanceStorageConfigRequest, DescribeInstanceStorageConfigResponse, [InternalServiceException, InvalidParameterException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the view for the specified Amazon Connect instance and view identifier.
  * 
- * 
  * The view identifier can be supplied as a ViewId or ARN.
  * 
- * 
- * 
  * `$SAVED` needs to be supplied if a view is unpublished.
- * 
  * 
  * The view identifier can contain an optional qualifier, for example, `:$SAVED`, which
  * is either an actual version number or an Amazon Connect managed qualifier `$SAVED | $LATEST`. If it is
@@ -2521,7 +2263,6 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
  */export const describeView = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-08", uri: "/views/{InstanceId}/{ViewId}", method: "GET", sdkId: "Connect", sigV4ServiceName: "connect", name: "AmazonConnectService.DescribeView" }, DescribeViewRequest, DescribeViewResponse, [AccessDeniedException, InternalServiceException, InvalidParameterException, InvalidRequestException, ResourceNotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Disassociates a set of queues from a routing profile.
- * 
  * 
  * Up to 10 queue references can be disassociated in a single API call. More than 10 queue references results in a
  * single call results in an InvalidParameterException.
@@ -2554,25 +2295,16 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
  * Imports a claimed phone number from an external service, such as Amazon Web Services End User Messaging, into an
  * Amazon Connect instance. You can call this API only in the same Amazon Web Services Region where the Amazon Connect instance was created.
  * 
- * 
- * 
- * 
  * Call the DescribePhoneNumber API to verify the status of a previous `ImportPhoneNumber` operation.
- * 
- * 
- * 
- * 
  * 
  * If you plan to claim or import numbers and then release numbers frequently, contact us for a service quota
  * exception. Otherwise, it is possible you will be blocked from claiming and releasing any more numbers until up to 180
  * days past the oldest number released has expired.
  * 
- * 
  * By default you can claim or import and then release up to 200% of your maximum number of active phone numbers.
  * If you claim or import and then release phone numbers using the UI or API during a rolling 180 day cycle that exceeds
  * 200% of your phone number service level quota, you will be blocked from claiming or importing any more numbers until
  * 180 days past the oldest number released has expired.
- * 
  * 
  * For example, if you already have 99 claimed or imported numbers and a service level quota of 99 phone numbers,
  * and in any 180 day period you release 99, claim 99, and then release 99, you will have exceeded the 200% limit. At
@@ -2583,7 +2315,6 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
  */export const listAnalyticsDataAssociations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-08", uri: "/analytics-data/instance/{InstanceId}/association", method: "GET", sdkId: "Connect", sigV4ServiceName: "connect", name: "AmazonConnectService.ListAnalyticsDataAssociations" }, ListAnalyticsDataAssociationsRequest, ListAnalyticsDataAssociationsResponse, [InternalServiceException, InvalidParameterException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This API is in preview release for Amazon Connect and is subject to change.
- * 
  * 
  * Returns a paginated list of all approved origins associated with the instance.
  */export const listApprovedOrigins = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-08", uri: "/instance/{InstanceId}/approved-origins", method: "GET", sdkId: "Connect", sigV4ServiceName: "connect", name: "AmazonConnectService.ListApprovedOrigins" }, ListApprovedOriginsRequest, ListApprovedOriginsResponse, [InternalServiceException, InvalidParameterException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -2604,25 +2335,21 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
 /**
  * This API is in preview release for Amazon Connect and is subject to change.
  * 
- * 
  * Returns a paginated list of all attribute types for the given instance.
  */export const listInstanceAttributes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-08", uri: "/instance/{InstanceId}/attributes", method: "GET", sdkId: "Connect", sigV4ServiceName: "connect", name: "AmazonConnectService.ListInstanceAttributes" }, ListInstanceAttributesRequest, ListInstanceAttributesResponse, [InternalServiceException, InvalidParameterException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This API is in preview release for Amazon Connect and is subject to change.
- * 
  * 
  * Returns a paginated list of storage configs for the identified instance and resource type.
  */export const listInstanceStorageConfigs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-08", uri: "/instance/{InstanceId}/storage-configs", method: "GET", sdkId: "Connect", sigV4ServiceName: "connect", name: "AmazonConnectService.ListInstanceStorageConfigs" }, ListInstanceStorageConfigsRequest, ListInstanceStorageConfigsResponse, [InternalServiceException, InvalidParameterException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This API is in preview release for Amazon Connect and is subject to change.
  * 
- * 
  * Returns a paginated list of all Lambda functions that display in the dropdown options in the relevant flow
  * blocks.
  */export const listLambdaFunctions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-08", uri: "/instance/{InstanceId}/lambda-functions", method: "GET", sdkId: "Connect", sigV4ServiceName: "connect", name: "AmazonConnectService.ListLambdaFunctions" }, ListLambdaFunctionsRequest, ListLambdaFunctionsResponse, [InternalServiceException, InvalidParameterException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This API is in preview release for Amazon Connect and is subject to change.
- * 
  * 
  * Returns a paginated list of all the Amazon Lex V1 bots currently associated with the instance. To return
  * both Amazon Lex V1 and V2 bots, use the ListBots API.
@@ -2639,14 +2366,12 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
 /**
  * Lists the permissions granted to a security profile.
  * 
- * 
  * For information about security profiles, see Security Profiles in the *Amazon Connect Administrator Guide*. For a mapping of the API name and user interface name of the security
  * profile permissions, see List
  * of security profile permissions.
  */export const listSecurityProfilePermissions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-08", uri: "/security-profiles-permissions/{InstanceId}/{SecurityProfileId}", method: "GET", sdkId: "Connect", sigV4ServiceName: "connect", name: "AmazonConnectService.ListSecurityProfilePermissions" }, ListSecurityProfilePermissionsRequest, ListSecurityProfilePermissionsResponse, [InternalServiceException, InvalidParameterException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the tags for the specified resource.
- * 
  * 
  * For sample policies that use tags, see Amazon Connect Identity-Based Policy
  * Examples in the *Amazon Connect Administrator Guide*.
@@ -2662,31 +2387,22 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
  * Releases a phone number previously claimed to an Amazon Connect instance or traffic distribution group. You can call this API
  * only in the Amazon Web Services Region where the number was claimed.
  * 
- * 
- * 
- * 
  * To release phone numbers from a traffic distribution group, use the `ReleasePhoneNumber` API, not the Amazon Connect admin website.
- * 
  * 
  * After releasing a phone number, the phone number enters into a cooldown period for up to 180 days. It cannot be
  * searched for or claimed again until the period has ended. If you accidentally release a phone number, contact
  * Amazon Web Services Support.
- * 
- * 
- * 
  * 
  * If you plan to claim and release numbers frequently,
  * contact us for a service quota exception. Otherwise, it is possible you will be blocked from
  * claiming and releasing any more numbers until up to 180 days past the oldest number
  * released has expired.
  * 
- * 
  * By default you can claim and release up to 200% of your maximum number of active
  * phone numbers. If you claim and release phone numbers using
  * the UI or API during a rolling 180 day cycle that exceeds 200% of your phone number
  * service level quota, you will be blocked from claiming any more numbers until 180
  * days past the oldest number released has expired.
- * 
  * 
  * For example, if you already have 99 claimed numbers and a service level quota of 99 phone numbers, and in any 180
  * day period you release 99, claim 99, and then release 99, you will have exceeded the
@@ -2697,7 +2413,6 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
  * Replicates an Amazon Connect instance in the specified Amazon Web Services Region and copies configuration
  * information for Amazon Connect resources across Amazon Web Services Regions.
  * 
- * 
  * For more information about replicating an Amazon Connect instance, see Create a replica of your existing Amazon Connect
  * instance in the *Amazon Connect Administrator Guide*.
  */export const replicateInstance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-08", uri: "/instance/{InstanceId}/replicate", sdkId: "Connect", sigV4ServiceName: "connect", name: "AmazonConnectService.ReplicateInstance" }, ReplicateInstanceRequest, ReplicateInstanceResponse, [AccessDeniedException, InternalServiceException, InvalidRequestException, ResourceConflictException, ResourceNotFoundException, ResourceNotReadyException, ServiceQuotaExceededException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -2706,34 +2421,23 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
  * resumes recording whatever recording is selected in the flow configuration: call, screen, or both. If only call
  * recording or only screen recording is enabled, then it would resume.
  * 
- * 
  * Voice and screen recordings are supported.
  */export const resumeContactRecording = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-08", uri: "/contact/resume-recording", sdkId: "Connect", sigV4ServiceName: "connect", name: "AmazonConnectService.ResumeContactRecording" }, ResumeContactRecordingRequest, ResumeContactRecordingResponse, [InternalServiceException, InvalidActiveRegionException, InvalidRequestException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts recording the contact:
  * 
- * 
- * 
  * - If the API is called *before* the agent joins the call, recording starts when the agent
  * joins the call.
  * 
- * 
- * 
  * - If the API is called *after* the agent joins the call, recording starts at the time of the
  * API call.
- * 
- * 
- * 
- * 
  * 
  * StartContactRecording is a one-time action. For example, if you use StopContactRecording to stop recording an
  * ongoing call, you can't use StartContactRecording to restart it. For scenarios where the recording has started and
  * you want to suspend and resume it, such as when collecting sensitive information (for example, a credit card number),
  * use SuspendContactRecording and ResumeContactRecording.
  * 
- * 
  * You can use this API to override the recording behavior configured in the Set recording behavior block.
- * 
  * 
  * Only voice recordings are supported at this time.
  */export const startContactRecording = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-08", uri: "/contact/start-recording", sdkId: "Connect", sigV4ServiceName: "connect", name: "AmazonConnectService.StartContactRecording" }, StartContactRecordingRequest, StartContactRecordingResponse, [InternalServiceException, InvalidActiveRegionException, InvalidParameterException, InvalidRequestException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -2745,59 +2449,31 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
  * Initiates a flow to start a new task contact. For more information about task contacts, see Concepts: Tasks in Amazon Connect in the
  * *Amazon Connect Administrator Guide*.
  * 
- * 
  * When using `PreviousContactId` and `RelatedContactId` input parameters, note the
  * following:
  * 
- * 
- * 
  * - `PreviousContactId`
- * 
- * 
- * 
  * 
  * - Any updates to user-defined task contact attributes on any contact linked through the same
  * `PreviousContactId` will affect every contact in the chain.
  * 
- * 
- * 
  * - There can be a maximum of 12 linked task contacts in a chain. That is, 12 task contacts can be created that
  * share the same `PreviousContactId`.
  * 
- * 
- * 
- * 
- * 
- * 
  * - `RelatedContactId`
- * 
- * 
- * 
  * 
  * - Copies contact attributes from the related task contact to the new contact.
  * 
- * 
- * 
  * - Any update on attributes in a new task contact does not update attributes on previous contact.
- * 
- * 
  * 
  * - There’s no limit on the number of task contacts that can be created that use the same
  * `RelatedContactId`.
- * 
- * 
- * 
- * 
- * 
- * 
- * 
  * 
  * In addition, when calling StartTaskContact include only one of these parameters: `ContactFlowID`,
  * `QuickConnectID`, or `TaskTemplateID`. Only one parameter is required as long as the task
  * template has a flow configured to run it. If more than one parameter is specified, or only the
  * `TaskTemplateID` is specified but it does not have a flow configured, the request returns an error
  * because Amazon Connect cannot identify the unique flow to run when the task is created.
- * 
  * 
  * A `ServiceQuotaExceededException` occurs when the number of open tasks exceeds the active tasks quota
  * or there are already 12 tasks referencing the same `PreviousContactId`. For more information about service
@@ -2815,39 +2491,24 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
  * destination queue. This gives you more control over contact handling and helps you adhere to the service level
  * agreement (SLA) guaranteed to your customers.
  * 
- * 
  * Note the following requirements:
- * 
- * 
  * 
  * - Transfer is only supported for `TASK` and `EMAIL` contacts.
  * 
- * 
- * 
  * - Do not use both `QueueId` and `UserId` in the same call.
- * 
- * 
  * 
  * - The following flow types are supported: Inbound flow, Transfer to agent flow, and Transfer to queue
  * flow.
  * 
- * 
- * 
  * - The `TransferContact` API can be called only on active contacts.
- * 
- * 
  * 
  * - A contact cannot be transferred more than 11 times.
  */export const transferContact = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-08", uri: "/contact/transfer", sdkId: "Connect", sigV4ServiceName: "connect", name: "AmazonConnectService.TransferContact" }, TransferContactRequest, TransferContactResponse, [AccessDeniedException, IdempotencyException, InternalServiceException, InvalidRequestException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This API is in preview release for Amazon Connect and is subject to change.
  * 
- * 
  * Adds or updates user-defined contact information associated with the specified contact. At least one field to be
  * updated must be present in the request.
- * 
- * 
- * 
  * 
  * You can add or update user-defined contact information for both ongoing and completed contacts.
  */export const updateContact = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-08", uri: "/contacts/{InstanceId}/{ContactId}", sdkId: "Connect", sigV4ServiceName: "connect", name: "AmazonConnectService.UpdateContact" }, UpdateContactRequest, UpdateContactResponse, [AccessDeniedException, ConflictException, InternalServiceException, InvalidActiveRegionException, InvalidParameterException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -2858,7 +2519,6 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
  */export const updateContactEvaluation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-08", uri: "/contact-evaluations/{InstanceId}/{EvaluationId}", sdkId: "Connect", sigV4ServiceName: "connect", name: "AmazonConnectService.UpdateContactEvaluation" }, UpdateContactEvaluationRequest, UpdateContactEvaluationResponse, [InternalServiceException, InvalidParameterException, ResourceConflictException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates specified flow module for the specified Amazon Connect instance.
- * 
  * 
  * Use the `$SAVED` alias in the request to describe the `SAVED` content of a Flow. For
  * example, `arn:aws:.../contact-flow/{id}:$SAVED`. After a flow is published, `$SAVED` needs to
@@ -2883,20 +2543,15 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
  * Updates details about a specific evaluation form version in the specified Amazon Connect instance. Question
  * and section identifiers cannot be duplicated within the same evaluation form.
  * 
- * 
  * This operation does not support partial updates. Instead it does a full update of evaluation form
  * content.
  */export const updateEvaluationForm = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-08", uri: "/evaluation-forms/{InstanceId}/{EvaluationFormId}", method: "PUT", sdkId: "Connect", sigV4ServiceName: "connect", name: "AmazonConnectService.UpdateEvaluationForm" }, UpdateEvaluationFormRequest, UpdateEvaluationFormResponse, [InternalServiceException, InvalidParameterException, ResourceConflictException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates your claimed phone number from its current Amazon Connect instance or traffic distribution group to another Amazon Connect instance or traffic distribution group in the same Amazon Web Services Region.
  * 
- * 
- * 
- * 
  * After using this API, you must verify that the phone number is attached to the correct flow in the target
  * instance or traffic distribution group. You need to do this because the API switches only the phone number to a new
  * instance or traffic distribution group. It doesn't migrate the flow configuration of the phone number, too.
- * 
  * 
  * You can call DescribePhoneNumber API to verify the status of a previous UpdatePhoneNumber operation.
  */export const updatePhoneNumber = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-08", uri: "/phone-number/{PhoneNumberId}", method: "PUT", sdkId: "Connect", sigV4ServiceName: "connect", name: "AmazonConnectService.UpdatePhoneNumber" }, UpdatePhoneNumberRequest, UpdatePhoneNumberResponse, [AccessDeniedException, IdempotencyException, InternalServiceException, InvalidParameterException, ResourceInUseException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -2905,7 +2560,6 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
  */export const updatePrompt = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-08", uri: "/prompts/{InstanceId}/{PromptId}", sdkId: "Connect", sigV4ServiceName: "connect", name: "AmazonConnectService.UpdatePrompt" }, UpdatePromptRequest, UpdatePromptResponse, [InternalServiceException, InvalidParameterException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the view content of the given view identifier in the specified Amazon Connect instance.
- * 
  * 
  * It performs content validation if `Status` is set to `SAVED` and performs full content
  * validation if `Status` is `PUBLISHED`. Note that the `$SAVED` alias' content will
@@ -2941,33 +2595,24 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
  * this API only in the same Amazon Web Services Region where the Amazon Connect instance or traffic distribution group was
  * created.
  * 
- * 
  * For more information about how to use this operation, see Claim a phone number in your country and Claim
  * phone numbers to traffic distribution groups in the Amazon Connect Administrator
  * Guide.
  * 
- * 
- * 
- * 
  * You can call the SearchAvailablePhoneNumbers API for
  * available phone numbers that you can claim. Call the DescribePhoneNumber API to verify the status
  * of a previous ClaimPhoneNumber operation.
- * 
- * 
- * 
  * 
  * If you plan to claim and release numbers frequently,
  * contact us for a service quota exception. Otherwise, it is possible you will be blocked from
  * claiming and releasing any more numbers until up to 180 days past the oldest number
  * released has expired.
  * 
- * 
  * By default you can claim and release up to 200% of your maximum number of active
  * phone numbers. If you claim and release phone numbers using
  * the UI or API during a rolling 180 day cycle that exceeds 200% of your phone number
  * service level quota, you will be blocked from claiming any more numbers until 180
  * days past the oldest number released has expired.
- * 
  * 
  * For example, if you already have 99 claimed numbers and a service level quota of 99 phone numbers, and in any 180
  * day period you release 99, claim 99, and then release 99, you will have exceeded the
@@ -2984,10 +2629,6 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
 /**
  * Creates a new queue for the specified Amazon Connect instance.
  * 
- * 
- * 
- * 
- * 
  * - If the phone number is claimed to a traffic distribution group that was created in the
  * same Region as the Amazon Connect instance where you are calling this API, then you can use a
  * full phone number ARN or a UUID for `OutboundCallerIdNumberId`. However, if the phone number is claimed
@@ -2995,22 +2636,15 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
  * UUID is provided in this scenario, you will receive a
  * `ResourceNotFoundException`.
  * 
- * 
- * 
  * - Only use the phone number ARN format that doesn't contain `instance` in the path, for example,
  * `arn:aws:connect:us-east-1:1234567890:phone-number/uuid`. This is the same ARN format that is returned
  * when you call the ListPhoneNumbersV2 API.
- * 
- * 
  * 
  * - If you plan to use IAM policies to allow/deny access to this API for phone number resources
  * claimed to a traffic distribution group, see Allow or Deny queue API actions for phone numbers in a replica Region.
  */export const createQueue = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-08", uri: "/queues/{InstanceId}", method: "PUT", sdkId: "Connect", sigV4ServiceName: "connect", name: "AmazonConnectService.CreateQueue" }, CreateQueueRequest, CreateQueueResponse, [DuplicateResourceException, InternalServiceException, InvalidParameterException, InvalidRequestException, LimitExceededException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a traffic distribution group given an Amazon Connect instance that has been replicated.
- * 
- * 
- * 
  * 
  * The `SignInConfig` distribution is available only on a
  * default `TrafficDistributionGroup` (see the `IsDefault` parameter in the
@@ -3019,24 +2653,15 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
  * `UpdateTrafficDistribution` with a modified `SignInConfig` and a non-default `TrafficDistributionGroup`,
  * an `InvalidRequestException` is returned.
  * 
- * 
- * 
- * 
  * For more information about creating traffic distribution groups, see Set up traffic distribution groups in the
  * *Amazon Connect Administrator Guide*.
  */export const createTrafficDistributionGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-08", uri: "/traffic-distribution-group", method: "PUT", sdkId: "Connect", sigV4ServiceName: "connect", name: "AmazonConnectService.CreateTrafficDistributionGroup" }, CreateTrafficDistributionGroupRequest, CreateTrafficDistributionGroupResponse, [AccessDeniedException, InternalServiceException, InvalidRequestException, ResourceConflictException, ResourceNotFoundException, ResourceNotReadyException, ServiceQuotaExceededException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a user account for the specified Amazon Connect instance.
  * 
- * 
- * 
- * 
  * Certain UserIdentityInfo parameters are required in some situations. For example, `Email`,
  * `FirstName` and `LastName` are required if you are using Amazon Connect or SAML for
  * identity management.
- * 
- * 
- * 
  * 
  * For information about how to create users using the Amazon Connect admin website, see Add Users in the Amazon Connect
  * Administrator Guide.
@@ -3044,9 +2669,7 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
 /**
  * Creates a new view with the possible status of `SAVED` or `PUBLISHED`.
  * 
- * 
  * The views will have a unique name for each connect instance.
- * 
  * 
  * It performs basic content validation if the status is `SAVED` or full content validation if the
  * status is set to `PUBLISHED`. An error is returned if validation fails. It associates either the
@@ -3060,12 +2683,10 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
  * This API is in preview release for Amazon Connect and is subject to change. To
  * request access to this API, contact Amazon Web Services Support.
  * 
- * 
  * Describes the target authentication profile.
  */export const describeAuthenticationProfile = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-08", uri: "/authentication-profiles/{InstanceId}/{AuthenticationProfileId}", method: "GET", sdkId: "Connect", sigV4ServiceName: "connect", name: "AmazonConnectService.DescribeAuthenticationProfile" }, DescribeAuthenticationProfileRequest, DescribeAuthenticationProfileResponse, [InternalServiceException, InvalidParameterException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes the specified flow module.
- * 
  * 
  * Use the `$SAVED` alias in the request to describe the `SAVED` content of a Flow. For
  * example, `arn:aws:.../contact-flow/{id}:$SAVED`. After a flow is published, `$SAVED` needs to
@@ -3097,7 +2718,6 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
 /**
  * This API is in preview release for Amazon Connect and is subject to change.
  * 
- * 
  * Describes the specified instance attribute.
  */export const describeInstanceAttribute = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-08", uri: "/instance/{InstanceId}/attribute/{AttributeType}", method: "GET", sdkId: "Connect", sigV4ServiceName: "connect", name: "AmazonConnectService.DescribeInstanceAttribute" }, DescribeInstanceAttributeRequest, DescribeInstanceAttributeResponse, [InternalServiceException, InvalidParameterException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -3112,10 +2732,6 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
 /**
  * Describes the specified routing profile.
  * 
- * 
- * 
- * 
- * 
  * `DescribeRoutingProfile` does not populate AssociatedQueueIds in its response. The example Response
  * Syntax shown on this page is incorrect; we are working to update it. SearchRoutingProfiles does include
  * AssociatedQueueIds.
@@ -3125,7 +2741,6 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
  */export const describeRule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-08", uri: "/rules/{InstanceId}/{RuleId}", method: "GET", sdkId: "Connect", sigV4ServiceName: "connect", name: "AmazonConnectService.DescribeRule" }, DescribeRuleRequest, DescribeRuleResponse, [AccessDeniedException, InternalServiceException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets basic information about the security profile.
- * 
  * 
  * For information about security profiles, see Security Profiles in the *Amazon Connect Administrator Guide*. For a mapping of the API name and user interface name of the security
  * profile permissions, see List
@@ -3162,13 +2777,11 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
  * This API is in preview release for Amazon Connect and is subject to change. To
  * request access to this API, contact Amazon Web Services Support.
  * 
- * 
  * Provides summary information about the authentication profiles in a specified Amazon Connect
  * instance.
  */export const listAuthenticationProfiles = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-08", uri: "/authentication-profiles-summary/{InstanceId}", method: "GET", sdkId: "Connect", sigV4ServiceName: "connect", name: "AmazonConnectService.ListAuthenticationProfiles" }, ListAuthenticationProfilesRequest, ListAuthenticationProfilesResponse, [InternalServiceException, InvalidParameterException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This API is in preview release for Amazon Connect and is subject to change.
- * 
  * 
  * For the specified version of Amazon Lex, returns a paginated list of all the Amazon Lex bots
  * currently associated with the instance. Use this API to return both Amazon Lex V1 and V2
@@ -3187,10 +2800,8 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
 /**
  * Provides information about the flows for the specified Amazon Connect instance.
  * 
- * 
  * You can also create and update flows using the Amazon Connect
  * Flow language.
- * 
  * 
  * For more information about flows, see Flows in the Amazon Connect
  * Administrator Guide.
@@ -3214,13 +2825,11 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
 /**
  * Provides information about the hours of operation for the specified Amazon Connect instance.
  * 
- * 
  * For more information about hours of operation, see Set the Hours of Operation for a Queue in the
  * *Amazon Connect Administrator Guide*.
  */export const listHoursOfOperations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-08", uri: "/hours-of-operations-summary/{InstanceId}", method: "GET", sdkId: "Connect", sigV4ServiceName: "connect", name: "AmazonConnectService.ListHoursOfOperations" }, ListHoursOfOperationsRequest, ListHoursOfOperationsResponse, [InternalServiceException, InvalidParameterException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This API is in preview release for Amazon Connect and is subject to change.
- * 
  * 
  * Return a list of instances which are in active state, creation-in-progress state, and failed state. Instances
  * that aren't successfully created (they are in a failed state) are returned only for 24 hours after the CreateInstance
@@ -3232,19 +2841,12 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
 /**
  * Provides information about the phone numbers for the specified Amazon Connect instance.
  * 
- * 
  * For more information about phone numbers, see Set Up Phone Numbers for Your Contact
  * Center in the *Amazon Connect Administrator Guide*.
- * 
- * 
- * 
- * 
  * 
  * - We recommend using ListPhoneNumbersV2 to return phone number types. ListPhoneNumbers doesn't support number types
  * `UIFN`, `SHARED`, `THIRD_PARTY_TF`, and `THIRD_PARTY_DID`. While it
  * returns numbers of those types, it incorrectly lists them as `TOLL_FREE` or `DID`.
- * 
- * 
  * 
  * - The phone number `Arn` value that is returned from each of the items in the PhoneNumberSummaryList cannot be used to tag phone number resources. It will fail with a
  * `ResourceNotFoundException`. Instead, use the ListPhoneNumbersV2 API. It returns the new
@@ -3254,18 +2856,11 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
  * Lists phone numbers claimed to your Amazon Connect instance or traffic distribution group. If the provided `TargetArn`
  * is a traffic distribution group, you can call this API in both Amazon Web Services Regions associated with traffic distribution group.
  * 
- * 
  * For more information about phone numbers, see Set Up Phone Numbers for Your Contact
  * Center in the *Amazon Connect Administrator Guide*.
  * 
- * 
- * 
- * 
- * 
  * - When given an instance ARN, `ListPhoneNumbersV2` returns only the phone numbers claimed to the
  * instance.
- * 
- * 
  * 
  * - When given a traffic distribution group ARN `ListPhoneNumbersV2` returns only the phone numbers claimed to the
  * traffic distribution group.
@@ -3274,25 +2869,15 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
  * Lists predefined attributes for the specified Amazon Connect instance. A *predefined attribute* is
  * made up of a name and a value. You can use predefined attributes for:
  * 
- * 
- * 
  * - Routing proficiency (for example, agent certification) that has predefined values (for example, a list of
  * possible certifications). For more information, see Create predefined attributes for routing contacts to
  * agents.
  * 
- * 
- * 
  * - Contact information that varies between transfers or conferences, such as the name of the business unit
  * handling the contact. For more information, see Use contact segment attributes.
  * 
- * 
- * 
- * 
- * 
  * For the predefined attributes per instance quota, see Amazon Connect
  * quotas.
- * 
- * 
  * 
  * **Endpoints**: See Amazon Connect endpoints and quotas.
  */export const listPredefinedAttributes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-08", uri: "/predefined-attributes/{InstanceId}", method: "GET", sdkId: "Connect", sigV4ServiceName: "connect", name: "AmazonConnectService.ListPredefinedAttributes" }, ListPredefinedAttributesRequest, ListPredefinedAttributesResponse, [InternalServiceException, InvalidParameterException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -3305,11 +2890,9 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
 /**
  * Provides information about the queues for the specified Amazon Connect instance.
  * 
- * 
  * If you do not specify a `QueueTypes` parameter, both standard and
  * agent queues are returned. This might cause an unexpected truncation of results if you have more than 1000 agents and
  * you limit the number of results of the API call in code.
- * 
  * 
  * For more information about queues, see Queues: Standard and Agent in the
  * *Amazon Connect Administrator Guide*.
@@ -3317,40 +2900,20 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
 /**
  * Lists the manual assignment queues associated with a routing profile.
  * 
- * 
- * 
  * **Use cases**
  * 
- * 
- * 
  * Following are common uses cases for this API:
- * 
- * 
  * 
  * - This API returns list of queues where contacts can be manually assigned or picked by an agent who has access
  * to the Worklist app. The user can additionally filter on queues, if they have access to those queues (otherwise a
  * invalid request exception will be thrown).
  * 
- * 
  * For information about how manual contact assignment works in the agent workspace, see the Access the Worklist app in the Amazon Connect agent workspace in the *Amazon Connect Administrator Guide*.
- * 
- * 
- * 
- * 
- * 
  * 
  * **Important things to know**
  * 
- * 
- * 
- * 
  * - This API only returns the manual assignment queues associated with a routing profile. Use the
  * ListRoutingProfileQueues API to list the auto assignment queues for the routing profile.
- * 
- * 
- * 
- * 
- * 
  * 
  * **Endpoints**: See Amazon Connect endpoints and quotas.
  */export const listRoutingProfileManualAssignmentQueues = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-08", uri: "/routing-profiles/{InstanceId}/{RoutingProfileId}/manual-assignment-queues", method: "GET", sdkId: "Connect", sigV4ServiceName: "connect", name: "AmazonConnectService.ListRoutingProfileManualAssignmentQueues" }, ListRoutingProfileManualAssignmentQueuesRequest, ListRoutingProfileManualAssignmentQueuesResponse, [InternalServiceException, InvalidParameterException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -3360,18 +2923,15 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
 /**
  * Provides summary information about the routing profiles for the specified Amazon Connect instance.
  * 
- * 
  * For more information about routing profiles, see Routing Profiles and Create a Routing Profile in the *Amazon Connect Administrator Guide*.
  */export const listRoutingProfiles = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-08", uri: "/routing-profiles-summary/{InstanceId}", method: "GET", sdkId: "Connect", sigV4ServiceName: "connect", name: "AmazonConnectService.ListRoutingProfiles" }, ListRoutingProfilesRequest, ListRoutingProfilesResponse, [InternalServiceException, InvalidParameterException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This API is in preview release for Amazon Connect and is subject to change.
  * 
- * 
  * Returns a paginated list of all security keys associated with the instance.
  */export const listSecurityKeys = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-08", uri: "/instance/{InstanceId}/security-keys", method: "GET", sdkId: "Connect", sigV4ServiceName: "connect", name: "AmazonConnectService.ListSecurityKeys" }, ListSecurityKeysRequest, ListSecurityKeysResponse, [InternalServiceException, InvalidParameterException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Provides summary information about the security profiles for the specified Amazon Connect instance.
- * 
  * 
  * For more information about security profiles, see Security Profiles in the *Amazon Connect Administrator Guide*. For a mapping of the API name and user interface name of the security
  * profile permissions, see List
@@ -3392,7 +2952,6 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
 /**
  * Provides summary information about the hierarchy groups for the specified Amazon Connect instance.
  * 
- * 
  * For more information about agent hierarchies, see Set Up Agent Hierarchies in the *Amazon Connect Administrator Guide*.
  */export const listUserHierarchyGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-08", uri: "/user-hierarchy-groups-summary/{InstanceId}", method: "GET", sdkId: "Connect", sigV4ServiceName: "connect", name: "AmazonConnectService.ListUserHierarchyGroups" }, ListUserHierarchyGroupsRequest, ListUserHierarchyGroupsResponse, [InternalServiceException, InvalidParameterException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -3401,12 +2960,10 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
 /**
  * Returns views in the given instance.
  * 
- * 
  * Results are sorted primarily by type, and secondarily by name.
  */export const listViews = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-08", uri: "/views/{InstanceId}", method: "GET", sdkId: "Connect", sigV4ServiceName: "connect", name: "AmazonConnectService.ListViews" }, ListViewsRequest, ListViewsResponse, [AccessDeniedException, InternalServiceException, InvalidParameterException, InvalidRequestException, ResourceNotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns all the available versions for the specified Amazon Connect instance and view identifier.
- * 
  * 
  * Results will be sorted from highest to lowest.
  */export const listViewVersions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-08", uri: "/views/{InstanceId}/{ViewId}/versions", method: "GET", sdkId: "Connect", sigV4ServiceName: "connect", name: "AmazonConnectService.ListViewVersions" }, ListViewVersionsRequest, ListViewVersionsResponse, [AccessDeniedException, InternalServiceException, InvalidParameterException, InvalidRequestException, ResourceNotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -3436,25 +2993,15 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
  * Searches predefined attributes that meet certain criteria. A *predefined attribute* is made
  * up of a name and a value. You can use predefined attributes for:
  * 
- * 
- * 
  * - Routing proficiency (for example, agent certification) that has predefined values (for example, a list of
  * possible certifications). For more information, see Create predefined attributes for routing contacts to
  * agents.
  * 
- * 
- * 
  * - Contact information that varies between transfers or conferences, such as the name of the business unit
  * handling the contact. For more information, see Use contact segment attributes.
  * 
- * 
- * 
- * 
- * 
  * For the predefined attributes per instance quota, see Amazon Connect
  * quotas.
- * 
- * 
  * 
  * **Endpoints**: See Amazon Connect endpoints and quotas.
  */export const searchPredefinedAttributes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-08", uri: "/search-predefined-attributes", sdkId: "Connect", sigV4ServiceName: "connect", name: "AmazonConnectService.SearchPredefinedAttributes" }, SearchPredefinedAttributesRequest, SearchPredefinedAttributesResponse, [InternalServiceException, InvalidParameterException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -3470,18 +3017,11 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
 /**
  * Searches routing profiles in an Amazon Connect instance, with optional filtering.
  * 
- * 
- * 
- * 
- * 
  * `SearchRoutingProfiles` does not populate LastModifiedRegion, LastModifiedTime,
  * MediaConcurrencies.CrossChannelBehavior, and AgentAvailabilityTimer in its response, but DescribeRoutingProfile does.
  */export const searchRoutingProfiles = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-08", uri: "/search-routing-profiles", sdkId: "Connect", sigV4ServiceName: "connect", name: "AmazonConnectService.SearchRoutingProfiles" }, SearchRoutingProfilesRequest, SearchRoutingProfilesResponse, [InternalServiceException, InvalidParameterException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Searches UserHierarchyGroups in an Amazon Connect instance, with optional filtering.
- * 
- * 
- * 
  * 
  * The UserHierarchyGroup with `"LevelId": "0"` is the foundation for building levels on top of an
  * instance. It is not user-definable, nor is it visible in the UI.
@@ -3497,22 +3037,13 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
  * Processes chat integration events from Amazon Web Services or external integrations to Amazon Connect. A chat
  * integration event includes:
  * 
- * 
- * 
  * - SourceId, DestinationId, and Subtype: a set of identifiers, uniquely representing a chat
- * 
- * 
  * 
  * - ChatEvent: details of the chat action to perform such as sending a message, event, or disconnecting from a
  * chat
  * 
- * 
- * 
- * 
- * 
  * When a chat integration event is sent with chat identifiers that do not map to an active chat contact, a new
  * chat contact is also created before handling chat action.
- * 
  * 
  * Access to this API is currently restricted to Amazon Web Services End User Messaging for supporting SMS
  * integration.
@@ -3521,9 +3052,6 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
  * Send outbound email for outbound campaigns. For more information about outbound campaigns, see Set up Amazon Connect
  * outbound campaigns.
  * 
- * 
- * 
- * 
  * Only the Amazon Connect outbound campaigns service principal is allowed to assume a role in your account
  * and call this API.
  */export const sendOutboundEmail = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-08", uri: "/instance/{InstanceId}/outbound-email", method: "PUT", sdkId: "Connect", sigV4ServiceName: "connect", name: "AmazonConnectService.SendOutboundEmail" }, SendOutboundEmailRequest, SendOutboundEmailResponse, [AccessDeniedException, IdempotencyException, InternalServiceException, InvalidRequestException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -3531,40 +3059,24 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
  * Initiates a flow to start a new chat for the customer. Response of this API provides a token required to obtain
  * credentials from the CreateParticipantConnection API in the Amazon Connect Participant Service.
  * 
- * 
  * When a new chat contact is successfully created, clients must subscribe to the participant’s connection for the
  * created chat within 5 minutes. This is achieved by invoking CreateParticipantConnection with WEBSOCKET and CONNECTION_CREDENTIALS.
  * 
- * 
  * A 429 error occurs in the following situations:
  * 
- * 
- * 
  * - API rate limit is exceeded. API TPS throttling returns a `TooManyRequests` exception.
- * 
- * 
  * 
  * - The quota for
  * concurrent active chats is exceeded. Active chat throttling returns a
  * `LimitExceededException`.
  * 
- * 
- * 
- * 
- * 
  * If you use the `ChatDurationInMinutes` parameter and receive a 400 error, your account may not
  * support the ability to configure custom chat durations. For more information, contact Amazon Web Services Support.
- * 
  * 
  * For more information about chat, see the following topics in the Amazon Connect
  * Administrator Guide:
  * 
- * 
- * 
  * - Concepts: Web and mobile messaging capabilities in Amazon Connect
- * 
- * 
- * 
  * 
  * - Amazon Connect Chat security best practices
  */export const startChatContact = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-08", uri: "/contact/chat", method: "PUT", sdkId: "Connect", sigV4ServiceName: "connect", name: "AmazonConnectService.StartChatContact" }, StartChatContactRequest, StartChatContactResponse, [InternalServiceException, InvalidParameterException, InvalidRequestException, LimitExceededException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -3572,9 +3084,6 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
  * Starts an empty evaluation in the specified Amazon Connect instance, using the given evaluation form for the
  * particular contact. The evaluation form version used for the contact evaluation corresponds to the currently
  * activated version. If no version is activated for the evaluation form, the contact evaluation cannot be started.
- * 
- * 
- * 
  * 
  * Evaluations created through the public API do not contain answer values suggested from automation.
  */export const startContactEvaluation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-08", uri: "/contact-evaluations/{InstanceId}", method: "PUT", sdkId: "Connect", sigV4ServiceName: "connect", name: "AmazonConnectService.StartContactEvaluation" }, StartContactEvaluationRequest, StartContactEvaluationResponse, [InternalServiceException, InvalidParameterException, ResourceConflictException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -3585,20 +3094,13 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
 /**
  * Initiates real-time message streaming for a new chat contact.
  * 
- * 
  * For more information about message streaming, see Enable real-time chat message streaming in the
  * *Amazon Connect Administrator Guide*.
- * 
  * 
  * For more information about chat, see the following topics in the Amazon Connect
  * Administrator Guide:
  * 
- * 
- * 
  * - Concepts: Web and mobile messaging capabilities in Amazon Connect
- * 
- * 
- * 
  * 
  * - Amazon Connect Chat security best practices
  */export const startContactStreaming = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-08", uri: "/contact/start-streaming", sdkId: "Connect", sigV4ServiceName: "connect", name: "AmazonConnectService.StartContactStreaming" }, StartContactStreamingRequest, StartContactStreamingResponse, [InternalServiceException, InvalidParameterException, InvalidRequestException, LimitExceededException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -3606,39 +3108,23 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
  * Ends the specified contact. Use this API to stop queued callbacks. It does not work for voice contacts that use
  * the following initiation methods:
  * 
- * 
- * 
  * - DISCONNECT
- * 
- * 
  * 
  * - TRANSFER
  * 
- * 
- * 
  * - QUEUE_TRANSFER
- * 
- * 
  * 
  * - EXTERNAL_OUTBOUND
  * 
- * 
- * 
  * - MONITOR
- * 
- * 
- * 
- * 
  * 
  * Chat and task contacts can be terminated in any state, regardless of initiation method.
  */export const stopContact = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-08", uri: "/contact/stop", sdkId: "Connect", sigV4ServiceName: "connect", name: "AmazonConnectService.StopContact" }, StopContactRequest, StopContactResponse, [ContactNotFoundException, InternalServiceException, InvalidActiveRegionException, InvalidParameterException, InvalidRequestException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the specified flow.
  * 
- * 
  * You can also create and update flows using the Amazon Connect
  * Flow language.
- * 
  * 
  * Use the `$SAVED` alias in the request to describe the `SAVED` content of a Flow. For
  * example, `arn:aws:.../contact-flow/{id}:$SAVED`. After a flow is published, `$SAVED` needs to
@@ -3652,17 +3138,9 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
 /**
  * Updates the traffic distribution for a given traffic distribution group.
  * 
- * 
- * 
- * 
  * When you shift telephony traffic, also shift agents and/or agent sign-ins to ensure they can handle the calls
  * in the other Region. If you don't shift the agents, voice calls will go to the shifted Region but there won't be any
  * agents available to receive the calls.
- * 
- * 
- * 
- * 
- * 
  * 
  * The `SignInConfig` distribution is available only on a
  * default `TrafficDistributionGroup` (see the `IsDefault` parameter in the
@@ -3670,9 +3148,6 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
  * data type). If you call
  * `UpdateTrafficDistribution` with a modified `SignInConfig` and a non-default `TrafficDistributionGroup`,
  * an `InvalidRequestException` is returned.
- * 
- * 
- * 
  * 
  * For more information about updating a traffic distribution group, see Update telephony traffic distribution
  * across Amazon Web Services Regions
@@ -3723,9 +3198,7 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
 /**
  * Publishes a new version of the view identifier.
  * 
- * 
  * Versions are immutable and monotonically increasing.
- * 
  * 
  * It returns the highest version if there is no change in content compared to that version. An error is displayed
  * if the supplied ViewContentSha256 is different from the ViewContentSha256 of the `$LATEST` alias.
@@ -3733,19 +3206,15 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
 /**
  * Describes the specified flow.
  * 
- * 
  * You can also create and update flows using the Amazon Connect
  * Flow language.
- * 
  * 
  * Use the `$SAVED` alias in the request to describe the `SAVED` content of a Flow. For
  * example, `arn:aws:.../contact-flow/{id}:$SAVED`. After a flow is published, `$SAVED` needs to
  * be supplied to view saved content that has not been published.
  * 
- * 
  * Use `arn:aws:.../contact-flow/{id}:{version}` to retrieve the content of a specific flow
  * version.
- * 
  * 
  * In the response, **Status** indicates the flow status as either `SAVED`
  * or `PUBLISHED`. The `PUBLISHED` status will initiate validation on the content.
@@ -3754,19 +3223,14 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
 /**
  * This API is in preview release for Amazon Connect and is subject to change.
  * 
- * 
  * Returns the current state of the specified instance identifier. It tracks the instance while it is being created
  * and returns an error status, if applicable.
- * 
  * 
  * If an instance is not created successfully, the instance status reason field returns details relevant to the
  * reason. The instance in a failed state is returned only for 24 hours after the CreateInstance API was invoked.
  */export const describeInstance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-08", uri: "/instance/{InstanceId}", method: "GET", sdkId: "Connect", sigV4ServiceName: "connect", name: "AmazonConnectService.DescribeInstance" }, DescribeInstanceRequest, DescribeInstanceResponse, [InternalServiceException, InvalidRequestException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets details and status of a phone number that’s claimed to your Amazon Connect instance or traffic distribution group.
- * 
- * 
- * 
  * 
  * If the number is claimed to a traffic distribution group, and you are calling in the Amazon Web Services Region where the traffic distribution group was
  * created, you can use either a phone number ARN or UUID value for the `PhoneNumberId` URI request
@@ -3778,25 +3242,15 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
  * Describes a predefined attribute for the specified Amazon Connect instance. A *predefined attribute*
  * is made up of a name and a value. You can use predefined attributes for:
  * 
- * 
- * 
  * - Routing proficiency (for example, agent certification) that has predefined values (for example, a list of
  * possible certifications). For more information, see Create predefined attributes for routing contacts to
  * agents.
  * 
- * 
- * 
  * - Contact information that varies between transfers or conferences, such as the name of the business unit
  * handling the contact. For more information, see Use contact segment attributes.
  * 
- * 
- * 
- * 
- * 
  * For the predefined attributes per instance quota, see Amazon Connect
  * quotas.
- * 
- * 
  * 
  * **Endpoints**: See Amazon Connect endpoints and quotas.
  */export const describePredefinedAttribute = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-08", uri: "/predefined-attributes/{InstanceId}/{Name}", method: "GET", sdkId: "Connect", sigV4ServiceName: "connect", name: "AmazonConnectService.DescribePredefinedAttribute" }, DescribePredefinedAttributeRequest, DescribePredefinedAttributeResponse, [InternalServiceException, InvalidParameterException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -3819,18 +3273,11 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
 /**
  * Supports SAML sign-in for Amazon Connect. Retrieves a token for federation. The token is for the Amazon Connect user which corresponds to the IAM credentials that were used to invoke this action.
  * 
- * 
  * For more information about how SAML sign-in works in Amazon Connect, see Configure SAML with IAM for Amazon Connect
  * in the *Amazon Connect Administrator Guide*.
  * 
- * 
- * 
- * 
- * 
  * This API doesn't support root users. If you try to invoke GetFederationToken with root credentials, an error
  * message similar to the following one appears:
- * 
- * 
  * 
  * `Provided identity: Principal: .... User: .... cannot be used for federation with Amazon Connect`
  */export const getFederationToken = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-08", uri: "/user/federate/{InstanceId}", method: "GET", sdkId: "Connect", sigV4ServiceName: "connect", name: "AmazonConnectService.GetFederationToken" }, GetFederationTokenRequest, GetFederationTokenResponse, [DuplicateResourceException, InternalServiceException, InvalidParameterException, InvalidRequestException, ResourceNotFoundException, UserNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -3839,7 +3286,6 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
  */export const listContactEvaluations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-08", uri: "/contact-evaluations/{InstanceId}", method: "GET", sdkId: "Connect", sigV4ServiceName: "connect", name: "AmazonConnectService.ListContactEvaluations" }, ListContactEvaluationsRequest, ListContactEvaluationsResponse, [InternalServiceException, InvalidParameterException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This API is in preview release for Amazon Connect and is subject to change.
- * 
  * 
  * For the specified `referenceTypes`, returns a list of references associated with the contact.
  * *References* are links to documents that are related to a contact, such as emails, attachments,
@@ -3865,44 +3311,21 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
 /**
  * Searches evaluation forms in an Amazon Connect instance, with optional filtering.
  * 
- * 
- * 
  * **Use cases**
- * 
- * 
  * 
  * Following are common uses cases for this API:
  * 
- * 
- * 
  * - List all evaluation forms in an instance.
- * 
- * 
  * 
  * - Find all evaluation forms that meet specific criteria, such as Title, Description, Status, and more.
  * 
- * 
- * 
  * - Find all evaluation forms that are tagged with a specific set of tags.
  * 
- * 
- * 
- * 
- * 
- * 
  * **Important things to know**
- * 
- * 
- * 
  * 
  * - A Search operation, unlike a List operation, takes time to index changes to resource (create, update or
  * delete). If you don't see updated information for recently changed contact evaluations, try calling the API again
  * in a few seconds.
- * 
- * 
- * 
- * 
- * 
  * 
  * **Endpoints**: See Amazon Connect endpoints and quotas.
  */export const searchEvaluationForms = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-08", uri: "/search-evaluation-forms", sdkId: "Connect", sigV4ServiceName: "connect", name: "AmazonConnectService.SearchEvaluationForms" }, SearchEvaluationFormsRequest, SearchEvaluationFormsResponse, [InternalServiceException, InvalidParameterException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -3911,7 +3334,6 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
  */export const searchHoursOfOperationOverrides = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-08", uri: "/search-hours-of-operation-overrides", sdkId: "Connect", sigV4ServiceName: "connect", name: "AmazonConnectService.SearchHoursOfOperationOverrides" }, SearchHoursOfOperationOverridesRequest, SearchHoursOfOperationOverridesResponse, [InternalServiceException, InvalidParameterException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Searches security profiles in an Amazon Connect instance, with optional filtering.
- * 
  * 
  * For information about security profiles, see Security Profiles in the *Amazon Connect Administrator Guide*. For a mapping of the API name and user interface name of the security
  * profile permissions, see List
@@ -3927,35 +3349,23 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
  * Initiates a new outbound SMS or WhatsApp contact to a customer. Response of this API provides the
  * `ContactId` of the outbound SMS or WhatsApp contact created.
  * 
- * 
- * 
  * **SourceEndpoint** only supports Endpoints with
  * `CONNECT_PHONENUMBER_ARN` as Type and **DestinationEndpoint** only supports
  * Endpoints with `TELEPHONE_NUMBER` as Type. **ContactFlowId** initiates the
  * flow to manage the new contact created.
  * 
- * 
  * This API can be used to initiate outbound SMS or WhatsApp contacts for an agent, or it can also deflect
  * an ongoing contact to an outbound SMS or WhatsApp contact by using the StartOutboundChatContact Flow
  * Action.
  * 
- * 
  * For more information about using SMS or WhatsApp in Amazon Connect, see the following topics in
  * the *Amazon Connect Administrator Guide*:
- * 
- * 
  * 
  * - Set up SMS
  * messaging
  * 
- * 
- * 
- * 
  * - Request an SMS-enabled phone
  * number through Amazon Web Services End User Messaging SMS
- * 
- * 
- * 
  * 
  * - Set up WhatsApp
  * Business messaging
@@ -3967,11 +3377,9 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
 /**
  * This API is in preview release for Amazon Connect and is subject to change.
  * 
- * 
  * Associates a storage resource type for the first time. You can only associate one type of storage configuration
  * in a single call. This means, for example, that you can't define an instance with multiple S3 buckets for storing
  * chat transcripts.
- * 
  * 
  * This API does not create a resource that doesn't exist. It only associates it to the instance. Ensure that the
  * resource being specified in the storage configuration, like an S3 bucket, exists when being used for
@@ -3981,9 +3389,6 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
  * Only the Amazon Connect outbound campaigns service principal is allowed to assume a role in your account
  * and call this API.
  * 
- * 
- * 
- * 
  * Allows you to create a batch of contacts in Amazon Connect. The outbound campaigns capability ingests dial
  * requests via the PutDialRequestBatch API. It then uses BatchPutContact to create contacts corresponding to those dial
  * requests. If agents are available, the dial requests are dialed out, which results in a voice call. The resulting
@@ -3992,29 +3397,16 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
 /**
  * Only the VOICE, EMAIL, and TASK channels are supported.
  * 
- * 
- * 
  * - For VOICE: The supported initiation method is `TRANSFER`. The contacts created with this
  * initiation method have a subtype `connect:ExternalAudio`.
- * 
- * 
  * 
  * - For EMAIL: The supported initiation methods are `OUTBOUND`, `AGENT_REPLY`, and
  * `FLOW`.
  * 
- * 
- * 
  * - For TASK: The supported initiation method is `API`. Contacts created with this API have a sub-type
  * of `connect:ExternalTask`.
  * 
- * 
- * 
- * 
- * 
- * 
- * 
  * Creates a new VOICE, EMAIL, or TASK contact.
- * 
  * 
  * After a contact is created, you can move it to the desired state by using the `InitiateAs` parameter.
  * While you can use API to create task contacts that are in the `COMPLETED` state, you must contact Amazon Web Services Support before using it for bulk import use cases. Bulk import causes your requests to be throttled or
@@ -4028,51 +3420,24 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
 /**
  * Retrieves the position of the contact in the queue.
  * 
- * 
- * 
  * **Use cases**
- * 
- * 
  * 
  * Following are common uses cases for position in queue:
  * 
- * 
- * 
  * - Understand the expected wait experience of a contact.
- * 
- * 
  * 
  * - Inform customers of their position in queue and potentially offer a callback.
  * 
- * 
- * 
  * - Make data-driven routing decisions between primary and alternative queues.
- * 
- * 
  * 
  * - Enhance queue visibility and leverage agent proficiencies to streamline contact routing.
  * 
- * 
- * 
- * 
- * 
- * 
  * **Important things to know**
- * 
- * 
- * 
  * 
  * - The only way to retrieve the position of the contact in queue is by using this API. You can't retrieve the
  * position by using flows and attributes.
  * 
- * 
- * 
  * - For more information, see the Position in queue metric in the *Amazon Connect Administrator Guide*.
- * 
- * 
- * 
- * 
- * 
  * 
  * **Endpoints**: See Amazon Connect endpoints and quotas.
  */export const getContactMetrics = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-08", uri: "/metrics/contact", sdkId: "Connect", sigV4ServiceName: "connect", name: "AmazonConnectService.GetContactMetrics" }, GetContactMetricsRequest, GetContactMetricsResponse, [AccessDeniedException, InternalServiceException, InvalidParameterException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -4084,9 +3449,6 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
  */export const searchContactFlows = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-08", uri: "/search-contact-flows", sdkId: "Connect", sigV4ServiceName: "connect", name: "AmazonConnectService.SearchContactFlows" }, SearchContactFlowsRequest, SearchContactFlowsResponse, [InternalServiceException, InvalidParameterException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Provides a pre-signed Amazon S3 URL in response for uploading your content.
- * 
- * 
- * 
  * 
  * You may only use this API to upload attachments to an Amazon Connect Case or Amazon Connect Email.
  */export const startAttachedFileUpload = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-08", uri: "/attached-files/{InstanceId}", method: "PUT", sdkId: "Connect", sigV4ServiceName: "connect", name: "AmazonConnectService.StartAttachedFileUpload" }, StartAttachedFileUploadRequest, StartAttachedFileUploadResponse, [AccessDeniedException, InternalServiceException, InvalidRequestException, ResourceConflictException, ServiceQuotaExceededException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -4100,32 +3462,19 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
  * with the existing answers and notes. You can delete an answer or note by passing an empty object (`{}`) to
  * the question identifier.
  * 
- * 
  * If a contact evaluation is already in submitted state, this operation will trigger a resubmission.
  */export const submitContactEvaluation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-08", uri: "/contact-evaluations/{InstanceId}/{EvaluationId}/submit", sdkId: "Connect", sigV4ServiceName: "connect", name: "AmazonConnectService.SubmitContactEvaluation" }, SubmitContactEvaluationRequest, SubmitContactEvaluationResponse, [InternalServiceException, InvalidParameterException, ResourceConflictException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates timeouts for when human chat participants are to be considered idle, and when agents are automatically
  * disconnected from a chat due to idleness. You can set four timers:
  * 
- * 
- * 
  * - Customer idle timeout
- * 
- * 
  * 
  * - Customer auto-disconnect timeout
  * 
- * 
- * 
  * - Agent idle timeout
  * 
- * 
- * 
  * - Agent auto-disconnect timeout
- * 
- * 
- * 
- * 
  * 
  * For more information about how chat timeouts work, see
  * Set up chat timeouts for human participants.
@@ -4133,13 +3482,11 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
 /**
  * Creates a rule for the specified Amazon Connect instance.
  * 
- * 
  * Use the Rules Function
  * language to code conditions for the rule.
  */export const createRule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-08", uri: "/rules/{InstanceId}", sdkId: "Connect", sigV4ServiceName: "connect", name: "AmazonConnectService.CreateRule" }, CreateRuleRequest, CreateRuleResponse, [AccessDeniedException, InternalServiceException, InvalidRequestException, ResourceConflictException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a security profile.
- * 
  * 
  * For information about security profiles, see Security Profiles in the *Amazon Connect Administrator Guide*. For a mapping of the API name and user interface name of the security
  * profile permissions, see List
@@ -4152,114 +3499,63 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
 /**
  * This API is in preview release for Amazon Connect and is subject to change.
  * 
- * 
  * Describes the specified contact.
- * 
- * 
  * 
  * **Use cases**
  * 
- * 
- * 
  * Following are common uses cases for this API:
- * 
- * 
  * 
  * - Retrieve contact information such as the caller's phone number and the specific number the caller dialed to
  * integrate into custom monitoring or custom agent experience solutions.
- * 
- * 
  * 
  * - Detect when a customer chat session disconnects due to a network issue on the agent's end. Use the
  * DisconnectReason field in the ContactTraceRecord to detect
  * this event and then re-queue the chat for followup.
  * 
- * 
- * 
  * - Identify after contact work (ACW) duration and call recordings information when a COMPLETED event is received
  * by using the contact event
  * stream.
  * 
- * 
- * 
- * 
- * 
- * 
  * **Important things to know**
- * 
- * 
- * 
  * 
  * - `SystemEndpoint` is not populated for contacts with initiation method of MONITOR, QUEUE_TRANSFER,
  * or CALLBACK
  * 
- * 
- * 
  * - Contact information remains available in Amazon Connect for 24 months from the
  * `InitiationTimestamp`, and then it is deleted. Only contact information that is available in Amazon Connect is returned by this API.
- * 
- * 
- * 
- * 
- * 
  * 
  * **Endpoints**: See Amazon Connect endpoints and quotas.
  */export const describeContact = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-08", uri: "/contacts/{InstanceId}/{ContactId}", method: "GET", sdkId: "Connect", sigV4ServiceName: "connect", name: "AmazonConnectService.DescribeContact" }, DescribeContactRequest, DescribeContactResponse, [InternalServiceException, InvalidParameterException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets the real-time metric data from the specified Amazon Connect instance.
  * 
- * 
  * For a description of each metric, see Metrics definitions in the *Amazon Connect Administrator Guide*.
  * 
- * 
- * 
- * 
  * When you make a successful API request, you can expect the following metric values in the response:
- * 
- * 
  * 
  * - **Metric value is null**: The calculation cannot be performed due to divide by
  * zero or insufficient data
  * 
- * 
- * 
  * - **Metric value is a number (including 0) of defined type**: The number provided
  * is the calculation result
- * 
- * 
  * 
  * - **MetricResult list is empty**: The request cannot find any data in the
  * system
  * 
- * 
- * 
- * 
  * The following guidelines can help you work with the API:
- * 
- * 
  * 
  * - Each dimension in the metric response must contain a value
  * 
- * 
- * 
  * - Each item in MetricResult must include all requested metrics
  * 
- * 
- * 
  * - If the response is slow due to large result sets, try these approaches:
- * 
- * 
  * 
  * - Add filters to reduce the amount of data returned
  */export const getCurrentMetricData = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-08", uri: "/metrics/current/{InstanceId}", sdkId: "Connect", sigV4ServiceName: "connect", name: "AmazonConnectService.GetCurrentMetricData" }, GetCurrentMetricDataRequest, GetCurrentMetricDataResponse, [InternalServiceException, InvalidParameterException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets historical metric data from the specified Amazon Connect instance.
  * 
- * 
  * For a description of each historical metric, see Metrics definitions in the *Amazon Connect Administrator Guide*.
- * 
- * 
- * 
  * 
  * We recommend using the GetMetricDataV2 API. It provides more flexibility, features, and the ability to query longer time ranges
  * than `GetMetricData`. Use it to retrieve historical agent and contact metrics for the last 3 months, at
@@ -4270,100 +3566,54 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
 /**
  * Gets metric data from the specified Amazon Connect instance.
  * 
- * 
- * 
  * `GetMetricDataV2` offers more features than GetMetricData, the previous version of this API. It
  * has new metrics, offers filtering at a metric level, and offers the ability to filter and group data by channels,
  * queues, routing profiles, agents, and agent hierarchy levels. It can retrieve historical data for the last 3 months,
  * at varying intervals. It does not support agent queues.
  * 
- * 
  * For a description of the historical metrics that are supported by `GetMetricDataV2` and
  * `GetMetricData`, see Metrics definitions in the *Amazon Connect Administrator Guide*.
  * 
- * 
- * 
- * 
  * When you make a successful API request, you can expect the following metric values in the response:
- * 
- * 
  * 
  * - **Metric value is null**: The calculation cannot be performed due to divide by
  * zero or insufficient data
  * 
- * 
- * 
  * - **Metric value is a number (including 0) of defined type**: The number provided
  * is the calculation result
- * 
- * 
  * 
  * - **MetricResult list is empty**: The request cannot find any data in the
  * system
  * 
- * 
- * 
- * 
  * The following guidelines can help you work with the API:
- * 
- * 
  * 
  * - Each dimension in the metric response must contain a value
  * 
- * 
- * 
  * - Each item in MetricResult must include all requested metrics
- * 
- * 
  * 
  * - If the response is slow due to large result sets, try these approaches:
  * 
- * 
- * 
  * - Narrow the time range of your request
- * 
- * 
  * 
  * - Add filters to reduce the amount of data returned
  */export const getMetricDataV2 = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-08", uri: "/metrics/data", sdkId: "Connect", sigV4ServiceName: "connect", name: "AmazonConnectService.GetMetricDataV2" }, GetMetricDataV2Request, GetMetricDataV2Response, [InternalServiceException, InvalidParameterException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Searches contact evaluations in an Amazon Connect instance, with optional filtering.
  * 
- * 
- * 
  * **Use cases**
- * 
- * 
  * 
  * Following are common uses cases for this API:
  * 
- * 
- * 
  * - Find contact evaluations by using specific search criteria.
- * 
- * 
  * 
  * - Find contact evaluations that are tagged with a specific set of tags.
  * 
- * 
- * 
- * 
- * 
- * 
  * **Important things to know**
- * 
- * 
- * 
  * 
  * - A Search operation, unlike a List operation, takes time to index changes to resource (create, update or
  * delete). If you don't see updated information for recently changed contact evaluations, try calling the API again
  * in a few seconds. Contact Evaluations may not be fully backfilled with historical data in all regions yet, however
  * all recently created Contact Evaluations should be available for search.
- * 
- * 
- * 
- * 
- * 
  * 
  * **Endpoints**: See Amazon Connect endpoints and quotas.
  */export const searchContactEvaluations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-08", uri: "/search-contact-evaluations", sdkId: "Connect", sigV4ServiceName: "connect", name: "AmazonConnectService.SearchContactEvaluations" }, SearchContactEvaluationsRequest, SearchContactEvaluationsResponse, [InternalServiceException, InvalidParameterException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -4375,10 +3625,6 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
  */export const getCurrentUserData = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-08", uri: "/metrics/userdata/{InstanceId}", sdkId: "Connect", sigV4ServiceName: "connect", name: "AmazonConnectService.GetCurrentUserData" }, GetCurrentUserDataRequest, GetCurrentUserDataResponse, [InternalServiceException, InvalidParameterException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Searches users in an Amazon Connect instance, with optional filtering.
- * 
- * 
- * 
- * 
  * 
  * `AfterContactWorkTimeLimit` is returned in milliseconds.
  */export const searchUsers = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-08", uri: "/search-users", sdkId: "Connect", sigV4ServiceName: "connect", name: "AmazonConnectService.SearchUsers" }, SearchUsersRequest, SearchUsersResponse, [InternalServiceException, InvalidParameterException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -4396,9 +3642,6 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
  * wait time as reported through metrics. These properties can also be updated by using the Set routing priority / age flow
  * block.
  * 
- * 
- * 
- * 
  * Either **QueuePriority** or **QueueTimeAdjustmentInSeconds** should be provided within the request body, but not both.
  */export const updateContactRoutingData = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-08", uri: "/contacts/{InstanceId}/{ContactId}/routing-data", sdkId: "Connect", sigV4ServiceName: "connect", name: "AmazonConnectService.UpdateContactRoutingData" }, UpdateContactRoutingDataRequest, UpdateContactRoutingDataResponse, [AccessDeniedException, InternalServiceException, InvalidActiveRegionException, InvalidParameterException, ResourceConflictException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -4410,9 +3653,6 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
  * Provides a list of analysis segments for a real-time chat analysis session. This API supports CHAT channels
  * only.
  * 
- * 
- * 
- * 
  * This API does not support VOICE. If you attempt to use it for VOICE, an `InvalidRequestException`
  * occurs.
  */export const listRealtimeContactAnalysisSegmentsV2 = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-08", uri: "/contact/list-real-time-analysis-segments-v2/{InstanceId}/{ContactId}", sdkId: "Connect", sigV4ServiceName: "connect", name: "AmazonConnectService.ListRealtimeContactAnalysisSegmentsV2" }, ListRealtimeContactAnalysisSegmentsV2Request, ListRealtimeContactAnalysisSegmentsV2Response, [AccessDeniedException, InternalServiceException, InvalidRequestException, OutputTypeNotFoundException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -4423,35 +3663,20 @@ export class OutboundContactNotPermittedException extends S.TaggedError<Outbound
  * Places an outbound call to a contact, and then initiates the flow. It performs the actions in the flow that's
  * specified (in `ContactFlowId`).
  * 
- * 
  * Agents do not initiate the outbound API, which means that they do not dial the contact. If the flow places an
  * outbound call to a contact, and then puts the contact in queue, the call is then routed to the agent, like any other
  * inbound case.
- * 
  * 
  * Dialing timeout for this operation can be configured with the “RingTimeoutInSeconds” parameter. If not
  * specified, the default dialing timeout will be 60 seconds which means if the call is not connected within 60 seconds,
  * it fails.
  * 
- * 
- * 
- * 
  * UK numbers with a 447 prefix are not allowed by default. Before you can dial these UK mobile numbers, you must
  * submit a service quota increase request. For more information, see Amazon Connect Service Quotas in the
  * *Amazon Connect Administrator Guide*.
  * 
- * 
- * 
- * 
- * 
- * 
  * Campaign calls are not allowed by default. Before you can make a call with `TrafficType` =
  * `CAMPAIGN`, you must submit a service quota increase request to the quota Amazon Connect campaigns.
- * 
- * 
- * 
- * 
- * 
  * 
  * For Preview dialing mode, only the Amazon Connect outbound campaigns service principal is allowed to assume a
  * role in your account and call this API with OutboundStrategy.

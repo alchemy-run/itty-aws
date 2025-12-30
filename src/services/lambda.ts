@@ -153,9 +153,7 @@ export class TooManyRequestsException extends S.TaggedError<TooManyRequestsExcep
 /**
  * Deletes a Lambda function. To delete a specific function version, use the `Qualifier` parameter. Otherwise, all versions and aliases are deleted. This doesn't require the user to have explicit permissions for DeleteAlias.
  * 
- * 
  * A deleted Lambda function cannot be recovered. Ensure that you specify the correct function name and version before deleting.
- * 
  * 
  * To delete Lambda event source mappings that invoke a function, use DeleteEventSourceMapping. For Amazon Web Services services and resources that invoke your function directly, delete the trigger in the service where you originally configured it.
  */export const deleteFunction = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-03-31", uri: "/2015-03-31/functions/{FunctionName}", method: "DELETE", sdkId: "Lambda", sigV4ServiceName: "lambda", name: "AWSGirApiService.DeleteFunction" }, DeleteFunctionRequest, DeleteFunctionResponse, [InvalidParameterValueException, ResourceConflictException, ResourceNotFoundException, ServiceException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -171,7 +169,6 @@ export class TooManyRequestsException extends S.TaggedError<TooManyRequestsExcep
  * By default, Lambda retries an asynchronous invocation twice if the function returns an error. It retains events in a queue for up to six hours. When an event fails all processing attempts or stays in the asynchronous invocation queue for too long, Lambda discards it. To retain discarded events, configure a dead-letter queue with UpdateFunctionConfiguration.
  * 
  * To send an invocation record to a queue, topic, S3 bucket, function, or event bus, specify a destination. You can configure separate destinations for successful invocations (on-success) and events that fail all processing attempts (on-failure). You can configure destinations in addition to or instead of a dead-letter queue.
- * 
  * 
  * S3 buckets are supported only for on-failure destinations. To retain records of successful invocations, use another destination type.
  */export const putFunctionEventInvokeConfig = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-03-31", uri: "/2019-09-25/functions/{FunctionName}/event-invoke-config", method: "PUT", sdkId: "Lambda", sigV4ServiceName: "lambda", name: "AWSGirApiService.PutFunctionEventInvokeConfig" }, PutFunctionEventInvokeConfigRequest, FunctionEventInvokeConfig, [InvalidParameterValueException, ResourceConflictException, ResourceNotFoundException, ServiceException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

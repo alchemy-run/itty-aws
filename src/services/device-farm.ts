@@ -278,16 +278,10 @@ export class TooManyTagsException extends S.TaggedError<TooManyTagsException>()(
 /**
  * Deletes a completed remote access session and its results. You cannot delete a remote access session if it is still active.
  * 
- * 
- * 
- * 
  * You cannot undo this operation.
  */export const deleteRemoteAccessSession = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-06-23", sdkId: "Device Farm", sigV4ServiceName: "devicefarm", name: "DeviceFarm_20150623.DeleteRemoteAccessSession" }, DeleteRemoteAccessSessionRequest, DeleteRemoteAccessSessionResult, [ArgumentException, LimitExceededException, NotFoundException, ServiceAccountException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the run, given the run ARN. You cannot delete a run if it is still active.
- * 
- * 
- * 
  * 
  * You cannot undo this operation.
  */export const deleteRun = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-06-23", sdkId: "Device Farm", sigV4ServiceName: "devicefarm", name: "DeviceFarm_20150623.DeleteRun" }, DeleteRunRequest, DeleteRunResult, [ArgumentException, LimitExceededException, NotFoundException, ServiceAccountException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -307,16 +301,10 @@ export class TooManyTagsException extends S.TaggedError<TooManyTagsException>()(
 /**
  * Deletes an AWS Device Farm project, given the project ARN. You cannot delete a project if it has an active run or session.
  * 
- * 
- * 
- * 
  * You cannot undo this operation.
  */export const deleteProject = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-06-23", sdkId: "Device Farm", sigV4ServiceName: "devicefarm", name: "DeviceFarm_20150623.DeleteProject" }, DeleteProjectRequest, DeleteProjectResult, [ArgumentException, LimitExceededException, NotFoundException, ServiceAccountException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a Selenium testing project and all content generated under it. You cannot delete a project if it has active sessions.
- * 
- * 
- * 
  * 
  * You cannot undo this operation.
  */export const deleteTestGridProject = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-06-23", sdkId: "Device Farm", sigV4ServiceName: "devicefarm", name: "DeviceFarm_20150623.DeleteTestGridProject" }, DeleteTestGridProjectRequest, DeleteTestGridProjectResult, [ArgumentException, CannotDeleteException, InternalServiceException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -491,11 +479,7 @@ export class TooManyTagsException extends S.TaggedError<TooManyTagsException>()(
 /**
  * A session is an instance of a browser created through a `RemoteWebDriver` with the URL from CreateTestGridUrlResult$url. You can use the following to look up sessions:
  * 
- * 
- * 
  * - The session ARN (GetTestGridSessionRequest$sessionArn).
- * 
- * 
  * 
  * - The project ARN and a session ID (GetTestGridSessionRequest$projectArn and GetTestGridSessionRequest$sessionId).
  */export const getTestGridSession = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-06-23", sdkId: "Device Farm", sigV4ServiceName: "devicefarm", name: "DeviceFarm_20150623.GetTestGridSession" }, GetTestGridSessionRequest, GetTestGridSessionResult, [ArgumentException, InternalServiceException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -571,7 +555,6 @@ export class TooManyTagsException extends S.TaggedError<TooManyTagsException>()(
  */export const getDevicePoolCompatibility = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-06-23", sdkId: "Device Farm", sigV4ServiceName: "devicefarm", name: "DeviceFarm_20150623.GetDevicePoolCompatibility" }, GetDevicePoolCompatibilityRequest, GetDevicePoolCompatibilityResult, [ArgumentException, LimitExceededException, NotFoundException, ServiceAccountException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets information about unique problems, such as exceptions or crashes.
- * 
  * 
  * Unique problems are defined as a single instance of an error across a run, job, or suite. For example,
  * if a call in your application consistently raises an exception (OutOfBoundsException in

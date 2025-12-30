@@ -301,16 +301,10 @@ export class DirectoryInUseException extends S.TaggedError<DirectoryInUseExcepti
 /**
  * Deletes the mobile device access override for the given WorkMail organization, user, and device.
  * 
- * 
- * 
- * 
  * Deleting already deleted and non-existing overrides does not produce an error. In those cases, the service sends back an HTTP 200 response with an empty HTTP body.
  */export const deleteMobileDeviceAccessOverride = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-01", sdkId: "WorkMail", sigV4ServiceName: "workmail", name: "WorkMailService.DeleteMobileDeviceAccessOverride" }, DeleteMobileDeviceAccessOverrideRequest, DeleteMobileDeviceAccessOverrideResponse, [EntityNotFoundException, InvalidParameterException, OrganizationNotFoundException, OrganizationStateException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a mobile device access rule for the specified WorkMail organization.
- * 
- * 
- * 
  * 
  * Deleting already deleted and non-existing rules does not produce an error. In those cases, the service sends back an HTTP 200 response with an empty HTTP body.
  */export const deleteMobileDeviceAccessRule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-01", sdkId: "WorkMail", sigV4ServiceName: "workmail", name: "WorkMailService.DeleteMobileDeviceAccessRule" }, DeleteMobileDeviceAccessRuleRequest, DeleteMobileDeviceAccessRuleResponse, [InvalidParameterException, OrganizationNotFoundException, OrganizationStateException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -324,7 +318,6 @@ export class DirectoryInUseException extends S.TaggedError<DirectoryInUseExcepti
  * Deletes a user from WorkMail and all subsequent systems. Before you can delete a
  * user, the user state must be `DISABLED`. Use the DescribeUser
  * action to confirm the user state.
- * 
  * 
  * Deleting a user is permanent and cannot be undone. WorkMail archives user mailboxes for
  * 30 days before they are permanently removed.
@@ -390,9 +383,6 @@ export class DirectoryInUseException extends S.TaggedError<DirectoryInUseExcepti
 /**
  * Cancels a mailbox export job.
  * 
- * 
- * 
- * 
  * If the mailbox export job is near completion, it might not be possible to cancel
  * it.
  */export const cancelMailboxExportJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-01", sdkId: "WorkMail", sigV4ServiceName: "workmail", name: "WorkMailService.CancelMailboxExportJob" }, CancelMailboxExportJobRequest, CancelMailboxExportJobResponse, [EntityNotFoundException, InvalidParameterException, OrganizationNotFoundException, OrganizationStateException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -413,9 +403,6 @@ export class DirectoryInUseException extends S.TaggedError<DirectoryInUseExcepti
  */export const createUser = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-01", sdkId: "WorkMail", sigV4ServiceName: "workmail", name: "WorkMailService.CreateUser" }, CreateUserRequest, CreateUserResponse, [DirectoryServiceAuthenticationFailedException, DirectoryUnavailableException, InvalidParameterException, InvalidPasswordException, NameAvailabilityException, OrganizationNotFoundException, OrganizationStateException, ReservedNameException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes an access control rule for the specified WorkMail organization.
- * 
- * 
- * 
  * 
  * Deleting already deleted and non-existing rules does not produce an error. In those cases, the service sends back an HTTP 200 response with an empty HTTP body.
  */export const deleteAccessControlRule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-01", sdkId: "WorkMail", sigV4ServiceName: "workmail", name: "WorkMailService.DeleteAccessControlRule" }, DeleteAccessControlRuleRequest, DeleteAccessControlRuleResponse, [OrganizationNotFoundException, OrganizationStateException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -520,7 +507,6 @@ export class DirectoryInUseException extends S.TaggedError<DirectoryInUseExcepti
  * operation results in the accumulation of costs. For more information, see Pricing. The equivalent console
  * functionality for this operation is *Enable*.
  * 
- * 
  * Users can either be created by calling the CreateUser API operation
  * or they can be synchronized from your directory. For more information, see DeregisterFromWorkMail.
  */export const registerToWorkMail = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-01", sdkId: "WorkMail", sigV4ServiceName: "workmail", name: "WorkMailService.RegisterToWorkMail" }, RegisterToWorkMailRequest, RegisterToWorkMailResponse, [DirectoryServiceAuthenticationFailedException, DirectoryUnavailableException, EmailAddressInUseException, EntityAlreadyRegisteredException, EntityNotFoundException, EntityStateException, InvalidParameterException, MailDomainNotFoundException, MailDomainStateException, OrganizationNotFoundException, OrganizationStateException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -536,9 +522,6 @@ export class DirectoryInUseException extends S.TaggedError<DirectoryInUseExcepti
 /**
  * Performs a test on an availability provider to ensure that access is allowed. For EWS, it verifies the provided credentials can be used to successfully log in. For Lambda, it verifies that the Lambda function can be invoked and that the resource access
  * policy was configured to deny anonymous access. An anonymous invocation is one done without providing either a `SourceArn` or `SourceAccount` header.
- * 
- * 
- * 
  * 
  * The request must contain either one provider definition (`EwsProvider` or
  * `LambdaProvider`) or the `DomainName` parameter. If the
@@ -561,8 +544,6 @@ export class DirectoryInUseException extends S.TaggedError<DirectoryInUseExcepti
  */export const createGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-01", sdkId: "WorkMail", sigV4ServiceName: "workmail", name: "WorkMailService.CreateGroup" }, CreateGroupRequest, CreateGroupResponse, [DirectoryServiceAuthenticationFailedException, DirectoryUnavailableException, InvalidParameterException, NameAvailabilityException, OrganizationNotFoundException, OrganizationStateException, ReservedNameException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an impersonation role for the given WorkMail organization.
- * 
- * 
  * 
  * *Idempotency* ensures that an API request completes no more than one
  * time. With an idempotent request, if the original request completes successfully, any
@@ -628,13 +609,11 @@ export class DirectoryInUseException extends S.TaggedError<DirectoryInUseExcepti
 /**
  * Creates a new WorkMail organization. Optionally, you can choose to associate an existing AWS Directory Service directory with your organization. If an AWS Directory Service directory ID is specified, the organization alias must match the directory alias. If you choose not to associate an existing directory with your organization, then we create a new WorkMail directory for you. For more information, see Adding an organization in the *WorkMail Administrator Guide*.
  * 
- * 
  * You can associate multiple email domains with an organization, then choose your
  * default email domain from the WorkMail console. You can also associate a domain that is managed
  * in an Amazon Route 53 public hosted zone. For more information, see Adding a
  * domain and Choosing the default domain
  * in the *WorkMail Administrator Guide*.
- * 
  * 
  * Optionally, you can use a customer managed key from AWS Key Management Service (AWS
  * KMS) to encrypt email for your organization. If you don't associate an AWS KMS key, WorkMail

@@ -462,24 +462,13 @@ export class TooManyTagsException extends S.TaggedError<TooManyTagsException>()(
 /**
  * Deletes a wireless gateway.
  * 
- * 
- * 
- * 
  * When deleting a wireless gateway, you might run into duplication errors for the
  * following reasons.
  * 
- * 
- * 
  * - If you specify a `GatewayEui` value that already exists.
- * 
- * 
  * 
  * - If you used a `ClientRequestToken` with the same parameters
  * within the last 10 minutes.
- * 
- * 
- * 
- * 
  * 
  * To avoid this error, make sure that you use unique identifiers and parameters for
  * each request within the specified time period.
@@ -565,9 +554,6 @@ export class TooManyTagsException extends S.TaggedError<TooManyTagsException>()(
  */export const updateNetworkAnalyzerConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-22", uri: "/network-analyzer-configurations/{ConfigurationName}", method: "PATCH", sdkId: "IoT Wireless", sigV4ServiceName: "iotwireless", name: "iotwireless.UpdateNetworkAnalyzerConfiguration" }, UpdateNetworkAnalyzerConfigurationRequest, UpdateNetworkAnalyzerConfigurationResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Update the position information of a resource.
- * 
- * 
- * 
  * 
  * This action is no longer supported. Calls to update the position information
  * should use the UpdateResourcePosition API operation instead.
@@ -709,9 +695,6 @@ export class TooManyTagsException extends S.TaggedError<TooManyTagsException>()(
 /**
  * Get the position information for a given resource.
  * 
- * 
- * 
- * 
  * This action is no longer supported. Calls to retrieve the position information
  * should use the GetResourcePosition API operation instead.
  */export const getPosition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-22", uri: "/positions/{ResourceIdentifier}", method: "GET", sdkId: "IoT Wireless", sigV4ServiceName: "iotwireless", name: "iotwireless.GetPosition" }, GetPositionRequest, GetPositionResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -746,9 +729,6 @@ export class TooManyTagsException extends S.TaggedError<TooManyTagsException>()(
 /**
  * List position configurations for a given resource, such as positioning solvers.
  * 
- * 
- * 
- * 
  * This action is no longer supported. Calls to retrieve position information should
  * use the GetResourcePosition API operation instead.
  */export const listPositionConfigurations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-22", uri: "/position-configurations", method: "GET", sdkId: "IoT Wireless", sigV4ServiceName: "iotwireless", name: "iotwireless.ListPositionConfigurations" }, ListPositionConfigurationsRequest, ListPositionConfigurationsResponse, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -767,9 +747,6 @@ export class TooManyTagsException extends S.TaggedError<TooManyTagsException>()(
  */export const listWirelessGateways = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-22", uri: "/wireless-gateways", method: "GET", sdkId: "IoT Wireless", sigV4ServiceName: "iotwireless", name: "iotwireless.ListWirelessGateways" }, ListWirelessGatewaysRequest, ListWirelessGatewaysResponse, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Put position configuration for a given resource.
- * 
- * 
- * 
  * 
  * This action is no longer supported. Calls to update the position configuration
  * should use the UpdateResourcePosition API operation instead.
@@ -793,24 +770,13 @@ export class TooManyTagsException extends S.TaggedError<TooManyTagsException>()(
 /**
  * Provisions a wireless gateway.
  * 
- * 
- * 
- * 
  * When provisioning a wireless gateway, you might run into duplication errors for
  * the following reasons.
  * 
- * 
- * 
  * - If you specify a `GatewayEui` value that already exists.
- * 
- * 
  * 
  * - If you used a `ClientRequestToken` with the same parameters
  * within the last 10 minutes.
- * 
- * 
- * 
- * 
  * 
  * To avoid this error, make sure that you use unique identifiers and parameters for
  * each request within the specified time period.
@@ -820,9 +786,6 @@ export class TooManyTagsException extends S.TaggedError<TooManyTagsException>()(
  */export const getDeviceProfile = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-22", uri: "/device-profiles/{Id}", method: "GET", sdkId: "IoT Wireless", sigV4ServiceName: "iotwireless", name: "iotwireless.GetDeviceProfile" }, GetDeviceProfileRequest, GetDeviceProfileResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Get position configuration for a given resource.
- * 
- * 
- * 
  * 
  * This action is no longer supported. Calls to retrieve the position configuration
  * should use the GetResourcePosition API operation instead.

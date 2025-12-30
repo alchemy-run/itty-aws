@@ -216,7 +216,6 @@ export class ExceedsLimitException extends S.TaggedError<ExceedsLimitException>(
 /**
  * Updates an existing `IdMappingWorkflow`. This method is identical to CreateIdMappingWorkflow, except it uses an HTTP `PUT` request instead of a `POST` request, and the `IdMappingWorkflow` must already exist for the method to succeed.
  * 
- * 
  * Incremental processing is not supported for ID mapping workflows.
  */export const updateIdMappingWorkflow = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/idmappingworkflows/{workflowName}", method: "PUT", sdkId: "EntityResolution", sigV4ServiceName: "entityresolution", name: "AWSVeniceService.UpdateIdMappingWorkflow" }, UpdateIdMappingWorkflowInput, UpdateIdMappingWorkflowOutput, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -225,12 +224,10 @@ export class ExceedsLimitException extends S.TaggedError<ExceedsLimitException>(
 /**
  * Updates an existing matching workflow. The workflow must already exist for this operation to succeed.
  * 
- * 
  * For workflows where `resolutionType` is `ML_MATCHING` or `PROVIDER`, incremental processing is not supported.
  */export const updateMatchingWorkflow = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/matchingworkflows/{workflowName}", method: "PUT", sdkId: "EntityResolution", sigV4ServiceName: "entityresolution", name: "AWSVeniceService.UpdateMatchingWorkflow" }, UpdateMatchingWorkflowInput, UpdateMatchingWorkflowOutput, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates a schema mapping.
- * 
  * 
  * A schema is immutable if it is being used by a workflow. Therefore, you can't update a schema mapping if it's associated with a workflow.
  */export const updateSchemaMapping = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/schemas/{schemaName}", method: "PUT", sdkId: "EntityResolution", sigV4ServiceName: "entityresolution", name: "AWSVeniceService.UpdateSchemaMapping" }, UpdateSchemaMappingInput, UpdateSchemaMappingOutput, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -296,12 +293,10 @@ export class ExceedsLimitException extends S.TaggedError<ExceedsLimitException>(
 /**
  * Creates an `IdMappingWorkflow` object which stores the configuration of the data processing job to be run. Each `IdMappingWorkflow` must have a unique workflow name. To modify an existing workflow, use the UpdateIdMappingWorkflow API.
  * 
- * 
  * Incremental processing is not supported for ID mapping workflows.
  */export const createIdMappingWorkflow = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/idmappingworkflows", sdkId: "EntityResolution", sigV4ServiceName: "entityresolution", name: "AWSVeniceService.CreateIdMappingWorkflow" }, CreateIdMappingWorkflowInput, CreateIdMappingWorkflowOutput, [AccessDeniedException, ConflictException, ExceedsLimitException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a matching workflow that defines the configuration for a data processing job. The workflow name must be unique. To modify an existing workflow, use `UpdateMatchingWorkflow`.
- * 
  * 
  * For workflows where `resolutionType` is `ML_MATCHING` or `PROVIDER`, incremental processing is not supported.
  */export const createMatchingWorkflow = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/matchingworkflows", sdkId: "EntityResolution", sigV4ServiceName: "entityresolution", name: "AWSVeniceService.CreateMatchingWorkflow" }, CreateMatchingWorkflowInput, CreateMatchingWorkflowOutput, [AccessDeniedException, ConflictException, ExceedsLimitException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

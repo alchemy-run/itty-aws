@@ -207,7 +207,6 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Deletes a trusted token issuer configuration from an instance of IAM Identity Center.
  * 
- * 
  * Deleting this trusted token issuer configuration will cause users to lose access to any applications that are configured to use the trusted token issuer.
  */export const deleteTrustedTokenIssuer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-07-20", sdkId: "SSO Admin", sigV4ServiceName: "sso", name: "SWBExternalService.DeleteTrustedTokenIssuer" }, DeleteTrustedTokenIssuerRequest, DeleteTrustedTokenIssuerResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -242,7 +241,6 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Attaches an Amazon Web Services managed policy ARN to a permission set.
  * 
- * 
  * If the permission set is already referenced by one or more account assignments, you will need to call ` ProvisionPermissionSet ` after this operation. Calling `ProvisionPermissionSet` applies the corresponding IAM policy updates to all assigned accounts.
  */export const attachManagedPolicyToPermissionSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-07-20", sdkId: "SSO Admin", sigV4ServiceName: "sso", name: "SWBExternalService.AttachManagedPolicyToPermissionSet" }, AttachManagedPolicyToPermissionSetRequest, AttachManagedPolicyToPermissionSetResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -259,7 +257,6 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  */export const createInstance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-07-20", sdkId: "SSO Admin", sigV4ServiceName: "sso", name: "SWBExternalService.CreateInstance" }, CreateInstanceRequest, CreateInstanceResponse, [AccessDeniedException, ConflictException, InternalServerException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a principal's access from a specified Amazon Web Services account using a specified permission set.
- * 
  * 
  * After a successful response, call `DescribeAccountAssignmentDeletionStatus` to describe the status of an assignment deletion request.
  */export const deleteAccountAssignment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-07-20", sdkId: "SSO Admin", sigV4ServiceName: "sso", name: "SWBExternalService.DeleteAccountAssignment" }, DeleteAccountAssignmentRequest, DeleteAccountAssignmentResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -331,7 +328,6 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Attaches an inline policy to a permission set.
  * 
- * 
  * If the permission set is already referenced by one or more account assignments, you will need to call ` ProvisionPermissionSet ` after this action to apply the corresponding IAM policy updates to all assigned accounts.
  */export const putInlinePolicyToPermissionSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-07-20", sdkId: "SSO Admin", sigV4ServiceName: "sso", name: "SWBExternalService.PutInlinePolicyToPermissionSet" }, PutInlinePolicyToPermissionSetRequest, PutInlinePolicyToPermissionSetResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -346,20 +342,14 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Assigns access to a principal for a specified Amazon Web Services account using a specified permission set.
  * 
- * 
  * The term *principal* here refers to a user or group that is defined in IAM Identity Center.
  * 
- * 
- * 
  * As part of a successful `CreateAccountAssignment` call, the specified permission set will automatically be provisioned to the account in the form of an IAM policy. That policy is attached to the IAM role created in IAM Identity Center. If the permission set is subsequently updated, the corresponding IAM policies attached to roles in your accounts will not be updated automatically. In this case, you must call ` ProvisionPermissionSet ` to make these updates.
- * 
- * 
  * 
  * After a successful response, call `DescribeAccountAssignmentCreationStatus` to describe the status of an assignment creation request.
  */export const createAccountAssignment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-07-20", sdkId: "SSO Admin", sigV4ServiceName: "sso", name: "SWBExternalService.CreateAccountAssignment" }, CreateAccountAssignmentRequest, CreateAccountAssignmentResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a permission set within a specified IAM Identity Center instance.
- * 
  * 
  * To grant users and groups access to Amazon Web Services account resources, use ` CreateAccountAssignment `.
  */export const createPermissionSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-07-20", sdkId: "SSO Admin", sigV4ServiceName: "sso", name: "SWBExternalService.CreatePermissionSet" }, CreatePermissionSetRequest, CreatePermissionSetResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -405,18 +395,15 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Updates the name of the trusted token issuer, or the path of a source attribute or destination attribute for a trusted token issuer configuration.
  * 
- * 
  * Updating this trusted token issuer configuration might cause users to lose access to any applications that are configured to use the trusted token issuer.
  */export const updateTrustedTokenIssuer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-07-20", sdkId: "SSO Admin", sigV4ServiceName: "sso", name: "SWBExternalService.UpdateTrustedTokenIssuer" }, UpdateTrustedTokenIssuerRequest, UpdateTrustedTokenIssuerResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an OAuth 2.0 customer managed application in IAM Identity Center for the given application provider.
  * 
- * 
  * This API does not support creating SAML 2.0 customer managed applications or Amazon Web Services managed applications. To learn how to create an Amazon Web Services managed application, see the application user guide. You can create a SAML 2.0 customer managed application in the Amazon Web Services Management Console only. See Setting up customer managed SAML 2.0 applications. For more information on these application types, see Amazon Web Services managed applications.
  */export const createApplication = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-07-20", sdkId: "SSO Admin", sigV4ServiceName: "sso", name: "SWBExternalService.CreateApplication" }, CreateApplicationRequest, CreateApplicationResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Enables the attributes-based access control (ABAC) feature for the specified IAM Identity Center instance. You can also specify new attributes to add to your ABAC configuration during the enabling process. For more information about ABAC, see Attribute-Based Access Control in the *IAM Identity Center User Guide*.
- * 
  * 
  * After a successful response, call `DescribeInstanceAccessControlAttributeConfiguration` to validate that `InstanceAccessControlAttributeConfiguration` was created.
  */export const createInstanceAccessControlAttributeConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-07-20", sdkId: "SSO Admin", sigV4ServiceName: "sso", name: "SWBExternalService.CreateInstanceAccessControlAttributeConfiguration" }, CreateInstanceAccessControlAttributeConfigurationRequest, CreateInstanceAccessControlAttributeConfigurationResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

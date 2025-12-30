@@ -62,38 +62,25 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * Registers a Slack workspace for your Amazon Web Services account. To call this API, your account must be
  * part of an organization in Organizations.
  * 
- * 
  * If you're the *management account* and you want to register Slack
  * workspaces for your organization, you must complete the following tasks:
- * 
- * 
  * 
  * - Sign in to the Amazon Web Services Support Center and
  * authorize the Slack workspaces where you want your organization to have access to. See
  * Authorize a Slack workspace in the Amazon Web Services Support User
  * Guide.
  * 
- * 
- * 
  * - Call the `RegisterSlackWorkspaceForOrganization` API to authorize each
  * Slack workspace for the organization.
- * 
- * 
- * 
  * 
  * After the management account authorizes the Slack workspace, member accounts can call this
  * API to authorize the same Slack workspace for their individual accounts. Member accounts don't
  * need to authorize the Slack workspace manually through the Amazon Web Services Support Center.
  * 
- * 
  * To use the Amazon Web Services Support App, each account must then complete the following tasks:
- * 
- * 
  * 
  * - Create an Identity and Access Management (IAM) role with the required permission. For more information,
  * see Managing access to the Amazon Web Services Support App.
- * 
- * 
  * 
  * - Configure a Slack channel to use the Amazon Web Services Support App for support cases for that account. For
  * more information, see Configuring a Slack channel.
@@ -104,29 +91,14 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Creates a Slack channel configuration for your Amazon Web Services account.
  * 
- * 
- * 
- * 
- * 
  * - You can add up to 5 Slack workspaces for your account.
  * 
- * 
- * 
  * - You can add up to 20 Slack channels for your account.
- * 
- * 
- * 
- * 
- * 
- * 
  * 
  * A Slack channel can have up to 100 Amazon Web Services accounts. This means that only 100 accounts can
  * add the same Slack channel to the Amazon Web Services Support App. We recommend that you only add the accounts that
  * you need to manage support cases for your organization. This can reduce the notifications
  * about case updates that you receive in the Slack channel.
- * 
- * 
- * 
  * 
  * We recommend that you choose a private Slack channel so that only members in that
  * channel have read and write access to your support cases. Anyone in your Slack channel can

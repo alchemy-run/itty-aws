@@ -477,24 +477,15 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
  * asset property, the asset property still exists, but the time series will no longer be
  * associated with this asset property.
  * 
- * 
  * To identify a time series, do one of the following:
- * 
- * 
  * 
  * - If the time series isn't associated with an asset property,
  * specify the `alias` of the time series.
  * 
- * 
- * 
  * - If the time series is associated with an asset property,
  * specify one of the following:
  * 
- * 
- * 
  * - The `alias` of the time series.
- * 
- * 
  * 
  * - The `assetId` and `propertyId` that identifies the asset property.
  */export const deleteTimeSeries = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/timeseries/delete", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.DeleteTimeSeries" }, DeleteTimeSeriesRequest, S.Struct({}), [ConflictingOperationException, InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -514,9 +505,6 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
  */export const updateAccessPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/access-policies/{accessPolicyId}", method: "PUT", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.UpdateAccessPolicy" }, UpdateAccessPolicyRequest, UpdateAccessPolicyResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates an asset property's alias and notification state.
- * 
- * 
- * 
  * 
  * This operation overwrites the property's existing alias and notification state. To keep
  * your existing property's alias or notification state, you must include the existing values
@@ -543,9 +531,6 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
 /**
  * Creates a project in the specified portal.
  * 
- * 
- * 
- * 
  * Make sure that the project name and description don't contain confidential
  * information.
  */export const createProject = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/projects", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.CreateProject" }, CreateProjectRequest, CreateProjectResponse, [InternalFailureException, InvalidRequestException, LimitExceededException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -557,9 +542,6 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
 /**
  * Deletes an asset. This action can't be undone. For more information, see Deleting assets and
  * models in the *IoT SiteWise User Guide*.
- * 
- * 
- * 
  * 
  * You can't delete an asset that's associated to another asset. For more information, see
  * DisassociateAssets.
@@ -605,27 +587,15 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
 /**
  * Each gateway capability defines data sources for a gateway. This is the namespace of the gateway capability.
  * 
- * 
  * . The namespace follows the format `service:capability:version`, where:
- * 
- * 
  * 
  * - `service` - The service providing the capability, or `iotsitewise`.
  * 
- * 
- * 
  * - `capability` - The specific capability type. Options include: `opcuacollector` for the OPC UA data source collector, or `publisher` for data publisher capability.
- * 
- * 
  * 
  * - `version` - The version number of the capability. Option include `2` for Classic streams, V2 gateways, and `3` for MQTT-enabled, V3 gateways.
  * 
- * 
- * 
- * 
- * 
  * After updating a capability configuration, the sync status becomes `OUT_OF_SYNC` until the gateway processes the configuration.Use `DescribeGatewayCapabilityConfiguration` to check the sync status and verify the configuration was applied.
- * 
  * 
  * A gateway can have multiple capability configurations with different namespaces.
  */export const describeGatewayCapabilityConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/20200301/gateways/{gatewayId}/capability/{capabilityNamespace}", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.DescribeGatewayCapabilityConfiguration" }, DescribeGatewayCapabilityConfigurationRequest, DescribeGatewayCapabilityConfigurationResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -638,24 +608,15 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
 /**
  * Retrieves information about a time series (data stream).
  * 
- * 
  * To identify a time series, do one of the following:
- * 
- * 
  * 
  * - If the time series isn't associated with an asset property,
  * specify the `alias` of the time series.
  * 
- * 
- * 
  * - If the time series is associated with an asset property,
  * specify one of the following:
  * 
- * 
- * 
  * - The `alias` of the time series.
- * 
- * 
  * 
  * - The `assetId` and `propertyId` that identifies the asset property.
  */export const describeTimeSeries = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/timeseries/describe", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.DescribeTimeSeries" }, DescribeTimeSeriesRequest, DescribeTimeSeriesResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -663,14 +624,9 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
  * Gets the history of an asset property's values. For more information, see Querying
  * historical values in the *IoT SiteWise User Guide*.
  * 
- * 
  * To identify an asset property, you must specify one of the following:
  * 
- * 
- * 
  * - The `assetId` and `propertyId` of an asset property.
- * 
- * 
  * 
  * - A `propertyAlias`, which is a data stream alias (for example,
  * `/company/windfarm/3/turbine/7/temperature`). To define an asset property's alias, see UpdateAssetProperty.
@@ -705,22 +661,14 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
  * definitions. For more information, see Updating assets and models in the
  * *IoT SiteWise User Guide*.
  * 
- * 
- * 
- * 
  * If you remove a property from a composite asset model, IoT SiteWise deletes all previous data
  * for that property. You can’t change the type or data type of an existing property.
- * 
  * 
  * To replace an existing composite asset model property with a new one with the same
  * `name`, do the following:
  * 
- * 
- * 
  * - Submit an `UpdateAssetModelCompositeModel` request with the entire
  * existing property removed.
- * 
- * 
  * 
  * - Submit a second `UpdateAssetModelCompositeModel` request that includes
  * the new property. The new asset property will have the same `name` as the
@@ -735,33 +683,19 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
 /**
  * Updates a gateway capability configuration or defines a new capability configuration. Each gateway capability defines data sources for a gateway.
  * 
- * 
  * Important workflow notes:
- * 
  * 
  * Each gateway capability defines data sources for a gateway. This is the namespace of the gateway capability.
  * 
- * 
  * . The namespace follows the format `service:capability:version`, where:
- * 
- * 
  * 
  * - `service` - The service providing the capability, or `iotsitewise`.
  * 
- * 
- * 
  * - `capability` - The specific capability type. Options include: `opcuacollector` for the OPC UA data source collector, or `publisher` for data publisher capability.
- * 
- * 
  * 
  * - `version` - The version number of the capability. Option include `2` for Classic streams, V2 gateways, and `3` for MQTT-enabled, V3 gateways.
  * 
- * 
- * 
- * 
- * 
  * After updating a capability configuration, the sync status becomes `OUT_OF_SYNC` until the gateway processes the configuration.Use `DescribeGatewayCapabilityConfiguration` to check the sync status and verify the configuration was applied.
- * 
  * 
  * A gateway can have multiple capability configurations with different namespaces.
  */export const updateGatewayCapabilityConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/20200301/gateways/{gatewayId}/capability", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.UpdateGatewayCapabilityConfiguration" }, UpdateGatewayCapabilityConfigurationRequest, UpdateGatewayCapabilityConfigurationResponse, [ConflictingOperationException, InternalFailureException, InvalidRequestException, LimitExceededException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -778,7 +712,6 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
  * are two types of custom composite models, `inline` and
  * `component-model-based`.
  * 
- * 
  * Use component-model-based custom composite models to define standard, reusable components.
  * A component-model-based custom composite model consists of a name, a description, and the ID
  * of the component model it references. A component-model-based custom composite model has no
@@ -786,16 +719,13 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
  * any created assets. For more information, see Custom composite models (Components)
  * in the *IoT SiteWise User Guide*.
  * 
- * 
  * Use inline custom composite models to organize the properties of an asset model. The
  * properties of inline custom composite models are local to the asset model where they are
  * included and can't be used to create multiple assets.
  * 
- * 
  * To create a component-model-based model, specify the `composedAssetModelId` of
  * an existing asset model with `assetModelType` of
  * `COMPONENT_MODEL`.
- * 
  * 
  * To create an inline model, specify the `assetModelCompositeModelProperties` and
  * don't include an `composedAssetModelId`.
@@ -831,15 +761,9 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
 /**
  * Retrieves information about an asset property.
  * 
- * 
- * 
- * 
  * When you call this operation for an attribute property, this response includes the
  * default attribute value that you define in the asset model. If you update the default value
  * in the model, this operation's response includes the new default value.
- * 
- * 
- * 
  * 
  * This operation doesn't return the value of the asset property. To get the value of an
  * asset property, use GetAssetPropertyValue.
@@ -871,14 +795,9 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
  * Gets an asset property's current value. For more information, see Querying
  * current values in the *IoT SiteWise User Guide*.
  * 
- * 
  * To identify an asset property, you must specify one of the following:
  * 
- * 
- * 
  * - The `assetId` and `propertyId` of an asset property.
- * 
- * 
  * 
  * - A `propertyAlias`, which is a data stream alias (for example,
  * `/company/windfarm/3/turbine/7/temperature`). To define an asset property's alias, see UpdateAssetProperty.
@@ -888,18 +807,12 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
  * period of time. If your time series is missing data points during the specified time interval,
  * you can use interpolation to estimate the missing data.
  * 
- * 
  * For example, you can use this operation to return the interpolated temperature values for
  * a wind turbine every 24 hours over a duration of 7 days.
  * 
- * 
  * To identify an asset property, you must specify one of the following:
  * 
- * 
- * 
  * - The `assetId` and `propertyId` of an asset property.
- * 
- * 
  * 
  * - A `propertyAlias`, which is a data stream alias (for example,
  * `/company/windfarm/3/turbine/7/temperature`). To define an asset property's alias, see UpdateAssetProperty.
@@ -922,20 +835,11 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
 /**
  * Retrieves a paginated list of asset summaries.
  * 
- * 
  * You can use this operation to do the following:
- * 
- * 
  * 
  * - List assets based on a specific asset model.
  * 
- * 
- * 
  * - List top-level assets.
- * 
- * 
- * 
- * 
  * 
  * You can't use this operation to list all assets. To retrieve summaries for all of your
  * assets, use ListAssetModels to get all of your asset model IDs. Then, use ListAssets to get all
@@ -944,14 +848,9 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
 /**
  * Retrieves a paginated list of associated assets.
  * 
- * 
  * You can use this operation to do the following:
  * 
- * 
- * 
  * - `CHILD` - List all child assets associated to the asset.
- * 
- * 
  * 
  * - `PARENT` - List the asset's parent asset.
  */export const listAssociatedAssets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/assets/{assetId}/hierarchies", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.ListAssociatedAssets" }, ListAssociatedAssetsRequest, ListAssociatedAssetsResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1006,9 +905,6 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
  * Creates an access policy that grants the specified identity (IAM Identity Center user, IAM Identity Center group, or
  * IAM user) access to the specified IoT SiteWise Monitor portal or project resource.
  * 
- * 
- * 
- * 
  * Support for access policies that use an SSO Group as the identity is not supported at this time.
  */export const createAccessPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/access-policies", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.CreateAccessPolicy" }, CreateAccessPolicyRequest, CreateAccessPolicyResponse, [InternalFailureException, InvalidRequestException, LimitExceededException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -1019,9 +915,6 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
 /**
  * Creates a portal, which can contain projects and dashboards. IoT SiteWise Monitor uses IAM Identity Center or IAM
  * to authenticate portal users and manage user permissions.
- * 
- * 
- * 
  * 
  * Before you can sign in to a new portal, you must add at least one identity to that
  * portal. For more information, see Adding or removing portal
@@ -1042,14 +935,9 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
  * Gets aggregated values for an asset property. For more information, see Querying
  * aggregates in the *IoT SiteWise User Guide*.
  * 
- * 
  * To identify an asset property, you must specify one of the following:
  * 
- * 
- * 
  * - The `assetId` and `propertyId` of an asset property.
- * 
- * 
  * 
  * - A `propertyAlias`, which is a data stream alias (for example,
  * `/company/windfarm/3/turbine/7/temperature`). To define an asset property's alias, see UpdateAssetProperty.
@@ -1074,22 +962,14 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
  * For more information, see Updating assets and models in the
  * *IoT SiteWise User Guide*.
  * 
- * 
- * 
- * 
  * If you remove a property from an asset model, IoT SiteWise deletes all previous data for that
  * property. You can’t change the type or data type of an existing property.
- * 
  * 
  * To replace an existing asset model property with a new one with the same
  * `name`, do the following:
  * 
- * 
- * 
  * - Submit an `UpdateAssetModel` request with the entire existing property
  * removed.
- * 
- * 
  * 
  * - Submit a second `UpdateAssetModel` request that includes the new
  * property. The new asset property will have the same `name` as the previous
@@ -1116,25 +996,15 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
  * Defines a job to ingest data to IoT SiteWise from Amazon S3. For more information, see Create a
  * bulk import job (CLI) in the *Amazon Simple Storage Service User Guide*.
  * 
- * 
- * 
- * 
  * Before you create a bulk import job, you must enable IoT SiteWise warm tier or IoT SiteWise cold tier.
  * For more information about how to configure storage settings, see PutStorageConfiguration.
  * 
- * 
  * Bulk import is designed to store historical data to IoT SiteWise.
- * 
- * 
  * 
  * - Newly ingested data in the hot tier triggers notifications and computations.
  * 
- * 
- * 
  * - After data moves from the hot tier to the warm or cold tier based on retention
  * settings, it does not trigger computations or notifications.
- * 
- * 
  * 
  * - Data older than 7 days does not trigger computations or notifications.
  */export const createBulkImportJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/jobs", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.CreateBulkImportJob" }, CreateBulkImportJobRequest, CreateBulkImportJobResponse, [ConflictingOperationException, InternalFailureException, InvalidRequestException, LimitExceededException, ResourceAlreadyExistsException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1155,23 +1025,16 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
  * property and hierarchy definitions. For more information, see Defining asset models in the
  * *IoT SiteWise User Guide*.
  * 
- * 
  * You can create three types of asset models, `ASSET_MODEL`,
  * `COMPONENT_MODEL`, or an `INTERFACE`.
- * 
- * 
  * 
  * - **ASSET_MODEL** – (default) An asset model that
  * you can use to create assets. Can't be included as a component in another asset
  * model.
  * 
- * 
- * 
  * - **COMPONENT_MODEL** – A reusable component that
  * you can include in the composite models of other asset models. You can't create
  * assets directly from this type of asset model.
- * 
- * 
  * 
  * - **INTERFACE** – An interface is a type of model
  * that defines a standard structure that can be applied to different asset models.
@@ -1186,36 +1049,21 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
  * (TQV) data point. For more information, see Ingesting data using the API in the
  * *IoT SiteWise User Guide*.
  * 
- * 
  * To identify an asset property, you must specify one of the following:
- * 
- * 
  * 
  * - The `assetId` and `propertyId` of an asset property.
  * 
- * 
- * 
  * - A `propertyAlias`, which is a data stream alias (for example,
  * `/company/windfarm/3/turbine/7/temperature`). To define an asset property's alias, see UpdateAssetProperty.
- * 
- * 
- * 
- * 
- * 
- * 
  * 
  * With respect to Unix epoch time, IoT SiteWise accepts only TQVs that have a timestamp of no more
  * than 7 days in the past and no more than 10 minutes in the future. IoT SiteWise rejects timestamps
  * outside of the inclusive range of [-7 days, +10 minutes] and returns a
  * `TimestampOutOfRangeException` error.
  * 
- * 
  * For each asset property, IoT SiteWise overwrites TQVs with duplicate timestamps unless the newer
  * TQV has a different quality. For example, if you store a TQV `{T1, GOOD, V1}`,
  * then storing `{T1, GOOD, V2}` replaces the existing TQV.
- * 
- * 
- * 
  * 
  * IoT SiteWise authorizes access to each `BatchPutAssetPropertyValue` entry individually.
  * For more information, see BatchPutAssetPropertyValue authorization in the

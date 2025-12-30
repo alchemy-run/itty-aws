@@ -48,9 +48,6 @@ export class ResourceNotFoundException extends S.TaggedError<ResourceNotFoundExc
 /**
  * **This feature is in preview release and is subject to change. Your use of Amazon Web Services Price List API is subject to the Beta Service Participation terms of the Amazon Web Services Service Terms (Section 1.10).**
  * 
- * 
- * 
- * 
  * This returns a list of Price List references that the requester if authorized to view,
  * given a `ServiceCode`, `CurrencyCode`, and an
  * `EffectiveDate`. Use without a `RegionCode` filter to list Price
@@ -70,9 +67,6 @@ export class ResourceNotFoundException extends S.TaggedError<ResourceNotFoundExc
  */export const describeServices = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-15", sdkId: "Pricing", sigV4ServiceName: "pricing", name: "AWSPriceListService.DescribeServices" }, DescribeServicesRequest, DescribeServicesResponse, [ExpiredNextTokenException, InternalErrorException, InvalidNextTokenException, InvalidParameterException, NotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * **This feature is in preview release and is subject to change. Your use of Amazon Web Services Price List API is subject to the Beta Service Participation terms of the Amazon Web Services Service Terms (Section 1.10).**
- * 
- * 
- * 
  * 
  * This returns the URL that you can retrieve your Price List file from. This URL is based
  * on the `PriceListArn` and `FileFormat` that you retrieve from the

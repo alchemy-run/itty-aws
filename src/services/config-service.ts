@@ -461,33 +461,23 @@ export class NoSuchBucketException extends S.TaggedError<NoSuchBucketException>(
  * Deletes the specified Config rule and all of its evaluation
  * results.
  * 
- * 
  * Config sets the state of a rule to `DELETING`
  * until the deletion is complete. You cannot update a rule while it is
  * in this state. If you make a `PutConfigRule` or
  * `DeleteConfigRule` request for the rule, you will
  * receive a `ResourceInUseException`.
  * 
- * 
  * You can check the state of a rule by using the
  * `DescribeConfigRules` request.
  * 
- * 
- * 
- * 
- * 
  * **Recommendation: Consider excluding the `AWS::Config::ResourceCompliance` resource type from recording before deleting rules**
- * 
- * 
  * 
  * Deleting rules creates configuration items (CIs) for `AWS::Config::ResourceCompliance`
  * that can affect your costs for the configuration recorder. If you are deleting rules which evaluate a large number of resource types,
  * this can lead to a spike in the number of CIs recorded.
  * 
- * 
  * To avoid the associated costs, you can opt to disable recording
  * for the `AWS::Config::ResourceCompliance` resource type before deleting rules, and re-enable recording after the rules have been deleted.
- * 
  * 
  * However, since deleting rules is an asynchronous process, it might take an hour or more to complete. During the time
  * when recording is disabled for `AWS::Config::ResourceCompliance`, rule evaluations will not be recorded in the associated resource’s history.
@@ -498,7 +488,6 @@ export class NoSuchBucketException extends S.TaggedError<NoSuchBucketException>(
  */export const deleteConfigurationAggregator = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-12", sdkId: "Config Service", sigV4ServiceName: "config", name: "StarlingDoveService.DeleteConfigurationAggregator" }, DeleteConfigurationAggregatorRequest, S.Struct({}), [NoSuchConfigurationAggregatorException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the customer managed configuration recorder.
- * 
  * 
  * This operation does not delete the configuration information that
  * was previously recorded. You will be able to access the previously
@@ -511,26 +500,17 @@ export class NoSuchBucketException extends S.TaggedError<NoSuchBucketException>(
  * Deletes the specified conformance pack and all the Config rules, remediation actions, and all evaluation results within that
  * conformance pack.
  * 
- * 
  * Config sets the conformance pack to `DELETE_IN_PROGRESS` until the deletion is complete.
  * You cannot update a conformance pack while it is in this state.
  * 
- * 
- * 
- * 
- * 
  * **Recommendation: Consider excluding the `AWS::Config::ResourceCompliance` resource type from recording before deleting rules**
- * 
- * 
  * 
  * Deleting rules creates configuration items (CIs) for `AWS::Config::ResourceCompliance`
  * that can affect your costs for the configuration recorder. If you are deleting rules which evaluate a large number of resource types,
  * this can lead to a spike in the number of CIs recorded.
  * 
- * 
  * To avoid the associated costs, you can opt to disable recording
  * for the `AWS::Config::ResourceCompliance` resource type before deleting rules, and re-enable recording after the rules have been deleted.
- * 
  * 
  * However, since deleting rules is an asynchronous process, it might take an hour or more to complete. During the time
  * when recording is disabled for `AWS::Config::ResourceCompliance`, rule evaluations will not be recorded in the associated resource’s history.
@@ -545,31 +525,21 @@ export class NoSuchBucketException extends S.TaggedError<NoSuchBucketException>(
  * Deletes the specified organization conformance pack and all of the Config rules and remediation actions from
  * all member accounts in that organization.
  * 
- * 
  * Only a management account or a delegated administrator account can delete an organization conformance pack.
  * When calling this API with a delegated administrator, you must ensure Organizations
  * `ListDelegatedAdministrator` permissions are added.
  * 
- * 
  * Config sets the state of a conformance pack to DELETE_IN_PROGRESS until the deletion is complete.
  * You cannot update a conformance pack while it is in this state.
  * 
- * 
- * 
- * 
- * 
  * **Recommendation: Consider excluding the `AWS::Config::ResourceCompliance` resource type from recording before deleting rules**
- * 
- * 
  * 
  * Deleting rules creates configuration items (CIs) for `AWS::Config::ResourceCompliance`
  * that can affect your costs for the configuration recorder. If you are deleting rules which evaluate a large number of resource types,
  * this can lead to a spike in the number of CIs recorded.
  * 
- * 
  * To avoid the associated costs, you can opt to disable recording
  * for the `AWS::Config::ResourceCompliance` resource type before deleting rules, and re-enable recording after the rules have been deleted.
- * 
  * 
  * However, since deleting rules is an asynchronous process, it might take an hour or more to complete. During the time
  * when recording is disabled for `AWS::Config::ResourceCompliance`, rule evaluations will not be recorded in the associated resource’s history.
@@ -583,20 +553,13 @@ export class NoSuchBucketException extends S.TaggedError<NoSuchBucketException>(
 /**
  * Deletes an existing service-linked configuration recorder.
  * 
- * 
  * This operation does not delete the configuration information that was previously recorded. You will be able to access the previously
  * recorded information by using the
  * GetResourceConfigHistory operation, but you will not
  * be able to access this information in the Config console until
  * you have created a new service-linked configuration recorder for the same service.
  * 
- * 
- * 
- * 
- * 
  * **The recording scope determines if you receive configuration items**
- * 
- * 
  * 
  * The recording scope is set by the service that is linked to the configuration recorder and determines whether you receive configuration items (CIs) in the delivery channel. If the recording scope is internal, you will not receive CIs in the delivery channel.
  */export const deleteServiceLinkedConfigurationRecorder = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-12", sdkId: "Config Service", sigV4ServiceName: "config", name: "StarlingDoveService.DeleteServiceLinkedConfigurationRecorder" }, DeleteServiceLinkedConfigurationRecorderRequest, DeleteServiceLinkedConfigurationRecorderResponse, [ConflictException, NoSuchConfigurationRecorderException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -606,12 +569,8 @@ export class NoSuchBucketException extends S.TaggedError<NoSuchBucketException>(
 /**
  * Returns details for the configuration recorder you specify.
  * 
- * 
  * If a configuration recorder is not specified, this operation returns details for the customer managed configuration recorder configured for the
  * account, if applicable.
- * 
- * 
- * 
  * 
  * When making a request to this operation, you can only specify one configuration recorder.
  */export const describeConfigurationRecorders = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-12", sdkId: "Config Service", sigV4ServiceName: "config", name: "StarlingDoveService.DescribeConfigurationRecorders" }, DescribeConfigurationRecordersRequest, DescribeConfigurationRecordersResponse, [NoSuchConfigurationRecorderException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -619,9 +578,6 @@ export class NoSuchBucketException extends S.TaggedError<NoSuchBucketException>(
  * Returns details about the specified delivery channel. If a
  * delivery channel is not specified, this operation returns the details
  * of all delivery channels associated with the account.
- * 
- * 
- * 
  * 
  * Currently, you can specify only one delivery channel per
  * region in your account.
@@ -631,7 +587,6 @@ export class NoSuchBucketException extends S.TaggedError<NoSuchBucketException>(
  */export const describeRemediationConfigurations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-12", sdkId: "Config Service", sigV4ServiceName: "config", name: "StarlingDoveService.DescribeRemediationConfigurations" }, DescribeRemediationConfigurationsRequest, DescribeRemediationConfigurationsResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes all resource types specified in the `ResourceTypes` list from the RecordingGroup of configuration recorder and excludes these resource types when recording.
- * 
  * 
  * For this operation, the configuration recorder must use a RecordingStrategy that is either `INCLUSION_BY_RESOURCE_TYPES` or `EXCLUSION_BY_RESOURCE_TYPES`.
  */export const disassociateResourceTypes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-12", sdkId: "Config Service", sigV4ServiceName: "config", name: "StarlingDoveService.DisassociateResourceTypes" }, DisassociateResourceTypesRequest, DisassociateResourceTypesResponse, [ConflictException, NoSuchConfigurationRecorderException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -657,32 +612,19 @@ export class NoSuchBucketException extends S.TaggedError<NoSuchBucketException>(
 /**
  * Creates a service-linked configuration recorder that is linked to a specific Amazon Web Services service based on the `ServicePrincipal` you specify.
  * 
- * 
  * The configuration recorder's `name`, `recordingGroup`, `recordingMode`, and `recordingScope` is set by the service that is linked to the configuration recorder.
- * 
  * 
  * For more information and a list of supported services/service principals, see
  * **Working with the Configuration Recorder**
  * in the *Config Developer Guide*.
  * 
- * 
  * This API creates a service-linked role `AWSServiceRoleForConfig` in your account. The service-linked role is created only when the role does not exist in your account.
- * 
- * 
- * 
- * 
  * 
  * **The recording scope determines if you receive configuration items**
  * 
- * 
- * 
  * The recording scope is set by the service that is linked to the configuration recorder and determines whether you receive configuration items (CIs) in the delivery channel. If the recording scope is internal, you will not receive CIs in the delivery channel.
  * 
- * 
- * 
  * **Tags are added at creation and cannot be updated with this operation**
- * 
- * 
  * 
  * Use TagResource and UntagResource to update tags after creation.
  */export const putServiceLinkedConfigurationRecorder = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-12", sdkId: "Config Service", sigV4ServiceName: "config", name: "StarlingDoveService.PutServiceLinkedConfigurationRecorder" }, PutServiceLinkedConfigurationRecorderRequest, PutServiceLinkedConfigurationRecorderResponse, [ConflictException, InsufficientPermissionsException, LimitExceededException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -695,9 +637,7 @@ export class NoSuchBucketException extends S.TaggedError<NoSuchBucketException>(
  * latest configuration state for your resources. It re-runs an
  * evaluation against the last known state of your resources.
  * 
- * 
  * You can specify up to 25 Config rules per request.
- * 
  * 
  * An existing `StartConfigRulesEvaluation` call for
  * the specified rules must complete before you can call the API again.
@@ -705,44 +645,27 @@ export class NoSuchBucketException extends S.TaggedError<NoSuchBucketException>(
  * will receive a `ConfigRuleEvaluationStarted` notification
  * when the evaluation starts.
  * 
- * 
- * 
- * 
  * You don't need to call the
  * `StartConfigRulesEvaluation` API to run an
  * evaluation for a new rule. When you create a rule, Config
  * evaluates your resources against the rule automatically.
  * 
- * 
- * 
- * 
- * 
  * The `StartConfigRulesEvaluation` API is useful if
  * you want to run on-demand evaluations, such as the following
  * example:
  * 
- * 
- * 
  * - You have a custom rule that evaluates your IAM
  * resources every 24 hours.
  * 
- * 
- * 
  * - You update your Lambda function to add additional
  * conditions to your rule.
- * 
- * 
  * 
  * - Instead of waiting for the next periodic evaluation,
  * you call the `StartConfigRulesEvaluation`
  * API.
  * 
- * 
- * 
  * - Config invokes your Lambda function and evaluates
  * your IAM resources.
- * 
- * 
  * 
  * - Your custom rule will still run periodic evaluations
  * every 24 hours.
@@ -750,13 +673,11 @@ export class NoSuchBucketException extends S.TaggedError<NoSuchBucketException>(
 /**
  * Starts the customer managed configuration recorder. The customer managed configuration recorder will begin recording configuration changes for the resource types you specify.
  * 
- * 
  * You must have created a delivery channel to
  * successfully start the customer managed configuration recorder. You can use the PutDeliveryChannel operation to create a delivery channel.
  */export const startConfigurationRecorder = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-12", sdkId: "Config Service", sigV4ServiceName: "config", name: "StarlingDoveService.StartConfigurationRecorder" }, StartConfigurationRecorderRequest, S.Struct({}), [NoAvailableDeliveryChannelException, NoSuchConfigurationRecorderException, UnmodifiableEntityException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Runs an on-demand remediation for the specified Config rules against the last known remediation configuration. It runs an execution against the current state of your resources. Remediation execution is asynchronous.
- * 
  * 
  * You can specify up to 100 resource keys per request. An existing StartRemediationExecution call for the specified resource keys must complete before you can call the API again.
  */export const startRemediationExecution = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-12", sdkId: "Config Service", sigV4ServiceName: "config", name: "StarlingDoveService.StartRemediationExecution" }, StartRemediationExecutionRequest, StartRemediationExecutionResponse, [InsufficientPermissionsException, InvalidParameterValueException, NoSuchRemediationConfigurationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -773,7 +694,6 @@ export class NoSuchBucketException extends S.TaggedError<NoSuchBucketException>(
 /**
  * Adds all resource types specified in the `ResourceTypes` list to the RecordingGroup of specified configuration recorder and includes those resource types when recording.
  * 
- * 
  * For this operation, the specified configuration recorder must use a RecordingStrategy that is either `INCLUSION_BY_RESOURCE_TYPES` or `EXCLUSION_BY_RESOURCE_TYPES`.
  */export const associateResourceTypes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-12", sdkId: "Config Service", sigV4ServiceName: "config", name: "StarlingDoveService.AssociateResourceTypes" }, AssociateResourceTypesRequest, AssociateResourceTypesResponse, [ConflictException, NoSuchConfigurationRecorderException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -783,14 +703,8 @@ export class NoSuchBucketException extends S.TaggedError<NoSuchBucketException>(
  * resources, the operation returns an empty unprocessedResourceKeys
  * list.
  * 
- * 
- * 
- * 
- * 
  * - The API does not return results for deleted
  * resources.
- * 
- * 
  * 
  * - The API does not return any tags for the requested
  * resources. This information is filtered out of the
@@ -800,37 +714,26 @@ export class NoSuchBucketException extends S.TaggedError<NoSuchBucketException>(
 /**
  * Deletes the delivery channel.
  * 
- * 
  * Before you can delete the delivery channel, you must stop the customer managed configuration recorder. You can use the StopConfigurationRecorder operation to stop the customer managed configuration recorder.
  */export const deleteDeliveryChannel = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-12", sdkId: "Config Service", sigV4ServiceName: "config", name: "StarlingDoveService.DeleteDeliveryChannel" }, DeleteDeliveryChannelRequest, S.Struct({}), [LastDeliveryChannelDeleteFailedException, NoSuchDeliveryChannelException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the specified organization Config rule and all of its evaluation results from all member accounts in that organization.
  * 
- * 
  * Only a management account and a delegated administrator account can delete an organization Config rule.
  * When calling this API with a delegated administrator, you must ensure Organizations
  * `ListDelegatedAdministrator` permissions are added.
  * 
- * 
  * Config sets the state of a rule to DELETE_IN_PROGRESS until the deletion is complete.
  * You cannot update a rule while it is in this state.
  * 
- * 
- * 
- * 
- * 
  * **Recommendation: Consider excluding the `AWS::Config::ResourceCompliance` resource type from recording before deleting rules**
- * 
- * 
  * 
  * Deleting rules creates configuration items (CIs) for `AWS::Config::ResourceCompliance`
  * that can affect your costs for the configuration recorder. If you are deleting rules which evaluate a large number of resource types,
  * this can lead to a spike in the number of CIs recorded.
  * 
- * 
  * To avoid the associated costs, you can opt to disable recording
  * for the `AWS::Config::ResourceCompliance` resource type before deleting rules, and re-enable recording after the rules have been deleted.
- * 
  * 
  * However, since deleting rules is an asynchronous process, it might take an hour or more to complete. During the time
  * when recording is disabled for `AWS::Config::ResourceCompliance`, rule evaluations will not be recorded in the associated resource’s history.
@@ -841,16 +744,10 @@ export class NoSuchBucketException extends S.TaggedError<NoSuchBucketException>(
  * started, Config sends the following notifications using an
  * Amazon SNS topic that you have specified.
  * 
- * 
- * 
  * - Notification of the start of the delivery.
- * 
- * 
  * 
  * - Notification of the completion of the delivery, if the
  * delivery was successfully completed.
- * 
- * 
  * 
  * - Notification of delivery failure, if the delivery
  * failed.
@@ -863,26 +760,20 @@ export class NoSuchBucketException extends S.TaggedError<NoSuchBucketException>(
  * Indicates whether the specified Amazon Web Services resources are compliant. If
  * a resource is noncompliant, this operation returns the number of Config rules that the resource does not comply with.
  * 
- * 
  * A resource is compliant if it complies with all the Config
  * rules that evaluate it. It is noncompliant if it does not comply
  * with one or more of these rules.
- * 
  * 
  * If Config has no current evaluation results for the
  * resource, it returns `INSUFFICIENT_DATA`. This result
  * might indicate one of the following conditions about the rules that
  * evaluate the resource:
  * 
- * 
- * 
  * - Config has never invoked an evaluation for the
  * rule. To check whether it has, use the
  * `DescribeConfigRuleEvaluationStatus` action
  * to get the `LastSuccessfulInvocationTime` and
  * `LastFailedInvocationTime`.
- * 
- * 
  * 
  * - The rule's Lambda function is failing to send
  * evaluation results to Config. Verify that the role that
@@ -891,8 +782,6 @@ export class NoSuchBucketException extends S.TaggedError<NoSuchBucketException>(
  * rule is a custom rule, verify that the Lambda execution
  * role includes the `config:PutEvaluations`
  * permission.
- * 
- * 
  * 
  * - The rule's Lambda function has returned
  * `NOT_APPLICABLE` for all evaluation results.
@@ -920,15 +809,10 @@ export class NoSuchBucketException extends S.TaggedError<NoSuchBucketException>(
  * Returns the current status of the configuration
  * recorder you specify as well as the status of the last recording event for the configuration recorders.
  * 
- * 
  * For a detailed status of recording events over time, add your Config events to Amazon CloudWatch metrics and use CloudWatch metrics.
- * 
  * 
  * If a configuration recorder is not specified, this operation returns the status for the customer managed configuration recorder configured for the
  * account, if applicable.
- * 
- * 
- * 
  * 
  * When making a request to this operation, you can only specify one configuration recorder.
  */export const describeConfigurationRecorderStatus = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-12", sdkId: "Config Service", sigV4ServiceName: "config", name: "StarlingDoveService.DescribeConfigurationRecorderStatus" }, DescribeConfigurationRecorderStatusRequest, DescribeConfigurationRecorderStatusResponse, [NoSuchConfigurationRecorderException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -938,20 +822,13 @@ export class NoSuchBucketException extends S.TaggedError<NoSuchBucketException>(
 /**
  * Provides one or more conformance packs deployment status.
  * 
- * 
- * 
- * 
  * If there are no conformance packs then you will see an empty result.
  */export const describeConformancePackStatus = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-12", sdkId: "Config Service", sigV4ServiceName: "config", name: "StarlingDoveService.DescribeConformancePackStatus" }, DescribeConformancePackStatusRequest, DescribeConformancePackStatusResponse, [InvalidLimitException, InvalidNextTokenException, InvalidParameterValueException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Provides organization Config rule deployment status for an organization.
  * 
- * 
- * 
- * 
  * The status is not considered successful until organization Config rule is successfully deployed in all the member
  * accounts with an exception of excluded accounts.
- * 
  * 
  * When you specify the limit and the next token, you receive a paginated response.
  * Limit and next token are not applicable if you specify organization Config rule names.
@@ -960,20 +837,12 @@ export class NoSuchBucketException extends S.TaggedError<NoSuchBucketException>(
 /**
  * Returns a list of organization conformance packs.
  * 
- * 
- * 
- * 
  * When you specify the limit and the next token, you receive a paginated response.
- * 
  * 
  * Limit and next token are not applicable if you specify organization conformance packs names. They are only applicable,
  * when you request all the organization conformance packs.
  * 
- * 
- * 
  * *For accounts within an organization*
- * 
- * 
  * 
  * If you deploy an organizational rule or conformance pack in an organization
  * administrator account, and then establish a delegated administrator and deploy an
@@ -989,12 +858,8 @@ export class NoSuchBucketException extends S.TaggedError<NoSuchBucketException>(
 /**
  * Provides organization conformance pack deployment status for an organization.
  * 
- * 
- * 
- * 
  * The status is not considered successful until organization conformance pack is successfully
  * deployed in all the member accounts with an exception of excluded accounts.
- * 
  * 
  * When you specify the limit and the next token, you receive a paginated response.
  * Limit and next token are not applicable if you specify organization conformance pack names.
@@ -1007,15 +872,10 @@ export class NoSuchBucketException extends S.TaggedError<NoSuchBucketException>(
  * Returns the details of one or more remediation exceptions. A detailed view of a remediation exception for a set of resources that includes an explanation of an exception and the time when the exception will be deleted.
  * When you specify the limit and the next token, you receive a paginated response.
  * 
- * 
- * 
- * 
  * Config generates a remediation exception when a problem occurs executing a remediation action to a specific resource.
  * Remediation exceptions blocks auto-remediation until the exception is cleared.
  * 
- * 
  * When you specify the limit and the next token, you receive a paginated response.
- * 
  * 
  * Limit and next token are not applicable if you request resources in batch. It is only applicable, when you request all resources.
  */export const describeRemediationExceptions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-12", sdkId: "Config Service", sigV4ServiceName: "config", name: "StarlingDoveService.DescribeRemediationExceptions" }, DescribeRemediationExceptionsRequest, DescribeRemediationExceptionsResponse, [InvalidNextTokenException, InvalidParameterValueException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1024,9 +884,6 @@ export class NoSuchBucketException extends S.TaggedError<NoSuchBucketException>(
  * the retention configuration name is not specified, this operation
  * returns the details for all the retention configurations for that
  * account.
- * 
- * 
- * 
  * 
  * Currently, Config supports only one retention
  * configuration per region in your account.
@@ -1055,46 +912,26 @@ export class NoSuchBucketException extends S.TaggedError<NoSuchBucketException>(
  * and the total number of resources that Config is recording in
  * this region for your Amazon Web Services account.
  * 
- * 
  * **Example**
- * 
- * 
- * 
  * 
  * - Config is recording three resource types in the US
  * East (Ohio) Region for your account: 25 EC2 instances, 20
  * IAM users, and 15 S3 buckets.
  * 
- * 
- * 
  * - You make a call to the
  * `GetDiscoveredResourceCounts` action and
  * specify that you want all resource types.
  * 
- * 
- * 
  * - Config returns the following:
- * 
- * 
  * 
  * - The resource types (EC2 instances, IAM users,
  * and S3 buckets).
  * 
- * 
- * 
  * - The number of each resource type (25, 20, and
  * 15).
  * 
- * 
- * 
  * - The total number of all resources
  * (60).
- * 
- * 
- * 
- * 
- * 
- * 
  * 
  * The response is paginated. By default, Config lists 100
  * ResourceCount objects on each page. You can
@@ -1103,24 +940,13 @@ export class NoSuchBucketException extends S.TaggedError<NoSuchBucketException>(
  * page of results, run the request again and specify the string for
  * the `nextToken` parameter.
  * 
- * 
- * 
- * 
  * If you make a call to the GetDiscoveredResourceCounts action, you might
  * not immediately receive resource counts in the following
  * situations:
  * 
- * 
- * 
  * - You are a new Config customer.
  * 
- * 
- * 
  * - You just enabled resource recording.
- * 
- * 
- * 
- * 
  * 
  * It might take a few minutes for Config to record and
  * count your resources. Wait a few minutes and then retry the
@@ -1131,9 +957,6 @@ export class NoSuchBucketException extends S.TaggedError<NoSuchBucketException>(
  * The results indicate which evaluation context was used to evaluate the rules, which resource details were evaluated,
  * the evaluation mode that was run, and whether the resource details comply with the configuration of the proactive rules.
  * 
- * 
- * 
- * 
  * To see additional information about the evaluation result, such as which rule flagged a resource as NON_COMPLIANT, use the GetComplianceDetailsByResource API.
  * For more information, see the Examples section.
  */export const getResourceEvaluationSummary = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-12", sdkId: "Config Service", sigV4ServiceName: "config", name: "StarlingDoveService.GetResourceEvaluationSummary" }, GetResourceEvaluationSummaryRequest, GetResourceEvaluationSummaryResponse, [ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1141,7 +964,6 @@ export class NoSuchBucketException extends S.TaggedError<NoSuchBucketException>(
  * Accepts a resource type and returns a list of resource identifiers that are aggregated for a specific resource type across accounts and regions.
  * A resource identifier includes the resource type, ID, (if available) the custom resource name, source account, and source region.
  * You can narrow the results to include only resources that have specific resource IDs, or a resource name, or source account ID, or source region.
- * 
  * 
  * For example, if the input consists of accountID 12345678910 and the region is us-east-1 for resource type `AWS::EC2::Instance` then the API returns all the EC2 instance identifiers of accountID 12345678910 and region us-east-1.
  */export const listAggregateDiscoveredResources = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-12", sdkId: "Config Service", sigV4ServiceName: "config", name: "StarlingDoveService.ListAggregateDiscoveredResources" }, ListAggregateDiscoveredResourcesRequest, ListAggregateDiscoveredResourcesResponse, [InvalidLimitException, InvalidNextTokenException, NoSuchConfigurationAggregatorException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1151,65 +973,31 @@ export class NoSuchBucketException extends S.TaggedError<NoSuchBucketException>(
  * includes the resource type, ID, and (if available) the custom
  * resource name.
  * 
- * 
  * The results consist of resources that Config has
  * *discovered*, including those that Config is not currently
  * recording. You can narrow the results to include only resources that
  * have specific resource IDs or a resource name.
  * 
- * 
- * 
- * 
  * You can specify either resource IDs or a resource name, but
  * not both, in the same request.
  * 
- * 
- * 
- * 
- * 
- * 
- * 
  * *CloudFormation stack recording behavior in Config*
- * 
- * 
  * 
  * When a CloudFormation stack fails to create (for example, it enters the `ROLLBACK_FAILED` state),
  * Config does not record a configuration item (CI) for that stack. Configuration items are only recorded for stacks that reach
  * the following states:
  * 
- * 
- * 
  * - `CREATE_COMPLETE`
- * 
- * 
- * 
  * 
  * - `UPDATE_COMPLETE`
  * 
- * 
- * 
- * 
  * - `UPDATE_ROLLBACK_COMPLETE`
- * 
- * 
- * 
  * 
  * - `UPDATE_ROLLBACK_FAILED`
  * 
- * 
- * 
- * 
  * - `DELETE_FAILED`
  * 
- * 
- * 
- * 
  * - `DELETE_COMPLETE`
- * 
- * 
- * 
- * 
- * 
  * 
  * Because no CI is created for a failed stack creation, you won't see configuration history
  * for that stack in Config, even after the stack is deleted. This helps make sure that Config only
@@ -1225,18 +1013,10 @@ export class NoSuchBucketException extends S.TaggedError<NoSuchBucketException>(
  * Authorizes the aggregator account and region to collect data
  * from the source account and region.
  * 
- * 
- * 
- * 
- * 
  * **Tags are added at creation and cannot be updated with this operation**
- * 
- * 
- * 
  * 
  * `PutAggregationAuthorization` is an idempotent API. Subsequent requests won’t create a duplicate resource if one was already created. If a following request has different `tags` values,
  * Config will ignore these differences and treat it as an idempotent request of the previous. In this case, `tags` will not be updated, even if they are different.
- * 
  * 
  * Use TagResource and UntagResource to update tags after creation.
  */export const putAggregationAuthorization = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-12", sdkId: "Config Service", sigV4ServiceName: "config", name: "StarlingDoveService.PutAggregationAuthorization" }, PutAggregationAuthorizationRequest, PutAggregationAuthorizationResponse, [InvalidParameterValueException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1244,74 +1024,35 @@ export class NoSuchBucketException extends S.TaggedError<NoSuchBucketException>(
  * A remediation exception is when a specified resource is no longer considered for auto-remediation.
  * This API adds a new exception or updates an existing exception for a specified resource with a specified Config rule.
  * 
- * 
- * 
- * 
- * 
  * **Exceptions block auto remediation**
- * 
- * 
  * 
  * Config generates a remediation exception when a problem occurs running a remediation action for a specified resource.
  * Remediation exceptions blocks auto-remediation until the exception is cleared.
  * 
- * 
- * 
- * 
- * 
- * 
- * 
  * **Manual remediation is recommended when placing an exception**
- * 
- * 
  * 
  * When placing an exception on an Amazon Web Services resource, it is recommended that remediation is set as manual remediation until
  * the given Config rule for the specified resource evaluates the resource as `NON_COMPLIANT`.
  * Once the resource has been evaluated as `NON_COMPLIANT`, you can add remediation exceptions and change the remediation type back from Manual to Auto if you want to use auto-remediation.
  * Otherwise, using auto-remediation before a `NON_COMPLIANT` evaluation result can delete resources before the exception is applied.
  * 
- * 
- * 
- * 
- * 
- * 
- * 
  * **Exceptions can only be performed on non-compliant resources**
- * 
- * 
  * 
  * Placing an exception can only be performed on resources that are `NON_COMPLIANT`.
  * If you use this API for `COMPLIANT` resources or resources that are `NOT_APPLICABLE`, a remediation exception will not be generated.
  * For more information on the conditions that initiate the possible Config evaluation results,
  * see Concepts | Config Rules in the *Config Developer Guide*.
  * 
- * 
- * 
- * 
- * 
- * 
- * 
  * **Exceptions cannot be placed on service-linked remediation actions**
- * 
- * 
  * 
  * You cannot place an exception on service-linked remediation actions, such as remediation actions put by an organizational conformance pack.
  * 
- * 
- * 
- * 
- * 
- * 
- * 
  * **Auto remediation can be initiated even for compliant resources**
- * 
- * 
  * 
  * If you enable auto remediation for a specific Config rule using the PutRemediationConfigurations API or the Config console,
  * it initiates the remediation process for all non-compliant resources for that specific rule.
  * The auto remediation process relies on the compliance data snapshot which is captured on a periodic basis.
  * Any non-compliant resource that is updated between the snapshot schedule will continue to be remediated based on the last known compliance data snapshot.
- * 
  * 
  * This means that in some cases auto remediation can be initiated even for compliant resources, since the bootstrap processor uses a database that can have stale evaluation results based on the last known compliance data snapshot.
  */export const putRemediationExceptions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-12", sdkId: "Config Service", sigV4ServiceName: "config", name: "StarlingDoveService.PutRemediationExceptions" }, PutRemediationExceptionsRequest, PutRemediationExceptionsResponse, [InsufficientPermissionsException, InvalidParameterValueException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1321,15 +1062,9 @@ export class NoSuchBucketException extends S.TaggedError<NoSuchBucketException>(
  * The configuration state of a resource is represented in Config as Configuration Items.
  * Once this API records the configuration item, you can retrieve the list of configuration items for the custom resource type using existing Config APIs.
  * 
- * 
- * 
- * 
  * The custom resource type must be registered with CloudFormation. This API accepts the configuration item registered with CloudFormation.
  * 
- * 
  * When you call this API, Config only stores configuration state of the resource provided in the request. This API does not change or remediate the configuration of the resource.
- * 
- * 
  * 
  * Write-only schema properites are not recorded as part of the published configuration item.
  */export const putResourceConfig = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-12", sdkId: "Config Service", sigV4ServiceName: "config", name: "StarlingDoveService.PutResourceConfig" }, PutResourceConfigRequest, S.Struct({}), [InsufficientPermissionsException, MaxActiveResourcesExceededException, NoRunningConfigurationRecorderException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1342,15 +1077,11 @@ export class NoSuchBucketException extends S.TaggedError<NoSuchBucketException>(
  * `RetentionConfiguration` object named **default**, calling the API modifies the
  * default object.
  * 
- * 
- * 
- * 
  * Currently, Config supports only one retention
  * configuration per region in your account.
  */export const putRetentionConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-12", sdkId: "Config Service", sigV4ServiceName: "config", name: "StarlingDoveService.PutRetentionConfiguration" }, PutRetentionConfigurationRequest, PutRetentionConfigurationResponse, [InvalidParameterValueException, MaxNumberOfRetentionConfigurationsExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Accepts a structured query language (SQL) `SELECT` command, performs the corresponding search, and returns resource configurations matching the properties.
- * 
  * 
  * For more information about query components, see the
  * 
@@ -1361,13 +1092,7 @@ export class NoSuchBucketException extends S.TaggedError<NoSuchBucketException>(
  * Returns the current configuration items for resources that are present in your Config aggregator. The operation also returns a list of resources that are not processed in the current request.
  * If there are no unprocessed resources, the operation returns an empty `unprocessedResourceIdentifiers` list.
  * 
- * 
- * 
- * 
- * 
  * - The API does not return results for deleted resources.
- * 
- * 
  * 
  * - The API does not return tags and relationships.
  */export const batchGetAggregateResourceConfig = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-12", sdkId: "Config Service", sigV4ServiceName: "config", name: "StarlingDoveService.BatchGetAggregateResourceConfig" }, BatchGetAggregateResourceConfigRequest, BatchGetAggregateResourceConfigResponse, [NoSuchConfigurationAggregatorException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1378,10 +1103,6 @@ export class NoSuchBucketException extends S.TaggedError<NoSuchBucketException>(
  * Returns a list of compliant and noncompliant rules with the
  * number of resources for compliant and noncompliant rules. Does not display rules that do not have compliance results.
  * 
- * 
- * 
- * 
- * 
  * The results can return an empty result page, but if you
  * have a `nextToken`, the results are displayed on the next
  * page.
@@ -1391,25 +1112,19 @@ export class NoSuchBucketException extends S.TaggedError<NoSuchBucketException>(
  * If a rule is noncompliant, this operation returns the number of Amazon Web Services
  * resources that do not comply with the rule.
  * 
- * 
  * A rule is compliant if all of the evaluated resources comply
  * with it. It is noncompliant if any of these resources do not
  * comply.
  * 
- * 
  * If Config has no current evaluation results for the rule,
  * it returns `INSUFFICIENT_DATA`. This result might
  * indicate one of the following conditions:
- * 
- * 
  * 
  * - Config has never invoked an evaluation for the
  * rule. To check whether it has, use the
  * `DescribeConfigRuleEvaluationStatus` action
  * to get the `LastSuccessfulInvocationTime` and
  * `LastFailedInvocationTime`.
- * 
- * 
  * 
  * - The rule's Lambda function is failing to send
  * evaluation results to Config. Verify that the role you
@@ -1418,8 +1133,6 @@ export class NoSuchBucketException extends S.TaggedError<NoSuchBucketException>(
  * rule is a custom rule, verify that the Lambda execution
  * role includes the `config:PutEvaluations`
  * permission.
- * 
- * 
  * 
  * - The rule's Lambda function has returned
  * `NOT_APPLICABLE` for all evaluation results.
@@ -1432,29 +1145,18 @@ export class NoSuchBucketException extends S.TaggedError<NoSuchBucketException>(
  * current status of all delivery channels associated with the
  * account.
  * 
- * 
- * 
- * 
  * Currently, you can specify only one delivery channel per
  * region in your account.
  */export const describeDeliveryChannelStatus = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-12", sdkId: "Config Service", sigV4ServiceName: "config", name: "StarlingDoveService.DescribeDeliveryChannelStatus" }, DescribeDeliveryChannelStatusRequest, DescribeDeliveryChannelStatusResponse, [NoSuchDeliveryChannelException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of organization Config rules.
  * 
- * 
- * 
- * 
  * When you specify the limit and the next token, you receive a paginated response.
- * 
  * 
  * Limit and next token are not applicable if you specify organization Config rule names.
  * It is only applicable, when you request all the organization Config rules.
  * 
- * 
- * 
  * *For accounts within an organization*
- * 
- * 
  * 
  * If you deploy an organizational rule or conformance pack in an organization
  * administrator account, and then establish a delegated administrator and deploy an
@@ -1475,16 +1177,12 @@ export class NoSuchBucketException extends S.TaggedError<NoSuchBucketException>(
  * Returns the number of compliant and noncompliant rules for one
  * or more accounts and regions in an aggregator.
  * 
- * 
- * 
- * 
  * The results can return an empty result page, but if you
  * have a nextToken, the results are displayed on the next
  * page.
  */export const getAggregateConfigRuleComplianceSummary = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-12", sdkId: "Config Service", sigV4ServiceName: "config", name: "StarlingDoveService.GetAggregateConfigRuleComplianceSummary" }, GetAggregateConfigRuleComplianceSummaryRequest, GetAggregateConfigRuleComplianceSummaryResponse, [InvalidLimitException, InvalidNextTokenException, NoSuchConfigurationAggregatorException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the resource counts across accounts and regions that are present in your Config aggregator. You can request the resource counts by providing filters and GroupByKey.
- * 
  * 
  * For example, if the input contains accountID 12345678910 and region us-east-1 in filters, the API returns the count of resources in account ID 12345678910 and region us-east-1.
  * If the input contains ACCOUNT_ID as a GroupByKey, the API returns resource counts for all source accounts that are present in your aggregator.
@@ -1507,9 +1205,6 @@ export class NoSuchBucketException extends S.TaggedError<NoSuchBucketException>(
  * This metric provides you with a high-level view of the compliance state of your conformance packs. You can use it to identify, investigate, and understand
  * the level of compliance in your conformance packs.
  * 
- * 
- * 
- * 
  * Conformance packs with no evaluation results will have a compliance score of `INSUFFICIENT_DATA`.
  */export const listConformancePackComplianceScores = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-12", sdkId: "Config Service", sigV4ServiceName: "config", name: "StarlingDoveService.ListConformancePackComplianceScores" }, ListConformancePackComplianceScoresRequest, ListConformancePackComplianceScoresResponse, [InvalidLimitException, InvalidNextTokenException, InvalidParameterValueException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -1521,14 +1216,7 @@ export class NoSuchBucketException extends S.TaggedError<NoSuchBucketException>(
  * Saves a new query or updates an existing saved query. The `QueryName` must be unique for a single Amazon Web Services account and a single Amazon Web Services Region.
  * You can create upto 300 queries in a single Amazon Web Services account and a single Amazon Web Services Region.
  * 
- * 
- * 
- * 
- * 
  * **Tags are added at creation and cannot be updated**
- * 
- * 
- * 
  * 
  * `PutStoredQuery` is an idempotent API. Subsequent requests won’t create a duplicate resource if one was already created. If a following request has different `tags` values,
  * Config will ignore these differences and treat it as an idempotent request of the previous. In this case, `tags` will not be updated, even if they are different.
@@ -1537,18 +1225,13 @@ export class NoSuchBucketException extends S.TaggedError<NoSuchBucketException>(
  * Accepts a structured query language (SQL) SELECT command and an aggregator to query configuration state of Amazon Web Services resources across multiple accounts and regions,
  * performs the corresponding search, and returns resource configurations matching the properties.
  * 
- * 
  * For more information about query components, see the
  * 
  * **Query Components**
  * section in the *Config Developer Guide*.
  * 
- * 
- * 
- * 
  * If you run an aggregation query (i.e., using `GROUP BY` or using aggregate functions such as `COUNT`; e.g., `SELECT resourceId, COUNT(*) WHERE resourceType = 'AWS::IAM::Role' GROUP BY resourceId`)
  * and do not specify the `MaxResults` or the `Limit` query parameters, the default page size is set to 500.
- * 
  * 
  * If you run a non-aggregation query (i.e., not using `GROUP BY` or aggregate function; e.g., `SELECT * WHERE resourceType = 'AWS::IAM::Role'`)
  * and do not specify the `MaxResults` or the `Limit` query parameters, the default page size is set to 25.
@@ -1558,25 +1241,17 @@ export class NoSuchBucketException extends S.TaggedError<NoSuchBucketException>(
  * You can also use it for evaluation purposes. Config recommends using an evaluation context. It runs an execution against the resource details with all
  * of the Config rules in your account that match with the specified proactive mode and resource type.
  * 
- * 
- * 
- * 
  * Ensure you have the `cloudformation:DescribeType` role setup to validate the resource type schema.
- * 
  * 
  * You can find the
  * Resource type schema in "*Amazon Web Services public extensions*" within the CloudFormation registry or with the following CLI commmand:
  * `aws cloudformation describe-type --type-name "AWS::S3::Bucket" --type RESOURCE`.
- * 
  * 
  * For more information, see Managing extensions through the CloudFormation registry
  * and Amazon Web Services resource and property types reference in the CloudFormation User Guide.
  */export const startResourceEvaluation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-12", sdkId: "Config Service", sigV4ServiceName: "config", name: "StarlingDoveService.StartResourceEvaluation" }, StartResourceEvaluationRequest, StartResourceEvaluationResponse, [IdempotentParameterMismatch, InvalidParameterValueException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes one or more remediation exceptions mentioned in the resource keys.
- * 
- * 
- * 
  * 
  * Config generates a remediation exception when a problem occurs executing a remediation action to a specific resource.
  * Remediation exceptions blocks auto-remediation until the exception is cleared.
@@ -1585,16 +1260,10 @@ export class NoSuchBucketException extends S.TaggedError<NoSuchBucketException>(
  * Returns a list of the existing and deleted conformance packs and their associated compliance status with the count of compliant and noncompliant Config rules within each
  * conformance pack. Also returns the total rule count which includes compliant rules, noncompliant rules, and rules that cannot be evaluated due to insufficient data.
  * 
- * 
- * 
- * 
  * The results can return an empty result page, but if you have a `nextToken`, the results are displayed on the next page.
  */export const describeAggregateComplianceByConformancePacks = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-12", sdkId: "Config Service", sigV4ServiceName: "config", name: "StarlingDoveService.DescribeAggregateComplianceByConformancePacks" }, DescribeAggregateComplianceByConformancePacksRequest, DescribeAggregateComplianceByConformancePacksResponse, [InvalidLimitException, InvalidNextTokenException, NoSuchConfigurationAggregatorException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns compliance details for each rule in that conformance pack.
- * 
- * 
- * 
  * 
  * You must provide exact rule names.
  */export const describeConformancePackCompliance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-12", sdkId: "Config Service", sigV4ServiceName: "config", name: "StarlingDoveService.DescribeConformancePackCompliance" }, DescribeConformancePackComplianceRequest, DescribeConformancePackComplianceResponse, [InvalidLimitException, InvalidNextTokenException, InvalidParameterValueException, NoSuchConfigRuleInConformancePackException, NoSuchConformancePackException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1604,9 +1273,6 @@ export class NoSuchBucketException extends S.TaggedError<NoSuchBucketException>(
  * Amazon Web Services resources were evaluated by the rule, when each resource was
  * last evaluated, and whether each resource complies with the rule.
  * 
- * 
- * 
- * 
  * The results can return an empty result page. But if you
  * have a `nextToken`, the results are displayed on the next
  * page.
@@ -1614,35 +1280,21 @@ export class NoSuchBucketException extends S.TaggedError<NoSuchBucketException>(
 /**
  * Returns the count of compliant and noncompliant conformance packs across all Amazon Web Services accounts and Amazon Web Services Regions in an aggregator. You can filter based on Amazon Web Services account ID or Amazon Web Services Region.
  * 
- * 
- * 
- * 
  * The results can return an empty result page, but if you have a nextToken, the results are displayed on the next page.
  */export const getAggregateConformancePackComplianceSummary = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-12", sdkId: "Config Service", sigV4ServiceName: "config", name: "StarlingDoveService.GetAggregateConformancePackComplianceSummary" }, GetAggregateConformancePackComplianceSummaryRequest, GetAggregateConformancePackComplianceSummaryResponse, [InvalidLimitException, InvalidNextTokenException, NoSuchConfigurationAggregatorException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns configuration item that is aggregated for your specific resource in a specific source account and region.
- * 
- * 
- * 
  * 
  * The API does not return results for deleted resources.
  */export const getAggregateResourceConfig = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-12", sdkId: "Config Service", sigV4ServiceName: "config", name: "StarlingDoveService.GetAggregateResourceConfig" }, GetAggregateResourceConfigRequest, GetAggregateResourceConfigResponse, [NoSuchConfigurationAggregatorException, OversizedConfigurationItemException, ResourceNotDiscoveredException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * For accurate reporting on the compliance status, you must record the `AWS::Config::ResourceCompliance` resource type.
  * 
- * 
  * For more information, see Recording Amazon Web Services Resources in the *Config Resources Developer Guide*.
- * 
- * 
- * 
  * 
  * Returns a list of configurations items (CIs) for the specified resource.
  * 
- * 
- * 
  * **Contents**
- * 
- * 
  * 
  * The list contains details about each state of the resource
  * during the specified time interval. If you specified a retention
@@ -1651,11 +1303,7 @@ export class NoSuchBucketException extends S.TaggedError<NoSuchBucketException>(
  * returns the CIs for the specified
  * retention period.
  * 
- * 
- * 
  * **Pagination**
- * 
- * 
  * 
  * The response is paginated. By default, Config returns a
  * limit of 10 configuration items per page. You can customize this
@@ -1663,9 +1311,6 @@ export class NoSuchBucketException extends S.TaggedError<NoSuchBucketException>(
  * a `nextToken` string. To get the next page of results,
  * run the request again and specify the string for the
  * `nextToken` parameter.
- * 
- * 
- * 
  * 
  * Each call to the API is limited to span a duration of seven
  * days. It is likely that the number of records returned is
@@ -1683,17 +1328,14 @@ export class NoSuchBucketException extends S.TaggedError<NoSuchBucketException>(
  * **Service Limits**
  * in the *Config Developer Guide*.
  * 
- * 
  * There are two types of rules: *Config Managed Rules* and *Config Custom Rules*.
  * You can use `PutConfigRule` to create both Config Managed Rules and Config Custom Rules.
- * 
  * 
  * Config Managed Rules are predefined,
  * customizable rules created by Config. For a list of managed rules, see
  * List of Config
  * Managed Rules. If you are adding an Config managed rule, you must specify the
  * rule's identifier for the `SourceIdentifier` key.
- * 
  * 
  * Config Custom Rules are rules that you create from scratch. There are two ways to create Config custom rules: with Lambda functions
  * ( Lambda Developer Guide) and with Guard (Guard GitHub
@@ -1703,7 +1345,6 @@ export class NoSuchBucketException extends S.TaggedError<NoSuchBucketException>(
  * are called *Config Custom Lambda Rules* and Config custom rules created with
  * Guard are called *Config Custom Policy Rules*.
  * 
- * 
  * If you are adding a new Config Custom Lambda rule,
  * you first need to create an Lambda function that the rule invokes to evaluate
  * your resources. When you use `PutConfigRule` to add a Custom Lambda rule to Config, you must specify the Amazon Resource
@@ -1712,12 +1353,10 @@ export class NoSuchBucketException extends S.TaggedError<NoSuchBucketException>(
  * `Source` object, which is part of the
  * `ConfigRule` object.
  * 
- * 
  * For any new Config rule that you add, specify the
  * `ConfigRuleName` in the `ConfigRule`
  * object. Do not specify the `ConfigRuleArn` or the
  * `ConfigRuleId`. These values are generated by Config for new rules.
- * 
  * 
  * If you are updating a rule that you added previously, you can
  * specify the rule by `ConfigRuleName`,
@@ -1725,23 +1364,14 @@ export class NoSuchBucketException extends S.TaggedError<NoSuchBucketException>(
  * `ConfigRule` data type that you use in this
  * request.
  * 
- * 
  * For more information about developing and using Config
  * rules, see Evaluating Resources with Config Rules
  * in the *Config Developer Guide*.
  * 
- * 
- * 
- * 
- * 
  * **Tags are added at creation and cannot be updated with this operation**
- * 
- * 
- * 
  * 
  * `PutConfigRule` is an idempotent API. Subsequent requests won’t create a duplicate resource if one was already created. If a following request has different `tags` values,
  * Config will ignore these differences and treat it as an idempotent request of the previous. In this case, `tags` will not be updated, even if they are different.
- * 
  * 
  * Use TagResource and UntagResource to update tags after creation.
  */export const putConfigRule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-12", sdkId: "Config Service", sigV4ServiceName: "config", name: "StarlingDoveService.PutConfigRule" }, PutConfigRuleRequest, S.Struct({}), [InsufficientPermissionsException, InvalidParameterValueException, MaxNumberOfConfigRulesExceededException, NoAvailableConfigurationRecorderException, ResourceInUseException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1750,39 +1380,22 @@ export class NoSuchBucketException extends S.TaggedError<NoSuchBucketException>(
  * selected source accounts and regions. The source account can be
  * individual account(s) or an organization.
  * 
- * 
- * 
  * `accountIds` that are passed will be replaced with existing accounts.
  * If you want to add additional accounts into the aggregator, call `DescribeConfigurationAggregators` to get the previous accounts and then append new ones.
  * 
- * 
- * 
- * 
  * Config should be enabled in source accounts and regions
  * you want to aggregate.
- * 
  * 
  * If your source type is an organization, you must be signed in to the management account or a registered delegated administrator and all the features must be enabled in your organization.
  * If the caller is a management account, Config calls `EnableAwsServiceAccess` API to enable integration between Config and Organizations.
  * If the caller is a registered delegated administrator, Config calls `ListDelegatedAdministrators` API to verify whether the caller is a valid delegated administrator.
  * 
- * 
  * To register a delegated administrator, see Register a Delegated Administrator in the *Config developer guide*.
- * 
- * 
- * 
- * 
- * 
- * 
  * 
  * **Tags are added at creation and cannot be updated with this operation**
  * 
- * 
- * 
- * 
  * `PutConfigurationAggregator` is an idempotent API. Subsequent requests won’t create a duplicate resource if one was already created. If a following request has different `tags` values,
  * Config will ignore these differences and treat it as an idempotent request of the previous. In this case, `tags` will not be updated, even if they are different.
- * 
  * 
  * Use TagResource and UntagResource to update tags after creation.
  */export const putConfigurationAggregator = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-12", sdkId: "Config Service", sigV4ServiceName: "config", name: "StarlingDoveService.PutConfigurationAggregator" }, PutConfigurationAggregatorRequest, PutConfigurationAggregatorResponse, [InvalidParameterValueException, InvalidRoleException, LimitExceededException, NoAvailableOrganizationException, OrganizationAccessDeniedException, OrganizationAllFeaturesNotEnabledException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1793,29 +1406,19 @@ export class NoSuchBucketException extends S.TaggedError<NoSuchBucketException>(
  * **Service Limits**
  * in the *Config Developer Guide*.
  * 
- * 
- * 
- * 
  * When you use `PutConformancePack` to deploy conformance packs in your account,
  * the operation can create Config rules and remediation actions without
  * requiring `config:PutConfigRule` or
  * `config:PutRemediationConfigurations` permissions in your account IAM
  * policies.
  * 
- * 
  * This API uses the `AWSServiceRoleForConfigConforms` service-linked role in your
  * account to create conformance pack resources. This service-linked role includes the
  * permissions to create Config rules and remediation configurations, even
  * if your account IAM policies explicitly deny these actions.
  * 
- * 
- * 
- * 
  * This API creates a service-linked role `AWSServiceRoleForConfigConforms` in your account.
  * The service-linked role is created only when the role does not exist in your account.
- * 
- * 
- * 
  * 
  * You must specify only one of the follow parameters: `TemplateS3Uri`, `TemplateBody` or `TemplateSSMDocumentDetails`.
  */export const putConformancePack = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-12", sdkId: "Config Service", sigV4ServiceName: "config", name: "StarlingDoveService.PutConformancePack" }, PutConformancePackRequest, PutConformancePackResponse, [ConformancePackTemplateValidationException, InsufficientPermissionsException, InvalidParameterValueException, MaxNumberOfConformancePacksExceededException, ResourceInUseException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1826,31 +1429,25 @@ export class NoSuchBucketException extends S.TaggedError<NoSuchBucketException>(
  * **Service Limits**
  * in the *Config Developer Guide*.
  * 
- * 
  * Only a management account and a delegated administrator can create or update an organization Config rule.
  * When calling this API with a delegated administrator, you must ensure Organizations
  * `ListDelegatedAdministrator` permissions are added. An organization can have up to 3 delegated administrators.
- * 
  * 
  * This API enables organization service access through the `EnableAWSServiceAccess` action and creates a service-linked
  * role `AWSServiceRoleForConfigMultiAccountSetup` in the management or delegated administrator account of your organization.
  * The service-linked role is created only when the role does not exist in the caller account.
  * Config verifies the existence of role with `GetRole` action.
  * 
- * 
  * To use this API with delegated administrator, register a delegated administrator by calling Amazon Web Services Organization
  * `register-delegated-administrator` for `config-multiaccountsetup.amazonaws.com`.
  * 
- * 
  * There are two types of rules: *Config Managed Rules* and *Config Custom Rules*.
  * You can use `PutOrganizationConfigRule` to create both Config Managed Rules and Config Custom Rules.
- * 
  * 
  * Config Managed Rules are predefined,
  * customizable rules created by Config. For a list of managed rules, see
  * List of Config
  * Managed Rules. If you are adding an Config managed rule, you must specify the rule's identifier for the `RuleIdentifier` key.
- * 
  * 
  * Config Custom Rules are rules that you create from scratch. There are two ways to create Config custom rules: with Lambda functions
  * ( Lambda Developer Guide) and with Guard (Guard GitHub
@@ -1860,17 +1457,12 @@ export class NoSuchBucketException extends S.TaggedError<NoSuchBucketException>(
  * are called *Config Custom Lambda Rules* and Config custom rules created with
  * Guard are called *Config Custom Policy Rules*.
  * 
- * 
  * If you are adding a new Config Custom Lambda rule, you first need to create an Lambda function in the management account or a delegated
  * administrator that the rule invokes to evaluate your resources. You also need to create an IAM role in the managed account that can be assumed by the Lambda function.
  * When you use `PutOrganizationConfigRule` to add a Custom Lambda rule to Config, you must
  * specify the Amazon Resource Name (ARN) that Lambda assigns to the function.
  * 
- * 
- * 
- * 
  * Prerequisite: Ensure you call `EnableAllFeatures` API to enable all features in an organization.
- * 
  * 
  * Make sure to specify one of either `OrganizationCustomPolicyRuleMetadata` for Custom Policy rules, `OrganizationCustomRuleMetadata` for Custom Lambda rules, or `OrganizationManagedRuleMetadata` for managed rules.
  */export const putOrganizationConfigRule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-12", sdkId: "Config Service", sigV4ServiceName: "config", name: "StarlingDoveService.PutOrganizationConfigRule" }, PutOrganizationConfigRuleRequest, PutOrganizationConfigRuleResponse, [InsufficientPermissionsException, InvalidParameterValueException, MaxNumberOfOrganizationConfigRulesExceededException, NoAvailableOrganizationException, OrganizationAccessDeniedException, OrganizationAllFeaturesNotEnabledException, ResourceInUseException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1880,13 +1472,9 @@ export class NoSuchBucketException extends S.TaggedError<NoSuchBucketException>(
  * **Service Limits**
  * in the *Config Developer Guide*.
  * 
- * 
  * Only a management account and a delegated administrator can call this API.
  * When calling this API with a delegated administrator, you must ensure Organizations
  * `ListDelegatedAdministrator` permissions are added. An organization can have up to 3 delegated administrators.
- * 
- * 
- * 
  * 
  * When you use `PutOrganizationConformancePack` to deploy conformance packs across
  * member accounts, the operation can create Config rules and remediation
@@ -1894,15 +1482,11 @@ export class NoSuchBucketException extends S.TaggedError<NoSuchBucketException>(
  * `config:PutRemediationConfigurations` permissions in member account
  * IAM policies.
  * 
- * 
  * This API uses the `AWSServiceRoleForConfigConforms` service-linked role in each
  * member account to create conformance pack resources. This service-linked role
  * includes the permissions to create Config rules and remediation
  * configurations, even if member account IAM policies explicitly deny these
  * actions.
- * 
- * 
- * 
  * 
  * This API enables organization service access for `config-multiaccountsetup.amazonaws.com`
  * through the `EnableAWSServiceAccess` action and creates a
@@ -1911,15 +1495,10 @@ export class NoSuchBucketException extends S.TaggedError<NoSuchBucketException>(
  * To use this API with delegated administrator, register a delegated administrator by calling Amazon Web Services Organization
  * `register-delegate-admin` for `config-multiaccountsetup.amazonaws.com`.
  * 
- * 
- * 
- * 
  * Prerequisite: Ensure you call `EnableAllFeatures` API to enable all features in an organization.
- * 
  * 
  * You must specify either the `TemplateS3Uri` or the `TemplateBody` parameter, but not both.
  * If you provide both Config uses the `TemplateS3Uri` parameter and ignores the `TemplateBody` parameter.
- * 
  * 
  * Config sets the state of a conformance pack to CREATE_IN_PROGRESS and UPDATE_IN_PROGRESS until the conformance pack is created or updated.
  * You cannot update a conformance pack while it is in this state.
@@ -1927,47 +1506,28 @@ export class NoSuchBucketException extends S.TaggedError<NoSuchBucketException>(
 /**
  * Creates or updates the customer managed configuration recorder.
  * 
- * 
  * You can use this operation to create a new customer managed configuration recorder or to update the `roleARN` and the `recordingGroup` for an existing customer managed configuration recorder.
- * 
  * 
  * To start the customer managed configuration recorder and begin recording configuration changes for the resource types you specify,
  * use the StartConfigurationRecorder operation.
- * 
  * 
  * For more information, see
  * **Working with the Configuration Recorder**
  * in the *Config Developer Guide*.
  * 
- * 
- * 
- * 
- * 
  * **One customer managed configuration recorder per account per Region**
- * 
- * 
  * 
  * You can create only one customer managed configuration recorder for each account for each Amazon Web Services Region.
  * 
- * 
- * 
  * **Default is to record all supported resource types, excluding the global IAM resource types**
- * 
- * 
  * 
  * If you have not specified values for the `recordingGroup` field, the default for the customer managed configuration recorder is to record all supported resource
  * types, excluding the global IAM resource types: `AWS::IAM::Group`, `AWS::IAM::Policy`, `AWS::IAM::Role`, and `AWS::IAM::User`.
  * 
- * 
- * 
  * **Tags are added at creation and cannot be updated**
- * 
- * 
- * 
  * 
  * `PutConfigurationRecorder` is an idempotent API. Subsequent requests won’t create a duplicate resource if one was already created. If a following request has different tags values,
  * Config will ignore these differences and treat it as an idempotent request of the previous. In this case, tags will not be updated, even if they are different.
- * 
  * 
  * Use TagResource and UntagResource to update tags after creation.
  */export const putConfigurationRecorder = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-12", sdkId: "Config Service", sigV4ServiceName: "config", name: "StarlingDoveService.PutConfigurationRecorder" }, PutConfigurationRecorderRequest, S.Struct({}), [InvalidConfigurationRecorderNameException, InvalidRecordingGroupException, InvalidRoleException, MaxNumberOfConfigurationRecordersExceededException, UnmodifiableEntityException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1978,51 +1538,26 @@ export class NoSuchBucketException extends S.TaggedError<NoSuchBucketException>(
  * The Config rule must already exist for you to add a remediation configuration.
  * The target (SSM document) must exist and have permissions to use the target.
  * 
- * 
- * 
- * 
- * 
  * **Be aware of backward incompatible changes**
- * 
- * 
  * 
  * If you make backward incompatible changes to the SSM document,
  * you must call this again to ensure the remediations can run.
  * 
- * 
  * This API does not support adding remediation configurations for service-linked Config Rules such as Organization Config rules,
  * the rules deployed by conformance packs, and rules deployed by Amazon Web Services Security Hub.
  * 
- * 
- * 
- * 
- * 
- * 
- * 
  * **Required fields**
- * 
- * 
  * 
  * For manual remediation configuration, you need to provide a value for `automationAssumeRole` or use a value in the `assumeRole`field to remediate your resources. The SSM automation document can use either as long as it maps to a valid parameter.
  * 
- * 
  * However, for automatic remediation configuration, the only valid `assumeRole` field value is `AutomationAssumeRole` and you need to provide a value for `AutomationAssumeRole` to remediate your resources.
  * 
- * 
- * 
- * 
- * 
- * 
- * 
  * **Auto remediation can be initiated even for compliant resources**
- * 
- * 
  * 
  * If you enable auto remediation for a specific Config rule using the PutRemediationConfigurations API or the Config console,
  * it initiates the remediation process for all non-compliant resources for that specific rule.
  * The auto remediation process relies on the compliance data snapshot which is captured on a periodic basis.
  * Any non-compliant resource that is updated between the snapshot schedule will continue to be remediated based on the last known compliance data snapshot.
- * 
  * 
  * This means that in some cases auto remediation can be initiated even for compliant resources, since the bootstrap processor uses a database that can have stale evaluation results based on the last known compliance data snapshot.
  */export const putRemediationConfigurations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-12", sdkId: "Config Service", sigV4ServiceName: "config", name: "StarlingDoveService.PutRemediationConfigurations" }, PutRemediationConfigurationsRequest, PutRemediationConfigurationsResponse, [InsufficientPermissionsException, InvalidParameterValueException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -2030,23 +1565,14 @@ export class NoSuchBucketException extends S.TaggedError<NoSuchBucketException>(
  * Creates or updates a delivery channel to deliver configuration
  * information and other compliance information.
  * 
- * 
  * You can use this operation to create a new delivery channel or to update the Amazon S3 bucket and the
  * Amazon SNS topic of an existing delivery channel.
- * 
  * 
  * For more information, see
  * **Working with the Delivery Channel**
  * in the *Config Developer Guide.*
  * 
- * 
- * 
- * 
- * 
- * 
  * **One delivery channel per account per Region**
- * 
- * 
  * 
  * You can have only one delivery channel for each account for each Amazon Web Services Region.
  */export const putDeliveryChannel = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-12", sdkId: "Config Service", sigV4ServiceName: "config", name: "StarlingDoveService.PutDeliveryChannel" }, PutDeliveryChannelRequest, S.Struct({}), [InsufficientDeliveryPolicyException, InvalidDeliveryChannelNameException, InvalidS3KeyPrefixException, InvalidS3KmsKeyArnException, InvalidSNSTopicARNException, MaxNumberOfDeliveryChannelsExceededException, NoAvailableConfigurationRecorderException, NoSuchBucketException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

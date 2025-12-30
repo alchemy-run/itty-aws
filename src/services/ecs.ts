@@ -435,7 +435,6 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
 /**
  * Describes one or more of your clusters.
  * 
- * 
  * For CLI
  * examples, see describe-clusters.rst on GitHub.
  */export const describeClusters = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.DescribeClusters" }, DescribeClustersRequest, DescribeClustersResponse, [ClientException, InvalidParameterException, ServerException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -452,18 +451,12 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  * can simply specify the family to find the latest `ACTIVE` revision in that
  * family.
  * 
- * 
- * 
- * 
  * You can only describe `INACTIVE` task definitions while an active task
  * or service references them.
  */export const describeTaskDefinition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.DescribeTaskDefinition" }, DescribeTaskDefinitionRequest, DescribeTaskDefinitionResponse, [ClientException, InvalidParameterException, ServerException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This action is only used by the Amazon ECS agent, and it is not intended for use
  * outside of the agent.
- * 
- * 
- * 
  * 
  * Returns an endpoint for the Amazon ECS agent to poll for updates.
  */export const discoverPollEndpoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.DiscoverPollEndpoint" }, DiscoverPollEndpointRequest, DiscoverPollEndpointResponse, [ClientException, ServerException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -500,7 +493,6 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  * list includes task definition families that no longer have any `ACTIVE` task
  * definition revisions.
  * 
- * 
  * You can filter out task definition families that don't contain any `ACTIVE`
  * task definition revisions by setting the `status` parameter to
  * `ACTIVE`. You can also filter the results with the
@@ -513,7 +505,6 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  */export const listTaskDefinitions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.ListTaskDefinitions" }, ListTaskDefinitionsRequest, ListTaskDefinitionsResponse, [ClientException, InvalidParameterException, ServerException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Modifies an account setting. Account settings are set on a per-Region basis.
- * 
  * 
  * If you change the root user account setting, the default settings are reset for users
  * and roles that do not have specified individual account settings. For more information,
@@ -528,7 +519,6 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
 /**
  * Stops a running task. Any tags associated with the task will be deleted.
  * 
- * 
  * When you call `StopTask` on a task, the equivalent of docker
  * stop is issued to the containers running in the task. This results in a
  * stop signal value and a default 30-second timeout, after which the
@@ -538,13 +528,9 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  * value gracefully and exits within 30 seconds from receiving it, no `SIGKILL` value
  * is sent.
  * 
- * 
  * For Windows containers, POSIX signals do not work and runtime stops the container by
  * sending a `CTRL_SHUTDOWN_EVENT`. For more information, see Unable to react to graceful shutdown
  * of (Windows) container #25982 on GitHub.
- * 
- * 
- * 
  * 
  * The default 30-second timeout can be configured on the Amazon ECS container agent
  * with the `ECS_CONTAINER_STOP_TIMEOUT` variable. For more information, see
@@ -563,21 +549,14 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
 /**
  * Modifies the status of an Amazon ECS container instance.
  * 
- * 
  * Once a container instance has reached an `ACTIVE` state, you can change the
  * status of a container instance to `DRAINING` to manually remove an instance
  * from a cluster, for example to perform system updates, update the Docker daemon, or
  * scale down the cluster size.
  * 
- * 
- * 
- * 
  * A container instance can't be changed to `DRAINING` until it has
  * reached an `ACTIVE` status. If the instance is in any other status, an
  * error will be received.
- * 
- * 
- * 
  * 
  * When you set a container instance to `DRAINING`, Amazon ECS prevents new
  * tasks from being scheduled for placement on the container instance and replacement
@@ -585,13 +564,10 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  * are available. Service tasks on the container instance that are in the
  * `PENDING` state are stopped immediately.
  * 
- * 
  * Service tasks on the container instance that are in the `RUNNING` state are
  * stopped and replaced according to the service's deployment configuration parameters,
  * `minimumHealthyPercent` and `maximumPercent`. You can change
  * the deployment configuration of your service using UpdateService.
- * 
- * 
  * 
  * - If `minimumHealthyPercent` is below 100%, the scheduler can ignore
  * `desiredCount` temporarily during task replacement. For example,
@@ -604,8 +580,6 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  * they're in the `RUNNING` state and are reported as healthy by the
  * load balancer.
  * 
- * 
- * 
  * - The `maximumPercent` parameter represents an upper limit on the
  * number of running tasks during task replacement. You can use this to define the
  * replacement batch size. For example, if `desiredCount` is four tasks,
@@ -614,17 +588,11 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  * If the maximum is 100%, then replacement tasks can't start until the draining
  * tasks have stopped.
  * 
- * 
- * 
- * 
- * 
  * Any `PENDING` or `RUNNING` tasks that do not belong to a service
  * aren't affected. You must wait for them to finish or stop them manually.
  * 
- * 
  * A container instance has completed draining when it has no more `RUNNING`
  * tasks. You can verify this using ListTasks.
- * 
  * 
  * When a container instance has been drained, you can set a container instance to
  * `ACTIVE` status and once it has reached that status the Amazon ECS
@@ -636,11 +604,9 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  * Service
  * Autoscaling or deployments.
  * 
- * 
  * Task-protection, by default, expires after 2 hours at which point Amazon ECS clears
  * the `protectionEnabled` property making the task eligible for termination by
  * a subsequent scale-in event.
- * 
  * 
  * You can specify a custom expiration period for task protection from 1 minute to up to
  * 2,880 minutes (48 hours). To specify the custom expiration period, set the
@@ -649,25 +615,16 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  * `protectionEnabled` set to `true`. You can keep extending the
  * protection expiration period of a task by invoking this operation repeatedly.
  * 
- * 
  * To learn more about Amazon ECS task protection, see Task scale-in
  * protection in the
  * Amazon Elastic Container Service
  * Developer Guide
  * .
  * 
- * 
- * 
- * 
  * This operation is only supported for tasks belonging to an Amazon ECS service.
  * Invoking this operation for a standalone task will result in an
  * `TASK_NOT_VALID` failure. For more information, see API failure
  * reasons.
- * 
- * 
- * 
- * 
- * 
  * 
  * If you prefer to set task protection from within the container, we recommend using
  * the Task scale-in protection endpoint.
@@ -685,10 +642,8 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
 /**
  * Deletes one or more task definitions.
  * 
- * 
  * You must deregister a task definition revision before you delete it. For more
  * information, see DeregisterTaskDefinition.
- * 
  * 
  * When you delete a task definition revision, it is immediately transitions from the
  * `INACTIVE` to `DELETE_IN_PROGRESS`. Existing tasks and
@@ -697,15 +652,12 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  * `DELETE_IN_PROGRESS` task definition revision can still scale up or down
  * by modifying the service's desired count.
  * 
- * 
  * You can't use a `DELETE_IN_PROGRESS` task definition revision to run new
  * tasks or create new services. You also can't update an existing service to reference a
  * `DELETE_IN_PROGRESS` task definition revision.
  * 
- * 
  * A task definition revision will stay in `DELETE_IN_PROGRESS` status until
  * all the associated tasks and services have been terminated.
- * 
  * 
  * When you delete all `INACTIVE` task definition revisions, the task
  * definition name is not displayed in the console and not returned in the API. If a task
@@ -722,22 +674,15 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  * scale up or down by modifying the service's desired count. If you want to delete a task
  * definition revision, you must first deregister the task definition revision.
  * 
- * 
  * You can't use an `INACTIVE` task definition to run new tasks or create new
  * services, and you can't update an existing service to reference an `INACTIVE`
  * task definition. However, there may be up to a 10-minute window following deregistration
  * where these restrictions have not yet taken effect.
  * 
- * 
- * 
- * 
  * At this time, `INACTIVE` task definitions remain discoverable in your
  * account indefinitely. However, this behavior is subject to change in the future. We
  * don't recommend that you rely on `INACTIVE` task definitions persisting
  * beyond the lifecycle of any associated tasks and services.
- * 
- * 
- * 
  * 
  * You must deregister a task definition revision before you delete it. For more
  * information, see DeleteTaskDefinitions.
@@ -749,11 +694,9 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  * Retrieves detailed information about an Express service, including current status,
  * configuration, managed infrastructure, and service revisions.
  * 
- * 
  * Returns comprehensive service details, active service revisions, ingress paths with
  * endpoints, and managed Amazon Web Services resource status including load balancers and auto-scaling
  * policies.
- * 
  * 
  * Use the `include` parameter to retrieve additional information such as
  * resource tags.
@@ -781,7 +724,6 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  * family, container instance, launch type, what IAM principal started the task, or by the
  * desired status of the task.
  * 
- * 
  * Recently stopped tasks might appear in the returned results.
  */export const listTasks = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.ListTasks" }, ListTasksRequest, ListTasksResponse, [ClientException, ClusterNotFoundException, InvalidParameterException, ServerException, ServiceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -794,9 +736,6 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  * This action is only used by the Amazon ECS agent, and it is not intended for use
  * outside of the agent.
  * 
- * 
- * 
- * 
  * Registers an EC2 instance into the specified cluster. This instance becomes available
  * to place containers on.
  */export const registerContainerInstance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.RegisterContainerInstance" }, RegisterContainerInstanceRequest, RegisterContainerInstanceResponse, [ClientException, InvalidParameterException, ServerException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -804,27 +743,15 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  * Starts a new task from the specified task definition on the specified container
  * instance or instances.
  * 
- * 
- * 
- * 
  * On March 21, 2024, a change was made to resolve the task definition revision
  * before authorization. When a task definition revision is not specified,
  * authorization will occur using the latest revision of a task definition.
  * 
- * 
- * 
- * 
- * 
- * 
  * Amazon Elastic Inference (EI) is no longer available to customers.
- * 
- * 
- * 
  * 
  * Alternatively, you can use`RunTask` to place tasks for you. For more
  * information, see Scheduling Tasks in the Amazon Elastic
  * Container Service Developer Guide.
- * 
  * 
  * You can attach Amazon EBS volumes to Amazon ECS tasks by configuring the volume when
  * creating or updating a service. For more information, see Amazon EBS volumes in the Amazon Elastic
@@ -834,26 +761,17 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  * This action is only used by the Amazon ECS agent, and it is not intended for use
  * outside of the agent.
  * 
- * 
- * 
- * 
  * Sent to acknowledge that an attachment changed states.
  */export const submitAttachmentStateChanges = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.SubmitAttachmentStateChanges" }, SubmitAttachmentStateChangesRequest, SubmitAttachmentStateChangesResponse, [AccessDeniedException, ClientException, InvalidParameterException, ServerException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This action is only used by the Amazon ECS agent, and it is not intended for use
  * outside of the agent.
  * 
- * 
- * 
- * 
  * Sent to acknowledge that a container changed states.
  */export const submitContainerStateChange = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.SubmitContainerStateChange" }, SubmitContainerStateChangeRequest, SubmitContainerStateChangeResponse, [AccessDeniedException, ClientException, ServerException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This action is only used by the Amazon ECS agent, and it is not intended for use
  * outside of the agent.
- * 
- * 
- * 
  * 
  * Sent to acknowledge that a task changed states.
  */export const submitTaskStateChange = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.SubmitTaskStateChange" }, SubmitTaskStateChangeRequest, SubmitTaskStateChangeResponse, [AccessDeniedException, ClientException, InvalidParameterException, ServerException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -868,11 +786,9 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  * allocation, auto-scaling configuration, and other service parameters without recreating the
  * service.
  * 
- * 
  * Amazon ECS creates a new service revision with updated configuration and performs a rolling
  * deployment to replace existing tasks. The service remains available during updates,
  * ensuring zero-downtime deployments.
- * 
  * 
  * Some parameters like the infrastructure role cannot be modified after service creation
  * and require creating a new service.
@@ -880,22 +796,15 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
 /**
  * Modifies the parameters of a service.
  * 
- * 
- * 
- * 
  * On March 21, 2024, a change was made to resolve the task definition revision
  * before authorization. When a task definition revision is not specified,
  * authorization will occur using the latest revision of a task definition.
- * 
- * 
- * 
  * 
  * For services using the rolling update (`ECS`) you can update the desired
  * count, deployment configuration, network configuration, load balancers, service
  * registries, enable ECS managed tags option, propagate tags option, task placement
  * constraints and strategies, and task definition. When you update any of these
  * parameters, Amazon ECS starts new tasks with the new configuration.
- * 
  * 
  * You can attach Amazon EBS volumes to Amazon ECS tasks by configuring the volume when
  * starting or running a task, or when creating or updating a service. For more
@@ -908,7 +817,6 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  * see Amazon EBS volumes in the Amazon Elastic
  * Container Service Developer Guide.
  * 
- * 
  * For services using the blue/green (`CODE_DEPLOY`) deployment controller,
  * only the desired count, deployment configuration, health check grace period, task
  * placement constraints and strategies, enable ECS managed tags option, and propagate tags
@@ -917,32 +825,25 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  * more information, see CreateDeployment in the CodeDeploy API
  * Reference.
  * 
- * 
  * For services using an external deployment controller, you can update only the desired
  * count, task placement constraints and strategies, health check grace period, enable ECS
  * managed tags option, and propagate tags option, using this API. If the launch type, load
  * balancer, network configuration, platform version, or task definition need to be
  * updated, create a new task set For more information, see CreateTaskSet.
  * 
- * 
  * You can add to or subtract from the number of instantiations of a task definition in a
  * service by specifying the cluster that the service is running in and a new
  * `desiredCount` parameter.
- * 
  * 
  * You can attach Amazon EBS volumes to Amazon ECS tasks by configuring the volume when
  * starting or running a task, or when creating or updating a service. For more
  * information, see Amazon EBS volumes in the Amazon Elastic
  * Container Service Developer Guide.
  * 
- * 
  * If you have updated the container image of your application, you can create a new task
  * definition with that image and deploy it to your service. The service scheduler uses the
  * minimum healthy percent and maximum percent parameters (in the service's deployment
  * configuration) to determine the deployment strategy.
- * 
- * 
- * 
  * 
  * If your updated Docker image uses the same tag as what is in the existing task
  * definition for your service (for example, `my_image:latest`), you don't
@@ -951,15 +852,10 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  * deployment pull the current image/tag combination from your repository when they
  * start.
  * 
- * 
- * 
- * 
  * You can also update the deployment configuration of a service. When a deployment is
  * triggered by updating the task definition of a service, the service scheduler uses the
  * deployment configuration parameters, `minimumHealthyPercent` and
  * `maximumPercent`, to determine the deployment strategy.
- * 
- * 
  * 
  * - If `minimumHealthyPercent` is below 100%, the scheduler can ignore
  * `desiredCount` temporarily during a deployment. For example, if
@@ -970,17 +866,11 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  * considered healthy if they're in the `RUNNING` state and are reported
  * as healthy by the load balancer.
  * 
- * 
- * 
  * - The `maximumPercent` parameter represents an upper limit on the
  * number of running tasks during a deployment. You can use it to define the
  * deployment batch size. For example, if `desiredCount` is four tasks,
  * a maximum of 200% starts four new tasks before stopping the four older tasks
  * (provided that the cluster resources required to do this are available).
- * 
- * 
- * 
- * 
  * 
  * When UpdateService
  * stops a task during a deployment, the equivalent of `docker stop` is issued
@@ -989,23 +879,16 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  * forcibly stopped. If the container handles the `SIGTERM` gracefully and exits
  * within 30 seconds from receiving it, no `SIGKILL` is sent.
  * 
- * 
  * When the service scheduler launches new tasks, it determines task placement in your
  * cluster with the following logic.
- * 
- * 
  * 
  * - Determine which of the container instances in your cluster can support your
  * service's task definition. For example, they have the required CPU, memory,
  * ports, and container instance attributes.
  * 
- * 
- * 
  * - By default, the service scheduler attempts to balance tasks across
  * Availability Zones in this manner even though you can choose a different
  * placement strategy.
- * 
- * 
  * 
  * - Sort the valid container instances by the fewest number of running
  * tasks for this service in the same Availability Zone as the instance.
@@ -1013,31 +896,18 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  * each have zero, valid container instances in either zone B or C are
  * considered optimal for placement.
  * 
- * 
- * 
  * - Place the new service task on a valid container instance in an optimal
  * Availability Zone (based on the previous steps), favoring container
  * instances with the fewest number of running tasks for this
  * service.
  * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
  * When the service scheduler stops running tasks, it attempts to maintain balance across
  * the Availability Zones in your cluster using the following logic:
- * 
- * 
  * 
  * - Sort the container instances by the largest number of running tasks for this
  * service in the same Availability Zone as the instance. For example, if zone A
  * has one running service task and zones B and C each have two, container
  * instances in either zone B or C are considered optimal for termination.
- * 
- * 
  * 
  * - Stop the task on a container instance in an optimal Availability Zone (based
  * on the previous steps), favoring container instances with the largest number of
@@ -1057,11 +927,9 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  * Application Load Balancers, target groups, security groups, and auto-scaling policies
  * automatically.
  * 
- * 
  * Specify a primary container configuration with your application image and basic
  * settings. Amazon ECS creates the necessary Amazon Web Services resources for traffic distribution, health
  * monitoring, network access control, and capacity management.
- * 
  * 
  * Provide an execution role for task operations and an infrastructure role for managing
  * Amazon Web Services resources on your behalf.
@@ -1073,15 +941,9 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  * types in the Amazon Elastic Container Service Developer
  * Guide.
  * 
- * 
- * 
- * 
  * On March 21, 2024, a change was made to resolve the task definition revision
  * before authorization. When a task definition revision is not specified,
  * authorization will occur using the latest revision of a task definition.
- * 
- * 
- * 
  * 
  * For information about the maximum number of task sets and other quotas, see Amazon ECS service quotas in the Amazon Elastic Container Service
  * Developer Guide.
@@ -1092,15 +954,9 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
 /**
  * Deletes the specified capacity provider.
  * 
- * 
- * 
- * 
  * The `FARGATE` and `FARGATE_SPOT` capacity providers are
  * reserved and can't be deleted. You can disassociate them from a cluster using either
  * PutClusterCapacityProviders or by deleting the cluster.
- * 
- * 
- * 
  * 
  * Prior to a capacity provider being deleted, the capacity provider must be removed from
  * the capacity provider strategy from all services. The UpdateService API
@@ -1119,7 +975,6 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
 /**
  * Describes one or more of your service deployments.
  * 
- * 
  * A service deployment happens when you release a software update for the service. For
  * more information, see View service history
  * using Amazon ECS service deployments.
@@ -1127,12 +982,10 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
 /**
  * Runs a command remotely on a container within a task.
  * 
- * 
  * If you use a condition key in your IAM policy to refine the conditions for the policy
  * statement, for example limit the actions to a specific cluster, you receive an
  * `AccessDeniedException` when there is a mismatch between the condition
  * key value and the corresponding parameter value.
- * 
  * 
  * For information about required permissions and considerations, see Using
  * Amazon ECS Exec for debugging in the Amazon ECS Developer
@@ -1142,18 +995,15 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  * This operation lists all the service deployments that meet the specified filter
  * criteria.
  * 
- * 
  * A service deployment happens when you release a software update for the service. You
  * route traffic from the running service revisions to the new service revison and control
  * the number of running tasks.
- * 
  * 
  * This API returns the values that you use for the request parameters in DescribeServiceRevisions.
  */export const listServiceDeployments = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.ListServiceDeployments" }, ListServiceDeploymentsRequest, ListServiceDeploymentsResponse, [AccessDeniedException, ClientException, InvalidParameterException, ServerException, ServiceNotFoundException, UnsupportedFeatureException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Modifies the available capacity providers and the default capacity provider strategy
  * for a cluster.
- * 
  * 
  * You must specify both the available capacity providers and a default capacity provider
  * strategy for the cluster. If the specified cluster has existing capacity providers
@@ -1163,13 +1013,11 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  * cluster. You can only disassociate an existing capacity provider from a cluster if it's
  * not being used by any existing tasks.
  * 
- * 
  * When creating a service or running a task on a cluster, if no capacity provider or
  * launch type is specified, then the cluster's default capacity provider strategy is used.
  * We recommend that you define a default capacity provider strategy for your cluster.
  * However, you must specify an empty array (`[]`) to bypass defining a default
  * strategy.
- * 
  * 
  * Amazon ECS Managed Instances doesn't support this, because when you create a capacity
  * provider with Amazon ECS Managed Instances, it becomes available only within the
@@ -1178,21 +1026,13 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
 /**
  * Stops an ongoing service deployment.
  * 
- * 
  * The following stop types are avaiable:
- * 
- * 
  * 
  * - ROLLBACK - This option rolls back the service deployment to the previous
  * service revision.
  * 
- * 
  * You can use this option even if you didn't configure the service deployment
  * for the rollback option.
- * 
- * 
- * 
- * 
  * 
  * For more information, see Stopping Amazon
  * ECS service deployments in the Amazon Elastic Container Service
@@ -1200,7 +1040,6 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  */export const stopServiceDeployment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.StopServiceDeployment" }, StopServiceDeploymentRequest, StopServiceDeploymentResponse, [AccessDeniedException, ClientException, ConflictException, InvalidParameterException, ServerException, ServiceDeploymentNotFoundException, UnsupportedFeatureException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Modifies the parameters for a capacity provider.
- * 
  * 
  * These changes only apply to new Amazon ECS Managed Instances, or EC2 instances, not
  * existing ones.
@@ -1212,9 +1051,6 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  * instance was launched with the Amazon ECS-optimized AMI or another operating
  * system.
  * 
- * 
- * 
- * 
  * The `UpdateContainerAgent` API isn't supported for container instances
  * using the Amazon ECS-optimized Amazon Linux 2 (arm64) AMI. To update the container
  * agent, you can update the `ecs-init` package. This updates the agent. For
@@ -1222,17 +1058,9 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  * Amazon ECS container agent in the Amazon Elastic Container
  * Service Developer Guide.
  * 
- * 
- * 
- * 
- * 
- * 
  * Agent updates with the `UpdateContainerAgent` API operation do not
  * apply to Windows container instances. We recommend that you launch new container
  * instances to update the agent version in your Windows clusters.
- * 
- * 
- * 
  * 
  * The `UpdateContainerAgent` API requires an Amazon ECS-optimized AMI or
  * Amazon Linux AMI with the `ecs-init` service installed and running. For help
@@ -1243,9 +1071,6 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  * Creates a new Amazon ECS cluster. By default, your account receives a
  * `default` cluster when you launch your first container instance. However,
  * you can create your own cluster with a unique name.
- * 
- * 
- * 
  * 
  * When you call the CreateCluster
  * API operation, Amazon ECS attempts to create the Amazon ECS service-linked role for
@@ -1261,11 +1086,9 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  * stops service tasks, removes the Application Load Balancer, target groups, security groups,
  * auto-scaling policies, and other managed infrastructure components.
  * 
- * 
  * The service enters a `DRAINING` state where existing tasks complete current
  * requests without starting new tasks. After all tasks stop, the service and infrastructure
  * are permanently removed.
- * 
  * 
  * This operation cannot be reversed. Back up important data and verify the service is no
  * longer needed before deletion.
@@ -1275,9 +1098,6 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  * running tasks in it and the desired task count is zero. If the service is actively
  * maintaining tasks, you can't delete it, and you must update the service to a desired
  * task count of zero. For more information, see UpdateService.
- * 
- * 
- * 
  * 
  * When you delete a service, if there are still running tasks that require cleanup,
  * the service status moves from `ACTIVE` to `DRAINING`, and the
@@ -1290,11 +1110,6 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  * record keeping, and DescribeServices calls on those services return a
  * `ServiceNotFoundException` error.
  * 
- * 
- * 
- * 
- * 
- * 
  * If you attempt to create a new service with the same name as an existing service
  * in either `ACTIVE` or `DRAINING` status, you receive an
  * error.
@@ -1303,19 +1118,14 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  * Deregisters an Amazon ECS container instance from the specified cluster. This instance
  * is no longer available to run tasks.
  * 
- * 
  * If you intend to use the container instance for some other purpose after
  * deregistration, we recommend that you stop all of the tasks running on the container
  * instance before deregistration. That prevents any orphaned tasks from consuming
  * resources.
  * 
- * 
  * Deregistering a container instance removes the instance from a cluster, but it doesn't
  * terminate the EC2 instance. If you are finished using the instance, be sure to terminate
  * it in the Amazon EC2 console to stop billing.
- * 
- * 
- * 
  * 
  * If you terminate a running container instance, Amazon ECS automatically
  * deregisters the instance from your cluster (stopped container instances or instances
@@ -1324,9 +1134,7 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
 /**
  * Describes a specified task or tasks.
  * 
- * 
  * Currently, stopped tasks appear in the returned results for at least one hour.
- * 
  * 
  * If you have tasks with tags, and then delete the cluster, the tagged tasks are
  * returned in the response. If you create a new cluster with the same name as the deleted
@@ -1340,7 +1148,6 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  * Definitions in the Amazon Elastic Container Service Developer
  * Guide.
  * 
- * 
  * You can specify a role for your task with the `taskRoleArn` parameter. When
  * you specify a role for a task, its containers can then use the latest versions of the
  * CLI or SDKs
@@ -1348,7 +1155,6 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  * that's associated with the role. For more information, see IAM Roles for
  * Tasks in the Amazon Elastic Container Service Developer
  * Guide.
- * 
  * 
  * You can specify a Docker networking mode for the containers in your task definition
  * with the `networkMode` parameter. If you specify the `awsvpc`
@@ -1360,48 +1166,32 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
 /**
  * Describes one or more service revisions.
  * 
- * 
  * A service revision is a version of the service that includes the values for the Amazon
  * ECS resources (for example, task definition) and the environment resources (for example,
  * load balancers, subnets, and security groups). For more information, see Amazon ECS service revisions.
- * 
  * 
  * You can't describe a service revision that was created before October 25, 2024.
  */export const describeServiceRevisions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.DescribeServiceRevisions" }, DescribeServiceRevisionsRequest, DescribeServiceRevisionsResponse, [AccessDeniedException, ClientException, ClusterNotFoundException, InvalidParameterException, ServerException, ServiceNotFoundException, UnsupportedFeatureException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts a new task using the specified task definition.
  * 
- * 
- * 
- * 
  * On March 21, 2024, a change was made to resolve the task definition revision
  * before authorization. When a task definition revision is not specified,
  * authorization will occur using the latest revision of a task definition.
  * 
- * 
- * 
- * 
- * 
- * 
  * Amazon Elastic Inference (EI) is no longer available to customers.
- * 
- * 
- * 
  * 
  * You can allow Amazon ECS to place tasks for you, or you can customize how Amazon ECS
  * places tasks using placement constraints and placement strategies. For more information,
  * see Scheduling Tasks in the Amazon Elastic
  * Container Service Developer Guide.
  * 
- * 
  * Alternatively, you can use `StartTask` to use your own scheduler or place
  * tasks manually on specific container instances.
- * 
  * 
  * You can attach Amazon EBS volumes to Amazon ECS tasks by configuring the volume when
  * creating or updating a service. For more information, see Amazon EBS volumes in the Amazon Elastic
  * Container Service Developer Guide.
- * 
  * 
  * The Amazon ECS API follows an eventual consistency model. This is because of the
  * distributed nature of the system supporting the API. This means that the result of an
@@ -1409,10 +1199,7 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  * visible to all subsequent commands you run. Keep this in mind when you carry out an API
  * command that immediately follows a previous API command.
  * 
- * 
  * To manage eventual consistency, you can do the following:
- * 
- * 
  * 
  * - Confirm the state of the resource before you run a command to modify it. Run
  * the DescribeTasks command using an exponential backoff algorithm to ensure that
@@ -1421,16 +1208,10 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  * seconds of wait time and increasing gradually up to five minutes of wait
  * time.
  * 
- * 
- * 
  * - Add wait time between subsequent commands, even if the DescribeTasks command
  * returns an accurate response. Apply an exponential backoff algorithm starting
  * with a couple of seconds of wait time, and increase gradually up to about five
  * minutes of wait time.
- * 
- * 
- * 
- * 
  * 
  * If you get a `ConflictException` error, the `RunTask` request
  * could not be processed due to conflicts. The provided `clientToken` is
@@ -1438,21 +1219,12 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  * `resourceIds` are the existing task ARNs which are already associated
  * with the `clientToken`.
  * 
- * 
  * To fix this issue:
- * 
- * 
  * 
  * - Run `RunTask` with a unique `clientToken`.
  * 
- * 
- * 
  * - Run `RunTask` with the `clientToken` and the original
  * set of parameters
- * 
- * 
- * 
- * 
  * 
  * If you get a `ClientException`error, the `RunTask` could not be
  * processed because you use managed scaling and there is a capacity error because the
@@ -1472,22 +1244,11 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  * Amazon ECS runs another copy of the task in the specified cluster. To update an existing
  * service, use UpdateService.
  * 
- * 
- * 
- * 
  * On March 21, 2024, a change was made to resolve the task definition revision
  * before authorization. When a task definition revision is not specified,
  * authorization will occur using the latest revision of a task definition.
  * 
- * 
- * 
- * 
- * 
- * 
  * Amazon Elastic Inference (EI) is no longer available to customers.
- * 
- * 
- * 
  * 
  * In addition to maintaining the desired count of tasks in your service, you can
  * optionally run your service behind one or more load balancers. The load balancers
@@ -1495,22 +1256,17 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  * information, see Service load balancing in the Amazon Elastic
  * Container Service Developer Guide.
  * 
- * 
  * You can attach Amazon EBS volumes to Amazon ECS tasks by configuring the volume when
  * creating or updating a service. `volumeConfigurations` is only supported for
  * REPLICA service and not DAEMON service. For more information, see Amazon EBS volumes in the Amazon Elastic
  * Container Service Developer Guide.
- * 
  * 
  * Tasks for services that don't use a load balancer are considered healthy if they're in
  * the `RUNNING` state. Tasks for services that use a load balancer are
  * considered healthy if they're in the `RUNNING` state and are reported as
  * healthy by the load balancer.
  * 
- * 
  * There are two service scheduler strategies available:
- * 
- * 
  * 
  * - `REPLICA` - The replica scheduling strategy places and maintains
  * your desired number of tasks across your cluster. By default, the service
@@ -1519,8 +1275,6 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  * information, see Service scheduler concepts in the
  * Amazon Elastic Container Service Developer
  * Guide.
- * 
- * 
  * 
  * - `DAEMON` - The daemon scheduling strategy deploys exactly one task
  * on each active container instance that meets all of the task placement
@@ -1531,24 +1285,15 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  * Service Auto Scaling policies. For more information, see Amazon ECS services in the Amazon Elastic Container
  * Service Developer Guide.
  * 
- * 
- * 
- * 
- * 
  * The deployment controller is the mechanism that determines how tasks are deployed for
  * your service. The valid options are:
  * 
- * 
- * 
  * - ECS
- * 
  * 
  * When you create a service which uses the `ECS` deployment
  * controller, you can choose between the following deployment strategies (which
  * you can set in the “`strategy`” field in
  * “`deploymentConfiguration`”): :
- * 
- * 
  * 
  * - `ROLLING`: When you create a service which uses the
  * *rolling update* (`ROLLING`)
@@ -1560,65 +1305,42 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  * tasks in the Amazon Elastic Container Service
  * Developer Guide.
  * 
- * 
  * Rolling update deployments are best suited for the following
  * scenarios:
- * 
- * 
  * 
  * - Gradual service updates: You need to update your service
  * incrementally without taking the entire service offline at
  * once.
  * 
- * 
- * 
  * - Limited resource requirements: You want to avoid the
  * additional resource costs of running two complete environments
  * simultaneously (as required by blue/green deployments).
- * 
- * 
  * 
  * - Acceptable deployment time: Your application can tolerate a
  * longer deployment process, as rolling updates replace tasks one
  * by one.
  * 
- * 
- * 
  * - No need for instant roll back: Your service can tolerate a
  * rollback process that takes minutes rather than seconds.
- * 
- * 
  * 
  * - Simple deployment process: You prefer a straightforward
  * deployment approach without the complexity of managing multiple
  * environments, target groups, and listeners.
- * 
- * 
  * 
  * - No load balancer requirement: Your service doesn't use or
  * require a load balancer, Application Load Balancer, Network Load
  * Balancer, or Service Connect (which are required for blue/green
  * deployments).
  * 
- * 
- * 
  * - Stateful applications: Your application maintains state that
  * makes it difficult to run two parallel environments.
- * 
- * 
  * 
  * - Cost sensitivity: You want to minimize deployment costs by not
  * running duplicate environments during deployment.
  * 
- * 
- * 
- * 
- * 
  * Rolling updates are the default deployment strategy for services and
  * provide a balance between deployment safety and resource efficiency for
  * many common application scenarios.
- * 
- * 
  * 
  * - `BLUE_GREEN`: A *blue/green* deployment
  * strategy (`BLUE_GREEN`) is a release methodology that reduces
@@ -1630,34 +1352,20 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  * the Amazon Elastic Container Service Developer
  * Guide.
  * 
- * 
  * Amazon ECS blue/green deployments are best suited for the following
  * scenarios:
- * 
- * 
  * 
  * - Service validation: When you need to validate new service
  * revisions before directing production traffic to them
  * 
- * 
- * 
  * - Zero downtime: When your service requires zero-downtime
  * deployments
- * 
- * 
  * 
  * - Instant roll back: When you need the ability to quickly roll
  * back if issues are detected
  * 
- * 
- * 
  * - Load balancer requirement: When your service uses Application
  * Load Balancer, Network Load Balancer, or Service Connect
- * 
- * 
- * 
- * 
- * 
  * 
  * - `LINEAR`: A *linear* deployment strategy
  * (`LINEAR`) gradually shifts traffic from the current
@@ -1666,33 +1374,19 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  * of traffic shifting and validate new service revisions with increasing
  * amounts of production traffic.
  * 
- * 
  * Linear deployments are best suited for the following scenarios:
- * 
- * 
  * 
  * - Gradual validation: When you want to gradually validate your
  * new service version with increasing traffic
  * 
- * 
- * 
  * - Performance monitoring: When you need time to monitor metrics
  * and performance during the deployment
- * 
- * 
  * 
  * - Risk minimization: When you want to minimize risk by exposing
  * the new version to production traffic incrementally
  * 
- * 
- * 
  * - Load balancer requirement: When your service uses Application
  * Load Balancer or Service Connect
- * 
- * 
- * 
- * 
- * 
  * 
  * - `CANARY`: A *canary* deployment strategy
  * (`CANARY`) shifts a small percentage of traffic to the
@@ -1700,46 +1394,25 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  * once after a specified time period. This allows you to test the new
  * version with a subset of users before full deployment.
  * 
- * 
  * Canary deployments are best suited for the following scenarios:
- * 
- * 
  * 
  * - Feature testing: When you want to test new features with a
  * small subset of users before full rollout
  * 
- * 
- * 
  * - Production validation: When you need to validate performance
  * and functionality with real production traffic
- * 
- * 
  * 
  * - Blast radius control: When you want to minimize blast radius
  * if issues are discovered in the new version
  * 
- * 
- * 
  * - Load balancer requirement: When your service uses Application
  * Load Balancer or Service Connect
  * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
  * - External
- * 
  * 
  * Use a third-party deployment controller.
  * 
- * 
- * 
  * - Blue/green deployment (powered by CodeDeploy)
- * 
  * 
  * CodeDeploy installs an updated version of the application as a new
  * replacement task set and reroutes production traffic from the original
@@ -1748,15 +1421,10 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  * verify a new deployment of a service before sending production traffic to
  * it.
  * 
- * 
- * 
- * 
- * 
  * When creating a service that uses the `EXTERNAL` deployment controller, you
  * can specify only parameters that aren't controlled at the task set level. The only
  * required parameter is the service name. You control your services using the CreateTaskSet. For more information, see Amazon ECS deployment types in the Amazon Elastic Container
  * Service Developer Guide.
- * 
  * 
  * When the service scheduler launches new tasks, it determines task placement. For
  * information about task placement and task placement strategies, see Amazon ECS task placement in the Amazon Elastic Container Service
@@ -1767,7 +1435,6 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  * state. Clusters with an `INACTIVE` status might remain discoverable in your
  * account for a period of time. However, this behavior is subject to change in the future.
  * We don't recommend that you rely on `INACTIVE` clusters persisting.
- * 
  * 
  * You must deregister all container instances from this cluster before you may delete
  * it. You can list the container instances in a cluster with ListContainerInstances and deregister them with DeregisterContainerInstance.

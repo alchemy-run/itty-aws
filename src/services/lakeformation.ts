@@ -247,7 +247,6 @@ export class WorkUnitsNotReadyYetException extends S.TaggedError<WorkUnitsNotRea
 /**
  * Deregisters the resource as managed by the Data Catalog.
  * 
- * 
  * When you deregister a path, Lake Formation removes the path from the inline policy attached to your service-linked role.
  */export const deregisterResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-31", uri: "/DeregisterResource", sdkId: "LakeFormation", sigV4ServiceName: "lakeformation", name: "AWSLakeFormation.DeregisterResource" }, DeregisterResourceRequest, DeregisterResourceResponse, [EntityNotFoundException, InternalServiceException, InvalidInputException, OperationTimeoutException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -255,7 +254,6 @@ export class WorkUnitsNotReadyYetException extends S.TaggedError<WorkUnitsNotRea
  */export const getDataLakePrincipal = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-31", uri: "/GetDataLakePrincipal", sdkId: "LakeFormation", sigV4ServiceName: "lakeformation", name: "AWSLakeFormation.GetDataLakePrincipal" }, GetDataLakePrincipalRequest, GetDataLakePrincipalResponse, [AccessDeniedException, InternalServiceException, OperationTimeoutException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Grants permissions to the principal to access metadata in the Data Catalog and data organized in underlying data storage such as Amazon S3.
- * 
  * 
  * For information about permissions, see Security and Access Control to Metadata and Data.
  */export const grantPermissions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-31", uri: "/GrantPermissions", sdkId: "LakeFormation", sigV4ServiceName: "lakeformation", name: "AWSLakeFormation.GrantPermissions" }, GrantPermissionsRequest, GrantPermissionsResponse, [ConcurrentModificationException, EntityNotFoundException, InvalidInputException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -278,31 +276,17 @@ export class WorkUnitsNotReadyYetException extends S.TaggedError<WorkUnitsNotRea
  * Allows a caller to assume an IAM role decorated as the SAML user specified in the SAML assertion included in the request. This decoration allows Lake Formation to enforce access policies against the SAML users and groups. This API operation requires SAML federation setup in the caller’s account as it can only be called with valid SAML assertions.
  * Lake Formation does not scope down the permission of the assumed role. All permissions attached to the role via the SAML federation setup will be included in the role session.
  * 
- * 
- * 
- * 
  * This decorated role is expected to access data in Amazon S3 by getting temporary access from Lake Formation which is authorized via the virtual API `GetDataAccess`.
  * Therefore, all SAML roles that can be assumed via `AssumeDecoratedRoleWithSAML` must at a minimum include `lakeformation:GetDataAccess` in their role policies.
  * A typical IAM policy attached to such a role would include the following actions:
  * 
- * 
- * 
- * 
  * - glue:*Database*
- * 
- * 
  * 
  * - glue:*Table*
  * 
- * 
- * 
  * - glue:*Partition*
  * 
- * 
- * 
  * - glue:*UserDefinedFunction*
- * 
- * 
  * 
  * - lakeformation:GetDataAccess
  */export const assumeDecoratedRoleWithSAML = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-31", uri: "/AssumeDecoratedRoleWithSAML", sdkId: "LakeFormation", sigV4ServiceName: "lakeformation", name: "AWSLakeFormation.AssumeDecoratedRoleWithSAML" }, AssumeDecoratedRoleWithSAMLRequest, AssumeDecoratedRoleWithSAMLResponse, [AccessDeniedException, EntityNotFoundException, InternalServiceException, InvalidInputException, OperationTimeoutException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -321,11 +305,7 @@ export class WorkUnitsNotReadyYetException extends S.TaggedError<WorkUnitsNotRea
  * the caller’s account or if the underlying LF-Tags don't exist. To call this API operation,
  * caller needs the following Lake Formation permissions:
  * 
- * 
- * 
  * `CREATE_LF_TAG_EXPRESSION` on the root catalog resource.
- * 
- * 
  * 
  * `GRANT_WITH_LF_TAG_EXPRESSION` on all underlying LF-Tag key:value pairs
  * included in the expression.
@@ -343,11 +323,7 @@ export class WorkUnitsNotReadyYetException extends S.TaggedError<WorkUnitsNotRea
  * Deletes an LF-tag by its key name. The operation fails if the specified tag key doesn't
  * exist. When you delete an LF-Tag:
  * 
- * 
- * 
  * - The associated LF-Tag policy becomes invalid.
- * 
- * 
  * 
  * - Resources that had this tag assigned will no longer have the tag policy applied to
  * them.
@@ -376,39 +352,28 @@ export class WorkUnitsNotReadyYetException extends S.TaggedError<WorkUnitsNotRea
 /**
  * Returns a list of the principal permissions on the resource, filtered by the permissions of the caller. For example, if you are granted an ALTER permission, you are able to see only the principal permissions for ALTER.
  * 
- * 
  * This operation returns only those permissions that have been explicitly granted. If both
  * `Principal` and `Resource` parameters are provided, the response
  * returns effective permissions rather than the explicitly granted permissions.
- * 
  * 
  * For information about permissions, see Security and Access Control to Metadata and Data.
  */export const listPermissions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-31", uri: "/ListPermissions", sdkId: "LakeFormation", sigV4ServiceName: "lakeformation", name: "AWSLakeFormation.ListPermissions" }, ListPermissionsRequest, ListPermissionsResponse, [InternalServiceException, InvalidInputException, OperationTimeoutException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns metadata about transactions and their status. To prevent the response from growing indefinitely, only uncommitted transactions and those available for time-travel queries are returned.
  * 
- * 
  * This operation can help you identify uncommitted transactions or to get information about transactions.
  */export const listTransactions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-31", uri: "/ListTransactions", sdkId: "LakeFormation", sigV4ServiceName: "lakeformation", name: "AWSLakeFormation.ListTransactions" }, ListTransactionsRequest, ListTransactionsResponse, [InternalServiceException, InvalidInputException, OperationTimeoutException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Registers the resource as managed by the Data Catalog.
  * 
- * 
  * To add or update data, Lake Formation needs read/write access to the chosen data location. Choose a role that you know has permission to do this, or choose the AWSServiceRoleForLakeFormationDataAccess service-linked role. When you register the first Amazon S3 path, the service-linked role and a new inline policy are created on your behalf. Lake Formation adds the first path to the inline policy and attaches it to the service-linked role. When you register subsequent paths, Lake Formation adds the path to the existing policy.
  * 
- * 
  * The following request registers a new location and gives Lake Formation permission to use the service-linked role to access that location.
- * 
- * 
  * 
  * ResourceArn = arn:aws:s3:::my-bucket/
  * UseServiceLinkedRole = true
  * 
- * 
- * 
  * If `UseServiceLinkedRole` is not set to true, you must provide or set the `RoleArn`:
- * 
- * 
  * 
  * `arn:aws:iam::12345:role/my-data-access-role`
  */export const registerResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-31", uri: "/RegisterResource", sdkId: "LakeFormation", sigV4ServiceName: "lakeformation", name: "AWSLakeFormation.RegisterResource" }, RegisterResourceRequest, RegisterResourceResponse, [AccessDeniedException, AlreadyExistsException, EntityNotFoundException, InternalServiceException, InvalidInputException, OperationTimeoutException, ResourceNumberLimitExceededException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -432,9 +397,6 @@ export class WorkUnitsNotReadyYetException extends S.TaggedError<WorkUnitsNotRea
  * For a specific governed table, provides a list of Amazon S3 objects that will be written during the current transaction and that can be automatically deleted
  * if the transaction is canceled. Without this call, no Amazon S3 objects are automatically deleted when a transaction cancels.
  * 
- * 
- * 
- * 
  * The Glue ETL library function `write_dynamic_frame.from_catalog()` includes an option to automatically
  * call `DeleteObjectsOnCancel` before writes. For more information, see
  * Rolling Back Amazon S3 Writes.
@@ -447,7 +409,6 @@ export class WorkUnitsNotReadyYetException extends S.TaggedError<WorkUnitsNotRea
  */export const describeTransaction = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-31", uri: "/DescribeTransaction", sdkId: "LakeFormation", sigV4ServiceName: "lakeformation", name: "AWSLakeFormation.DescribeTransaction" }, DescribeTransactionRequest, DescribeTransactionResponse, [EntityNotFoundException, InternalServiceException, InvalidInputException, OperationTimeoutException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Indicates to the service that the specified transaction is still active and should not be treated as idle and aborted.
- * 
  * 
  * Write transactions that remain idle for a long period are automatically aborted unless explicitly extended.
  */export const extendTransaction = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-31", uri: "/ExtendTransaction", sdkId: "LakeFormation", sigV4ServiceName: "lakeformation", name: "AWSLakeFormation.ExtendTransaction" }, ExtendTransactionRequest, ExtendTransactionResponse, [EntityNotFoundException, InternalServiceException, InvalidInputException, OperationTimeoutException, TransactionCanceledException, TransactionCommitInProgressException, TransactionCommittedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -468,7 +429,6 @@ export class WorkUnitsNotReadyYetException extends S.TaggedError<WorkUnitsNotRea
  */export const listTableStorageOptimizers = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-31", uri: "/ListTableStorageOptimizers", sdkId: "LakeFormation", sigV4ServiceName: "lakeformation", name: "AWSLakeFormation.ListTableStorageOptimizers" }, ListTableStorageOptimizersRequest, ListTableStorageOptimizersResponse, [AccessDeniedException, EntityNotFoundException, InternalServiceException, InvalidInputException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Sets the list of data lake administrators who have admin privileges on all resources managed by Lake Formation. For more information on admin privileges, see Granting Lake Formation Permissions.
- * 
  * 
  * This API replaces the current list of data lake admins with the new list being passed. To add an admin, fetch the current list and add the new admin to that list and pass that list in this API.
  */export const putDataLakeSettings = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-31", uri: "/PutDataLakeSettings", sdkId: "LakeFormation", sigV4ServiceName: "lakeformation", name: "AWSLakeFormation.PutDataLakeSettings" }, PutDataLakeSettingsRequest, PutDataLakeSettingsResponse, [InternalServiceException, InvalidInputException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -509,7 +469,6 @@ export class WorkUnitsNotReadyYetException extends S.TaggedError<WorkUnitsNotRea
 /**
  * Allows a caller in a secure environment to assume a role with permission to access Amazon S3. In order to vend such credentials, Lake Formation assumes the role associated with a registered location, for example an Amazon S3 bucket, with a scope down policy which restricts the access to a single prefix.
  * 
- * 
  * To call this API, the role that the service assumes must have `lakeformation:GetDataAccess` permission on the resource.
  */export const getTemporaryGlueTableCredentials = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-31", uri: "/GetTemporaryGlueTableCredentials", sdkId: "LakeFormation", sigV4ServiceName: "lakeformation", name: "AWSLakeFormation.GetTemporaryGlueTableCredentials" }, GetTemporaryGlueTableCredentialsRequest, GetTemporaryGlueTableCredentialsResponse, [AccessDeniedException, EntityNotFoundException, InternalServiceException, InvalidInputException, OperationTimeoutException, PermissionTypeMismatchException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -520,7 +479,6 @@ export class WorkUnitsNotReadyYetException extends S.TaggedError<WorkUnitsNotRea
  */export const getWorkUnits = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-31", uri: "/GetWorkUnits", sdkId: "LakeFormation", sigV4ServiceName: "lakeformation", name: "AWSLakeFormation.GetWorkUnits" }, GetWorkUnitsRequest, GetWorkUnitsResponse, [AccessDeniedException, ExpiredException, InternalServiceException, InvalidInputException, WorkUnitsNotReadyYetException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Submits a request to process a query statement.
- * 
  * 
  * This operation generates work units that can be retrieved with the `GetWorkUnits` operation as soon as the query state is WORKUNITS_AVAILABLE or FINISHED.
  */export const startQueryPlanning = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-31", uri: "/StartQueryPlanning", sdkId: "LakeFormation", sigV4ServiceName: "lakeformation", name: "AWSLakeFormation.StartQueryPlanning" }, StartQueryPlanningRequest, StartQueryPlanningResponse, [AccessDeniedException, InternalServiceException, InvalidInputException, ThrottledException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

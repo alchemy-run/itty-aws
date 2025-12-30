@@ -143,7 +143,6 @@ export class LimitExceededException extends S.TaggedError<LimitExceededException
 /**
  * Associates a device with a concrete thing that is in the user's registry.
  * 
- * 
  * A thing can be associated with only one device at a time. If you associate a thing with a new device id, its previous association will be removed.
  */export const associateEntityToThing = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-06", sdkId: "IoTThingsGraph", sigV4ServiceName: "iotthingsgraph", name: "IotThingsGraphFrontEndService.AssociateEntityToThing" }, AssociateEntityToThingRequest, AssociateEntityToThingResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -157,7 +156,6 @@ export class LimitExceededException extends S.TaggedError<LimitExceededException
 /**
  * Deletes a system instance.
  * Only system instances that have never been deployed, or that have been undeployed can be deleted.
- * 
  * 
  * Users can create a new system instance that has the same ID as a deleted system instance.
  */export const deleteSystemInstance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-06", sdkId: "IoTThingsGraph", sigV4ServiceName: "iotthingsgraph", name: "IotThingsGraphFrontEndService.DeleteSystemInstance" }, DeleteSystemInstanceRequest, DeleteSystemInstanceResponse, [InternalFailureException, InvalidRequestException, ResourceInUseException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -196,14 +194,11 @@ export class LimitExceededException extends S.TaggedError<LimitExceededException
  * `true`, the user's namespace will synchronize with the latest version of the public namespace. If `deprecateExistingEntities` is set to true,
  * all entities in the latest version will be deleted before the new `DefinitionDocument` is uploaded.
  * 
- * 
  * When a user uploads entity definitions for the first time, the service creates a new namespace for the user. The new namespace tracks the public namespace. Currently users
  * can have only one namespace. The namespace version increments whenever a user uploads entity definitions that are backwards-incompatible and whenever a user sets the
  * `syncWithPublicNamespace` parameter or the `deprecateExistingEntities` parameter to `true`.
  * 
- * 
  * The IDs for all of the entities should be in URN format. Each entity must be in the user's namespace. Users can't create entities in the public namespace, but entity definitions can refer to entities in the public namespace.
- * 
  * 
  * Valid entities are `Device`, `DeviceModel`, `Service`, `Capability`, `State`, `Action`, `Event`, `Property`,
  * `Mapping`, `Enum`.
@@ -211,19 +206,15 @@ export class LimitExceededException extends S.TaggedError<LimitExceededException
 /**
  * Creates a system instance.
  * 
- * 
  * This action validates the system instance, prepares the deployment-related resources. For Greengrass deployments, it updates the Greengrass group that is
  * specified by the `greengrassGroupName` parameter. It also adds a file to the S3 bucket specified by the `s3BucketName` parameter. You need to
  * call `DeploySystemInstance` after running this action.
  * 
- * 
  * For Greengrass deployments, since this action modifies and adds resources to a Greengrass group and an S3 bucket on the caller's behalf, the calling identity must have write permissions
  * to both the specified Greengrass group and S3 bucket. Otherwise, the call will fail with an authorization error.
  * 
- * 
  * For cloud deployments, this action requires a `flowActionsRoleArn` value. This is an IAM role
  * that has permissions to access AWS services, such as AWS Lambda and AWS IoT, that the flow uses when it executes.
- * 
  * 
  * If the definition document doesn't specify a version of the user's namespace, the latest version will be used by default.
  */export const createSystemInstance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-06", sdkId: "IoTThingsGraph", sigV4ServiceName: "iotthingsgraph", name: "IotThingsGraphFrontEndService.CreateSystemInstance" }, CreateSystemInstanceRequest, CreateSystemInstanceResponse, [InternalFailureException, InvalidRequestException, LimitExceededException, ResourceAlreadyExistsException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -234,23 +225,15 @@ export class LimitExceededException extends S.TaggedError<LimitExceededException
 /**
  * **Greengrass and Cloud Deployments**
  * 
- * 
- * 
  * Deploys the system instance to the target specified in `CreateSystemInstance`.
  * 
- * 
- * 
  * **Greengrass Deployments**
- * 
- * 
  * 
  * If the system or any workflows and entities have been updated before this action is called, then the deployment will create a new Amazon Simple Storage Service
  * resource file and then deploy it.
  * 
- * 
  * Since this action creates a Greengrass deployment on the caller's behalf, the calling identity must have write permissions
  * to the specified Greengrass group. Otherwise, the call will fail with an authorization error.
- * 
  * 
  * For information about the artifacts that get added to your Greengrass core device when you use this API, see AWS IoT Things Graph and AWS IoT Greengrass.
  */export const deploySystemInstance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-06", sdkId: "IoTThingsGraph", sigV4ServiceName: "iotthingsgraph", name: "IotThingsGraphFrontEndService.DeploySystemInstance" }, DeploySystemInstanceRequest, DeploySystemInstanceResponse, [InternalFailureException, InvalidRequestException, ResourceInUseException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -258,45 +241,23 @@ export class LimitExceededException extends S.TaggedError<LimitExceededException
  * Gets definitions of the specified entities. Uses the latest version of the user's namespace by default. This API returns the
  * following TDM entities.
  * 
- * 
- * 
  * - Properties
- * 
- * 
  * 
  * - States
  * 
- * 
- * 
  * - Events
- * 
- * 
  * 
  * - Actions
  * 
- * 
- * 
  * - Capabilities
- * 
- * 
  * 
  * - Mappings
  * 
- * 
- * 
  * - Devices
- * 
- * 
  * 
  * - Device Models
  * 
- * 
- * 
  * - Services
- * 
- * 
- * 
- * 
  * 
  * This action doesn't return definitions for systems, flows, and deployments.
  */export const getEntities = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-06", sdkId: "IoTThingsGraph", sigV4ServiceName: "iotthingsgraph", name: "IotThingsGraphFrontEndService.GetEntities" }, GetEntitiesRequest, GetEntitiesResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -331,10 +292,8 @@ export class LimitExceededException extends S.TaggedError<LimitExceededException
 /**
  * Searches for things associated with the specified entity. You can search by both device and device model.
  * 
- * 
  * For example, if two different devices, camera1 and camera2, implement the camera device model, the user can associate thing1 to camera1 and thing2 to camera2.
  * `SearchThings(camera2)` will return only thing2, but `SearchThings(camera)` will return both thing1 and thing2.
- * 
  * 
  * This action searches for exact matches and doesn't perform partial text matching.
  */export const searchThings = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-06", sdkId: "IoTThingsGraph", sigV4ServiceName: "iotthingsgraph", name: "IotThingsGraphFrontEndService.SearchThings" }, SearchThingsRequest, SearchThingsResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

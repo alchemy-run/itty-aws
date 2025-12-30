@@ -300,7 +300,6 @@ export class ShardsPerClusterQuotaExceededFault extends S.TaggedError<ShardsPerC
 /**
  * Lists all tags currently on a named resource. A tag is a key-value pair where the key and value are case-sensitive. You can use tags to categorize and track your MemoryDB resources. For more information, see Tagging your MemoryDB resources.
  * 
- * 
  * When you add or remove tags from multi region clusters, you might not immediately see the latest effective tags in the ListTags API response due to it being eventually consistent specifically for multi region clusters. For more information, see Tagging your MemoryDB resources.
  */export const listTags = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-01-01", sdkId: "MemoryDB", sigV4ServiceName: "memorydb", name: "AmazonMemoryDB.ListTags" }, ListTagsRequest, ListTagsResponse, [ACLNotFoundFault, ClusterNotFoundFault, InvalidARNFault, InvalidClusterStateFault, MultiRegionClusterNotFoundFault, MultiRegionParameterGroupNotFoundFault, ParameterGroupNotFoundFault, ServiceLinkedRoleNotFoundFault, SnapshotNotFoundFault, SubnetGroupNotFoundFault, UserNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -320,10 +319,6 @@ export class ShardsPerClusterQuotaExceededFault extends S.TaggedError<ShardsPerC
  */export const deleteACL = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-01-01", sdkId: "MemoryDB", sigV4ServiceName: "memorydb", name: "AmazonMemoryDB.DeleteACL" }, DeleteACLRequest, DeleteACLResponse, [ACLNotFoundFault, InvalidACLStateFault, InvalidParameterValueException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a cluster. It also deletes all associated nodes and node endpoints.
- * 
- * 
- * 
- * 
  * 
  * `CreateSnapshot` permission is required to create a final snapshot.
  * Without this permission, the API call will fail with an `Access Denied` exception.
@@ -346,9 +341,7 @@ export class ShardsPerClusterQuotaExceededFault extends S.TaggedError<ShardsPerC
 /**
  * Use this operation to add tags to a resource. A tag is a key-value pair where the key and value are case-sensitive. You can use tags to categorize and track all your MemoryDB resources. For more information, see Tagging your MemoryDB resources.
  * 
- * 
  * When you add tags to multi region clusters, you might not immediately see the latest effective tags in the ListTags API response due to it being eventually consistent specifically for multi region clusters. For more information, see Tagging your MemoryDB resources.
- * 
  * 
  * You can specify cost-allocation tags for your MemoryDB resources, Amazon generates a cost allocation report as a comma-separated value
  * (CSV) file with your usage and costs aggregated by your tags. You can apply tags that represent business categories
@@ -359,9 +352,7 @@ export class ShardsPerClusterQuotaExceededFault extends S.TaggedError<ShardsPerC
 /**
  * Use this operation to remove tags on a resource. A tag is a key-value pair where the key and value are case-sensitive. You can use tags to categorize and track all your MemoryDB resources. For more information, see Tagging your MemoryDB resources.
  * 
- * 
  * When you remove tags from multi region clusters, you might not immediately see the latest effective tags in the ListTags API response due to it being eventually consistent specifically for multi region clusters. For more information, see Tagging your MemoryDB resources.
- * 
  * 
  * You can specify cost-allocation tags for your MemoryDB resources, Amazon generates a cost allocation report as a comma-separated value
  * (CSV) file with your usage and costs aggregated by your tags. You can apply tags that represent business categories

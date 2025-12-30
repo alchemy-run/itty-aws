@@ -211,16 +211,12 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
 /**
  * Deletes the specified configuration template.
  * 
- * 
- * 
- * 
  * When you launch an environment using a configuration template, the environment gets a
  * copy of the template. You can delete or modify the environment's copy of the template
  * without affecting the running environment.
  */export const deleteConfigurationTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.DeleteConfigurationTemplate" }, DeleteConfigurationTemplateMessage, S.Struct({}), [OperationInProgressException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes the draft configuration associated with the running environment.
- * 
  * 
  * Updating a running environment with any configuration changes creates a draft
  * configuration set. You can get the draft configuration using DescribeConfigurationSettings while the update is in progress or if the update
@@ -245,22 +241,16 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
  * Initiates a request to compile the specified type of information of the deployed
  * environment.
  * 
- * 
  * Setting the `InfoType` to `tail` compiles the last lines from
  * the application server log files of every Amazon EC2 instance in your environment.
- * 
  * 
  * Setting the `InfoType` to `bundle` compresses the application
  * server log files for every Amazon EC2 instance into a `.zip` file. Legacy and .NET
  * containers do not support bundle logs.
  * 
- * 
  * Use RetrieveEnvironmentInfo to obtain the set of logs.
  * 
- * 
  * Related Topics
- * 
- * 
  * 
  * - RetrieveEnvironmentInfo
  */export const requestEnvironmentInfo = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.RequestEnvironmentInfo" }, RequestEnvironmentInfoMessage, S.Struct({}), []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
@@ -294,9 +284,6 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
  * configurations. The application versions will not be deleted from your Amazon S3
  * bucket.
  * 
- * 
- * 
- * 
  * You cannot delete an application that has a running environment.
  */export const deleteApplication = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.DeleteApplication" }, DeleteApplicationMessage, S.Struct({}), [OperationInProgressException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
@@ -304,16 +291,12 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
  * either a configuration template or the configuration set associated with a running
  * environment.
  * 
- * 
  * When describing the settings for the configuration set associated with a running
  * environment, it is possible to receive two sets of setting descriptions. One is the deployed
  * configuration set, and the other is a draft configuration of an environment that is either in
  * the process of deployment or that failed to deploy.
  * 
- * 
  * Related Topics
- * 
- * 
  * 
  * - DeleteEnvironmentConfiguration
  */export const describeConfigurationSettings = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.DescribeConfigurationSettings" }, DescribeConfigurationSettingsMessage, ConfigurationSettingsDescriptions, [TooManyBucketsException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
@@ -324,9 +307,6 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
 /**
  * Updates the specified application to have the specified properties.
  * 
- * 
- * 
- * 
  * If a property (for example, `description`) is not provided, the value
  * remains unchanged. To clear these properties, specify an empty string.
  */export const updateApplication = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.UpdateApplication" }, UpdateApplicationMessage, ApplicationDescriptionMessage, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
@@ -336,9 +316,6 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
 /**
  * Updates the specified application version to have the specified properties.
  * 
- * 
- * 
- * 
  * If a property (for example, `description`) is not provided, the value
  * remains unchanged. To clear properties, specify an empty string.
  */export const updateApplicationVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.UpdateApplicationVersion" }, UpdateApplicationVersionMessage, ApplicationVersionDescriptionMessage, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
@@ -346,18 +323,10 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
  * Updates the specified configuration template to have the specified properties or
  * configuration option values.
  * 
- * 
- * 
- * 
  * If a property (for example, `ApplicationName`) is not provided, its value
  * remains unchanged. To clear such properties, specify an empty string.
  * 
- * 
- * 
- * 
  * Related Topics
- * 
- * 
  * 
  * - DescribeConfigurationOptions
  */export const updateConfigurationTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.UpdateConfigurationTemplate" }, UpdateConfigurationTemplateMessage, ConfigurationSettingsDescription, [InsufficientPrivilegesException, TooManyBucketsException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
@@ -366,10 +335,8 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
  * configuration settings to an entirely new configuration template, or updates select
  * configuration option values in the running environment.
  * 
- * 
  * Attempting to update both the release and configuration is not allowed and AWS Elastic
  * Beanstalk returns an `InvalidParameterCombination` error.
- * 
  * 
  * When updating the configuration settings to a new template or individual settings, a
  * draft configuration is created and DescribeConfigurationSettings for this
@@ -390,32 +357,19 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
  * can then use the configuration template to deploy different versions of the application with
  * the same configuration settings.
  * 
- * 
  * Templates aren't associated with any environment. The `EnvironmentName`
  * response element is always `null`.
  * 
- * 
  * Related Topics
- * 
- * 
  * 
  * - DescribeConfigurationOptions
  * 
- * 
- * 
- * 
  * - DescribeConfigurationSettings
- * 
- * 
- * 
  * 
  * - ListAvailableSolutionStacks
  */export const createConfigurationTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.CreateConfigurationTemplate" }, CreateConfigurationTemplateMessage, ConfigurationSettingsDescription, [InsufficientPrivilegesException, TooManyBucketsException, TooManyConfigurationTemplatesException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes the specified version from the specified application.
- * 
- * 
- * 
  * 
  * You cannot delete an application version that is associated with a running
  * environment.
@@ -426,7 +380,6 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
 /**
  * Returns attributes related to AWS Elastic Beanstalk that are associated with the calling AWS
  * account.
- * 
  * 
  * The result currently has one set of attributes—resource quotas.
  */export const describeAccountAttributes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.DescribeAccountAttributes" }, S.Struct({}), DescribeAccountAttributesResult, [InsufficientPrivilegesException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
@@ -445,9 +398,6 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
 /**
  * Returns list of event descriptions matching criteria up to the last 6 weeks.
  * 
- * 
- * 
- * 
  * This action returns the most recent 1,000 events from the specified
  * `NextToken`.
  */export const describeEvents = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.DescribeEvents" }, DescribeEventsMessage, EventDescriptionsMessage, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
@@ -456,13 +406,11 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
  * summary information about each platform version. Compare to DescribePlatformVersion, which provides full details about a single platform
  * version.
  * 
- * 
  * For definitions of platform version and other platform-related terms, see AWS Elastic Beanstalk
  * Platforms Glossary.
  */export const listPlatformVersions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.ListPlatformVersions" }, ListPlatformVersionsRequest, ListPlatformVersionsResult, [ElasticBeanstalkServiceException, InsufficientPrivilegesException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Return the tags applied to an AWS Elastic Beanstalk resource. The response contains a list of tag key-value pairs.
- * 
  * 
  * Elastic Beanstalk supports tagging of all of its resources. For details about resource tagging, see
  * Tagging Application
@@ -472,10 +420,7 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
  * Retrieves the compiled information from a RequestEnvironmentInfo
  * request.
  * 
- * 
  * Related Topics
- * 
- * 
  * 
  * - RequestEnvironmentInfo
  */export const retrieveEnvironmentInfo = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.RetrieveEnvironmentInfo" }, RetrieveEnvironmentInfoMessage, RetrieveEnvironmentInfoResultMessage, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
@@ -483,44 +428,28 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
  * Update the list of tags applied to an AWS Elastic Beanstalk resource. Two lists can be passed: `TagsToAdd`
  * for tags to add or update, and `TagsToRemove`.
  * 
- * 
  * Elastic Beanstalk supports tagging of all of its resources. For details about resource tagging, see
  * Tagging Application
  * Resources.
  * 
- * 
  * If you create a custom IAM user policy to control permission to this operation, specify
  * one of the following two virtual actions (or both) instead of the API operation name:
  * 
- * 
- * 
  * ### elasticbeanstalk:AddTags
- * 
- * 
  * 
  * Controls permission to call `UpdateTagsForResource` and pass a list of tags to add in the `TagsToAdd`
  * parameter.
  * 
- * 
- * 
- * 
  * ### elasticbeanstalk:RemoveTags
- * 
- * 
  * 
  * Controls permission to call `UpdateTagsForResource` and pass a list of tag keys to remove in the `TagsToRemove`
  * parameter.
- * 
- * 
- * 
- * 
  * 
  * For details about creating a custom user policy, see Creating a Custom User Policy.
  */export const updateTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.UpdateTagsForResource" }, UpdateTagsForResourceMessage, S.Struct({}), [InsufficientPrivilegesException, OperationInProgressException, ResourceNotFoundException, ResourceTypeNotSupportedException, TooManyTagsException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Takes a set of configuration settings and either a configuration template or
  * environment, and determines whether those values are valid.
- * 
  * 
  * This action returns a list of messages indicating any errors or warnings associated
  * with the selection of option values.
@@ -550,14 +479,12 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
  * Describes a platform version. Provides full details. Compare to ListPlatformVersions, which provides summary information about a list of
  * platform versions.
  * 
- * 
  * For definitions of platform version and other platform-related terms, see AWS Elastic Beanstalk
  * Platforms Glossary.
  */export const describePlatformVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", sdkId: "Elastic Beanstalk", sigV4ServiceName: "elasticbeanstalk", name: "AWSElasticBeanstalkService.DescribePlatformVersion" }, DescribePlatformVersionRequest, DescribePlatformVersionResult, [ElasticBeanstalkServiceException, InsufficientPrivilegesException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Lists the platform branches available for your account in an AWS Region. Provides
  * summary information about each platform branch.
- * 
  * 
  * For definitions of platform branch and other platform-related terms, see AWS Elastic Beanstalk
  * Platforms Glossary.
@@ -567,24 +494,16 @@ export class InvalidRequestException extends S.TaggedError<InvalidRequestExcepti
  * application version from a source bundle in Amazon S3, a commit in AWS CodeCommit, or the
  * output of an AWS CodeBuild build as follows:
  * 
- * 
  * Specify a commit in an AWS CodeCommit repository with
  * `SourceBuildInformation`.
- * 
  * 
  * Specify a build in an AWS CodeBuild with `SourceBuildInformation` and
  * `BuildConfiguration`.
  * 
- * 
  * Specify a source bundle in S3 with `SourceBundle`
- * 
- * 
  * 
  * Omit both `SourceBuildInformation` and `SourceBundle` to use the
  * default sample application.
- * 
- * 
- * 
  * 
  * After you create an application version with a specified Amazon S3 bucket and key
  * location, you can't change that Amazon S3 location. If you change the Amazon S3 location,

@@ -64,7 +64,6 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * Amazon Kendra Intelligent Ranking to rescore or re-rank
  * a search service's results.
  * 
- * 
  * For an example of using the
  * `CreateRescoreExecutionPlan` API, including using
  * the Python and Java SDKs, see Semantically

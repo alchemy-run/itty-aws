@@ -221,7 +221,6 @@ export class UnprocessableEntityException extends S.TaggedError<UnprocessableEnt
  * Managing Your Amazon Chime Accounts
  * in the account types, in the *Amazon Chime Administration Guide*.
  * 
- * 
  * Previously suspended users who are unsuspended using this action are returned to
  * `Registered`
  * status. Users who are not previously suspended are ignored.
@@ -233,7 +232,6 @@ export class UnprocessableEntityException extends S.TaggedError<UnprocessableEnt
  * Moves the specified phone number into the **Deletion queue**. A
  * phone number must be disassociated from any users or Amazon Chime Voice Connectors
  * before it can be deleted.
- * 
  * 
  * Deleted phone numbers remain in the
  * **Deletion queue**
@@ -280,8 +278,6 @@ export class UnprocessableEntityException extends S.TaggedError<UnprocessableEnt
  */export const getRoom = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-01", uri: "/accounts/{AccountId}/rooms/{RoomId}", method: "GET", sdkId: "Chime", sigV4ServiceName: "chime", name: "UCBuzzConsoleService.GetRoom" }, GetRoomRequest, GetRoomResponse, [BadRequestException, ForbiddenException, NotFoundException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves details for the specified user ID, such as primary email address, license type,and personal meeting PIN.
- * 
- * 
  * 
  * To retrieve user details with an email address instead of a user ID, use the
  * ListUsers action, and then filter by email address.
@@ -346,9 +342,7 @@ export class UnprocessableEntityException extends S.TaggedError<UnprocessableEnt
 /**
  * Updates phone number details, such as product type or calling name, for the specified phone number ID. You can update one phone number detail at a time. For example, you can update either the product type or the calling name in one action.
  * 
- * 
  * For toll-free numbers, you cannot use the Amazon Chime Business Calling product type. For numbers outside the U.S., you must use the Amazon Chime SIP Media Application Dial-In product type.
- * 
  * 
  * Updates to outbound calling names can take 72 hours to complete. Pending updates to outbound calling names must be complete before you can request another update.
  */export const updatePhoneNumber = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-01", uri: "/phone-numbers/{PhoneNumberId}", sdkId: "Chime", sigV4ServiceName: "chime", name: "UCBuzzConsoleService.UpdatePhoneNumber" }, UpdatePhoneNumberRequest, UpdatePhoneNumberResponse, [BadRequestException, ConflictException, ForbiddenException, NotFoundException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -365,8 +359,6 @@ export class UnprocessableEntityException extends S.TaggedError<UnprocessableEnt
  * Moves phone numbers into the
  * **Deletion queue**. Phone numbers must be disassociated from any users or Amazon Chime Voice Connectors before they can be deleted.
  * 
- * 
- * 
  * Phone numbers remain in the
  * **Deletion queue** for 7 days before they are deleted permanently.
  */export const batchDeletePhoneNumber = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-01", uri: "/phone-numbers?operation=batch-delete", sdkId: "Chime", sigV4ServiceName: "chime", name: "UCBuzzConsoleService.BatchDeletePhoneNumber" }, BatchDeletePhoneNumberRequest, BatchDeletePhoneNumberResponse, [BadRequestException, ForbiddenException, NotFoundException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -375,18 +367,14 @@ export class UnprocessableEntityException extends S.TaggedError<UnprocessableEnt
  * account. For more information about different account types, see Managing Your Amazon Chime Accounts in the Amazon Chime Administration
  * Guide.
  * 
- * 
  * Users suspended from a `Team` account are disassociated from the account,but they
  * can continue to use Amazon Chime as free users. To remove the suspension from suspended
  * `Team` account users, invite them to the `Team` account again.
  * You can use the InviteUsers action to do so.
  * 
- * 
  * Users suspended from an `EnterpriseLWA` account are immediately signed out of
  * Amazon Chime and can no longer sign in. To remove the suspension from suspended `EnterpriseLWA` account users, use the
  * BatchUnsuspendUser action.
- * 
- * 
  * 
  * To sign out users without suspending them, use the
  * LogoutUser action.
@@ -394,9 +382,7 @@ export class UnprocessableEntityException extends S.TaggedError<UnprocessableEnt
 /**
  * Updates phone number product types or calling names. You can update one attribute at a time for each `UpdatePhoneNumberRequestItem`. For example, you can update the product type or the calling name.
  * 
- * 
  * For toll-free numbers, you cannot use the Amazon Chime Business Calling product type. For numbers outside the U.S., you must use the Amazon Chime SIP Media Application Dial-In product type.
- * 
  * 
  * Updates to outbound calling names can take up to 72 hours to complete. Pending updates to outbound calling names must be complete before you can request another update.
  */export const batchUpdatePhoneNumber = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-01", uri: "/phone-numbers?operation=batch-update", sdkId: "Chime", sigV4ServiceName: "chime", name: "UCBuzzConsoleService.BatchUpdatePhoneNumber" }, BatchUpdatePhoneNumberRequest, BatchUpdatePhoneNumberResponse, [BadRequestException, ForbiddenException, NotFoundException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -416,13 +402,8 @@ export class UnprocessableEntityException extends S.TaggedError<UnprocessableEnt
  * Uses the join token and call metadata in a meeting request (From number, To number, and so forth) to initiate an outbound call to a public
  * switched telephone network (PSTN) and join them into a Chime meeting. Also ensures that the From number belongs to the customer.
  * 
- * 
  * To play welcome audio or implement an interactive voice response (IVR), use the
  * `CreateSipMediaApplicationCall` action with the corresponding SIP media application ID.
- * 
- * 
- * 
- * 
  * 
  * **This API is not available in a dedicated namespace.**
  */export const createMeetingDialOut = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-01", uri: "/meetings/{MeetingId}/dial-outs", sdkId: "Chime", sigV4ServiceName: "chime", name: "UCBuzzConsoleService.CreateMeetingDialOut" }, CreateMeetingDialOutRequest, CreateMeetingDialOutResponse, [AccessDeniedException, BadRequestException, ForbiddenException, ResourceLimitExceededException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -437,16 +418,13 @@ export class UnprocessableEntityException extends S.TaggedError<UnprocessableEnt
  * `Team` account. You can use the BatchSuspendUser action
  * to dodo.
  * 
- * 
  * For `EnterpriseLWA` and `EnterpriseAD` accounts, you must release the
  * claimed domains for your Amazon Chime account before deletion. As soon as you release
  * the domain, all users under that account are suspended.
  * 
- * 
  * Deleted accounts appear in your `Disabled` accounts list for 90 days. To restore
  * deleted account from your `Disabled` accounts list, you must contact AWS
  * Support.
- * 
  * 
  * After 90 days, deleted accounts are permanently removed from your
  * `Disabled` accounts list.
@@ -493,8 +471,6 @@ export class UnprocessableEntityException extends S.TaggedError<UnprocessableEnt
  * Puts retention settings for the specified Amazon Chime Enterprise account. We recommend using AWS CloudTrail to monitor usage of this API for your account. For more information, see
  * Logging Amazon Chime API Calls with AWS CloudTrail
  * in the *Amazon Chime Administration Guide*.
- * 
- * 
  * 
  * To turn off existing retention settings, remove the number of days from the corresponding
  * **RetentionDays**

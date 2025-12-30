@@ -32,6 +32,5 @@ export class ServiceUnavailableError extends S.TaggedError<ServiceUnavailableErr
  * 
  * The bidirectional stream maintains the connection until either the client closes it or the model indicates completion. Each request and response in the stream is sent as an event with optional headers for data type and completion state.
  * 
- * 
  * Endpoints are scoped to an individual account, and are not public. The URL does not contain the account ID, but Amazon SageMaker AI determines the account ID from the authentication token that is supplied by the caller.
  */export const invokeEndpointWithBidirectionalStream = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2025-10-01", uri: "/endpoints/{EndpointName}/invocations-bidirectional-stream", sdkId: "SageMaker Runtime HTTP2", sigV4ServiceName: "sagemaker", name: "AmazonSageMakerRuntimeHttp2.InvokeEndpointWithBidirectionalStream" }, InvokeEndpointWithBidirectionalStreamInput, InvokeEndpointWithBidirectionalStreamOutput, [InputValidationError, InternalServerError, InternalStreamFailure, ModelError, ModelStreamError, ServiceUnavailableError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

@@ -244,7 +244,6 @@ export class InvalidTypeException extends S.TaggedError<InvalidTypeException>()(
 /**
  * Disassociates an Firewall Manager administrator account. To set a different account as an Firewall Manager administrator, submit a PutAdminAccount request. To set an account as a default administrator account, you must submit an AssociateAdminAccount request.
  * 
- * 
  * Disassociation of the default administrator account follows the first in, last out principle. If you are the default administrator, all Firewall Manager administrators within the organization must first disassociate their accounts before you can disassociate your account.
  */export const disassociateAdminAccount = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.DisassociateAdminAccount" }, DisassociateAdminAccountRequest, S.Struct({}), [InternalErrorException, InvalidOperationException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -260,7 +259,6 @@ export class InvalidTypeException extends S.TaggedError<InvalidTypeException>()(
  * Designates the IAM role and Amazon Simple Notification Service (SNS) topic that
  * Firewall Manager uses to record SNS logs.
  * 
- * 
  * To perform this action outside of the console, you must first configure the SNS topic's access policy to allow the `SnsRoleName` to publish SNS logs. If the `SnsRoleName` provided is a role other than the `AWSServiceRoleForFMS` service-linked role, this role must have a trust relationship configured to allow the Firewall Manager service principal `fms.amazonaws.com` to assume this role. For information about configuring an SNS access policy, see
  * Service roles for Firewall Manager in the *Firewall Manager Developer Guide*.
  */export const putNotificationChannel = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.PutNotificationChannel" }, PutNotificationChannelRequest, S.Struct({}), [InternalErrorException, InvalidOperationException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -272,7 +270,6 @@ export class InvalidTypeException extends S.TaggedError<InvalidTypeException>()(
  */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [InternalErrorException, InvalidInputException, InvalidOperationException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Sets a Firewall Manager default administrator account. The Firewall Manager default administrator account can manage third-party firewalls and has full administrative scope that allows administration of all policy types, accounts, organizational units, and Regions. This account must be a member account of the organization in Organizations whose resources you want to protect.
- * 
  * 
  * For information about working with Firewall Manager administrator accounts, see Managing Firewall Manager administrators in the *Firewall Manager Developer Guide*.
  */export const associateAdminAccount = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.AssociateAdminAccount" }, AssociateAdminAccountRequest, S.Struct({}), [InternalErrorException, InvalidInputException, InvalidOperationException, LimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -317,7 +314,6 @@ export class InvalidTypeException extends S.TaggedError<InvalidTypeException>()(
  * Returns a `MemberAccounts` object that lists the member accounts in the
  * administrator's Amazon Web Services organization.
  * 
- * 
  * Either an Firewall Manager administrator or the organization's management account can make this request.
  */export const listMemberAccounts = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.ListMemberAccounts" }, ListMemberAccountsRequest, ListMemberAccountsResponse, [InternalErrorException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -331,7 +327,6 @@ export class InvalidTypeException extends S.TaggedError<InvalidTypeException>()(
  */export const getPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.GetPolicy" }, GetPolicyRequest, GetPolicyResponse, [InternalErrorException, InvalidOperationException, InvalidTypeException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a `AdminAccounts` object that lists the Firewall Manager administrators within the organization that are onboarded to Firewall Manager by AssociateAdminAccount.
- * 
  * 
  * This operation can be called only from the organization's management account.
  */export const listAdminAccountsForOrganization = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.ListAdminAccountsForOrganization" }, ListAdminAccountsForOrganizationRequest, ListAdminAccountsForOrganizationResponse, [InternalErrorException, InvalidOperationException, LimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -363,7 +358,6 @@ export class InvalidTypeException extends S.TaggedError<InvalidTypeException>()(
 /**
  * Creates the resource set.
  * 
- * 
  * An Firewall Manager resource set defines the resources to import into an Firewall Manager policy from another Amazon Web Services service.
  */export const putResourceSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.PutResourceSet" }, PutResourceSetRequest, PutResourceSetResponse, [InternalErrorException, InvalidInputException, InvalidOperationException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -381,66 +375,44 @@ export class InvalidTypeException extends S.TaggedError<InvalidTypeException>()(
  * Returns detailed compliance information about the specified member account. Details
  * include resources that are in and out of compliance with the specified policy.
  * 
- * 
  * The reasons for resources being considered compliant depend on the Firewall Manager policy type.
  */export const getComplianceDetail = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.GetComplianceDetail" }, GetComplianceDetailRequest, GetComplianceDetailResponse, [InternalErrorException, InvalidInputException, InvalidOperationException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an Firewall Manager policy.
  * 
- * 
  * A Firewall Manager policy is specific to the individual policy type. If you want to enforce multiple
  * policy types across accounts, you can create multiple policies. You can create more than one
  * policy for each type.
- * 
  * 
  * If you add a new account to an organization that you created with Organizations, Firewall Manager
  * automatically applies the policy to the resources in that account that are within scope of
  * the policy.
  * 
- * 
  * Firewall Manager provides the following types of policies:
- * 
- * 
  * 
  * - **WAF policy** - This policy applies WAF web ACL
  * protections to specified accounts and resources.
  * 
- * 
- * 
  * - **Shield Advanced policy** - This policy applies Shield Advanced
  * protection to specified accounts and resources.
- * 
- * 
  * 
  * - **Security Groups policy** - This type of policy gives you
  * control over security groups that are in use throughout your organization in
  * Organizations and lets you enforce a baseline set of rules across your organization.
  * 
- * 
- * 
  * - **Network ACL policy** - This type of policy gives you
  * control over the network ACLs that are in use throughout your organization in
  * Organizations and lets you enforce a baseline set of first and last network ACL rules across your organization.
  * 
- * 
- * 
  * - **Network Firewall policy** - This policy applies
  * Network Firewall protection to your organization's VPCs.
- * 
- * 
  * 
  * - **DNS Firewall policy** - This policy applies
  * Amazon Route 53 Resolver DNS Firewall protections to your organization's VPCs.
  * 
- * 
- * 
  * - **Third-party firewall policy** - This policy applies third-party firewall protections. Third-party firewalls are available by subscription through the Amazon Web Services Marketplace console at Amazon Web Services Marketplace.
  * 
- * 
- * 
  * - **Palo Alto Networks Cloud NGFW policy** - This policy applies Palo Alto Networks Cloud Next Generation Firewall (NGFW) protections and Palo Alto Networks Cloud NGFW rulestacks to your organization's VPCs.
- * 
- * 
  * 
  * - **Fortigate CNF policy** - This policy applies
  * Fortigate Cloud Native Firewall (CNF) protections. Fortigate CNF is a cloud-centered solution that blocks Zero-Day threats and secures cloud infrastructures with industry-leading advanced threat prevention, smart web application firewalls (WAF), and API protection.

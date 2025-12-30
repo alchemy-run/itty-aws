@@ -422,17 +422,14 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
 /**
  * Attaches the specified managed policy to the specified user.
  * 
- * 
  * You use this operation to attach a *managed* policy to a user. To
  * embed an inline policy in a user, use
  * `PutUserPolicy`
  * .
  * 
- * 
  * As a best practice, you can validate your IAM policies.
  * To learn more, see Validating IAM policies
  * in the *IAM User Guide*.
- * 
  * 
  * For more information about policies, see Managed policies and inline
  * policies in the *IAM User Guide*.
@@ -447,14 +444,12 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * Deactivates the specified MFA device and removes it from association with the user
  * name for which it was originally enabled.
  * 
- * 
  * For more information about creating and working with virtual MFA devices, see Enabling a virtual
  * multi-factor authentication (MFA) device in the
  * *IAM User Guide*.
  */export const deactivateMFADevice = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.DeactivateMFADevice" }, DeactivateMFADeviceRequest, S.Struct({}), [ConcurrentModificationException, EntityTemporarilyUnmodifiableException, LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes the access key pair associated with the specified IAM user.
- * 
  * 
  * If you do not specify a user name, IAM determines the user name implicitly based on
  * the Amazon Web Services access key ID signing the request. This operation works for access keys under
@@ -474,7 +469,6 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * Deletes the specified inline policy that is embedded in the specified IAM
  * group.
  * 
- * 
  * A group can also have managed policies attached to it. To detach a managed policy from
  * a group, use DetachGroupPolicy.
  * For more information about policies, refer to Managed policies and inline
@@ -484,16 +478,10 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * Deletes the specified instance profile. The instance profile must not have an
  * associated role.
  * 
- * 
- * 
- * 
  * Make sure that you do not have any Amazon EC2 instances running with the instance
  * profile you are about to delete. Deleting a role or instance profile that is
  * associated with a running instance will break any applications running on the
  * instance.
- * 
- * 
- * 
  * 
  * For more information about instance profiles, see Using
  * instance profiles in the *IAM User Guide*.
@@ -503,14 +491,10 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * Managing
  * passwords for IAM users.
  * 
- * 
  * You can use the CLI, the Amazon Web Services API, or the **Users**
  * page in the IAM console to delete a password for any IAM user. You can use ChangePassword to update, but not delete, your own password in the
  * **My Security Credentials** page in the
  * Amazon Web Services Management Console.
- * 
- * 
- * 
  * 
  * Deleting a user's password does not prevent a user from accessing Amazon Web Services through
  * the command line interface or the API. To prevent all user access, you must also
@@ -521,11 +505,9 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
 /**
  * Deletes an OpenID Connect identity provider (IdP) resource object in IAM.
  * 
- * 
  * Deleting an IAM OIDC provider resource does not update any roles that reference the
  * provider as a principal in their trust policies. Any attempt to assume a role that
  * references a deleted provider fails.
- * 
  * 
  * This operation is idempotent; it does not fail or return an error if you call the
  * operation for a provider that does not exist.
@@ -533,32 +515,21 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
 /**
  * Deletes the specified managed policy.
  * 
- * 
  * Before you can delete a managed policy, you must first detach the policy from all
  * users, groups, and roles that it is attached to. In addition, you must delete all the
  * policy's versions. The following steps describe the process for deleting a managed
  * policy:
  * 
- * 
- * 
  * - Detach the policy from all users, groups, and roles that the policy is
  * attached to, using DetachUserPolicy, DetachGroupPolicy, or DetachRolePolicy. To list all the users, groups, and roles that a
  * policy is attached to, use ListEntitiesForPolicy.
- * 
- * 
  * 
  * - Delete all versions of the policy using DeletePolicyVersion. To list the policy's versions, use ListPolicyVersions. You cannot use DeletePolicyVersion to delete the version that is marked as the
  * default version. You delete the policy's default version in the next step of the
  * process.
  * 
- * 
- * 
  * - Delete the policy (this automatically deletes the policy's default version)
  * using this operation.
- * 
- * 
- * 
- * 
  * 
  * For information about managed policies, see Managed policies and inline
  * policies in the *IAM User Guide*.
@@ -566,11 +537,9 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
 /**
  * Deletes the specified version from the specified managed policy.
  * 
- * 
  * You cannot delete the default version from a policy using this operation. To delete
  * the default version from a policy, use DeletePolicy. To find
  * out which version of a policy is marked as the default version, use ListPolicyVersions.
- * 
  * 
  * For information about versions for managed policies, see Versioning for managed
  * policies in the *IAM User Guide*.
@@ -581,28 +550,14 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * deletion fails. For more information, see Deleting an IAM role. Before attempting to delete a role, remove the
  * following attached items:
  * 
- * 
- * 
  * - Inline policies (DeleteRolePolicy)
- * 
- * 
  * 
  * - Attached managed policies (DetachRolePolicy)
  * 
- * 
- * 
  * - Instance profile (RemoveRoleFromInstanceProfile)
- * 
- * 
  * 
  * - Optional – Delete instance profile after detaching from role for
  * resource clean up (DeleteInstanceProfile)
- * 
- * 
- * 
- * 
- * 
- * 
  * 
  * Make sure that you do not have any Amazon EC2 instances running with the role you are
  * about to delete. Deleting a role or instance profile that is associated with a
@@ -611,11 +566,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
 /**
  * Deletes the permissions boundary for the specified IAM role.
  * 
- * 
  * You cannot set the boundary for a service-linked role.
- * 
- * 
- * 
  * 
  * Deleting the permissions boundary for a role might increase its permissions. For
  * example, it might allow anyone who assumes the role to perform all the actions
@@ -625,7 +576,6 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * Deletes the specified inline policy that is embedded in the specified IAM
  * role.
  * 
- * 
  * A role can also have managed policies attached to it. To detach a managed policy from
  * a role, use DetachRolePolicy.
  * For more information about policies, refer to Managed policies and inline
@@ -634,27 +584,19 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
 /**
  * Deletes a SAML provider resource in IAM.
  * 
- * 
  * Deleting the provider resource from IAM does not update any roles that reference the
  * SAML provider resource's ARN as a principal in their trust policies. Any attempt to
  * assume a role that references a non-existent provider resource ARN fails.
- * 
- * 
- * 
  * 
  * This operation requires Signature Version 4.
  */export const deleteSAMLProvider = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.DeleteSAMLProvider" }, DeleteSAMLProviderRequest, S.Struct({}), [InvalidInputException, LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes the specified server certificate.
  * 
- * 
  * For more information about working with server certificates, see Working
  * with server certificates in the *IAM User Guide*. This
  * topic also includes a list of Amazon Web Services services that can use the server certificates that
  * you manage with IAM.
- * 
- * 
- * 
  * 
  * If you are using a server certificate with Elastic Load Balancing, deleting the
  * certificate could have implications for your application. If Elastic Load Balancing
@@ -671,7 +613,6 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
 /**
  * Deletes a signing certificate associated with the specified IAM user.
  * 
- * 
  * If you do not specify a user name, IAM determines the user name implicitly based on
  * the Amazon Web Services access key ID signing the request. This operation works for access keys under
  * the Amazon Web Services account. Consequently, you can use this operation to manage Amazon Web Services account root
@@ -679,7 +620,6 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  */export const deleteSigningCertificate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.DeleteSigningCertificate" }, DeleteSigningCertificateRequest, S.Struct({}), [ConcurrentModificationException, LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes the specified SSH public key.
- * 
  * 
  * The SSH public key deleted by this operation is used only for authenticating the
  * associated IAM user to an CodeCommit repository. For more information about using SSH keys
@@ -692,47 +632,26 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * deletion fails. For more information, see Deleting an IAM
  * user. Before attempting to delete a user, remove the following items:
  * 
- * 
- * 
  * - Password (DeleteLoginProfile)
- * 
- * 
  * 
  * - Access keys (DeleteAccessKey)
  * 
- * 
- * 
  * - Signing certificate (DeleteSigningCertificate)
- * 
- * 
  * 
  * - SSH public key (DeleteSSHPublicKey)
  * 
- * 
- * 
  * - Git credentials (DeleteServiceSpecificCredential)
- * 
- * 
  * 
  * - Multi-factor authentication (MFA) device (DeactivateMFADevice, DeleteVirtualMFADevice)
  * 
- * 
- * 
  * - Inline policies (DeleteUserPolicy)
  * 
- * 
- * 
  * - Attached managed policies (DetachUserPolicy)
- * 
- * 
  * 
  * - Group memberships (RemoveUserFromGroup)
  */export const deleteUser = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.DeleteUser" }, DeleteUserRequest, S.Struct({}), [ConcurrentModificationException, DeleteConflictException, LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes the permissions boundary for the specified IAM user.
- * 
- * 
- * 
  * 
  * Deleting the permissions boundary for a user might increase its permissions by
  * allowing the user to perform all the actions granted in its permissions policies.
@@ -740,7 +659,6 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
 /**
  * Deletes the specified inline policy that is embedded in the specified IAM
  * user.
- * 
  * 
  * A user can also have managed policies attached to it. To detach a managed policy from
  * a user, use DetachUserPolicy.
@@ -750,15 +668,11 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
 /**
  * Deletes a virtual MFA device.
  * 
- * 
- * 
- * 
  * You must deactivate a user's virtual MFA device before you can delete it. For
  * information about deactivating MFA devices, see DeactivateMFADevice.
  */export const deleteVirtualMFADevice = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.DeleteVirtualMFADevice" }, DeleteVirtualMFADeviceRequest, S.Struct({}), [ConcurrentModificationException, DeleteConflictException, LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Removes the specified managed policy from the specified IAM group.
- * 
  * 
  * A group can also have inline policies embedded with it. To delete an inline policy,
  * use DeleteGroupPolicy. For information about policies, see Managed
@@ -768,7 +682,6 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
 /**
  * Removes the specified managed policy from the specified role.
  * 
- * 
  * A role can also have inline policies embedded with it. To delete an inline policy, use
  * DeleteRolePolicy. For information about policies, see Managed
  * policies and inline policies in the
@@ -776,7 +689,6 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  */export const detachRolePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.DetachRolePolicy" }, DetachRolePolicyRequest, S.Struct({}), [InvalidInputException, LimitExceededException, NoSuchEntityException, ServiceFailureException, UnmodifiableEntityException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Removes the specified managed policy from the specified user.
- * 
  * 
  * A user can also have inline policies embedded with it. To delete an inline policy, use
  * DeleteUserPolicy. For information about policies, see Managed
@@ -799,17 +711,13 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * If you specify a user, then the request also includes all of the policies attached to
  * groups that the user is a member of.
  * 
- * 
  * You can optionally include a list of one or more additional policies, specified as
  * strings. If you want to include *only* a list of policies by string,
  * use GetContextKeysForCustomPolicy instead.
  * 
- * 
- * 
  * **Note:** This operation discloses information about the
  * permissions granted to other users. If you do not want users to see other user's
  * permissions, then consider allowing them to use GetContextKeysForCustomPolicy instead.
- * 
  * 
  * Context keys are variables maintained by Amazon Web Services and its services that provide details
  * about the context of an API query request. Context keys can be evaluated by testing
@@ -827,11 +735,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * Setting a permissions boundary is an advanced feature that can affect the permissions
  * for the role.
  * 
- * 
  * You cannot set the boundary for a service-linked role.
- * 
- * 
- * 
  * 
  * Policies used as permissions boundaries do not provide permissions. You must also
  * attach a permissions policy to the role. To learn how the effective permissions for
@@ -841,7 +745,6 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
 /**
  * Adds or updates an inline policy document that is embedded in the specified IAM
  * role.
- * 
  * 
  * When you embed an inline policy in a role, the inline policy is used as part of the
  * role's access (permissions) policy. The role's trust policy is created at the same time
@@ -854,7 +757,6 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * see IAM
  * roles in the *IAM User Guide*.
  * 
- * 
  * A role can also have a managed policy attached to it. To attach a managed policy to a
  * role, use
  * `AttachRolePolicy`
@@ -865,12 +767,8 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * policies and inline policies in the
  * *IAM User Guide*.
  * 
- * 
  * For information about the maximum number of inline policies that you can embed with a
  * role, see IAM and STS quotas in the *IAM User Guide*.
- * 
- * 
- * 
  * 
  * Because policy documents can be large, you should use POST rather than GET when
  * calling `PutRolePolicy`. For general information about using the Query
@@ -884,9 +782,6 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * can have. Setting a permissions boundary is an advanced feature that can affect the
  * permissions for the user.
  * 
- * 
- * 
- * 
  * Policies that are used as permissions boundaries do not provide permissions. You
  * must also attach a permissions policy to the user. To learn how the effective
  * permissions for a user are evaluated, see IAM JSON policy
@@ -895,7 +790,6 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
 /**
  * Adds or updates an inline policy document that is embedded in the specified IAM
  * user.
- * 
  * 
  * An IAM user can also have a managed policy attached to it. To attach a managed
  * policy to a user, use
@@ -907,12 +801,8 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * policies and inline policies in the
  * *IAM User Guide*.
  * 
- * 
  * For information about the maximum number of inline policies that you can embed in a
  * user, see IAM and STS quotas in the *IAM User Guide*.
- * 
- * 
- * 
  * 
  * Because policy documents can be large, you should use POST rather than GET when
  * calling `PutUserPolicy`. For general information about using the Query
@@ -922,13 +812,9 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
 /**
  * Rejects a delegation request, denying the requested temporary access.
  * 
- * 
  * Once a request is rejected, it cannot be accepted or updated later. Rejected requests expire after 7 days.
  * 
- * 
  * When rejecting a request, an optional explanation can be added using the `Notes` request parameter.
- * 
- * 
  * 
  * For more details, see
  * 
@@ -939,23 +825,16 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * registered for the specified IAM OpenID Connect (OIDC) provider resource
  * object.
  * 
- * 
  * This operation is idempotent; it does not fail or return an error if you try to remove
  * a client ID that does not exist.
  */export const removeClientIDFromOpenIDConnectProvider = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.RemoveClientIDFromOpenIDConnectProvider" }, RemoveClientIDFromOpenIDConnectProviderRequest, S.Struct({}), [ConcurrentModificationException, InvalidInputException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Removes the specified IAM role from the specified Amazon EC2 instance profile.
  * 
- * 
- * 
- * 
  * Make sure that you do not have any Amazon EC2 instances running with the role you are
  * about to remove from the instance profile. Removing a role from an instance profile
  * that is associated with a running instance might break any applications running on
  * the instance.
- * 
- * 
- * 
  * 
  * For more information about roles, see IAM roles in the
  * *IAM User Guide*. For more information about instance profiles,
@@ -969,23 +848,18 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * Synchronizes the specified MFA device with its IAM resource object on the Amazon Web Services
  * servers.
  * 
- * 
  * For more information about creating and working with virtual MFA devices, see Using a virtual MFA
  * device in the *IAM User Guide*.
  */export const resyncMFADevice = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.ResyncMFADevice" }, ResyncMFADeviceRequest, S.Struct({}), [ConcurrentModificationException, InvalidAuthenticationCodeException, LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Sends the exchange token for an accepted delegation request.
  * 
- * 
  * The exchange token is sent to the partner via an asynchronous notification channel, established by the partner.
- * 
  * 
  * The delegation request must be in the `ACCEPTED` state when calling this API. After the
  * `SendDelegationToken` API
  * call is successful, the request transitions to a `FINALIZED` state and cannot be rolled back. However, a user may reject
  * an accepted request before the `SendDelegationToken` API is called.
- * 
- * 
  * 
  * For more details, see
  * 
@@ -995,10 +869,8 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * Sets the specified version of the specified policy as the policy's default (operative)
  * version.
  * 
- * 
  * This operation affects all users, groups, and roles that the policy is attached to. To
  * list the users, groups, and roles that the policy is attached to, use ListEntitiesForPolicy.
- * 
  * 
  * For information about managed policies, see Managed policies and inline
  * policies in the *IAM User Guide*.
@@ -1007,14 +879,12 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * Sets the specified version of the global endpoint token as the token version used for
  * the Amazon Web Services account.
  * 
- * 
  * By default, Security Token Service (STS) is available as a global service, and all STS requests
  * go to a single endpoint at `https://sts.amazonaws.com`. Amazon Web Services recommends
  * using Regional STS endpoints to reduce latency, build in redundancy, and increase
  * session token availability. For information about Regional endpoints for STS, see
  * Security Token Service
  * endpoints and quotas in the *Amazon Web Services General Reference*.
- * 
  * 
  * If you make an STS call to the global endpoint, the resulting session tokens might
  * be valid in some Regions but not others. It depends on the version that is set in this
@@ -1026,7 +896,6 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * deactivating STS in an Amazon Web Services Region in the
  * *IAM User Guide*.
  * 
- * 
  * To view the current session token version, see the
  * `GlobalEndpointTokenVersion` entry in the response of the GetAccountSummary operation.
  */export const setSecurityTokenServicePreferences = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.SetSecurityTokenServicePreferences" }, SetSecurityTokenServicePreferencesRequest, S.Struct({}), [ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
@@ -1034,11 +903,8 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * Adds one or more tags to an IAM instance profile. If a tag with the same key name
  * already exists, then that tag is overwritten with the new value.
  * 
- * 
  * Each tag consists of a key name and an associated value. By assigning tags to your resources, you can do the
  * following:
- * 
- * 
  * 
  * - **Administrative grouping and discovery** - Attach
  * tags to resources to aid in organization and search. For example, you could search for all
@@ -1046,26 +912,15 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * *MyImportantProject*. Or search for all resources with the key name
  * *Cost Center* and the value *41200*.
  * 
- * 
- * 
  * - **Access control** - Include tags in IAM user-based
  * and resource-based policies. You can use tags to restrict access to only an IAM instance
  * profile that has a specified tag attached. For examples of policies that show how to use
  * tags to control access, see Control access using IAM tags in the
  * *IAM User Guide*.
  * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
  * - If any one of the tags is invalid or if you exceed the allowed maximum number of tags, then the entire request
  * fails and the resource is not created. For more information about tagging, see Tagging IAM resources in the
  * *IAM User Guide*.
- * 
- * 
  * 
  * - Amazon Web Services always interprets the tag `Value` as a single string. If you
  * need to store an array, you can store comma-separated values in the string. However, you
@@ -1076,11 +931,8 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * a tag with the same key name already exists, then that tag is overwritten with the new
  * value.
  * 
- * 
  * A tag consists of a key name and an associated value. By assigning tags to your
  * resources, you can do the following:
- * 
- * 
  * 
  * - **Administrative grouping and discovery** - Attach
  * tags to resources to aid in organization and search. For example, you could search for all
@@ -1088,26 +940,15 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * *MyImportantProject*. Or search for all resources with the key name
  * *Cost Center* and the value *41200*.
  * 
- * 
- * 
  * - **Access control** - Include tags in IAM user-based
  * and resource-based policies. You can use tags to restrict access to only an IAM virtual
  * MFA device that has a specified tag attached. For examples of policies that show how to
  * use tags to control access, see Control access using IAM tags in the
  * *IAM User Guide*.
  * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
  * - If any one of the tags is invalid or if you exceed the allowed maximum number of tags, then the entire request
  * fails and the resource is not created. For more information about tagging, see Tagging IAM resources in the
  * *IAM User Guide*.
- * 
- * 
  * 
  * - Amazon Web Services always interprets the tag `Value` as a single string. If you
  * need to store an array, you can store comma-separated values in the string. However, you
@@ -1119,11 +960,8 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * a tag with the same key name already exists, then that tag is overwritten with the new
  * value.
  * 
- * 
  * A tag consists of a key name and an associated value. By assigning tags to your
  * resources, you can do the following:
- * 
- * 
  * 
  * - **Administrative grouping and discovery** - Attach
  * tags to resources to aid in organization and search. For example, you could search for all
@@ -1131,26 +969,15 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * *MyImportantProject*. Or search for all resources with the key name
  * *Cost Center* and the value *41200*.
  * 
- * 
- * 
  * - **Access control** - Include tags in IAM identity-based
  * and resource-based policies. You can use tags to restrict access to only an OIDC provider
  * that has a specified tag attached. For examples of policies that show how to use tags to
  * control access, see Control access using IAM tags in the
  * *IAM User Guide*.
  * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
  * - If any one of the tags is invalid or if you exceed the allowed maximum number of tags, then the entire request
  * fails and the resource is not created. For more information about tagging, see Tagging IAM resources in the
  * *IAM User Guide*.
- * 
- * 
  * 
  * - Amazon Web Services always interprets the tag `Value` as a single string. If you
  * need to store an array, you can store comma-separated values in the string. However, you
@@ -1160,11 +987,8 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * Adds one or more tags to an IAM customer managed policy. If a tag with the same key
  * name already exists, then that tag is overwritten with the new value.
  * 
- * 
  * A tag consists of a key name and an associated value. By assigning tags to your
  * resources, you can do the following:
- * 
- * 
  * 
  * - **Administrative grouping and discovery** - Attach
  * tags to resources to aid in organization and search. For example, you could search for all
@@ -1172,26 +996,15 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * *MyImportantProject*. Or search for all resources with the key name
  * *Cost Center* and the value *41200*.
  * 
- * 
- * 
  * - **Access control** - Include tags in IAM user-based
  * and resource-based policies. You can use tags to restrict access to only an IAM customer
  * managed policy that has a specified tag attached. For examples of policies that show how
  * to use tags to control access, see Control access using IAM tags in the
  * *IAM User Guide*.
  * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
  * - If any one of the tags is invalid or if you exceed the allowed maximum number of tags, then the entire request
  * fails and the resource is not created. For more information about tagging, see Tagging IAM resources in the
  * *IAM User Guide*.
- * 
- * 
  * 
  * - Amazon Web Services always interprets the tag `Value` as a single string. If you
  * need to store an array, you can store comma-separated values in the string. However, you
@@ -1202,19 +1015,14 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * service-linked role. If a tag with the same key name already exists, then that tag is
  * overwritten with the new value.
  * 
- * 
  * A tag consists of a key name and an associated value. By assigning tags to your
  * resources, you can do the following:
- * 
- * 
  * 
  * - **Administrative grouping and discovery** - Attach
  * tags to resources to aid in organization and search. For example, you could search for all
  * resources with the key name *Project* and the value
  * *MyImportantProject*. Or search for all resources with the key name
  * *Cost Center* and the value *41200*.
- * 
- * 
  * 
  * - **Access control** - Include tags in IAM user-based
  * and resource-based policies. You can use tags to restrict access to only an IAM role
@@ -1223,33 +1031,16 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * control access, see Control access using IAM tags in the
  * *IAM User Guide*.
  * 
- * 
- * 
  * - **Cost allocation** - Use tags to help track which
  * individuals and teams are using which Amazon Web Services resources.
- * 
- * 
- * 
- * 
- * 
- * 
- * 
  * 
  * - If any one of the tags is invalid or if you exceed the allowed maximum number of tags, then the entire request
  * fails and the resource is not created. For more information about tagging, see Tagging IAM resources in the
  * *IAM User Guide*.
  * 
- * 
- * 
  * - Amazon Web Services always interprets the tag `Value` as a single string. If you
  * need to store an array, you can store comma-separated values in the string. However, you
  * must interpret the value in your code.
- * 
- * 
- * 
- * 
- * 
- * 
  * 
  * For more information about tagging, see Tagging IAM identities in the
  * *IAM User Guide*.
@@ -1260,11 +1051,8 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * If a tag with the same key name already exists, then that tag is overwritten with the new
  * value.
  * 
- * 
  * A tag consists of a key name and an associated value. By assigning tags to your
  * resources, you can do the following:
- * 
- * 
  * 
  * - **Administrative grouping and discovery** - Attach
  * tags to resources to aid in organization and search. For example, you could search for all
@@ -1272,26 +1060,15 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * *MyImportantProject*. Or search for all resources with the key name
  * *Cost Center* and the value *41200*.
  * 
- * 
- * 
  * - **Access control** - Include tags in IAM user-based
  * and resource-based policies. You can use tags to restrict access to only a SAML identity
  * provider that has a specified tag attached. For examples of policies that show how to use
  * tags to control access, see Control access using IAM tags in the
  * *IAM User Guide*.
  * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
  * - If any one of the tags is invalid or if you exceed the allowed maximum number of tags, then the entire request
  * fails and the resource is not created. For more information about tagging, see Tagging IAM resources in the
  * *IAM User Guide*.
- * 
- * 
  * 
  * - Amazon Web Services always interprets the tag `Value` as a single string. If you
  * need to store an array, you can store comma-separated values in the string. However, you
@@ -1301,22 +1078,14 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * Adds one or more tags to an IAM server certificate. If a tag with the same key name
  * already exists, then that tag is overwritten with the new value.
  * 
- * 
- * 
- * 
  * For certificates in a Region supported by Certificate Manager (ACM), we
  * recommend that you don't use IAM server certificates. Instead, use ACM to provision,
  * manage, and deploy your server certificates. For more information about IAM server
  * certificates, Working with server
  * certificates in the *IAM User Guide*.
  * 
- * 
- * 
- * 
  * A tag consists of a key name and an associated value. By assigning tags to your
  * resources, you can do the following:
- * 
- * 
  * 
  * - **Administrative grouping and discovery** - Attach
  * tags to resources to aid in organization and search. For example, you could search for all
@@ -1324,31 +1093,18 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * *MyImportantProject*. Or search for all resources with the key name
  * *Cost Center* and the value *41200*.
  * 
- * 
- * 
  * - **Access control** - Include tags in IAM user-based
  * and resource-based policies. You can use tags to restrict access to only a server
  * certificate that has a specified tag attached. For examples of policies that show how to
  * use tags to control access, see Control access using IAM tags in the
  * *IAM User Guide*.
  * 
- * 
- * 
  * - **Cost allocation** - Use tags to help track which
  * individuals and teams are using which Amazon Web Services resources.
- * 
- * 
- * 
- * 
- * 
- * 
- * 
  * 
  * - If any one of the tags is invalid or if you exceed the allowed maximum number of tags, then the entire request
  * fails and the resource is not created. For more information about tagging, see Tagging IAM resources in the
  * *IAM User Guide*.
- * 
- * 
  * 
  * - Amazon Web Services always interprets the tag `Value` as a single string. If you
  * need to store an array, you can store comma-separated values in the string. However, you
@@ -1358,19 +1114,14 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * Adds one or more tags to an IAM user. If a tag with the same key name already exists,
  * then that tag is overwritten with the new value.
  * 
- * 
  * A tag consists of a key name and an associated value. By assigning tags to your
  * resources, you can do the following:
- * 
- * 
  * 
  * - **Administrative grouping and discovery** - Attach
  * tags to resources to aid in organization and search. For example, you could search for all
  * resources with the key name *Project* and the value
  * *MyImportantProject*. Or search for all resources with the key name
  * *Cost Center* and the value *41200*.
- * 
- * 
  * 
  * - **Access control** - Include tags in IAM identity-based
  * and resource-based policies. You can use tags to restrict access to only an IAM
@@ -1379,33 +1130,16 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * to use tags to control access, see Control access using IAM tags in the
  * *IAM User Guide*.
  * 
- * 
- * 
  * - **Cost allocation** - Use tags to help track which
  * individuals and teams are using which Amazon Web Services resources.
- * 
- * 
- * 
- * 
- * 
- * 
- * 
  * 
  * - If any one of the tags is invalid or if you exceed the allowed maximum number of tags, then the entire request
  * fails and the resource is not created. For more information about tagging, see Tagging IAM resources in the
  * *IAM User Guide*.
  * 
- * 
- * 
  * - Amazon Web Services always interprets the tag `Value` as a single string. If you
  * need to store an array, you can store comma-separated values in the string. However, you
  * must interpret the value in your code.
- * 
- * 
- * 
- * 
- * 
- * 
  * 
  * For more information about tagging, see Tagging IAM identities in the
  * *IAM User Guide*.
@@ -1444,9 +1178,6 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * For more information about tagging, see Tagging IAM resources in the
  * *IAM User Guide*.
  * 
- * 
- * 
- * 
  * For certificates in a Region supported by Certificate Manager (ACM), we
  * recommend that you don't use IAM server certificates. Instead, use ACM to provision,
  * manage, and deploy your server certificates. For more information about IAM server
@@ -1462,7 +1193,6 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * This operation can be used to disable a user's key as part of a key rotation
  * workflow.
  * 
- * 
  * If the `UserName` is not specified, the user name is determined implicitly
  * based on the Amazon Web Services access key ID used to sign the request. If a temporary access key is
  * used, then `UserName` is required. If a long-term key is assigned to the
@@ -1470,15 +1200,11 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * under the Amazon Web Services account. Consequently, you can use this operation to manage Amazon Web Services account root user
  * credentials even if the Amazon Web Services account has no associated users.
  * 
- * 
  * For information about rotating keys, see Managing keys and certificates
  * in the *IAM User Guide*.
  */export const updateAccessKey = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.UpdateAccessKey" }, UpdateAccessKeyRequest, S.Struct({}), [InvalidInputException, LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Updates the password policy settings for the Amazon Web Services account.
- * 
- * 
- * 
  * 
  * This operation does not support partial updates. No parameters are required, but
  * if you do not specify a parameter, that parameter's value reverts to its default
@@ -1486,9 +1212,6 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * parameter's default value. Also note that some parameters do not allow the default
  * parameter to be explicitly set. Instead, to invoke the default value, do not include
  * that parameter when you invoke the operation.
- * 
- * 
- * 
  * 
  * For more information about using a password policy, see Managing an IAM password
  * policy in the *IAM User Guide*.
@@ -1503,8 +1226,6 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * Updates an existing delegation request with additional information. When the delegation
  * request is updated, it reaches the `PENDING_APPROVAL` state.
  * 
- * 
- * 
  * Once a delegation request has an owner, that owner gets a default permission to update the
  * delegation request. For more details, see
  * 
@@ -1513,17 +1234,9 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
 /**
  * Updates the name and/or the path of the specified IAM group.
  * 
- * 
- * 
- * 
  * You should understand the implications of changing a group's path or name. For
  * more information, see Renaming users and
  * groups in the *IAM User Guide*.
- * 
- * 
- * 
- * 
- * 
  * 
  * The person making the request (the principal), must have permission to change the
  * role group with the old name and the new name. For example, to change the group
@@ -1536,10 +1249,8 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * Replaces the existing list of server certificate thumbprints associated with an OpenID
  * Connect (OIDC) provider resource object with a new list of thumbprints.
  * 
- * 
  * The list that you pass with this operation completely replaces the existing list of
  * thumbprints. (The lists are not merged.)
- * 
  * 
  * Typically, you need to update a thumbprint only when the identity provider certificate
  * changes, which occurs rarely. However, if the provider's certificate
@@ -1547,19 +1258,11 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * the OIDC provider as a principal fails until the certificate thumbprint is
  * updated.
  * 
- * 
- * 
- * 
  * Amazon Web Services secures communication with OIDC identity providers (IdPs) using our library of
  * trusted root certificate authorities (CAs) to verify the JSON Web Key Set (JWKS)
  * endpoint's TLS certificate. If your OIDC IdP relies on a certificate that is not signed
  * by one of these trusted CAs, only then we secure communication using the thumbprints set
  * in the IdP's configuration.
- * 
- * 
- * 
- * 
- * 
  * 
  * Trust for the OIDC provider is derived from the provider certificate and is
  * validated by the thumbprint. Therefore, it is best to limit access to the
@@ -1573,23 +1276,14 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * Updates the name and/or the path of the specified server certificate stored in
  * IAM.
  * 
- * 
  * For more information about working with server certificates, see Working
  * with server certificates in the *IAM User Guide*. This
  * topic also includes a list of Amazon Web Services services that can use the server certificates that
  * you manage with IAM.
  * 
- * 
- * 
- * 
  * You should understand the implications of changing a server certificate's path or
  * name. For more information, see Renaming a server certificate in the
  * *IAM User Guide*.
- * 
- * 
- * 
- * 
- * 
  * 
  * The person making the request (the principal), must have permission to change the
  * server certificate with the old name and the new name. For example, to change the
@@ -1610,7 +1304,6 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * or vice versa. This operation can be used to disable an IAM user's signing
  * certificate as part of a certificate rotation work flow.
  * 
- * 
  * If the `UserName` field is not specified, the user name is determined
  * implicitly based on the Amazon Web Services access key ID used to sign the request. This operation
  * works for access keys under the Amazon Web Services account. Consequently, you can use this operation
@@ -1622,7 +1315,6 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * keys that are inactive cannot be used for authentication. This operation can be used to
  * disable a user's SSH public key as part of a key rotation work flow.
  * 
- * 
  * The SSH public key affected by this operation is used only for authenticating the
  * associated IAM user to an CodeCommit repository. For more information about using SSH keys
  * to authenticate to an CodeCommit repository, see Set up CodeCommit for
@@ -1631,18 +1323,10 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
 /**
  * Updates the name and/or the path of the specified IAM user.
  * 
- * 
- * 
- * 
  * You should understand the implications of changing an IAM user's path or
  * name. For more information, see Renaming an IAM
  * user and Renaming an IAM
  * group in the *IAM User Guide*.
- * 
- * 
- * 
- * 
- * 
  * 
  * To change a user name, the requester must have appropriate permissions on both
  * the source object and the target object. For example, to change Bob to Robert, the
@@ -1652,24 +1336,18 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
 /**
  * Accepts a delegation request, granting the requested temporary access.
  * 
- * 
  * Once the delegation request is accepted, it is eligible to send the exchange token to the partner.
  * The SendDelegationToken
  * API has to be explicitly called to send the delegation token.
  * 
- * 
- * 
  * At the time of acceptance, IAM records the details and the state of the identity that called this API.
  * This is the identity that gets mapped to the delegated credential.
- * 
- * 
  * 
  * An accepted request may be rejected before the exchange token is sent to the partner.
  */export const acceptDelegationRequest = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.AcceptDelegationRequest" }, AcceptDelegationRequestRequest, S.Struct({}), [ConcurrentModificationException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Adds a new client ID (also known as audience) to the list of client IDs already
  * registered for the specified IAM OpenID Connect (OIDC) provider resource.
- * 
  * 
  * This operation is idempotent; it does not fail or return an error if you add an
  * existing client ID to the provider.
@@ -1682,25 +1360,14 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * consistency. To force the change, you must disassociate the instance profile and then associate the
  * instance profile, or you can stop your instance and then restart it.
  * 
- * 
- * 
- * 
  * The caller of this operation must be granted the `PassRole` permission
  * on the IAM role by a permissions policy.
- * 
- * 
- * 
- * 
- * 
  * 
  * When using the iam:AssociatedResourceArn condition in a policy to restrict the PassRole IAM action, special considerations apply if the policy is
  * intended to define access for the `AddRoleToInstanceProfile` action. In
  * this case, you cannot specify a Region or instance ID in the EC2 instance ARN. The
  * ARN value must be `arn:aws:ec2:*:CallerAccountId:instance/*`. Using any
  * other ARN value may lead to unexpected evaluation results.
- * 
- * 
- * 
  * 
  * For more information about roles, see IAM roles in the
  * *IAM User Guide*. For more information about instance profiles,
@@ -1713,15 +1380,12 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
 /**
  * Associates a delegation request with the current identity.
  * 
- * 
  * If the partner that created the delegation request has specified the owner account during creation,
  * only an identity from that owner account can call the `AssociateDelegationRequest` API for
  * the specified delegation request. Once the `AssociateDelegationRequest` API call is successful,
  * the ARN of the current calling identity will be stored as the
  * `ownerId`
  * of the request.
- * 
- * 
  * 
  * If the partner that created the delegation request has not specified the owner account during creation,
  * any caller from any account can call the `AssociateDelegationRequest` API for
@@ -1731,9 +1395,6 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * `ownerAccount`
  * of the request.
  * 
- * 
- * 
- * 
  * For more details, see
  * 
  * Managing Permissions for Delegation Requests.
@@ -1741,17 +1402,14 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
 /**
  * Attaches the specified managed policy to the specified IAM group.
  * 
- * 
  * You use this operation to attach a managed policy to a group. To embed an inline
  * policy in a group, use
  * `PutGroupPolicy`
  * .
  * 
- * 
  * As a best practice, you can validate your IAM policies.
  * To learn more, see Validating IAM policies
  * in the *IAM User Guide*.
- * 
  * 
  * For more information about policies, see Managed policies and inline
  * policies in the *IAM User Guide*.
@@ -1761,9 +1419,6 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * managed policy to a role, the managed policy becomes part of the role's permission
  * (access) policy.
  * 
- * 
- * 
- * 
  * You cannot use a managed policy as the role's trust policy. The role's trust
  * policy is created at the same time as the role, using
  * `CreateRole`
@@ -1772,16 +1427,12 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * `UpdateAssumerolePolicy`
  * .
  * 
- * 
- * 
- * 
  * Use this operation to attach a *managed* policy to a role. To embed
  * an inline policy in a role, use
  * `PutRolePolicy`
  * . For more information about policies, see Managed
  * policies and inline policies in the
  * *IAM User Guide*.
- * 
  * 
  * As a best practice, you can validate your IAM policies.
  * To learn more, see Validating IAM policies
@@ -1791,13 +1442,11 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * Creates an IAM resource that describes an identity provider (IdP) that supports SAML
  * 2.0.
  * 
- * 
  * The SAML provider resource that you create with this operation can be used as a
  * principal in an IAM role's trust policy. Such a policy can enable federated users who
  * sign in using the SAML IdP to assume the role. You can create an IAM role that
  * supports Web-based single sign-on (SSO) to the Amazon Web Services Management Console or one that supports API access
  * to Amazon Web Services.
- * 
  * 
  * When you create the SAML provider resource, you upload a SAML metadata document that
  * you get from your IdP. That document includes the issuer's name, expiration information,
@@ -1805,13 +1454,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * the IdP sends. You must generate the metadata document using the identity management
  * software that is used as your organization's IdP.
  * 
- * 
- * 
- * 
  * This operation requires Signature Version 4.
- * 
- * 
- * 
  * 
  * For more information, see Enabling SAML 2.0
  * federated users to access the Amazon Web Services Management Console and About SAML 2.0-based
@@ -1825,7 +1468,6 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * improve service stability and proper cleanup when a service and its role are no longer
  * needed. For more information, see Using service-linked
  * roles in the *IAM User Guide*.
- * 
  * 
  * To attach a policy to this service-linked role, you must make the request using the
  * Amazon Web Services service that depends on this role.
@@ -1843,7 +1485,6 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * is not complete, then the `DeletionTaskId` of the earlier request is
  * returned.
  * 
- * 
  * If you submit a deletion request for a service-linked role whose linked service is
  * still accessing a resource, then the deletion task fails. If it fails, the GetServiceLinkedRoleDeletionStatus operation returns the reason for the
  * failure, usually including the resources that must be deleted. To delete the
@@ -1852,7 +1493,6 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * linked to the role. For more information about removing resources from a service, see
  * the Amazon Web Services documentation for your
  * service.
- * 
  * 
  * For more information about service-linked roles, see Roles terms and concepts: Amazon Web Services service-linked role in the
  * *IAM User Guide*.
@@ -1880,15 +1520,10 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * administrator for IAM can manage root user credentials for member accounts in your
  * organization.
  * 
- * 
  * Before you enable centralized root access, you must have an account configured with
  * the following settings:
  * 
- * 
- * 
  * - You must manage your Amazon Web Services accounts in Organizations.
- * 
- * 
  * 
  * - Enable trusted access for Identity and Access Management in Organizations. For details, see
  * IAM and Organizations in the Organizations User
@@ -1899,15 +1534,10 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * on member accounts in your organization. For more information, see Centrally manage root access for member accounts in the Identity and Access Management
  * User Guide.
  * 
- * 
  * Before you enable this feature, you must have an account configured with the following
  * settings:
  * 
- * 
- * 
  * - You must manage your Amazon Web Services accounts in Organizations.
- * 
- * 
  * 
  * - Enable trusted access for Identity and Access Management in Organizations. For details, see
  * IAM and Organizations in the Organizations User
@@ -1927,9 +1557,6 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * actions for which action last accessed information is displayed, see IAM
  * action last accessed information services and actions.
  * 
- * 
- * 
- * 
  * The service last accessed data includes all attempts to access an Amazon Web Services API, not
  * just the successful ones. This includes all attempts that were made using the
  * Amazon Web Services Management Console, the Amazon Web Services API through any of the SDKs, or any of the command line tools.
@@ -1940,47 +1567,30 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * IAM events with CloudTrail in the
  * *IAM User Guide*.
  * 
- * 
- * 
- * 
  * The `GenerateServiceLastAccessedDetails` operation returns a
  * `JobId`. Use this parameter in the following operations to retrieve the
  * following details from your report:
- * 
- * 
  * 
  * - GetServiceLastAccessedDetails – Use this operation for
  * users, groups, roles, or policies to list every Amazon Web Services service that the resource
  * could access using permissions policies. For each service, the response includes
  * information about the most recent access attempt.
  * 
- * 
  * The `JobId` returned by
  * `GenerateServiceLastAccessedDetail` must be used by the same role
  * within a session, or by the same user when used to call
  * `GetServiceLastAccessedDetail`.
  * 
- * 
- * 
  * - GetServiceLastAccessedDetailsWithEntities – Use this
  * operation for groups and policies to list information about the associated
  * entities (users or roles) that attempted to access a specific Amazon Web Services service.
- * 
- * 
- * 
- * 
- * 
  * 
  * To check the status of the `GenerateServiceLastAccessedDetails` request,
  * use the `JobId` parameter in the same operations and test the
  * `JobStatus` response parameter.
  * 
- * 
  * For additional information about the permissions policies that allow an identity
  * (user, group, or role) to access specific services, use the ListPoliciesGrantingServiceAccess operation.
- * 
- * 
- * 
  * 
  * Service last accessed data does not use other policy types when determining
  * whether a resource could access a service. These other policy types include
@@ -1988,9 +1598,6 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * boundaries, and STS assume role policies. It only applies permissions policy
  * logic. For more about the evaluation of policy types, see Evaluating policies in the
  * *IAM User Guide*.
- * 
- * 
- * 
  * 
  * For more information about service and action last accessed data, see Reducing permissions using service last accessed data in the
  * *IAM User Guide*.
@@ -2005,7 +1612,6 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * Retrieves information about IAM entity usage and IAM quotas in the Amazon Web Services
  * account.
  * 
- * 
  * For information about IAM quotas, see IAM and STS quotas in the
  * *IAM User Guide*.
  */export const getAccountSummary = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.GetAccountSummary" }, S.Struct({}), GetAccountSummaryResponse, [ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
@@ -2013,7 +1619,6 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * Gets a list of all of the context keys referenced in the input policies. The policies
  * are supplied as a list of one or more strings. To get the context keys from policies
  * associated with an IAM user, group, or role, use GetContextKeysForPrincipalPolicy.
- * 
  * 
  * Context keys are variables maintained by Amazon Web Services and its services that provide details
  * about the context of an API query request. Context keys can be evaluated by testing
@@ -2031,9 +1636,6 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * Retrieves the specified inline policy document that is embedded in the specified IAM
  * group.
  * 
- * 
- * 
- * 
  * Policies returned by this operation are URL-encoded compliant
  * with RFC 3986. You can use a URL
  * decoding method to convert the policy back to plain JSON text. For example, if you use Java, you
@@ -2041,14 +1643,10 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * the Java SDK. Other languages and SDKs provide similar functionality, and some SDKs do this decoding
  * automatically.
  * 
- * 
- * 
- * 
  * An IAM group can also have managed policies attached to it. To retrieve a managed
  * policy document that is attached to a group, use GetPolicy to determine the
  * policy's default version, then use GetPolicyVersion to
  * retrieve the policy document.
- * 
  * 
  * For more information about policies, see Managed policies and inline
  * policies in the *IAM User Guide*.
@@ -2057,11 +1655,7 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * Retrieves a human readable summary for a given entity. At this time, the only supported
  * entity type is `delegation-request`
  * 
- * 
- * 
  * This method uses a Large Language Model (LLM) to generate the summary.
- * 
- * 
  * 
  * If a delegation request has no owner or owner account, `GetHumanReadableSummary` for that delegation request can be called by any account.
  * If the owner account is assigned but there is
@@ -2081,10 +1675,8 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * or does not have a password, the operation returns a 404 (`NoSuchEntity`)
  * error.
  * 
- * 
  * If you create an IAM user with access to the console, the `CreateDate`
  * reflects the date you created the initial password for the user.
- * 
  * 
  * If you create an IAM user with programmatic access, and then later add a password
  * for the user to access the Amazon Web Services Management Console, the `CreateDate` reflects the initial
@@ -2102,11 +1694,9 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * the policy is attached to, use ListEntitiesForPolicy. This operation returns metadata about the policy. To
  * retrieve the actual policy document for a specific version of the policy, use GetPolicyVersion.
  * 
- * 
  * This operation retrieves information about managed policies. To retrieve information
  * about an inline policy that is embedded with an IAM user, group, or role, use GetUserPolicy, GetGroupPolicy, or
  * GetRolePolicy.
- * 
  * 
  * For more information about policies, see Managed policies and inline
  * policies in the *IAM User Guide*.
@@ -2115,9 +1705,6 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * Retrieves information about the specified version of the specified managed policy,
  * including the policy document.
  * 
- * 
- * 
- * 
  * Policies returned by this operation are URL-encoded compliant
  * with RFC 3986. You can use a URL
  * decoding method to convert the policy back to plain JSON text. For example, if you use Java, you
@@ -2125,20 +1712,14 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * the Java SDK. Other languages and SDKs provide similar functionality, and some SDKs do this decoding
  * automatically.
  * 
- * 
- * 
- * 
  * To list the available versions for a policy, use ListPolicyVersions.
- * 
  * 
  * This operation retrieves information about managed policies. To retrieve information
  * about an inline policy that is embedded in a user, group, or role, use GetUserPolicy, GetGroupPolicy, or
  * GetRolePolicy.
  * 
- * 
  * For more information about the types of policies, see Managed policies and inline
  * policies in the *IAM User Guide*.
- * 
  * 
  * For more information about managed policy versions, see Versioning for managed
  * policies in the *IAM User Guide*.
@@ -2148,9 +1729,6 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * and the role's trust policy that grants permission to assume the role. For more
  * information about roles, see IAM roles in the
  * *IAM User Guide*.
- * 
- * 
- * 
  * 
  * Policies returned by this operation are URL-encoded compliant
  * with RFC 3986. You can use a URL
@@ -2163,9 +1741,6 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * Retrieves the specified inline policy document that is embedded with the specified
  * IAM role.
  * 
- * 
- * 
- * 
  * Policies returned by this operation are URL-encoded compliant
  * with RFC 3986. You can use a URL
  * decoding method to convert the policy back to plain JSON text. For example, if you use Java, you
@@ -2173,18 +1748,13 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * the Java SDK. Other languages and SDKs provide similar functionality, and some SDKs do this decoding
  * automatically.
  * 
- * 
- * 
- * 
  * An IAM role can also have managed policies attached to it. To retrieve a managed
  * policy document that is attached to a role, use GetPolicy to determine the
  * policy's default version, then use GetPolicyVersion to
  * retrieve the policy document.
  * 
- * 
  * For more information about policies, see Managed policies and inline
  * policies in the *IAM User Guide*.
- * 
  * 
  * For more information about roles, see IAM roles in the
  * *IAM User Guide*.
@@ -2193,16 +1763,12 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * Retrieves information about the specified IAM user, including the user's creation
  * date, path, unique ID, and ARN.
  * 
- * 
  * If you do not specify a user name, IAM determines the user name implicitly based on
  * the Amazon Web Services access key ID used to sign the request to this operation.
  */export const getUser = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.GetUser" }, GetUserRequest, GetUserResponse, [NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Retrieves the specified inline policy document that is embedded in the specified IAM
  * user.
- * 
- * 
- * 
  * 
  * Policies returned by this operation are URL-encoded compliant
  * with RFC 3986. You can use a URL
@@ -2211,14 +1777,10 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * the Java SDK. Other languages and SDKs provide similar functionality, and some SDKs do this decoding
  * automatically.
  * 
- * 
- * 
- * 
  * An IAM user can also have managed policies attached to it. To retrieve a managed
  * policy document that is attached to a user, use GetPolicy to determine the
  * policy's default version. Then use GetPolicyVersion to
  * retrieve the policy document.
- * 
  * 
  * For more information about policies, see Managed policies and inline
  * policies in the *IAM User Guide*.
@@ -2232,12 +1794,10 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
 /**
  * Lists all managed policies that are attached to the specified IAM role.
  * 
- * 
  * An IAM role can also have inline policies embedded with it. To list the inline
  * policies for a role, use ListRolePolicies.
  * For information about policies, see Managed policies and inline
  * policies in the *IAM User Guide*.
- * 
  * 
  * You can paginate the results using the `MaxItems` and `Marker`
  * parameters. You can use the `PathPrefix` parameter to limit the list of
@@ -2248,12 +1808,10 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
 /**
  * Lists all managed policies that are attached to the specified IAM user.
  * 
- * 
  * An IAM user can also have inline policies embedded with it. To list the inline
  * policies for a user, use ListUserPolicies.
  * For information about policies, see Managed policies and inline
  * policies in the *IAM User Guide*.
- * 
  * 
  * You can paginate the results using the `MaxItems` and `Marker`
  * parameters. You can use the `PathPrefix` parameter to limit the list of
@@ -2264,11 +1822,8 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
 /**
  * Lists delegation requests based on the specified criteria.
  * 
- * 
  * If a delegation request has no owner, even if it is assigned to a specific account, it will not be part of the
  * `ListDelegationRequests` output for that account.
- * 
- * 
  * 
  * For more details, see
  * 
@@ -2278,12 +1833,10 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * Lists the names of the inline policies that are embedded in the specified IAM
  * group.
  * 
- * 
  * An IAM group can also have managed policies attached to it. To list the managed
  * policies that are attached to a group, use ListAttachedGroupPolicies. For more information about policies, see Managed
  * policies and inline policies in the
  * *IAM User Guide*.
- * 
  * 
  * You can paginate the results using the `MaxItems` and `Marker`
  * parameters. If there are no inline policies embedded with the specified group, the
@@ -2292,13 +1845,11 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
 /**
  * Lists the IAM groups that have the specified path prefix.
  * 
- * 
  * You can paginate the results using the `MaxItems` and `Marker`
  * parameters.
  */export const listGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.ListGroups" }, ListGroupsRequest, ListGroupsResponse, [ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Lists the IAM groups that the specified IAM user belongs to.
- * 
  * 
  * You can paginate the results using the `MaxItems` and `Marker`
  * parameters.
@@ -2309,15 +1860,9 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * Using
  * instance profiles in the *IAM User Guide*.
  * 
- * 
- * 
- * 
  * IAM resource-listing operations return a subset of the available
  * attributes for the resource. For example, this operation does not return tags, even though they are an attribute of the returned object. To view all of the information for an instance profile, see
  * GetInstanceProfile.
- * 
- * 
- * 
  * 
  * You can paginate the results using the `MaxItems` and `Marker`
  * parameters.
@@ -2327,7 +1872,6 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * are none, the operation returns an empty list. For more information about instance
  * profiles, go to Using
  * instance profiles in the *IAM User Guide*.
- * 
  * 
  * You can paginate the results using the `MaxItems` and `Marker`
  * parameters.
@@ -2346,9 +1890,6 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * Lists information about the IAM OpenID Connect (OIDC) provider resource objects
  * defined in the Amazon Web Services account.
  * 
- * 
- * 
- * 
  * IAM resource-listing operations return a subset of the available
  * attributes for the resource. For example, this operation does not return tags, even though they are an attribute of the returned object. To view all of the information for an OIDC provider, see GetOpenIDConnectProvider.
  */export const listOpenIDConnectProviders = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.ListOpenIDConnectProviders" }, ListOpenIDConnectProvidersRequest, ListOpenIDConnectProvidersResponse, [ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
@@ -2356,7 +1897,6 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * Lists the tags that are attached to the specified OpenID Connect (OIDC)-compatible
  * identity provider. The returned list of tags is sorted by tag key. For more information, see About web identity
  * federation.
- * 
  * 
  * For more information about tagging, see Tagging IAM resources in the
  * *IAM User Guide*.
@@ -2369,23 +1909,17 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * Lists all the managed policies that are available in your Amazon Web Services account, including
  * your own customer-defined managed policies and all Amazon Web Services managed policies.
  * 
- * 
  * You can filter the list of policies that is returned using the optional
  * `OnlyAttached`, `Scope`, and `PathPrefix`
  * parameters. For example, to list only the customer managed policies in your Amazon Web Services
  * account, set `Scope` to `Local`. To list only Amazon Web Services managed
  * policies, set `Scope` to `AWS`.
  * 
- * 
  * You can paginate the results using the `MaxItems` and `Marker`
  * parameters.
  * 
- * 
  * For more information about managed policies, see Managed policies and inline
  * policies in the *IAM User Guide*.
- * 
- * 
- * 
  * 
  * IAM resource-listing operations return a subset of the available
  * attributes for the resource. For example, this operation does not return tags, even though they are an attribute of the returned object. To view all of the information for a customer manged policy, see
@@ -2400,7 +1934,6 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * Lists information about the versions of the specified managed policy, including the
  * version that is currently set as the policy's default version.
  * 
- * 
  * For more information about managed policies, see Managed policies and inline
  * policies in the *IAM User Guide*.
  */export const listPolicyVersions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.ListPolicyVersions" }, ListPolicyVersionsRequest, ListPolicyVersionsResponse, [InvalidInputException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
@@ -2408,12 +1941,10 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * Lists the names of the inline policies that are embedded in the specified IAM
  * role.
  * 
- * 
  * An IAM role can also have managed policies attached to it. To list the managed
  * policies that are attached to a role, use ListAttachedRolePolicies. For more information about policies, see Managed
  * policies and inline policies in the
  * *IAM User Guide*.
- * 
  * 
  * You can paginate the results using the `MaxItems` and `Marker`
  * parameters. If there are no inline policies embedded with the specified role, the
@@ -2424,32 +1955,16 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * operation returns an empty list. For more information about roles, see IAM roles in the
  * *IAM User Guide*.
  * 
- * 
- * 
- * 
  * IAM resource-listing operations return a subset of the available
  * attributes for the resource. This operation does not return the following attributes, even though they are an attribute of the returned object:
  * 
- * 
- * 
  * - PermissionsBoundary
- * 
- * 
  * 
  * - RoleLastUsed
  * 
- * 
- * 
  * - Tags
  * 
- * 
- * 
- * 
- * 
  * To view all of the information for a role, see GetRole.
- * 
- * 
- * 
  * 
  * You can paginate the results using the `MaxItems` and `Marker`
  * parameters.
@@ -2464,16 +1979,12 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * IAM resource-listing operations return a subset of the available
  * attributes for the resource. For example, this operation does not return tags, even though they are an attribute of the returned object. To view all of the information for a SAML provider, see GetSAMLProvider.
  * 
- * 
- * 
- * 
  * This operation requires Signature Version 4.
  */export const listSAMLProviders = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.ListSAMLProviders" }, ListSAMLProvidersRequest, ListSAMLProvidersResponse, [ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Lists the tags that are attached to the specified Security Assertion Markup Language
  * (SAML) identity provider. The returned list of tags is sorted by tag key. For more information, see About SAML 2.0-based
  * federation.
- * 
  * 
  * For more information about tagging, see Tagging IAM resources in the
  * *IAM User Guide*.
@@ -2482,9 +1993,6 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * Lists the tags that are attached to the specified IAM server certificate. The
  * returned list of tags is sorted by tag key. For more information about tagging, see Tagging IAM resources in the
  * *IAM User Guide*.
- * 
- * 
- * 
  * 
  * For certificates in a Region supported by Certificate Manager (ACM), we
  * recommend that you don't use IAM server certificates. Instead, use ACM to provision,
@@ -2495,12 +2003,10 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
 /**
  * Lists the names of the inline policies embedded in the specified IAM user.
  * 
- * 
  * An IAM user can also have managed policies attached to it. To list the managed
  * policies that are attached to a user, use ListAttachedUserPolicies. For more information about policies, see Managed
  * policies and inline policies in the
  * *IAM User Guide*.
- * 
  * 
  * You can paginate the results using the `MaxItems` and `Marker`
  * parameters. If there are no inline policies embedded with the specified user, the
@@ -2511,28 +2017,14 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * specified, the operation returns all users in the Amazon Web Services account. If there are none, the
  * operation returns an empty list.
  * 
- * 
- * 
- * 
  * IAM resource-listing operations return a subset of the available
  * attributes for the resource. This operation does not return the following attributes, even though they are an attribute of the returned object:
  * 
- * 
- * 
  * - PermissionsBoundary
- * 
- * 
  * 
  * - Tags
  * 
- * 
- * 
- * 
- * 
  * To view all of the information for a user, see GetUser.
- * 
- * 
- * 
  * 
  * You can paginate the results using the `MaxItems` and `Marker`
  * parameters.
@@ -2547,14 +2039,8 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * devices. Assignment status can be `Assigned`, `Unassigned`, or
  * `Any`.
  * 
- * 
- * 
- * 
  * IAM resource-listing operations return a subset of the available
  * attributes for the resource. For example, this operation does not return tags, even though they are an attribute of the returned object. To view tag information for a virtual MFA device, see ListMFADeviceTags.
- * 
- * 
- * 
  * 
  * You can paginate the results using the `MaxItems` and `Marker`
  * parameters.
@@ -2562,7 +2048,6 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
 /**
  * Adds or updates an inline policy document that is embedded in the specified IAM
  * group.
- * 
  * 
  * A user can also have managed policies attached to it. To attach a managed policy to a
  * group, use
@@ -2574,12 +2059,8 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * policies and inline policies in the
  * *IAM User Guide*.
  * 
- * 
  * For information about the maximum number of inline policies that you can embed in a
  * group, see IAM and STS quotas in the *IAM User Guide*.
- * 
- * 
- * 
  * 
  * Because policy documents can be large, you should use POST rather than GET when
  * calling `PutGroupPolicy`. For general information about using the Query
@@ -2599,13 +2080,11 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * change your own password in the **My Security Credentials**
  * page in the Amazon Web Services Management Console.
  * 
- * 
  * For more information about modifying passwords, see Managing passwords in the
  * *IAM User Guide*.
  */export const updateLoginProfile = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.UpdateLoginProfile" }, UpdateLoginProfileRequest, S.Struct({}), [EntityTemporarilyUnmodifiableException, LimitExceededException, NoSuchEntityException, PasswordPolicyViolationException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Use UpdateRole instead.
- * 
  * 
  * Modifies only the description of a role. This operation performs the same function as
  * the `Description` parameter in the `UpdateRole` operation.
@@ -2621,7 +2100,6 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * Security Credentials page in the Amazon Web Services Management Console. The Amazon Web Services account root user password is
  * not affected by this operation.
  * 
- * 
  * Use UpdateLoginProfile
  * to use the CLI, the Amazon Web Services API, or the **Users** page in
  * the IAM console to change the password for any IAM user. For more information about
@@ -2632,18 +2110,13 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * Creates a new Amazon Web Services secret access key and corresponding Amazon Web Services access key ID for the
  * specified user. The default status for new keys is `Active`.
  * 
- * 
  * If you do not specify a user name, IAM determines the user name implicitly based on
  * the Amazon Web Services access key ID signing the request. This operation works for access keys under
  * the Amazon Web Services account. Consequently, you can use this operation to manage Amazon Web Services account root
  * user credentials. This is true even if the Amazon Web Services account has no associated users.
  * 
- * 
  * For information about quotas on the number of keys you can create, see IAM and STS
  * quotas in the *IAM User Guide*.
- * 
- * 
- * 
  * 
  * To ensure the security of your Amazon Web Services account, the secret access key is accessible
  * only during key and user creation. You must save the key (for example, in a text
@@ -2653,7 +2126,6 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
 /**
  * Creates a new group.
  * 
- * 
  * For information about the number of groups you can create, see IAM and STS
  * quotas in the *IAM User Guide*.
  */export const createGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.CreateGroup" }, CreateGroupRequest, CreateGroupResponse, [EntityAlreadyExistsException, LimitExceededException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
@@ -2662,7 +2134,6 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * roles for applications on Amazon EC2 in the
  * *IAM User Guide*, and Instance profiles in the *Amazon EC2 User Guide*.
  * 
- * 
  * For information about the number of instance profiles you can create, see IAM object
  * quotas in the *IAM User Guide*.
  */export const createInstanceProfile = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.CreateInstanceProfile" }, CreateInstanceProfileRequest, CreateInstanceProfileResponse, [ConcurrentModificationException, EntityAlreadyExistsException, InvalidInputException, LimitExceededException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
@@ -2670,10 +2141,8 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * Creates a password for the specified IAM user. A password allows an IAM user to
  * access Amazon Web Services services through the Amazon Web Services Management Console.
  * 
- * 
  * You can use the CLI, the Amazon Web Services API, or the **Users**
  * page in the IAM console to create a password for any IAM user. Use ChangePassword to update your own existing password in the **My Security Credentials** page in the Amazon Web Services Management Console.
- * 
  * 
  * For more information about managing passwords, see Managing passwords in the
  * *IAM User Guide*.
@@ -2681,11 +2150,9 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
 /**
  * Creates an IAM entity to describe an identity provider (IdP) that supports OpenID Connect (OIDC).
  * 
- * 
  * The OIDC provider that you create with this operation can be used as a principal in a
  * role's trust policy. Such a policy establishes a trust relationship between Amazon Web Services and
  * the OIDC provider.
- * 
  * 
  * If you are using an OIDC identity provider from Google, Facebook, or Amazon Cognito, you don't
  * need to create a separate IAM identity provider. These OIDC identity providers are
@@ -2694,47 +2161,26 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * a role for web identity or OpenID connect federation in the IAM
  * User Guide.
  * 
- * 
  * When you create the IAM OIDC provider, you specify the following:
  * 
- * 
- * 
  * - The URL of the OIDC identity provider (IdP) to trust
- * 
- * 
  * 
  * - A list of client IDs (also known as audiences) that identify the application
  * or applications allowed to authenticate using the OIDC provider
  * 
- * 
- * 
  * - A list of tags that are attached to the specified IAM OIDC provider
- * 
- * 
  * 
  * - A list of thumbprints of one or more server certificates that the IdP
  * uses
  * 
- * 
- * 
- * 
- * 
  * You get all of this information from the OIDC IdP you want to use to access
  * Amazon Web Services.
- * 
- * 
- * 
  * 
  * Amazon Web Services secures communication with OIDC identity providers (IdPs) using our library of
  * trusted root certificate authorities (CAs) to verify the JSON Web Key Set (JWKS)
  * endpoint's TLS certificate. If your OIDC IdP relies on a certificate that is not signed
  * by one of these trusted CAs, only then we secure communication using the thumbprints set
  * in the IdP's configuration.
- * 
- * 
- * 
- * 
- * 
  * 
  * The trust for the OIDC provider is derived from the IAM provider that this
  * operation creates. Therefore, it is best to limit access to the CreateOpenIDConnectProvider operation to highly privileged
@@ -2743,17 +2189,14 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
 /**
  * Creates a new managed policy for your Amazon Web Services account.
  * 
- * 
  * This operation creates a policy version with a version identifier of `v1`
  * and sets v1 as the policy's default version. For more information about policy versions,
  * see Versioning for managed policies in the
  * *IAM User Guide*.
  * 
- * 
  * As a best practice, you can validate your IAM policies.
  * To learn more, see Validating IAM policies
  * in the *IAM User Guide*.
- * 
  * 
  * For more information about managed policies in general, see Managed
  * policies and inline policies in the
@@ -2764,18 +2207,15 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * create a new policy version. A managed policy can have up to five versions. If the
  * policy has five versions, you must delete an existing version using DeletePolicyVersion before you create a new version.
  * 
- * 
  * Optionally, you can set the new version as the policy's default version. The default
  * version is the version that is in effect for the IAM users, groups, and roles to which
  * the policy is attached.
- * 
  * 
  * For more information about managed policy versions, see Versioning for managed
  * policies in the *IAM User Guide*.
  */export const createPolicyVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.CreatePolicyVersion" }, CreatePolicyVersionRequest, CreatePolicyVersionResponse, [InvalidInputException, LimitExceededException, MalformedPolicyDocumentException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Creates a new IAM user for your Amazon Web Services account.
- * 
  * 
  * For information about quotas for the number of IAM users you can create, see IAM and STS
  * quotas in the *IAM User Guide*.
@@ -2787,12 +2227,8 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * with virtual MFA devices, see Using a virtual MFA device in the
  * *IAM User Guide*.
  * 
- * 
  * For information about the maximum number of MFA devices you can create, see IAM and STS
  * quotas in the *IAM User Guide*.
- * 
- * 
- * 
  * 
  * The seed information contained in the QR code and the Base32 string should be
  * treated like any other secret access information. In other words, protect the seed
@@ -2805,7 +2241,6 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * report for any entities (organization root, organizational unit, or account) or policies
  * in your organization.
  * 
- * 
  * To call this operation, you must be signed in using your Organizations management account
  * credentials. You can use your long-term IAM user or root user credentials, or temporary
  * credentials from assuming an IAM role. SCPs must be enabled for your organization
@@ -2813,16 +2248,13 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * Refining permissions using service last accessed data in the
  * *IAM User Guide*.
  * 
- * 
  * You can generate a service last accessed data report for entities by specifying only
  * the entity's path. This data includes a list of services that are allowed by any service
  * control policies (SCPs) that apply to the entity.
  * 
- * 
  * You can generate a service last accessed data report for a policy by specifying an
  * entity's path and an optional Organizations policy ID. This data includes a list of services that
  * are allowed by the specified SCP.
- * 
  * 
  * For each service in both report types, the data includes the most recent account
  * activity that the policy allows to account principals in the entity or the entity's
@@ -2830,9 +2262,6 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * required, troubleshooting, and supported Regions see Reducing permissions using
  * service last accessed data in the
  * *IAM User Guide*.
- * 
- * 
- * 
  * 
  * The data includes all attempts to access Amazon Web Services, not just the successful ones. This
  * includes all attempts that were made using the Amazon Web Services Management Console, the Amazon Web Services API through any
@@ -2842,9 +2271,6 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * source for information about all API calls and whether they were successful or
  * denied access. For more information, see Logging IAM events with
  * CloudTrail in the *IAM User Guide*.
- * 
- * 
- * 
  * 
  * This operation returns a `JobId`. Use this parameter in the
  * GetOrganizationsAccessReport
@@ -2856,20 +2282,15 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * `JobStatus` response parameter. When the job is complete, you can
  * retrieve the report.
  * 
- * 
  * To generate a service last accessed data report for entities, specify an entity path
  * without specifying the optional Organizations policy ID. The type of entity that you specify
  * determines the data returned in the report.
- * 
- * 
  * 
  * - **Root** – When you specify the
  * organizations root as the entity, the resulting report lists all of the services
  * allowed by SCPs that are attached to your root. For each service, the report
  * includes data for all accounts in your organization except the
  * management account, because the management account is not limited by SCPs.
- * 
- * 
  * 
  * - **OU** – When you specify an
  * organizational unit (OU) as the entity, the resulting report lists all of the
@@ -2878,29 +2299,19 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * This data excludes the management account, because the management account is not
  * limited by SCPs.
  * 
- * 
- * 
  * - **management account** – When you specify the
  * management account, the resulting report lists all Amazon Web Services services, because the
  * management account is not limited by SCPs. For each service, the report includes
  * data for only the management account.
- * 
- * 
  * 
  * - **Account** – When you specify another
  * account as the entity, the resulting report lists all of the services allowed by
  * SCPs that are attached to the account and its parents. For each service, the
  * report includes data for only the specified account.
  * 
- * 
- * 
- * 
- * 
  * To generate a service last accessed data report for policies, specify an entity path
  * and the optional Organizations policy ID. The type of entity that you specify determines the data
  * returned for each service.
- * 
- * 
  * 
  * - **Root** – When you specify the root
  * entity and a policy ID, the resulting report lists all of the services that are
@@ -2909,8 +2320,6 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * management account, because the management account is not limited by SCPs. If the
  * SCP is not attached to any entities in the organization, then the report will
  * return a list of services with no data.
- * 
- * 
  * 
  * - **OU** – When you specify an OU entity and
  * a policy ID, the resulting report lists all of the services that are allowed by
@@ -2922,15 +2331,11 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * or one of its children, the report will return a list of services with no
  * data.
  * 
- * 
- * 
  * - **management account** – When you specify the
  * management account, the resulting report lists all Amazon Web Services services, because the
  * management account is not limited by SCPs. If you specify a policy ID in the CLI
  * or API, the policy is ignored. For each service, the report includes data for
  * only the management account.
- * 
- * 
  * 
  * - **Account** – When you specify another
  * account entity and a policy ID, the resulting report lists all of the services
@@ -2940,21 +2345,12 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * the SCP is not attached to the account, the report will return a list of
  * services with no data.
  * 
- * 
- * 
- * 
- * 
- * 
- * 
  * Service last accessed data does not use other policy types when determining
  * whether a principal could access a service. These other policy types include
  * identity-based policies, resource-based policies, access control lists, IAM
  * permissions boundaries, and STS assume role policies. It only applies SCP logic.
  * For more about the evaluation of policy types, see Evaluating policies in the
  * *IAM User Guide*.
- * 
- * 
- * 
  * 
  * For more information about service last accessed data, see Reducing policy scope by
  * viewing user activity in the *IAM User Guide*.
@@ -2966,8 +2362,6 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  */export const getAccessKeyLastUsed = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.GetAccessKeyLastUsed" }, GetAccessKeyLastUsedRequest, GetAccessKeyLastUsedResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Retrieves information about a specific delegation request.
- * 
- * 
  * 
  * If a delegation request has no owner or owner account, `GetDelegationRequest` for that delegation request can be called by any account.
  * If the owner account is assigned but there is
@@ -2993,10 +2387,8 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * operation. This operation
  * retrieves the status of your report job and the report contents.
  * 
- * 
  * Depending on the parameters that you passed when you generated the report, the data
  * returned could include different information. For details, see GenerateOrganizationsAccessReport.
- * 
  * 
  * To call this operation, you must be signed in to the management account in your
  * organization. SCPs must be enabled for your organization root. You must have permissions
@@ -3004,13 +2396,11 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * service last accessed data in the
  * *IAM User Guide*.
  * 
- * 
  * For each service that principals in an account (root user, IAM users, or IAM roles)
  * could access using SCPs, the operation returns details about the most recent access
  * attempt. If there was no attempt, the service is listed without details about the most
  * recent attempt to access the service. If the operation fails, it returns the reason that
  * it failed.
- * 
  * 
  * By default, the list is sorted by service namespace.
  */export const getOrganizationsAccessReport = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.GetOrganizationsAccessReport" }, GetOrganizationsAccessReportRequest, GetOrganizationsAccessReportResponse, [NoSuchEntityException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
@@ -3018,14 +2408,10 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * Returns the SAML provider metadocument that was uploaded when the IAM SAML provider
  * resource object was created or updated.
  * 
- * 
- * 
- * 
  * This operation requires Signature Version 4.
  */export const getSAMLProvider = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.GetSAMLProvider" }, GetSAMLProviderRequest, GetSAMLProviderResponse, [InvalidInputException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Retrieves information about the specified server certificate stored in IAM.
- * 
  * 
  * For more information about working with server certificates, see Working
  * with server certificates in the *IAM User Guide*. This
@@ -3036,23 +2422,17 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * Returns information about the access key IDs associated with the specified IAM user.
  * If there is none, the operation returns an empty list.
  * 
- * 
  * Although each user is limited to a small number of keys, you can still paginate the
  * results using the `MaxItems` and `Marker` parameters.
- * 
  * 
  * If the `UserName` is not specified, the user name is determined implicitly
  * based on the Amazon Web Services access key ID used to sign the request. If a temporary access key is
  * used, then `UserName` is required. If a long-term key is assigned to the
  * user, then `UserName` is not required.
  * 
- * 
  * This operation works for access keys under the Amazon Web Services account. If the Amazon Web Services account has
  * no associated users, the root user returns it's own access key IDs by running this
  * command.
- * 
- * 
- * 
  * 
  * To ensure the security of your Amazon Web Services account, the secret access key is accessible
  * only during key and user creation.
@@ -3060,12 +2440,10 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
 /**
  * Lists all managed policies that are attached to the specified IAM group.
  * 
- * 
  * An IAM group can also have inline policies embedded with it. To list the inline
  * policies for a group, use ListGroupPolicies.
  * For information about policies, see Managed policies and inline
  * policies in the *IAM User Guide*.
- * 
  * 
  * You can paginate the results using the `MaxItems` and `Marker`
  * parameters. You can use the `PathPrefix` parameter to limit the list of
@@ -3077,12 +2455,10 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * Lists all IAM users, groups, and roles that the specified managed policy is attached
  * to.
  * 
- * 
  * You can use the optional `EntityFilter` parameter to limit the results to a
  * particular type of entity (users, groups, or roles). For example, to list only the roles
  * that are attached to the specified policy, set `EntityFilter` to
  * `Role`.
- * 
  * 
  * You can paginate the results using the `MaxItems` and `Marker`
  * parameters.
@@ -3093,7 +2469,6 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * do not specify a user name, IAM determines the user name implicitly based on the Amazon Web Services
  * access key ID signing the request for this operation.
  * 
- * 
  * You can paginate the results using the `MaxItems` and `Marker`
  * parameters.
  */export const listMFADevices = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.ListMFADevices" }, ListMFADevicesRequest, ListMFADevicesResponse, [NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
@@ -3101,18 +2476,13 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * Lists the server certificates stored in IAM that have the specified path prefix. If
  * none exist, the operation returns an empty list.
  * 
- * 
  * You can paginate the results using the `MaxItems` and `Marker`
  * parameters.
- * 
  * 
  * For more information about working with server certificates, see Working
  * with server certificates in the *IAM User Guide*. This
  * topic also includes a list of Amazon Web Services services that can use the server certificates that
  * you manage with IAM.
- * 
- * 
- * 
  * 
  * IAM resource-listing operations return a subset of the available
  * attributes for the resource. For example, this operation does not return tags, even though they are an attribute of the returned object. To view all of the information for a servercertificate, see
@@ -3130,11 +2500,9 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * Returns information about the signing certificates associated with the specified IAM
  * user. If none exists, the operation returns an empty list.
  * 
- * 
  * Although each user is limited to a small number of signing certificates, you can still
  * paginate the results using the `MaxItems` and `Marker`
  * parameters.
- * 
  * 
  * If the `UserName` field is not specified, the user name is determined
  * implicitly based on the Amazon Web Services access key ID used to sign the request for this operation.
@@ -3146,12 +2514,10 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * Returns information about the SSH public keys associated with the specified IAM
  * user. If none exists, the operation returns an empty list.
  * 
- * 
  * The SSH public keys returned by this operation are used only for authenticating the
  * IAM user to an CodeCommit repository. For more information about using SSH keys to
  * authenticate to an CodeCommit repository, see Set up CodeCommit for
  * SSH connections in the *CodeCommit User Guide*.
- * 
  * 
  * Although each user is limited to a small number of keys, you can still paginate the
  * results using the `MaxItems` and `Marker` parameters.
@@ -3161,27 +2527,20 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * a list of API operations and Amazon Web Services resources to determine the policies' effective
  * permissions. The policies are provided as strings.
  * 
- * 
  * The simulation does not perform the API operations; it only checks the authorization
  * to determine if the simulated policies allow or deny the operations. You can simulate
  * resources that don't exist in your account.
  * 
- * 
  * If you want to simulate existing policies that are attached to an IAM user, group,
  * or role, use SimulatePrincipalPolicy instead.
- * 
  * 
  * Context keys are variables that are maintained by Amazon Web Services and its services and which
  * provide details about the context of an API query request. You can use the
  * `Condition` element of an IAM policy to evaluate context keys. To get
  * the list of context keys that the policies require for correct simulation, use GetContextKeysForCustomPolicy.
  * 
- * 
  * If the output is long, you can use `MaxItems` and `Marker`
  * parameters to paginate the results.
- * 
- * 
- * 
  * 
  * The IAM policy simulator evaluates statements in the identity-based policy and
  * the inputs that you provide during simulation. The policy simulator results can
@@ -3195,14 +2554,12 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
 /**
  * Creates an IAM delegation request for temporary access delegation.
  * 
- * 
  * This API is not available for general use. In order to use this API, a caller first need to
  * go through an onboarding process described in the
  * partner onboarding documentation.
  */export const createDelegationRequest = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.CreateDelegationRequest" }, CreateDelegationRequestRequest, CreateDelegationRequestResponse, [ConcurrentModificationException, EntityAlreadyExistsException, InvalidInputException, LimitExceededException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Creates a new role for your Amazon Web Services account.
- * 
  * 
  * For more information about roles, see IAM roles in the
  * *IAM User Guide*. For information about quotas for role names
@@ -3214,16 +2571,12 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * to access the service specified in the request. These credentials are generated by
  * IAM, and can be used only for the specified service.
  * 
- * 
  * You can have a maximum of two sets of service-specific credentials for each supported
  * service per user.
  * 
- * 
  * You can create service-specific credentials for Amazon Bedrock, CodeCommit and Amazon Keyspaces (for Apache Cassandra).
  * 
- * 
  * You can reset the password to a new service-generated value by calling ResetServiceSpecificCredential.
- * 
  * 
  * For more information about service-specific credentials, see Service-specific credentials for IAM users in the
  * *IAM User Guide*.
@@ -3234,18 +2587,12 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * snapshot of the configuration of IAM permissions (users, groups, roles, and policies)
  * in your account.
  * 
- * 
- * 
- * 
  * Policies returned by this operation are URL-encoded compliant
  * with RFC 3986. You can use a URL
  * decoding method to convert the policy back to plain JSON text. For example, if you use Java, you
  * can use the `decode` method of the `java.net.URLDecoder` utility class in
  * the Java SDK. Other languages and SDKs provide similar functionality, and some SDKs do this decoding
  * automatically.
- * 
- * 
- * 
  * 
  * You can optionally filter the results using the `Filter` parameter. You can
  * paginate the results using the `MaxItems` and `Marker`
@@ -3264,9 +2611,6 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * the generated report. The report includes a list of Amazon Web Services services that the resource
  * (user, group, role, or managed policy) can access.
  * 
- * 
- * 
- * 
  * Service last accessed data does not use other policy types when determining
  * whether a resource could access a service. These other policy types include
  * resource-based policies, access control lists, Organizations policies, IAM permissions
@@ -3274,53 +2618,35 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * logic. For more about the evaluation of policy types, see Evaluating policies in the
  * *IAM User Guide*.
  * 
- * 
- * 
- * 
  * For each service that the resource could access using permissions policies, the
  * operation returns details about the most recent access attempt. If there was no attempt,
  * the service is listed without details about the most recent attempt to access the
  * service. If the operation fails, the `GetServiceLastAccessedDetails`
  * operation returns the reason that it failed.
  * 
- * 
  * The `GetServiceLastAccessedDetails` operation returns a list of services.
  * This list includes the number of entities that have attempted to access the service and
  * the date and time of the last attempt. It also returns the ARN of the following entity,
  * depending on the resource ARN that you used to generate the report:
  * 
- * 
- * 
  * - **User** – Returns the user ARN that you
  * used to generate the report
- * 
- * 
  * 
  * - **Group** – Returns the ARN of the group
  * member (user) that last attempted to access the service
  * 
- * 
- * 
  * - **Role** – Returns the role ARN that you
  * used to generate the report
- * 
- * 
  * 
  * - **Policy** – Returns the ARN of the user
  * or role that last used the policy to attempt to access the service
  * 
- * 
- * 
- * 
- * 
  * By default, the list is sorted by service namespace.
- * 
  * 
  * If you specified `ACTION_LEVEL` granularity when you generated the report,
  * this operation returns service and action last accessed data. This includes the most
  * recent access attempt for each tracked action within a service. Otherwise, this
  * operation returns only service data.
- * 
  * 
  * For more information about service and action last accessed data, see Reducing permissions using service last accessed data in the
  * *IAM User Guide*.
@@ -3333,29 +2659,19 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * status of your report job and a list of entities that could have used group or policy
  * permissions to access the specified service.
  * 
- * 
- * 
  * - **Group** – For a group report, this
  * operation returns a list of users in the group that could have used the group’s
  * policies in an attempt to access the service.
- * 
- * 
  * 
  * - **Policy** – For a policy report, this
  * operation returns a list of entities (users or roles) that could have used the
  * policy in an attempt to access the service.
  * 
- * 
- * 
- * 
- * 
  * You can also use this operation for user or role reports to retrieve details about
  * those entities.
  * 
- * 
  * If the operation fails, the `GetServiceLastAccessedDetailsWithEntities`
  * operation returns the reason that it failed.
- * 
  * 
  * By default, the list of associated entities is sorted by date, with the most recent
  * access listed first.
@@ -3370,7 +2686,6 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
 /**
  * Retrieves the specified SSH public key, including metadata about the key.
  * 
- * 
  * The SSH public key retrieved by this operation is used only for authenticating the
  * associated IAM user to an CodeCommit repository. For more information about using SSH keys
  * to authenticate to an CodeCommit repository, see Set up CodeCommit for SSH
@@ -3380,9 +2695,6 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * Retrieves a list of policies that the IAM identity (user, group, or role) can use to
  * access each specified service.
  * 
- * 
- * 
- * 
  * This operation does not use other policy types when determining whether a resource
  * could access a service. These other policy types include resource-based policies,
  * access control lists, Organizations policies, IAM permissions boundaries, and STS
@@ -3390,39 +2702,25 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * evaluation of policy types, see Evaluating policies in the
  * *IAM User Guide*.
  * 
- * 
- * 
- * 
  * The list of policies returned by the operation depends on the ARN of the identity that
  * you provide.
- * 
- * 
  * 
  * - **User** – The list of policies includes
  * the managed and inline policies that are attached to the user directly. The list
  * also includes any additional managed and inline policies that are attached to
  * the group to which the user belongs.
  * 
- * 
- * 
  * - **Group** – The list of policies includes
  * only the managed and inline policies that are attached to the group directly.
  * Policies that are attached to the group’s user are not included.
  * 
- * 
- * 
  * - **Role** – The list of policies includes
  * only the managed and inline policies that are attached to the role.
- * 
- * 
- * 
- * 
  * 
  * For each managed policy, this operation returns the ARN and policy name. For each
  * inline policy, it returns the policy name and the entity to which it is attached. Inline
  * policies do not have an ARN. For more information about these policy types, see Managed policies and inline policies in the
  * *IAM User Guide*.
- * 
  * 
  * Policies that are attached to users and roles as permissions boundaries are not
  * returned. To view which managed policy is currently used to set the permissions boundary
@@ -3434,7 +2732,6 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * entity includes a public key certificate, a private key, and an optional certificate
  * chain, which should all be PEM-encoded.
  * 
- * 
  * We recommend that you use Certificate Manager to
  * provision, manage, and deploy your server certificates. With ACM you can request a
  * certificate, deploy it to Amazon Web Services resources, and let ACM handle certificate renewals for
@@ -3442,18 +2739,13 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * see the Certificate Manager User
  * Guide.
  * 
- * 
  * For more information about working with server certificates, see Working
  * with server certificates in the *IAM User Guide*. This
  * topic includes a list of Amazon Web Services services that can use the server certificates that you
  * manage with IAM.
  * 
- * 
  * For information about the number of server certificates you can upload, see IAM and STS
  * quotas in the *IAM User Guide*.
- * 
- * 
- * 
  * 
  * Because the body of the public key certificate, private key, and the certificate
  * chain can be large, you should use POST rather than GET when calling
@@ -3469,20 +2761,15 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * with a corresponding private key. When you upload the certificate, its default status is
  * `Active`.
  * 
- * 
  * For information about when you would use an X.509 signing certificate, see Managing
  * server certificates in IAM in the
  * *IAM User Guide*.
- * 
  * 
  * If the `UserName` is not specified, the IAM user name is determined
  * implicitly based on the Amazon Web Services access key ID used to sign the request. This operation
  * works for access keys under the Amazon Web Services account. Consequently, you can use this operation
  * to manage Amazon Web Services account root user credentials even if the Amazon Web Services account has no associated
  * users.
- * 
- * 
- * 
  * 
  * Because the body of an X.509 certificate can be large, you should use POST rather
  * than GET when calling `UploadSigningCertificate`. For information about
@@ -3493,7 +2780,6 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  */export const uploadSigningCertificate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-08", sdkId: "IAM", sigV4ServiceName: "iam", name: "AWSIdentityManagementV20100508.UploadSigningCertificate" }, UploadSigningCertificateRequest, UploadSigningCertificateResponse, [ConcurrentModificationException, DuplicateCertificateException, EntityAlreadyExistsException, InvalidCertificateException, LimitExceededException, MalformedCertificateException, NoSuchEntityException, ServiceFailureException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Uploads an SSH public key and associates it with the specified IAM user.
- * 
  * 
  * The SSH public key uploaded by this operation can be used only for authenticating the
  * associated IAM user to an CodeCommit repository. For more information about using SSH keys
@@ -3507,37 +2793,27 @@ export class InvalidPublicKeyException extends S.TaggedError<InvalidPublicKeyExc
  * also includes all of the policies that are attached to groups that the user belongs to.
  * You can simulate resources that don't exist in your account.
  * 
- * 
  * You can optionally include a list of one or more additional policies specified as
  * strings to include in the simulation. If you want to simulate only policies specified as
  * strings, use SimulateCustomPolicy instead.
  * 
- * 
  * You can also optionally include one resource-based policy to be evaluated with each of
  * the resources included in the simulation for IAM users only.
- * 
  * 
  * The simulation does not perform the API operations; it only checks the authorization
  * to determine if the simulated policies allow or deny the operations.
  * 
- * 
- * 
  * **Note:** This operation discloses information about the
  * permissions granted to other users. If you do not want users to see other user's
  * permissions, then consider allowing them to use SimulateCustomPolicy instead.
- * 
  * 
  * Context keys are variables maintained by Amazon Web Services and its services that provide details
  * about the context of an API query request. You can use the `Condition`
  * element of an IAM policy to evaluate context keys. To get the list of context keys
  * that the policies require for correct simulation, use GetContextKeysForPrincipalPolicy.
  * 
- * 
  * If the output is long, you can use the `MaxItems` and `Marker`
  * parameters to paginate the results.
- * 
- * 
- * 
  * 
  * The IAM policy simulator evaluates statements in the identity-based policy and
  * the inputs that you provide during simulation. The policy simulator results can

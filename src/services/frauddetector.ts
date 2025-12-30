@@ -298,21 +298,17 @@ export class ResourceUnavailableException extends S.TaggedError<ResourceUnavaila
 /**
  * Deletes the detector version. You cannot delete detector versions that are in `ACTIVE` status.
  * 
- * 
  * When you delete a detector version, Amazon Fraud Detector permanently deletes the detector and the data is no longer stored in Amazon Fraud Detector.
  */export const deleteDetectorVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.DeleteDetectorVersion" }, DeleteDetectorVersionRequest, DeleteDetectorVersionResult, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes an entity type.
  * 
- * 
  * You cannot delete an entity type that is included in an event type.
- * 
  * 
  * When you delete an entity type, Amazon Fraud Detector permanently deletes that entity type and the data is no longer stored in Amazon Fraud Detector.
  */export const deleteEntityType = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.DeleteEntityType" }, DeleteEntityTypeRequest, DeleteEntityTypeResult, [AccessDeniedException, ConflictException, InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the specified event.
- * 
  * 
  * When you delete an event, Amazon Fraud Detector permanently deletes that event and the event data is no longer stored in Amazon Fraud Detector.
  * If `deleteAuditHistory` is `True`, event data is available through search for up to 30 seconds after the delete operation is completed.
@@ -320,79 +316,61 @@ export class ResourceUnavailableException extends S.TaggedError<ResourceUnavaila
 /**
  * Deletes an event type.
  * 
- * 
  * You cannot delete an event type that is used in a detector or a model.
- * 
  * 
  * When you delete an event type, Amazon Fraud Detector permanently deletes that event type and the data is no longer stored in Amazon Fraud Detector.
  */export const deleteEventType = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.DeleteEventType" }, DeleteEventTypeRequest, DeleteEventTypeResult, [AccessDeniedException, ConflictException, InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes a SageMaker model from Amazon Fraud Detector.
  * 
- * 
  * You can remove an Amazon SageMaker model if it is not associated with a detector version. Removing a SageMaker model disconnects it from Amazon Fraud Detector, but the model remains available in SageMaker.
  */export const deleteExternalModel = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.DeleteExternalModel" }, DeleteExternalModelRequest, DeleteExternalModelResult, [AccessDeniedException, ConflictException, InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a label.
  * 
- * 
  * You cannot delete labels that are included in an event type in Amazon Fraud Detector.
  * 
- * 
  * You cannot delete a label assigned to an event ID. You must first delete the relevant event ID.
- * 
  * 
  * When you delete a label, Amazon Fraud Detector permanently deletes that label and the data is no longer stored in Amazon Fraud Detector.
  */export const deleteLabel = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.DeleteLabel" }, DeleteLabelRequest, DeleteLabelResult, [ConflictException, InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the list, provided it is not used in a rule.
  * 
- * 
- * 
  * When you delete a list, Amazon Fraud Detector permanently deletes that list and the elements in the list.
  */export const deleteList = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.DeleteList" }, DeleteListRequest, DeleteListResult, [AccessDeniedException, ConflictException, InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a model.
  * 
- * 
  * You can delete models and model versions in Amazon Fraud Detector, provided that they are not associated with a detector version.
- * 
  * 
  * When you delete a model, Amazon Fraud Detector permanently deletes that model and the data is no longer stored in Amazon Fraud Detector.
  */export const deleteModel = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.DeleteModel" }, DeleteModelRequest, DeleteModelResult, [AccessDeniedException, ConflictException, InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a model version.
  * 
- * 
  * You can delete models and model versions in Amazon Fraud Detector, provided that they are not associated with a detector version.
- * 
  * 
  * When you delete a model version, Amazon Fraud Detector permanently deletes that model version and the data is no longer stored in Amazon Fraud Detector.
  */export const deleteModelVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.DeleteModelVersion" }, DeleteModelVersionRequest, DeleteModelVersionResult, [AccessDeniedException, ConflictException, InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes an outcome.
  * 
- * 
  * You cannot delete an outcome that is used in a rule version.
- * 
  * 
  * When you delete an outcome, Amazon Fraud Detector permanently deletes that outcome and the data is no longer stored in Amazon Fraud Detector.
  */export const deleteOutcome = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.DeleteOutcome" }, DeleteOutcomeRequest, DeleteOutcomeResult, [AccessDeniedException, ConflictException, InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the rule. You cannot delete a rule if it is used by an `ACTIVE` or `INACTIVE` detector version.
  * 
- * 
  * When you delete a rule, Amazon Fraud Detector permanently deletes that rule and the data is no longer stored in Amazon Fraud Detector.
  */export const deleteRule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.DeleteRule" }, DeleteRuleRequest, DeleteRuleResult, [AccessDeniedException, ConflictException, InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a variable.
  * 
- * 
  * You can't delete variables that are included in an event type in Amazon Fraud Detector.
  * 
- * 
  * Amazon Fraud Detector automatically deletes model output variables and SageMaker model output variables when you delete the model. You can't delete these variables manually.
- * 
  * 
  * When you delete a variable, Amazon Fraud Detector permanently deletes that variable and the data is no longer stored in Amazon Fraud Detector.
  */export const deleteVariable = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.DeleteVariable" }, DeleteVariableRequest, DeleteVariableResult, [AccessDeniedException, ConflictException, InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -443,18 +421,11 @@ export class ResourceUnavailableException extends S.TaggedError<ResourceUnavaila
 /**
  * Updates the status of a model version.
  * 
- * 
  * You can perform the following status updates:
- * 
- * 
  * 
  * - Change the `TRAINING_IN_PROGRESS` status to `TRAINING_CANCELLED`.
  * 
- * 
- * 
  * - Change the `TRAINING_COMPLETE` status to `ACTIVE`.
- * 
- * 
  * 
  * - Change `ACTIVE` to `INACTIVE`.
  */export const updateModelVersionStatus = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.UpdateModelVersionStatus" }, UpdateModelVersionStatusRequest, UpdateModelVersionStatusResult, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -479,8 +450,6 @@ export class ResourceUnavailableException extends S.TaggedError<ResourceUnavaila
 /**
  * Creates a list.
  * 
- * 
- * 
  * List is a set of input data for a variable in your event dataset. You use the input data in a rule that's associated with your detector.
  * For more information, see Lists.
  */export const createList = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.CreateList" }, CreateListRequest, CreateListResult, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -489,7 +458,6 @@ export class ResourceUnavailableException extends S.TaggedError<ResourceUnavaila
  */export const createRule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.CreateRule" }, CreateRuleRequest, CreateRuleResult, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the detector. Before deleting a detector, you must first delete all detector versions and rule versions associated with the detector.
- * 
  * 
  * When you delete a detector, Amazon Fraud Detector permanently deletes the detector and the data is no longer stored in Amazon Fraud Detector.
  */export const deleteDetector = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.DeleteDetector" }, DeleteDetectorRequest, DeleteDetectorResult, [AccessDeniedException, ConflictException, InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -589,7 +557,6 @@ export class ResourceUnavailableException extends S.TaggedError<ResourceUnavaila
 /**
  * Gets one or more models. Gets all models for the Amazon Web Services account if no model type and no model id provided. Gets all models for the Amazon Web Services account and model type, if the model type is specified but model id is not provided. Gets a specific model if (model type, model id) tuple is specified.
  * 
- * 
  * This is a paginated API. If you
  * provide a null `maxResults`, this action retrieves a maximum of 10 records
  * per page. If you provide a `maxResults`, the value must be between 1 and 10.
@@ -607,7 +574,6 @@ export class ResourceUnavailableException extends S.TaggedError<ResourceUnavaila
  */export const getOutcomes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.GetOutcomes" }, GetOutcomesRequest, GetOutcomesResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Get all rules for a detector (paginated) if `ruleId` and `ruleVersion` are not specified. Gets all rules for the detector and the `ruleId` if present (paginated). Gets a specific rule if both the `ruleId` and the `ruleVersion` are specified.
- * 
  * 
  * This is a paginated API. Providing null maxResults results in retrieving maximum of 100 records per page. If you provide maxResults the value must be between 50 and 100. To get the next page result, a provide a pagination token from GetRulesResult as part of your request. Null pagination token fetches the records from the beginning.
  */export const getRules = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.GetRules" }, GetRulesRequest, GetRulesResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -632,14 +598,11 @@ export class ResourceUnavailableException extends S.TaggedError<ResourceUnavaila
  * Gets a list of past predictions. The list can be filtered by detector ID, detector version ID, event ID, event type, or by specifying a time period.
  * If filter is not specified, the most recent prediction is returned.
  * 
- * 
  * For example, the following filter lists all past predictions for `xyz` event type -
  * {
  * "eventType":{
  * "value": "xyz" }”
  * }
- * 
- * 
  * 
  * This is a paginated API. If you provide a null `maxResults`, this action will retrieve a maximum of 10 records per page.
  * If you provide a `maxResults`, the value must be between 50 and 100. To get the next page results, provide

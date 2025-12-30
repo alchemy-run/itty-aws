@@ -83,67 +83,37 @@ export class TooManyTagsException extends S.TaggedError<TooManyTagsException>()(
  * Removes the specified tags from the specified resources. When you specify a tag key, the action removes both that key and its associated value. The operation succeeds even if you
  * attempt to remove tags from a resource that were already removed. Note the following:
  * 
- * 
- * 
  * - To remove tags from a resource, you need the necessary permissions for the service that the resource belongs to as well as permissions for removing tags. For more information,
  * see the documentation for the service whose resource you want to untag.
  * 
- * 
- * 
  * - You can only tag resources that are located in the specified Amazon Web Services Region for the calling Amazon Web Services account.
  * 
- * 
- * 
- * 
- * 
- * 
  * **Minimum permissions**
- * 
- * 
  * 
  * In addition to the `tag:UntagResources` permission required by this operation, you must also have the remove tags permission defined by the service that created the resource.
  * For example, to remove the tags from an Amazon EC2 instance using the `UntagResources` operation, you must have both of the following permissions:
  * 
- * 
- * 
  * `tag:UntagResource`
- * 
- * 
- * 
  * 
  * `ChimeSDKMeetings:DeleteTags`
  */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-07-15", uri: "/tags?operation=untag-resource", sdkId: "Chime SDK Meetings", sigV4ServiceName: "chime", name: "ChimeMeetingsSDKService.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [BadRequestException, ForbiddenException, LimitExceededException, ResourceNotFoundException, ServiceFailureException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * The capabilities that you want to update.
  * 
- * 
- * 
- * 
  * You use the capabilities with a set of values that control what the capabilities can do, such as `SendReceive` data. For more information about those values, see
  * .
  * 
- * 
- * 
- * 
  * When using capabilities, be aware of these corner cases:
- * 
- * 
  * 
  * - If you specify `MeetingFeatures:Video:MaxResolution:None` when you create a meeting, all API requests
  * that include `SendReceive`, `Send`, or `Receive` for `AttendeeCapabilities:Video` will be rejected with `ValidationError 400`.
  * 
- * 
- * 
  * - If you specify `MeetingFeatures:Content:MaxResolution:None` when you create a meeting, all API requests that include `SendReceive`, `Send`, or
  * `Receive` for `AttendeeCapabilities:Content` will be rejected with `ValidationError 400`.
- * 
- * 
  * 
  * - You can't set `content` capabilities to `SendReceive` or `Receive` unless you also set `video` capabilities to `SendReceive`
  * or `Receive`. If you don't set the `video` capability to receive, the response will contain an HTTP 400 Bad Request status code. However, you can set your `video` capability
  * to receive and you set your `content` capability to not receive.
- * 
- * 
  * 
  * - If meeting features is defined as `Video:MaxResolution:None` but
  * `Content:MaxResolution` is defined as something other than
@@ -153,12 +123,8 @@ export class TooManyTagsException extends S.TaggedError<TooManyTagsException>()(
  * `SendReceive`. This is because content `SendReceive`
  * requires video to be at least `Receive`.
  * 
- * 
- * 
  * - When you change an `audio` capability from `None` or `Receive` to `Send` or `SendReceive` ,
  * and if the attendee left their microphone unmuted, audio will flow from the attendee to the other meeting participants.
- * 
- * 
  * 
  * - When you change a `video` or `content` capability from `None` or `Receive` to `Send` or `SendReceive` ,
  * and if the attendee turned on their video or content streams, remote attendees can receive those streams, but only after media renegotiation between the client and the Amazon Chime back-end server.
@@ -170,34 +136,20 @@ export class TooManyTagsException extends S.TaggedError<TooManyTagsException>()(
 /**
  * Updates `AttendeeCapabilities` except the capabilities listed in an `ExcludedAttendeeIds` table.
  * 
- * 
- * 
- * 
  * You use the capabilities with a set of values that control what the capabilities can do, such as `SendReceive` data. For more information about those values, see
  * .
  * 
- * 
- * 
- * 
  * When using capabilities, be aware of these corner cases:
- * 
- * 
  * 
  * - If you specify `MeetingFeatures:Video:MaxResolution:None` when you create a meeting, all API requests
  * that include `SendReceive`, `Send`, or `Receive` for `AttendeeCapabilities:Video` will be rejected with `ValidationError 400`.
  * 
- * 
- * 
  * - If you specify `MeetingFeatures:Content:MaxResolution:None` when you create a meeting, all API requests that include `SendReceive`, `Send`, or
  * `Receive` for `AttendeeCapabilities:Content` will be rejected with `ValidationError 400`.
- * 
- * 
  * 
  * - You can't set `content` capabilities to `SendReceive` or `Receive` unless you also set `video` capabilities to `SendReceive`
  * or `Receive`. If you don't set the `video` capability to receive, the response will contain an HTTP 400 Bad Request status code. However, you can set your `video` capability
  * to receive and you set your `content` capability to not receive.
- * 
- * 
  * 
  * - If meeting features is defined as `Video:MaxResolution:None` but
  * `Content:MaxResolution` is defined as something other than
@@ -207,12 +159,8 @@ export class TooManyTagsException extends S.TaggedError<TooManyTagsException>()(
  * `SendReceive`. This is because content `SendReceive`
  * requires video to be at least `Receive`.
  * 
- * 
- * 
  * - When you change an `audio` capability from `None` or `Receive` to `Send` or `SendReceive` ,
  * and if the attendee left their microphone unmuted, audio will flow from the attendee to the other meeting participants.
- * 
- * 
  * 
  * - When you change a `video` or `content` capability from `None` or `Receive` to `Send` or `SendReceive` ,
  * and if the attendee turned on their video or content streams, remote attendees can receive those streams, but only after media renegotiation between the client and the Amazon Chime back-end server.
@@ -250,14 +198,10 @@ export class TooManyTagsException extends S.TaggedError<TooManyTagsException>()(
  * Using Amazon Chime SDK live transcription
  * in the *Amazon Chime SDK Developer Guide*.
  * 
- * 
  * If you specify an invalid configuration, a `TranscriptFailed` event will be sent with the contents of the `BadRequestException` generated by Amazon Transcribe.
  * For more information on each parameter and which combinations are valid, refer to the
  * StartStreamTranscription API in the
  * *Amazon Transcribe Developer Guide*.
- * 
- * 
- * 
  * 
  * By default, Amazon Transcribe may use and store audio content processed by the service to develop and improve Amazon Web Services AI/ML services as
  * further described in section 50 of the Amazon Web Services Service Terms. Using Amazon Transcribe
@@ -270,9 +214,6 @@ export class TooManyTagsException extends S.TaggedError<TooManyTagsException>()(
  * Stops transcription for the specified `meetingId`. For more information, refer to
  * Using Amazon Chime SDK live transcription
  * in the *Amazon Chime SDK Developer Guide*.
- * 
- * 
- * 
  * 
  * By default, Amazon Transcribe may use and store audio content processed by the service to develop and improve Amazon Web Services AI/ML services as
  * further described in section 50 of the Amazon Web Services Service Terms. Using Amazon Transcribe
@@ -293,18 +234,10 @@ export class TooManyTagsException extends S.TaggedError<TooManyTagsException>()(
  * in the
  * *Amazon Chime SDK Developer Guide*.
  * 
- * 
- * 
- * 
- * 
  * If you use this API in conjuction with the and APIs, and you don't specify the
  * `MeetingFeatures.Content.MaxResolution` or `MeetingFeatures.Video.MaxResolution` parameters, the following defaults are used:
  * 
- * 
- * 
  * - Content.MaxResolution: FHD
- * 
- * 
  * 
  * - Video.MaxResolution: HD
  */export const createMeeting = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-07-15", uri: "/meetings", sdkId: "Chime SDK Meetings", sigV4ServiceName: "chime", name: "ChimeMeetingsSDKService.CreateMeeting" }, CreateMeetingRequest, CreateMeetingResponse, [BadRequestException, ConflictException, ForbiddenException, LimitExceededException, ServiceFailureException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -317,18 +250,10 @@ export class TooManyTagsException extends S.TaggedError<TooManyTagsException>()(
  * in the
  * *Amazon Chime SDK Developer Guide*.
  * 
- * 
- * 
- * 
- * 
  * If you use this API in conjuction with the and APIs, and you don't specify the
  * `MeetingFeatures.Content.MaxResolution` or `MeetingFeatures.Video.MaxResolution` parameters, the following defaults are used:
  * 
- * 
- * 
  * - Content.MaxResolution: FHD
- * 
- * 
  * 
  * - Video.MaxResolution: HD
  */export const createMeetingWithAttendees = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-07-15", uri: "/meetings?operation=create-attendees", sdkId: "Chime SDK Meetings", sigV4ServiceName: "chime", name: "ChimeMeetingsSDKService.CreateMeetingWithAttendees" }, CreateMeetingWithAttendeesRequest, CreateMeetingWithAttendeesResponse, [BadRequestException, ConflictException, ForbiddenException, LimitExceededException, ServiceFailureException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

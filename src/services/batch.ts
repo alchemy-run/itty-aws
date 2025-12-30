@@ -275,13 +275,11 @@ export class ServerException extends S.TaggedError<ServerException>()("ServerExc
  * when you delete a job queue. The jobs are terminated at a rate of about 16 jobs each
  * second.
  * 
- * 
  * It's not necessary to disassociate compute environments from a queue before submitting a
  * `DeleteJobQueue` request.
  */export const deleteJobQueue = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-10", uri: "/v1/deletejobqueue", sdkId: "Batch", sigV4ServiceName: "batch", name: "AWSBatchV20160810.DeleteJobQueue" }, DeleteJobQueueRequest, DeleteJobQueueResponse, [ClientException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the specified scheduling policy.
- * 
  * 
  * You can't delete a scheduling policy that's used in any job queues.
  */export const deleteSchedulingPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-10", uri: "/v1/deleteschedulingpolicy", sdkId: "Batch", sigV4ServiceName: "batch", name: "AWSBatchV20160810.DeleteSchedulingPolicy" }, DeleteSchedulingPolicyRequest, DeleteSchedulingPolicyResponse, [ClientException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -317,20 +315,13 @@ export class ServerException extends S.TaggedError<ServerException>()("ServerExc
 /**
  * Cancels a job in an Batch job queue. Jobs that are in a `SUBMITTED`, `PENDING`, or `RUNNABLE` state are cancelled and the job status is updated to `FAILED`.
  * 
- * 
- * 
- * 
  * A `PENDING` job is canceled after all dependency jobs are completed.
  * Therefore, it may take longer than expected to cancel a job in `PENDING`
  * status.
  * 
- * 
  * When you try to cancel an array parent job in `PENDING`, Batch attempts to
  * cancel all child jobs. The array parent job is canceled when all child jobs are
  * completed.
- * 
- * 
- * 
  * 
  * Jobs that progressed to the `STARTING` or
  * `RUNNING` state aren't canceled. However, the API operation still succeeds, even
@@ -342,7 +333,6 @@ export class ServerException extends S.TaggedError<ServerException>()("ServerExc
  */export const createConsumableResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-10", uri: "/v1/createconsumableresource", sdkId: "Batch", sigV4ServiceName: "batch", name: "AWSBatchV20160810.CreateConsumableResource" }, CreateConsumableResourceRequest, CreateConsumableResourceResponse, [ClientException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes an Batch compute environment.
- * 
  * 
  * Before you can delete a compute environment, you must set its state to
  * `DISABLED` with the UpdateComputeEnvironment API operation and
@@ -372,7 +362,6 @@ export class ServerException extends S.TaggedError<ServerException>()("ServerExc
  * compute environments to the queue and assign an order of preference for the compute
  * environments.
  * 
- * 
  * You also set a priority to the job queue that determines the order that the Batch
  * scheduler places jobs onto its associated compute environments. For example, if a compute
  * environment is associated with more than one job queue, the job queue with a higher priority
@@ -383,7 +372,6 @@ export class ServerException extends S.TaggedError<ServerException>()("ServerExc
  */export const createServiceEnvironment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-10", uri: "/v1/createserviceenvironment", sdkId: "Batch", sigV4ServiceName: "batch", name: "AWSBatchV20160810.CreateServiceEnvironment" }, CreateServiceEnvironmentRequest, CreateServiceEnvironmentResponse, [ClientException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes one or more of your compute environments.
- * 
  * 
  * If you're using an unmanaged compute environment, you can use the
  * `DescribeComputeEnvironment` operation to determine the
@@ -429,24 +417,13 @@ export class ServerException extends S.TaggedError<ServerException>()("ServerExc
 /**
  * Returns a list of Batch jobs.
  * 
- * 
  * You must specify only one of the following items:
- * 
- * 
  * 
  * - A job queue ID to return a list of jobs in that job queue
  * 
- * 
- * 
  * - A multi-node parallel job ID to return a list of nodes for that job
  * 
- * 
- * 
  * - An array job ID to return a list of the children for that job
- * 
- * 
- * 
- * 
  * 
  * You can filter the results by job status with the `jobStatus` parameter. If you
  * don't specify a status, only `RUNNING` jobs are returned.
@@ -460,7 +437,6 @@ export class ServerException extends S.TaggedError<ServerException>()("ServerExc
  * use Amazon EC2 or Fargate resources. `UNMANAGED` compute environments can only use
  * EC2 resources.
  * 
- * 
  * In a managed compute environment, Batch manages the capacity and instance types of the
  * compute resources within the environment. This is based on the compute resource specification
  * that you define or the launch template that you
@@ -469,7 +445,6 @@ export class ServerException extends S.TaggedError<ServerException>()("ServerExc
  * your managed compute environment. You can optionally set a maximum price so that Spot
  * Instances only launch when the Spot Instance price is less than a specified percentage of the
  * On-Demand price.
- * 
  * 
  * In an unmanaged compute environment, you can manage your own EC2 compute resources and
  * have flexibility with how you configure your compute resources. For example, you can use
@@ -480,9 +455,6 @@ export class ServerException extends S.TaggedError<ServerException>()("ServerExc
  * cluster that's associated with it. Then, launch your container instances into that Amazon ECS
  * cluster. For more information, see Launching an Amazon ECS container
  * instance in the *Amazon Elastic Container Service Developer Guide*.
- * 
- * 
- * 
  * 
  * Batch doesn't automatically upgrade the AMIs in a compute environment after it's
  * created. For more information on how to update a compute environment's AMI, see Updating compute environments in the *Batch User Guide*.
@@ -495,16 +467,8 @@ export class ServerException extends S.TaggedError<ServerException>()("ServerExc
  * parameters in a `resourceRequirements` object that's included in the
  * `containerOverrides` parameter.
  * 
- * 
- * 
- * 
  * Job queues with a scheduling policy are limited to 500 active share identifiers at
  * a time.
- * 
- * 
- * 
- * 
- * 
  * 
  * Jobs that run on Fargate resources can't be guaranteed to run for more than 14 days.
  * This is because, after 14 days, Fargate resources might become unavailable and job might be

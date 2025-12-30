@@ -1886,7 +1886,6 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
 /**
  * Deletes an SageMaker AI notebook instance. Before you can delete a notebook instance, you must call the `StopNotebookInstance` API.
  * 
- * 
  * When you delete a notebook instance, you lose all of your data. SageMaker AI removes the ML compute instance, and deletes the ML storage volume and the network interface associated with the notebook instance.
  */export const deleteNotebookInstance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteNotebookInstance" }, DeleteNotebookInstanceInput, S.Struct({}), []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -1912,10 +1911,7 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * 
  * To list a resource's tags, use the `ListTags` API.
  * 
- * 
  * When you call this API to delete tags from a hyperparameter tuning job, the deleted tags are not removed from training jobs that the hyperparameter tuning job launched before you called this API.
- * 
- * 
  * 
  * When you call this API to delete tags from a SageMaker Domain or User Profile, the deleted tags are not removed from Apps that the SageMaker Domain or User Profile launched before you called this API.
  */export const deleteTags = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteTags" }, DeleteTagsInput, DeleteTagsOutput, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1930,7 +1926,6 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * 
  * If you want to create a new workforce in an Amazon Web Services Region where a workforce already exists, use this operation to delete the existing workforce and then use CreateWorkforce to create a new workforce.
  * 
- * 
  * If a private workforce contains one or more work teams, you must use the DeleteWorkteam operation to delete all work teams before you delete the workforce. If you try to delete a workforce that contains one or more work teams, you will receive a `ResourceInUse` error.
  */export const deleteWorkforce = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteWorkforce" }, DeleteWorkforceRequest, DeleteWorkforceResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -1944,7 +1939,6 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  */export const startEdgeDeploymentStage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.StartEdgeDeploymentStage" }, StartEdgeDeploymentStageRequest, S.Struct({}), []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts a previously stopped monitoring schedule.
- * 
  * 
  * By default, when you successfully create a new schedule, the status of a monitoring schedule is `scheduled`.
  */export const startMonitoringSchedule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.StartMonitoringSchedule" }, StartMonitoringScheduleRequest, S.Struct({}), [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -2034,9 +2028,7 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
 /**
  * Creates a SageMaker *experiment*. An experiment is a collection of *trials* that are observed, compared and evaluated as a group. A trial is a set of steps, called *trial components*, that produce a machine learning model.
  * 
- * 
  * In the Studio UI, trials are referred to as *run groups* and trial components are referred to as *runs*.
- * 
  * 
  * The goal of an experiment is to determine the components that produce the best model. Multiple trials are performed, each one isolating and measuring the impact of a change to one or more inputs, while keeping the remaining inputs constant.
  * 
@@ -2076,7 +2068,6 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * 
  * You can restrict access to this API and to the URL that it returns to a list of IP addresses, Amazon VPCs or Amazon VPC Endpoints that you specify. For more information, see Connect to Amazon SageMaker AI Studio Through an Interface VPC Endpoint .
  * 
- * 
  * - The URL that you get from a call to `CreatePresignedDomainUrl` has a default timeout of 5 minutes. You can configure this value using `ExpiresInSeconds`. If you try to use the URL after the timeout limit expires, you are directed to the Amazon Web Services console sign-in page.
  * 
  * - The JupyterLab session default expiration time is 12 hours. You can configure this value using SessionExpirationDurationInSeconds.
@@ -2093,7 +2084,6 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * The IAM role or user used to call this API defines the permissions to access the notebook instance. Once the presigned URL is created, no additional permission is required to access this URL. IAM authorization policies for this API are also enforced for every HTTP request and WebSocket frame that attempts to connect to the notebook instance.
  * 
  * You can restrict access to this API and to the URL that it returns to a list of IP addresses that you specify. Use the `NotIpAddress` condition operator and the `aws:SourceIP` condition context key to specify the list of IP addresses that you want to have access to the notebook instance. For more information, see Limit Access to a Notebook Instance by IP Address.
- * 
  * 
  * The URL that you get from a call to CreatePresignedNotebookInstanceUrl is valid only for 5 minutes. If you try to use the URL after the 5-minute limit expires, you are directed to the Amazon Web Services console sign-in page.
  */export const createPresignedNotebookInstanceUrl = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreatePresignedNotebookInstanceUrl" }, CreatePresignedNotebookInstanceUrlInput, CreatePresignedNotebookInstanceUrlOutput, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -2123,14 +2113,11 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * 
  * - Allocate to an instance group of a SageMaker HyperPod cluster.
  * 
- * 
  * - When the plan start date arrives, it becomes `Active`. Based on available reserved capacity:
  * 
  * - Training jobs are launched.
  * 
  * - Instance groups are provisioned.
- * 
- * 
  * 
  * **Plan composition**
  * 
@@ -2180,7 +2167,6 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  */export const deleteExperiment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteExperiment" }, DeleteExperimentRequest, DeleteExperimentResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes an inference experiment.
- * 
  * 
  * This operation does not delete your endpoint, variants, or any underlying resources. This operation only deletes the metadata of your experiment.
  */export const deleteInferenceExperiment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteInferenceExperiment" }, DeleteInferenceExperimentRequest, DeleteInferenceExperimentResponse, [ConflictException, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -2448,9 +2434,7 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * 
  * - `SupportStatus`
  * 
- * 
  * For more information about hubs, see Private curated hubs for foundation model access control in JumpStart.
- * 
  * 
  * If you want to update a `ModelReference` resource in your hub, use the `UpdateHubContentResource` API instead.
  */export const updateHubContent = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateHubContent" }, UpdateHubContentRequest, UpdateHubContentResponse, [ResourceInUse, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -2459,9 +2443,7 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * 
  * When using this API, you can update the `MinVersion` field for additional flexibility in the model version. You shouldn't update any additional fields when using this API, because the metadata in your private hub should match the public JumpStart model's metadata.
  * 
- * 
  * If you want to update a `Model` or `Notebook` resource in your hub, use the `UpdateHubContent` API instead.
- * 
  * 
  * For more information about adding model references to your hub, see Add models to a private hub.
  */export const updateHubContentReference = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateHubContentReference" }, UpdateHubContentReferenceRequest, UpdateHubContentReferenceResponse, [ResourceInUse, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -2485,7 +2467,6 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  */export const updateMlflowTrackingServer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateMlflowTrackingServer" }, UpdateMlflowTrackingServerRequest, UpdateMlflowTrackingServerResponse, [ConflictException, ResourceLimitExceeded, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Update an Amazon SageMaker Model Card.
- * 
  * 
  * You cannot update both model card content and model card status in a single call.
  */export const updateModelCard = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateModelCard" }, UpdateModelCardRequest, UpdateModelCardResponse, [ConflictException, ResourceLimitExceeded, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -2513,7 +2494,6 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
 /**
  * Updates the settings of a space.
  * 
- * 
  * You can't edit the app type of a space in the `SpaceSettings`.
  */export const updateSpace = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateSpace" }, UpdateSpaceRequest, UpdateSpaceResponse, [ResourceInUse, ResourceLimitExceeded, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -2534,18 +2514,13 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * 
  * To restrict public internet access for all workers, configure the `SourceIpConfig` CIDR value. For example, when using `SourceIpConfig` with an `IpAddressType` of `IPv4`, you can restrict access to the IPv4 CIDR block "10.0.0.0/16". When using an `IpAddressType` of `dualstack`, you can specify both the IPv4 and IPv6 CIDR blocks, such as "10.0.0.0/16" for IPv4 only, "2001:db8:1234:1a00::/56" for IPv6 only, or "10.0.0.0/16" and "2001:db8:1234:1a00::/56" for dual stack.
  * 
- * 
  * Amazon SageMaker does not support Source Ip restriction for worker portals in VPC.
- * 
  * 
  * Use `OidcConfig` to update the configuration of a workforce created using your own OIDC IdP.
  * 
- * 
  * You can only update your OIDC IdP configuration when there are no work teams associated with your workforce. You can delete work teams using the DeleteWorkteam operation.
  * 
- * 
  * After restricting access to a range of IP addresses or updating your OIDC IdP configuration with this operation, you can view details about your update workforce using the DescribeWorkforce operation.
- * 
  * 
  * This operation only applies to private workforces.
  */export const updateWorkforce = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateWorkforce" }, UpdateWorkforceRequest, UpdateWorkforceResponse, [ConflictException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -2557,16 +2532,12 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * 
  * Each tag consists of a key and an optional value. Tag keys must be unique per resource. For more information about tags, see For more information, see Amazon Web Services Tagging Strategies.
  * 
- * 
  * Tags that you add to a hyperparameter tuning job by calling this API are also added to any training jobs that the hyperparameter tuning job launches after you call this API, but not to training jobs that the hyperparameter tuning job launched before you called this API. To make sure that the tags associated with a hyperparameter tuning job are also added to all training jobs that the hyperparameter tuning job launches, add the tags when you first create the tuning job by specifying them in the `Tags` parameter of CreateHyperParameterTuningJob
- * 
- * 
  * 
  * Tags that you add to a SageMaker Domain or User Profile by calling this API are also added to any Apps that the Domain or User Profile launches after you call this API, but not to Apps that the Domain or User Profile launched before you called this API. To make sure that the tags associated with a Domain or User Profile are also added to all Apps that the Domain or User Profile launches, add the tags when you first create the Domain or User Profile by specifying them in the `Tags` parameter of CreateDomain or CreateUserProfile.
  */export const addTags = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.AddTags" }, AddTagsInput, AddTagsOutput, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes specific nodes within a SageMaker HyperPod cluster. `BatchDeleteClusterNodes` accepts a cluster name and a list of node IDs.
- * 
  * 
  * - To safeguard your work, back up your data to Amazon S3 or an FSx for Lustre file system before invoking the API on a worker node group. This will help prevent any potential data loss from the instance root volume. For more information about backup, see Use the backup script provided by SageMaker HyperPod.
  * 
@@ -2576,7 +2547,6 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * Reboots specific nodes within a SageMaker HyperPod cluster using a soft recovery mechanism. `BatchRebootClusterNodes` performs a graceful reboot of the specified nodes by calling the Amazon Elastic Compute Cloud `RebootInstances` API, which attempts to cleanly shut down the operating system before restarting the instance.
  * 
  * This operation is useful for recovering from transient issues or applying certain configuration changes that require a restart.
- * 
  * 
  * - Rebooting a node may cause temporary service interruption for workloads running on that node. Ensure your workloads can handle node restarts or use appropriate scheduling to minimize impact.
  * 
@@ -2588,7 +2558,6 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * Replaces specific nodes within a SageMaker HyperPod cluster with new hardware. `BatchReplaceClusterNodes` terminates the specified instances and provisions new replacement instances with the same configuration but fresh hardware. The Amazon Machine Image (AMI) and instance configuration remain the same.
  * 
  * This operation is useful for recovering from hardware failures or persistent issues that cannot be resolved through a reboot.
- * 
  * 
  * - **Data Loss Warning:** Replacing nodes destroys all instance volumes, including both root and secondary volumes. All data stored on these volumes will be permanently lost and cannot be recovered.
  * 
@@ -2918,7 +2887,6 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
 /**
  * Lists training jobs.
  * 
- * 
  * When `StatusEquals` and `MaxResults` are set at the same time, the `MaxResults` number of training jobs are first retrieved ignoring the `StatusEquals` parameter and then they are filtered by the `StatusEquals` parameter, which is returned as a response.
  * 
  * For example, if `ListTrainingJobs` is invoked with the following parameters:
@@ -2966,7 +2934,6 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * 
  * When SageMaker receives the request, it sets the endpoint status to `Updating`. After updating the endpoint, it sets the status to `InService`. To check the status of an endpoint, use the DescribeEndpoint API.
  * 
- * 
  * You must not delete an `EndpointConfig` in use by an endpoint that is live or while the `UpdateEndpoint` or `CreateEndpoint` operations are being performed on the endpoint. To update an endpoint, you must create a new `EndpointConfig`.
  * 
  * If you delete the `EndpointConfig` of an endpoint that is active or being created or updated you may lose visibility into the instance type the endpoint is using. The endpoint must be deleted in order to stop incurring charges.
@@ -2983,7 +2950,6 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  */export const updateTrainingJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateTrainingJob" }, UpdateTrainingJobRequest, UpdateTrainingJobResponse, [ResourceLimitExceeded, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Adds nodes to a HyperPod cluster by incrementing the target count for one or more instance groups. This operation returns a unique `NodeLogicalId` for each node being added, which can be used to track the provisioning status of the node. This API provides a safer alternative to `UpdateCluster` for scaling operations by avoiding unintended configuration changes.
- * 
  * 
  * This API is only supported for clusters using `Continuous` as the `NodeProvisioningMode`.
  */export const batchAddClusterNodes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.BatchAddClusterNodes" }, BatchAddClusterNodesRequest, BatchAddClusterNodesResponse, [ResourceLimitExceeded, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -3010,7 +2976,6 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * - The output location for the compiled model and the device (target) that the model runs on
  * 
  * - The Amazon Resource Name (ARN) of the IAM role that Amazon SageMaker AI assumes to perform the model compilation job.
- * 
  * 
  * You can also provide a `Tag` to track the model compilation job's resource use and costs. The response body contains the `CompilationJobArn` for the compiled job.
  * 
@@ -3076,15 +3041,12 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
 /**
  * Returns a description of the specified model package, which is used to create SageMaker models or list them on Amazon Web Services Marketplace.
  * 
- * 
  * If you provided a KMS Key ID when you created your model package, you will see the KMS Decrypt API call in your CloudTrail logs when you use this API.
- * 
  * 
  * To create models in SageMaker, buyers can subscribe to model packages listed on Amazon Web Services Marketplace.
  */export const describeModelPackage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeModelPackage" }, DescribeModelPackageInput, DescribeModelPackageOutput, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists private workforce information, including workforce name, Amazon Resource Name (ARN), and, if applicable, allowed IP address ranges (CIDRs). Allowable IP address ranges are the IP addresses that workers can use to access tasks.
- * 
  * 
  * This operation applies only to private workforces.
  */export const describeWorkforce = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeWorkforce" }, DescribeWorkforceRequest, DescribeWorkforceResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -3115,7 +3077,6 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * 
  * - And then, they create a plan that best matches their needs using the ID of the plan offering they want to use.
  * 
- * 
  * For more information about how to reserve GPU capacity for your SageMaker training jobs or SageMaker HyperPod clusters using Amazon SageMaker Training Plan , see ` CreateTrainingPlan `.
  */export const searchTrainingPlanOfferings = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.SearchTrainingPlanOfferings" }, SearchTrainingPlanOfferingsRequest, SearchTrainingPlanOfferingsResponse, [ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -3137,13 +3098,11 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * 
  * For more information about AutoML jobs, see https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development.html in the SageMaker AI developer guide.
  * 
- * 
  * We recommend using the new versions CreateAutoMLJobV2 and DescribeAutoMLJobV2, which offer backward compatibility.
  * 
  * `CreateAutoMLJobV2` can manage tabular problem types identical to those of its previous version `CreateAutoMLJob`, as well as time-series forecasting, non-tabular problem types such as image or text classification, and text generation (LLMs fine-tuning).
  * 
  * Find guidelines about how to migrate a `CreateAutoMLJob` to `CreateAutoMLJobV2` in Migrate a CreateAutoMLJob to CreateAutoMLJobV2.
- * 
  * 
  * You can find the best-performing model after you run an AutoML job by calling DescribeAutoMLJobV2 (recommended) or DescribeAutoMLJob.
  */export const createAutoMLJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateAutoMLJob" }, CreateAutoMLJobRequest, CreateAutoMLJobResponse, [ResourceInUse, ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -3158,22 +3117,17 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * 
  * Use this API to deploy models using SageMaker hosting services.
  * 
- * 
  * You must not delete an `EndpointConfig` that is in use by an endpoint that is live or while the `UpdateEndpoint` or `CreateEndpoint` operations are being performed on the endpoint. To update an endpoint, you must create a new `EndpointConfig`.
- * 
  * 
  * The endpoint name must be unique within an Amazon Web Services Region in your Amazon Web Services account.
  * 
  * When it receives the request, SageMaker creates the endpoint, launches the resources (ML compute instances), and deploys the model(s) on them.
  * 
- * 
  * When you call CreateEndpoint, a load call is made to DynamoDB to verify that your endpoint configuration exists. When you read data from a DynamoDB table supporting `Eventually Consistent Reads` , the response might not reflect the results of a recently completed write operation. The response might include some stale data. If the dependent entities are not yet in DynamoDB, this causes a validation error. If you repeat your read request after a short time, the response should return the latest data. So retry logic is recommended to handle these possible issues. We also recommend that customers call DescribeEndpointConfig before calling CreateEndpoint to minimize the potential impact of a DynamoDB eventually consistent read.
- * 
  * 
  * When SageMaker receives the request, it sets the endpoint status to `Creating`. After it creates the endpoint, it sets the status to `InService`. SageMaker can then process incoming requests for inferences. To check the status of an endpoint, use the DescribeEndpoint API.
  * 
  * If any of the models hosted at this endpoint get model data from an Amazon S3 location, SageMaker uses Amazon Web Services Security Token Service to download model artifacts from the S3 path you provided. Amazon Web Services STS is activated in your Amazon Web Services account by default. If you previously deactivated Amazon Web Services STS for a region, you need to reactivate Amazon Web Services STS for that region. For more information, see Activating and Deactivating Amazon Web Services STS in an Amazon Web Services Region in the *Amazon Web Services Identity and Access Management User Guide*.
- * 
  * 
  * To add the IAM role policies for using this API operation, go to the IAM console, and choose Roles in the left navigation pane. Search the IAM role that you want to grant access to use the CreateEndpoint and CreateEndpointConfig API operations, add the following policies to the role.
  * 
@@ -3200,7 +3154,6 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * 
  * Note that it can take approximately 10-15 minutes to provision an `OnlineStore` `FeatureGroup` with the `InMemory` `StorageType`.
  * 
- * 
  * You must include at least one of `OnlineStoreConfig` and `OfflineStoreConfig` to create a `FeatureGroup`.
  */export const createFeatureGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateFeatureGroup" }, CreateFeatureGroupRequest, CreateFeatureGroupResponse, [ResourceInUse, ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -3210,7 +3163,6 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * Starts a hyperparameter tuning job. A hyperparameter tuning job finds the best version of a model by running many training jobs on your dataset using the algorithm you choose and values for hyperparameters within ranges that you specify. It then chooses the hyperparameter values that result in a model that performs the best, as measured by an objective metric that you choose.
  * 
  * A hyperparameter tuning job automatically creates Amazon SageMaker experiments, trials, and trial components for each training job that it runs. You can view these entities in Amazon SageMaker Studio. For more information, see View Experiments, Trials, and Trial Components.
- * 
  * 
  * Do not include any security-sensitive information including account access IDs, secrets, or tokens in any hyperparameter fields. As part of the shared responsibility model, you are responsible for any potential exposure, unauthorized access, or compromise of your sensitive data if caused by any security-sensitive information included in the request hyperparameter variable or plain text fields..
  */export const createHyperParameterTuningJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateHyperParameterTuningJob" }, CreateHyperParameterTuningJobRequest, CreateHyperParameterTuningJobResponse, [ResourceInUse, ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -3234,7 +3186,6 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * 
  * - The Amazon Mechanical Turk workforce. This is the largest workforce, but it should only be used for public data or data that has been stripped of any personally identifiable information.
  * 
- * 
  * You can also use *automated data labeling* to reduce the number of data objects that need to be labeled by a human. Automated data labeling uses *active learning* to determine if a data object can be labeled by machine or if it needs to be sent to a human worker. For more information, see Using Automated Data Labeling.
  * 
  * The data objects to be labeled are contained in an Amazon S3 bucket. You create a *manifest file* that describes the location of each object. For more information, see Using Input and Output Data.
@@ -3247,7 +3198,6 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * Creates a model package that you can use to create SageMaker models or list on Amazon Web Services Marketplace, or a versioned model that is part of a model group. Buyers can subscribe to model packages listed on Amazon Web Services Marketplace to create models in SageMaker.
  * 
  * To create a model package by specifying a Docker container that contains your inference code and the Amazon S3 location of your model artifacts, provide values for `InferenceSpecification`. To create a model from an algorithm resource that you created or subscribed to in Amazon Web Services Marketplace, provide a value for `SourceAlgorithmSpecification`.
- * 
  * 
  * There are two types of model packages:
  * 
@@ -3286,7 +3236,6 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * 
  * - `TransformResources` - Identifies the ML compute instances and AMI image versions for the transform job.
  * 
- * 
  * For more information about how batch transformation works, see Batch Transform.
  */export const createTransformJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateTransformJob" }, CreateTransformJobRequest, CreateTransformJobResponse, [ResourceInUse, ResourceLimitExceeded, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -3296,7 +3245,6 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  */export const createWorkteam = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateWorkteam" }, CreateWorkteamRequest, CreateWorkteamResponse, [ResourceInUse, ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about an AutoML job created by calling CreateAutoMLJob.
- * 
  * 
  * AutoML jobs created by calling CreateAutoMLJobV2 cannot be described by `DescribeAutoMLJob`.
  */export const describeAutoMLJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeAutoMLJob" }, DescribeAutoMLJobRequest, DescribeAutoMLJobResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -3327,7 +3275,6 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
 /**
  * Updates the platform software of a SageMaker HyperPod cluster for security patching. To learn how to use this API, see Update the SageMaker HyperPod platform software of a cluster.
  * 
- * 
  * The `UpgradeClusterSoftware` API call may impact your SageMaker HyperPod cluster uptime and availability. Plan accordingly to mitigate potential disruptions to your workloads.
  */export const updateClusterSoftware = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateClusterSoftware" }, UpdateClusterSoftwareRequest, UpdateClusterSoftwareResponse, [ConflictException, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -3335,7 +3282,6 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  */export const updateInferenceComponent = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateInferenceComponent" }, UpdateInferenceComponentInput, UpdateInferenceComponentOutput, [ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates a machine learning (ML) project that is created from a template that sets up an ML pipeline from training to deploying an approved model.
- * 
  * 
  * You must not update a project that is in use. If you update the `ServiceCatalogProvisioningUpdateDetails` of a project that is active or being created, or updated, you may lose resources already created by the project.
  */export const updateProject = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateProject" }, UpdateProjectInput, UpdateProjectOutput, [ConflictException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -3364,24 +3310,18 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * 
  * When internet access is disabled, you won't be able to run a Amazon SageMaker AI Studio notebook or to train or host models unless your VPC has an interface endpoint to the SageMaker AI API and runtime or a NAT gateway and your security groups allow outbound connections.
  * 
- * 
- * 
  * NFS traffic over TCP on port 2049 needs to be allowed in both inbound and outbound rules in order to launch a Amazon SageMaker AI Studio app successfully.
- * 
  * 
  * For more information, see Connect Amazon SageMaker AI Studio Notebooks to Resources in a VPC.
  */export const createDomain = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateDomain" }, CreateDomainRequest, CreateDomainResponse, [ResourceInUse, ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an endpoint configuration that SageMaker hosting services uses to deploy models. In the configuration, you identify one or more models, created using the `CreateModel` API, to deploy and the resources that you want SageMaker to provision. Then you call the CreateEndpoint API.
  * 
- * 
  * Use this API if you want to use SageMaker hosting services to deploy models into production.
- * 
  * 
  * In the request, you define a `ProductionVariant`, for each model that you want to deploy. Each `ProductionVariant` parameter also describes the resources that you want SageMaker to provision. This includes the number and type of ML compute instances to deploy.
  * 
  * If you are hosting multiple models, you also assign a `VariantWeight` to specify how much traffic you want to allocate to each model. For example, suppose that you want to host two models, A and B, and you assign traffic weight 2 for model A and 1 for model B. SageMaker distributes two-thirds of the traffic to Model A, and one-third to model B.
- * 
  * 
  * When you call CreateEndpoint, a load call is made to DynamoDB to verify that your endpoint configuration exists. When you read data from a DynamoDB table supporting `Eventually Consistent Reads` , the response might not reflect the results of a recently completed write operation. The response might include some stale data. If the dependent entities are not yet in DynamoDB, this causes a validation error. If you repeat your read request after a short time, the response should return the latest data. So retry logic is recommended to handle these possible issues. We also recommend that customers call DescribeEndpointConfig before calling CreateEndpoint to minimize the potential impact of a DynamoDB eventually consistent read.
  */export const createEndpointConfig = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateEndpointConfig" }, CreateEndpointConfigInput, CreateEndpointConfigOutput, [ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -3413,9 +3353,7 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * 
  * - `HyperParameters` - Specify these algorithm-specific parameters to enable the estimation of model parameters during training. Hyperparameters can be tuned to optimize this learning process. For a list of hyperparameters for each training algorithm provided by SageMaker, see Algorithms.
  * 
- * 
  * Do not include any security-sensitive information including account access IDs, secrets, or tokens in any hyperparameter fields. As part of the shared responsibility model, you are responsible for any potential exposure, unauthorized access, or compromise of your sensitive data if caused by security-sensitive information included in the request hyperparameter variable or plain text fields.
- * 
  * 
  * - `InputDataConfig` - Describes the input required by the training job and the Amazon S3, EFS, or FSx location where it is stored.
  * 
@@ -3431,12 +3369,9 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * 
  * - `Environment` - The environment variables to set in the Docker container.
  * 
- * 
  * Do not include any security-sensitive information including account access IDs, secrets, or tokens in any environment fields. As part of the shared responsibility model, you are responsible for any potential exposure, unauthorized access, or compromise of your sensitive data if caused by security-sensitive information included in the request environment variable or plain text fields.
  * 
- * 
  * - `RetryStrategy` - The number of times to retry the job when the job fails due to an `InternalServerError`.
- * 
  * 
  * For more information about SageMaker, see How It Works.
  */export const createTrainingJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateTrainingJob" }, CreateTrainingJobRequest, CreateTrainingJobResponse, [ResourceInUse, ResourceLimitExceeded, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -3452,13 +3387,11 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * 
  * AutoML jobs V2 support various problem types such as regression, binary, and multiclass classification with tabular data, text and image classification, time-series forecasting, and fine-tuning of large language models (LLMs) for text generation.
  * 
- * 
  * CreateAutoMLJobV2 and DescribeAutoMLJobV2 are new versions of CreateAutoMLJob and DescribeAutoMLJob which offer backward compatibility.
  * 
  * `CreateAutoMLJobV2` can manage tabular problem types identical to those of its previous version `CreateAutoMLJob`, as well as time-series forecasting, non-tabular problem types such as image or text classification, and text generation (LLMs fine-tuning).
  * 
  * Find guidelines about how to migrate a `CreateAutoMLJob` to `CreateAutoMLJobV2` in Migrate a CreateAutoMLJob to CreateAutoMLJobV2.
- * 
  * 
  * For the list of available problem types supported by `CreateAutoMLJobV2`, see AutoMLProblemTypeConfig.
  * 
@@ -3474,7 +3407,6 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * Finds SageMaker resources that match a search query. Matching resources are returned as a list of `SearchRecord` objects in the response. You can sort the search results by any resource property in a ascending or descending order.
  * 
  * You can query against the following value types: numeric, text, Boolean, and timestamp.
- * 
  * 
  * The Search API may provide access to otherwise restricted data. See Amazon SageMaker API Permissions: Actions, Permissions, and Resources Reference for more information.
  */export const search = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.Search" }, SearchRequest, SearchResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

@@ -115,9 +115,6 @@ export class SyncBlockerDoesNotExistException extends S.TaggedError<SyncBlockerD
 /**
  * The host to be deleted. Before you delete a host, all connections associated to the host must be deleted.
  * 
- * 
- * 
- * 
  * A host cannot be deleted if it is in the VPC_CONFIG_INITIALIZING or VPC_CONFIG_DELETING state.
  */export const deleteHost = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-01", sdkId: "CodeStar connections", sigV4ServiceName: "codestar-connections", name: "CodeStar_connections_20191201.DeleteHost" }, DeleteHostInput, DeleteHostOutput, [ResourceNotFoundException, ResourceUnavailableException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -153,9 +150,6 @@ export class SyncBlockerDoesNotExistException extends S.TaggedError<SyncBlockerD
  * installed. The host is used when you create connections to an installed third-party provider
  * type, such as GitHub Enterprise Server. You create one host for all connections to that
  * provider.
- * 
- * 
- * 
  * 
  * A host created through the CLI or the SDK is in `PENDING` status by
  * default. You can make its status `AVAILABLE` by setting up the host in the console.

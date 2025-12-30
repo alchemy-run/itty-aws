@@ -270,71 +270,56 @@ export class ResourceNotFoundException extends S.TaggedError<ResourceNotFoundExc
 /**
  * Exports optimization recommendations for Amazon ECS services on Fargate.
  * 
- * 
- * 
  * Recommendations are exported in a CSV file, and its metadata
  * in a JSON file, to an existing Amazon Simple Storage Service (Amazon S3) bucket that you specify. For more information, see Exporting
  * Recommendations in the Compute Optimizer User
  * Guide.
- * 
  * 
  * You can only have one Amazon ECS service export job in progress per Amazon Web Services Region.
  */export const exportECSServiceRecommendations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-01", sdkId: "Compute Optimizer", sigV4ServiceName: "compute-optimizer", name: "ComputeOptimizerService.ExportECSServiceRecommendations" }, ExportECSServiceRecommendationsRequest, ExportECSServiceRecommendationsResponse, [AccessDeniedException, InternalServerException, InvalidParameterValueException, LimitExceededException, MissingAuthenticationToken, OptInRequiredException, ServiceUnavailableException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Export optimization recommendations for your idle resources.
  * 
- * 
- * 
  * Recommendations are exported in a comma-separated values (CSV) file, and its metadata
  * in a JavaScript Object Notation (JSON) file, to an existing Amazon Simple Storage Service (Amazon S3) bucket that you specify. For more information, see Exporting
  * Recommendations in the Compute Optimizer User
  * Guide.
- * 
  * 
  * You can have only one idle resource export job in progress per Amazon Web Services Region.
  */export const exportIdleRecommendations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-01", sdkId: "Compute Optimizer", sigV4ServiceName: "compute-optimizer", name: "ComputeOptimizerService.ExportIdleRecommendations" }, ExportIdleRecommendationsRequest, ExportIdleRecommendationsResponse, [AccessDeniedException, InternalServerException, InvalidParameterValueException, LimitExceededException, MissingAuthenticationToken, OptInRequiredException, ServiceUnavailableException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Exports optimization recommendations for Lambda functions.
  * 
- * 
  * Recommendations are exported in a comma-separated values (.csv) file, and its metadata
  * in a JavaScript Object Notation (JSON) (.json) file, to an existing Amazon Simple Storage Service (Amazon S3) bucket that you specify. For more information, see Exporting
  * Recommendations in the Compute Optimizer User
  * Guide.
- * 
  * 
  * You can have only one Lambda function export job in progress per Amazon Web Services Region.
  */export const exportLambdaFunctionRecommendations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-01", sdkId: "Compute Optimizer", sigV4ServiceName: "compute-optimizer", name: "ComputeOptimizerService.ExportLambdaFunctionRecommendations" }, ExportLambdaFunctionRecommendationsRequest, ExportLambdaFunctionRecommendationsResponse, [AccessDeniedException, InternalServerException, InvalidParameterValueException, LimitExceededException, MissingAuthenticationToken, OptInRequiredException, ServiceUnavailableException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Export optimization recommendations for your licenses.
  * 
- * 
- * 
  * Recommendations are exported in a comma-separated values (CSV) file, and its metadata
  * in a JavaScript Object Notation (JSON) file, to an existing Amazon Simple Storage Service (Amazon S3) bucket that you specify. For more information, see Exporting
  * Recommendations in the Compute Optimizer User
  * Guide.
- * 
  * 
  * You can have only one license export job in progress per Amazon Web Services Region.
  */export const exportLicenseRecommendations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-01", sdkId: "Compute Optimizer", sigV4ServiceName: "compute-optimizer", name: "ComputeOptimizerService.ExportLicenseRecommendations" }, ExportLicenseRecommendationsRequest, ExportLicenseRecommendationsResponse, [AccessDeniedException, InternalServerException, InvalidParameterValueException, LimitExceededException, MissingAuthenticationToken, OptInRequiredException, ServiceUnavailableException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Export optimization recommendations for your Amazon Aurora and Amazon Relational Database Service (Amazon RDS) databases.
  * 
- * 
- * 
  * Recommendations are exported in a comma-separated values (CSV) file, and its metadata
  * in a JavaScript Object Notation (JSON) file, to an existing Amazon Simple Storage Service (Amazon S3) bucket that you specify. For more information, see Exporting
  * Recommendations in the Compute Optimizer User
  * Guide.
- * 
  * 
  * You can have only one Amazon Aurora or RDS export job in progress per Amazon Web Services Region.
  */export const exportRDSDatabaseRecommendations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-01", sdkId: "Compute Optimizer", sigV4ServiceName: "compute-optimizer", name: "ComputeOptimizerService.ExportRDSDatabaseRecommendations" }, ExportRDSDatabaseRecommendationsRequest, ExportRDSDatabaseRecommendationsResponse, [AccessDeniedException, InternalServerException, InvalidParameterValueException, LimitExceededException, MissingAuthenticationToken, OptInRequiredException, ServiceUnavailableException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the enrollment (opt in) status of an account to the Compute Optimizer
  * service.
- * 
  * 
  * If the account is the management account of an organization, this action also confirms
  * the enrollment status of member accounts of the organization. Use the GetEnrollmentStatusesForOrganization action to get detailed information
@@ -344,11 +329,9 @@ export class ResourceNotFoundException extends S.TaggedError<ResourceNotFoundExc
  * Returns existing recommendation preferences, such as enhanced infrastructure
  * metrics.
  * 
- * 
  * Use the `scope` parameter to specify which preferences to return. You can
  * specify to return preferences for an organization, a specific account ID, or a specific
  * EC2 instance or Amazon EC2 Auto Scaling group Amazon Resource Name (ARN).
- * 
  * 
  * For more information, see Activating
  * enhanced infrastructure metrics in the Compute Optimizer User
@@ -358,7 +341,6 @@ export class ResourceNotFoundException extends S.TaggedError<ResourceNotFoundExc
  * Creates a new recommendation preference or updates an existing recommendation
  * preference, such as enhanced infrastructure metrics.
  * 
- * 
  * For more information, see Activating
  * enhanced infrastructure metrics in the Compute Optimizer User
  * Guide.
@@ -366,14 +348,11 @@ export class ResourceNotFoundException extends S.TaggedError<ResourceNotFoundExc
 /**
  * Updates the enrollment (opt in and opt out) status of an account to the Compute Optimizer service.
  * 
- * 
  * If the account is a management account of an organization, this action can also be
  * used to enroll member accounts of the organization.
  * 
- * 
  * You must have the appropriate permissions to opt in to Compute Optimizer, to view its
  * recommendations, and to opt out. For more information, see Controlling access with Amazon Web Services Identity and Access Management in the *Compute Optimizer User Guide*.
- * 
  * 
  * When you opt in, Compute Optimizer automatically creates a service-linked role in your
  * account to access its data. For more information, see Using
@@ -382,7 +361,6 @@ export class ResourceNotFoundException extends S.TaggedError<ResourceNotFoundExc
 /**
  * Deletes a recommendation preference, such as enhanced infrastructure metrics.
  * 
- * 
  * For more information, see Activating
  * enhanced infrastructure metrics in the Compute Optimizer User
  * Guide.
@@ -390,45 +368,36 @@ export class ResourceNotFoundException extends S.TaggedError<ResourceNotFoundExc
 /**
  * Exports optimization recommendations for Amazon EC2 Auto Scaling groups.
  * 
- * 
  * Recommendations are exported in a comma-separated values (.csv) file, and its metadata
  * in a JavaScript Object Notation (JSON) (.json) file, to an existing Amazon Simple Storage Service (Amazon S3) bucket that you specify. For more information, see Exporting
  * Recommendations in the Compute Optimizer User
  * Guide.
- * 
  * 
  * You can have only one Amazon EC2 Auto Scaling group export job in progress per Amazon Web Services Region.
  */export const exportAutoScalingGroupRecommendations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-01", sdkId: "Compute Optimizer", sigV4ServiceName: "compute-optimizer", name: "ComputeOptimizerService.ExportAutoScalingGroupRecommendations" }, ExportAutoScalingGroupRecommendationsRequest, ExportAutoScalingGroupRecommendationsResponse, [AccessDeniedException, InternalServerException, InvalidParameterValueException, LimitExceededException, MissingAuthenticationToken, OptInRequiredException, ServiceUnavailableException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Exports optimization recommendations for Amazon EBS volumes.
  * 
- * 
  * Recommendations are exported in a comma-separated values (.csv) file, and its metadata
  * in a JavaScript Object Notation (JSON) (.json) file, to an existing Amazon Simple Storage Service (Amazon S3) bucket that you specify. For more information, see Exporting
  * Recommendations in the Compute Optimizer User
  * Guide.
- * 
  * 
  * You can have only one Amazon EBS volume export job in progress per Amazon Web Services Region.
  */export const exportEBSVolumeRecommendations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-01", sdkId: "Compute Optimizer", sigV4ServiceName: "compute-optimizer", name: "ComputeOptimizerService.ExportEBSVolumeRecommendations" }, ExportEBSVolumeRecommendationsRequest, ExportEBSVolumeRecommendationsResponse, [AccessDeniedException, InternalServerException, InvalidParameterValueException, LimitExceededException, MissingAuthenticationToken, OptInRequiredException, ServiceUnavailableException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Exports optimization recommendations for Amazon EC2 instances.
  * 
- * 
  * Recommendations are exported in a comma-separated values (.csv) file, and its metadata
  * in a JavaScript Object Notation (JSON) (.json) file, to an existing Amazon Simple Storage Service (Amazon S3) bucket that you specify. For more information, see Exporting
  * Recommendations in the Compute Optimizer User
  * Guide.
- * 
  * 
  * You can have only one Amazon EC2 instance export job in progress per Amazon Web Services Region.
  */export const exportEC2InstanceRecommendations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-01", sdkId: "Compute Optimizer", sigV4ServiceName: "compute-optimizer", name: "ComputeOptimizerService.ExportEC2InstanceRecommendations" }, ExportEC2InstanceRecommendationsRequest, ExportEC2InstanceRecommendationsResponse, [AccessDeniedException, InternalServerException, InvalidParameterValueException, LimitExceededException, MissingAuthenticationToken, OptInRequiredException, ServiceUnavailableException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the projected utilization metrics of Amazon EC2 instance
  * recommendations.
- * 
- * 
- * 
  * 
  * The `Cpu` and `Memory` metrics are the only projected
  * utilization metrics returned when you run this action. Additionally, the
@@ -443,7 +412,6 @@ export class ResourceNotFoundException extends S.TaggedError<ResourceNotFoundExc
  * as enhanced infrastructure metrics. Considers all applicable preferences that you might
  * have set at the resource, account, and organization level.
  * 
- * 
  * When you create a recommendation preference, you can set its status to
  * `Active` or `Inactive`. Use this action to view the
  * recommendation preferences that are in effect, or `Active`.
@@ -451,7 +419,6 @@ export class ResourceNotFoundException extends S.TaggedError<ResourceNotFoundExc
 /**
  * Returns the Compute Optimizer enrollment (opt-in) status of organization member
  * accounts, if your account is an organization management account.
- * 
  * 
  * To get the enrollment status of standalone accounts, use the GetEnrollmentStatus action.
  */export const getEnrollmentStatusesForOrganization = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-01", sdkId: "Compute Optimizer", sigV4ServiceName: "compute-optimizer", name: "ComputeOptimizerService.GetEnrollmentStatusesForOrganization" }, GetEnrollmentStatusesForOrganizationRequest, GetEnrollmentStatusesForOrganizationResponse, [AccessDeniedException, InternalServerException, InvalidParameterValueException, MissingAuthenticationToken, ServiceUnavailableException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -461,14 +428,12 @@ export class ResourceNotFoundException extends S.TaggedError<ResourceNotFoundExc
 /**
  * Describes recommendation export jobs created in the last seven days.
  * 
- * 
  * Use the ExportAutoScalingGroupRecommendations or ExportEC2InstanceRecommendations actions to request an export of your
  * recommendations. Then use the DescribeRecommendationExportJobs action
  * to view your export jobs.
  */export const describeRecommendationExportJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-01", sdkId: "Compute Optimizer", sigV4ServiceName: "compute-optimizer", name: "ComputeOptimizerService.DescribeRecommendationExportJobs" }, DescribeRecommendationExportJobsRequest, DescribeRecommendationExportJobsResponse, [AccessDeniedException, InternalServerException, InvalidParameterValueException, MissingAuthenticationToken, OptInRequiredException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns license recommendations for Amazon EC2 instances that run on a specific license.
- * 
  * 
  * Compute Optimizer generates recommendations for licenses that meet a specific set of requirements. For more
  * information, see the Supported resources and
@@ -478,48 +443,32 @@ export class ResourceNotFoundException extends S.TaggedError<ResourceNotFoundExc
 /**
  * Returns the optimization findings for an account.
  * 
- * 
  * It returns the number of:
- * 
- * 
  * 
  * - Amazon EC2 instances in an account that are
  * `Underprovisioned`, `Overprovisioned`, or
  * `Optimized`.
  * 
- * 
- * 
  * - EC2Amazon EC2 Auto Scaling groups in an account that are `NotOptimized`, or
  * `Optimized`.
- * 
- * 
  * 
  * - Amazon EBS volumes in an account that are `NotOptimized`,
  * or `Optimized`.
  * 
- * 
- * 
  * - Lambda functions in an account that are `NotOptimized`,
  * or `Optimized`.
- * 
- * 
  * 
  * - Amazon ECS services in an account that are `Underprovisioned`,
  * `Overprovisioned`, or `Optimized`.
  * 
- * 
- * 
  * - Commercial software licenses in an account that are `InsufficientMetrics`,
  * `NotOptimized` or `Optimized`.
- * 
- * 
  * 
  * - Amazon Aurora and Amazon RDS databases in an account that are `Underprovisioned`,
  * `Overprovisioned`, `Optimized`, or `NotOptimized`.
  */export const getRecommendationSummaries = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-01", sdkId: "Compute Optimizer", sigV4ServiceName: "compute-optimizer", name: "ComputeOptimizerService.GetRecommendationSummaries" }, GetRecommendationSummariesRequest, GetRecommendationSummariesResponse, [AccessDeniedException, InternalServerException, InvalidParameterValueException, MissingAuthenticationToken, OptInRequiredException, ServiceUnavailableException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns Amazon EC2 Auto Scaling group recommendations.
- * 
  * 
  * Compute Optimizer generates recommendations for Amazon EC2 Auto Scaling groups that
  * meet a specific set of requirements. For more information, see the Supported
@@ -529,7 +478,6 @@ export class ResourceNotFoundException extends S.TaggedError<ResourceNotFoundExc
 /**
  * Returns Amazon Elastic Block Store (Amazon EBS) volume recommendations.
  * 
- * 
  * Compute Optimizer generates recommendations for Amazon EBS volumes that
  * meet a specific set of requirements. For more information, see the Supported
  * resources and requirements in the Compute Optimizer User
@@ -538,7 +486,6 @@ export class ResourceNotFoundException extends S.TaggedError<ResourceNotFoundExc
 /**
  * Returns Amazon EC2 instance recommendations.
  * 
- * 
  * Compute Optimizer generates recommendations for Amazon Elastic Compute Cloud (Amazon EC2) instances that meet a specific set of requirements. For more
  * information, see the Supported resources and
  * requirements in the Compute Optimizer User
@@ -546,9 +493,6 @@ export class ResourceNotFoundException extends S.TaggedError<ResourceNotFoundExc
  */export const getEC2InstanceRecommendations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-01", sdkId: "Compute Optimizer", sigV4ServiceName: "compute-optimizer", name: "ComputeOptimizerService.GetEC2InstanceRecommendations" }, GetEC2InstanceRecommendationsRequest, GetEC2InstanceRecommendationsResponse, [AccessDeniedException, InternalServerException, InvalidParameterValueException, MissingAuthenticationToken, OptInRequiredException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns Amazon ECS service recommendations.
- * 
- * 
- * 
  * 
  * Compute Optimizer generates recommendations for Amazon ECS services on
  * Fargate that meet a specific set of requirements. For more
@@ -565,7 +509,6 @@ export class ResourceNotFoundException extends S.TaggedError<ResourceNotFoundExc
 /**
  * Returns Lambda function recommendations.
  * 
- * 
  * Compute Optimizer generates recommendations for functions that meet a specific set
  * of requirements. For more information, see the Supported resources and
  * requirements in the Compute Optimizer User
@@ -573,8 +516,6 @@ export class ResourceNotFoundException extends S.TaggedError<ResourceNotFoundExc
  */export const getLambdaFunctionRecommendations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-01", sdkId: "Compute Optimizer", sigV4ServiceName: "compute-optimizer", name: "ComputeOptimizerService.GetLambdaFunctionRecommendations" }, GetLambdaFunctionRecommendationsRequest, GetLambdaFunctionRecommendationsResponse, [AccessDeniedException, InternalServerException, InvalidParameterValueException, LimitExceededException, MissingAuthenticationToken, OptInRequiredException, ServiceUnavailableException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns Amazon Aurora and RDS database recommendations.
- * 
- * 
  * 
  * Compute Optimizer generates recommendations for Amazon Aurora and RDS databases that
  * meet a specific set of requirements. For more

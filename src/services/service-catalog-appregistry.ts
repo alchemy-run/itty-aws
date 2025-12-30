@@ -89,57 +89,22 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
  * Disassociates a resource from application.
  * Both the resource and the application can be specified either by ID or name.
  * 
- * 
- * 
- * 
  * **Minimum permissions**
- * 
- * 
- * 
  * 
  * You must have the following permissions to remove a resource that's been associated with an application using the `APPLY_APPLICATION_TAG` option for AssociateResource.
  * 
- * 
- * 
- * 
  * - `tag:GetResources`
  * 
- * 
- * 
- * 
  * - `tag:UntagResources`
- * 
- * 
- * 
- * 
- * 
- * 
  * 
  * You must also have the following permissions if you don't use the `AWSServiceCatalogAppRegistryFullAccess` policy.
  * For more information, see AWSServiceCatalogAppRegistryFullAccess in the AppRegistry Administrator Guide.
  * 
- * 
- * 
- * 
  * - `resource-groups:DisassociateResource`
- * 
- * 
- * 
  * 
  * - `cloudformation:UpdateStack`
  * 
- * 
- * 
- * 
  * - `cloudformation:DescribeStacks`
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
  * 
  * In addition, you must have the tagging permission defined by the Amazon Web Services service that creates the resource.
  * For more information, see UntagResources in the *Resource Groups Tagging API Reference*.
@@ -169,21 +134,17 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
 /**
  * Syncs the resource with current AppRegistry records.
  * 
- * 
  * Specifically, the resource’s AppRegistry system tags sync with its associated application. We remove the resource's AppRegistry system tags if it does not associate with the application. The caller must have permissions to read and update the resource.
  */export const syncResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-06-24", uri: "/sync/{resourceType}/{resource}", sdkId: "Service Catalog AppRegistry", sigV4ServiceName: "servicecatalog", name: "AWS242AppRegistry.SyncResource" }, SyncResourceRequest, SyncResourceResponse, [ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Assigns one or more tags (key-value pairs) to the specified resource.
  * 
- * 
  * Each tag consists of a key and an optional value. If a tag with the same key is already associated with the resource, this action updates its value.
- * 
  * 
  * This operation returns an empty response if the call was successful.
  */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-06-24", uri: "/tags/{resourceArn}", sdkId: "Service Catalog AppRegistry", sigV4ServiceName: "servicecatalog", name: "AWS242AppRegistry.TagResource" }, TagResourceRequest, TagResourceResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes tags from a resource.
- * 
  * 
  * This operation returns an empty response if the call was successful.
  */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-06-24", uri: "/tags/{resourceArn}", method: "DELETE", sdkId: "Service Catalog AppRegistry", sigV4ServiceName: "servicecatalog", name: "AWS242AppRegistry.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -200,57 +161,22 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
  * The resource can be specified by its ARN or name.
  * The application can be specified by ARN, ID, or name.
  * 
- * 
- * 
- * 
  * **Minimum permissions**
- * 
- * 
- * 
  * 
  * You must have the following permissions to associate a resource using the `OPTIONS` parameter set to `APPLY_APPLICATION_TAG`.
  * 
- * 
- * 
- * 
  * - `tag:GetResources`
  * 
- * 
- * 
- * 
  * - `tag:TagResources`
- * 
- * 
- * 
- * 
- * 
- * 
  * 
  * You must also have these additional permissions if you don't use the `AWSServiceCatalogAppRegistryFullAccess` policy.
  * For more information, see AWSServiceCatalogAppRegistryFullAccess in the AppRegistry Administrator Guide.
  * 
- * 
- * 
- * 
  * - `resource-groups:AssociateResource`
- * 
- * 
- * 
  * 
  * - `cloudformation:UpdateStack`
  * 
- * 
- * 
- * 
  * - `cloudformation:DescribeStacks`
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
  * 
  * In addition, you must have the tagging permission defined by the Amazon Web Services service that creates the resource.
  * For more information, see TagResources in the *Resource Groups Tagging API Reference*.
@@ -311,11 +237,6 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
  * that are associated
  * with the specified application.
  * Results are paginated.
- * 
- * 
- * 
- * 
- * 
  * 
  * If you share an application,
  * and a consumer account associates a tag query

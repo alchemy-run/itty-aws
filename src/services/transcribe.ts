@@ -191,13 +191,11 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
 /**
  * Removes the specified tags from the specified Amazon Transcribe resource.
  * 
- * 
  * If you include `UntagResource` in your request, you must also include
  * `ResourceArn` and `TagKeys`.
  */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/tags/{ResourceArn}", method: "DELETE", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [BadRequestException, ConflictException, InternalFailureException, LimitExceededException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new custom medical vocabulary.
- * 
  * 
  * Before creating a new custom medical vocabulary, you must first upload a text file
  * that contains your vocabulary table into an Amazon S3 bucket.
@@ -206,12 +204,10 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * `CreateMedicalVocabulary` does not support the `Phrases`
  * flag and only accepts vocabularies in table format.
  * 
- * 
  * Each language has a character set that contains all allowed characters for that
  * specific language. If you use unsupported characters, your custom vocabulary request
  * fails. Refer to Character Sets for Custom Vocabularies to get the character set for your
  * language.
- * 
  * 
  * For more information, see Custom
  * vocabularies.
@@ -219,18 +215,15 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
 /**
  * Creates a new custom vocabulary.
  * 
- * 
  * When creating a new custom vocabulary, you can either upload a text file that contains
  * your new entries, phrases, and terms into an Amazon S3 bucket and include the
  * URI in your request. Or you can include a list of terms directly in your request using
  * the `Phrases` flag.
  * 
- * 
  * Each language has a character set that contains all allowed characters for that
  * specific language. If you use unsupported characters, your custom vocabulary request
  * fails. Refer to Character Sets for Custom Vocabularies to get the character set for your
  * language.
- * 
  * 
  * For more information, see Custom
  * vocabularies.
@@ -238,17 +231,14 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
 /**
  * Creates a new custom vocabulary filter.
  * 
- * 
  * You can use custom vocabulary filters to mask, delete, or flag specific words from
  * your transcript. Custom vocabulary filters are commonly used to mask profanity in
  * transcripts.
- * 
  * 
  * Each language has a character set that contains all allowed characters for that
  * specific language. If you use unsupported characters, your custom vocabulary filter
  * request fails. Refer to Character Sets for Custom
  * Vocabularies to get the character set for your language.
- * 
  * 
  * For more information, see Vocabulary
  * filtering.
@@ -276,18 +266,15 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
 /**
  * Provides information about the specified custom medical vocabulary.
  * 
- * 
  * To view the status of the specified custom medical vocabulary, check the
  * `VocabularyState` field. If the status is `READY`, your custom
  * vocabulary is available to use. If the status is `FAILED`,
  * `FailureReason` provides details on why your vocabulary failed.
  * 
- * 
  * To get a list of your custom medical vocabularies, use the operation.
  */export const getMedicalVocabulary = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/medicalvocabularies/{VocabularyName}", method: "GET", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.GetMedicalVocabulary" }, GetMedicalVocabularyRequest, GetMedicalVocabularyResponse, [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Provides information about the specified custom vocabulary.
- * 
  * 
  * To view the status of the specified custom vocabulary, check the
  * `VocabularyState` field. If the status is `READY`, your custom
@@ -295,12 +282,10 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * `FailureReason` provides details on why your custom vocabulary
  * failed.
  * 
- * 
  * To get a list of your custom vocabularies, use the operation.
  */export const getVocabulary = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/vocabularies/{VocabularyName}", method: "GET", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.GetVocabulary" }, GetVocabularyRequest, GetVocabularyResponse, [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Provides information about the specified custom vocabulary filter.
- * 
  * 
  * To get a list of your custom vocabulary filters, use the operation.
  */export const getVocabularyFilter = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/vocabularyFilters/{VocabularyFilterName}", method: "GET", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.GetVocabularyFilter" }, GetVocabularyFilterRequest, GetVocabularyFilterResponse, [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -308,20 +293,17 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * Provides a list of Call Analytics categories, including all rules that make up each
  * category.
  * 
- * 
  * To get detailed information about a specific Call Analytics category, use the operation.
  */export const listCallAnalyticsCategories = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/callanalyticscategories", method: "GET", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.ListCallAnalyticsCategories" }, ListCallAnalyticsCategoriesRequest, ListCallAnalyticsCategoriesResponse, [BadRequestException, InternalFailureException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Provides a list of custom language models that match the specified criteria. If no
  * criteria are specified, all custom language models are returned.
  * 
- * 
  * To get detailed information about a specific custom language model, use the operation.
  */export const listLanguageModels = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/languagemodels", method: "GET", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.ListLanguageModels" }, ListLanguageModelsRequest, ListLanguageModelsResponse, [BadRequestException, InternalFailureException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists all tags associated with the specified transcription job, vocabulary, model, or
  * resource.
- * 
  * 
  * To learn more about using tags with Amazon Transcribe, refer to Tagging
  * resources.
@@ -330,13 +312,11 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * Provides a list of custom vocabularies that match the specified criteria. If no
  * criteria are specified, all custom vocabularies are returned.
  * 
- * 
  * To get detailed information about a specific custom vocabulary, use the operation.
  */export const listVocabularies = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/vocabularies", method: "GET", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.ListVocabularies" }, ListVocabulariesRequest, ListVocabulariesResponse, [BadRequestException, InternalFailureException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Adds one or more custom tags, each in the form of a key:value pair, to the specified
  * resource.
- * 
  * 
  * To learn more about using tags with Amazon Transcribe, refer to Tagging
  * resources.
@@ -346,7 +326,6 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * `UpdateCallAnalyticsCategory` operation overwrites all existing rules
  * contained in the specified category. You cannot append additional rules onto an existing
  * category.
- * 
  * 
  * To create a new category, see .
  */export const updateCallAnalyticsCategory = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/callanalyticscategories/{CategoryName}", method: "PATCH", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.UpdateCallAnalyticsCategory" }, UpdateCallAnalyticsCategoryRequest, UpdateCallAnalyticsCategoryResponse, [BadRequestException, ConflictException, InternalFailureException, LimitExceededException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -368,34 +347,23 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
 /**
  * Creates a new custom language model.
  * 
- * 
  * When creating a new custom language model, you must specify:
- * 
- * 
  * 
  * - If you want a Wideband (audio sample rates over 16,000 Hz) or Narrowband
  * (audio sample rates under 16,000 Hz) base model
  * 
- * 
- * 
  * - The location of your training and tuning files (this must be an Amazon S3 URI)
  * 
- * 
- * 
  * - The language of your model
- * 
- * 
  * 
  * - A unique name for your model
  */export const createLanguageModel = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/languagemodels/{ModelName}", method: "PUT", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.CreateLanguageModel" }, CreateLanguageModelRequest, CreateLanguageModelResponse, [BadRequestException, ConflictException, InternalFailureException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Provides information about the specified custom language model.
  * 
- * 
  * This operation also shows if the base language model that you used to create your
  * custom language model has been updated. If Amazon Transcribe has updated the base
  * model, you can create a new custom language model using the updated base model.
- * 
  * 
  * If you tried to create a new custom language model and the request wasn't successful,
  * you can use `DescribeLanguageModel` to help identify the reason for this
@@ -404,13 +372,11 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
 /**
  * Provides information about the specified Call Analytics category.
  * 
- * 
  * To get a list of your Call Analytics categories, use the operation.
  */export const getCallAnalyticsCategory = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/callanalyticscategories/{CategoryName}", method: "GET", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.GetCallAnalyticsCategory" }, GetCallAnalyticsCategoryRequest, GetCallAnalyticsCategoryResponse, [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Provides a list of Call Analytics jobs that match the specified criteria. If no
  * criteria are specified, all Call Analytics jobs are returned.
- * 
  * 
  * To get detailed information about a specific Call Analytics job, use the operation.
  */export const listCallAnalyticsJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/callanalyticsjobs", method: "GET", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.ListCallAnalyticsJobs" }, ListCallAnalyticsJobsRequest, ListCallAnalyticsJobsResponse, [BadRequestException, InternalFailureException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -418,13 +384,11 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * Provides a list of Medical Scribe jobs that match the specified criteria. If no
  * criteria are specified, all Medical Scribe jobs are returned.
  * 
- * 
  * To get detailed information about a specific Medical Scribe job, use the operation.
  */export const listMedicalScribeJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/medicalscribejobs", method: "GET", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.ListMedicalScribeJobs" }, ListMedicalScribeJobsRequest, ListMedicalScribeJobsResponse, [BadRequestException, InternalFailureException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Provides a list of medical transcription jobs that match the specified criteria. If no
  * criteria are specified, all medical transcription jobs are returned.
- * 
  * 
  * To get detailed information about a specific medical transcription job, use the operation.
  */export const listMedicalTranscriptionJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/medicaltranscriptionjobs", method: "GET", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.ListMedicalTranscriptionJobs" }, ListMedicalTranscriptionJobsRequest, ListMedicalTranscriptionJobsResponse, [BadRequestException, InternalFailureException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -432,13 +396,11 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * Provides a list of custom medical vocabularies that match the specified criteria. If
  * no criteria are specified, all custom medical vocabularies are returned.
  * 
- * 
  * To get detailed information about a specific custom medical vocabulary, use the operation.
  */export const listMedicalVocabularies = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/medicalvocabularies", method: "GET", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.ListMedicalVocabularies" }, ListMedicalVocabulariesRequest, ListMedicalVocabulariesResponse, [BadRequestException, InternalFailureException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Provides a list of transcription jobs that match the specified criteria. If no
  * criteria are specified, all transcription jobs are returned.
- * 
  * 
  * To get detailed information about a specific transcription job, use the operation.
  */export const listTranscriptionJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/transcriptionjobs", method: "GET", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.ListTranscriptionJobs" }, ListTranscriptionJobsRequest, ListTranscriptionJobsResponse, [BadRequestException, InternalFailureException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -446,13 +408,11 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * Provides a list of custom vocabulary filters that match the specified criteria. If no
  * criteria are specified, all custom vocabularies are returned.
  * 
- * 
  * To get detailed information about a specific custom vocabulary filter, use the operation.
  */export const listVocabularyFilters = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/vocabularyFilters", method: "GET", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.ListVocabularyFilters" }, ListVocabularyFiltersRequest, ListVocabularyFiltersResponse, [BadRequestException, InternalFailureException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Transcribes the audio from a medical dictation or conversation and applies any
  * additional Request Parameters you choose to include in your request.
- * 
  * 
  * In addition to many standard transcription features, Amazon Transcribe Medical
  * provides you with a robust medical vocabulary and, optionally, content identification,
@@ -460,53 +420,36 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * features, refer to How Amazon Transcribe Medical
  * works.
  * 
- * 
  * To make a `StartMedicalTranscriptionJob` request, you must first upload
  * your media file into an Amazon S3 bucket; you can then specify the Amazon S3 location
  * of the file using the `Media` parameter.
  * 
- * 
  * You must include the following parameters in your
  * `StartMedicalTranscriptionJob` request:
- * 
- * 
  * 
  * - `region`: The Amazon Web Services Region where you are making your
  * request. For a list of Amazon Web Services Regions supported with Amazon Transcribe, refer to Amazon Transcribe endpoints and
  * quotas.
  * 
- * 
- * 
  * - `MedicalTranscriptionJobName`: A custom name you create for your
  * transcription job that is unique within your Amazon Web Services account.
- * 
- * 
  * 
  * - `Media` (`MediaFileUri`): The Amazon S3 location
  * of your media file.
  * 
- * 
- * 
  * - `LanguageCode`: This must be `en-US`.
- * 
- * 
  * 
  * - `OutputBucketName`: The Amazon S3 bucket where you want
  * your transcript stored. If you want your output stored in a sub-folder of this
  * bucket, you must also include `OutputKey`.
  * 
- * 
- * 
  * - `Specialty`: This must be `PRIMARYCARE`.
- * 
- * 
  * 
  * - `Type`: Choose whether your audio is a conversation or a
  * dictation.
  */export const startMedicalTranscriptionJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/medicaltranscriptionjobs/{MedicalTranscriptionJobName}", method: "PUT", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.StartMedicalTranscriptionJob" }, StartMedicalTranscriptionJobRequest, StartMedicalTranscriptionJobResponse, [BadRequestException, ConflictException, InternalFailureException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Provides information about the specified Medical Scribe job.
- * 
  * 
  * To view the status of the specified medical transcription job, check the
  * `MedicalScribeJobStatus` field. If the status is `COMPLETED`,
@@ -515,12 +458,10 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * If the status is `FAILED`, `FailureReason` provides details on why your Medical Scribe job
  * failed.
  * 
- * 
  * To get a list of your Medical Scribe jobs, use the operation.
  */export const getMedicalScribeJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/medicalscribejobs/{MedicalScribeJobName}", method: "GET", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.GetMedicalScribeJob" }, GetMedicalScribeJobRequest, GetMedicalScribeJobResponse, [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Provides information about the specified medical transcription job.
- * 
  * 
  * To view the status of the specified medical transcription job, check the
  * `TranscriptionJobStatus` field. If the status is `COMPLETED`,
@@ -529,12 +470,10 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * `FailureReason` provides details on why your transcription job
  * failed.
  * 
- * 
  * To get a list of your medical transcription jobs, use the operation.
  */export const getMedicalTranscriptionJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/medicaltranscriptionjobs/{MedicalTranscriptionJobName}", method: "GET", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.GetMedicalTranscriptionJob" }, GetMedicalTranscriptionJobRequest, GetMedicalTranscriptionJobResponse, [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Provides information about the specified transcription job.
- * 
  * 
  * To view the status of the specified transcription job, check the
  * `TranscriptionJobStatus` field. If the status is `COMPLETED`,
@@ -543,10 +482,8 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * `FailureReason` provides details on why your transcription job
  * failed.
  * 
- * 
  * If you enabled content redaction, the redacted transcript can be found at the location
  * specified in `RedactedTranscriptFileUri`.
- * 
  * 
  * To get a list of your transcription jobs, use the operation.
  */export const getTranscriptionJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/transcriptionjobs/{TranscriptionJobName}", method: "GET", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.GetTranscriptionJob" }, GetTranscriptionJobRequest, GetTranscriptionJobResponse, [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -554,13 +491,11 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * Transcribes the audio from a customer service call and applies any additional Request
  * Parameters you choose to include in your request.
  * 
- * 
  * In addition to many standard transcription features, Call Analytics provides you with
  * call characteristics, call summarization, speaker sentiment, and optional redaction of
  * your text transcript and your audio file. You can also apply custom categories to flag
  * specified conditions. To learn more about these features and insights, refer to Analyzing call
  * center audio with Call Analytics.
- * 
  * 
  * If you want to apply categories to your Call Analytics job, you must create them
  * before submitting your job request. Categories cannot be retroactively applied to a job.
@@ -569,42 +504,27 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * transcriptions and Creating categories for
  * real-time transcriptions.
  * 
- * 
  * To make a `StartCallAnalyticsJob` request, you must first upload your media
  * file into an Amazon S3 bucket; you can then specify the Amazon S3
  * location of the file using the `Media` parameter.
- * 
  * 
  * Job queuing is available for Call Analytics jobs. If you pass a `DataAccessRoleArn`
  * in your request and you exceed your Concurrent Job Limit, your job will automatically be
  * added to a queue to be processed once your concurrent job count is below the limit.
  * 
- * 
  * You must include the following parameters in your `StartCallAnalyticsJob`
  * request:
- * 
- * 
  * 
  * - `region`: The Amazon Web Services Region where you are making your
  * request. For a list of Amazon Web Services Regions supported with Amazon Transcribe, refer to Amazon Transcribe endpoints and
  * quotas.
  * 
- * 
- * 
  * - `CallAnalyticsJobName`: A custom name that you create for your
  * transcription job that's unique within your Amazon Web Services account.
- * 
- * 
  * 
  * - `Media` (`MediaFileUri` or
  * `RedactedMediaFileUri`): The Amazon S3 location of your
  * media file.
- * 
- * 
- * 
- * 
- * 
- * 
  * 
  * With Call Analytics, you can redact the audio contained in your media file by
  * including `RedactedMediaFileUri`, instead of `MediaFileUri`,
@@ -615,50 +535,33 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
 /**
  * Transcribes patient-clinician conversations and generates clinical notes.
  * 
- * 
  * Amazon Web Services HealthScribe automatically provides rich conversation transcripts, identifies speaker roles,
  * classifies dialogues, extracts medical terms, and generates preliminary clinical notes.
  * To learn more about these features, refer to Amazon Web Services HealthScribe.
- * 
  * 
  * To make a `StartMedicalScribeJob` request, you must first upload
  * your media file into an Amazon S3 bucket; you can then specify the Amazon S3 location
  * of the file using the `Media` parameter.
  * 
- * 
  * You must include the following parameters in your
  * `StartMedicalTranscriptionJob` request:
- * 
- * 
  * 
  * - `DataAccessRoleArn`: The ARN of an IAM role with the these minimum permissions: read permission on input file Amazon S3 bucket specified in `Media`,
  * write permission on the Amazon S3 bucket specified in `OutputBucketName`, and full permissions on the KMS key specified in `OutputEncryptionKMSKeyId` (if set).
  * The role should also allow `transcribe.amazonaws.com` to assume it.
  * 
- * 
- * 
- * 
  * - `Media` (`MediaFileUri`): The Amazon S3 location
  * of your media file.
- * 
- * 
  * 
  * - `MedicalScribeJobName`: A custom name you create for your
  * MedicalScribe job that is unique within your Amazon Web Services account.
  * 
- * 
- * 
  * - `OutputBucketName`: The Amazon S3 bucket where you want
  * your output files stored.
- * 
- * 
  * 
  * - `Settings`: A `MedicalScribeSettings` object
  * that must set exactly one of `ShowSpeakerLabels` or `ChannelIdentification` to true.
  * If `ShowSpeakerLabels` is true, `MaxSpeakerLabels` must also be set.
- * 
- * 
- * 
  * 
  * - `ChannelDefinitions`: A `MedicalScribeChannelDefinitions` array should be set if and only if the `ChannelIdentification`
  * value of `Settings` is set to true.
@@ -667,32 +570,22 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * Transcribes the audio from a media file and applies any additional Request Parameters
  * you choose to include in your request.
  * 
- * 
  * To make a `StartTranscriptionJob` request, you must first upload your media
  * file into an Amazon S3 bucket; you can then specify the Amazon S3
  * location of the file using the `Media` parameter.
  * 
- * 
  * You must include the following parameters in your `StartTranscriptionJob`
  * request:
- * 
- * 
  * 
  * - `region`: The Amazon Web Services Region where you are making your
  * request. For a list of Amazon Web Services Regions supported with Amazon Transcribe, refer to Amazon Transcribe endpoints and
  * quotas.
  * 
- * 
- * 
  * - `TranscriptionJobName`: A custom name you create for your
  * transcription job that is unique within your Amazon Web Services account.
  * 
- * 
- * 
  * - `Media` (`MediaFileUri`): The Amazon S3 location
  * of your media file.
- * 
- * 
  * 
  * - One of `LanguageCode`, `IdentifyLanguage`, or
  * `IdentifyMultipleLanguages`: If you know the language of your
@@ -706,11 +599,9 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
 /**
  * Creates a new Call Analytics category.
  * 
- * 
  * All categories are automatically applied to your Call Analytics transcriptions. Note that in
  * order to apply categories to your transcriptions, you must create them before submitting your
  * transcription request, as categories cannot be applied retroactively.
- * 
  * 
  * When creating a new category, you can use the `InputType` parameter to
  * label the category as a `POST_CALL` or a `REAL_TIME` category.
@@ -719,13 +610,10 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * do not include `InputType`, your category is created as a
  * `POST_CALL` category by default.
  * 
- * 
  * Call Analytics categories are composed of rules. For each category, you must create
  * between 1 and 20 rules. Rules can include these parameters: , , , and .
  * 
- * 
  * To update an existing category, see .
- * 
  * 
  * To learn more about Call Analytics categories, see Creating categories for post-call
  * transcriptions and Creating categories for
@@ -734,22 +622,18 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
 /**
  * Provides information about the specified Call Analytics job.
  * 
- * 
  * To view the job's status, refer to `CallAnalyticsJobStatus`. If the status
  * is `COMPLETED`, the job is finished. You can find your completed transcript
  * at the URI specified in `TranscriptFileUri`. If the status is
  * `FAILED`, `FailureReason` provides details on why your
  * transcription job failed.
  * 
- * 
  * If you enabled personally identifiable information (PII) redaction, the redacted
  * transcript appears at the location specified in
  * `RedactedTranscriptFileUri`.
  * 
- * 
  * If you chose to redact the audio in your media file, you can find your redacted media
  * file at the location specified in `RedactedMediaFileUri`.
- * 
  * 
  * To get a list of your Call Analytics jobs, use the operation.
  */export const getCallAnalyticsJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/callanalyticsjobs/{CallAnalyticsJobName}", method: "GET", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.GetCallAnalyticsJob" }, GetCallAnalyticsJobRequest, GetCallAnalyticsJobResponse, [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

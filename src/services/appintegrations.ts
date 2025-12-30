@@ -101,19 +101,12 @@ export class ResourceQuotaExceededException extends S.TaggedError<ResourceQuotaE
 /**
  * Updates the description of a DataIntegration.
  * 
- * 
- * 
- * 
  * You cannot create a DataIntegration association for a DataIntegration that has been previously associated.
  * Use a different DataIntegration, or recreate the DataIntegration using the
  * CreateDataIntegration API.
  */export const updateDataIntegration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-07-29", uri: "/dataIntegrations/{Identifier}", method: "PATCH", sdkId: "AppIntegrations", sigV4ServiceName: "app-integrations", name: "AmazonAppIntegrationService.UpdateDataIntegration" }, UpdateDataIntegrationRequest, UpdateDataIntegrationResponse, [AccessDeniedException, InternalServiceError, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates and persists a DataIntegrationAssociation resource.
- * 
- * 
- * 
- * 
  * 
  * Updating a DataIntegrationAssociation with ExecutionConfiguration will rerun the on-demand job.
  */export const updateDataIntegrationAssociation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-07-29", uri: "/dataIntegrations/{DataIntegrationIdentifier}/associations/{DataIntegrationAssociationIdentifier}", method: "PATCH", sdkId: "AppIntegrations", sigV4ServiceName: "app-integrations", name: "AmazonAppIntegrationService.UpdateDataIntegrationAssociation" }, UpdateDataIntegrationAssociationRequest, UpdateDataIntegrationAssociationResponse, [AccessDeniedException, InternalServiceError, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -129,9 +122,6 @@ export class ResourceQuotaExceededException extends S.TaggedError<ResourceQuotaE
  * DataIntegrationAssociations can be deleted. Deleting a DataIntegration also deletes the
  * underlying Amazon AppFlow flow and service linked role.
  * 
- * 
- * 
- * 
  * You cannot create a DataIntegration association for a DataIntegration that has been previously associated.
  * Use a different DataIntegration, or recreate the DataIntegration using the
  * CreateDataIntegration API.
@@ -145,9 +135,6 @@ export class ResourceQuotaExceededException extends S.TaggedError<ResourceQuotaE
  */export const getApplication = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-07-29", uri: "/applications/{Arn}", method: "GET", sdkId: "AppIntegrations", sigV4ServiceName: "app-integrations", name: "AmazonAppIntegrationService.GetApplication" }, GetApplicationRequest, GetApplicationResponse, [AccessDeniedException, InternalServiceError, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about the DataIntegration.
- * 
- * 
- * 
  * 
  * You cannot create a DataIntegration association for a DataIntegration that has been previously associated.
  * Use a different DataIntegration, or recreate the DataIntegration using the
@@ -177,9 +164,6 @@ export class ResourceQuotaExceededException extends S.TaggedError<ResourceQuotaE
 /**
  * Returns a paginated list of DataIntegrations in the account.
  * 
- * 
- * 
- * 
  * You cannot create a DataIntegration association for a DataIntegration that has been previously associated.
  * Use a different DataIntegration, or recreate the DataIntegration using the
  * CreateDataIntegration API.
@@ -192,9 +176,6 @@ export class ResourceQuotaExceededException extends S.TaggedError<ResourceQuotaE
  */export const listEventIntegrations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-07-29", uri: "/eventIntegrations", method: "GET", sdkId: "AppIntegrations", sigV4ServiceName: "app-integrations", name: "AmazonAppIntegrationService.ListEventIntegrations" }, ListEventIntegrationsRequest, ListEventIntegrationsResponse, [AccessDeniedException, InternalServiceError, InvalidRequestException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates and persists a DataIntegration resource.
- * 
- * 
- * 
  * 
  * You cannot create a DataIntegration association for a DataIntegration that has been
  * previously associated. Use a different DataIntegration, or recreate the DataIntegration
@@ -211,9 +192,6 @@ export class ResourceQuotaExceededException extends S.TaggedError<ResourceQuotaE
  */export const createEventIntegration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-07-29", uri: "/eventIntegrations", sdkId: "AppIntegrations", sigV4ServiceName: "app-integrations", name: "AmazonAppIntegrationService.CreateEventIntegration" }, CreateEventIntegrationRequest, CreateEventIntegrationResponse, [AccessDeniedException, DuplicateResourceException, InternalServiceError, InvalidRequestException, ResourceQuotaExceededException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a paginated list of DataIntegration associations in the account.
- * 
- * 
- * 
  * 
  * You cannot create a DataIntegration association for a DataIntegration that has been previously associated.
  * Use a different DataIntegration, or recreate the DataIntegration using the

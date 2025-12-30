@@ -821,49 +821,25 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  * tags for your account's managed nodes that helps you track each node's owner and stack level. For
  * example:
  * 
- * 
- * 
  * - `Key=Owner,Value=DbAdmin`
- * 
- * 
- * 
  * 
  * - `Key=Owner,Value=SysAdmin`
  * 
- * 
- * 
- * 
  * - `Key=Owner,Value=Dev`
- * 
- * 
- * 
  * 
  * - `Key=Stack,Value=Production`
  * 
- * 
- * 
- * 
  * - `Key=Stack,Value=Pre-Production`
- * 
- * 
- * 
  * 
  * - `Key=Stack,Value=Test`
  * 
- * 
- * 
- * 
- * 
- * 
  * Most resources can have a maximum of 50 tags. Automations can have a maximum of 5
  * tags.
- * 
  * 
  * We recommend that you devise a set of tag keys that meets your needs for each resource type.
  * Using a consistent set of tag keys makes it easier for you to manage your resources. You can
  * search and filter the resources based on the tags you add. Tags don't have any semantic meaning
  * to and are interpreted strictly as a string of characters.
- * 
  * 
  * For more information about using tags with Amazon Elastic Compute Cloud (Amazon EC2) instances, see Tag your Amazon EC2
  * resources in the *Amazon EC2 User Guide*.
@@ -877,7 +853,6 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  * node. If you created the association by using the `Targets` parameter, then you must
  * delete the association by using the association ID.
  * 
- * 
  * When you disassociate a document from a managed node, it doesn't change the configuration of
  * the node. To change the configuration state of a managed node after you disassociate a document,
  * you must create a new document with the desired configuration and associate it with the
@@ -890,29 +865,18 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  * Delete an OpsItem. You must have permission in Identity and Access Management (IAM) to
  * delete an OpsItem.
  * 
- * 
- * 
- * 
  * Note the following important information about this operation.
  * 
- * 
- * 
  * - Deleting an OpsItem is irreversible. You can't restore a deleted OpsItem.
- * 
- * 
  * 
  * - This operation uses an *eventual consistency model*, which means the
  * system can take a few minutes to complete this operation. If you delete an OpsItem and
  * immediately call, for example, GetOpsItem, the deleted OpsItem might still
  * appear in the response.
  * 
- * 
- * 
  * - This operation is idempotent. The system doesn't throw an exception if you repeatedly
  * call this operation for the same OpsItem. If the first call is successful, all additional calls
  * return the same successful response as the first call.
- * 
- * 
  * 
  * - This operation doesn't support cross-account calls. A delegated administrator or
  * management account can't delete OpsItems in other accounts, even if OpsCenter has been set up for
@@ -930,7 +894,6 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  */export const deleteParameters = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DeleteParameters" }, DeleteParametersRequest, DeleteParametersResult, [InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes the server or virtual machine from the list of registered servers.
- * 
  * 
  * If you want to reregister an on-premises server, edge device, or VM, you must use a
  * different Activation Code and Activation ID than used to register the machine previously. The
@@ -953,8 +916,6 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  * this in mind when you carry out an API command that immediately follows a previous API
  * command.
  * 
- * 
- * 
  * `GetCommandInvocation` only gives the execution status of a plugin in a document.
  * To get the command execution status on a specific managed node, use ListCommandInvocations. To get the command execution status across managed nodes,
  * use ListCommands.
@@ -966,7 +927,6 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
 /**
  * Retrieves the default patch baseline. Amazon Web Services Systems Manager supports creating multiple default patch
  * baselines. For example, you can create a default patch baseline for each operating system.
- * 
  * 
  * If you don't specify an operating system value, the default patch baseline for Windows is
  * returned.
@@ -983,16 +943,10 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
 /**
  * Retrieves the details of a maintenance window task.
  * 
- * 
- * 
- * 
  * For maintenance window tasks without a specified target, you can't supply values for
  * `--max-errors` and `--max-concurrency`. Instead, the system inserts a
  * placeholder value of `1`, which may be reported in the response to this command.
  * These values don't affect the running of your task and can be ignored.
- * 
- * 
- * 
  * 
  * To retrieve a list of tasks in a maintenance window, instead use the DescribeMaintenanceWindowTasks command.
  */export const getMaintenanceWindowTask = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.GetMaintenanceWindowTask" }, GetMaintenanceWindowTaskRequest, GetMaintenanceWindowTaskResult, [DoesNotExistException, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1008,12 +962,10 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
 /**
  * Returns a list of the tags assigned to the specified resource.
  * 
- * 
  * For information about the ID format for each supported resource type, see AddTagsToResource.
  */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResult, [InternalServerError, InvalidResourceId, InvalidResourceType]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Defines the default patch baseline for the relevant operating system.
- * 
  * 
  * To reset the Amazon Web Services-predefined patch baseline as the default, specify the full patch baseline
  * Amazon Resource Name (ARN) as the baseline ID value. For example, for CentOS, specify
@@ -1031,7 +983,6 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  * feature unless they change the setting to "true" and intentionally opt in for a paid
  * feature.
  * 
- * 
  * Services map a `SettingId` object to a setting value. Amazon Web Services services teams define
  * the default value for a `SettingId`. You can't create a new `SettingId`,
  * but you can overwrite the default value if you have the `ssm:UpdateServiceSetting`
@@ -1039,16 +990,12 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  * current value. Use the UpdateServiceSetting API operation to change the default
  * setting.
  * 
- * 
  * Reset the service setting for the account to the default value as provisioned by the Amazon Web Services
  * service team.
  */export const resetServiceSetting = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.ResetServiceSetting" }, ResetServiceSettingRequest, ResetServiceSettingResult, [InternalServerError, ServiceSettingNotFound, TooManyUpdates]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Reconnects a session to a managed node after it has been disconnected. Connections can be
  * resumed for disconnected sessions, but not terminated sessions.
- * 
- * 
- * 
  * 
  * This command is primarily for use by client machines to automatically reconnect during
  * intermittent network issues. It isn't intended for any other use.
@@ -1064,9 +1011,6 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
 /**
  * Updates an existing maintenance window. Only specified parameters are modified.
  * 
- * 
- * 
- * 
  * The value you specify for `Duration` determines the specific end time for the
  * maintenance window based on the time it begins. No maintenance window tasks are permitted to
  * start after the resulting endtime minus the number of hours you specify for `Cutoff`.
@@ -1078,36 +1022,18 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  * Modifies the target of an existing maintenance window. You
  * can change the following:
  * 
- * 
- * 
  * - Name
- * 
- * 
  * 
  * - Description
  * 
- * 
- * 
  * - Owner
- * 
- * 
  * 
  * - IDs for an ID target
  * 
- * 
- * 
  * - Tags for a Tag target
- * 
- * 
  * 
  * - From any supported tag type to another. The three supported tag types are ID target, Tag
  * target, and resource group. For more information, see Target.
- * 
- * 
- * 
- * 
- * 
- * 
  * 
  * If a parameter is null, then the corresponding field isn't modified.
  */export const updateMaintenanceWindowTarget = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.UpdateMaintenanceWindowTarget" }, UpdateMaintenanceWindowTargetRequest, UpdateMaintenanceWindowTargetResult, [DoesNotExistException, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1115,41 +1041,18 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  * Modifies a task assigned to a maintenance window. You can't change the task type, but you
  * can change the following values:
  * 
- * 
- * 
  * - `TaskARN`. For example, you can change a `RUN_COMMAND` task from
  * `AWS-RunPowerShellScript` to `AWS-RunShellScript`.
  * 
- * 
- * 
  * - `ServiceRoleArn`
- * 
- * 
- * 
  * 
  * - `TaskInvocationParameters`
  * 
- * 
- * 
- * 
  * - `Priority`
- * 
- * 
- * 
  * 
  * - `MaxConcurrency`
  * 
- * 
- * 
- * 
  * - `MaxErrors`
- * 
- * 
- * 
- * 
- * 
- * 
- * 
  * 
  * One or more targets must be specified for maintenance window Run Command-type tasks.
  * Depending on the task, targets are optional for other maintenance window task types (Automation,
@@ -1158,16 +1061,10 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  * maintenance window tasks without targets in the
  * *Amazon Web Services Systems Manager User Guide*.
  * 
- * 
- * 
- * 
  * If the value for a parameter in `UpdateMaintenanceWindowTask` is null, then the
  * corresponding field isn't modified. If you set `Replace` to true, then all fields
  * required by the RegisterTaskWithMaintenanceWindow operation are required for
  * this request. Optional fields that aren't specified are set to null.
- * 
- * 
- * 
  * 
  * When you update a maintenance window task that has options specified in
  * `TaskInvocationParameters`, you must provide again all the
@@ -1182,9 +1079,6 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  * Modifies an existing patch baseline. Fields not specified in the request are left
  * unchanged.
  * 
- * 
- * 
- * 
  * For information about valid key-value pairs in `PatchFilters` for each supported
  * operating system type, see PatchFilter.
  */export const updatePatchBaseline = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.UpdatePatchBaseline" }, UpdatePatchBaselineRequest, UpdatePatchBaselineResult, [DoesNotExistException, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1195,9 +1089,6 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  * edit that sync later and choose the Include all accounts from my Organizations
  * configuration option. Instead, you must delete the first resource data sync, and create a
  * new one.
- * 
- * 
- * 
  * 
  * This API operation only supports a resource data sync that was created with a
  * SyncFromSource `SyncType`.
@@ -1210,14 +1101,12 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  * feature unless they change the setting to "true" and intentionally opt in for a paid
  * feature.
  * 
- * 
  * Services map a `SettingId` object to a setting value. Amazon Web Services services teams define
  * the default value for a `SettingId`. You can't create a new `SettingId`,
  * but you can overwrite the default value if you have the `ssm:UpdateServiceSetting`
  * permission for the setting. Use the GetServiceSetting API operation to view the
  * current value. Or, use the ResetServiceSetting to change the value back to the
  * original value defined by the Amazon Web Services service team.
- * 
  * 
  * Update the service setting for the account.
  */export const updateServiceSetting = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.UpdateServiceSetting" }, UpdateServiceSettingRequest, UpdateServiceSettingResult, [InternalServerError, ServiceSettingNotFound, TooManyUpdates]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1228,9 +1117,6 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  */export const cancelMaintenanceWindowExecution = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.CancelMaintenanceWindowExecution" }, CancelMaintenanceWindowExecutionRequest, CancelMaintenanceWindowExecutionResult, [DoesNotExistException, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new maintenance window.
- * 
- * 
- * 
  * 
  * The value you specify for `Duration` determines the specific end time for the
  * maintenance window based on the time it begins. No maintenance window tasks are permitted to
@@ -1247,7 +1133,6 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
 /**
  * Deletes the Amazon Web Services Systems Manager document (SSM document) and all managed node associations to the
  * document.
- * 
  * 
  * Before you delete the document, we recommend that you use DeleteAssociation to disassociate all managed nodes that are associated with the document.
  */export const deleteDocument = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DeleteDocument" }, DeleteDocumentRequest, DeleteDocumentResult, [AssociatedInstances, InternalServerError, InvalidDocument, InvalidDocumentOperation, TooManyUpdates]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1267,9 +1152,6 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  */export const deregisterTargetFromMaintenanceWindow = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.DeregisterTargetFromMaintenanceWindow" }, DeregisterTargetFromMaintenanceWindowRequest, DeregisterTargetFromMaintenanceWindowResult, [DoesNotExistException, InternalServerError, TargetInUseException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists all patches eligible to be included in a patch baseline.
- * 
- * 
- * 
  * 
  * Currently, `DescribeAvailablePatches` supports only the Amazon Linux 1, Amazon
  * Linux 2, and Windows Server operating systems.
@@ -1311,9 +1193,6 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
 /**
  * Lists the tasks in a maintenance window.
  * 
- * 
- * 
- * 
  * For maintenance window tasks without a specified target, you can't supply values for
  * `--max-errors` and `--max-concurrency`. Instead, the system inserts a
  * placeholder value of `1`, which may be reported in the response to this command.
@@ -1333,122 +1212,57 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  * classification, severity, and other properties of available patches. You can use the reported
  * properties in the filters you specify in requests for operations such as CreatePatchBaseline, UpdatePatchBaseline, DescribeAvailablePatches, and DescribePatchBaselines.
  * 
- * 
  * The following section lists the properties that can be used in filters for each major
  * operating system type:
  * 
- * 
- * 
  * ### AMAZON_LINUX
- * 
- * 
  * 
  * Valid properties: `PRODUCT` | `CLASSIFICATION` |
  * `SEVERITY`
- * 
- * 
- * 
- * 
  * 
  * ### AMAZON_LINUX_2
  * 
- * 
- * 
  * Valid properties: `PRODUCT` | `CLASSIFICATION` |
  * `SEVERITY`
- * 
- * 
- * 
- * 
  * 
  * ### AMAZON_LINUX_2023
  * 
- * 
- * 
  * Valid properties: `PRODUCT` | `CLASSIFICATION` |
  * `SEVERITY`
- * 
- * 
- * 
- * 
  * 
  * ### CENTOS
  * 
- * 
- * 
  * Valid properties: `PRODUCT` | `CLASSIFICATION` |
  * `SEVERITY`
- * 
- * 
- * 
- * 
  * 
  * ### DEBIAN
  * 
- * 
- * 
  * Valid properties: `PRODUCT` | `PRIORITY`
- * 
- * 
- * 
- * 
  * 
  * ### MACOS
  * 
- * 
- * 
  * Valid properties: `PRODUCT` | `CLASSIFICATION`
- * 
- * 
- * 
- * 
  * 
  * ### ORACLE_LINUX
  * 
- * 
- * 
  * Valid properties: `PRODUCT` | `CLASSIFICATION` |
  * `SEVERITY`
- * 
- * 
- * 
- * 
  * 
  * ### REDHAT_ENTERPRISE_LINUX
  * 
- * 
- * 
  * Valid properties: `PRODUCT` | `CLASSIFICATION` |
  * `SEVERITY`
- * 
- * 
- * 
- * 
  * 
  * ### SUSE
  * 
- * 
- * 
  * Valid properties: `PRODUCT` | `CLASSIFICATION` |
  * `SEVERITY`
  * 
- * 
- * 
- * 
- * 
  * ### UBUNTU
- * 
- * 
  * 
  * Valid properties: `PRODUCT` | `PRIORITY`
  * 
- * 
- * 
- * 
- * 
  * ### WINDOWS
- * 
- * 
  * 
  * Valid properties: `PRODUCT` | `PRODUCT_FAMILY` |
  * `CLASSIFICATION` | `MSRC_SEVERITY`
@@ -1462,7 +1276,6 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  * see Set
  * up OpsCenter in the *Amazon Web Services Systems Manager User Guide*.
  * 
- * 
  * Operations engineers and IT professionals use Amazon Web Services Systems Manager OpsCenter to view, investigate, and
  * remediate operational issues impacting the performance and health of their Amazon Web Services resources. For
  * more information, see Amazon Web Services Systems Manager OpsCenter in the
@@ -1471,27 +1284,17 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
 /**
  * Get information about a single parameter by specifying the parameter name.
  * 
- * 
  * Parameter names can't contain spaces. The service removes any spaces specified for the
  * beginning or end of a parameter name. If the specified name for a parameter contains spaces
  * between characters, the request fails with a `ValidationException` error.
- * 
- * 
- * 
  * 
  * To get information about more than one parameter at a time, use the GetParameters operation.
  */export const getParameter = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.GetParameter" }, GetParameterRequest, GetParameterResult, [InternalServerError, InvalidKeyId, ParameterNotFound, ParameterVersionNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Get information about one or more parameters by specifying multiple parameter names.
  * 
- * 
- * 
- * 
  * To get information about a single parameter, you can use the GetParameter
  * operation instead.
- * 
- * 
- * 
  * 
  * Parameter names can't contain spaces. The service removes any spaces specified for the
  * beginning or end of a parameter name. If the specified name for a parameter contains spaces
@@ -1500,14 +1303,12 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
 /**
  * Retrieve information about one or more parameters under a specified level in a hierarchy.
  * 
- * 
  * Request results are returned on a best-effort basis. If you specify `MaxResults`
  * in the request, the response includes information up to the limit specified. The number of items
  * returned, however, can be between zero and the value of `MaxResults`. If the service
  * reaches an internal limit while processing the results, it stops the operation and returns the
  * matching values up to that point and a `NextToken`. You can specify the
  * `NextToken` in a subsequent call to get the next set of results.
- * 
  * 
  * Parameter names can't contain spaces. The service removes any spaces specified for the
  * beginning or end of a parameter name. If the specified name for a parameter contains spaces
@@ -1524,14 +1325,12 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  * this feature unless they change the setting to `true` and intentionally opt in for a
  * paid feature.
  * 
- * 
  * Services map a `SettingId` object to a setting value. Amazon Web Services services teams define
  * the default value for a `SettingId`. You can't create a new `SettingId`,
  * but you can overwrite the default value if you have the `ssm:UpdateServiceSetting`
  * permission for the setting. Use the UpdateServiceSetting API operation to
  * change the default setting. Or use the ResetServiceSetting to change the value
  * back to the original value defined by the Amazon Web Services service team.
- * 
  * 
  * Query the current service setting for the Amazon Web Services account.
  */export const getServiceSetting = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.GetServiceSetting" }, GetServiceSettingRequest, GetServiceSettingResult, [InternalServerError, ServiceSettingNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1541,48 +1340,29 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  * increments the version number by one. A label can help you remember the purpose of a parameter
  * when there are multiple versions.
  * 
- * 
  * Parameter labels have the following requirements and restrictions.
  * 
- * 
- * 
  * - A version of a parameter can have a maximum of 10 labels.
- * 
- * 
  * 
  * - You can't attach the same label to different versions of the same parameter. For example,
  * if version 1 has the label Production, then you can't attach Production to version 2.
  * 
- * 
- * 
  * - You can move a label from one version of a parameter to another.
- * 
- * 
  * 
  * - You can't create a label when you create a new parameter. You must attach a label to a
  * specific version of a parameter.
  * 
- * 
- * 
  * - If you no longer want to use a parameter label, then you can either delete it or move it
  * to a different version of a parameter.
  * 
- * 
- * 
  * - A label can have a maximum of 100 characters.
- * 
- * 
  * 
  * - Labels can contain letters (case sensitive), numbers, periods (.), hyphens (-), or
  * underscores (_).
  * 
- * 
- * 
  * - Labels can't begin with a number, "`aws`" or "`ssm`" (not case
  * sensitive). If a label fails to meet these requirements, then the label isn't associated with a
  * parameter and the system displays it in the list of InvalidLabels.
- * 
- * 
  * 
  * - Parameter names can't contain spaces. The service removes any spaces specified for
  * the beginning or end of a parameter name. If the specified name for a parameter contains spaces
@@ -1620,7 +1400,6 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
 /**
  * Remove a label or labels from a parameter.
  * 
- * 
  * Parameter names can't contain spaces. The service removes any spaces specified for the
  * beginning or end of a parameter name. If the specified name for a parameter contains spaces
  * between characters, the request fails with a `ValidationException` error.
@@ -1628,8 +1407,6 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
 /**
  * Updates the status of the Amazon Web Services Systems Manager document (SSM document) associated with the specified
  * managed node.
- * 
- * 
  * 
  * `UpdateAssociationStatus` is primarily used by the Amazon Web Services Systems Manager Agent (SSM Agent) to
  * report status updates about your associations and is only used for associations created with the
@@ -1641,16 +1418,12 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  * continue to use the service as normal. For more information, see
  * Amazon Web Services Systems Manager Change Manager availability change.
  * 
- * 
- * 
- * 
  * Updates information related to approval reviews for a specific version of a change template
  * in Change Manager.
  */export const updateDocumentMetadata = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.UpdateDocumentMetadata" }, UpdateDocumentMetadataRequest, UpdateDocumentMetadataResponse, [InternalServerError, InvalidDocument, InvalidDocumentOperation, InvalidDocumentVersion, TooManyUpdates]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Edit or change an OpsItem. You must have permission in Identity and Access Management (IAM) to update an OpsItem. For more information, see Set up OpsCenter in the
  * *Amazon Web Services Systems Manager User Guide*.
- * 
  * 
  * Operations engineers and IT professionals use Amazon Web Services Systems Manager OpsCenter to view, investigate, and
  * remediate operational issues impacting the performance and health of their Amazon Web Services resources. For
@@ -1670,16 +1443,12 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  * requirements for managing on-premises machines using Systems Manager, see Using Amazon Web Services Systems Manager in
  * hybrid and multicloud environments in the *Amazon Web Services Systems Manager User Guide*.
  * 
- * 
- * 
- * 
  * Amazon Elastic Compute Cloud (Amazon EC2) instances, edge devices, and on-premises servers and VMs that are
  * configured for Systems Manager are all called *managed nodes*.
  */export const createActivation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.CreateActivation" }, CreateActivationRequest, CreateActivationResult, [InternalServerError, InvalidParameters]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new OpsItem. You must have permission in Identity and Access Management (IAM) to create a new OpsItem. For more information, see Set up OpsCenter in the
  * *Amazon Web Services Systems Manager User Guide*.
- * 
  * 
  * Operations engineers and IT professionals use Amazon Web Services Systems Manager OpsCenter to view, investigate, and
  * remediate operational issues impacting the performance and health of their Amazon Web Services resources. For
@@ -1688,9 +1457,6 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  */export const createOpsItem = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.CreateOpsItem" }, CreateOpsItemRequest, CreateOpsItemResponse, [InternalServerError, OpsItemAccessDeniedException, OpsItemAlreadyExistsException, OpsItemInvalidParameterException, OpsItemLimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a patch baseline.
- * 
- * 
- * 
  * 
  * For information about valid key-value pairs in `PatchFilters` for each supported
  * operating system type, see PatchFilter.
@@ -1731,7 +1497,6 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  * Query a set of OpsItems. You must have permission in Identity and Access Management (IAM) to query a list of OpsItems. For more information, see Set up OpsCenter in the
  * *Amazon Web Services Systems Manager User Guide*.
  * 
- * 
  * Operations engineers and IT professionals use Amazon Web Services Systems Manager OpsCenter to view, investigate, and
  * remediate operational issues impacting the performance and health of their Amazon Web Services resources. For
  * more information, see Amazon Web Services Systems Manager OpsCenter in the
@@ -1741,7 +1506,6 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  * Lists the parameters in your Amazon Web Services account or the parameters shared with you when you enable
  * the Shared option.
  * 
- * 
  * Request results are returned on a best-effort basis. If you specify `MaxResults`
  * in the request, the response includes information up to the limit specified. The number of items
  * returned, however, can be between zero and the value of `MaxResults`. If the service
@@ -1749,13 +1513,9 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  * matching values up to that point and a `NextToken`. You can specify the
  * `NextToken` in a subsequent call to get the next set of results.
  * 
- * 
  * Parameter names can't contain spaces. The service removes any spaces specified for the
  * beginning or end of a parameter name. If the specified name for a parameter contains spaces
  * between characters, the request fails with a `ValidationException` error.
- * 
- * 
- * 
  * 
  * If you change the KMS key alias for the KMS key used to encrypt a parameter,
  * then you must also update the key alias the parameter uses to reference KMS. Otherwise,
@@ -1774,20 +1534,15 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  * don't specify a time, `GetCalendarState` uses the current time. Change Calendar
  * entries have two possible states: `OPEN` or `CLOSED`.
  * 
- * 
  * If you specify more than one calendar in a request, the command returns the status of
  * `OPEN` only if all calendars in the request are open. If one or more calendars in the
  * request are closed, the status returned is `CLOSED`.
- * 
  * 
  * For more information about Change Calendar, a tool in Amazon Web Services Systems Manager, see Amazon Web Services Systems Manager Change Calendar in the *Amazon Web Services Systems Manager User Guide*.
  */export const getCalendarState = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.GetCalendarState" }, GetCalendarStateRequest, GetCalendarStateResponse, [InternalServerError, InvalidDocument, InvalidDocumentType, UnsupportedCalendarException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the current snapshot for the patch baseline the managed node uses. This API is
  * primarily used by the `AWS-RunPatchBaseline` Systems Manager document (SSM document).
- * 
- * 
- * 
  * 
  * If you run the command locally, such as with the Command Line Interface (CLI), the system attempts to use your local Amazon Web Services credentials and the operation fails. To avoid
  * this, you can run the command in the Amazon Web Services Systems Manager console. Use Run Command, a tool in Amazon Web Services Systems Manager,
@@ -1805,13 +1560,9 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
 /**
  * Retrieves the history of all changes to a parameter.
  * 
- * 
  * Parameter names can't contain spaces. The service removes any spaces specified for the
  * beginning or end of a parameter name. If the specified name for a parameter contains spaces
  * between characters, the request fails with a `ValidationException` error.
- * 
- * 
- * 
  * 
  * If you change the KMS key alias for the KMS key used to encrypt a parameter,
  * then you must also update the key alias the parameter uses to reference KMS. Otherwise,
@@ -1833,9 +1584,6 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  * customers starting November 7, 2025. If you would like to use Change Manager, sign up prior to that date. Existing customers can
  * continue to use the service as normal. For more information, see
  * Amazon Web Services Systems Manager Change Manager availability change.
- * 
- * 
- * 
  * 
  * Information about approval reviews for a version of a change template in Change Manager.
  */export const listDocumentMetadataHistory = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.ListDocumentMetadataHistory" }, ListDocumentMetadataHistoryRequest, ListDocumentMetadataHistoryResponse, [InternalServerError, InvalidDocument, InvalidDocumentVersion, InvalidNextToken]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1859,7 +1607,6 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  * sync attempted to start, the last sync status, and the last time a sync successfully
  * completed.
  * 
- * 
  * The number of sync configurations might be too large to return using a single call to
  * `ListResourceDataSync`. You can limit the number of sync configurations returned by
  * using the `MaxResults` parameter. To determine whether there are more sync
@@ -1872,28 +1619,19 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  * IAM entity (for example, an Amazon Web Services account) that can manage your Systems Manager resources.
  * The following resources support Systems Manager resource policies.
  * 
- * 
- * 
  * - `OpsItemGroup` - The resource policy for `OpsItemGroup` enables
  * Amazon Web Services accounts to view and interact with OpsCenter operational work items (OpsItems).
  * 
- * 
- * 
  * - `Parameter` - The resource policy is used to share a parameter with other
  * accounts using Resource Access Manager (RAM).
- * 
  * 
  * To share a parameter, it must be in the advanced parameter tier. For information about
  * parameter tiers, see Managing
  * parameter tiers. For information about changing an existing standard parameter to an
  * advanced parameter, see Changing a standard parameter to an advanced parameter.
  * 
- * 
  * To share a `SecureString` parameter, it must be encrypted with a customer managed key, and you must share the key separately through Key Management Service. Amazon Web Services managed keys cannot be shared. Parameters encrypted with the default Amazon Web Services managed key can be updated to use a customer managed key instead. For KMS key definitions, see KMS concepts in the
  * *Key Management Service Developer Guide*.
- * 
- * 
- * 
  * 
  * While you can share a parameter using the Systems Manager `PutResourcePolicy` operation,
  * we recommend using Resource Access Manager (RAM) instead. This is because using
@@ -1901,7 +1639,6 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  * standard RAM Resource Share using the RAM
  * PromoteResourceShareCreatedFromPolicy API operation. Otherwise, the parameter won't
  * be returned by the Systems Manager DescribeParameters API operation using the `--shared` option.
- * 
  * 
  * For more information, see Sharing a
  * parameter in the *Amazon Web Services Systems Manager User Guide*
@@ -1922,22 +1659,15 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  * Returns a URL and token that can be used to open a WebSocket connection for sending input and
  * receiving outputs.
  * 
- * 
- * 
- * 
  * Amazon Web Services CLI usage: `start-session` is an interactive command that requires the Session Manager
  * plugin to be installed on the client machine making the call. For information, see Install
  * the Session Manager plugin for the Amazon Web Services CLI in the *Amazon Web Services Systems Manager User Guide*.
- * 
  * 
  * Amazon Web Services Tools for PowerShell usage: Start-SSMSession isn't currently supported by Amazon Web Services Tools
  * for PowerShell on Windows local machines.
  */export const startSession = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-06", sdkId: "SSM", sigV4ServiceName: "ssm", name: "AmazonSSM.StartSession" }, StartSessionRequest, StartSessionResponse, [InternalServerError, InvalidDocument, TargetNotConnected]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Set the default version of a document.
- * 
- * 
- * 
  * 
  * If you change a document version for a State Manager association, Systems Manager immediately runs
  * the association unless you previously specifed the `apply-only-at-cron-interval`
@@ -1950,12 +1680,8 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  * Deletes a Systems Manager resource policy. A resource policy helps you to define the IAM entity (for example, an Amazon Web Services account) that can manage your Systems Manager resources. The following
  * resources support Systems Manager resource policies.
  * 
- * 
- * 
  * - `OpsItemGroup` - The resource policy for `OpsItemGroup` enables
  * Amazon Web Services accounts to view and interact with OpsCenter operational work items (OpsItems).
- * 
- * 
  * 
  * - `Parameter` - The resource policy is used to share a parameter with other
  * accounts using Resource Access Manager (RAM). For more information about
@@ -2036,11 +1762,9 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  * Associates the specified Amazon Web Services Systems Manager document (SSM document) with the specified managed nodes
  * or targets.
  * 
- * 
  * When you associate a document with one or more managed nodes using IDs or tags, Amazon Web Services Systems Manager
  * Agent (SSM Agent) running on the managed node processes the document and configures the node as
  * specified.
- * 
  * 
  * If you associate a document with a managed node that already has an associated document, the
  * system returns the AssociationAlreadyExists exception.
@@ -2060,11 +1784,9 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  * Amazon Web Services Systems Manager offers two types of resource data sync: `SyncToDestination` and
  * `SyncFromSource`.
  * 
- * 
  * You can configure Systems Manager Inventory to use the `SyncToDestination` type to
  * synchronize Inventory data from multiple Amazon Web Services Regions to a single Amazon Simple Storage Service (Amazon S3) bucket. For more information, see Creating a
  * resource data sync for Inventory in the *Amazon Web Services Systems Manager User Guide*.
- * 
  * 
  * You can configure Systems Manager Explorer to use the `SyncFromSource` type to synchronize
  * operational work items (OpsItems) and operational data (OpsData) from multiple Amazon Web Services Regions to a
@@ -2074,13 +1796,9 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  * Explorer to display data from multiple accounts and Regions in the
  * *Amazon Web Services Systems Manager User Guide*.
  * 
- * 
  * A resource data sync is an asynchronous operation that returns immediately. After a
  * successful initial sync is completed, the system continuously syncs data. To check the status of
  * a sync, use the ListResourceDataSync.
- * 
- * 
- * 
  * 
  * By default, data isn't encrypted in Amazon S3. We strongly recommend that you
  * enable encryption in Amazon S3 to ensure secure data storage. We also recommend that you
@@ -2102,9 +1820,6 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  * continue to use the service as normal. For more information, see
  * Amazon Web Services Systems Manager Change Manager availability change.
  * 
- * 
- * 
- * 
  * Creates a change request for Change Manager. The Automation runbooks specified in the
  * change request run only after all required approvals for the change request have been
  * received.
@@ -2119,17 +1834,11 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  * call the DescribeAssociation API operation and make a note of all optional
  * parameters required for your `UpdateAssociation` call.
  * 
- * 
  * In order to call this API operation, a user, group, or role must be granted permission to
  * call the DescribeAssociation API operation. If you don't have permission to
  * call `DescribeAssociation`, then you receive the following error: An error
  * occurred (AccessDeniedException) when calling the UpdateAssociation operation: User:
  * isn't authorized to perform: ssm:DescribeAssociation on resource:
- * 
- * 
- * 
- * 
- * 
  * 
  * When you update an association, the association immediately runs against the specified
  * targets. You can add the `ApplyOnlyAtCronInterval` parameter to run the association
@@ -2144,13 +1853,9 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  * platform, SSM Agent version, association status, and IP address. This operation does not return
  * information for nodes that are either Stopped or Terminated.
  * 
- * 
  * If you specify one or more node IDs, the operation returns information for those managed
  * nodes. If you don't specify node IDs, it returns information for all your managed nodes. If you
  * specify a node ID that isn't valid or a node that you don't own, you receive an error.
- * 
- * 
- * 
  * 
  * The `IamRole` field returned for this API operation is the role assigned to an
  * Amazon EC2 instance configured with a Systems Manager Quick Setup host management configuration or
@@ -2162,25 +1867,15 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  * existing compliance information on the resource, so you must provide a full list of compliance
  * items each time that you send the request.
  * 
- * 
  * ComplianceType can be one of the following:
- * 
- * 
  * 
  * - ExecutionId: The execution ID when the patch, association, or custom compliance item was
  * applied.
  * 
- * 
- * 
  * - ExecutionType: Specify patch, association, or Custom:`string`.
- * 
- * 
  * 
  * - ExecutionTime. The time the patch, association, or custom compliance item was applied to
  * the managed node.
- * 
- * 
- * 
  * 
  * For State Manager associations, this represents the time when compliance status was
  * captured by the Systems Manager service during its internal compliance aggregation workflow, not
@@ -2188,54 +1883,28 @@ export class UnsupportedParameterType extends S.TaggedError<UnsupportedParameter
  * compliance information for all associations on an instance whenever any association executes,
  * which may result in multiple associations showing the same execution time.
  * 
- * 
- * 
- * 
- * 
  * - Id: The patch, association, or custom compliance ID.
  * 
- * 
- * 
  * - Title: A title.
- * 
- * 
  * 
  * - Status: The status of the compliance item. For example, `approved` for patches,
  * or `Failed` for associations.
  * 
- * 
- * 
  * - Severity: A patch severity. For example, `Critical`.
- * 
- * 
  * 
  * - DocumentName: An SSM document name. For example, `AWS-RunPatchBaseline`.
  * 
- * 
- * 
  * - DocumentVersion: An SSM document version number. For example, 4.
- * 
- * 
  * 
  * - Classification: A patch classification. For example, `security updates`.
  * 
- * 
- * 
  * - PatchBaselineId: A patch baseline ID.
- * 
- * 
  * 
  * - PatchSeverity: A patch severity. For example, `Critical`.
  * 
- * 
- * 
  * - PatchState: A patch state. For example, `InstancesWithFailedPatches`.
  * 
- * 
- * 
  * - PatchGroup: The name of a patch group.
- * 
- * 
  * 
  * - InstalledTime: The time the association, patch, or custom compliance item was applied to
  * the resource. Specify the time by using the following format:

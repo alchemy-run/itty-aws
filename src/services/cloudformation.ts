@@ -394,13 +394,11 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  * your stack to a working state (the `UPDATE_ROLLBACK_COMPLETE` state) and then try
  * to update the stack again.
  * 
- * 
  * A stack enters the `UPDATE_ROLLBACK_FAILED` state when CloudFormation can't roll
  * back all changes after a failed stack update. For example, this might occur when a stack
  * attempts to roll back to an old database that was deleted outside of CloudFormation. Because
  * CloudFormation doesn't know the instance was deleted, it assumes the instance still exists and
  * attempts to roll back to it, causing the update rollback to fail.
- * 
  * 
  * For more information, see Continue rolling back an update in the *CloudFormation User Guide*. For
  * information for troubleshooting a failed update rollback, see Update rollback failed.
@@ -414,7 +412,6 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  * Deletes a specified stack. Once the call completes successfully, stack deletion starts.
  * Deleted stacks don't show up in the DescribeStacks operation if the deletion
  * has been completed successfully.
- * 
  * 
  * For more information about deleting a stack, see Delete a stack from
  * the CloudFormation console in the *CloudFormation User Guide*.
@@ -441,25 +438,19 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  * Cancels an update on the specified stack. If the call completes successfully, the stack
  * rolls back the update and reverts to the previous stack configuration.
  * 
- * 
- * 
- * 
  * You can cancel only stacks that are in the `UPDATE_IN_PROGRESS` state.
  */export const cancelUpdateStack = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.CancelUpdateStack" }, CancelUpdateStackInput, S.Struct({}), [TokenAlreadyExistsException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deactivates a public third-party extension, such as a resource or module, or a CloudFormation
  * Hook when you no longer use it.
  * 
- * 
  * Deactivating an extension deletes the configuration details that are associated with it.
  * To temporarily disable a CloudFormation Hook instead, you can use SetTypeConfiguration.
- * 
  * 
  * Once deactivated, an extension can't be used in any CloudFormation operation. This includes
  * stack update operations where the stack template includes the extension, even if no updates
  * are being made to the extension. In addition, deactivated extensions aren't automatically
  * updated if a new version of the extension is released.
- * 
  * 
  * To see which extensions are currently activated, use ListTypes.
  */export const deactivateType = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.DeactivateType" }, DeactivateTypeInput, DeactivateTypeOutput, [CFNRegistryException, TypeNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
@@ -467,9 +458,7 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  * Deletes the specified change set. Deleting change sets ensures that no one executes the
  * wrong change set.
  * 
- * 
  * If the call successfully completes, CloudFormation successfully deleted the change set.
- * 
  * 
  * If `IncludeNestedStacks` specifies `True` during the creation of the
  * nested change set, then `DeleteChangeSet` will delete all change sets that belong
@@ -481,20 +470,16 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  * registry, removing it from active use. Deprecated extensions or extension versions cannot be
  * used in CloudFormation operations.
  * 
- * 
  * To deregister an entire extension, you must individually deregister all active versions of
  * that extension. If an extension has only a single active version, deregistering that version
  * results in the extension itself being deregistered and marked as deprecated in the
  * registry.
  * 
- * 
  * You can't deregister the default version of an extension if there are other active version
  * of that extension. If you do deregister the default version of an extension, the extension
  * type itself is deregistered as well and marked as deprecated.
  * 
- * 
  * To view the deprecation status of an extension or extension version, use DescribeType.
- * 
  * 
  * For more information, see Remove
  * third-party private extensions from your account in the
@@ -509,20 +494,13 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
 /**
  * Returns information about a CloudFormation extension publisher.
  * 
- * 
  * If you don't supply a `PublisherId`, and you have registered as an extension
  * publisher, `DescribePublisher` returns information about your own publisher
  * account.
  * 
- * 
  * For more information about registering as a publisher, see:
  * 
- * 
- * 
  * - RegisterPublisher
- * 
- * 
- * 
  * 
  * - Publishing extensions
  * to make them available for public use in the
@@ -537,7 +515,6 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  * resource drift, see Detect unmanaged
  * configuration changes to stacks and resources with drift detection.
  * 
- * 
  * Use DetectStackDrift to initiate a stack drift detection operation.
  * `DetectStackDrift` returns a `StackDriftDetectionId` you can use to
  * monitor the progress of the operation using `DescribeStackDriftDetectionStatus`.
@@ -548,11 +525,9 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  * Returns information about an extension's registration, including its current status and
  * type and version identifiers.
  * 
- * 
  * When you initiate a registration request using RegisterType, you can
  * then use DescribeTypeRegistration to monitor the progress of that
  * registration request.
- * 
  * 
  * Once the registration request has completed, use DescribeType to return
  * detailed information about an extension.
@@ -567,23 +542,18 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  * resources differ from their expected template configurations. For more information, see Detect unmanaged configuration changes to stacks and resources with drift
  * detection.
  * 
- * 
  * Use `DetectStackDrift` to detect drift on all supported resources for a given
  * stack, or DetectStackResourceDrift to detect drift on individual
  * resources.
  * 
- * 
  * For a list of stack resources that currently support drift detection, see Resource
  * type support for imports and drift detection.
- * 
- * 
  * 
  * `DetectStackDrift` can take up to several minutes, depending on the number of
  * resources contained within the stack. Use DescribeStackDriftDetectionStatus
  * to monitor the progress of a detect stack drift operation. Once the drift detection operation
  * has completed, use DescribeStackResourceDrifts to return drift information
  * about the stack and its resources.
- * 
  * 
  * When detecting drift on a stack, CloudFormation doesn't detect drift on any nested stacks
  * belonging to that stack. Perform `DetectStackDrift` directly on the nested stack
@@ -598,11 +568,9 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  * information about stack and resource drift, see Detect unmanaged
  * configuration changes to stacks and resources with drift detection.
  * 
- * 
  * Use `DetectStackResourceDrift` to detect drift on individual resources, or
  * DetectStackDrift to detect drift on all resources in a given stack that
  * support drift detection.
- * 
  * 
  * Resources that don't currently support drift detection can't be checked. For a list of
  * resources that support drift detection, see Resource
@@ -614,43 +582,29 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  * more information, see Performing drift detection on
  * CloudFormation StackSets.
  * 
- * 
- * 
  * `DetectStackSetDrift` returns the `OperationId` of the StackSet
  * drift detection operation. Use this operation id with DescribeStackSetOperation to monitor the progress of the drift detection
  * operation. The drift detection operation may take some time, depending on the number of stack
  * instances included in the StackSet, in addition to the number of resources included in each
  * stack.
  * 
- * 
  * Once the operation has completed, use the following actions to return drift
  * information:
- * 
- * 
  * 
  * - Use DescribeStackSet to return detailed information about the stack
  * set, including detailed information about the last *completed* drift
  * operation performed on the StackSet. (Information about drift operations that are in
  * progress isn't included.)
  * 
- * 
- * 
  * - Use ListStackInstances to return a list of stack instances belonging
  * to the StackSet, including the drift status and last drift time checked of each
  * instance.
  * 
- * 
- * 
  * - Use DescribeStackInstance to return detailed information about a
  * specific stack instance, including its drift status and last drift time checked.
  * 
- * 
- * 
- * 
- * 
  * You can only run a single drift detection operation on a given StackSet at one
  * time.
- * 
  * 
  * To stop a drift detection StackSet operation, use StopStackSetOperation.
  */export const detectStackSetDrift = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.DetectStackSetDrift" }, DetectStackSetDriftInput, DetectStackSetDriftOutput, [InvalidOperationException, OperationInProgressException, StackSetNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
@@ -673,12 +627,8 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  * Returns the template body for a specified stack. You can get the template for running or
  * deleted stacks.
  * 
- * 
  * For deleted stacks, `GetTemplate` returns the template for up to 90 days after
  * the stack has been deleted.
- * 
- * 
- * 
  * 
  * If the template doesn't exist, a `ValidationError` is returned.
  */export const getTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.GetTemplate" }, GetTemplateInput, GetTemplateOutput, [ChangeSetNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
@@ -686,7 +636,6 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  * Lists all stacks that are importing an exported output value. To modify or remove an
  * exported output value, first use this action to see which stacks are using it. To see the
  * exported output values in your account, see ListExports.
- * 
  * 
  * For more information about importing an exported output value, see the Fn::ImportValue function.
  */export const listImports = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.ListImports" }, ListImportsInput, ListImportsOutput, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
@@ -700,7 +649,6 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  * make them available for public use in the
  * *CloudFormation Command Line Interface (CLI) User Guide*.
  * 
- * 
  * To publish an extension, you must be registered as a publisher with CloudFormation. For more
  * information, see RegisterPublisher.
  */export const publishType = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.PublishType" }, PublishTypeInput, PublishTypeOutput, [CFNRegistryException, TypeNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
@@ -708,7 +656,6 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  * Registers your account as a publisher of public extensions in the CloudFormation registry.
  * Public extensions are available for use by all CloudFormation users. This publisher ID applies to
  * your account in all Amazon Web Services Regions.
- * 
  * 
  * For information about requirements for registering as a public extension publisher, see
  * Prerequisite: Registering your account to publish CloudFormation extensions in the
@@ -718,36 +665,23 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  * Registers an extension with the CloudFormation service. Registering an extension makes it
  * available for use in CloudFormation templates in your Amazon Web Services account, and includes:
  * 
- * 
- * 
  * - Validating the extension schema.
- * 
- * 
  * 
  * - Determining which handlers, if any, have been specified for the extension.
  * 
- * 
- * 
  * - Making the extension available for use in your account.
- * 
- * 
- * 
- * 
  * 
  * For more information about how to develop extensions and ready them for registration, see
  * Creating resource types using the CloudFormation CLI in the
  * *CloudFormation Command Line Interface (CLI) User Guide*.
  * 
- * 
  * You can have a maximum of 50 resource extension versions registered at a time. This
  * maximum is per account and per Region. Use DeregisterType
  * to deregister specific extension versions if necessary.
  * 
- * 
  * Once you have initiated a registration request using RegisterType, you
  * can use DescribeTypeRegistration to monitor the progress of the registration
  * request.
- * 
  * 
  * Once you have registered a private extension in your account and Region, use SetTypeConfiguration to specify configuration properties for the extension. For
  * more information, see Edit configuration
@@ -759,36 +693,20 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  * provisioned resources when an operation fails. You can check the status of the stack through
  * the DescribeStacks operation.
  * 
- * 
  * Rolls back the specified stack to the last known stable state from
  * `CREATE_FAILED` or `UPDATE_FAILED` stack statuses.
- * 
  * 
  * This operation will delete a stack if it doesn't contain a last known stable state. A last
  * known stable state includes any status in a `*_COMPLETE`. This includes the
  * following stack statuses.
  * 
- * 
- * 
  * - `CREATE_COMPLETE`
- * 
- * 
- * 
  * 
  * - `UPDATE_COMPLETE`
  * 
- * 
- * 
- * 
  * - `UPDATE_ROLLBACK_COMPLETE`
  * 
- * 
- * 
- * 
  * - `IMPORT_COMPLETE`
- * 
- * 
- * 
  * 
  * - `IMPORT_ROLLBACK_COMPLETE`
  */export const rollbackStack = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.RollbackStack" }, RollbackStackInput, RollbackStackOutput, [TokenAlreadyExistsException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
@@ -796,24 +714,16 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  * Specifies the configuration data for a CloudFormation extension, such as a resource or Hook,
  * in the given account and Region.
  * 
- * 
  * For more information, see Edit configuration
  * data for extensions in your account in the
  * *CloudFormation User Guide*.
  * 
- * 
  * To view the current configuration data for an extension, refer to the
  * `ConfigurationSchema` element of DescribeType.
- * 
- * 
- * 
  * 
  * It's strongly recommended that you use dynamic references to restrict sensitive
  * configuration definitions, such as third-party credentials. For more information, see Specify values stored in other services using dynamic references in the
  * *CloudFormation User Guide*.
- * 
- * 
- * 
  * 
  * For more information about setting the configuration data for resource types, see Defining the account-level configuration of an extension in the
  * *CloudFormation Command Line Interface (CLI) User Guide*. For more information about setting the configuration
@@ -828,36 +738,24 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  * Tests a registered extension to make sure it meets all necessary requirements for being
  * published in the CloudFormation registry.
  * 
- * 
- * 
  * - For resource types, this includes passing all contracts tests defined for the
  * type.
- * 
- * 
  * 
  * - For modules, this includes determining if the module's model meets all necessary
  * requirements.
  * 
- * 
- * 
- * 
- * 
  * For more information, see Testing your public extension before publishing in the
  * *CloudFormation Command Line Interface (CLI) User Guide*.
- * 
  * 
  * If you don't specify a version, CloudFormation uses the default version of the extension in
  * your account and Region for testing.
  * 
- * 
  * To perform testing, CloudFormation assumes the execution role specified when the type was
  * registered. For more information, see RegisterType.
- * 
  * 
  * Once you've initiated testing on an extension using `TestType`, you can pass
  * the returned `TypeVersionArn` into DescribeType to
  * monitor the current test status and test status description for the extension.
- * 
  * 
  * An extension must have a test status of `PASSED` before it can be published.
  * For more information, see Publishing extensions
@@ -874,9 +772,7 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  * Updates a stack as specified in the template. After the call completes successfully, the
  * stack update starts. You can check the status of the stack through the DescribeStacks action.
  * 
- * 
  * To get a copy of the template for an existing stack, you can use the GetTemplate action.
- * 
  * 
  * For more information about updating a stack and monitoring the progress of the update, see
  * Managing
@@ -889,7 +785,6 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  * unchanged. For more information, see Protect a CloudFormation
  * stack from being deleted in the *CloudFormation User Guide*.
  * 
- * 
  * For nested stacks,
  * termination protection is set on the root stack and can't be changed directly on the nested
  * stack.
@@ -900,13 +795,10 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  * CloudFormation Hooks, which allow you to evaluate resource configurations before CloudFormation
  * provisions them. Hooks integrate with both CloudFormation and Cloud Control API operations.
  * 
- * 
  * After you activate an extension, you can use SetTypeConfiguration to set specific properties for the extension.
- * 
  * 
  * To see which extensions have been activated, use ListTypes. To see
  * configuration details for an extension, use DescribeType.
- * 
  * 
  * For more information, see Activate a
  * third-party public extension in your account in the
@@ -922,7 +814,6 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  * Creates a stack as specified in the template. After the call completes successfully, the
  * stack creation starts. You can check the status of the stack through the DescribeStacks operation.
  * 
- * 
  * For more information about creating a stack and monitoring stack progress, see Managing Amazon Web Services
  * resources as a single unit with CloudFormation stacks in the
  * *CloudFormation User Guide*.
@@ -933,22 +824,14 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  * one value for either `Accounts` or `DeploymentTargets`, and you must
  * specify at least one value for `Regions`.
  * 
- * 
- * 
- * 
  * The maximum number of organizational unit (OUs) supported by a
  * `CreateStackInstances` operation is 50.
  * 
- * 
  * If you need more than 50, consider the following options:
- * 
- * 
  * 
  * - *Batch processing:* If you don't want to expose your OU
  * hierarchy, split up the operations into multiple calls with less than 50 OUs
  * each.
- * 
- * 
  * 
  * - *Parent OU strategy:* If you don't mind exposing the OU
  * hierarchy, target a parent OU that contains all desired child OUs.
@@ -959,22 +842,14 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
 /**
  * Deletes stack instances for the specified accounts, in the specified Amazon Web Services Regions.
  * 
- * 
- * 
- * 
  * The maximum number of organizational unit (OUs) supported by a
  * `DeleteStackInstances` operation is 50.
  * 
- * 
  * If you need more than 50, consider the following options:
- * 
- * 
  * 
  * - *Batch processing:* If you don't want to expose your OU
  * hierarchy, split up the operations into multiple calls with less than 50 OUs
  * each.
- * 
- * 
  * 
  * - *Parent OU strategy:* If you don't mind exposing the OU
  * hierarchy, target a parent OU that contains all desired child OUs.
@@ -995,9 +870,6 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  * more information about a stack's event history, see Understand CloudFormation stack creation events in the
  * *CloudFormation User Guide*.
  * 
- * 
- * 
- * 
  * You can list events for stacks that have failed to create or have been deleted by
  * specifying the unique stack identifier (stack ID).
  */export const describeStackEvents = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.DescribeStackEvents" }, DescribeStackEventsInput, DescribeStackEventsOutput, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
@@ -1010,26 +882,16 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  * are returned. If `PhysicalResourceId` is specified, the associated resources of the
  * stack that the resource belongs to are returned.
  * 
- * 
- * 
- * 
  * Only the first 100 resources will be returned. If your stack has more resources than
  * this, you should use `ListStackResources` instead.
  * 
- * 
- * 
- * 
  * For deleted stacks, `DescribeStackResources` returns resource information for
  * up to 90 days after the stack has been deleted.
- * 
  * 
  * You must specify either `StackName` or `PhysicalResourceId`, but not
  * both. In addition, you can specify `LogicalResourceId` to filter the returned
  * result. For more information about resources, the `LogicalResourceId` and
  * `PhysicalResourceId`, see the CloudFormation User Guide.
- * 
- * 
- * 
  * 
  * A `ValidationError` is returned if you specify both `StackName`
  * and `PhysicalResourceId` in the same request.
@@ -1038,11 +900,9 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  * Returns detailed information about an extension from the CloudFormation registry in your
  * current account and Region.
  * 
- * 
  * If you specify a `VersionId`, `DescribeType` returns information
  * about that specific extension version. Otherwise, it returns information about the default
  * extension version.
- * 
  * 
  * For more information, see Edit configuration
  * data for extensions in your account in the
@@ -1053,14 +913,11 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  * set was created. After the call successfully completes, CloudFormation starts updating the stack.
  * Use the DescribeStacks action to view the status of the update.
  * 
- * 
  * When you execute a change set, CloudFormation deletes all other change sets associated with
  * the stack because they aren't valid for the updated stack.
  * 
- * 
  * If a stack policy is associated with the stack, CloudFormation enforces the policy during the
  * update. You can't specify a temporary stack policy that overrides the current policy.
- * 
  * 
  * To create a change set for the entire stack hierarchy, `IncludeNestedStacks`
  * must have been set to `True`.
@@ -1075,7 +932,6 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  * Use this action to see the exported output values that you can import into other stacks. To
  * import values, use the Fn::ImportValue function.
  * 
- * 
  * For more information, see Get exported outputs
  * from a deployed CloudFormation stack.
  */export const listExports = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.ListExports" }, ListExportsInput, ListExportsOutput, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
@@ -1086,23 +942,14 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  * Returns summaries of invoked Hooks. For more information, see View invocation
  * summaries for CloudFormation Hooks in the *CloudFormation Hooks User Guide*.
  * 
- * 
  * This operation supports the following parameter combinations:
- * 
- * 
  * 
  * - No parameters: Returns all Hook invocation summaries.
  * 
- * 
- * 
  * - `TypeArn` only: Returns summaries for a specific Hook.
- * 
- * 
  * 
  * - `TypeArn` and `Status`: Returns summaries for a specific Hook
  * filtered by status.
- * 
- * 
  * 
  * - `TargetId` and `TargetType`: Returns summaries for a specific
  * Hook invocation target.
@@ -1113,10 +960,6 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  */export const listResourceScans = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.ListResourceScans" }, ListResourceScansInput, ListResourceScansOutput, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns drift information for resources in a stack instance.
- * 
- * 
- * 
- * 
  * 
  * `ListStackInstanceResourceDrifts` returns drift information for the most
  * recent drift detection operation. If an operation is in progress, it may only return partial
@@ -1134,36 +977,22 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
 /**
  * Returns summary information about operations performed on a StackSet.
  * 
- * 
- * 
- * 
  * This API provides *eventually consistent* reads meaning it may take
  * some time but will eventually return the most up-to-date data.
  */export const listStackSetOperations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.ListStackSetOperations" }, ListStackSetOperationsInput, ListStackSetOperationsOutput, [StackSetNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns summary information about StackSets that are associated with the user.
  * 
- * 
- * 
- * 
  * This API provides *strongly consistent* reads meaning it will always
  * return the most up-to-date data.
- * 
- * 
- * 
- * 
  * 
  * - [Self-managed permissions] If you set the `CallAs` parameter to
  * `SELF` while signed in to your Amazon Web Services account, `ListStackSets`
  * returns all self-managed StackSets in your Amazon Web Services account.
  * 
- * 
- * 
  * - [Service-managed permissions] If you set the `CallAs` parameter to
  * `SELF` while signed in to the organization's management account,
  * `ListStackSets` returns all StackSets in the management account.
- * 
- * 
  * 
  * - [Service-managed permissions] If you set the `CallAs` parameter to
  * `DELEGATED_ADMIN` while signed in to your member account,
@@ -1176,7 +1005,6 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
 /**
  * Reports progress of a resource handler to CloudFormation.
  * 
- * 
  * Reserved for use by the CloudFormation
  * CLI. Don't use this API in your code.
  */export const recordHandlerProgress = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.RecordHandlerProgress" }, RecordHandlerProgressInput, RecordHandlerProgressOutput, [InvalidStateTransitionException, OperationStatusCheckFailedException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
@@ -1185,14 +1013,11 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  * specified Amazon Web Services Regions. A stack instance refers to a stack in a specific account and
  * Region.
  * 
- * 
  * You can only update stack instances in Amazon Web Services Regions and accounts where they already
  * exist; to create additional stack instances, use CreateStackInstances.
  * 
- * 
  * During StackSet updates, any parameters overridden for a stack instance aren't updated,
  * but retain their overridden value.
- * 
  * 
  * You can only update the parameter *values* that are specified in the
  * StackSet. To add or delete a parameter itself, use UpdateStackSet
@@ -1202,22 +1027,14 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  * StackSet. Once a stack instance has been updated with the new parameter, you can then override
  * the parameter value using `UpdateStackInstances`.
  * 
- * 
- * 
- * 
  * The maximum number of organizational unit (OUs) supported by a
  * `UpdateStackInstances` operation is 50.
  * 
- * 
  * If you need more than 50, consider the following options:
- * 
- * 
  * 
  * - *Batch processing:* If you don't want to expose your OU
  * hierarchy, split up the operations into multiple calls with less than 50 OUs
  * each.
- * 
- * 
  * 
  * - *Parent OU strategy:* If you don't mind exposing the OU
  * hierarchy, target a parent OU that contains all desired child OUs.
@@ -1226,28 +1043,19 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  * Updates the StackSet and associated stack instances in the specified accounts and
  * Amazon Web Services Regions.
  * 
- * 
  * Even if the StackSet operation created by updating the StackSet fails (completely or
  * partially, below or above a specified failure tolerance), the StackSet is updated with your
  * changes. Subsequent CreateStackInstances calls on the specified StackSet use
  * the updated StackSet.
  * 
- * 
- * 
- * 
  * The maximum number of organizational unit (OUs) supported by a
  * `UpdateStackSet` operation is 50.
  * 
- * 
  * If you need more than 50, consider the following options:
- * 
- * 
  * 
  * - *Batch processing:* If you don't want to expose your OU
  * hierarchy, split up the operations into multiple calls with less than 50 OUs
  * each.
- * 
- * 
  * 
  * - *Parent OU strategy:* If you don't mind exposing the OU
  * hierarchy, target a parent OU that contains all desired child OUs.
@@ -1267,7 +1075,6 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  * resources CloudFormation will create or change, and how it will change resources in an existing
  * stack, before you create or update a stack.
  * 
- * 
  * To create a change set for a stack that doesn't exist, for the `ChangeSetType`
  * parameter, specify `CREATE`. To create a change set for an existing stack, specify
  * `UPDATE` for the `ChangeSetType` parameter. To create a change set for
@@ -1275,11 +1082,9 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  * After the `CreateChangeSet` call successfully completes, CloudFormation starts creating
  * the change set. To check the status of the change set or to review it, use the DescribeChangeSet action.
  * 
- * 
  * When you are satisfied with the changes the change set will make, execute the change set
  * by using the ExecuteChangeSet action. CloudFormation doesn't make changes until
  * you execute the change set.
- * 
  * 
  * To create a change set for the entire stack hierarchy, set
  * `IncludeNestedStacks` to `True`.
@@ -1292,40 +1097,24 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  * Returns CloudFormation events based on flexible query criteria. Groups events by operation ID,
  * enabling you to focus on individual stack operations during deployment.
  * 
- * 
  * An operation is any action performed on a stack, including stack lifecycle actions
  * (Create, Update, Delete, Rollback), change set creation, nested stack creation, and automatic
  * rollbacks triggered by failures. Each operation has a unique identifier (Operation ID) and
  * represents a discrete change attempt on the stack.
  * 
- * 
  * Returns different types of events including:
- * 
- * 
  * 
  * - **Progress events** - Status updates during stack operation
  * execution.
  * 
- * 
- * 
  * - **Validation errors** - Failures from CloudFormation Early
  * Validations.
- * 
- * 
  * 
  * - **Provisioning errors** - Resource creation and update
  * failures.
  * 
- * 
- * 
  * - **Hook invocation errors** - Failures from CloudFormation
  * Hook during stack operations.
- * 
- * 
- * 
- * 
- * 
- * 
  * 
  * One of `ChangeSetName`, `OperationId` or `StackName`
  * must be specified as input.
@@ -1334,12 +1123,10 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  * Returns the stack instance that's associated with the specified StackSet, Amazon Web Services account,
  * and Amazon Web Services Region.
  * 
- * 
  * For a list of stack instances that are associated with a specific StackSet, use ListStackInstances.
  */export const describeStackInstance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.DescribeStackInstance" }, DescribeStackInstanceInput, DescribeStackInstanceOutput, [StackInstanceNotFoundException, StackSetNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns a description of the specified resource in the specified stack.
- * 
  * 
  * For deleted stacks, DescribeStackResource returns resource information for up to 90 days
  * after the stack has been deleted.
@@ -1349,13 +1136,11 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  * specified stack. This includes actual and expected configuration values for resources where
  * CloudFormation detects configuration drift.
  * 
- * 
  * For a given stack, there will be one `StackResourceDrift` for each stack
  * resource that has been checked for drift. Resources that haven't yet been checked for drift
  * aren't included. Resources that don't currently support drift detection aren't checked, and so
  * not included. For a list of resources that support drift detection, see Resource
  * type support for imports and drift detection.
- * 
  * 
  * Use DetectStackResourceDrift to detect drift on individual resources, or
  * DetectStackDrift to detect drift on all supported resources for a given
@@ -1367,16 +1152,10 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  * history, see Understand CloudFormation stack creation events in the
  * *CloudFormation User Guide*.
  * 
- * 
- * 
- * 
  * If the stack doesn't exist, a `ValidationError` is returned.
  */export const describeStacks = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.DescribeStacks" }, DescribeStacksInput, DescribeStacksOutput, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns the description of the specified StackSet.
- * 
- * 
- * 
  * 
  * This API provides *strongly consistent* reads meaning it will always
  * return the most up-to-date data.
@@ -1384,16 +1163,12 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
 /**
  * Returns the description of the specified StackSet operation.
  * 
- * 
- * 
- * 
  * This API provides *strongly consistent* reads meaning it will always
  * return the most up-to-date data.
  */export const describeStackSetOperation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.DescribeStackSetOperation" }, DescribeStackSetOperationInput, DescribeStackSetOperationOutput, [OperationNotFoundException, StackSetNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Retrieves detailed information and remediation guidance for a Hook invocation
  * result.
- * 
  * 
  * If the Hook uses a KMS key to encrypt annotations, callers of the
  * `GetHookResult` operation must have `kms:Decrypt` permissions. For
@@ -1425,7 +1200,6 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
 /**
  * Returns descriptions of all resources of the specified stack.
  * 
- * 
  * For deleted stacks, ListStackResources returns resource information for up to 90 days
  * after the stack has been deleted.
  */export const listStackResources = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.ListStackResources" }, ListStackResourcesInput, ListStackResourcesOutput, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
@@ -1449,7 +1223,6 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  * Returns configuration data for the specified CloudFormation extensions, from the CloudFormation
  * registry in your current account and Region.
  * 
- * 
  * For more information, see Edit configuration
  * data for extensions in your account in the
  * *CloudFormation User Guide*.
@@ -1472,10 +1245,8 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  * action is useful for viewing parameter information, such as default parameter values and
  * parameter types, before you create or update a stack or StackSet.
  * 
- * 
  * You can use the `GetTemplateSummary` action when you submit a template, or you
  * can get template information for a StackSet, or a running or deleted stack.
- * 
  * 
  * For deleted stacks, `GetTemplateSummary` returns the template information for
  * up to 90 days after the stack has been deleted. If the template doesn't exist, a
@@ -1483,9 +1254,6 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  */export const getTemplateSummary = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.GetTemplateSummary" }, GetTemplateSummaryInput, GetTemplateSummaryOutput, [StackSetNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns summary information about the results of a StackSet operation.
- * 
- * 
- * 
  * 
  * This API provides *eventually consistent* reads meaning it may take
  * some time but will eventually return the most up-to-date data.

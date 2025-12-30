@@ -131,16 +131,8 @@ export class ServiceFault extends S.TaggedError<ServiceFault>()("ServiceFault", 
  * Qualification. `AssociateQualificationWithWorker` does not require that the Worker
  * submit a Qualification request. It gives the Qualification directly to the Worker.
  * 
- * 
- * 
- * 
  * You can only assign a Qualification of a Qualification type that you created (using
  * the `CreateQualificationType` operation).
- * 
- * 
- * 
- * 
- * 
  * 
  * Note: `AssociateQualificationWithWorker` does not affect any pending Qualification
  * requests for the Qualification by the Worker. If you assign a Qualification to a
@@ -154,21 +146,12 @@ export class ServiceFault extends S.TaggedError<ServiceFault>()("ServiceFault", 
  * `CreateAdditionalAssignmentsForHIT`
  * operation increases the maximum number of assignments of an existing HIT.
  * 
- * 
- * 
- * 
  * To extend the maximum number of assignments, specify the number of additional assignments.
- * 
- * 
- * 
- * 
  * 
  * - HITs created with fewer than 10 assignments cannot be extended to have 10 or more assignments. Attempting to add assignments in a way that brings the total number of assignments for a HIT from fewer than 10 assignments to 10 or more
  * assignments will result in an
  * `AWS.MechanicalTurk.InvalidMaximumAssignmentsIncrease`
  * exception.
- * 
- * 
  * 
  * - HITs that were created before July 22, 2015 cannot be extended. Attempting to extend HITs that were created before July 22, 2015 will result in an
  * `AWS.MechanicalTurk.HITTooOldForExtension`
@@ -181,9 +164,6 @@ export class ServiceFault extends S.TaggedError<ServiceFault>()("ServiceFault", 
  * The `DeleteHIT` operation is used to delete HIT that is no longer needed.
  * Only the Requester who created the HIT can delete it.
  * 
- * 
- * 
- * 
  * You can only dispose of HITs that are in the `Reviewable` state,
  * with all of their submitted assignments already either approved or rejected.
  * If you call the DeleteHIT operation on a HIT that is not in the `Reviewable` state
@@ -191,25 +171,11 @@ export class ServiceFault extends S.TaggedError<ServiceFault>()("ServiceFault", 
  * or on a HIT that is Reviewable but without all of its submitted assignments
  * already approved or rejected, the service will return an error.
  * 
- * 
- * 
- * 
- * 
- * 
  * - HITs are automatically disposed of after 120 days.
- * 
- * 
- * 
  * 
  * - After you dispose of a HIT, you can no longer approve the HIT's rejected assignments.
  * 
- * 
- * 
- * 
  * - Disposed HITs are not returned in results for the ListHITs operation.
- * 
- * 
- * 
  * 
  * - Disposing HITs can improve the performance of operations such as ListReviewableHITs and ListHITs.
  */export const deleteHIT = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-17", sdkId: "MTurk", sigV4ServiceName: "mturk-requester", name: "MTurkRequesterServiceV20170117.DeleteHIT" }, DeleteHITRequest, DeleteHITResponse, [RequestError, ServiceFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -219,17 +185,12 @@ export class ServiceFault extends S.TaggedError<ServiceFault>()("ServiceFault", 
  * deletes a Qualification type and deletes any HIT types that are
  * associated with the Qualification type.
  * 
- * 
- * 
  * This operation does not revoke Qualifications already assigned
  * to Workers because the Qualifications might be needed for active HITs.
  * If there are any pending requests for the Qualification type, Amazon
  * Mechanical Turk rejects those requests. After you delete a
  * Qualification type, you can no longer use it to create HITs or HIT
  * types.
- * 
- * 
- * 
  * 
  * DeleteQualificationType must wait for all the HITs that use
  * the deleted Qualification type to be deleted before completing. It
@@ -244,9 +205,6 @@ export class ServiceFault extends S.TaggedError<ServiceFault>()("ServiceFault", 
  * The `DisassociateQualificationFromWorker`
  * revokes a previously granted Qualification from a user.
  * 
- * 
- * 
- * 
  * You can provide a text message explaining why the Qualification was
  * revoked. The user who had the Qualification can see this message.
  */export const disassociateQualificationFromWorker = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-17", sdkId: "MTurk", sigV4ServiceName: "mturk-requester", name: "MTurkRequesterServiceV20170117.DisassociateQualificationFromWorker" }, DisassociateQualificationFromWorkerRequest, DisassociateQualificationFromWorkerResponse, [RequestError, ServiceFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -258,17 +216,11 @@ export class ServiceFault extends S.TaggedError<ServiceFault>()("ServiceFault", 
 /**
  * The `RejectAssignment` operation rejects the results of a completed assignment.
  * 
- * 
- * 
- * 
  * You can include an optional feedback message with the rejection,
  * which the Worker can see in the Status section of the web site.
  * When you include a feedback message with the rejection,
  * it helps the Worker understand why the assignment was rejected,
  * and can improve the quality of the results the Worker submits in the future.
- * 
- * 
- * 
  * 
  * Only the Requester who created the HIT can reject an assignment for the HIT.
  */export const rejectAssignment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-17", sdkId: "MTurk", sigV4ServiceName: "mturk-requester", name: "MTurkRequesterServiceV20170117.RejectAssignment" }, RejectAssignmentRequest, RejectAssignmentResponse, [RequestError, ServiceFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -276,8 +228,6 @@ export class ServiceFault extends S.TaggedError<ServiceFault>()("ServiceFault", 
  * The
  * `RejectQualificationRequest`
  * operation rejects a user's request for a Qualification.
- * 
- * 
  * 
  * You can provide a text message explaining why the request was
  * rejected. The Worker who made the request can see this message.
@@ -328,13 +278,7 @@ export class ServiceFault extends S.TaggedError<ServiceFault>()("ServiceFault", 
 /**
  * The `AcceptQualificationRequest` operation approves a Worker's request for a Qualification.
  * 
- * 
- * 
- * 
  * Only the owner of the Qualification type can grant a Qualification request for that type.
- * 
- * 
- * 
  * 
  * A successful request for the `AcceptQualificationRequest` operation
  * returns with no errors and an empty body.
@@ -342,34 +286,16 @@ export class ServiceFault extends S.TaggedError<ServiceFault>()("ServiceFault", 
 /**
  * The `ApproveAssignment` operation approves the results of a completed assignment.
  * 
- * 
- * 
- * 
  * Approving an assignment initiates two payments from the Requester's Amazon.com account
- * 
- * 
- * 
  * 
  * - The Worker who submitted the results is paid the reward specified in the HIT.
  * 
- * 
- * 
- * 
  * - Amazon Mechanical Turk fees are debited.
- * 
- * 
- * 
- * 
- * 
- * 
  * 
  * If the Requester's account does not have adequate funds for these payments,
  * the call to ApproveAssignment returns an exception, and the approval is not processed.
  * You can include an optional feedback message with the approval,
  * which the Worker can see in the Status section of the web site.
- * 
- * 
- * 
  * 
  * You can also call this operation for assignments that were previous rejected
  * and approve them by explicitly overriding the previous rejection.
@@ -411,14 +337,10 @@ export class ServiceFault extends S.TaggedError<ServiceFault>()("ServiceFault", 
  * operation retrieves completed assignments for a HIT. You can use this
  * operation to retrieve the results for a HIT.
  * 
- * 
- * 
  * You can get assignments for a HIT at any time, even if the
  * HIT is not yet Reviewable. If a HIT requested multiple assignments,
  * and has received some results but has not yet become Reviewable, you
  * can still retrieve the partial results with this operation.
- * 
- * 
  * 
  * Use the AssignmentStatus parameter to control which set of
  * assignments for a HIT are returned. The ListAssignmentsForHIT
@@ -428,12 +350,8 @@ export class ServiceFault extends S.TaggedError<ServiceFault>()("ServiceFault", 
  * AssignmentStatus=Approved,Rejected to get assignments that have
  * already been approved and rejected together in one result set.
  * 
- * 
- * 
  * Only the Requester who created the HIT can retrieve the
  * assignments for that HIT.
- * 
- * 
  * 
  * Results are sorted and divided into numbered pages and the
  * operation returns a single page of results. You can use the
@@ -481,14 +399,11 @@ export class ServiceFault extends S.TaggedError<ServiceFault>()("ServiceFault", 
  * which is represented by a QualificationType data structure. Only the
  * owner of a Qualification type can modify its attributes.
  * 
- * 
- * 
  * Most attributes of a Qualification type can be changed after
  * the type has been created. However, the Name and Keywords fields
  * cannot be modified. The RetryDelayInSeconds parameter can be modified
  * or added to change the delay or to enable retries, but
  * RetryDelayInSeconds cannot be used to disable retries.
- * 
  * 
  * You can use this operation to update the test for a
  * Qualification type. The test is updated based on the values specified
@@ -498,7 +413,6 @@ export class ServiceFault extends S.TaggedError<ServiceFault>()("ServiceFault", 
  * parameters. The AnswerKey parameter is optional; omitting it specifies
  * that the updated test does not have an answer key.
  * 
- * 
  * If you omit the Test parameter, the test for the
  * Qualification type is unchanged. There is no way to remove a test from
  * a Qualification type that has one. If the type already has a test, you
@@ -506,16 +420,13 @@ export class ServiceFault extends S.TaggedError<ServiceFault>()("ServiceFault", 
  * have a test and one is provided by an update, the type will henceforth
  * have a test.
  * 
- * 
  * If you want to update the test duration or answer key for an
  * existing test without changing the questions, you must specify a Test
  * parameter with the original questions, along with the updated values.
  * 
- * 
  * If you provide an updated Test but no AnswerKey, the new test
  * will not have an answer key. Requests for such Qualifications must be
  * granted manually.
- * 
  * 
  * You can also update the AutoGranted and AutoGrantedValue
  * attributes of the Qualification type.
@@ -524,22 +435,12 @@ export class ServiceFault extends S.TaggedError<ServiceFault>()("ServiceFault", 
  * The `CreateHITWithHITType` operation creates a new Human Intelligence Task (HIT)
  * using an existing HITTypeID generated by the `CreateHITType` operation.
  * 
- * 
- * 
- * 
  * This is an alternative way to create HITs from the `CreateHIT` operation.
  * This is the recommended best practice for Requesters who are creating large numbers of HITs.
- * 
- * 
  * 
  * CreateHITWithHITType also supports several ways to provide question data:
  * by providing a value for the `Question` parameter that fully specifies the contents of the HIT,
  * or by providing a `HitLayoutId` and associated `HitLayoutParameters`.
- * 
- * 
- * 
- * 
- * 
  * 
  * If a HIT is created with 10 or more maximum assignments, there is an additional fee.
  * For more information, see Amazon Mechanical Turk Pricing.
@@ -560,15 +461,10 @@ export class ServiceFault extends S.TaggedError<ServiceFault>()("ServiceFault", 
  * operation returns the value of a Worker's Qualification for a given
  * Qualification type.
  * 
- * 
- * 
- * 
  * To get a Worker's Qualification, you must know the Worker's ID. The
  * Worker's ID is included in the assignment data returned by the
  * `ListAssignmentsForHIT`
  * operation.
- * 
- * 
  * 
  * Only the owner of a Qualification type can query the value of
  * a Worker's Qualification of that type.
@@ -612,22 +508,13 @@ export class ServiceFault extends S.TaggedError<ServiceFault>()("ServiceFault", 
  * The new HIT is made available for Workers to find and accept on the Amazon Mechanical
  * Turk website.
  * 
- * 
- * 
  * This operation allows you to specify a new HIT by passing in values for the properties of the HIT, such as its title, reward amount and number of assignments. When you pass these values to `CreateHIT`, a new HIT is created for you, with a new `HITTypeID`. The HITTypeID can be used to create additional HITs in the future without needing to specify common parameters such as the title, description and reward amount each time.
  * 
- * 
  * An alternative way to create HITs is to first generate a HITTypeID using the `CreateHITType` operation and then call the `CreateHITWithHITType` operation. This is the recommended best practice for Requesters who are creating large numbers of HITs.
- * 
- * 
  * 
  * CreateHIT also supports several ways to provide question data: by providing a value
  * for the `Question` parameter that fully specifies the contents of the HIT, or by providing
  * a `HitLayoutId` and associated `HitLayoutParameters`.
- * 
- * 
- * 
- * 
  * 
  * If a HIT is created with 10 or more maximum assignments, there is an additional fee. For more information, see
  * Amazon Mechanical Turk Pricing.

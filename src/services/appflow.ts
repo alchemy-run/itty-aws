@@ -290,7 +290,6 @@ export class ThrottlingException extends S.TaggedError<ThrottlingException>()("T
  * cache. Use this action when you want Amazon AppFlow to return the latest information
  * about the data that you have in a source application.
  * 
- * 
  * Amazon AppFlow returns metadata about your entities when you use the
  * ListConnectorEntities or DescribeConnectorEntities actions. Following these actions, Amazon AppFlow caches the metadata to reduce the number of API requests that it must send to
  * the source application. Amazon AppFlow automatically resets the cache once every hour,
@@ -327,36 +326,25 @@ export class ThrottlingException extends S.TaggedError<ThrottlingException>()("T
  * Updates a custom connector that you've previously registered. This operation updates the
  * connector with one of the following:
  * 
- * 
- * 
  * - The latest version of the AWS Lambda function that's assigned to the connector
- * 
- * 
  * 
  * - A new AWS Lambda function that you specify
  */export const updateConnectorRegistration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-23", uri: "/update-connector-registration", sdkId: "Appflow", sigV4ServiceName: "appflow", name: "SandstoneConfigurationServiceLambda.UpdateConnectorRegistration" }, UpdateConnectorRegistrationRequest, UpdateConnectorRegistrationResponse, [AccessDeniedException, ConflictException, ConnectorAuthenticationException, ConnectorServerException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Cancels active runs for a flow.
  * 
- * 
  * You can cancel all of the active runs for a flow, or you can cancel specific runs by
  * providing their IDs.
- * 
  * 
  * You can cancel a flow run only when the run is in progress. You can't cancel a run that
  * has already completed or failed. You also can't cancel a run that's scheduled to occur but
  * hasn't started yet. To prevent a scheduled run, you can deactivate the flow with the
  * `StopFlow` action.
  * 
- * 
  * You cannot resume a run after you cancel it.
- * 
  * 
  * When you send your request, the status for each run becomes `CancelStarted`.
  * When the cancellation completes, the status becomes `Canceled`.
- * 
- * 
- * 
  * 
  * When you cancel a run, you still incur charges for any data that the run already
  * processed before the cancellation. If the run had already written some data to the flow
@@ -369,7 +357,6 @@ export class ThrottlingException extends S.TaggedError<ThrottlingException>()("T
  * Returns a list of `connector-profile` details matching the provided
  * `connector-profile` names and `connector-types`. Both input lists are
  * optional, and you can use them to filter the result.
- * 
  * 
  * If no names or `connector-types` are provided, returns all connector profiles
  * in a paginated form. If there is no match, this operation returns an empty list.

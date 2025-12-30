@@ -166,9 +166,6 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Deletes a version of a component from IoT Greengrass.
  * 
- * 
- * 
- * 
  * This operation deletes the component's recipe and artifacts. As a result, deployments
  * that refer to this component version will fail. If you have deployments that use this
  * component version, you can remove the component from the deployment or update the deployment
@@ -183,7 +180,6 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Deletes a deployment. To delete an active deployment, you must first cancel it. For more
  * information, see CancelDeployment.
- * 
  * 
  * Deleting a deployment doesn't affect core devices that run that deployment, because core
  * devices store the deployment's configuration on the device. Additionally, core devices can
@@ -200,7 +196,6 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Retrieves connectivity information for a Greengrass core device.
  * 
- * 
  * Connectivity information includes endpoints and ports where client devices
  * can connect to an MQTT broker on the core device. When a client device
  * calls the IoT Greengrass discovery API,
@@ -211,36 +206,21 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Retrieves metadata for a Greengrass core device.
  * 
- * 
- * 
- * 
  * IoT Greengrass relies on individual devices to send status updates to the Amazon Web Services Cloud. If the
  * IoT Greengrass Core software isn't running on the device, or if device isn't connected to the Amazon Web Services Cloud,
  * then the reported status of that device might not reflect its current status. The status
  * timestamp indicates when the device status was last updated.
  * 
- * 
  * Core devices send status updates at the following times:
- * 
- * 
  * 
  * - When the IoT Greengrass Core software starts
  * 
- * 
- * 
  * - When the core device receives a deployment from the Amazon Web Services Cloud
- * 
- * 
  * 
  * - When the status of any component on the core device becomes
  * `BROKEN`
  * 
- * 
- * 
- * 
  * - At a regular interval that you can configure, which defaults to 24 hours
- * 
- * 
  * 
  * - For IoT Greengrass Core v2.7.0, the core device sends status updates upon local deployment and
  * cloud deployment
@@ -271,42 +251,26 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Retrieves a paginated list of Greengrass core devices.
  * 
- * 
- * 
- * 
  * IoT Greengrass relies on individual devices to send status updates to the Amazon Web Services Cloud. If the
  * IoT Greengrass Core software isn't running on the device, or if device isn't connected to the Amazon Web Services Cloud,
  * then the reported status of that device might not reflect its current status. The status
  * timestamp indicates when the device status was last updated.
  * 
- * 
  * Core devices send status updates at the following times:
- * 
- * 
  * 
  * - When the IoT Greengrass Core software starts
  * 
- * 
- * 
  * - When the core device receives a deployment from the Amazon Web Services Cloud
- * 
- * 
  * 
  * - For Greengrass nucleus 2.12.2 and earlier, the core device sends status updates when the
  * status of any component on the core device becomes `ERRORED` or
  * `BROKEN`.
  * 
- * 
- * 
  * - For Greengrass nucleus 2.12.3 and later, the core device sends status updates when the
  * status of any component on the core device becomes `ERRORED`,
  * `BROKEN`, `RUNNING`, or `FINISHED`.
  * 
- * 
- * 
  * - At a regular interval that you can configure, which defaults to 24 hours
- * 
- * 
  * 
  * - For IoT Greengrass Core v2.7.0, the core device sends status updates upon local deployment and
  * cloud deployment
@@ -320,36 +284,21 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * include dependencies in the response, set the `topologyFilter` parameter to
  * `ALL`.
  * 
- * 
- * 
- * 
  * IoT Greengrass relies on individual devices to send status updates to the Amazon Web Services Cloud. If the
  * IoT Greengrass Core software isn't running on the device, or if device isn't connected to the Amazon Web Services Cloud,
  * then the reported status of that device might not reflect its current status. The status
  * timestamp indicates when the device status was last updated.
  * 
- * 
  * Core devices send status updates at the following times:
- * 
- * 
  * 
  * - When the IoT Greengrass Core software starts
  * 
- * 
- * 
  * - When the core device receives a deployment from the Amazon Web Services Cloud
- * 
- * 
  * 
  * - When the status of any component on the core device becomes
  * `BROKEN`
  * 
- * 
- * 
- * 
  * - At a regular interval that you can configure, which defaults to 24 hours
- * 
- * 
  * 
  * - For IoT Greengrass Core v2.7.0, the core device sends status updates upon local deployment and
  * cloud deployment
@@ -359,7 +308,6 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-30", uri: "/tags/{resourceArn}", method: "DELETE", sdkId: "GreengrassV2", sigV4ServiceName: "greengrass", name: "GreengrassV2.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates connectivity information for a Greengrass core device.
- * 
  * 
  * Connectivity information includes endpoints and ports where client devices
  * can connect to an MQTT broker on the core device. When a client device
@@ -374,9 +322,6 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * client devices connect to IoT Greengrass to retrieve associated core devices' connectivity information
  * and certificates. For more information, see Configure cloud
  * discovery in the *IoT Greengrass V2 Developer Guide*.
- * 
- * 
- * 
  * 
  * Client devices are local IoT devices that connect to and communicate with an IoT Greengrass core
  * device over MQTT. You can connect client devices to a core device to sync MQTT messages and
@@ -404,20 +349,15 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * of a deployment. Greengrass core devices call this operation when they receive a deployment to
  * identify the components to install.
  * 
- * 
  * This operation identifies components that meet all dependency requirements for a
  * deployment. If the requirements conflict, then this operation returns an error and the
  * deployment fails. For example, this occurs if component `A` requires version
  * `>2.0.0` and component `B` requires version `<2.0.0`
  * of a component dependency.
  * 
- * 
  * When you specify the component candidates to resolve, IoT Greengrass compares each component's
  * digest from the core device with the component's digest in the Amazon Web Services Cloud. If the digests
  * don't match, then IoT Greengrass specifies to use the version from the Amazon Web Services Cloud.
- * 
- * 
- * 
  * 
  * To use this operation, you must use the data plane API endpoint and authenticate with an
  * IoT device certificate. For more information, see IoT Greengrass endpoints and quotas.
@@ -427,16 +367,13 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * devices. When you add a new core device to a group of core devices that has a deployment, IoT Greengrass
  * deploys that group's deployment to the new device.
  * 
- * 
  * You can define one deployment for each target. When you create a new deployment for a
  * target that has an existing deployment, you replace the previous deployment. IoT Greengrass applies the
  * new deployment to the target devices.
  * 
- * 
  * Every deployment has a revision number that indicates how many deployment revisions you
  * define for a target. Use this operation to create a new revision of an existing
  * deployment.
- * 
  * 
  * For more information, see the Create deployments in the
  * *IoT Greengrass V2 Developer Guide*.
@@ -446,45 +383,30 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * develop and test a component on your core device, you can use this operation to upload your
  * component to IoT Greengrass. Then, you can deploy the component to other core devices.
  * 
- * 
  * You can use this operation to do the following:
  * 
- * 
- * 
  * - **Create components from recipes**
- * 
- * 
  * 
  * Create a component from a recipe, which is a file that defines the component's
  * metadata, parameters, dependencies, lifecycle, artifacts, and platform capability. For
  * more information, see IoT Greengrass component recipe
  * reference in the *IoT Greengrass V2 Developer Guide*.
  * 
- * 
  * To create a component from a recipe, specify `inlineRecipe` when you call
  * this operation.
  * 
- * 
- * 
  * - **Create components from Lambda functions**
- * 
- * 
  * 
  * Create a component from an Lambda function that runs on IoT Greengrass. This creates a recipe
  * and artifacts from the Lambda function's deployment package. You can use this operation to
  * migrate Lambda functions from IoT Greengrass V1 to IoT Greengrass V2.
  * 
- * 
  * This function accepts Lambda functions in all supported versions of Python, Node.js,
  * and Java runtimes. IoT Greengrass doesn't apply any additional restrictions on deprecated Lambda
  * runtime versions.
  * 
- * 
  * To create a component from a Lambda function, specify `lambdaFunction` when
  * you call this operation.
- * 
- * 
- * 
  * 
  * IoT Greengrass currently supports Lambda functions on only Linux core devices.
  */export const createComponentVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-30", uri: "/greengrass/v2/createComponentVersion", sdkId: "GreengrassV2", sigV4ServiceName: "greengrass", name: "GreengrassV2.CreateComponentVersion" }, CreateComponentVersionRequest, CreateComponentVersionResponse, [AccessDeniedException, ConflictException, InternalServerException, RequestAlreadyInProgressException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

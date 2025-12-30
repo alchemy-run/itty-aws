@@ -384,8 +384,6 @@ export class TooManyRequestsException extends S.TaggedError<TooManyRequestsExcep
  * Import a Windows operating system image from a verified Microsoft ISO disk
  * file. The following disk images are supported:
  * 
- * 
- * 
  * - Windows 11 Enterprise
  */export const importDiskImage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/ImportDiskImage", method: "PUT", sdkId: "imagebuilder", sigV4ServiceName: "imagebuilder", name: "imagebuilder.ImportDiskImage" }, ImportDiskImageRequest, ImportDiskImageResponse, [ClientException, ServiceException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -394,8 +392,6 @@ export class TooManyRequestsException extends S.TaggedError<TooManyRequestsExcep
  * VM’s environment, settings, and data. The Amazon EC2 API ImportImage
  * action uses those files to import your VM and create an AMI. To import using the CLI
  * command, see import-image
- * 
- * 
  * 
  * You can reference the task ID from the VM import to pull in the AMI that the import
  * created as the base image for your Image Builder recipe.
@@ -447,9 +443,6 @@ export class TooManyRequestsException extends S.TaggedError<TooManyRequestsExcep
  * distribution of images. You must specify exactly one recipe for your image, using either
  * a `containerRecipeArn` or an `imageRecipeArn`.
  * 
- * 
- * 
- * 
  * UpdateImagePipeline does not support selective updates for the pipeline. You must
  * specify all of the required properties in the update request, not just the
  * properties that have changed.
@@ -483,21 +476,15 @@ export class TooManyRequestsException extends S.TaggedError<TooManyRequestsExcep
  * separately, using the appropriate Amazon EC2 or Amazon ECR console actions, or API or CLI
  * commands.
  * 
- * 
- * 
  * - To deregister an EC2 Linux AMI, see Deregister your
  * Linux AMI in the
  * *Amazon EC2 User Guide*
  * .
  * 
- * 
- * 
  * - To deregister an EC2 Windows AMI, see Deregister your
  * Windows AMI in the
  * *Amazon EC2 Windows Guide*
  * .
- * 
- * 
  * 
  * - To delete a container image from Amazon ECR, see Deleting
  * an image in the *Amazon ECR User Guide*.
@@ -594,11 +581,7 @@ export class TooManyRequestsException extends S.TaggedError<TooManyRequestsExcep
  * image. The component is based on a YAML document that you specify using exactly one of
  * the following methods:
  * 
- * 
- * 
  * - Inline, using the `data` property in the request body.
- * 
- * 
  * 
  * - A URL that points to a YAML document file stored in Amazon S3, using the
  * `uri` property in the request body.
@@ -638,13 +621,8 @@ export class TooManyRequestsException extends S.TaggedError<TooManyRequestsExcep
  * `filters` to streamline results. Newly created components can take up to
  * two minutes to appear in the ListComponents API Results.
  * 
- * 
- * 
- * 
  * The semantic version has four nodes: ../.
  * You can assign values for the first three, and can filter on all of them.
- * 
- * 
  * 
  * **Filtering:** With semantic versioning, you have the flexibility to use wildcards (x)
  * to specify the most recent versions or nodes when selecting the base image or components for your
@@ -678,25 +656,13 @@ export class TooManyRequestsException extends S.TaggedError<TooManyRequestsExcep
  * with the `imagePipelineArn` filter. If you don't specify a filter, Image Builder
  * returns an aggregation for your account.
  * 
- * 
  * To streamline results, you can use the following filters in your request:
- * 
- * 
  * 
  * - `accountId`
  * 
- * 
- * 
- * 
  * - `imageBuildVersionArn`
  * 
- * 
- * 
- * 
  * - `imagePipelineArn`
- * 
- * 
- * 
  * 
  * - `vulnerabilityId`
  */export const listImageScanFindingAggregations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/ListImageScanFindingAggregations", sdkId: "imagebuilder", sigV4ServiceName: "imagebuilder", name: "imagebuilder.ListImageScanFindingAggregations" }, ListImageScanFindingAggregationsRequest, ListImageScanFindingAggregationsResponse, [CallRateLimitExceededException, ClientException, ForbiddenException, InvalidPaginationTokenException, InvalidRequestException, ServiceException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

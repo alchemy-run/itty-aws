@@ -334,9 +334,6 @@ export class ProvisionedIopsNotAvailableInAZFault extends S.TaggedError<Provisio
  * Returns information about provisioned DB clusters, and supports
  * pagination.
  * 
- * 
- * 
- * 
  * This operation can also return information for Amazon RDS clusters
  * and Amazon DocDB clusters.
  */export const describeDBClusters = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "Neptune", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeDBClusters" }, DescribeDBClustersMessage, DBClusterMessage, [DBClusterNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
@@ -346,9 +343,6 @@ export class ProvisionedIopsNotAvailableInAZFault extends S.TaggedError<Provisio
  */export const describeDBClusterSnapshots = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "Neptune", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeDBClusterSnapshots" }, DescribeDBClusterSnapshotsMessage, DBClusterSnapshotMessage, [DBClusterSnapshotNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns information about provisioned instances, and supports pagination.
- * 
- * 
- * 
  * 
  * This operation can also return information for Amazon RDS instances
  * and Amazon DocDB instances.
@@ -364,7 +358,6 @@ export class ProvisionedIopsNotAvailableInAZFault extends S.TaggedError<Provisio
 /**
  * Returns a list of DBSubnetGroup descriptions. If a DBSubnetGroupName is specified, the
  * list will contain only the descriptions of the specified DBSubnetGroup.
- * 
  * 
  * For an overview of CIDR ranges, go to the Wikipedia Tutorial.
  */export const describeDBSubnetGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "Neptune", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeDBSubnetGroups" }, DescribeDBSubnetGroupsMessage, DBSubnetGroupMessage, [DBSubnetGroupNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
@@ -385,17 +378,9 @@ export class ProvisionedIopsNotAvailableInAZFault extends S.TaggedError<Provisio
  * `ParameterValue`, and `ApplyMethod`. A maximum of 20 parameters can be
  * modified in a single request.
  * 
- * 
- * 
- * 
  * Changes to dynamic parameters are applied immediately. Changes to static parameters
  * require a reboot without failover to the DB cluster associated with the parameter group
  * before the change can take effect.
- * 
- * 
- * 
- * 
- * 
  * 
  * After you create a DB cluster parameter group, you should wait at least 5 minutes before
  * creating your first DB cluster that uses that DB cluster parameter group as the default
@@ -412,17 +397,9 @@ export class ProvisionedIopsNotAvailableInAZFault extends S.TaggedError<Provisio
  * submit a list of the following: `ParameterName`, `ParameterValue`, and
  * `ApplyMethod`. A maximum of 20 parameters can be modified in a single request.
  * 
- * 
- * 
- * 
  * Changes to dynamic parameters are applied immediately. Changes to static parameters
  * require a reboot without failover to the DB instance associated with the parameter group
  * before the change can take effect.
- * 
- * 
- * 
- * 
- * 
  * 
  * After you modify a DB parameter group, you should wait at least 5 minutes before
  * creating your first DB instance that uses that DB parameter group as the default parameter
@@ -461,7 +438,6 @@ export class ProvisionedIopsNotAvailableInAZFault extends S.TaggedError<Provisio
  * `ApplyMethod`. To reset the entire DB cluster parameter group, specify the
  * `DBClusterParameterGroupName` and `ResetAllParameters` parameters.
  * 
- * 
  * When resetting the entire group, dynamic parameters are updated immediately and static
  * parameters are set to `pending-reboot` to take effect on the next DB instance
  * restart or RebootDBInstance request. You must call RebootDBInstance for every DB instance in your DB cluster
@@ -476,7 +452,6 @@ export class ProvisionedIopsNotAvailableInAZFault extends S.TaggedError<Provisio
  * retains the DB cluster's metadata, including its endpoints and DB parameter
  * groups.
  * 
- * 
  * Neptune also retains the transaction logs so you can do a point-in-time
  * restore if necessary.
  */export const stopDBCluster = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "Neptune", sigV4ServiceName: "rds", name: "AmazonRDSv19.StopDBCluster" }, StopDBClusterMessage, StopDBClusterResult, [DBClusterNotFoundFault, InvalidDBClusterStateFault, InvalidDBInstanceStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
@@ -484,15 +459,11 @@ export class ProvisionedIopsNotAvailableInAZFault extends S.TaggedError<Provisio
  * Switches over the specified secondary DB cluster to be the new primary DB cluster in the global
  * database cluster. Switchover operations were previously called "managed planned failovers."
  * 
- * 
  * Promotes the specified secondary cluster to assume full read/write capabilities and demotes the current
  * primary cluster to a secondary (read-only) cluster, maintaining the original replication topology. All secondary
  * clusters are synchronized with the primary at the beginning of the process so the new primary continues operations
  * for the global database without losing any data. Your database is unavailable for a short time while the primary
  * and selected secondary clusters are assuming their new roles.
- * 
- * 
- * 
  * 
  * This operation is intended for controlled environments, for operations such as "regional rotation" or
  * to fall back to the original primary after a global database failover.
@@ -514,10 +485,8 @@ export class ProvisionedIopsNotAvailableInAZFault extends S.TaggedError<Provisio
 /**
  * Creates a new DB cluster parameter group.
  * 
- * 
  * Parameters in a DB cluster parameter group apply to all of the instances in a DB
  * cluster.
- * 
  * 
  * A DB cluster parameter group is initially created with the default
  * parameters for the database engine used by instances in the DB cluster.
@@ -528,9 +497,6 @@ export class ProvisionedIopsNotAvailableInAZFault extends S.TaggedError<Provisio
  * When you associate a new DB cluster parameter group with a running DB cluster,
  * you need to reboot the DB instances in the DB cluster without failover for the
  * new DB cluster parameter group and associated settings to take effect.
- * 
- * 
- * 
  * 
  * After you create a DB cluster parameter group, you should wait at least
  * 5 minutes before creating your first DB cluster that uses that DB cluster
@@ -547,7 +513,6 @@ export class ProvisionedIopsNotAvailableInAZFault extends S.TaggedError<Provisio
 /**
  * Creates a new DB parameter group.
  * 
- * 
  * A DB parameter group is initially created with the default parameters for the database
  * engine used by the DB instance. To provide custom values for any of the parameters, you must
  * modify the group after creating it using *ModifyDBParameterGroup*. Once
@@ -555,9 +520,6 @@ export class ProvisionedIopsNotAvailableInAZFault extends S.TaggedError<Provisio
  * *ModifyDBInstance*. When you associate a new DB parameter group with a
  * running DB instance, you need to reboot the DB instance without failover for the new DB
  * parameter group and associated settings to take effect.
- * 
- * 
- * 
  * 
  * After you create a DB parameter group, you should wait at least 5 minutes before
  * creating your first DB instance that uses that DB parameter group as the default parameter
@@ -577,9 +539,6 @@ export class ProvisionedIopsNotAvailableInAZFault extends S.TaggedError<Provisio
  * Deletes a DB cluster snapshot. If the snapshot is being copied, the copy operation is
  * terminated.
  * 
- * 
- * 
- * 
  * The DB cluster snapshot must be in the `available` state to be
  * deleted.
  */export const deleteDBClusterSnapshot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "Neptune", sigV4ServiceName: "rds", name: "AmazonRDSv19.DeleteDBClusterSnapshot" }, DeleteDBClusterSnapshotMessage, DeleteDBClusterSnapshotResult, [DBClusterSnapshotNotFoundFault, InvalidDBClusterSnapshotStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
@@ -589,18 +548,15 @@ export class ProvisionedIopsNotAvailableInAZFault extends S.TaggedError<Provisio
  * Manual DB snapshots of the DB instance to be deleted by `DeleteDBInstance` are not
  * deleted.
  * 
- * 
  * If you request a final DB snapshot the status of the Amazon Neptune DB instance is
  * `deleting` until the DB snapshot is created. The API action
  * `DescribeDBInstance` is used to monitor the status of this operation. The action
  * can't be canceled or reverted once submitted.
  * 
- * 
  * Note that when a DB instance is in a failure state and has a status of
  * `failed`, `incompatible-restore`, or `incompatible-network`,
  * you can only delete it when the `SkipFinalSnapshot` parameter is set to
  * `true`.
- * 
  * 
  * You can't delete a DB instance if it is the only instance in the DB cluster, or
  * if it has deletion protection enabled.
@@ -631,7 +587,6 @@ export class ProvisionedIopsNotAvailableInAZFault extends S.TaggedError<Provisio
  * subscription includes SubscriptionName, SNSTopicARN, CustomerID, SourceType, SourceID,
  * CreationTime, and Status.
  * 
- * 
  * If you specify a SubscriptionName, lists the description for that subscription.
  */export const describeEventSubscriptions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "Neptune", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeEventSubscriptions" }, DescribeEventSubscriptionsMessage, EventSubscriptionsMessage, [SubscriptionNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
@@ -641,10 +596,8 @@ export class ProvisionedIopsNotAvailableInAZFault extends S.TaggedError<Provisio
 /**
  * Forces a failover for a DB cluster.
  * 
- * 
  * A failover for a DB cluster promotes one of the Read Replicas (read-only instances) in the
  * DB cluster to be the primary instance (the cluster writer).
- * 
  * 
  * Amazon Neptune will automatically fail over to a Read Replica, if one exists, when the
  * primary instance fails. You can force a failover when you want to simulate a failure of a
@@ -655,16 +608,12 @@ export class ProvisionedIopsNotAvailableInAZFault extends S.TaggedError<Provisio
 /**
  * Initiates the failover process for a Neptune global database.
  * 
- * 
  * A failover for a Neptune global database promotes one of secondary
  * read-only DB clusters to be the primary DB cluster and demotes the
  * primary DB cluster to being a secondary (read-only) DB cluster. In other
  * words, the role of the current primary DB cluster and the selected
  * target secondary DB cluster are switched. The selected secondary DB cluster
  * assumes full read/write capabilities for the Neptune global database.
- * 
- * 
- * 
  * 
  * This action applies **only** to
  * Neptune global databases. This action is only intended for use on healthy
@@ -679,7 +628,6 @@ export class ProvisionedIopsNotAvailableInAZFault extends S.TaggedError<Provisio
  * You might need to reboot your DB instance, usually for maintenance reasons. For example,
  * if you make certain modifications, or if you change the DB parameter group associated with the
  * DB instance, you must reboot the instance for the changes to take effect.
- * 
  * 
  * Rebooting a DB instance restarts the database engine service. Rebooting a DB instance
  * results in a momentary outage, during which the DB instance status is set to rebooting.
@@ -697,7 +645,6 @@ export class ProvisionedIopsNotAvailableInAZFault extends S.TaggedError<Provisio
 /**
  * Copies a snapshot of a DB cluster.
  * 
- * 
  * To copy a DB cluster snapshot from a shared manual DB cluster snapshot,
  * `SourceDBClusterSnapshotIdentifier` must be the Amazon Resource Name (ARN) of the
  * shared DB cluster snapshot.
@@ -713,7 +660,6 @@ export class ProvisionedIopsNotAvailableInAZFault extends S.TaggedError<Provisio
  * DB cluster, all automated backups for that DB cluster are deleted and can't be recovered.
  * Manual DB cluster snapshots of the specified DB cluster are not deleted.
  * 
- * 
  * Note that the DB Cluster cannot be deleted if deletion protection is enabled. To
  * delete it, you must first set its `DeletionProtection` field to
  * `False`.
@@ -721,16 +667,10 @@ export class ProvisionedIopsNotAvailableInAZFault extends S.TaggedError<Provisio
 /**
  * Deletes a DB subnet group.
  * 
- * 
- * 
- * 
  * The specified database subnet group must not be associated with any DB instances.
  */export const deleteDBSubnetGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "Neptune", sigV4ServiceName: "rds", name: "AmazonRDSv19.DeleteDBSubnetGroup" }, DeleteDBSubnetGroupMessage, S.Struct({}), [DBSubnetGroupNotFoundFault, InvalidDBSubnetGroupStateFault, InvalidDBSubnetStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns information about endpoints for an Amazon Neptune DB cluster.
- * 
- * 
- * 
  * 
  * This operation can also return information for Amazon RDS clusters
  * and Amazon DocDB clusters.
@@ -739,14 +679,12 @@ export class ProvisionedIopsNotAvailableInAZFault extends S.TaggedError<Provisio
  * Returns a list of DB cluster snapshot attribute names and values for a manual DB cluster
  * snapshot.
  * 
- * 
  * When sharing snapshots with other Amazon accounts,
  * `DescribeDBClusterSnapshotAttributes` returns the `restore` attribute
  * and a list of IDs for the Amazon accounts that are authorized to copy or restore the manual DB
  * cluster snapshot. If `all` is included in the list of values for the
  * `restore` attribute, then the manual DB cluster snapshot is public and can be
  * copied or restored by all Amazon accounts.
- * 
  * 
  * To add or remove access for an Amazon account to copy or restore a manual DB cluster
  * snapshot, or to make the manual DB cluster snapshot public or private, use the ModifyDBClusterSnapshotAttribute API action.
@@ -761,7 +699,6 @@ export class ProvisionedIopsNotAvailableInAZFault extends S.TaggedError<Provisio
  * Adds an attribute and values to, or removes an attribute and values from, a manual DB
  * cluster snapshot.
  * 
- * 
  * To share a manual DB cluster snapshot with other Amazon accounts, specify
  * `restore` as the `AttributeName` and use the `ValuesToAdd`
  * parameter to add a list of IDs of the Amazon accounts that are authorized to restore the manual
@@ -773,7 +710,6 @@ export class ProvisionedIopsNotAvailableInAZFault extends S.TaggedError<Provisio
  * the `ValuesToAdd` parameter. You can't use `all` as a value for that
  * parameter in this case.
  * 
- * 
  * To view which Amazon accounts have access to copy or restore a manual DB cluster snapshot, or
  * whether a manual DB cluster snapshot public or private, use the DescribeDBClusterSnapshotAttributes API action.
  */export const modifyDBClusterSnapshotAttribute = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "Neptune", sigV4ServiceName: "rds", name: "AmazonRDSv19.ModifyDBClusterSnapshotAttribute" }, ModifyDBClusterSnapshotAttributeMessage, ModifyDBClusterSnapshotAttributeResult, [DBClusterSnapshotNotFoundFault, InvalidDBClusterSnapshotStateFault, SharedSnapshotQuotaExceededFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
@@ -783,13 +719,11 @@ export class ProvisionedIopsNotAvailableInAZFault extends S.TaggedError<Provisio
  * obtain an ARN with SNS, you must create a topic in Amazon SNS and subscribe to the topic. The
  * ARN is displayed in the SNS console.
  * 
- * 
  * You can specify the type of source (SourceType) you want to be notified of, provide a list
  * of Neptune sources (SourceIds) that triggers the events, and provide a list of event
  * categories (EventCategories) for events you want to be notified of. For example, you can
  * specify SourceType = db-instance, SourceIds = mydbinstance1, mydbinstance2 and EventCategories
  * = Availability, Backup.
- * 
  * 
  * If you specify both the SourceType and SourceIds, such as SourceType = db-instance and
  * SourceIdentifier = myDBInstance1, you are notified of all the db-instance events for the
@@ -812,7 +746,6 @@ export class ProvisionedIopsNotAvailableInAZFault extends S.TaggedError<Provisio
  * source identifiers using this call; to change source identifiers for a subscription, use the
  * AddSourceIdentifierToSubscription and RemoveSourceIdentifierFromSubscription calls.
  * 
- * 
  * You can see a list of the event categories for a given SourceType
  * by using the **DescribeEventCategories** action.
  */export const modifyEventSubscription = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "Neptune", sigV4ServiceName: "rds", name: "AmazonRDSv19.ModifyEventSubscription" }, ModifyEventSubscriptionMessage, ModifyEventSubscriptionResult, [EventSubscriptionQuotaExceededFault, SNSInvalidTopicFault, SNSNoAuthorizationFault, SNSTopicArnNotFoundFault, SubscriptionCategoryNotFoundFault, SubscriptionNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
@@ -822,9 +755,6 @@ export class ProvisionedIopsNotAvailableInAZFault extends S.TaggedError<Provisio
  * days. The target DB cluster is created from the source DB cluster with the same configuration
  * as the original DB cluster, except that the new DB cluster is created with the default DB
  * security group.
- * 
- * 
- * 
  * 
  * This action only restores the DB cluster, not the DB instances for that DB cluster. You
  * must invoke the CreateDBInstance action to create DB instances for the
@@ -836,10 +766,8 @@ export class ProvisionedIopsNotAvailableInAZFault extends S.TaggedError<Provisio
 /**
  * Creates a new Amazon Neptune DB cluster.
  * 
- * 
  * You can use the `ReplicationSourceIdentifier` parameter to create the DB
  * cluster as a Read Replica of another DB cluster or Amazon Neptune DB instance.
- * 
  * 
  * Note that when you create a new cluster using `CreateDBCluster` directly,
  * deletion protection is disabled by default (when you create a new production cluster in
@@ -857,7 +785,6 @@ export class ProvisionedIopsNotAvailableInAZFault extends S.TaggedError<Provisio
  * primary cluster through high-speed replication performed by the Neptune
  * storage subsystem.
  * 
- * 
  * You can create a global database that is initially empty, and then
  * add a primary cluster and secondary clusters to it, or you can specify
  * an existing Neptune cluster during the create operation to become the
@@ -870,10 +797,8 @@ export class ProvisionedIopsNotAvailableInAZFault extends S.TaggedError<Provisio
 /**
  * Creates a new DB cluster from a DB snapshot or DB cluster snapshot.
  * 
- * 
  * If a DB snapshot is specified, the target DB cluster is created from the source DB
  * snapshot with a default configuration and default security group.
- * 
  * 
  * If a DB cluster snapshot is specified, the target DB cluster is created from the source DB
  * cluster restore point with the same configuration as the original source DB cluster, except

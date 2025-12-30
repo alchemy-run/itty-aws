@@ -175,11 +175,7 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
 /**
  * Returns the credentials to access the external Dataview from an S3 location. To call this API:
  * 
- * 
- * 
  * - You must retrieve the programmatic credentials.
- * 
- * 
  * 
  * - You must be a member of a FinSpace user group, where the dataset that you want to access has `Read Dataset Data` permissions.
  */export const getExternalDataViewAccessDetails = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-07-13", uri: "/datasets/{datasetId}/dataviewsv2/{dataViewId}/external-access-details", sdkId: "finspace data", sigV4ServiceName: "finspace-api", name: "AWSHabaneroPublicAPI.GetExternalDataViewAccessDetails" }, GetExternalDataViewAccessDetailsRequest, GetExternalDataViewAccessDetailsResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

@@ -620,15 +620,8 @@ export class EndpointsPerClusterLimitExceededFault extends S.TaggedError<Endpoin
 /**
  * Deletes an Amazon Redshift security group.
  * 
- * 
- * 
- * 
  * You cannot delete a security group that is associated with any clusters. You
  * cannot delete the default security group.
- * 
- * 
- * 
- * 
  * 
  * For information about managing security groups, go to
  * Amazon Redshift Cluster Security Groups in the
@@ -654,19 +647,15 @@ export class EndpointsPerClusterLimitExceededFault extends S.TaggedError<Endpoin
  * optionally specify a name to retrieve the description of a specific parameter
  * group.
  * 
- * 
- * 
  * For more information about parameters and parameter groups, go to
  * Amazon Redshift Parameter Groups
  * in the *Amazon Redshift Cluster Management Guide*.
- * 
  * 
  * If you specify both tag keys and tag values in the same request, Amazon Redshift returns
  * all parameter groups that match any combination of the specified keys and values. For
  * example, if you have `owner` and `environment` for tag keys, and
  * `admin` and `test` for tag values, all parameter groups that
  * have any combination of those values are returned.
- * 
  * 
  * If both tag keys and values are omitted from the request, parameter groups are
  * returned regardless of whether they have tag keys or values associated with
@@ -678,13 +667,10 @@ export class EndpointsPerClusterLimitExceededFault extends S.TaggedError<Endpoin
  * name, description, data type, value, whether the parameter value is modifiable, and so
  * on.
  * 
- * 
  * You can specify *source* filter to retrieve parameters of only
  * specific type. For example, to retrieve parameters that were modified by a user action
  * such as from ModifyClusterParameterGroup, you can specify
  * *source* equal to *user*.
- * 
- * 
  * 
  * For more information about parameters and parameter groups, go to
  * Amazon Redshift Parameter Groups
@@ -698,13 +684,11 @@ export class EndpointsPerClusterLimitExceededFault extends S.TaggedError<Endpoin
  * Amazon Redshift Clusters
  * in the *Amazon Redshift Cluster Management Guide*.
  * 
- * 
  * If you specify both tag keys and tag values in the same request, Amazon Redshift returns
  * all clusters that match any combination of the specified keys and values. For example,
  * if you have `owner` and `environment` for tag keys, and
  * `admin` and `test` for tag values, all clusters that have any
  * combination of those values are returned.
- * 
  * 
  * If both tag keys and values are omitted from the request, clusters are returned
  * regardless of whether they have tag keys or values associated with them.
@@ -714,19 +698,15 @@ export class EndpointsPerClusterLimitExceededFault extends S.TaggedError<Endpoin
  * group is specified, the response will contain only information about only that security
  * group.
  * 
- * 
- * 
  * For information about managing security groups, go to
  * Amazon Redshift Cluster Security Groups in the
  * *Amazon Redshift Cluster Management Guide*.
- * 
  * 
  * If you specify both tag keys and tag values in the same request, Amazon Redshift returns
  * all security groups that match any combination of the specified keys and values. For
  * example, if you have `owner` and `environment` for tag keys, and
  * `admin` and `test` for tag values, all security groups that
  * have any combination of those values are returned.
- * 
  * 
  * If both tag keys and values are omitted from the request, security groups are
  * returned regardless of whether they have tag keys or values associated with
@@ -737,13 +717,11 @@ export class EndpointsPerClusterLimitExceededFault extends S.TaggedError<Endpoin
  * cluster subnet groups. By default, this operation returns information about all cluster
  * subnet groups that are defined in your Amazon Web Services account.
  * 
- * 
  * If you specify both tag keys and tag values in the same request, Amazon Redshift returns
  * all subnet groups that match any combination of the specified keys and values. For
  * example, if you have `owner` and `environment` for tag keys, and
  * `admin` and `test` for tag values, all subnet groups that have
  * any combination of those values are returned.
- * 
  * 
  * If both tag keys and values are omitted from the request, subnet groups are
  * returned regardless of whether they have tag keys or values associated with
@@ -770,13 +748,11 @@ export class EndpointsPerClusterLimitExceededFault extends S.TaggedError<Endpoin
  * customer account. If you specify a subscription name, lists the description for that
  * subscription.
  * 
- * 
  * If you specify both tag keys and tag values in the same request, Amazon Redshift returns
  * all event notification subscriptions that match any combination of the specified keys
  * and values. For example, if you have `owner` and `environment` for
  * tag keys, and `admin` and `test` for tag values, all subscriptions
  * that have any combination of those values are returned.
- * 
  * 
  * If both tag keys and values are omitted from the request, subscriptions are
  * returned regardless of whether they have tag keys or values associated with
@@ -786,13 +762,11 @@ export class EndpointsPerClusterLimitExceededFault extends S.TaggedError<Endpoin
  * Returns information about the specified HSM client certificate. If no certificate
  * ID is specified, returns information about all the HSM certificates owned by your Amazon Web Services account.
  * 
- * 
  * If you specify both tag keys and tag values in the same request, Amazon Redshift returns
  * all HSM client certificates that match any combination of the specified keys and values.
  * For example, if you have `owner` and `environment` for tag keys,
  * and `admin` and `test` for tag values, all HSM client certificates
  * that have any combination of those values are returned.
- * 
  * 
  * If both tag keys and values are omitted from the request, HSM client certificates
  * are returned regardless of whether they have tag keys or values associated with
@@ -803,13 +777,11 @@ export class EndpointsPerClusterLimitExceededFault extends S.TaggedError<Endpoin
  * configuration ID is specified, returns information about all the HSM configurations
  * owned by your Amazon Web Services account.
  * 
- * 
  * If you specify both tag keys and tag values in the same request, Amazon Redshift returns
  * all HSM connections that match any combination of the specified keys and values. For
  * example, if you have `owner` and `environment` for tag keys, and
  * `admin` and `test` for tag values, all HSM connections that
  * have any combination of those values are returned.
- * 
  * 
  * If both tag keys and values are omitted from the request, HSM connections are
  * returned regardless of whether they have tag keys or values associated with
@@ -825,15 +797,12 @@ export class EndpointsPerClusterLimitExceededFault extends S.TaggedError<Endpoin
  * 404 error is returned. If a resize operation was initiated and completed, the
  * status of the resize remains as `SUCCEEDED` until the next resize.
  * 
- * 
  * A resize operation can be requested using ModifyCluster and
  * specifying a different number or type of nodes for the cluster.
  */export const describeResize = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-12-01", sdkId: "Redshift", sigV4ServiceName: "redshift", name: "RedshiftServiceVersion20121201.DescribeResize" }, DescribeResizeMessage, ResizeProgressMessage, [ClusterNotFoundFault, ResizeNotFoundFault, UnsupportedOperationFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns a list of snapshot copy grants owned by the Amazon Web Services account in the destination
  * region.
- * 
- * 
  * 
  * For more information about managing snapshot copy grants, go to
  * Amazon Redshift Database Encryption
@@ -846,22 +815,14 @@ export class EndpointsPerClusterLimitExceededFault extends S.TaggedError<Endpoin
  * Shows usage limits on a cluster.
  * Results are filtered based on the combination of input usage limit identifier, cluster identifier, and feature type parameters:
  * 
- * 
- * 
  * - If usage limit identifier, cluster identifier, and feature type are not provided,
  * then all usage limit objects for the current account in the current region are returned.
- * 
- * 
  * 
  * - If usage limit identifier is provided,
  * then the corresponding usage limit object is returned.
  * 
- * 
- * 
  * - If cluster identifier is provided,
  * then all usage limit objects for the specified cluster are returned.
- * 
- * 
  * 
  * - If cluster identifier and feature type are provided,
  * then all usage limit objects for the combination of cluster and feature are returned.
@@ -883,22 +844,18 @@ export class EndpointsPerClusterLimitExceededFault extends S.TaggedError<Endpoin
  * information, see Using IAM Authentication
  * to Generate Database User Credentials in the Amazon Redshift Cluster Management Guide.
  * 
- * 
  * The Identity and Access Management (IAM) user or role that runs
  * GetClusterCredentials must have an IAM policy attached that allows access to all
  * necessary actions and resources. For more information about permissions, see Resource Policies for GetClusterCredentials in the
  * Amazon Redshift Cluster Management Guide.
  * 
- * 
  * If the `DbGroups` parameter is specified, the IAM policy must allow the
  * `redshift:JoinGroup` action with access to the listed
  * `dbgroups`.
  * 
- * 
  * In addition, if the `AutoCreate` parameter is set to `True`,
  * then the policy must include the `redshift:CreateClusterUser`
  * permission.
- * 
  * 
  * If the `DbName` parameter is specified, the IAM policy must allow access
  * to the resource `dbname` for the specified database name.
@@ -910,7 +867,6 @@ export class EndpointsPerClusterLimitExceededFault extends S.TaggedError<Endpoin
  * For more information about IAM identities, see IAM Identities (users, user groups, and roles) in the
  * Amazon Web Services Identity and Access Management User Guide.
  * 
- * 
  * The Identity and Access Management (IAM) identity that runs
  * this operation must have an IAM policy attached that allows access to all
  * necessary actions and resources.
@@ -921,7 +877,6 @@ export class EndpointsPerClusterLimitExceededFault extends S.TaggedError<Endpoin
  * Modifies the list of Identity and Access Management (IAM) roles that can be
  * used by the cluster to access other Amazon Web Services services.
  * 
- * 
  * The maximum number of IAM roles that you can associate is subject to a quota.
  * For more information, go to Quotas and limits
  * in the *Amazon Redshift Cluster Management Guide*.
@@ -931,8 +886,6 @@ export class EndpointsPerClusterLimitExceededFault extends S.TaggedError<Endpoin
  */export const modifyClusterMaintenance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-12-01", sdkId: "Redshift", sigV4ServiceName: "redshift", name: "RedshiftServiceVersion20121201.ModifyClusterMaintenance" }, ModifyClusterMaintenanceMessage, ModifyClusterMaintenanceResult, [ClusterNotFoundFault, InvalidClusterStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Modifies the parameters of a parameter group. For the parameters parameter, it can't contain ASCII characters.
- * 
- * 
  * 
  * For more information about parameters and parameter groups, go to
  * Amazon Redshift Parameter Groups
@@ -984,8 +937,6 @@ export class EndpointsPerClusterLimitExceededFault extends S.TaggedError<Endpoin
  * snapshot. If the account is currently restoring the snapshot, the restore will run to
  * completion.
  * 
- * 
- * 
  * For more information about working with snapshots, go to
  * Amazon Redshift Snapshots
  * in the *Amazon Redshift Cluster Management Guide*.
@@ -1006,14 +957,11 @@ export class EndpointsPerClusterLimitExceededFault extends S.TaggedError<Endpoin
  * The source must be an automated snapshot and it must be in the available
  * state.
  * 
- * 
  * When you delete a cluster, Amazon Redshift deletes any automated snapshots of the
  * cluster. Also, when the retention period of the snapshot expires, Amazon Redshift
  * automatically deletes it. If you want to keep an automated snapshot for a longer period,
  * you can make a manual copy of the snapshot. Manual snapshots are retained until you
  * delete them.
- * 
- * 
  * 
  * For more information about working with snapshots, go to
  * Amazon Redshift Snapshots
@@ -1023,8 +971,6 @@ export class EndpointsPerClusterLimitExceededFault extends S.TaggedError<Endpoin
  * Creates a manual snapshot of the specified cluster. The cluster must be in the
  * `available` state.
  * 
- * 
- * 
  * For more information about working with snapshots, go to
  * Amazon Redshift Snapshots
  * in the *Amazon Redshift Cluster Management Guide*.
@@ -1032,10 +978,8 @@ export class EndpointsPerClusterLimitExceededFault extends S.TaggedError<Endpoin
 /**
  * Adds tags to a cluster.
  * 
- * 
  * A resource can have up to 50 tags. If you try to create more than 50 tags for a
  * resource, you will receive an error and the attempt will fail.
- * 
  * 
  * If you specify a key that already exists for the resource, the value for that key
  * will be updated with the new value.
@@ -1046,16 +990,12 @@ export class EndpointsPerClusterLimitExceededFault extends S.TaggedError<Endpoin
 /**
  * Deletes a specified Amazon Redshift parameter group.
  * 
- * 
- * 
- * 
  * You cannot delete a parameter group if it is associated with a
  * cluster.
  */export const deleteClusterParameterGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-12-01", sdkId: "Redshift", sigV4ServiceName: "redshift", name: "RedshiftServiceVersion20121201.DeleteClusterParameterGroup" }, DeleteClusterParameterGroupMessage, S.Struct({}), [ClusterParameterGroupNotFoundFault, InvalidClusterParameterGroupStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes the specified manual snapshot. The snapshot must be in the
  * `available` state, with no other users authorized to access the snapshot.
- * 
  * 
  * Unlike automated snapshots, manual snapshots are retained even after you delete
  * your cluster. Amazon Redshift does not delete your manual snapshots. You must delete manual
@@ -1099,7 +1039,6 @@ export class EndpointsPerClusterLimitExceededFault extends S.TaggedError<Endpoin
  * clusters that are owned by your Amazon Web Services account. No information is returned for
  * snapshots owned by inactive Amazon Web Services accounts.
  * 
- * 
  * If you specify both tag keys and tag values in the same request, Amazon Redshift returns
  * all snapshots that match any combination of the specified keys and values. For example,
  * if you have `owner` and `environment` for tag keys, and
@@ -1107,7 +1046,6 @@ export class EndpointsPerClusterLimitExceededFault extends S.TaggedError<Endpoin
  * combination of those values are returned. Only snapshots that you own are returned in
  * the response; shared snapshots are not returned with the tag key and tag value request
  * parameters.
- * 
  * 
  * If both tag keys and values are omitted from the request, snapshots are returned
  * regardless of whether they have tag keys or values associated with them.
@@ -1123,8 +1061,6 @@ export class EndpointsPerClusterLimitExceededFault extends S.TaggedError<Endpoin
 /**
  * Returns a list of parameter settings for the specified parameter group
  * family.
- * 
- * 
  * 
  * For more information about parameters and parameter groups, go to
  * Amazon Redshift Parameter Groups
@@ -1159,27 +1095,16 @@ export class EndpointsPerClusterLimitExceededFault extends S.TaggedError<Endpoin
  * an ARN, or you can return all tags for a given type of resource, such as clusters,
  * snapshots, and so on.
  * 
- * 
  * The following are limitations for `DescribeTags`:
- * 
- * 
  * 
  * - You cannot specify an ARN and a resource-type value together in the same
  * request.
  * 
- * 
- * 
  * - You cannot use the `MaxRecords` and `Marker`
  * parameters together with the ARN parameter.
  * 
- * 
- * 
  * - The `MaxRecords` parameter can be a range from 10 to 50 results
  * to return in a request.
- * 
- * 
- * 
- * 
  * 
  * If you specify both tag keys and tag values in the same request, Amazon Redshift returns
  * all resources that match any combination of the specified keys and values. For example,
@@ -1187,14 +1112,12 @@ export class EndpointsPerClusterLimitExceededFault extends S.TaggedError<Endpoin
  * `admin` and `test` for tag values, all resources that have any
  * combination of those values are returned.
  * 
- * 
  * If both tag keys and values are omitted from the request, resources are returned
  * regardless of whether they have tag keys or values associated with them.
  */export const describeTags = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-12-01", sdkId: "Redshift", sigV4ServiceName: "redshift", name: "RedshiftServiceVersion20121201.DescribeTags" }, DescribeTagsMessage, TaggedResourceListMessage, [InvalidTagFault, ResourceNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Disables the automatic copying of snapshots from one region to another region for a
  * specified cluster.
- * 
  * 
  * If your cluster and its snapshots are encrypted using an encrypted symmetric key
  * from Key Management Service, use DeleteSnapshotCopyGrant to delete the grant that
@@ -1206,11 +1129,9 @@ export class EndpointsPerClusterLimitExceededFault extends S.TaggedError<Endpoin
  * Amazon Web Services IAM Identity Center identity from enhanced credentials and creates a secure token
  * that Amazon Redshift drivers can use for authentication.
  * 
- * 
  * The token is encrypted using Key Management Service (KMS) and can only be
  * decrypted by the specified Amazon Redshift clusters. The token contains the caller's
  * Amazon Web Services IAM Identity Center identity information and is valid for a limited time period.
- * 
  * 
  * This API is exclusively for use with Amazon Web Services IAM Identity Center enhanced credentials. If the
  * caller is not using enhanced credentials with embedded Amazon Web Services IAM Identity Center identity, the API will
@@ -1232,7 +1153,6 @@ export class EndpointsPerClusterLimitExceededFault extends S.TaggedError<Endpoin
  */export const modifyClusterDbRevision = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-12-01", sdkId: "Redshift", sigV4ServiceName: "redshift", name: "RedshiftServiceVersion20121201.ModifyClusterDbRevision" }, ModifyClusterDbRevisionMessage, ModifyClusterDbRevisionResult, [ClusterNotFoundFault, ClusterOnLatestRevisionFault, InvalidClusterStateFault, UnsupportedOperationFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Modifies the settings for a snapshot.
- * 
  * 
  * This exanmple modifies the manual retention period setting for a cluster snapshot.
  */export const modifyClusterSnapshot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-12-01", sdkId: "Redshift", sigV4ServiceName: "redshift", name: "RedshiftServiceVersion20121201.ModifyClusterSnapshot" }, ModifyClusterSnapshotMessage, ModifyClusterSnapshotResult, [ClusterSnapshotNotFoundFault, InvalidClusterSnapshotStateFault, InvalidRetentionPeriodFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
@@ -1282,8 +1202,6 @@ export class EndpointsPerClusterLimitExceededFault extends S.TaggedError<Endpoin
  * Creates a new Amazon Redshift security group. You use security groups to control access
  * to non-VPC clusters.
  * 
- * 
- * 
  * For information about managing security groups, go to
  * Amazon Redshift Cluster Security Groups in the
  * *Amazon Redshift Cluster Management Guide*.
@@ -1331,8 +1249,6 @@ export class EndpointsPerClusterLimitExceededFault extends S.TaggedError<Endpoin
  * offering ID in you call to PurchaseReservedNodeOffering to reserve one
  * or more nodes for your Amazon Redshift cluster.
  * 
- * 
- * 
  * For more information about reserved node offerings, go to
  * Purchasing Reserved Nodes
  * in the *Amazon Redshift Cluster Management Guide*.
@@ -1372,8 +1288,6 @@ export class EndpointsPerClusterLimitExceededFault extends S.TaggedError<Endpoin
  * node offerings. You can call this API by providing a specific reserved node offering and
  * the number of nodes you want to reserve.
  * 
- * 
- * 
  * For more information about reserved node offerings, go to
  * Purchasing Reserved Nodes
  * in the *Amazon Redshift Cluster Management Guide*.
@@ -1382,7 +1296,6 @@ export class EndpointsPerClusterLimitExceededFault extends S.TaggedError<Endpoin
  * Creates a new table from a table in an Amazon Redshift cluster snapshot. You must
  * create the new table within the Amazon Redshift cluster that the snapshot was taken
  * from.
- * 
  * 
  * You cannot use `RestoreTableFromClusterSnapshot` to restore a table with
  * the same name as an existing table in an Amazon Redshift cluster. That is, you cannot
@@ -1394,7 +1307,6 @@ export class EndpointsPerClusterLimitExceededFault extends S.TaggedError<Endpoin
  * `RestoreTableFromClusterSnapshot`. This way, you can replace the original
  * table with the table created from the snapshot.
  * 
- * 
  * You can't use this operation to restore tables with
  * interleaved sort keys.
  */export const restoreTableFromClusterSnapshot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-12-01", sdkId: "Redshift", sigV4ServiceName: "redshift", name: "RedshiftServiceVersion20121201.RestoreTableFromClusterSnapshot" }, RestoreTableFromClusterSnapshotMessage, RestoreTableFromClusterSnapshotResult, [ClusterNotFoundFault, ClusterSnapshotNotFoundFault, InProgressTableRestoreQuotaExceededFault, InvalidClusterSnapshotStateFault, InvalidClusterStateFault, InvalidTableRestoreArgumentFault, UnsupportedOperationFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
@@ -1405,17 +1317,14 @@ export class EndpointsPerClusterLimitExceededFault extends S.TaggedError<Endpoin
  * (CIDR)/Internet Protocol (IP) range or to an Amazon EC2 security group. You can add as
  * many as 20 ingress rules to an Amazon Redshift security group.
  * 
- * 
  * If you authorize access to an Amazon EC2 security group, specify
  * *EC2SecurityGroupName* and
  * *EC2SecurityGroupOwnerId*. The Amazon EC2 security group and
  * Amazon Redshift cluster must be in the same Amazon Web Services Region.
  * 
- * 
  * If you authorize access to a CIDR/IP address range, specify
  * *CIDRIP*. For an overview of CIDR blocks, see the Wikipedia
  * article on Classless Inter-Domain Routing.
- * 
  * 
  * You must also associate the security group with a cluster so that clients running
  * on these IP addresses or the EC2 instance are authorized to connect to the cluster. For
@@ -1426,15 +1335,12 @@ export class EndpointsPerClusterLimitExceededFault extends S.TaggedError<Endpoin
  * Authorizes the specified Amazon Web Services account to restore the specified
  * snapshot.
  * 
- * 
- * 
  * For more information about working with snapshots, go to
  * Amazon Redshift Snapshots
  * in the *Amazon Redshift Cluster Management Guide*.
  */export const authorizeSnapshotAccess = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-12-01", sdkId: "Redshift", sigV4ServiceName: "redshift", name: "RedshiftServiceVersion20121201.AuthorizeSnapshotAccess" }, AuthorizeSnapshotAccessMessage, AuthorizeSnapshotAccessResult, [AuthorizationAlreadyExistsFault, AuthorizationQuotaExceededFault, ClusterSnapshotNotFoundFault, DependentServiceRequestThrottlingFault, InvalidClusterSnapshotStateFault, LimitExceededFault, UnsupportedOperationFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Creates a new cluster with the specified parameters.
- * 
  * 
  * To create a cluster in Virtual Private Cloud (VPC), you must provide a cluster
  * subnet group name. The cluster subnet group identifies the subnets of your VPC that
@@ -1443,33 +1349,20 @@ export class EndpointsPerClusterLimitExceededFault extends S.TaggedError<Endpoin
  * Amazon Redshift Clusters
  * in the *Amazon Redshift Cluster Management Guide*.
  * 
- * 
  * VPC Block Public Access (BPA) enables you to block resources in VPCs and subnets that
  * you own in a Region from reaching or being reached from the internet through internet
  * gateways and egress-only internet gateways. If a subnet group for a
  * provisioned cluster is in an account with VPC BPA turned on, the following capabilities
  * are blocked:
  * 
- * 
- * 
  * - Creating a public cluster
- * 
- * 
  * 
  * - Restoring a public cluster
  * 
- * 
- * 
  * - Modifying a private cluster to be public
- * 
- * 
  * 
  * - Adding a subnet with VPC BPA turned on to the subnet group when there's at
  * least one public cluster within the group
- * 
- * 
- * 
- * 
  * 
  * For more information about VPC BPA, see Block public access to VPCs and
  * subnets in the *Amazon VPC User Guide*.
@@ -1477,11 +1370,9 @@ export class EndpointsPerClusterLimitExceededFault extends S.TaggedError<Endpoin
 /**
  * Creates an Amazon Redshift parameter group.
  * 
- * 
  * Creating parameter groups is independent of creating clusters. You can associate a
  * cluster with a parameter group when you create the cluster. You can also associate an
  * existing cluster with a parameter group after the cluster is created by using ModifyCluster.
- * 
  * 
  * Parameters in the parameter group define specific behavior that applies to the
  * databases you create on the cluster.
@@ -1494,7 +1385,6 @@ export class EndpointsPerClusterLimitExceededFault extends S.TaggedError<Endpoin
  * the client's HSM in order to store and retrieve the keys used to encrypt the cluster
  * databases.
  * 
- * 
  * The command returns a public key, which you must store in the HSM. In addition to
  * creating the HSM certificate, you must create an Amazon Redshift HSM configuration that
  * provides a cluster the information needed to store and use encryption keys in the HSM.
@@ -1506,7 +1396,6 @@ export class EndpointsPerClusterLimitExceededFault extends S.TaggedError<Endpoin
  * cluster to store and use database encryption keys in a Hardware Security Module (HSM).
  * After creating the HSM configuration, you can specify it as a parameter when creating a
  * cluster. The cluster will then store its encryption keys in the HSM.
- * 
  * 
  * In addition to creating an HSM configuration, you must also create an HSM client
  * certificate. For more information, go to Hardware Security Modules
@@ -1521,8 +1410,6 @@ export class EndpointsPerClusterLimitExceededFault extends S.TaggedError<Endpoin
  * from Key Management Service (KMS) to encrypt copied snapshots in a
  * destination region.
  * 
- * 
- * 
  * For more information about managing snapshot copy grants, go to
  * Amazon Redshift Database Encryption
  * in the *Amazon Redshift Cluster Management Guide*.
@@ -1535,15 +1422,12 @@ export class EndpointsPerClusterLimitExceededFault extends S.TaggedError<Endpoin
  * Amazon Redshift Clusters
  * in the *Amazon Redshift Cluster Management Guide*.
  * 
- * 
  * If you want to shut down the cluster and retain it for future use, set
  * *SkipFinalClusterSnapshot* to `false` and specify a
  * name for *FinalClusterSnapshotIdentifier*. You can later restore this
  * snapshot to resume using the cluster. If a final cluster snapshot is requested, the
  * status of the cluster will be "final-snapshot" while the snapshot is being taken, then
  * it's "deleting" once Amazon Redshift begins deleting the cluster.
- * 
- * 
  * 
  * For more information about managing clusters, go to
  * Amazon Redshift Clusters
@@ -1571,33 +1455,20 @@ export class EndpointsPerClusterLimitExceededFault extends S.TaggedError<Endpoin
  * Modifies a cluster subnet group to include the specified list of VPC subnets. The
  * operation replaces the existing list of subnets with the new list of subnets.
  * 
- * 
  * VPC Block Public Access (BPA) enables you to block resources in VPCs and subnets that
  * you own in a Region from reaching or being reached from the internet through internet
  * gateways and egress-only internet gateways. If a subnet group for a
  * provisioned cluster is in an account with VPC BPA turned on, the following capabilities
  * are blocked:
  * 
- * 
- * 
  * - Creating a public cluster
- * 
- * 
  * 
  * - Restoring a public cluster
  * 
- * 
- * 
  * - Modifying a private cluster to be public
- * 
- * 
  * 
  * - Adding a subnet with VPC BPA turned on to the subnet group when there's at
  * least one public cluster within the group
- * 
- * 
- * 
- * 
  * 
  * For more information about VPC BPA, see Block public access to VPCs and
  * subnets in the *Amazon VPC User Guide*.
@@ -1610,10 +1481,8 @@ export class EndpointsPerClusterLimitExceededFault extends S.TaggedError<Endpoin
  * parameter group with the restored cluster. If you are using a DS node type, you can also
  * choose to change to another DS node type of the same size during restore.
  * 
- * 
  * If you restore a cluster into a VPC, you must provide a cluster subnet group where
  * you want the cluster restored.
- * 
  * 
  * VPC Block Public Access (BPA) enables you to block resources in VPCs and subnets that
  * you own in a Region from reaching or being reached from the internet through internet
@@ -1621,31 +1490,17 @@ export class EndpointsPerClusterLimitExceededFault extends S.TaggedError<Endpoin
  * provisioned cluster is in an account with VPC BPA turned on, the following capabilities
  * are blocked:
  * 
- * 
- * 
  * - Creating a public cluster
- * 
- * 
  * 
  * - Restoring a public cluster
  * 
- * 
- * 
  * - Modifying a private cluster to be public
- * 
- * 
  * 
  * - Adding a subnet with VPC BPA turned on to the subnet group when there's at
  * least one public cluster within the group
  * 
- * 
- * 
- * 
- * 
  * For more information about VPC BPA, see Block public access to VPCs and
  * subnets in the *Amazon VPC User Guide*.
- * 
- * 
  * 
  * For more information about working with snapshots, go to
  * Amazon Redshift Snapshots
@@ -1655,8 +1510,6 @@ export class EndpointsPerClusterLimitExceededFault extends S.TaggedError<Endpoin
  * Creates a new Amazon Redshift subnet group. You must provide a list of one or more
  * subnets in your existing Amazon Virtual Private Cloud (Amazon VPC) when creating
  * Amazon Redshift subnet group.
- * 
- * 
  * 
  * For information about subnet groups, go to
  * Amazon Redshift Cluster Subnet Groups in the
@@ -1675,11 +1528,9 @@ export class EndpointsPerClusterLimitExceededFault extends S.TaggedError<Endpoin
 /**
  * Modifies the settings for a cluster.
  * 
- * 
  * You can also change node type and the number of nodes to scale up or down the
  * cluster. When resizing a cluster, you must specify both the number of nodes and the node
  * type even if one of the parameters does not change.
- * 
  * 
  * You can add another security or
  * parameter group, or change the admin user password. Resetting a cluster password or modifying the security groups associated with a cluster do not need a reboot. However, modifying a parameter group requires a reboot for parameters to take effect.
@@ -1687,33 +1538,20 @@ export class EndpointsPerClusterLimitExceededFault extends S.TaggedError<Endpoin
  * Amazon Redshift Clusters
  * in the *Amazon Redshift Cluster Management Guide*.
  * 
- * 
  * VPC Block Public Access (BPA) enables you to block resources in VPCs and subnets that
  * you own in a Region from reaching or being reached from the internet through internet
  * gateways and egress-only internet gateways. If a subnet group for a
  * provisioned cluster is in an account with VPC BPA turned on, the following capabilities
  * are blocked:
  * 
- * 
- * 
  * - Creating a public cluster
- * 
- * 
  * 
  * - Restoring a public cluster
  * 
- * 
- * 
  * - Modifying a private cluster to be public
- * 
- * 
  * 
  * - Adding a subnet with VPC BPA turned on to the subnet group when there's at
  * least one public cluster within the group
- * 
- * 
- * 
- * 
  * 
  * For more information about VPC BPA, see Block public access to VPCs and
  * subnets in the *Amazon VPC User Guide*.
@@ -1724,41 +1562,21 @@ export class EndpointsPerClusterLimitExceededFault extends S.TaggedError<Endpoin
  * an elastic resize, your cluster is available for read and write operations more quickly
  * than with the classic resize method.
  * 
- * 
  * Elastic resize operations have the following restrictions:
- * 
- * 
  * 
  * - You can only resize clusters of the following types:
  * 
- * 
- * 
  * - dc2.large
- * 
- * 
  * 
  * - dc2.8xlarge
  * 
- * 
- * 
  * - ra3.large
- * 
- * 
  * 
  * - ra3.xlplus
  * 
- * 
- * 
  * - ra3.4xlarge
  * 
- * 
- * 
  * - ra3.16xlarge
- * 
- * 
- * 
- * 
- * 
  * 
  * - The type of nodes that you add must match the node type for the
  * cluster.
@@ -1770,14 +1588,12 @@ export class EndpointsPerClusterLimitExceededFault extends S.TaggedError<Endpoin
  * must create a topic in Amazon SNS and subscribe to the topic. The ARN is displayed in
  * the SNS console.
  * 
- * 
  * You can specify the source type, and lists of Amazon Redshift source IDs, event
  * categories, and event severities. Notifications will be sent for all events you want
  * that match those criteria. For example, you can specify source type = cluster, source ID
  * = my-cluster-1 and mycluster2, event categories = Availability, Backup, and severity =
  * ERROR. The subscription will only send notifications for those ERROR events in the
  * Availability and Backup categories for the specified clusters.
- * 
  * 
  * If you specify both the source type and source IDs, such as source type = cluster
  * and source identifier = my-cluster-1, notifications will be sent for all the cluster

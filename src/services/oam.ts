@@ -92,12 +92,10 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * 
  * - **Application Signals** - Specify with `AWS::ApplicationSignals::Service` and `AWS::ApplicationSignals::ServiceLevelObjective`
  * 
- * 
  * See the examples in this section to see how to specify permitted source accounts and data types.
  */export const putSinkPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-06-10", uri: "/PutSinkPolicy", sdkId: "OAM", sigV4ServiceName: "oam", name: "oamservice.PutSinkPolicy" }, PutSinkPolicyInput, PutSinkPolicyOutput, [InternalServiceFault, InvalidParameterException, MissingRequiredParameterException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes one or more tags from the specified resource.
- * 
  * 
  * Unlike tagging permissions in other Amazon Web Services services, to tag or untag links and sinks you must have the `oam:ResourceTag` permission. The `iam:TagResource` permission does not allow you to tag and untag links and sinks.
  */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-06-10", uri: "/tags/{ResourceArn}", method: "DELETE", sdkId: "OAM", sigV4ServiceName: "oam", name: "oamservice.UntagResource" }, UntagResourceInput, UntagResourceOutput, [ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -139,7 +137,6 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * You can use the `TagResource` action with a resource that already has tags. If you specify a new tag key for the alarm, this tag is appended to the list of tags associated with the alarm. If you specify a tag key that is already associated with the alarm, the new tag value that you specify replaces the previous value for that tag.
  * 
  * You can associate as many as 50 tags with a resource.
- * 
  * 
  * Unlike tagging permissions in other Amazon Web Services services, to tag or untag links and sinks you must have the `oam:ResourceTag` permission. The `iam:ResourceTag` permission does not allow you to tag and untag links and sinks.
  */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-06-10", uri: "/tags/{ResourceArn}", method: "PUT", sdkId: "OAM", sigV4ServiceName: "oam", name: "oamservice.TagResource" }, TagResourceInput, TagResourceOutput, [ResourceNotFoundException, TooManyTagsException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

@@ -83,9 +83,6 @@ export class ResourceAlreadyExistsException extends S.TaggedError<ResourceAlread
  * notification rule, the status of the rule, and the targets that receive the
  * notifications.
  * 
- * 
- * 
- * 
  * To add or remove tags for a notification rule, you must use TagResource and UntagResource.
  */export const updateNotificationRule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-15", uri: "/updateNotificationRule", sdkId: "codestar notifications", sigV4ServiceName: "codestar-notifications", name: "CodeStarNotifications_20191015.UpdateNotificationRule" }, UpdateNotificationRuleRequest, UpdateNotificationRuleResult, [ConfigurationException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**

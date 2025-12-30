@@ -65,9 +65,7 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
 /**
  * Takes sample input and output documents and uses Amazon Bedrock to generate a mapping automatically. Depending on the accuracy and other factors, you can then edit the mapping for your needs.
  * 
- * 
  * Before you can use the AI-assisted feature for Amazon Web Services B2B Data Interchange you must enable models in Amazon Bedrock. For details, see AI-assisted template mapping prerequisites in the *Amazon Web Services B2B Data Interchange User guide*.
- * 
  * 
  * To generate a mapping, perform the following steps:
  * 
@@ -80,7 +78,6 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
 /**
  * Returns the details of the transformer run, based on the Transformer job ID.
  * 
- * 
  * If 30 days have elapsed since your transformer job was started, the system deletes it. So, if you run `GetTransformerJob` and supply a `transformerId` and `transformerJobId` for a job that was started more than 30 days previously, you receive a 404 response.
  */export const getTransformerJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-06-23", uri: "/transformer-jobs/{transformerJobId}", method: "GET", sdkId: "b2bi", sigV4ServiceName: "b2bi", name: "B2BI.GetTransformerJob" }, GetTransformerJobRequest, GetTransformerJobResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -90,7 +87,6 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * Runs a job, using a transformer, to parse input EDI (electronic data interchange) file into the output structures used by Amazon Web Services B2B Data Interchange.
  * 
  * If you only want to transform EDI (electronic data interchange) documents, you don't need to create profiles, partnerships or capabilities. Just create and configure a transformer, and then run the `StartTransformerJob` API to process your files.
- * 
  * 
  * The system stores transformer jobs for 30 days. During that period, you can run GetTransformerJob and supply its `transformerId` and `transformerJobId` to return details of the job.
  */export const startTransformerJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-06-23", uri: "/transformer-jobs", sdkId: "b2bi", sigV4ServiceName: "b2bi", name: "B2BI.StartTransformerJob" }, StartTransformerJobRequest, StartTransformerJobResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);

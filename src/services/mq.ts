@@ -108,7 +108,6 @@ export class UnauthorizedException extends S.TaggedError<UnauthorizedException>(
 /**
  * Creates an ActiveMQ user.
  * 
- * 
  * Do not add personally identifiable information (PII) or other confidential or sensitive information in broker usernames. Broker usernames are accessible to other Amazon Web Services services, including CloudWatch Logs. Broker usernames are not intended to be used for private or sensitive data.
  */export const createUser = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/v1/brokers/{BrokerId}/users/{Username}", sdkId: "mq", sigV4ServiceName: "mq", name: "mq.CreateUser" }, CreateUserRequest, CreateUserResponse, [BadRequestException, ConflictException, ForbiddenException, InternalServerErrorException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -194,7 +193,6 @@ export class UnauthorizedException extends S.TaggedError<UnauthorizedException>(
  * - ec2:DescribeSubnets
  * 
  * - ec2:DescribeVpcs
- * 
  * 
  * For more information, see Create an IAM User and Get Your Amazon Web Services Credentials and Never Modify or Delete the Amazon MQ Elastic Network Interface in the *Amazon MQ Developer Guide*.
  */export const createBroker = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/v1/brokers", sdkId: "mq", sigV4ServiceName: "mq", name: "mq.CreateBroker" }, CreateBrokerRequest, CreateBrokerResponse, [BadRequestException, ConflictException, ForbiddenException, InternalServerErrorException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

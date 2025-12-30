@@ -119,9 +119,6 @@ export class InvalidResourcePolicyException extends S.TaggedError<InvalidResourc
  * resource. To tag a resource, the caller account must be the same as the resource’s
  * `OwnerAccountId`. Tagging resources in other accounts is not supported.
  * 
- * 
- * 
- * 
  * Amazon Web Services Migration Hub Refactor Spaces does not propagate tags to orchestrated resources, such as an
  * environment’s transit gateway.
  */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-10-26", uri: "/tags/{ResourceArn}", sdkId: "Migration Hub Refactor Spaces", sigV4ServiceName: "refactor-spaces", name: "RefactorSpaces.TagResource" }, TagResourceRequest, TagResourceResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -140,7 +137,6 @@ export class InvalidResourcePolicyException extends S.TaggedError<InvalidResourc
  * visibility and control of Refactor Spaces resources that are added to the environment by other
  * accounts that the environment is shared with.
  * 
- * 
  * When creating an environment with a CreateEnvironment:NetworkFabricType of `TRANSIT_GATEWAY`, Refactor Spaces
  * provisions a transit gateway to enable services in VPCs to communicate directly across
  * accounts. If CreateEnvironment:NetworkFabricType is `NONE`, Refactor Spaces does not create
@@ -154,21 +150,15 @@ export class InvalidResourcePolicyException extends S.TaggedError<InvalidResourc
  * created as a `DEFAULT`
  * `RouteType`.
  * 
- * 
  * When created, the default route defaults to an active state so state is not a required
  * input. However, like all other state values the state of the default route can be updated
  * after creation, but only when all other routes are also inactive. Conversely, no route can be
  * active without the default route also being active.
  * 
- * 
  * When you create a route, Refactor Spaces configures the Amazon API Gateway to send traffic
  * to the target service as follows:
  * 
- * 
- * 
  * - **URL Endpoints**
- * 
- * 
  * 
  * If the service has a URL endpoint, and the endpoint resolves to a private IP address,
  * Refactor Spaces routes traffic using the API Gateway VPC link. If a service endpoint
@@ -177,26 +167,19 @@ export class InvalidResourcePolicyException extends S.TaggedError<InvalidResourc
  * certificates are supported. Private Certificate Authorities (CAs) are permitted only if
  * the CA's domain is also publicly resolvable.
  * 
- * 
  * Refactor Spaces automatically resolves the public Domain Name System (DNS) names that are
  * set in `CreateService:UrlEndpoint `when you create a service. The DNS names
  * resolve when the DNS time-to-live (TTL) expires, or every 60 seconds for TTLs less than 60
  * seconds. This periodic DNS resolution ensures that the route configuration remains
  * up-to-date.
  * 
- * 
- * 
- * 
  * **One-time health check**
- * 
- * 
  * 
  * A one-time health check is performed on the service when either the route is updated
  * from inactive to active, or when it is created with an active state. If the health check
  * fails, the route transitions the route state to `FAILED`, an error code of
  * `SERVICE_ENDPOINT_HEALTH_CHECK_FAILURE` is provided, and no traffic is sent
  * to the service.
- * 
  * 
  * For private URLs, a target group is created on the Network Load Balancer and the load
  * balancer target group runs default target health checks. By default, the health check is
@@ -207,37 +190,22 @@ export class InvalidResourcePolicyException extends S.TaggedError<InvalidResourc
  * guide. The health check is considered successful if at least one target
  * within the target group transitions to a healthy state.
  * 
- * 
- * 
- * 
  * - **Lambda function endpoints**
- * 
- * 
  * 
  * If the service has an Lambda function endpoint, then Refactor Spaces
  * configures the Lambda function's resource policy to allow the application's
  * API Gateway to invoke the function.
- * 
  * 
  * The Lambda function state is checked. If the function is not active, the
  * function configuration is updated so that Lambda resources are provisioned. If
  * the Lambda state is `Failed`, then the route creation fails. For
  * more information, see the GetFunctionConfiguration's State response parameter in the *Lambda Developer Guide*.
  * 
- * 
  * A check is performed to determine that a Lambda function with the specified ARN
  * exists. If it does not exist, the health check fails. For public URLs, a connection is
  * opened to the public endpoint. If the URL is not reachable, the health check fails.
  * 
- * 
- * 
- * 
- * 
- * 
- * 
  * **Environments without a network bridge**
- * 
- * 
  * 
  * When you create environments without a network bridge (CreateEnvironment:NetworkFabricType is `NONE)` and you use your own
  * networking infrastructure, you need to configure VPC to VPC connectivity between your network and the application proxy VPC. Route
@@ -250,9 +218,6 @@ export class InvalidResourcePolicyException extends S.TaggedError<InvalidResourc
  * environment owner, regardless of which account in the environment creates the service.
  * Services have either a URL endpoint in a virtual private cloud (VPC), or a Lambda
  * function endpoint.
- * 
- * 
- * 
  * 
  * If an Amazon Web Services resource is launched in a service VPC, and you want it to be
  * accessible to all of an environment’s services with VPCs and routes, apply the
@@ -291,7 +256,6 @@ export class InvalidResourcePolicyException extends S.TaggedError<InvalidResourc
  * applications created inside the environment, regardless of the account that creates the
  * application. Refactor Spaces provisions an Amazon API Gateway, API Gateway VPC link, and
  * Network Load Balancer for the application proxy inside your account.
- * 
  * 
  * In environments created with a CreateEnvironment:NetworkFabricType of `NONE` you need to configure
  * VPC to VPC connectivity between your service VPC and the application proxy VPC to

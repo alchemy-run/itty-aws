@@ -184,53 +184,27 @@ export class PayloadTooLargeException extends S.TaggedError<PayloadTooLargeExcep
  * to access the configuration source. Valid configuration sources include the
  * following:
  * 
- * 
- * 
  * - Configuration data in YAML, JSON, and other formats stored in the AppConfig hosted configuration store
- * 
- * 
  * 
  * - Configuration data stored as objects in an Amazon Simple Storage Service (Amazon S3)
  * bucket
  * 
- * 
- * 
  * - Pipelines stored in CodePipeline
- * 
- * 
  * 
  * - Secrets stored in Secrets Manager
  * 
- * 
- * 
  * - Standard and secure string parameters stored in Amazon Web Services Systems Manager Parameter Store
- * 
- * 
  * 
  * - Configuration data in SSM documents stored in the Systems Manager document store
  * 
- * 
- * 
- * 
- * 
  * A configuration profile includes the following information:
- * 
- * 
  * 
  * - The URI location of the configuration data.
  * 
- * 
- * 
  * - The Identity and Access Management (IAM) role that provides access to the configuration data.
- * 
- * 
  * 
  * - A validator for the configuration data. Available validators include either a JSON
  * Schema or an Amazon Web Services Lambda function.
- * 
- * 
- * 
- * 
  * 
  * For more information, see Create a
  * Configuration and a Configuration Profile in the AppConfig
@@ -269,7 +243,6 @@ export class PayloadTooLargeException extends S.TaggedError<PayloadTooLargeExcep
 /**
  * Deletes a configuration profile.
  * 
- * 
  * To prevent users from unintentionally deleting actively-used configuration profiles,
  * enable deletion
  * protection.
@@ -279,7 +252,6 @@ export class PayloadTooLargeException extends S.TaggedError<PayloadTooLargeExcep
  */export const deleteDeploymentStrategy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/deployementstrategies/{DeploymentStrategyId}", method: "DELETE", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.DeleteDeploymentStrategy" }, DeleteDeploymentStrategyRequest, S.Struct({}), [BadRequestException, InternalServerException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes an environment.
- * 
  * 
  * To prevent users from unintentionally deleting actively-used environments, enable deletion
  * protection.
@@ -294,17 +266,10 @@ export class PayloadTooLargeException extends S.TaggedError<PayloadTooLargeExcep
 /**
  * (Deprecated) Retrieves the latest deployed configuration.
  * 
- * 
- * 
- * 
  * Note the following important information.
- * 
- * 
  * 
  * - This API action is deprecated. Calls to receive configuration data should use
  * the StartConfigurationSession and GetLatestConfiguration APIs instead.
- * 
- * 
  * 
  * - GetConfiguration is a priced call. For more information, see
  * Pricing.
@@ -355,31 +320,20 @@ export class PayloadTooLargeException extends S.TaggedError<PayloadTooLargeExcep
  * logic or behavior at different points during the AppConfig workflow of creating
  * or deploying a configuration.
  * 
- * 
  * You can create your own extensions or use the Amazon Web Services authored extensions provided by
  * AppConfig. For an AppConfig extension that uses Lambda, you must create a Lambda function to perform any computation and processing
  * defined in the extension. If you plan to create custom versions of the Amazon Web Services
  * authored notification extensions, you only need to specify an Amazon Resource Name (ARN) in
  * the `Uri` field for the new extension version.
  * 
- * 
- * 
  * - For a custom EventBridge notification extension, enter the ARN of the EventBridge
  * default events in the `Uri` field.
- * 
- * 
  * 
  * - For a custom Amazon SNS notification extension, enter the ARN of an Amazon SNS
  * topic in the `Uri` field.
  * 
- * 
- * 
  * - For a custom Amazon SQS notification extension, enter the ARN of an Amazon SQS
  * message queue in the `Uri` field.
- * 
- * 
- * 
- * 
  * 
  * For more information about extensions, see Extending
  * workflows in the *AppConfig User Guide*.

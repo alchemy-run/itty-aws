@@ -400,11 +400,7 @@ export class BatchWriteException extends S.TaggedError<BatchWriteException>()("B
  * Attaches an existing object to another object. An object can be accessed in two
  * ways:
  * 
- * 
- * 
  * - Using the path
- * 
- * 
  * 
  * - Using `ObjectIdentifier`
  */export const attachObject = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-11", uri: "/amazonclouddirectory/2017-01-11/object/attach", method: "PUT", sdkId: "CloudDirectory", sigV4ServiceName: "clouddirectory", name: "AmazonCloudDirectory_20170111.AttachObject" }, AttachObjectRequest, AttachObjectResponse, [AccessDeniedException, DirectoryNotEnabledException, FacetValidationException, InternalServiceException, InvalidArnException, InvalidAttachmentException, LimitExceededException, LinkNameAlreadyInUseException, ResourceNotFoundException, RetryableConflictException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -422,7 +418,6 @@ export class BatchWriteException extends S.TaggedError<BatchWriteException>()("B
  * Creates a Directory by copying the published schema into the
  * directory. A directory cannot be created without a schema.
  * 
- * 
  * You can also quickly create a directory using a managed schema, called the
  * `QuickStartSchema`. For more information, see Managed Schema in the *Amazon Cloud Directory Developer Guide*.
  */export const createDirectory = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-11", uri: "/amazonclouddirectory/2017-01-11/directory/create", method: "PUT", sdkId: "CloudDirectory", sigV4ServiceName: "clouddirectory", name: "AmazonCloudDirectory_20170111.CreateDirectory" }, CreateDirectoryRequest, CreateDirectoryResponse, [AccessDeniedException, DirectoryAlreadyExistsException, InternalServiceException, InvalidArnException, LimitExceededException, ResourceNotFoundException, RetryableConflictException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -436,18 +431,12 @@ export class BatchWriteException extends S.TaggedError<BatchWriteException>()("B
  * Creates a new schema in a development state. A schema can exist in three
  * phases:
  * 
- * 
- * 
  * - *Development:* This is a mutable phase of the schema. All new
  * schemas are in the development phase. Once the schema is finalized, it can be
  * published.
  * 
- * 
- * 
  * - *Published:* Published schemas are immutable and have a version
  * associated with them.
- * 
- * 
  * 
  * - *Applied:* Applied schemas are mutable in a way that allows you
  * to add new schema facets. You can also add new, nonrequired attributes to existing schema
@@ -496,7 +485,6 @@ export class BatchWriteException extends S.TaggedError<BatchWriteException>()("B
  * Retrieves all available parent paths for any object type such as node, leaf node,
  * policy node, and index node objects. For more information about objects, see Directory Structure.
  * 
- * 
  * Use this API to evaluate all parents for an object. The call returns all objects from
  * the root of the directory up to the requested object. The API returns the number of paths
  * based on user-defined `MaxResults`, in case there are multiple paths to the parent.
@@ -515,15 +503,9 @@ export class BatchWriteException extends S.TaggedError<BatchWriteException>()("B
 /**
  * Does the following:
  * 
- * 
- * 
  * - Adds new `Attributes`, `Rules`, or `ObjectTypes`.
  * 
- * 
- * 
  * - Updates existing `Attributes`, `Rules`, or `ObjectTypes`.
- * 
- * 
  * 
  * - Deletes existing `Attributes`, `Rules`, or `ObjectTypes`.
  */export const updateFacet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-11", uri: "/amazonclouddirectory/2017-01-11/facet", method: "PUT", sdkId: "CloudDirectory", sigV4ServiceName: "clouddirectory", name: "AmazonCloudDirectory_20170111.UpdateFacet" }, UpdateFacetRequest, UpdateFacetResponse, [AccessDeniedException, FacetNotFoundException, FacetValidationException, InternalServiceException, InvalidArnException, InvalidFacetUpdateException, InvalidRuleException, LimitExceededException, ResourceNotFoundException, RetryableConflictException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

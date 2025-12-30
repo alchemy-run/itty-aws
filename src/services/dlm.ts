@@ -83,7 +83,6 @@ export class ResourceNotFoundException extends S.TaggedError<ResourceNotFoundExc
  * Deletes the specified lifecycle policy and halts the automated operations that the
  * policy specified.
  * 
- * 
  * For more information about deleting a policy, see Delete lifecycle
  * policies.
  */export const deleteLifecyclePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-12", uri: "/policies/{PolicyId}", method: "DELETE", sdkId: "DLM", sigV4ServiceName: "dlm", name: "dlm_20180112.DeleteLifecyclePolicy" }, DeleteLifecyclePolicyRequest, DeleteLifecyclePolicyResponse, [InternalServerException, LimitExceededException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -99,13 +98,11 @@ export class ResourceNotFoundException extends S.TaggedError<ResourceNotFoundExc
 /**
  * Updates the specified lifecycle policy.
  * 
- * 
  * For more information about updating a policy, see Modify lifecycle
  * policies.
  */export const updateLifecyclePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-12", uri: "/policies/{PolicyId}", method: "PATCH", sdkId: "DLM", sigV4ServiceName: "dlm", name: "dlm_20180112.UpdateLifecyclePolicy" }, UpdateLifecyclePolicyRequest, UpdateLifecyclePolicyResponse, [InternalServerException, InvalidRequestException, LimitExceededException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets summary information about all or the specified data lifecycle policies.
- * 
  * 
  * To get complete information about a policy, use GetLifecyclePolicy.
  */export const getLifecyclePolicies = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-12", uri: "/policies", method: "GET", sdkId: "DLM", sigV4ServiceName: "dlm", name: "dlm_20180112.GetLifecyclePolicies" }, GetLifecyclePoliciesRequest, GetLifecyclePoliciesResponse, [InternalServerException, InvalidRequestException, LimitExceededException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -115,35 +112,18 @@ export class ResourceNotFoundException extends S.TaggedError<ResourceNotFoundExc
 /**
  * Creates an Amazon Data Lifecycle Manager lifecycle policy. Amazon Data Lifecycle Manager supports the following policy types:
  * 
- * 
- * 
  * - Custom EBS snapshot policy
- * 
- * 
  * 
  * - Custom EBS-backed AMI policy
  * 
- * 
- * 
  * - Cross-account copy event policy
- * 
- * 
  * 
  * - Default policy for EBS snapshots
  * 
- * 
- * 
  * - Default policy for EBS-backed AMIs
- * 
- * 
- * 
- * 
  * 
  * For more information, see
  * Default policies vs custom policies.
- * 
- * 
- * 
  * 
  * If you create a default policy, you can specify the request parameters either in
  * the request body, or in the PolicyDetails request structure, but not both.

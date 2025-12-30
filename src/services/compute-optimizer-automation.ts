@@ -137,7 +137,6 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Associates one or more member accounts with your organization's management account, enabling centralized implementation of optimization actions across those accounts. Once associated, the management account (or a delegated administrator) can apply recommended actions to the member account. When you associate a member account, its organization rule mode is automatically set to "Any allowed," which permits the management account to create Automation rules that automatically apply actions to that account. If the member account has not previously enabled the Automation feature, the association process automatically enables it.
  * 
- * 
  * Only the management account or a delegated administrator can perform this action.
  */export const associateAccounts = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2025-09-22", sdkId: "Compute Optimizer Automation", sigV4ServiceName: "aco-automation", name: "ComputeOptimizerAutomationService.AssociateAccounts" }, AssociateAccountsRequest, AssociateAccountsResponse, [AccessDeniedException, ForbiddenException, IdempotencyTokenInUseException, IdempotentParameterMismatchException, InternalServerException, InvalidParameterValueException, NotManagementAccountException, OptInRequiredException, ServiceUnavailableException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -145,7 +144,6 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  */export const deleteAutomationRule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2025-09-22", sdkId: "Compute Optimizer Automation", sigV4ServiceName: "aco-automation", name: "ComputeOptimizerAutomationService.DeleteAutomationRule" }, DeleteAutomationRuleRequest, DeleteAutomationRuleResponse, [AccessDeniedException, ForbiddenException, IdempotencyTokenInUseException, IdempotentParameterMismatchException, InternalServerException, InvalidParameterValueException, OptInRequiredException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Disassociates member accounts from your organization's management account, removing centralized automation capabilities. Once disassociated, organization rules no longer apply to the member account, and the management account (or delegated administrator) cannot create Automation rules for that account.
- * 
  * 
  * Only the management account or a delegated administrator can perform this action.
  */export const disassociateAccounts = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2025-09-22", sdkId: "Compute Optimizer Automation", sigV4ServiceName: "aco-automation", name: "ComputeOptimizerAutomationService.DisassociateAccounts" }, DisassociateAccountsRequest, DisassociateAccountsResponse, [AccessDeniedException, ForbiddenException, IdempotencyTokenInUseException, IdempotentParameterMismatchException, InternalServerException, InvalidParameterValueException, NotManagementAccountException, OptInRequiredException, ServiceUnavailableException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -161,7 +159,6 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Lists the accounts in your organization that are enrolled in Compute Optimizer and whether they have enabled Automation.
  * 
- * 
  * Only the management account or a delegated administrator can perform this action.
  */export const listAccounts = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2025-09-22", sdkId: "Compute Optimizer Automation", sigV4ServiceName: "aco-automation", name: "ComputeOptimizerAutomationService.ListAccounts" }, ListAccountsRequest, ListAccountsResponse, [AccessDeniedException, ForbiddenException, InternalServerException, InvalidParameterValueException, NotManagementAccountException, OptInRequiredException, ServiceUnavailableException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -173,12 +170,10 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Initiates a rollback for a completed automation event.
  * 
- * 
  * Management accounts and delegated administrators can only initiate a rollback for events belonging to associated member accounts. You can associate a member account using `AssociateAccounts`.
  */export const rollbackAutomationEvent = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2025-09-22", sdkId: "Compute Optimizer Automation", sigV4ServiceName: "aco-automation", name: "ComputeOptimizerAutomationService.RollbackAutomationEvent" }, RollbackAutomationEventRequest, RollbackAutomationEventResponse, [AccessDeniedException, ForbiddenException, IdempotencyTokenInUseException, IdempotentParameterMismatchException, InternalServerException, InvalidParameterValueException, OptInRequiredException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Initiates a one-time, on-demand automation for the specified recommended action.
- * 
  * 
  * Management accounts and delegated administrators can only initiate recommended actions for associated member accounts. You can associate a member account using `AssociateAccounts`.
  */export const startAutomationEvent = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2025-09-22", sdkId: "Compute Optimizer Automation", sigV4ServiceName: "aco-automation", name: "ComputeOptimizerAutomationService.StartAutomationEvent" }, StartAutomationEventRequest, StartAutomationEventResponse, [AccessDeniedException, ForbiddenException, IdempotencyTokenInUseException, IdempotentParameterMismatchException, InternalServerException, InvalidParameterValueException, OptInRequiredException, ResourceNotFoundException, ServiceQuotaExceededException, ServiceUnavailableException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -200,12 +195,10 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Lists the recommended actions based that match specified filters.
  * 
- * 
  * Management accounts and delegated administrators can retrieve recommended actions that include associated member accounts. You can associate a member account using `AssociateAccounts`.
  */export const listRecommendedActions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2025-09-22", sdkId: "Compute Optimizer Automation", sigV4ServiceName: "aco-automation", name: "ComputeOptimizerAutomationService.ListRecommendedActions" }, ListRecommendedActionsRequest, ListRecommendedActionsResponse, [AccessDeniedException, ForbiddenException, InternalServerException, InvalidParameterValueException, OptInRequiredException, ServiceUnavailableException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Provides a summary of recommended actions based on specified filters.
- * 
  * 
  * Management accounts and delegated administrators can retrieve recommended actions that include associated member accounts. You can associate a member account using `AssociateAccounts`.
  */export const listRecommendedActionSummaries = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2025-09-22", sdkId: "Compute Optimizer Automation", sigV4ServiceName: "aco-automation", name: "ComputeOptimizerAutomationService.ListRecommendedActionSummaries" }, ListRecommendedActionSummariesRequest, ListRecommendedActionSummariesResponse, [AccessDeniedException, ForbiddenException, InternalServerException, InvalidParameterValueException, OptInRequiredException, ServiceUnavailableException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);

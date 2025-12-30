@@ -155,7 +155,6 @@ export class TooManyEntriesInBatchRequestException extends S.TaggedError<TooMany
  * Use this request to opt in a phone number that is opted out, which enables you to
  * resume sending SMS messages to the number.
  * 
- * 
  * You can opt in a phone number only once every 30 days.
  */export const optInPhoneNumber = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-03-31", sdkId: "SNS", sigV4ServiceName: "sns", name: "AmazonSimpleNotificationService.OptInPhoneNumber" }, OptInPhoneNumberInput, OptInPhoneNumberResponse, [AuthorizationErrorException, InternalErrorException, InvalidParameterException, ThrottledException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
@@ -174,14 +173,10 @@ export class TooManyEntriesInBatchRequestException extends S.TaggedError<TooMany
  * Use this request to set the default settings for sending SMS messages and receiving
  * daily SMS usage reports.
  * 
- * 
  * You can override some of these settings for a single message when you use the
  * `Publish` action with the `MessageAttributes.entry.N`
  * parameter. For more information, see Publishing to a mobile phone
  * in the *Amazon SNS Developer Guide*.
- * 
- * 
- * 
  * 
  * To use this operation, you must grant the Amazon SNS service principal
  * (`sns.amazonaws.com`) permission to perform the
@@ -189,9 +184,6 @@ export class TooManyEntriesInBatchRequestException extends S.TaggedError<TooMany
  */export const setSMSAttributes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-03-31", sdkId: "SNS", sigV4ServiceName: "sns", name: "AmazonSimpleNotificationService.SetSMSAttributes" }, SetSMSAttributesInput, SetSMSAttributesResponse, [AuthorizationErrorException, InternalErrorException, InvalidParameterException, ThrottledException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Allows a topic owner to set an attribute of the topic to a new value.
- * 
- * 
- * 
  * 
  * To remove the ability to change topic permissions, you must deny permissions to
  * the `AddPermission`, `RemovePermission`, and
@@ -205,15 +197,11 @@ export class TooManyEntriesInBatchRequestException extends S.TaggedError<TooMany
  * message is delivered to the endpoint, so that the endpoint owner can easily resubscribe
  * to the topic if the `Unsubscribe` request was unintended.
  * 
- * 
  * This action is throttled at 100 transactions per second (TPS).
  */export const unsubscribe = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-03-31", sdkId: "SNS", sigV4ServiceName: "sns", name: "AmazonSimpleNotificationService.Unsubscribe" }, UnsubscribeInput, S.Struct({}), [AuthorizationErrorException, InternalErrorException, InvalidParameterException, InvalidSecurityException, NotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Adds a statement to a topic's access control policy, granting access for the specified
  * Amazon Web Services accounts to the specified actions.
- * 
- * 
- * 
  * 
  * To remove the ability to change topic permissions, you must deny permissions to
  * the `AddPermission`, `RemovePermission`, and
@@ -223,7 +211,6 @@ export class TooManyEntriesInBatchRequestException extends S.TaggedError<TooMany
  * Accepts a phone number and indicates whether the phone holder has opted out of
  * receiving SMS messages from your Amazon Web Services account. You cannot send SMS messages to a number
  * that is opted out.
- * 
  * 
  * To resume sending messages, you can opt in the number by using the
  * `OptInPhoneNumber` action.
@@ -240,7 +227,6 @@ export class TooManyEntriesInBatchRequestException extends S.TaggedError<TooMany
  * is returned without creating a new endpoint. For more information, see Using Amazon SNS Mobile Push
  * Notifications.
  * 
- * 
  * When using `CreatePlatformEndpoint` with Baidu, two attributes must be
  * provided: ChannelId and UserId. The token field must also contain the ChannelId. For
  * more information, see Creating an Amazon SNS Endpoint for
@@ -250,7 +236,6 @@ export class TooManyEntriesInBatchRequestException extends S.TaggedError<TooMany
  * Deletes the endpoint for a device and mobile app from Amazon SNS. This action is
  * idempotent. For more information, see Using Amazon SNS Mobile Push
  * Notifications.
- * 
  * 
  * When you delete an endpoint that is also subscribed to a topic, then you must also
  * unsubscribe the endpoint from the topic.
@@ -272,13 +257,11 @@ export class TooManyEntriesInBatchRequestException extends S.TaggedError<TooMany
 /**
  * Returns the settings for sending SMS messages from your Amazon Web Services account.
  * 
- * 
  * These settings are set with the `SetSMSAttributes` action.
  */export const getSMSAttributes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-03-31", sdkId: "SNS", sigV4ServiceName: "sns", name: "AmazonSimpleNotificationService.GetSMSAttributes" }, GetSMSAttributesInput, GetSMSAttributesResponse, [AuthorizationErrorException, InternalErrorException, InvalidParameterException, ThrottledException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Retrieves the SMS sandbox status for the calling Amazon Web Services account in the target
  * Amazon Web Services Region.
- * 
  * 
  * When you start using Amazon SNS to send SMS messages, your Amazon Web Services account is in the
  * *SMS sandbox*. The SMS sandbox provides a safe environment for
@@ -300,7 +283,6 @@ export class TooManyEntriesInBatchRequestException extends S.TaggedError<TooMany
  * Returns a list of phone numbers that are opted out, meaning you cannot send SMS
  * messages to them.
  * 
- * 
  * The results for `ListPhoneNumbersOptedOut` are paginated, and each page
  * returns up to 100 phone numbers. If additional phone numbers are available after the
  * first page of results, then a `NextToken` string will be returned. To receive
@@ -314,7 +296,6 @@ export class TooManyEntriesInBatchRequestException extends S.TaggedError<TooMany
  * `NextToken` is also returned. Use the `NextToken` parameter in
  * a new `ListSubscriptionsByTopic` call to get further results.
  * 
- * 
  * This action is throttled at 30 transactions per second (TPS).
  */export const listSubscriptionsByTopic = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-03-31", sdkId: "SNS", sigV4ServiceName: "sns", name: "AmazonSimpleNotificationService.ListSubscriptionsByTopic" }, ListSubscriptionsByTopicInput, ListSubscriptionsByTopicResponse, [AuthorizationErrorException, InternalErrorException, InvalidParameterException, NotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
@@ -323,9 +304,6 @@ export class TooManyEntriesInBatchRequestException extends S.TaggedError<TooMany
  */export const putDataProtectionPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-03-31", sdkId: "SNS", sigV4ServiceName: "sns", name: "AmazonSimpleNotificationService.PutDataProtectionPolicy" }, PutDataProtectionPolicyInput, S.Struct({}), [AuthorizationErrorException, InternalErrorException, InvalidParameterException, InvalidSecurityException, NotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Removes a statement from a topic's access control policy.
- * 
- * 
- * 
  * 
  * To remove the ability to change topic permissions, you must deny permissions to
  * the `AddPermission`, `RemovePermission`, and
@@ -339,28 +317,17 @@ export class TooManyEntriesInBatchRequestException extends S.TaggedError<TooMany
  * Add tags to the specified Amazon SNS topic. For an overview, see Amazon SNS Tags in the
  * *Amazon SNS Developer Guide*.
  * 
- * 
  * When you use topic tags, keep the following guidelines in mind:
  * 
- * 
- * 
  * - Adding more than 50 tags to a topic isn't recommended.
- * 
- * 
  * 
  * - Tags don't have any semantic meaning. Amazon SNS interprets tags as character
  * strings.
  * 
- * 
- * 
  * - Tags are case-sensitive.
- * 
- * 
  * 
  * - A new tag with a key identical to that of an existing tag overwrites the
  * existing tag.
- * 
- * 
  * 
  * - Tagging actions are limited to 10 TPS per Amazon Web Services account, per Amazon Web Services Region. If
  * your application requires a higher throughput, file a technical support request.
@@ -372,7 +339,6 @@ export class TooManyEntriesInBatchRequestException extends S.TaggedError<TooMany
 /**
  * Verifies a destination phone number with a one-time password (OTP) for the calling
  * Amazon Web Services account.
- * 
  * 
  * When you start using Amazon SNS to send SMS messages, your Amazon Web Services account is in the
  * *SMS sandbox*. The SMS sandbox provides a safe environment for
@@ -390,40 +356,26 @@ export class TooManyEntriesInBatchRequestException extends S.TaggedError<TooMany
  * `PlatformCredential` attributes when using the
  * `CreatePlatformApplication` action.
  * 
- * 
- * 
  * `PlatformPrincipal` and `PlatformCredential` are received from
  * the notification service.
  * 
- * 
- * 
  * - For ADM, `PlatformPrincipal` is `client id` and
  * `PlatformCredential` is `client secret`.
- * 
- * 
  * 
  * - For APNS and `APNS_SANDBOX` using certificate credentials,
  * `PlatformPrincipal` is `SSL certificate` and
  * `PlatformCredential` is `private key`.
  * 
- * 
- * 
  * - For APNS and `APNS_SANDBOX` using token credentials,
  * `PlatformPrincipal` is `signing key ID` and
  * `PlatformCredential` is `signing key`.
  * 
- * 
- * 
  * - For Baidu, `PlatformPrincipal` is `API key` and
  * `PlatformCredential` is `secret key`.
- * 
- * 
  * 
  * - For GCM (Firebase Cloud Messaging) using key credentials, there is no
  * `PlatformPrincipal`. The `PlatformCredential` is
  * `API key`.
- * 
- * 
  * 
  * - For GCM (Firebase Cloud Messaging) using token credentials, there is no
  * `PlatformPrincipal`. The `PlatformCredential` is a
@@ -434,17 +386,12 @@ export class TooManyEntriesInBatchRequestException extends S.TaggedError<TooMany
  * Identifier and `PlatformCredential` is secret
  * key.
  * 
- * 
- * 
- * 
- * 
  * You can use the returned `PlatformApplicationArn` as an attribute for the
  * `CreatePlatformEndpoint` action.
  */export const createPlatformApplication = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-03-31", sdkId: "SNS", sigV4ServiceName: "sns", name: "AmazonSimpleNotificationService.CreatePlatformApplication" }, CreatePlatformApplicationInput, CreatePlatformApplicationResponse, [AuthorizationErrorException, InternalErrorException, InvalidParameterException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Adds a destination phone number to an Amazon Web Services account in the SMS sandbox and sends a
  * one-time password (OTP) to that phone number.
- * 
  * 
  * When you start using Amazon SNS to send SMS messages, your Amazon Web Services account is in the
  * *SMS sandbox*. The SMS sandbox provides a safe environment for
@@ -458,7 +405,6 @@ export class TooManyEntriesInBatchRequestException extends S.TaggedError<TooMany
 /**
  * Deletes an Amazon Web Services account's verified or pending phone number from the SMS
  * sandbox.
- * 
  * 
  * When you start using Amazon SNS to send SMS messages, your Amazon Web Services account is in the
  * *SMS sandbox*. The SMS sandbox provides a safe environment for
@@ -486,7 +432,6 @@ export class TooManyEntriesInBatchRequestException extends S.TaggedError<TooMany
  * will be null. For more information, see Using Amazon SNS Mobile Push
  * Notifications.
  * 
- * 
  * This action is throttled at 30 transactions per second (TPS).
  */export const listEndpointsByPlatformApplication = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-03-31", sdkId: "SNS", sigV4ServiceName: "sns", name: "AmazonSimpleNotificationService.ListEndpointsByPlatformApplication" }, ListEndpointsByPlatformApplicationInput, ListEndpointsByPlatformApplicationResponse, [AuthorizationErrorException, InternalErrorException, InvalidParameterException, NotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
@@ -500,13 +445,11 @@ export class TooManyEntriesInBatchRequestException extends S.TaggedError<TooMany
  * null. For more information, see Using Amazon SNS Mobile Push
  * Notifications.
  * 
- * 
  * This action is throttled at 15 transactions per second (TPS).
  */export const listPlatformApplications = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-03-31", sdkId: "SNS", sigV4ServiceName: "sns", name: "AmazonSimpleNotificationService.ListPlatformApplications" }, ListPlatformApplicationsInput, ListPlatformApplicationsResponse, [AuthorizationErrorException, InternalErrorException, InvalidParameterException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Lists the calling Amazon Web Services account's current verified and pending destination phone
  * numbers in the SMS sandbox.
- * 
  * 
  * When you start using Amazon SNS to send SMS messages, your Amazon Web Services account is in the
  * *SMS sandbox*. The SMS sandbox provides a safe environment for
@@ -523,7 +466,6 @@ export class TooManyEntriesInBatchRequestException extends S.TaggedError<TooMany
  * also returned. Use the `NextToken` parameter in a new
  * `ListSubscriptions` call to get further results.
  * 
- * 
  * This action is throttled at 30 transactions per second (TPS).
  */export const listSubscriptions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-03-31", sdkId: "SNS", sigV4ServiceName: "sns", name: "AmazonSimpleNotificationService.ListSubscriptions" }, ListSubscriptionsInput, ListSubscriptionsResponse, [AuthorizationErrorException, InternalErrorException, InvalidParameterException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
@@ -536,7 +478,6 @@ export class TooManyEntriesInBatchRequestException extends S.TaggedError<TooMany
  * `NextToken` parameter in a new `ListTopics` call to get
  * further results.
  * 
- * 
  * This action is throttled at 30 transactions per second (TPS).
  */export const listTopics = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-03-31", sdkId: "SNS", sigV4ServiceName: "sns", name: "AmazonSimpleNotificationService.ListTopics" }, ListTopicsInput, ListTopicsResponse, [AuthorizationErrorException, InternalErrorException, InvalidParameterException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
@@ -544,10 +485,8 @@ export class TooManyEntriesInBatchRequestException extends S.TaggedError<TooMany
  * if the endpoint and the topic are not in the same Amazon Web Services account, the endpoint owner must
  * run the `ConfirmSubscription` action to confirm the subscription.
  * 
- * 
  * You call the `ConfirmSubscription` action with the token from the
  * subscription response. Confirmation tokens are valid for two days.
- * 
  * 
  * This action is throttled at 100 transactions per second (TPS).
  */export const subscribe = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-03-31", sdkId: "SNS", sigV4ServiceName: "sns", name: "AmazonSimpleNotificationService.Subscribe" }, SubscribeInput, SubscribeResponse, [AuthorizationErrorException, FilterPolicyLimitExceededException, InternalErrorException, InvalidParameterException, InvalidSecurityException, NotFoundException, ReplayLimitExceededException, SubscriptionLimitExceededException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
@@ -575,27 +514,20 @@ export class TooManyEntriesInBatchRequestException extends S.TaggedError<TooMany
  * number, or a message to a mobile platform endpoint (when you specify the
  * `TargetArn`).
  * 
- * 
  * If you send a message to a topic, Amazon SNS delivers the message to each endpoint that is
  * subscribed to the topic. The format of the message depends on the notification protocol
  * for each subscribed endpoint.
  * 
- * 
  * When a `messageId` is returned, the message is saved and Amazon SNS immediately
  * delivers it to subscribers.
- * 
  * 
  * To use the `Publish` action for publishing a message to a mobile endpoint,
  * such as an app on a Kindle device or mobile phone, you must specify the EndpointArn for
  * the TargetArn parameter. The EndpointArn is returned when making a call with the
  * `CreatePlatformEndpoint` action.
  * 
- * 
  * For more information about formatting messages, see Send Custom
  * Platform-Specific Payloads in Messages to Mobile Devices.
- * 
- * 
- * 
  * 
  * You can publish messages only to topics and endpoints in the same
  * Amazon Web Services Region.
@@ -606,53 +538,36 @@ export class TooManyEntriesInBatchRequestException extends S.TaggedError<TooMany
  * single batch request, you will receive a `TooManyEntriesInBatchRequest`
  * exception.
  * 
- * 
  * For FIFO topics, multiple messages within a single batch are published in the order
  * they are sent, and messages are deduplicated within the batch and across batches for
  * five minutes.
- * 
  * 
  * The result of publishing each message is reported individually in the response.
  * Because the batch request can result in a combination of successful and unsuccessful
  * actions, you should check for batch errors even when the call returns an HTTP status
  * code of 200.
  * 
- * 
  * The maximum allowed individual message size and the maximum total payload size (the sum
  * of the individual lengths of all of the batched messages) are both 256 KB (262,144
  * bytes).
- * 
- * 
- * 
  * 
  * The `PublishBatch` API can send up to 10 messages at a time. If you
  * attempt to send more than 10 messages in one request, you will encounter a
  * `TooManyEntriesInBatchRequest` exception. In such cases, split your
  * messages into multiple requests, each containing no more than 10 messages.
  * 
- * 
- * 
- * 
  * Some actions take lists of parameters. These lists are specified using the
  * `param.n` notation. Values of `n` are integers starting from
  * **1**. For example, a parameter list with two elements
  * looks like this:
  * 
- * 
- * 
  * `&AttributeName.1=first`
  * 
- * 
- * 
- * 
  * `&AttributeName.2=second`
- * 
- * 
  * 
  * If you send a batch message to a topic, Amazon SNS publishes the batch message to each
  * endpoint that is subscribed to the topic. The format of the batch message depends on the
  * notification protocol for each subscribed endpoint.
- * 
  * 
  * When a `messageId` is returned, the batch message is saved, and Amazon SNS
  * immediately delivers the message to subscribers.

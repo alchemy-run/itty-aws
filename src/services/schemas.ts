@@ -96,7 +96,6 @@ export class PreconditionFailedException extends S.TaggedError<PreconditionFaile
 /**
  * Creates a schema definition.
  * 
- * 
  * Inactive schemas will be deleted after two years.
  */export const createSchema = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}", sdkId: "schemas", sigV4ServiceName: "schemas", name: "schemas.CreateSchema" }, CreateSchemaRequest, CreateSchemaResponse, [BadRequestException, ForbiddenException, InternalServerErrorException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -149,7 +148,6 @@ export class PreconditionFailedException extends S.TaggedError<PreconditionFaile
  */export const updateRegistry = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/v1/registries/name/{RegistryName}", method: "PUT", sdkId: "schemas", sigV4ServiceName: "schemas", name: "schemas.UpdateRegistry" }, UpdateRegistryRequest, UpdateRegistryResponse, [BadRequestException, ForbiddenException, InternalServerErrorException, NotFoundException, ServiceUnavailableException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the schema definition
- * 
  * 
  * Inactive schemas will be deleted after two years.
  */export const updateSchema = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}", method: "PUT", sdkId: "schemas", sigV4ServiceName: "schemas", name: "schemas.UpdateSchema" }, UpdateSchemaRequest, UpdateSchemaResponse, [BadRequestException, ForbiddenException, InternalServerErrorException, NotFoundException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

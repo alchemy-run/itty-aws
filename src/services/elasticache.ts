@@ -372,9 +372,6 @@ export class CacheSubnetGroupQuotaExceededFault extends S.TaggedError<CacheSubne
 /**
  * Deletes a cache subnet group.
  * 
- * 
- * 
- * 
  * You cannot delete a default cache subnet group or one that is associated with any
  * clusters.
  */export const deleteCacheSubnetGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.DeleteCacheSubnetGroup" }, DeleteCacheSubnetGroupMessage, S.Struct({}), [CacheSubnetGroupInUse, CacheSubnetGroupNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
@@ -382,26 +379,21 @@ export class CacheSubnetGroupQuotaExceededFault extends S.TaggedError<CacheSubne
  * Returns information about all provisioned clusters if no cluster identifier is
  * specified, or about a specific cache cluster if a cluster identifier is supplied.
  * 
- * 
  * By default, abbreviated information about the clusters is returned. You can use the
  * optional *ShowCacheNodeInfo* flag to retrieve detailed information
  * about the cache nodes associated with the clusters. These details include the DNS
  * address and port for the cache node endpoint.
  * 
- * 
  * If the cluster is in the *creating* state, only cluster-level
  * information is displayed until all of the nodes are successfully provisioned.
  * 
- * 
  * If the cluster is in the *deleting* state, only cluster-level
  * information is displayed.
- * 
  * 
  * If cache nodes are currently being added to the cluster, node endpoint information and
  * creation time for the additional nodes are not displayed until they are completely
  * provisioned. When the cluster state is *available*, the cluster is
  * ready for use.
- * 
  * 
  * If cache nodes are currently being removed from the cluster, no endpoint information
  * for the removed nodes is displayed.
@@ -441,7 +433,6 @@ export class CacheSubnetGroupQuotaExceededFault extends S.TaggedError<CacheSubne
  * Lists all available node types that you can scale with your cluster's replication
  * group's current node type.
  * 
- * 
  * When you use the `ModifyCacheCluster` or
  * `ModifyReplicationGroup` operations to scale your cluster or replication
  * group, the value of the `CacheNodeType` parameter must be one of the node
@@ -464,18 +455,14 @@ export class CacheSubnetGroupQuotaExceededFault extends S.TaggedError<CacheSubne
  * place as soon as possible, and results in a momentary outage to the cluster. During the
  * reboot, the cluster status is set to REBOOTING.
  * 
- * 
  * The reboot causes the contents of the cache (for each cache node being rebooted) to be
  * lost.
  * 
- * 
  * When the reboot is complete, a cluster event is created.
- * 
  * 
  * Rebooting a cluster is currently supported on Memcached, Valkey and Redis OSS (cluster mode
  * disabled) clusters. Rebooting is not supported on Valkey or Redis OSS (cluster mode enabled)
  * clusters.
- * 
  * 
  * If you make changes to parameters that require a Valkey or Redis OSS (cluster mode enabled) cluster
  * reboot for the changes to be applied, see Rebooting a Cluster for an alternate process.
@@ -507,30 +494,19 @@ export class CacheSubnetGroupQuotaExceededFault extends S.TaggedError<CacheSubne
 /**
  * Deletes a cache security group.
  * 
- * 
- * 
- * 
  * You cannot delete a cache security group if it is associated with any
  * clusters.
  */export const deleteCacheSecurityGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.DeleteCacheSecurityGroup" }, DeleteCacheSecurityGroupMessage, S.Struct({}), [CacheSecurityGroupNotFoundFault, InvalidCacheSecurityGroupStateFault, InvalidParameterCombinationException, InvalidParameterValueException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deleting a Global datastore is a two-step process:
  * 
- * 
- * 
  * - First, you must DisassociateGlobalReplicationGroup to remove
  * the secondary clusters in the Global datastore.
- * 
- * 
  * 
  * - Once the Global datastore contains only the primary cluster, you can use the
  * `DeleteGlobalReplicationGroup` API to delete the Global datastore
  * while retainining the primary cluster using
  * `RetainPrimaryReplicationGroup=true`.
- * 
- * 
- * 
- * 
  * 
  * Since the Global Datastore has only a primary cluster, you can delete the Global
  * Datastore while retaining the primary by setting
@@ -538,17 +514,12 @@ export class CacheSubnetGroupQuotaExceededFault extends S.TaggedError<CacheSubne
  * deleted when deleting a Global Datastore. It can only be deleted when it no longer is
  * associated with any Global Datastore.
  * 
- * 
  * When you receive a successful response from this operation, Amazon ElastiCache
  * immediately begins deleting the selected resources; you cannot cancel or revert this
  * operation.
  */export const deleteGlobalReplicationGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.DeleteGlobalReplicationGroup" }, DeleteGlobalReplicationGroupMessage, DeleteGlobalReplicationGroupResult, [GlobalReplicationGroupNotFoundFault, InvalidGlobalReplicationGroupStateFault, InvalidParameterValueException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes a specified existing serverless cache.
- * 
- * 
- * 
- * 
  * 
  * `CreateServerlessCacheSnapshot` permission is required to create a final snapshot.
  * Without this permission, the API call will fail with an `Access Denied` exception.
@@ -560,9 +531,6 @@ export class CacheSubnetGroupQuotaExceededFault extends S.TaggedError<CacheSubne
  * Deletes an existing snapshot. When you receive a successful response from this
  * operation, ElastiCache immediately begins deleting the snapshot; you cannot cancel or
  * revert this operation.
- * 
- * 
- * 
  * 
  * This operation is valid for Valkey or Redis OSS only.
  */export const deleteSnapshot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.DeleteSnapshot" }, DeleteSnapshotMessage, DeleteSnapshotResult, [InvalidParameterCombinationException, InvalidParameterValueException, InvalidSnapshotStateFault, SnapshotNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
@@ -583,7 +551,6 @@ export class CacheSubnetGroupQuotaExceededFault extends S.TaggedError<CacheSubne
  * You can obtain events specific to a particular cluster, cache security group, or cache
  * parameter group by providing the name as a parameter.
  * 
- * 
  * By default, only the events occurring within the last hour are returned; however, you
  * can retrieve up to 14 days' worth of events if necessary.
  */export const describeEvents = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.DescribeEvents" }, DescribeEventsMessage, EventsMessage, [InvalidParameterCombinationException, InvalidParameterValueException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
@@ -591,9 +558,6 @@ export class CacheSubnetGroupQuotaExceededFault extends S.TaggedError<CacheSubne
  * Returns information about a particular replication group. If no identifier is
  * specified, `DescribeReplicationGroups` returns information about all
  * replication groups.
- * 
- * 
- * 
  * 
  * This operation is valid for Valkey or Redis OSS only.
  */export const describeReplicationGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.DescribeReplicationGroups" }, DescribeReplicationGroupsMessage, ReplicationGroupMessage, [InvalidParameterCombinationException, InvalidParameterValueException, ReplicationGroupNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
@@ -617,9 +581,6 @@ export class CacheSubnetGroupQuotaExceededFault extends S.TaggedError<CacheSubne
  * describe a single snapshot, or just the snapshots associated with a particular cache
  * cluster.
  * 
- * 
- * 
- * 
  * This operation is valid for Valkey or Redis OSS only.
  */export const describeSnapshots = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.DescribeSnapshots" }, DescribeSnapshotsMessage, DescribeSnapshotsListMessage, [CacheClusterNotFoundFault, InvalidParameterCombinationException, InvalidParameterValueException, SnapshotNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
@@ -634,13 +595,11 @@ export class CacheSubnetGroupQuotaExceededFault extends S.TaggedError<CacheSubne
 /**
  * Lists all tags currently on a named resource.
  * 
- * 
  * A tag is a key-value pair where the key and value are case-sensitive. You can use
  * tags to categorize and track all your ElastiCache resources, with the exception of
  * global replication group. When you add or remove tags on replication groups, those
  * actions will be replicated to all nodes in the replication group. For more information,
  * see Resource-level permissions.
- * 
  * 
  * If the cluster is not in the *available* state,
  * `ListTagsForResource` returns an error.
@@ -674,13 +633,11 @@ export class CacheSubnetGroupQuotaExceededFault extends S.TaggedError<CacheSubne
  * replication group. When you add or remove tags on replication groups, those actions will
  * be replicated to all nodes in the replication group. For more information, see Resource-level permissions.
  * 
- * 
  * For example, you can use cost-allocation tags to your ElastiCache resources, Amazon
  * generates a cost allocation report as a comma-separated value (CSV) file with your usage
  * and costs aggregated by your tags. You can apply tags that represent business categories
  * (such as cost centers, application names, or owners) to organize your costs across
  * multiple services.
- * 
  * 
  * For more information, see Using Cost Allocation Tags in
  * Amazon ElastiCache in the ElastiCache User
@@ -689,7 +646,6 @@ export class CacheSubnetGroupQuotaExceededFault extends S.TaggedError<CacheSubne
 /**
  * Creates a new cache security group. Use a cache security group to control access to
  * one or more clusters.
- * 
  * 
  * Cache security groups are only used when you are creating a cluster outside of an
  * Amazon Virtual Private Cloud (Amazon VPC). If you are creating a cluster inside of a
@@ -702,9 +658,6 @@ export class CacheSubnetGroupQuotaExceededFault extends S.TaggedError<CacheSubne
  * Creates a copy of an entire cluster or replication group at a specific moment in
  * time.
  * 
- * 
- * 
- * 
  * This operation is valid for Valkey or Redis OSS only.
  */export const createSnapshot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.CreateSnapshot" }, CreateSnapshotMessage, CreateSnapshotResult, [CacheClusterNotFoundFault, InvalidCacheClusterStateFault, InvalidParameterCombinationException, InvalidParameterValueException, InvalidReplicationGroupStateFault, ReplicationGroupNotFoundFault, SnapshotAlreadyExistsFault, SnapshotFeatureNotSupportedFault, SnapshotQuotaExceededFault, TagQuotaPerResourceExceeded]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
@@ -713,34 +666,19 @@ export class CacheSubnetGroupQuotaExceededFault extends S.TaggedError<CacheSubne
  * successful response from this operation, Amazon ElastiCache immediately begins deleting
  * the cluster; you cannot cancel or revert this operation.
  * 
- * 
  * This operation is not valid for:
- * 
- * 
  * 
  * - Valkey or Redis OSS (cluster mode enabled) clusters
  * 
- * 
- * 
  * - Valkey or Redis OSS (cluster mode disabled) clusters
- * 
- * 
  * 
  * - A cluster that is the last read replica of a replication group
  * 
- * 
- * 
  * - A cluster that is the primary node of a replication group
- * 
- * 
  * 
  * - A node group (shard) that has Multi-AZ mode enabled
  * 
- * 
- * 
  * - A cluster from a Valkey or Redis OSS (cluster mode enabled) replication group
- * 
- * 
  * 
  * - A cluster that is not in the `available` state
  */export const deleteCacheCluster = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.DeleteCacheCluster" }, DeleteCacheClusterMessage, DeleteCacheClusterResult, [CacheClusterNotFoundFault, InvalidCacheClusterStateFault, InvalidParameterCombinationException, InvalidParameterValueException, SnapshotAlreadyExistsFault, SnapshotFeatureNotSupportedFault, SnapshotQuotaExceededFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
@@ -751,19 +689,12 @@ export class CacheSubnetGroupQuotaExceededFault extends S.TaggedError<CacheSubne
  * replicas, while retaining the primary by setting
  * `RetainPrimaryCluster=true`.
  * 
- * 
  * When you receive a successful response from this operation, Amazon ElastiCache
  * immediately begins deleting the selected resources; you cannot cancel or revert this
  * operation.
  * 
- * 
- * 
- * 
- * 
  * - `CreateSnapshot` permission is required to create a final snapshot.
  * Without this permission, the API call will fail with an `Access Denied` exception.
- * 
- * 
  * 
  * - This operation is valid for Redis OSS only.
  */export const deleteReplicationGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.DeleteReplicationGroup" }, DeleteReplicationGroupMessage, DeleteReplicationGroupResult, [InvalidParameterCombinationException, InvalidParameterValueException, InvalidReplicationGroupStateFault, ReplicationGroupNotFoundFault, SnapshotAlreadyExistsFault, SnapshotFeatureNotSupportedFault, SnapshotQuotaExceededFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
@@ -795,21 +726,11 @@ export class CacheSubnetGroupQuotaExceededFault extends S.TaggedError<CacheSubne
 /**
  * Modifies the settings for a replication group. This is limited to Valkey and Redis OSS 7 and above.
  * 
- * 
- * 
  * - Scaling for Valkey or Redis OSS (cluster mode enabled) in
  * the ElastiCache User Guide
  * 
- * 
- * 
  * - ModifyReplicationGroupShardConfiguration in the ElastiCache API
  * Reference
- * 
- * 
- * 
- * 
- * 
- * 
  * 
  * This operation is valid for Valkey or Redis OSS only.
  */export const modifyReplicationGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.ModifyReplicationGroup" }, ModifyReplicationGroupMessage, ModifyReplicationGroupResult, [CacheClusterNotFoundFault, CacheParameterGroupNotFoundFault, CacheSecurityGroupNotFoundFault, InsufficientCacheClusterCapacityFault, InvalidCacheClusterStateFault, InvalidCacheSecurityGroupStateFault, InvalidKMSKeyFault, InvalidParameterCombinationException, InvalidParameterValueException, InvalidReplicationGroupStateFault, InvalidUserGroupStateFault, InvalidVPCNetworkStateFault, NodeQuotaForClusterExceededFault, NodeQuotaForCustomerExceededFault, ReplicationGroupNotFoundFault, UserGroupNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
@@ -829,9 +750,6 @@ export class CacheSubnetGroupQuotaExceededFault extends S.TaggedError<CacheSubne
  * be running on Amazon EC2, and Amazon EC2 security groups are used as the authorization
  * mechanism.
  * 
- * 
- * 
- * 
  * You cannot authorize ingress from an Amazon EC2 security group in one region to an
  * ElastiCache cluster in another region.
  */export const authorizeCacheSecurityGroupIngress = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.AuthorizeCacheSecurityGroupIngress" }, AuthorizeCacheSecurityGroupIngressMessage, AuthorizeCacheSecurityGroupIngressResult, [AuthorizationAlreadyExistsFault, CacheSecurityGroupNotFoundFault, InvalidCacheSecurityGroupStateFault, InvalidParameterCombinationException, InvalidParameterValueException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
@@ -841,15 +759,7 @@ export class CacheSubnetGroupQuotaExceededFault extends S.TaggedError<CacheSubne
 /**
  * Makes a copy of an existing snapshot.
  * 
- * 
- * 
- * 
  * This operation is valid for Valkey or Redis OSS only.
- * 
- * 
- * 
- * 
- * 
  * 
  * Users or groups that have permissions to use the `CopySnapshot`
  * operation can create their own Amazon S3 buckets and copy snapshots to it. To
@@ -859,98 +769,61 @@ export class CacheSubnetGroupQuotaExceededFault extends S.TaggedError<CacheSubne
  * Snapshots and Authentication & Access
  * Control.
  * 
- * 
- * 
- * 
  * You could receive the following error messages.
  * 
- * 
  * **Error Messages**
- * 
- * 
- * 
  * 
  * - **Error Message:** The S3 bucket %s is outside of
  * the region.
  * 
- * 
- * 
  * **Solution:** Create an Amazon S3 bucket in the
  * same region as your snapshot. For more information, see Step 1: Create an Amazon S3 Bucket in the ElastiCache User
  * Guide.
- * 
- * 
  * 
  * - **Error Message:** The S3 bucket %s does not
  * exist.
  * 
- * 
- * 
  * **Solution:** Create an Amazon S3 bucket in the
  * same region as your snapshot. For more information, see Step 1: Create an Amazon S3 Bucket in the ElastiCache User
  * Guide.
- * 
- * 
  * 
  * - **Error Message:** The S3 bucket %s is not owned
  * by the authenticated user.
  * 
- * 
- * 
  * **Solution:** Create an Amazon S3 bucket in the
  * same region as your snapshot. For more information, see Step 1: Create an Amazon S3 Bucket in the ElastiCache User
  * Guide.
  * 
- * 
- * 
  * - **Error Message:** The authenticated user does
  * not have sufficient permissions to perform the desired activity.
- * 
- * 
  * 
  * **Solution:** Contact your system administrator
  * to get the needed permissions.
  * 
- * 
- * 
  * - **Error Message:** The S3 bucket %s already
  * contains an object with key %s.
- * 
- * 
  * 
  * **Solution:** Give the
  * `TargetSnapshotName` a new and unique value. If exporting a
  * snapshot, you could alternatively create a new Amazon S3 bucket and use this
  * same value for `TargetSnapshotName`.
  * 
- * 
- * 
  * - **Error Message: ** ElastiCache has not been
  * granted READ permissions %s on the S3 Bucket.
- * 
- * 
  * 
  * **Solution:** Add List and Read permissions on
  * the bucket. For more information, see Step 2: Grant ElastiCache Access to Your Amazon S3 Bucket in the
  * ElastiCache User Guide.
  * 
- * 
- * 
  * - **Error Message: ** ElastiCache has not been
  * granted WRITE permissions %s on the S3 Bucket.
- * 
- * 
  * 
  * **Solution:** Add Upload/Delete permissions on
  * the bucket. For more information, see Step 2: Grant ElastiCache Access to Your Amazon S3 Bucket in the
  * ElastiCache User Guide.
  * 
- * 
- * 
  * - **Error Message: ** ElastiCache has not been
  * granted READ_ACP permissions %s on the S3 Bucket.
- * 
- * 
  * 
  * **Solution:** Add View Permissions on the bucket.
  * For more information, see Step 2: Grant ElastiCache Access to Your Amazon S3 Bucket in the
@@ -961,17 +834,12 @@ export class CacheSubnetGroupQuotaExceededFault extends S.TaggedError<CacheSubne
  * group is a collection of parameters and their values that are applied to all of the
  * nodes in any cluster or replication group using the CacheParameterGroup.
  * 
- * 
  * A newly created CacheParameterGroup is an exact duplicate of the default parameter
  * group for the CacheParameterGroupFamily. To customize the newly created
  * CacheParameterGroup you can change the values of specific parameters. For more
  * information, see:
  * 
- * 
- * 
  * - ModifyCacheParameterGroup in the ElastiCache API Reference.
- * 
- * 
  * 
  * - Parameters and
  * Parameter Groups in the ElastiCache User Guide.
@@ -983,12 +851,8 @@ export class CacheSubnetGroupQuotaExceededFault extends S.TaggedError<CacheSubne
  * recovery across regions. For more information, see Replication
  * Across Regions Using Global Datastore.
  * 
- * 
- * 
  * - The **GlobalReplicationGroupIdSuffix** is the
  * name of the Global datastore.
- * 
- * 
  * 
  * - The **PrimaryReplicationGroupId** represents the
  * name of the primary cluster that accepts writes and will replicate updates to
@@ -998,21 +862,17 @@ export class CacheSubnetGroupQuotaExceededFault extends S.TaggedError<CacheSubne
  * Creates a Valkey or Redis OSS (cluster mode disabled) or a Valkey or Redis OSS (cluster mode enabled) replication
  * group.
  * 
- * 
  * This API can be used to create a standalone regional replication group or a secondary
  * replication group associated with a Global datastore.
- * 
  * 
  * A Valkey or Redis OSS (cluster mode disabled) replication group is a collection of nodes, where
  * one of the nodes is a read/write primary and the others are read-only replicas.
  * Writes to the primary are asynchronously propagated to the replicas.
  * 
- * 
  * A Valkey or Redis OSS cluster-mode enabled cluster is comprised of from 1 to 90 shards (API/CLI:
  * node groups). Each shard has a primary node and up to 5 read-only replica nodes. The
  * configuration can range from 90 shards and 0 replicas to 15 shards and 5 replicas, which
  * is the maximum number or replicas allowed.
- * 
  * 
  * The node or shard limit can be increased to a maximum of 500 per cluster if the Valkey or Redis OSS
  * engine version is 5.0.6 or higher. For example, you can choose to configure a 500 node
@@ -1023,20 +883,15 @@ export class CacheSubnetGroupQuotaExceededFault extends S.TaggedError<CacheSubne
  * clusters. For more information, see Creating a Subnet
  * Group. For versions below 5.0.6, the limit is 250 per cluster.
  * 
- * 
  * To request a limit increase, see Amazon Service Limits and
  * choose the limit type Nodes per cluster per instance
  * type.
- * 
  * 
  * When a Valkey or Redis OSS (cluster mode disabled) replication group has been successfully created,
  * you can add one or more read replicas to it, up to a total of 5 read replicas. If you
  * need to increase or decrease the number of node groups (console: shards), you can use scaling.
  * For more information, see Scaling self-designed clusters in the ElastiCache User
  * Guide.
- * 
- * 
- * 
  * 
  * This operation is valid for Valkey and Redis OSS only.
  */export const createReplicationGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.CreateReplicationGroup" }, CreateReplicationGroupMessage, CreateReplicationGroupResult, [CacheClusterNotFoundFault, CacheParameterGroupNotFoundFault, CacheSecurityGroupNotFoundFault, CacheSubnetGroupNotFoundFault, ClusterQuotaForCustomerExceededFault, GlobalReplicationGroupNotFoundFault, InsufficientCacheClusterCapacityFault, InvalidCacheClusterStateFault, InvalidGlobalReplicationGroupStateFault, InvalidParameterCombinationException, InvalidParameterValueException, InvalidUserGroupStateFault, InvalidVPCNetworkStateFault, NodeGroupsPerReplicationGroupQuotaExceededFault, NodeQuotaForClusterExceededFault, NodeQuotaForCustomerExceededFault, ReplicationGroupAlreadyExistsFault, TagQuotaPerResourceExceeded, UserGroupNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
@@ -1059,96 +914,50 @@ export class CacheSubnetGroupQuotaExceededFault extends S.TaggedError<CacheSubne
  * failover on a specified node group (called shard in the console) in a replication group
  * (called cluster in the console).
  * 
- * 
  * This API is designed for testing the behavior of your application in case of
  * ElastiCache failover. It is not designed to be an operational tool for initiating a
  * failover to overcome a problem you may have with the cluster. Moreover, in certain
  * conditions such as large-scale operational events, Amazon may block this API.
  * 
- * 
  * **Note the following**
- * 
- * 
- * 
  * 
  * - A customer can use this operation to test automatic failover on up to 15 shards
  * (called node groups in the ElastiCache API and Amazon CLI) in any rolling
  * 24-hour period.
  * 
- * 
- * 
  * - If calling this operation on shards in different clusters (called replication
  * groups in the API and CLI), the calls can be made concurrently.
  * 
- * 
- * 
- * 
- * 
- * 
  * - If calling this operation multiple times on different shards in the same Valkey or Redis OSS (cluster mode enabled) replication group, the first node replacement must
  * complete before a subsequent call can be made.
- * 
- * 
  * 
  * - To determine whether the node replacement is complete you can check Events
  * using the Amazon ElastiCache console, the Amazon CLI, or the ElastiCache API.
  * Look for the following automatic failover related events, listed here in order
  * of occurrance:
  * 
- * 
- * 
  * - Replication group message: Test Failover API called for node
  * group
- * 
- * 
- * 
  * 
  * - Cache cluster message: Failover from primary node
  * to replica node
  * completed
  * 
- * 
- * 
- * 
  * - Replication group message: Failover from primary node
  * to replica node
  * completed
  * 
- * 
- * 
- * 
  * - Cache cluster message: Recovering cache nodes
- * 
- * 
- * 
- * 
  * 
  * - Cache cluster message: Finished recovery for cache nodes
  * 
- * 
- * 
- * 
- * 
- * 
  * For more information see:
- * 
- * 
  * 
  * - Viewing
  * ElastiCache Events in the ElastiCache User
  * Guide
  * 
- * 
- * 
- * 
  * - DescribeEvents in the ElastiCache API Reference
- * 
- * 
- * 
- * 
- * 
- * 
- * 
  * 
  * Also see, Testing
  * Multi-AZ in the *ElastiCache User Guide*.
@@ -1156,7 +965,6 @@ export class CacheSubnetGroupQuotaExceededFault extends S.TaggedError<CacheSubne
 /**
  * Creates a cluster. All nodes in the cluster run the same protocol-compliant cache
  * engine software, either Memcached, Valkey or Redis OSS.
- * 
  * 
  * This operation is not supported for Valkey or Redis OSS (cluster mode enabled) clusters.
  */export const createCacheCluster = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.CreateCacheCluster" }, CreateCacheClusterMessage, CreateCacheClusterResult, [CacheClusterAlreadyExistsFault, CacheParameterGroupNotFoundFault, CacheSecurityGroupNotFoundFault, CacheSubnetGroupNotFoundFault, ClusterQuotaForCustomerExceededFault, InsufficientCacheClusterCapacityFault, InvalidParameterCombinationException, InvalidParameterValueException, InvalidReplicationGroupStateFault, InvalidVPCNetworkStateFault, NodeQuotaForClusterExceededFault, NodeQuotaForCustomerExceededFault, ReplicationGroupNotFoundFault, TagQuotaPerResourceExceeded]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
@@ -1174,7 +982,6 @@ export class CacheSubnetGroupQuotaExceededFault extends S.TaggedError<CacheSubne
  */export const completeMigration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.CompleteMigration" }, CompleteMigrationMessage, CompleteMigrationResponse, [InvalidReplicationGroupStateFault, ReplicationGroupNotFoundFault, ReplicationGroupNotUnderMigrationFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Creates a new cache subnet group.
- * 
  * 
  * Use this parameter only when you are creating a cluster in an Amazon Virtual Private
  * Cloud (Amazon VPC).

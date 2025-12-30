@@ -75,7 +75,6 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Get the import job properties to learn more about the job or job progress.
  * 
- * 
  * The `jobStatus` refers to the execution of the import job. Therefore, an import job can return a `jobStatus` as `COMPLETED` even if validation issues are discovered during the import process. If a `jobStatus` returns as `COMPLETED`, we still recommend you review the output manifests written to S3, as they provide details on the success or failure of individual P10 object imports.
  */export const getDICOMImportJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-07-19", uri: "/getDICOMImportJob/datastore/{datastoreId}/job/{jobId}", method: "GET", sdkId: "Medical Imaging", sigV4ServiceName: "medical-imaging", name: "AHIGatewayService.GetDICOMImportJob" }, GetDICOMImportJobRequest, GetDICOMImportJobResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -113,7 +112,6 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  */export const copyImageSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-07-19", uri: "/datastore/{datastoreId}/imageSet/{sourceImageSetId}/copyImageSet", sdkId: "Medical Imaging", sigV4ServiceName: "medical-imaging", name: "AHIGatewayService.CopyImageSet" }, CopyImageSetRequest, CopyImageSetResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Search image sets based on defined input attributes.
- * 
  * 
  * `SearchImageSets` accepts a single search query parameter and returns a paginated response of all image sets that have the matching criteria. All date range queries must be input as `(lowerBound, upperBound)`.
  * 

@@ -64,7 +64,6 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Attempts to cancel a component deployment (for a component that is in the `IN_PROGRESS` deployment status).
  * 
- * 
  * For more information about components, see
  * Proton components in the
  * *Proton User Guide*.
@@ -74,20 +73,13 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * more information, see Update a service instance
  * in the *Proton User guide*.
  * 
- * 
  * The following list includes potential cancellation scenarios.
- * 
- * 
  * 
  * - If the cancellation attempt succeeds, the resulting deployment state is
  * `CANCELLED`.
  * 
- * 
- * 
  * - If the cancellation attempt fails, the resulting deployment state is
  * `FAILED`.
- * 
- * 
  * 
  * - If the current UpdateServiceInstance action succeeds before the
  * cancellation attempt starts, the resulting deployment state is `SUCCEEDED` and
@@ -98,20 +90,13 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * more information, see Update a service pipeline
  * in the *Proton User guide*.
  * 
- * 
  * The following list includes potential cancellation scenarios.
- * 
- * 
  * 
  * - If the cancellation attempt succeeds, the resulting deployment state is
  * `CANCELLED`.
  * 
- * 
- * 
  * - If the cancellation attempt fails, the resulting deployment state is
  * `FAILED`.
- * 
- * 
  * 
  * - If the current UpdateServicePipeline action succeeds before the
  * cancellation attempt starts, the resulting deployment state is `SUCCEEDED` and
@@ -120,19 +105,15 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Get counts of Proton resources.
  * 
- * 
  * For infrastructure-provisioning resources (environments, services, service instances, pipelines), the action returns staleness counts. A
  * resource is stale when it's behind the recommended version of the Proton template that it uses and it needs an update to become current.
- * 
  * 
  * The action returns staleness counts (counts of resources that are up-to-date, behind a template major version, or behind a template minor
  * version), the total number of resources, and the number of resources that are in a failed state, grouped by resource type. Components,
  * environments, and service templates return less information - see the `components`, `environments`, and
  * `serviceTemplates` field descriptions.
  * 
- * 
  * For context, the action also returns the total number of each type of Proton template in the Amazon Web Services account.
- * 
  * 
  * For more information, see Proton dashboard in the
  * *Proton User Guide*.
@@ -150,13 +131,11 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Tag a resource. A tag is a key-value pair of metadata that you associate with an Proton resource.
  * 
- * 
  * For more information, see Proton resources and tagging in
  * the *Proton User Guide*.
  */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-07-20", sdkId: "Proton", sigV4ServiceName: "proton", name: "AwsProton20200720.TagResource" }, TagResourceInput, TagResourceOutput, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Remove a customer tag from a resource. A tag is a key-value pair of metadata associated with an Proton resource.
- * 
  * 
  * For more information, see Proton resources and tagging in
  * the *Proton User Guide*.
@@ -166,18 +145,11 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * information, see Update an environment in the Proton
  * User guide.
  * 
- * 
  * The following list includes potential cancellation scenarios.
- * 
- * 
  * 
  * - If the cancellation attempt succeeds, the resulting deployment state is `CANCELLED`.
  * 
- * 
- * 
  * - If the cancellation attempt fails, the resulting deployment state is `FAILED`.
- * 
- * 
  * 
  * - If the current UpdateEnvironment action succeeds before the cancellation attempt starts, the resulting deployment state is
  * `SUCCEEDED` and the cancellation attempt has no effect.
@@ -185,13 +157,9 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Get the sync status of a repository used for Proton template sync. For more information about template sync, see .
  * 
- * 
- * 
- * 
  * A repository sync status isn't tied to the Proton Repository resource (or any other Proton resource). Therefore, tags on an Proton Repository resource
  * have no effect on this action. Specifically, you can't use these tags to control access to this action using Attribute-based access control
  * (ABAC).
- * 
  * 
  * For more information about ABAC, see ABAC in the Proton User
  * Guide.
@@ -201,7 +169,6 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  */export const getServiceInstanceSyncStatus = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-07-20", sdkId: "Proton", sigV4ServiceName: "proton", name: "AwsProton20200720.GetServiceInstanceSyncStatus" }, GetServiceInstanceSyncStatusInput, GetServiceInstanceSyncStatusOutput, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Notify Proton of status changes to a provisioned resource when you use self-managed provisioning.
- * 
  * 
  * For more information, see Self-managed provisioning in the *Proton User Guide*.
  */export const notifyResourceDeploymentStatusChange = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-07-20", sdkId: "Proton", sigV4ServiceName: "proton", name: "AwsProton20200720.NotifyResourceDeploymentStatusChange" }, NotifyResourceDeploymentStatusChangeInput, NotifyResourceDeploymentStatusChangeOutput, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);

@@ -258,7 +258,6 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Updates the databases mounted on a kdb cluster, which includes the `changesetId` and all the dbPaths to be cached. This API does not allow you to change a database name or add a database if you created a cluster without one.
  * 
- * 
  * Using this API you can point a cluster to a different changeset and modify a list of partitions being cached.
  */export const updateKxClusterDatabases = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-03-12", uri: "/kx/environments/{environmentId}/clusters/{clusterName}/configuration/databases", method: "PUT", sdkId: "finspace", sigV4ServiceName: "finspace", name: "AWSHabaneroManagementService.UpdateKxClusterDatabases" }, UpdateKxClusterDatabasesRequest, UpdateKxClusterDatabasesResponse, [AccessDeniedException, ConflictException, InternalServerException, LimitExceededException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -342,7 +341,6 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  */export const createKxCluster = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-03-12", uri: "/kx/environments/{environmentId}/clusters", sdkId: "finspace", sigV4ServiceName: "finspace", name: "AWSHabaneroManagementService.CreateKxCluster" }, CreateKxClusterRequest, CreateKxClusterResponse, [AccessDeniedException, ConflictException, InternalServerException, LimitExceededException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates environment network to connect to your internal network by using a transit gateway. This API supports request to create a transit gateway attachment from FinSpace VPC to your transit gateway ID and create a custom Route-53 outbound resolvers.
- * 
  * 
  * Once you send a request to update a network, you cannot change it again. Network update might require termination of any clusters that are running in the existing network.
  */export const updateKxEnvironmentNetwork = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-03-12", uri: "/kx/environments/{environmentId}/network", method: "PUT", sdkId: "finspace", sigV4ServiceName: "finspace", name: "AWSHabaneroManagementService.UpdateKxEnvironmentNetwork" }, UpdateKxEnvironmentNetworkRequest, UpdateKxEnvironmentNetworkResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

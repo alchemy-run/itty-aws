@@ -82,15 +82,10 @@ export class TaskNotFoundException extends S.TaggedError<TaskNotFoundException>(
  * Validates the specified pipeline and starts processing pipeline tasks. If the pipeline does not pass validation,
  * activation fails.
  * 
- * 
  * If you need to pause the pipeline to investigate an issue with a component, such as a data source or script,
  * call DeactivatePipeline.
  * 
- * 
  * To activate a finished pipeline, modify the end date for the pipeline and then activate it.
- * 
- * 
- * 
  * 
  * POST / HTTP/1.1
  * Content-Type: application/x-amz-json-1.1
@@ -101,9 +96,6 @@ export class TaskNotFoundException extends S.TaggedError<TaskNotFoundException>(
  * Authorization: AuthParams
  * 
  * {"pipelineId": "df-06372391ZG65EXAMPLE"}
- * 
- * 
- * 
  * 
  * HTTP/1.1 200
  * x-amzn-RequestId: ee19d5bf-074e-11e2-af6f-6bc7a6be60d9
@@ -119,10 +111,6 @@ export class TaskNotFoundException extends S.TaggedError<TaskNotFoundException>(
 /**
  * Creates a new, empty pipeline. Use PutPipelineDefinition to populate the pipeline.
  * 
- * 
- * 
- * 
- * 
  * POST / HTTP/1.1
  * Content-Type: application/x-amz-json-1.1
  * X-Amz-Target: DataPipeline.CreatePipeline
@@ -134,10 +122,6 @@ export class TaskNotFoundException extends S.TaggedError<TaskNotFoundException>(
  * {"name": "myPipeline",
  * "uniqueId": "123456789",
  * "description": "This is my first pipeline"}
- * 
- * 
- * 
- * 
  * 
  * HTTP/1.1 200
  * x-amzn-RequestId: b16911ce-0774-11e2-af6f-6bc7a6be60d9
@@ -151,7 +135,6 @@ export class TaskNotFoundException extends S.TaggedError<TaskNotFoundException>(
  * Deactivates the specified running pipeline. The pipeline is set to the `DEACTIVATING`
  * state until the deactivation process completes.
  * 
- * 
  * To resume a deactivated pipeline, use ActivatePipeline. By default, the pipeline resumes from the last completed execution.
  * Optionally, you can specify the date and time to resume the pipeline.
  */export const deactivatePipeline = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-10-29", sdkId: "Data Pipeline", sigV4ServiceName: "datapipeline", name: "DataPipeline.DeactivatePipeline" }, DeactivatePipelineInput, DeactivatePipelineOutput, [InternalServiceError, InvalidRequestException, PipelineDeletedException, PipelineNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -159,13 +142,9 @@ export class TaskNotFoundException extends S.TaggedError<TaskNotFoundException>(
  * Deletes a pipeline, its pipeline definition, and its run history.
  * AWS Data Pipeline attempts to cancel instances associated with the pipeline that are currently being processed by task runners.
  * 
- * 
  * Deleting a pipeline cannot be undone. You cannot query or restore a deleted pipeline.
  * To temporarily pause a pipeline instead of deleting it, call SetStatus with the status set to `PAUSE` on individual components.
  * Components that are paused by SetStatus can be resumed.
- * 
- * 
- * 
  * 
  * POST / HTTP/1.1
  * Content-Type: application/x-amz-json-1.1
@@ -177,10 +156,6 @@ export class TaskNotFoundException extends S.TaggedError<TaskNotFoundException>(
  * 
  * {"pipelineId": "df-06372391ZG65EXAMPLE"}
  * 
- * 
- * 
- * 
- * 
  * x-amzn-RequestId: b7a88c81-0754-11e2-af6f-6bc7a6be60d9
  * Content-Type: application/x-amz-json-1.1
  * Content-Length: 0
@@ -191,10 +166,6 @@ export class TaskNotFoundException extends S.TaggedError<TaskNotFoundException>(
 /**
  * Gets the object definitions for a set of objects associated with the pipeline. Object definitions are composed of
  * a set of fields that define the properties of the object.
- * 
- * 
- * 
- * 
  * 
  * POST / HTTP/1.1
  * Content-Type: application/x-amz-json-1.1
@@ -208,10 +179,6 @@ export class TaskNotFoundException extends S.TaggedError<TaskNotFoundException>(
  * "objectIds":
  * ["Schedule"],
  * "evaluateExpressions": true}
- * 
- * 
- * 
- * 
  * 
  * x-amzn-RequestId: 4c18ea5d-0777-11e2-8a14-21bb8a1f50ef
  * Content-Type: application/x-amz-json-1.1
@@ -251,10 +218,6 @@ export class TaskNotFoundException extends S.TaggedError<TaskNotFoundException>(
  * Task runners call `EvaluateExpression` to evaluate a string in the context of the specified object.
  * For example, a task runner can evaluate SQL queries stored in Amazon S3.
  * 
- * 
- * 
- * 
- * 
  * POST / HTTP/1.1
  * Content-Type: application/x-amz-json-1.1
  * X-Amz-Target: DataPipeline.DescribePipelines
@@ -267,11 +230,6 @@ export class TaskNotFoundException extends S.TaggedError<TaskNotFoundException>(
  * "objectId": "Schedule",
  * "expression": "Transform started at #{startDateTime} and finished at #{endDateTime}"}
  * 
- * 
- * 
- * 
- * 
- * 
  * x-amzn-RequestId: 02870eb7-0736-11e2-af6f-6bc7a6be60d9
  * Content-Type: application/x-amz-json-1.1
  * Content-Length: 103
@@ -283,9 +241,6 @@ export class TaskNotFoundException extends S.TaggedError<TaskNotFoundException>(
  * Gets the definition of the specified pipeline. You can call `GetPipelineDefinition` to retrieve
  * the pipeline definition that you provided using PutPipelineDefinition.
  * 
- * 
- * 
- * 
  * POST / HTTP/1.1
  * Content-Type: application/x-amz-json-1.1
  * X-Amz-Target: DataPipeline.GetPipelineDefinition
@@ -295,9 +250,6 @@ export class TaskNotFoundException extends S.TaggedError<TaskNotFoundException>(
  * Authorization: AuthParams
  * 
  * {"pipelineId": "df-06372391ZG65EXAMPLE"}
- * 
- * 
- * 
  * 
  * x-amzn-RequestId: e28309e5-0776-11e2-8a14-21bb8a1f50ef
  * Content-Type: application/x-amz-json-1.1
@@ -350,10 +302,6 @@ export class TaskNotFoundException extends S.TaggedError<TaskNotFoundException>(
  * If the AWS Data Pipeline Task Runner is launched on a resource managed by AWS Data Pipeline, the web service can use
  * this call to detect when the task runner application has failed and restart a new instance.
  * 
- * 
- * 
- * 
- * 
  * POST / HTTP/1.1
  * Content-Type: application/x-amz-json-1.1
  * X-Amz-Target: DataPipeline.ReportTaskRunnerHeartbeat
@@ -365,10 +313,6 @@ export class TaskNotFoundException extends S.TaggedError<TaskNotFoundException>(
  * {"taskrunnerId": "1234567890",
  * "workerGroup": "wg-12345",
  * "hostname": "example.com"}
- * 
- * 
- * 
- * 
  * 
  * Status:
  * x-amzn-RequestId: b3104dc5-0734-11e2-af6f-6bc7a6be60d9
@@ -383,10 +327,6 @@ export class TaskNotFoundException extends S.TaggedError<TaskNotFoundException>(
  * This update might not occur immediately, but is eventually consistent. The status that can be set depends on the type of object (for example, DataNode or Activity).
  * You cannot perform this operation on `FINISHED` pipelines and attempting to do so returns `InvalidRequestException`.
  * 
- * 
- * 
- * 
- * 
  * POST / HTTP/1.1
  * Content-Type: application/x-amz-json-1.1
  * X-Amz-Target: DataPipeline.SetStatus
@@ -400,10 +340,6 @@ export class TaskNotFoundException extends S.TaggedError<TaskNotFoundException>(
  * ["o-08600941GHJWMBR9E2"],
  * "status": "pause"}
  * 
- * 
- * 
- * 
- * 
  * x-amzn-RequestId: e83b8ab7-076a-11e2-af6f-6bc7a6be60d9
  * Content-Type: application/x-amz-json-1.1
  * Content-Length: 0
@@ -416,10 +352,6 @@ export class TaskNotFoundException extends S.TaggedError<TaskNotFoundException>(
  * A task runner makes this call regardless of whether the task was sucessful. A task runner does not need to call `SetTaskStatus` for
  * tasks that are canceled by the web service during a call to ReportTaskProgress.
  * 
- * 
- * 
- * 
- * 
  * POST / HTTP/1.1
  * Content-Type: application/x-amz-json-1.1
  * X-Amz-Target: DataPipeline.SetTaskStatus
@@ -430,10 +362,6 @@ export class TaskNotFoundException extends S.TaggedError<TaskNotFoundException>(
  * 
  * {"taskId": "aaGgHT4LuH0T0Y0oLrJRjas5qH0d8cDPADxqq3tn+zCWGELkCdV2JprLreXm1oxeP5EFZHFLJ69kjSsLYE0iYHYBYVGBrB+E/pYq7ANEEeGJFnSBMRiXZVA+8UJ3OzcInvXeinqBmBaKwii7hnnKb/AXjXiNTXyxgydX1KAyg1AxkwBYG4cfPYMZbuEbQJFJvv5C/2+GVXz1w94nKYTeUeepwUOFOuRLS6JVtZoYwpF56E+Yfk1IcGpFOvCZ01B4Bkuu7x3J+MD/j6kJgZLAgbCJQtI3eiW3kdGmX0p0I2BdY1ZsX6b4UiSvM3OMj6NEHJCJL4E0ZfitnhCoe24Kvjo6C2hFbZq+ei/HPgSXBQMSagkr4vS9c0ChzxH2+LNYvec6bY4kymkaZI1dvOzmpa0FcnGf5AjSK4GpsViZ/ujz6zxFv81qBXzjF0/4M1775rjV1VUdyKaixiA/sJiACNezqZqETidp8d24BDPRhGsj6pBCrnelqGFrk/gXEXUsJ+xwMifRC8UVwiKekpAvHUywVk7Ku4jH/n3i2VoLRP6FXwpUbelu34iiZ9czpXyLtyPKwxa87dlrnRVURwkcVjOt2Mcrcaqe+cbWHvNRhyrPkkdfSF3ac8/wfgVbXvLEB2k9mKc67aD9rvdc1PKX09Tk8BKklsMTpZ3TRCd4NzQlJKigMe8Jat9+1tKj4Ole5ZzW6uyTu2s2iFjEV8KXu4MaiRJyNKCdKeGhhZWY37Qk4NBK4Ppgu+C6Y41dpfOh288SLDEVx0/UySlqOEdhba7c6BiPp5r3hKj3mk9lFy5OYp1aoGLeeFmjXveTnPdf2gkWqXXg7AUbJ7jEs1F0lKZQg4szep2gcKyAJXgvXLfJJHcha8Lfb/Ee7wYmyOcAaRpDBoFNSbtoVXar46teIrpho+ZDvynUXvU0grHWGOk=:wn3SgymHZM99bEXAMPLE",
  * "taskStatus": "FINISHED"}
- * 
- * 
- * 
- * 
  * 
  * x-amzn-RequestId: 8c8deb53-0788-11e2-af9c-6bc7a6be6qr8
  * Content-Type: application/x-amz-json-1.1
@@ -448,11 +376,7 @@ export class TaskNotFoundException extends S.TaggedError<TaskNotFoundException>(
  * that you or your IAM users have created. If you are using an IAM user account, you can retrieve metadata about only those pipelines
  * for which you have read permissions.
  * 
- * 
  * To retrieve the full pipeline definition instead of metadata about the pipeline, call GetPipelineDefinition.
- * 
- * 
- * 
  * 
  * POST / HTTP/1.1
  * Content-Type: application/x-amz-json-1.1
@@ -465,10 +389,6 @@ export class TaskNotFoundException extends S.TaggedError<TaskNotFoundException>(
  * {"pipelineIds":
  * ["df-08785951KAKJEXAMPLE"]
  * }
- * 
- * 
- * 
- * 
  * 
  * x-amzn-RequestId: 02870eb7-0736-11e2-af6f-6bc7a6be60d9
  * Content-Type: application/x-amz-json-1.1
@@ -509,10 +429,6 @@ export class TaskNotFoundException extends S.TaggedError<TaskNotFoundException>(
 /**
  * Lists the pipeline identifiers for all active pipelines that you have permission to access.
  * 
- * 
- * 
- * 
- * 
  * POST / HTTP/1.1
  * Content-Type: application/x-amz-json-1.1
  * X-Amz-Target: DataPipeline.ListPipelines
@@ -522,8 +438,6 @@ export class TaskNotFoundException extends S.TaggedError<TaskNotFoundException>(
  * Authorization: AuthParams
  * 
  * {}
- * 
- * 
  * 
  * Status:
  * x-amzn-RequestId: b3104dc5-0734-11e2-af6f-6bc7a6be60d9
@@ -546,12 +460,8 @@ export class TaskNotFoundException extends S.TaggedError<TaskNotFoundException>(
  * the task runner only needs to report progress every 15 minutes to maintain its ownership of the task. You can change this reporting time
  * from 15 minutes by specifying a `reportProgressTimeout` field in your pipeline.
  * 
- * 
  * If a task runner does not report its status after 5 minutes, AWS Data Pipeline assumes that the task runner is unable to process the task
  * and reassigns the task in a subsequent response to PollForTask. Task runners should call `ReportTaskProgress` every 60 seconds.
- * 
- * 
- * 
  * 
  * POST / HTTP/1.1
  * Content-Type: application/x-amz-json-1.1
@@ -569,10 +479,6 @@ export class TaskNotFoundException extends S.TaggedError<TaskNotFoundException>(
  * ]
  * }
  * 
- * 
- * 
- * 
- * 
  * x-amzn-RequestId: 640bd023-0775-11e2-af6f-6bc7a6be60d9
  * Content-Type: application/x-amz-json-1.1
  * Content-Length: 18
@@ -583,13 +489,9 @@ export class TaskNotFoundException extends S.TaggedError<TaskNotFoundException>(
 /**
  * Validates the specified pipeline definition to ensure that it is well formed and can be run without error.
  * 
- * 
- * 
  * Example 1
  * 
  * This example sets an valid pipeline configuration and returns success.
- * 
- * 
  * 
  * POST / HTTP/1.1
  * Content-Type: application/x-amz-json-1.1
@@ -642,9 +544,6 @@ export class TaskNotFoundException extends S.TaggedError<TaskNotFoundException>(
  * ]
  * }
  * 
- * 
- * 
- * 
  * x-amzn-RequestId: 92c9f347-0776-11e2-8a14-21bb8a1f50ef
  * Content-Type: application/x-amz-json-1.1
  * Content-Length: 18
@@ -652,15 +551,9 @@ export class TaskNotFoundException extends S.TaggedError<TaskNotFoundException>(
  * 
  * {"errored": false}
  * 
- * 
- * 
- * 
  * Example 2
  * 
  * This example sets an invalid pipeline configuration and returns the associated set of validation errors.
- * 
- * 
- * 
  * 
  * POST / HTTP/1.1
  * Content-Type: application/x-amz-json-1.1
@@ -713,9 +606,6 @@ export class TaskNotFoundException extends S.TaggedError<TaskNotFoundException>(
  * ]
  * }
  * 
- * 
- * 
- * 
  * x-amzn-RequestId: 496a1f5a-0e6a-11e2-a61c-bd6312c92ddd
  * Content-Type: application/x-amz-json-1.1
  * Content-Length: 278
@@ -733,13 +623,8 @@ export class TaskNotFoundException extends S.TaggedError<TaskNotFoundException>(
 /**
  * Adds tasks, schedules, and preconditions to the specified pipeline. You can use `PutPipelineDefinition` to populate a new pipeline.
  * 
- * 
- * 
  * `PutPipelineDefinition` also validates the configuration as it adds it to the pipeline. Changes to the pipeline are saved unless one
  * of the following three validation errors exists in the pipeline.
- * 
- * 
- * 
  * 
  * - An object is missing a name or identifier field.
  * 
@@ -749,18 +634,11 @@ export class TaskNotFoundException extends S.TaggedError<TaskNotFoundException>(
  * 
  * - The pipeline is in a FINISHED state.
  * 
- * 
- * 
  * Pipeline object definitions are passed to the `PutPipelineDefinition` action and returned by the GetPipelineDefinition action.
- * 
- * 
- * 
  * 
  * Example 1
  * 
  * This example sets an valid pipeline configuration and returns success.
- * 
- * 
  * 
  * POST / HTTP/1.1
  * Content-Type: application/x-amz-json-1.1
@@ -812,9 +690,6 @@ export class TaskNotFoundException extends S.TaggedError<TaskNotFoundException>(
  * ]
  * }
  * 
- * 
- * 
- * 
  * HTTP/1.1 200
  * x-amzn-RequestId: f74afc14-0754-11e2-af6f-6bc7a6be60d9
  * Content-Type: application/x-amz-json-1.1
@@ -823,15 +698,9 @@ export class TaskNotFoundException extends S.TaggedError<TaskNotFoundException>(
  * 
  * {"errored": false}
  * 
- * 
- * 
- * 
- * 
  * Example 2
  * 
  * This example sets an invalid pipeline configuration (the value for `workerGroup` is an empty string) and returns an error message.
- * 
- * 
  * 
  * POST / HTTP/1.1
  * Content-Type: application/x-amz-json-1.1
@@ -884,9 +753,6 @@ export class TaskNotFoundException extends S.TaggedError<TaskNotFoundException>(
  * ]
  * }
  * 
- * 
- * 
- * 
  * HTTP/1.1 200
  * x-amzn-RequestId: f74afc14-0754-11e2-af6f-6bc7a6be60d9
  * Content-Type: application/x-amz-json-1.1
@@ -902,15 +768,10 @@ export class TaskNotFoundException extends S.TaggedError<TaskNotFoundException>(
  * match the `workerGroup` value passed in by the task runner and that was launched using the IAM user credentials
  * specified by the task runner.
  * 
- * 
  * If tasks are ready in the work queue, `PollForTask` returns a response immediately. If no tasks are available in the queue,
  * `PollForTask` uses long-polling and holds on to a poll connection for up to a 90 seconds, during which time the first newly
  * scheduled task is handed to the task runner. To accomodate this, set the socket timeout in your task runner to 90 seconds. The task
  * runner should not call `PollForTask` again on the same `workerGroup` until it receives a response, and this can take up to 90 seconds.
- * 
- * 
- * 
- * 
  * 
  * POST / HTTP/1.1
  * Content-Type: application/x-amz-json-1.1
@@ -922,10 +783,6 @@ export class TaskNotFoundException extends S.TaggedError<TaskNotFoundException>(
  * 
  * {"workerGroup": "MyworkerGroup",
  * "hostname": "example.com"}
- * 
- * 
- * 
- * 
  * 
  * x-amzn-RequestId: 41c713d2-0775-11e2-af6f-6bc7a6be60d9
  * Content-Type: application/x-amz-json-1.1
@@ -979,10 +836,6 @@ export class TaskNotFoundException extends S.TaggedError<TaskNotFoundException>(
 /**
  * Queries the specified pipeline for the names of objects that match the specified set of conditions.
  * 
- * 
- * 
- * 
- * 
  * POST / HTTP/1.1
  * Content-Type: application/x-amz-json-1.1
  * X-Amz-Target: DataPipeline.QueryObjects
@@ -1000,11 +853,6 @@ export class TaskNotFoundException extends S.TaggedError<TaskNotFoundException>(
  * "sphere": "INSTANCE",
  * "marker": "",
  * "limit": 10}
- * 
- * 
- * 
- * 
- * 
  * 
  * x-amzn-RequestId: 14d704c1-0775-11e2-af6f-6bc7a6be60d9
  * Content-Type: application/x-amz-json-1.1

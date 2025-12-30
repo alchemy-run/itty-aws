@@ -69,8 +69,6 @@ export class CloudHsmResourceLimitExceededException extends S.TaggedError<CloudH
 /**
  * Retrieves the resource policy document attached to a given resource.
  * 
- * 
- * 
  * **Cross-account use:** No. You cannot perform this operation on an CloudHSM resource in a different Amazon Web Services account.
  */export const getResourcePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-28", sdkId: "CloudHSM V2", sigV4ServiceName: "cloudhsm", name: "BaldrApiService.GetResourcePolicy" }, GetResourcePolicyRequest, GetResourcePolicyResponse, [CloudHsmAccessDeniedException, CloudHsmInternalFailureException, CloudHsmInvalidRequestException, CloudHsmResourceNotFoundException, CloudHsmServiceException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -79,21 +77,15 @@ export class CloudHsmResourceLimitExceededException extends S.TaggedError<CloudH
  * cluster, you must sign the cluster's certificate signing request (CSR) with your issuing CA.
  * To get the cluster's CSR, use DescribeClusters.
  * 
- * 
- * 
  * **Cross-account use:** No. You cannot perform this operation on an CloudHSM cluster in a different Amazon Web Services account.
  */export const initializeCluster = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-28", sdkId: "CloudHSM V2", sigV4ServiceName: "cloudhsm", name: "BaldrApiService.InitializeCluster" }, InitializeClusterRequest, InitializeClusterResponse, [CloudHsmAccessDeniedException, CloudHsmInternalFailureException, CloudHsmInvalidRequestException, CloudHsmResourceNotFoundException, CloudHsmServiceException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Modifies attributes for CloudHSM backup.
  * 
- * 
- * 
  * **Cross-account use:** No. You cannot perform this operation on an CloudHSM backup in a different Amazon Web Services account.
  */export const modifyBackupAttributes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-28", sdkId: "CloudHSM V2", sigV4ServiceName: "cloudhsm", name: "BaldrApiService.ModifyBackupAttributes" }, ModifyBackupAttributesRequest, ModifyBackupAttributesResponse, [CloudHsmAccessDeniedException, CloudHsmInternalFailureException, CloudHsmInvalidRequestException, CloudHsmResourceNotFoundException, CloudHsmServiceException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Modifies CloudHSM cluster.
- * 
- * 
  * 
  * **Cross-account use:** No. You cannot perform this operation on an CloudHSM cluster in a different Amazon Web Services account.
  */export const modifyCluster = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-28", sdkId: "CloudHSM V2", sigV4ServiceName: "cloudhsm", name: "BaldrApiService.ModifyCluster" }, ModifyClusterRequest, ModifyClusterResponse, [CloudHsmAccessDeniedException, CloudHsmInternalFailureException, CloudHsmInvalidRequestException, CloudHsmResourceNotFoundException, CloudHsmServiceException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -102,18 +94,9 @@ export class CloudHsmResourceLimitExceededException extends S.TaggedError<CloudH
  * (for example, an Amazon Web Services account) that can manage your CloudHSM resources. The following resources support
  * CloudHSM resource policies:
  * 
- * 
- * 
  * - Backup - The resource policy allows you to describe the backup and restore a cluster from the backup in another Amazon Web Services account.
  * 
- * 
- * 
- * 
- * 
  * In order to share a backup, it must be in a 'READY' state and you must own it.
- * 
- * 
- * 
  * 
  * While you can share a backup using the CloudHSM PutResourcePolicy operation, we recommend using Resource Access Manager
  * (RAM) instead. Using RAM provides multiple benefits as it creates the policy for you, allows multiple resources to be shared at
@@ -123,10 +106,6 @@ export class CloudHsmResourceLimitExceededException extends S.TaggedError<CloudH
  * 
  * For more information, see Working with shared backups in the CloudHSM User Guide
  * 
- * 
- * 
- * 
- * 
  * **Cross-account use:** No. You cannot perform this operation on an CloudHSM resource in a different Amazon Web Services account.
  */export const putResourcePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-28", sdkId: "CloudHSM V2", sigV4ServiceName: "cloudhsm", name: "BaldrApiService.PutResourcePolicy" }, PutResourcePolicyRequest, PutResourcePolicyResponse, [CloudHsmAccessDeniedException, CloudHsmInternalFailureException, CloudHsmInvalidRequestException, CloudHsmResourceNotFoundException, CloudHsmServiceException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -134,21 +113,15 @@ export class CloudHsmResourceLimitExceededException extends S.TaggedError<CloudH
  * `PENDING_DELETION` state. For more information on deleting a backup, see
  * DeleteBackup.
  * 
- * 
- * 
  * **Cross-account use:** No. You cannot perform this operation on an CloudHSM backup in a different Amazon Web Services account.
  */export const restoreBackup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-28", sdkId: "CloudHSM V2", sigV4ServiceName: "cloudhsm", name: "BaldrApiService.RestoreBackup" }, RestoreBackupRequest, RestoreBackupResponse, [CloudHsmAccessDeniedException, CloudHsmInternalFailureException, CloudHsmInvalidRequestException, CloudHsmResourceNotFoundException, CloudHsmServiceException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes the specified tag or tags from the specified CloudHSM cluster.
  * 
- * 
- * 
  * **Cross-account use:** No. You cannot perform this operation on an CloudHSM resource in a different Amazon Web Services account.
  */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-28", sdkId: "CloudHSM V2", sigV4ServiceName: "cloudhsm", name: "BaldrApiService.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [CloudHsmAccessDeniedException, CloudHsmInternalFailureException, CloudHsmInvalidRequestException, CloudHsmResourceNotFoundException, CloudHsmServiceException, CloudHsmTagException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new CloudHSM cluster.
- * 
- * 
  * 
  * **Cross-account use:** Yes. To perform this operation with an CloudHSM backup in a different AWS account, specify the full backup
  * ARN in the value of the SourceBackupId parameter.
@@ -157,16 +130,12 @@ export class CloudHsmResourceLimitExceededException extends S.TaggedError<CloudH
  * Creates a new hardware security module (HSM) in the specified CloudHSM
  * cluster.
  * 
- * 
- * 
  * **Cross-account use:** No. You cannot perform this operation on an CloudHSM cluster in a different Amazon Web Service account.
  */export const createHsm = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-28", sdkId: "CloudHSM V2", sigV4ServiceName: "cloudhsm", name: "BaldrApiService.CreateHsm" }, CreateHsmRequest, CreateHsmResponse, [CloudHsmAccessDeniedException, CloudHsmInternalFailureException, CloudHsmInvalidRequestException, CloudHsmResourceNotFoundException, CloudHsmServiceException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a specified CloudHSM backup. A backup can be restored up to 7 days
  * after the DeleteBackup request is made. For more information on restoring a backup, see
  * RestoreBackup.
- * 
- * 
  * 
  * **Cross-account use:** No. You cannot perform this operation on an CloudHSM backup in a different Amazon Web Services account.
  */export const deleteBackup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-28", sdkId: "CloudHSM V2", sigV4ServiceName: "cloudhsm", name: "BaldrApiService.DeleteBackup" }, DeleteBackupRequest, DeleteBackupResponse, [CloudHsmAccessDeniedException, CloudHsmInternalFailureException, CloudHsmInvalidRequestException, CloudHsmResourceNotFoundException, CloudHsmServiceException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -175,8 +144,6 @@ export class CloudHsmResourceLimitExceededException extends S.TaggedError<CloudH
  * address of the HSM's elastic network interface (ENI), or the ID of the HSM's ENI. You need to
  * specify only one of these values. To find these values, use DescribeClusters.
  * 
- * 
- * 
  * **Cross-account use:** No. You cannot perform this operation on an CloudHSM hsm in a different Amazon Web Services account.
  */export const deleteHsm = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-28", sdkId: "CloudHSM V2", sigV4ServiceName: "cloudhsm", name: "BaldrApiService.DeleteHsm" }, DeleteHsmRequest, DeleteHsmResponse, [CloudHsmAccessDeniedException, CloudHsmInternalFailureException, CloudHsmInvalidRequestException, CloudHsmResourceNotFoundException, CloudHsmServiceException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -184,13 +151,10 @@ export class CloudHsmResourceLimitExceededException extends S.TaggedError<CloudH
  * any RAM resource shares. Deleting the resource policy attached to a backup will not impact any clusters created from that
  * backup.
  * 
- * 
- * 
  * **Cross-account use:** No. You cannot perform this operation on an CloudHSM resource in a different Amazon Web Services account.
  */export const deleteResourcePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-28", sdkId: "CloudHSM V2", sigV4ServiceName: "cloudhsm", name: "BaldrApiService.DeleteResourcePolicy" }, DeleteResourcePolicyRequest, DeleteResourcePolicyResponse, [CloudHsmAccessDeniedException, CloudHsmInternalFailureException, CloudHsmInvalidRequestException, CloudHsmResourceNotFoundException, CloudHsmServiceException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets information about backups of CloudHSM clusters. Lists either the backups you own or the backups shared with you when the Shared parameter is true.
- * 
  * 
  * This is a paginated operation, which means that each response might contain only a
  * subset of all the backups. When the response contains only a subset of backups, it includes a
@@ -198,13 +162,10 @@ export class CloudHsmResourceLimitExceededException extends S.TaggedError<CloudH
  * request to get more backups. When you receive a response with no `NextToken` (or an
  * empty or null value), that means there are no more backups to get.
  * 
- * 
- * 
  * **Cross-account use:** Yes. Customers can describe backups in other Amazon Web Services accounts that are shared with them.
  */export const describeBackups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-28", sdkId: "CloudHSM V2", sigV4ServiceName: "cloudhsm", name: "BaldrApiService.DescribeBackups" }, DescribeBackupsRequest, DescribeBackupsResponse, [CloudHsmAccessDeniedException, CloudHsmInternalFailureException, CloudHsmInvalidRequestException, CloudHsmResourceNotFoundException, CloudHsmServiceException, CloudHsmTagException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets information about CloudHSM clusters.
- * 
  * 
  * This is a paginated operation, which means that each response might contain only a
  * subset of all the clusters. When the response contains only a subset of clusters, it includes
@@ -212,13 +173,10 @@ export class CloudHsmResourceLimitExceededException extends S.TaggedError<CloudH
  * request to get more clusters. When you receive a response with no `NextToken` (or
  * an empty or null value), that means there are no more clusters to get.
  * 
- * 
- * 
  * **Cross-account use:** No. You cannot perform this operation on CloudHSM clusters in a different Amazon Web Services account.
  */export const describeClusters = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-28", sdkId: "CloudHSM V2", sigV4ServiceName: "cloudhsm", name: "BaldrApiService.DescribeClusters" }, DescribeClustersRequest, DescribeClustersResponse, [CloudHsmAccessDeniedException, CloudHsmInternalFailureException, CloudHsmInvalidRequestException, CloudHsmServiceException, CloudHsmTagException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets a list of tags for the specified CloudHSM cluster.
- * 
  * 
  * This is a paginated operation, which means that each response might contain only a
  * subset of all the tags. When the response contains only a subset of tags, it includes a
@@ -226,29 +184,21 @@ export class CloudHsmResourceLimitExceededException extends S.TaggedError<CloudH
  * get more tags. When you receive a response with no `NextToken` (or an empty or null
  * value), that means there are no more tags to get.
  * 
- * 
- * 
  * **Cross-account use:** No. You cannot perform this operation on an CloudHSM resource in a different Amazon Web Services account.
  */export const listTags = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-28", sdkId: "CloudHSM V2", sigV4ServiceName: "cloudhsm", name: "BaldrApiService.ListTags" }, ListTagsRequest, ListTagsResponse, [CloudHsmAccessDeniedException, CloudHsmInternalFailureException, CloudHsmInvalidRequestException, CloudHsmResourceNotFoundException, CloudHsmServiceException, CloudHsmTagException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Adds or overwrites one or more tags for the specified CloudHSM cluster.
- * 
- * 
  * 
  * **Cross-account use:** No. You cannot perform this operation on an CloudHSM resource in a different Amazon Web Services account.
  */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-28", sdkId: "CloudHSM V2", sigV4ServiceName: "cloudhsm", name: "BaldrApiService.TagResource" }, TagResourceRequest, TagResourceResponse, [CloudHsmAccessDeniedException, CloudHsmInternalFailureException, CloudHsmInvalidRequestException, CloudHsmResourceLimitExceededException, CloudHsmResourceNotFoundException, CloudHsmServiceException, CloudHsmTagException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Copy an CloudHSM cluster backup to a different region.
  * 
- * 
- * 
  * **Cross-account use:** No. You cannot perform this operation on an CloudHSM backup in a different Amazon Web Services account.
  */export const copyBackupToRegion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-28", sdkId: "CloudHSM V2", sigV4ServiceName: "cloudhsm", name: "BaldrApiService.CopyBackupToRegion" }, CopyBackupToRegionRequest, CopyBackupToRegionResponse, [CloudHsmAccessDeniedException, CloudHsmInternalFailureException, CloudHsmInvalidRequestException, CloudHsmResourceNotFoundException, CloudHsmServiceException, CloudHsmTagException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the specified CloudHSM cluster. Before you can delete a cluster, you must
  * delete all HSMs in the cluster. To see if the cluster contains any HSMs, use DescribeClusters. To delete an HSM, use DeleteHsm.
- * 
- * 
  * 
  * **Cross-account use:** No. You cannot perform this operation on an CloudHSM cluster in a different Amazon Web Services account.
  */export const deleteCluster = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-28", sdkId: "CloudHSM V2", sigV4ServiceName: "cloudhsm", name: "BaldrApiService.DeleteCluster" }, DeleteClusterRequest, DeleteClusterResponse, [CloudHsmAccessDeniedException, CloudHsmInternalFailureException, CloudHsmInvalidRequestException, CloudHsmResourceNotFoundException, CloudHsmServiceException, CloudHsmTagException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

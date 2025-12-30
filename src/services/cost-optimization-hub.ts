@@ -117,7 +117,6 @@ export class ResourceNotFoundException extends S.TaggedError<ResourceNotFoundExc
 /**
  * Returns a concise representation of savings estimates for resources. Also returns de-duped savings across different types of recommendations.
  * 
- * 
  * The following filters are not supported for this API: `recommendationIds`, `resourceArns`, and `resourceIds`.
  */export const listRecommendationSummaries = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-07-26", sdkId: "Cost Optimization Hub", sigV4ServiceName: "cost-optimization-hub", name: "CostOptimizationHubService.ListRecommendationSummaries" }, ListRecommendationSummariesRequest, ListRecommendationSummariesResponse, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**

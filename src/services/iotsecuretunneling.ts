@@ -46,7 +46,6 @@ export class LimitExceededException extends S.TaggedError<LimitExceededException
  * request is received, we close the WebSocket connections between the client and proxy
  * server so no data can be transmitted.
  * 
- * 
  * Requires permission to access the CloseTunnel action.
  */export const closeTunnel = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-05", uri: "/tunnels/{tunnelId}", method: "DELETE", sdkId: "IoTSecureTunneling", sigV4ServiceName: "IoTSecuredTunneling", name: "IoTSecuredTunneling.CloseTunnel" }, CloseTunnelRequest, CloseTunnelResponse, [ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -56,11 +55,7 @@ export class LimitExceededException extends S.TaggedError<LimitExceededException
  * Revokes the current client access token (CAT) and returns new CAT for clients to
  * use when reconnecting to secure tunneling to access the same tunnel.
  * 
- * 
  * Requires permission to access the RotateTunnelAccessToken action.
- * 
- * 
- * 
  * 
  * Rotating the CAT doesn't extend the tunnel duration. For example, say the tunnel
  * duration is 12 hours and the tunnel has already been open for 4 hours. When you
@@ -71,19 +66,16 @@ export class LimitExceededException extends S.TaggedError<LimitExceededException
  * List all tunnels for an Amazon Web Services account. Tunnels are listed by creation time in
  * descending order, newer tunnels will be listed before older tunnels.
  * 
- * 
  * Requires permission to access the ListTunnels action.
  */export const listTunnels = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-05", uri: "/tunnels", method: "GET", sdkId: "IoTSecureTunneling", sigV4ServiceName: "IoTSecuredTunneling", name: "IoTSecuredTunneling.ListTunnels" }, ListTunnelsRequest, ListTunnelsResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets information about a tunnel identified by the unique tunnel id.
- * 
  * 
  * Requires permission to access the DescribeTunnel action.
  */export const describeTunnel = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-05", uri: "/tunnels/{tunnelId}", method: "GET", sdkId: "IoTSecureTunneling", sigV4ServiceName: "IoTSecuredTunneling", name: "IoTSecuredTunneling.DescribeTunnel" }, DescribeTunnelRequest, DescribeTunnelResponse, [ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new tunnel, and returns two client access tokens for clients to use to
  * connect to the IoT Secure Tunneling proxy server.
- * 
  * 
  * Requires permission to access the OpenTunnel action.
  */export const openTunnel = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-05", uri: "/tunnels", sdkId: "IoTSecureTunneling", sigV4ServiceName: "IoTSecuredTunneling", name: "IoTSecuredTunneling.OpenTunnel" }, OpenTunnelRequest, OpenTunnelResponse, [LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

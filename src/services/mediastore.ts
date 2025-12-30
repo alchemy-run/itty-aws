@@ -75,14 +75,12 @@ export class LimitExceededException extends S.TaggedError<LimitExceededException
  * policy, see the AWS Identity and
  * Access Management User Guide.
  * 
- * 
  * For this release of the REST API, you can create only one policy for a container. If
  * you enter `PutContainerPolicy` twice, the second command modifies the existing
  * policy.
  */export const putContainerPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-01", sdkId: "MediaStore", sigV4ServiceName: "mediastore", name: "MediaStore_20170901.PutContainerPolicy" }, PutContainerPolicyInput, PutContainerPolicyOutput, [ContainerInUseException, ContainerNotFoundException, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Writes an object lifecycle policy to a container. If the container already has an object lifecycle policy, the service replaces the existing policy with the new policy. It takes up to 20 minutes for the change to take effect.
- * 
  * 
  * For information about how to construct an object lifecycle policy, see Components of an Object Lifecycle Policy.
  */export const putLifecyclePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-01", sdkId: "MediaStore", sigV4ServiceName: "mediastore", name: "MediaStore_20170901.PutLifecyclePolicy" }, PutLifecyclePolicyInput, PutLifecyclePolicyOutput, [ContainerInUseException, ContainerNotFoundException, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -112,7 +110,6 @@ export class LimitExceededException extends S.TaggedError<LimitExceededException
  * Deletes the cross-origin resource sharing (CORS) configuration information that is
  * set for the container.
  * 
- * 
  * To use this operation, you must have permission to perform the
  * `MediaStore:DeleteCorsPolicy` action. The container owner has this permission
  * by default and can grant this permission to others.
@@ -132,7 +129,6 @@ export class LimitExceededException extends S.TaggedError<LimitExceededException
  * Returns the cross-origin resource sharing (CORS) configuration information that is
  * set for the container.
  * 
- * 
  * To use this operation, you must have permission to perform the
  * `MediaStore:GetCorsPolicy` action. By default, the container owner has this
  * permission and can grant it to others.
@@ -146,14 +142,12 @@ export class LimitExceededException extends S.TaggedError<LimitExceededException
 /**
  * Lists the properties of all containers in AWS Elemental MediaStore.
  * 
- * 
  * You can query to receive all the containers in one response. Or you can include the
  * `MaxResults` parameter to receive a limited number of containers in each
  * response. In this case, the response includes a token. To get the next set of containers,
  * send the command again, this time with the `NextToken` parameter (with the
  * returned token as its value). The next set of responses appears, with a token if there are
  * still more containers to receive.
- * 
  * 
  * See also DescribeContainer, which gets the properties of one
  * container.
@@ -168,13 +162,11 @@ export class LimitExceededException extends S.TaggedError<LimitExceededException
  * container at my.example.container.com by using the browser's XMLHttpRequest
  * capability.
  * 
- * 
  * To enable CORS on a container, you attach a CORS policy to the container. In the CORS
  * policy, you configure rules that identify origins and the HTTP methods that can be executed
  * on your container. The policy can contain up to 398,000 characters. You can add up to 100
  * rules to a CORS policy. If more than one rule applies, the service uses the first
  * applicable rule listed.
- * 
  * 
  * To learn more about CORS, see Cross-Origin Resource Sharing (CORS) in AWS Elemental MediaStore.
  */export const putCorsPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-01", sdkId: "MediaStore", sigV4ServiceName: "mediastore", name: "MediaStore_20170901.PutCorsPolicy" }, PutCorsPolicyInput, PutCorsPolicyOutput, [ContainerInUseException, ContainerNotFoundException, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

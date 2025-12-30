@@ -326,7 +326,6 @@ export class TooManyAccessPoints extends S.TaggedError<TooManyAccessPoints>()("T
  * returns descriptions of all file systems owned by your Amazon Web Services account in the
  * Amazon Web Services Region of the endpoint that you're calling.
  * 
- * 
  * When retrieving all file system descriptions, you can optionally specify the
  * `MaxResults` parameter to limit the number of descriptions in a response.
  * If more file system descriptions remain, Amazon FSx returns a
@@ -334,23 +333,17 @@ export class TooManyAccessPoints extends S.TaggedError<TooManyAccessPoints>()("T
  * with the `NextToken` request parameter set to the value of
  * `NextToken` from the last response.
  * 
- * 
  * This operation is used in an iterative process to retrieve a list of your file system
  * descriptions. `DescribeFileSystems` is called first without a
  * `NextToken`value. Then the operation continues to be called with the
  * `NextToken` parameter set to the value of the last `NextToken`
  * value until a response has no `NextToken`.
  * 
- * 
  * When using this operation, keep the following in mind:
- * 
- * 
  * 
  * - The implementation might return fewer than `MaxResults` file
  * system descriptions while still including a `NextToken`
  * value.
- * 
- * 
  * 
  * - The order of file systems returned in the response of one
  * `DescribeFileSystems` call and the order of file systems returned
@@ -365,7 +358,6 @@ export class TooManyAccessPoints extends S.TaggedError<TooManyAccessPoints>()("T
  * from an Amazon FSx for Windows File Server file system. If you attempt to disassociate a DNS alias that is not
  * associated with the file system, Amazon FSx responds with an HTTP status code 400 (Bad Request). For more information, see
  * Working with DNS Aliases.
- * 
  * 
  * The system generated response showing the DNS aliases that
  * Amazon FSx is attempting to disassociate from the file system.
@@ -391,9 +383,6 @@ export class TooManyAccessPoints extends S.TaggedError<TooManyAccessPoints>()("T
  * private cloud (VPC) owner. For more information, see the Amazon FSx for NetApp ONTAP User
  * Guide.
  * 
- * 
- * 
- * 
  * We strongly recommend that participant-created Multi-AZ file systems in the shared
  * VPC are deleted before you disable this feature. Once the feature is disabled, these
  * file systems will enter a `MISCONFIGURED` state and behave like Single-AZ
@@ -410,7 +399,6 @@ export class TooManyAccessPoints extends S.TaggedError<TooManyAccessPoints>()("T
  * For more information, see Working with DNS Aliases and
  * Walkthrough 5: Using DNS aliases to access your file system, including
  * additional steps you must take to be able to access your file system using a DNS alias.
- * 
  * 
  * The system response shows the DNS aliases that
  * Amazon FSx is attempting to associate with the file system.
@@ -431,16 +419,12 @@ export class TooManyAccessPoints extends S.TaggedError<TooManyAccessPoints>()("T
  * Deletes an Amazon File Cache resource. After deletion, the cache no longer exists, and its data
  * is gone.
  * 
- * 
  * The `DeleteFileCache` operation returns while the cache has the
  * `DELETING` status. You can check the cache deletion status by
  * calling the DescribeFileCaches operation, which returns a list of caches in your
  * account. If you pass the cache ID for a deleted cache, the
  * `DescribeFileCaches` operation returns a `FileCacheNotFound`
  * error.
- * 
- * 
- * 
  * 
  * The data in a deleted cache is also deleted and can't be recovered by
  * any means.
@@ -449,7 +433,6 @@ export class TooManyAccessPoints extends S.TaggedError<TooManyAccessPoints>()("T
  * Deletes an Amazon FSx for OpenZFS snapshot. After deletion, the snapshot no longer
  * exists, and its data is gone. Deleting a snapshot doesn't affect snapshots stored in a
  * file system backup.
- * 
  * 
  * The `DeleteSnapshot` operation returns instantly. The snapshot appears with
  * the lifecycle status of `DELETING` until the deletion is complete.
@@ -460,12 +443,10 @@ export class TooManyAccessPoints extends S.TaggedError<TooManyAccessPoints>()("T
  * backups owned by your Amazon Web Services account in the Amazon Web Services Region of the
  * endpoint that you're calling.
  * 
- * 
  * When retrieving all backups, you can optionally specify the `MaxResults`
  * parameter to limit the number of backups in a response. If more backups remain, Amazon FSx returns a `NextToken` value in the response. In this case,
  * send a later request with the `NextToken` request parameter set to the value
  * of the `NextToken` value from the last response.
- * 
  * 
  * This operation is used in an iterative process to retrieve a list of your backups.
  * `DescribeBackups` is called first without a `NextToken` value.
@@ -473,16 +454,11 @@ export class TooManyAccessPoints extends S.TaggedError<TooManyAccessPoints>()("T
  * to the value of the last `NextToken` value until a response has no
  * `NextToken` value.
  * 
- * 
  * When using this operation, keep the following in mind:
- * 
- * 
  * 
  * - The operation might return fewer than the `MaxResults` value of
  * backup descriptions while still including a `NextToken`
  * value.
- * 
- * 
  * 
  * - The order of the backups returned in the response of one
  * `DescribeBackups` call and the order of the backups returned
@@ -499,13 +475,11 @@ export class TooManyAccessPoints extends S.TaggedError<TooManyAccessPoints>()("T
  * snapshots owned by your Amazon Web Services account in the Amazon Web Services Region of
  * the endpoint that you're calling.
  * 
- * 
  * When retrieving all snapshots, you can optionally specify the `MaxResults`
  * parameter to limit the number of snapshots in a response. If more backups remain,
  * Amazon FSx returns a `NextToken` value in the response. In this
  * case, send a later request with the `NextToken` request parameter set to the
  * value of `NextToken` from the last response.
- * 
  * 
  * Use this operation in an iterative process to retrieve a list of your snapshots.
  * `DescribeSnapshots` is called first without a `NextToken`
@@ -513,16 +487,11 @@ export class TooManyAccessPoints extends S.TaggedError<TooManyAccessPoints>()("T
  * parameter set to the value of the last `NextToken` value until a response has
  * no `NextToken` value.
  * 
- * 
  * When using this operation, keep the following in mind:
- * 
- * 
  * 
  * - The operation might return fewer than the `MaxResults` value of
  * snapshot descriptions while still including a `NextToken`
  * value.
- * 
- * 
  * 
  * - The order of snapshots returned in the response of one
  * `DescribeSnapshots` call and the order of backups returned across
@@ -538,13 +507,11 @@ export class TooManyAccessPoints extends S.TaggedError<TooManyAccessPoints>()("T
 /**
  * Lists tags for Amazon FSx resources.
  * 
- * 
  * When retrieving all tags, you can optionally specify the `MaxResults`
  * parameter to limit the number of tags in a response. If more tags remain, Amazon FSx
  * returns a `NextToken` value in the response. In this case, send a later
  * request with the `NextToken` request parameter set to the value of
  * `NextToken` from the last response.
- * 
  * 
  * This action is used in an iterative process to retrieve a list of your tags.
  * `ListTagsForResource` is called first without a
@@ -552,16 +519,11 @@ export class TooManyAccessPoints extends S.TaggedError<TooManyAccessPoints>()("T
  * `NextToken` parameter set to the value of the last `NextToken`
  * value until a response has no `NextToken`.
  * 
- * 
  * When using this action, keep the following in mind:
- * 
- * 
  * 
  * - The implementation might return fewer than `MaxResults` file
  * system descriptions while still including a `NextToken`
  * value.
- * 
- * 
  * 
  * - The order of tags returned in the response of one
  * `ListTagsForResource` call and the order of tags returned across
@@ -586,21 +548,11 @@ export class TooManyAccessPoints extends S.TaggedError<TooManyAccessPoints>()("T
  * `PENDING` or `EXECUTING` state. When you cancel an export task, Amazon FSx
  * does the following.
  * 
- * 
- * 
  * - Any files that FSx has already exported are not reverted.
- * 
- * 
  * 
  * - FSx continues to export any files that are in-flight when the cancel operation is received.
  * 
- * 
- * 
  * - FSx does not export any files that have not yet been exported.
- * 
- * 
- * 
- * 
  * 
  * For a release task, Amazon FSx will stop releasing files upon cancellation. Any files that
  * have already been released will remain in the released state.
@@ -616,46 +568,25 @@ export class TooManyAccessPoints extends S.TaggedError<TooManyAccessPoints>()("T
  * backups so that you can restore a file system or volume from a backup if an issue arises
  * with the original file system or volume.
  * 
- * 
  * For Amazon FSx for Lustre file systems, you can create a backup only for file
  * systems that have the following configuration:
  * 
- * 
- * 
  * - A Persistent deployment type
- * 
- * 
  * 
  * - Are *not* linked to a data repository
  * 
- * 
- * 
- * 
- * 
  * For more information about backups, see the following:
- * 
- * 
  * 
  * - For Amazon FSx for Lustre, see Working with FSx for
  * Lustre backups.
  * 
- * 
- * 
  * - For Amazon FSx for Windows, see Working with FSx for
  * Windows backups.
- * 
- * 
  * 
  * - For Amazon FSx for NetApp ONTAP, see Working with FSx for NetApp
  * ONTAP backups.
  * 
- * 
- * 
  * - For Amazon FSx for OpenZFS, see Working with FSx for OpenZFS backups.
- * 
- * 
- * 
- * 
  * 
  * If a backup with the specified client request token exists and the parameters match,
  * this operation returns the description of the existing backup. If a backup with the
@@ -663,25 +594,16 @@ export class TooManyAccessPoints extends S.TaggedError<TooManyAccessPoints>()("T
  * returns `IncompatibleParameterError`. If a backup with the specified client
  * request token doesn't exist, `CreateBackup` does the following:
  * 
- * 
- * 
  * - Creates a new Amazon FSx backup with an assigned ID, and an initial
  * lifecycle state of `CREATING`.
  * 
- * 
- * 
  * - Returns the description of the backup.
- * 
- * 
- * 
- * 
  * 
  * By using the idempotent operation, you can retry a `CreateBackup`
  * operation without the risk of creating an extra backup. This approach can be useful when
  * an initial call fails in a way that makes it unclear whether a backup was created. If
  * you use the same client request token and the initial call created a backup, the
  * operation returns a successful result because all the parameters are the same.
- * 
  * 
  * The `CreateBackup` operation returns while the backup's lifecycle state is
  * still `CREATING`. You can check the backup creation status by calling the
@@ -696,17 +618,12 @@ export class TooManyAccessPoints extends S.TaggedError<TooManyAccessPoints>()("T
  * on all FSx for Lustre 2.12 and 2.15 file systems, excluding
  * `scratch_1` deployment type.
  * 
- * 
  * Each data repository association must have a unique Amazon FSx file
  * system directory and a unique S3 bucket or prefix associated with it. You
  * can configure a data repository association for automatic import only,
  * for automatic export only, or for both. To learn more about linking a
  * data repository to your file system, see
  * Linking your file system to an S3 bucket.
- * 
- * 
- * 
- * 
  * 
  * `CreateDataRepositoryAssociation` isn't supported
  * on Amazon File Cache resources. To create a DRA on Amazon File Cache,
@@ -717,7 +634,6 @@ export class TooManyAccessPoints extends S.TaggedError<TooManyAccessPoints>()("T
  * snapshots, you can easily undo file changes and compare file versions by restoring the
  * volume to a previous version.
  * 
- * 
  * If a snapshot with the specified client request token exists, and the parameters
  * match, this operation returns the description of the existing snapshot. If a snapshot
  * with the specified client request token exists, and the parameters don't match, this
@@ -725,18 +641,10 @@ export class TooManyAccessPoints extends S.TaggedError<TooManyAccessPoints>()("T
  * specified client request token doesn't exist, `CreateSnapshot` does the
  * following:
  * 
- * 
- * 
  * - Creates a new OpenZFS snapshot with an assigned ID, and an initial lifecycle
  * state of `CREATING`.
  * 
- * 
- * 
  * - Returns the description of the snapshot.
- * 
- * 
- * 
- * 
  * 
  * By using the idempotent operation, you can retry a `CreateSnapshot`
  * operation without the risk of creating an extra snapshot. This approach can be useful
@@ -744,7 +652,6 @@ export class TooManyAccessPoints extends S.TaggedError<TooManyAccessPoints>()("T
  * created. If you use the same client request token and the initial call created a
  * snapshot, the operation returns a successful result because all the parameters are the
  * same.
- * 
  * 
  * The `CreateSnapshot` operation returns while the snapshot's lifecycle state
  * is still `CREATING`. You can check the snapshot creation status by calling
@@ -755,11 +662,9 @@ export class TooManyAccessPoints extends S.TaggedError<TooManyAccessPoints>()("T
  * Deletes a file system. After deletion, the file system no longer exists, and its data
  * is gone. Any existing automatic backups and snapshots are also deleted.
  * 
- * 
  * To delete an Amazon FSx for NetApp ONTAP file system, first delete all the
  * volumes and storage virtual machines (SVMs) on the file system. Then provide a
  * `FileSystemId` value to the `DeleteFileSystem` operation.
- * 
  * 
  * Before deleting an Amazon FSx for OpenZFS file system, make sure that there aren't
  * any Amazon S3 access points attached to any volume. For more information on how to list S3
@@ -768,11 +673,9 @@ export class TooManyAccessPoints extends S.TaggedError<TooManyAccessPoints>()("T
  * For more information on how to delete S3 access points, see
  * Deleting an S3 access point attachment.
  * 
- * 
  * By default, when you delete an Amazon FSx for Windows File Server file system,
  * a final backup is created upon deletion. This final backup isn't subject to the file
  * system's retention policy, and must be manually deleted.
- * 
  * 
  * To delete an Amazon FSx for Lustre file system, first
  * unmount
@@ -789,7 +692,6 @@ export class TooManyAccessPoints extends S.TaggedError<TooManyAccessPoints>()("T
  * If you have automatic export enabled and want to use an export data repository task, you have
  * to disable automatic export before executing the export data repository task.
  * 
- * 
  * The `DeleteFileSystem` operation returns while the file system has the
  * `DELETING` status. You can check the file system deletion status by
  * calling the DescribeFileSystems operation, which returns a list of file systems in your
@@ -797,17 +699,9 @@ export class TooManyAccessPoints extends S.TaggedError<TooManyAccessPoints>()("T
  * `DescribeFileSystems` operation returns a `FileSystemNotFound`
  * error.
  * 
- * 
- * 
- * 
  * If a data repository task is in a `PENDING` or `EXECUTING` state,
  * deleting an Amazon FSx for Lustre file system will fail with an HTTP status
  * code 400 (Bad Request).
- * 
- * 
- * 
- * 
- * 
  * 
  * The data in a deleted file system is also deleted and can't be recovered by
  * any means.
@@ -826,7 +720,6 @@ export class TooManyAccessPoints extends S.TaggedError<TooManyAccessPoints>()("T
  * returns descriptions of all caches owned by your Amazon Web Services account in the
  * Amazon Web Services Region of the endpoint that you're calling.
  * 
- * 
  * When retrieving all cache descriptions, you can optionally specify the
  * `MaxResults` parameter to limit the number of descriptions in a response.
  * If more cache descriptions remain, the operation returns a
@@ -834,23 +727,17 @@ export class TooManyAccessPoints extends S.TaggedError<TooManyAccessPoints>()("T
  * with the `NextToken` request parameter set to the value of
  * `NextToken` from the last response.
  * 
- * 
  * This operation is used in an iterative process to retrieve a list of your cache
  * descriptions. `DescribeFileCaches` is called first without a
  * `NextToken`value. Then the operation continues to be called with the
  * `NextToken` parameter set to the value of the last `NextToken`
  * value until a response has no `NextToken`.
  * 
- * 
  * When using this operation, keep the following in mind:
- * 
- * 
  * 
  * - The implementation might return fewer than `MaxResults`
  * cache descriptions while still including a `NextToken`
  * value.
- * 
- * 
  * 
  * - The order of caches returned in the response of one
  * `DescribeFileCaches` call and the order of caches returned
@@ -859,15 +746,9 @@ export class TooManyAccessPoints extends S.TaggedError<TooManyAccessPoints>()("T
 /**
  * Detaches an S3 access point from an Amazon FSx volume and deletes the S3 access point.
  * 
- * 
  * The requester requires the following permission to perform this action:
  * 
- * 
- * 
  * - `fsx:DetachAndDeleteS3AccessPoint`
- * 
- * 
- * 
  * 
  * - `s3:DeleteAccessPoint`
  */export const detachAndDeleteS3AccessPoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.DetachAndDeleteS3AccessPoint" }, DetachAndDeleteS3AccessPointRequest, DetachAndDeleteS3AccessPointResponse, [BadRequest, IncompatibleParameterError, InternalServerError, S3AccessPointAttachmentNotFound, UnsupportedOperation]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -880,18 +761,15 @@ export class TooManyAccessPoints extends S.TaggedError<TooManyAccessPoints>()("T
  * A `CreateDataRepositoryTask` operation will fail if a data
  * repository is not linked to the FSx file system.
  * 
- * 
  * You use import and export data repository tasks to perform bulk operations between your
  * FSx for Lustre file system and its linked data repositories. An example of a data repository
  * task is exporting any data and metadata changes, including POSIX metadata, to files, directories,
  * and symbolic links (symlinks) from your FSx file system to a linked data repository.
  * 
- * 
  * You use release data repository tasks to release data from your file system for files that
  * are exported to S3. The metadata of released files remains on the file system so users or applications
  * can still access released files by reading the files again, which will restore data from
  * Amazon S3 to the FSx for Lustre file system.
- * 
  * 
  * To learn more about data repository tasks, see
  * Data Repository Tasks.
@@ -906,12 +784,8 @@ export class TooManyAccessPoints extends S.TaggedError<TooManyAccessPoints>()("T
  * Deletes an Amazon FSx backup. After deletion, the backup no longer exists, and
  * its data is gone.
  * 
- * 
  * The `DeleteBackup` call returns instantly. The backup won't show up in
  * later `DescribeBackups` calls.
- * 
- * 
- * 
  * 
  * The data in a deleted backup is also deleted and can't be recovered by any
  * means.
@@ -923,7 +797,6 @@ export class TooManyAccessPoints extends S.TaggedError<TooManyAccessPoints>()("T
  * associations are supported on Amazon File Cache resources and all FSx for Lustre
  * 2.12 and 2,15 file systems, excluding `scratch_1` deployment type.
  * 
- * 
  * You can use filters to narrow the response to include just data repository
  * associations for specific file systems (use the `file-system-id` filter with
  * the ID of the file system) or caches (use the `file-cache-id` filter with
@@ -932,7 +805,6 @@ export class TooManyAccessPoints extends S.TaggedError<TooManyAccessPoints>()("T
  * or `NFS`). If you don't use filters, the response returns all data
  * repository associations owned by your Amazon Web Services account in the Amazon Web Services Region
  * of the endpoint that you're calling.
- * 
  * 
  * When retrieving all data repository associations, you can paginate the response by using
  * the optional `MaxResults` parameter to limit the number of data repository associations
@@ -948,7 +820,6 @@ export class TooManyAccessPoints extends S.TaggedError<TooManyAccessPoints>()("T
  * or tasks in a specific lifecycle state. Otherwise, it returns all data repository tasks owned
  * by your Amazon Web Services account in the Amazon Web Services Region of the endpoint that you're calling.
  * 
- * 
  * When retrieving all tasks, you can paginate the response by using the optional `MaxResults`
  * parameter to limit the number of tasks returned in a response. If more tasks remain,
  * a `NextToken` value is returned in the response. In this case, send a later
@@ -958,10 +829,7 @@ export class TooManyAccessPoints extends S.TaggedError<TooManyAccessPoints>()("T
 /**
  * Describes one or more S3 access points attached to Amazon FSx volumes.
  * 
- * 
  * The requester requires the following permission to perform this action:
- * 
- * 
  * 
  * - `fsx:DescribeS3AccessPointAttachments`
  */export const describeS3AccessPointAttachments = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.DescribeS3AccessPointAttachments" }, DescribeS3AccessPointAttachmentsRequest, DescribeS3AccessPointAttachmentsResponse, [BadRequest, InternalServerError, S3AccessPointAttachmentNotFound, UnsupportedOperation]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -970,7 +838,6 @@ export class TooManyAccessPoints extends S.TaggedError<TooManyAccessPoints>()("T
  */export const updateVolume = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.UpdateVolume" }, UpdateVolumeRequest, UpdateVolumeResponse, [BadRequest, IncompatibleParameterError, InternalServerError, MissingVolumeConfiguration, VolumeNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new Amazon File Cache resource.
- * 
  * 
  * You can use this operation with a client request token in the request that
  * Amazon File Cache uses to ensure idempotent creation.
@@ -981,20 +848,10 @@ export class TooManyAccessPoints extends S.TaggedError<TooManyAccessPoints>()("T
  * If a file cache with the specified client request token doesn't exist,
  * `CreateFileCache` does the following:
  * 
- * 
- * 
  * - Creates a new, empty Amazon File Cache resource with an assigned ID, and
  * an initial lifecycle state of `CREATING`.
  * 
- * 
- * 
  * - Returns the description of the cache in JSON format.
- * 
- * 
- * 
- * 
- * 
- * 
  * 
  * The `CreateFileCache` call returns while the cache's lifecycle
  * state is still `CREATING`. You can check the cache creation status
@@ -1005,30 +862,20 @@ export class TooManyAccessPoints extends S.TaggedError<TooManyAccessPoints>()("T
  * Creates a new Amazon FSx for Lustre, Amazon FSx for Windows File
  * Server, or Amazon FSx for OpenZFS file system from an existing Amazon FSx backup.
  * 
- * 
  * If a file system with the specified client request token exists and the parameters
  * match, this operation returns the description of the file system. If a file system
  * with the specified client request token exists but the parameters don't match, this
  * call returns `IncompatibleParameterError`. If a file system with the
  * specified client request token doesn't exist, this operation does the following:
  * 
- * 
- * 
  * - Creates a new Amazon FSx file system from backup with an assigned ID,
  * and an initial lifecycle state of `CREATING`.
  * 
- * 
- * 
  * - Returns the description of the file system.
- * 
- * 
- * 
- * 
  * 
  * Parameters like the Active Directory, default share name, automatic backup, and backup
  * settings default to the parameters of the file system that was backed up, unless
  * overridden. You can explicitly supply other settings.
- * 
  * 
  * By using the idempotent operation, you can retry a
  * `CreateFileSystemFromBackup` call without the risk of creating an extra
@@ -1037,9 +884,6 @@ export class TooManyAccessPoints extends S.TaggedError<TooManyAccessPoints>()("T
  * occurred, or your connection was reset. If you use the same client request token and the
  * initial call created a file system, the client receives a success message as long as the
  * parameters are the same.
- * 
- * 
- * 
  * 
  * The `CreateFileSystemFromBackup` call returns while the file system's
  * lifecycle state is still `CREATING`. You can check the file-system
@@ -1057,257 +901,107 @@ export class TooManyAccessPoints extends S.TaggedError<TooManyAccessPoints>()("T
  * Use this operation to update the configuration of an existing Amazon FSx file
  * system. You can update multiple properties in a single request.
  * 
- * 
  * For FSx for Windows File Server file systems, you can update the following
  * properties:
  * 
- * 
- * 
  * - `AuditLogConfiguration`
- * 
- * 
- * 
  * 
  * - `AutomaticBackupRetentionDays`
  * 
- * 
- * 
- * 
  * - `DailyAutomaticBackupStartTime`
- * 
- * 
- * 
  * 
  * - `DiskIopsConfiguration`
  * 
- * 
- * 
- * 
  * - `SelfManagedActiveDirectoryConfiguration`
- * 
- * 
- * 
  * 
  * - `StorageCapacity`
  * 
- * 
- * 
- * 
  * - `StorageType`
- * 
- * 
- * 
  * 
  * - `ThroughputCapacity`
  * 
- * 
- * 
- * 
  * - `WeeklyMaintenanceStartTime`
- * 
- * 
- * 
- * 
- * 
  * 
  * For FSx for Lustre file systems, you can update the following
  * properties:
  * 
- * 
- * 
  * - `AutoImportPolicy`
- * 
- * 
- * 
  * 
  * - `AutomaticBackupRetentionDays`
  * 
- * 
- * 
- * 
  * - `DailyAutomaticBackupStartTime`
- * 
- * 
- * 
  * 
  * - `DataCompressionType`
  * 
- * 
- * 
- * 
  * - `FileSystemTypeVersion`
- * 
- * 
- * 
  * 
  * - `LogConfiguration`
  * 
- * 
- * 
- * 
  * - `LustreReadCacheConfiguration`
- * 
- * 
- * 
  * 
  * - `LustreRootSquashConfiguration`
  * 
- * 
- * 
- * 
  * - `MetadataConfiguration`
- * 
- * 
- * 
  * 
  * - `PerUnitStorageThroughput`
  * 
- * 
- * 
- * 
  * - `StorageCapacity`
- * 
- * 
- * 
  * 
  * - `ThroughputCapacity`
  * 
- * 
- * 
- * 
  * - `WeeklyMaintenanceStartTime`
- * 
- * 
- * 
- * 
- * 
  * 
  * For FSx for ONTAP file systems, you can update the following
  * properties:
  * 
- * 
- * 
  * - `AddRouteTableIds`
- * 
- * 
- * 
  * 
  * - `AutomaticBackupRetentionDays`
  * 
- * 
- * 
- * 
  * - `DailyAutomaticBackupStartTime`
- * 
- * 
- * 
  * 
  * - `DiskIopsConfiguration`
  * 
- * 
- * 
- * 
  * - `EndpointIpv6AddressRange`
- * 
- * 
- * 
  * 
  * - `FsxAdminPassword`
  * 
- * 
- * 
- * 
  * - `HAPairs`
- * 
- * 
- * 
  * 
  * - `RemoveRouteTableIds`
  * 
- * 
- * 
- * 
  * - `StorageCapacity`
- * 
- * 
- * 
  * 
  * - `ThroughputCapacity`
  * 
- * 
- * 
- * 
  * - `ThroughputCapacityPerHAPair`
  * 
- * 
- * 
- * 
  * - `WeeklyMaintenanceStartTime`
- * 
- * 
- * 
- * 
- * 
  * 
  * For FSx for OpenZFS file systems, you can update the following
  * properties:
  * 
- * 
- * 
  * - `AddRouteTableIds`
- * 
- * 
- * 
  * 
  * - `AutomaticBackupRetentionDays`
  * 
- * 
- * 
- * 
  * - `CopyTagsToBackups`
- * 
- * 
- * 
  * 
  * - `CopyTagsToVolumes`
  * 
- * 
- * 
- * 
  * - `DailyAutomaticBackupStartTime`
- * 
- * 
- * 
  * 
  * - `DiskIopsConfiguration`
  * 
- * 
- * 
- * 
  * - `EndpointIpv6AddressRange`
- * 
- * 
- * 
  * 
  * - `ReadCacheConfiguration`
  * 
- * 
- * 
- * 
  * - `RemoveRouteTableIds`
- * 
- * 
- * 
  * 
  * - `StorageCapacity`
  * 
- * 
- * 
- * 
  * - `ThroughputCapacity`
- * 
- * 
- * 
  * 
  * - `WeeklyMaintenanceStartTime`
  */export const updateFileSystem = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.UpdateFileSystem" }, UpdateFileSystemRequest, UpdateFileSystemResponse, [BadRequest, FileSystemNotFound, IncompatibleParameterError, InternalServerError, InvalidNetworkSettings, MissingFileSystemConfiguration, ServiceLimitExceeded, UnsupportedOperation]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1315,25 +1009,13 @@ export class TooManyAccessPoints extends S.TaggedError<TooManyAccessPoints>()("T
  * Creates a new, empty Amazon FSx file system. You can create the following supported
  * Amazon FSx file systems using the `CreateFileSystem` API operation:
  * 
- * 
- * 
  * - Amazon FSx for Lustre
- * 
- * 
  * 
  * - Amazon FSx for NetApp ONTAP
  * 
- * 
- * 
  * - Amazon FSx for OpenZFS
  * 
- * 
- * 
  * - Amazon FSx for Windows File Server
- * 
- * 
- * 
- * 
  * 
  * This operation requires a client request token in the request that Amazon FSx uses
  * to ensure idempotent creation. This means that calling the operation multiple times with
@@ -1345,7 +1027,6 @@ export class TooManyAccessPoints extends S.TaggedError<TooManyAccessPoints>()("T
  * initial call created a file system, the client receives success as long as the
  * parameters are the same.
  * 
- * 
  * If a file system with the specified client request token exists and the parameters
  * match, `CreateFileSystem` returns the description of the existing file
  * system. If a file system with the specified client request token exists and the
@@ -1353,20 +1034,10 @@ export class TooManyAccessPoints extends S.TaggedError<TooManyAccessPoints>()("T
  * file system with the specified client request token doesn't exist,
  * `CreateFileSystem` does the following:
  * 
- * 
- * 
  * - Creates a new, empty Amazon FSx file system with an assigned ID, and
  * an initial lifecycle state of `CREATING`.
  * 
- * 
- * 
  * - Returns the description of the file system in JSON format.
- * 
- * 
- * 
- * 
- * 
- * 
  * 
  * The `CreateFileSystem` call returns while the file system's lifecycle
  * state is still `CREATING`. You can check the file-system creation status
@@ -1378,7 +1049,6 @@ export class TooManyAccessPoints extends S.TaggedError<TooManyAccessPoints>()("T
  * (cross-Region copy) or within the same Amazon Web Services Region (in-Region copy). You can have up to five
  * backup copy requests in progress to a single destination Region per account.
  * 
- * 
  * You can use cross-Region backup copies for cross-Region disaster recovery. You can
  * periodically take backups and copy them to another Region so that in the event of a
  * disaster in the primary Region, you can restore from backup and recover availability
@@ -1386,10 +1056,8 @@ export class TooManyAccessPoints extends S.TaggedError<TooManyAccessPoints>()("T
  * has three partitions: `aws` (Standard Regions), `aws-cn` (China
  * Regions), and `aws-us-gov` (Amazon Web Services GovCloud [US] Regions).
  * 
- * 
  * You can also use backup copies to clone your file dataset to another Region or within
  * the same Region.
- * 
  * 
  * You can use the `SourceRegion` parameter to specify the Amazon Web Services Region
  * from which the backup will be copied. For example, if you make the call from the
@@ -1397,7 +1065,6 @@ export class TooManyAccessPoints extends S.TaggedError<TooManyAccessPoints>()("T
  * Region, you specify `us-east-2` in the `SourceRegion` parameter
  * to make a cross-Region copy. If you don't specify a Region, the backup copy is
  * created in the same Region where the request is sent from (in-Region copy).
- * 
  * 
  * For more information about creating backup copies, see Copying backups
  * in the *Amazon FSx for Windows User Guide*, Copying backups in the Amazon FSx for Lustre User
@@ -1410,47 +1077,21 @@ export class TooManyAccessPoints extends S.TaggedError<TooManyAccessPoints>()("T
  * see Accessing your data using Amazon S3 access points.
  * in the Amazon FSx for OpenZFS User Guide.
  * 
- * 
- * 
  * The requester requires the following permissions to perform these actions:
- * 
- * 
  * 
  * - `fsx:CreateAndAttachS3AccessPoint`
  * 
- * 
- * 
- * 
  * - `s3:CreateAccessPoint`
- * 
- * 
- * 
  * 
  * - `s3:GetAccessPoint`
  * 
- * 
- * 
- * 
  * - `s3:PutAccessPointPolicy`
- * 
- * 
- * 
  * 
  * - `s3:DeleteAccessPoint`
  * 
- * 
- * 
- * 
- * 
- * 
  * The following actions are related to `CreateAndAttachS3AccessPoint`:
  * 
- * 
- * 
  * - DescribeS3AccessPointAttachments
- * 
- * 
- * 
  * 
  * - DetachAndDeleteS3AccessPoint
  */export const createAndAttachS3AccessPoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.CreateAndAttachS3AccessPoint" }, CreateAndAttachS3AccessPointRequest, CreateAndAttachS3AccessPointResponse, [AccessPointAlreadyOwnedByYou, BadRequest, IncompatibleParameterError, InternalServerError, InvalidAccessPoint, InvalidRequest, TooManyAccessPoints, UnsupportedOperation, VolumeNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

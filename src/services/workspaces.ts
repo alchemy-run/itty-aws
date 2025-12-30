@@ -401,9 +401,6 @@ export class WorkspacesDefaultRoleNotFoundException extends S.TaggedError<Worksp
  * information, see Cross-Region
  * Redirection for Amazon WorkSpaces.
  * 
- * 
- * 
- * 
  * Before performing this operation, call
  * DescribeConnectionAliases to make sure that the current state of the
  * connection alias is `CREATED`.
@@ -418,7 +415,6 @@ export class WorkspacesDefaultRoleNotFoundException extends S.TaggedError<Worksp
 /**
  * Sets the state of the specified WorkSpace.
  * 
- * 
  * To maintain a WorkSpace without being interrupted, set the WorkSpace state to
  * `ADMIN_MAINTENANCE`. WorkSpaces in this state do not respond to requests to
  * reboot, stop, start, rebuild, or restore. An AutoStop WorkSpace in this state is not
@@ -428,15 +424,12 @@ export class WorkspacesDefaultRoleNotFoundException extends S.TaggedError<Worksp
 /**
  * Restores the specified WorkSpace to its last known healthy state.
  * 
- * 
  * You cannot restore a WorkSpace unless its state is ` AVAILABLE`,
  * `ERROR`, `UNHEALTHY`, or `STOPPED`.
- * 
  * 
  * Restoring a WorkSpace is a potentially destructive action that can result in the loss of
  * data. For more information, see Restore a
  * WorkSpace.
- * 
  * 
  * This operation is asynchronous and returns before the WorkSpace is completely
  * restored.
@@ -446,7 +439,6 @@ export class WorkspacesDefaultRoleNotFoundException extends S.TaggedError<Worksp
  */export const revokeIpRules = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.RevokeIpRules" }, RevokeIpRulesRequest, RevokeIpRulesResult, [AccessDeniedException, InvalidParameterValuesException, InvalidResourceStateException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Stops the specified pool.
- * 
  * 
  * You cannot stop a WorkSpace pool unless it has a running mode of `AutoStop`
  * and a state of `AVAILABLE`, `IMPAIRED`, `UNHEALTHY`, or `ERROR`.
@@ -467,28 +459,18 @@ export class WorkspacesDefaultRoleNotFoundException extends S.TaggedError<Worksp
  * permission is granted, the image is shared with that account. If the copy image permission
  * is revoked, the image is unshared with the account.
  * 
- * 
  * After an image has been shared, the recipient account can copy the image to other
  * Regions as needed.
  * 
- * 
  * In the China (Ningxia) Region, you can copy images only within the same Region.
  * 
- * 
  * In Amazon Web Services GovCloud (US), to copy images to and from other Regions, contact Amazon Web ServicesSupport.
- * 
  * 
  * For more information about sharing images, see Share or Unshare a Custom
  * WorkSpaces Image.
  * 
- * 
- * 
- * 
- * 
  * - To delete an image that has been shared, you must unshare the image before you
  * delete it.
- * 
- * 
  * 
  * - Sharing Bring Your Own License (BYOL) images across Amazon Web Services accounts
  * isn't supported at this time in Amazon Web Services GovCloud (US). To share BYOL images
@@ -499,9 +481,6 @@ export class WorkspacesDefaultRoleNotFoundException extends S.TaggedError<Worksp
  * cross-Region redirection. For more information, see Cross-Region
  * Redirection for Amazon WorkSpaces.
  * 
- * 
- * 
- * 
  * Before performing this operation, call
  * DescribeConnectionAliases to make sure that the current state of the
  * connection alias is `CREATED`.
@@ -511,7 +490,6 @@ export class WorkspacesDefaultRoleNotFoundException extends S.TaggedError<Worksp
  */export const associateIpGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.AssociateIpGroups" }, AssociateIpGroupsRequest, AssociateIpGroupsResult, [AccessDeniedException, InvalidParameterValuesException, InvalidResourceStateException, OperationNotSupportedException, ResourceLimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Adds one or more rules to the specified IP access control group.
- * 
  * 
  * This action gives users permission to access their WorkSpaces from the CIDR address
  * ranges specified in the rules.
@@ -529,24 +507,15 @@ export class WorkspacesDefaultRoleNotFoundException extends S.TaggedError<Worksp
  * updated WorkSpace image has the latest drivers and other updates required by the
  * Amazon WorkSpaces components.
  * 
- * 
  * To determine which WorkSpace images need to be updated with the latest Amazon WorkSpaces
  * requirements, use
  * DescribeWorkspaceImages.
  * 
- * 
- * 
- * 
- * 
  * - Only Windows 10, Windows Server 2016, and Windows Server 2019 WorkSpace images
  * can be programmatically updated at this time.
  * 
- * 
- * 
  * - Microsoft Windows updates and other application updates are not included in the
  * update process.
- * 
- * 
  * 
  * - The source WorkSpace image is not deleted. You can delete the source image
  * after you've verified your new updated image and created a new bundle.
@@ -557,7 +526,6 @@ export class WorkspacesDefaultRoleNotFoundException extends S.TaggedError<Worksp
  * email address, support link, link to reset password, and a custom message for users trying
  * to sign in.
  * 
- * 
  * After you delete your customized client branding, your login portal reverts to the
  * default client branding.
  */export const deleteClientBranding = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.DeleteClientBranding" }, DeleteClientBrandingRequest, DeleteClientBrandingResult, [AccessDeniedException, InvalidParameterValuesException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -565,19 +533,10 @@ export class WorkspacesDefaultRoleNotFoundException extends S.TaggedError<Worksp
  * Deletes the specified connection alias. For more information, see
  * Cross-Region Redirection for Amazon WorkSpaces.
  * 
- * 
- * 
- * 
- * 
  * If you will no longer be using a fully qualified domain name
  * (FQDN) as the registration code for your WorkSpaces users, you must take certain
  * precautions to prevent potential security issues. For more information,
  * see Security Considerations if You Stop Using Cross-Region Redirection.
- * 
- * 
- * 
- * 
- * 
  * 
  * To delete a connection alias that has been shared, the shared account must first
  * disassociate the connection alias from any directories it has been associated with. Then
@@ -588,7 +547,6 @@ export class WorkspacesDefaultRoleNotFoundException extends S.TaggedError<Worksp
 /**
  * Deletes the specified IP access control group.
  * 
- * 
  * You cannot delete an IP access control group that is associated with a directory.
  */export const deleteIpGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.DeleteIpGroup" }, DeleteIpGroupRequest, DeleteIpGroupResult, [AccessDeniedException, InvalidParameterValuesException, ResourceAssociatedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -596,15 +554,11 @@ export class WorkspacesDefaultRoleNotFoundException extends S.TaggedError<Worksp
  * the WorkSpace directory is deregistered. If any WorkSpaces are registered to this
  * directory, you must remove them before you can deregister the directory.
  * 
- * 
- * 
- * 
  * Simple AD and AD Connector are made available to you free of charge to use with
  * WorkSpaces. If there are no WorkSpaces being used with your Simple AD or AD Connector
  * directory for 30 consecutive days, this directory will be automatically deregistered for
  * use with Amazon WorkSpaces, and you will be charged for this directory as per the Directory Service pricing
  * terms.
- * 
  * 
  * To delete empty directories, see Delete the
  * Directory for Your WorkSpaces. If you delete your Simple AD or AD Connector
@@ -637,11 +591,9 @@ export class WorkspacesDefaultRoleNotFoundException extends S.TaggedError<Worksp
  * Retrieves a list of IP address ranges, specified as IPv4 CIDR blocks, that you can use
  * for the network management interface when you enable Bring Your Own License (BYOL).
  * 
- * 
  * This operation can be run only by Amazon Web Services accounts that are enabled for BYOL.
  * If your account isn't enabled for BYOL, you'll receive an
  * `AccessDeniedException` error.
- * 
  * 
  * The management network interface is connected to a secure Amazon WorkSpaces management
  * network. It is used for interactive streaming of the WorkSpace desktop to Amazon WorkSpaces
@@ -651,14 +603,12 @@ export class WorkspacesDefaultRoleNotFoundException extends S.TaggedError<Worksp
  * Migrates a WorkSpace from one operating system or bundle type to another, while
  * retaining the data on the user volume.
  * 
- * 
  * The migration process recreates the WorkSpace by using a new root volume from the target
  * bundle image and the user volume from the last available snapshot of the original
  * WorkSpace. During migration, the original `D:\Users\%USERNAME%` user profile
  * folder is renamed to `D:\Users\%USERNAME%MMddyyTHHmmss%.NotMigrated`. A new
  * `D:\Users\%USERNAME%\` folder is generated by the new OS. Certain files in
  * the old user profile are moved to the new user profile.
- * 
  * 
  * For available migration scenarios, details about what happens during migration, and best
  * practices, see Migrate a
@@ -693,7 +643,6 @@ export class WorkspacesDefaultRoleNotFoundException extends S.TaggedError<Worksp
 /**
  * Starts the specified pool.
  * 
- * 
  * You cannot start a pool unless it has a running mode of
  * `AutoStop` and a state of `STOPPED`.
  */export const startWorkspacesPool = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.StartWorkspacesPool" }, StartWorkspacesPoolRequest, StartWorkspacesPoolResult, [AccessDeniedException, InvalidParameterValuesException, InvalidResourceStateException, OperationInProgressException, OperationNotSupportedException, ResourceLimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -705,15 +654,9 @@ export class WorkspacesDefaultRoleNotFoundException extends S.TaggedError<Worksp
  * more information, see Cross-Region
  * Redirection for Amazon WorkSpaces.
  * 
- * 
- * 
- * 
- * 
  * - Before performing this operation, call
  * DescribeConnectionAliases to make sure that the current state of the
  * connection alias is `CREATED`.
- * 
- * 
  * 
  * - To delete a connection alias that has been shared, the shared account must
  * first disassociate the connection alias from any directories it has been
@@ -730,18 +673,12 @@ export class WorkspacesDefaultRoleNotFoundException extends S.TaggedError<Worksp
  * 
  * Update a Custom WorkSpaces Bundle.
  * 
- * 
- * 
- * 
  * Existing WorkSpaces aren't automatically updated when you update the bundle that they're
  * based on. To update existing WorkSpaces that are based on a bundle that you've updated, you
  * must either rebuild the WorkSpaces or delete and recreate them.
  */export const updateWorkspaceBundle = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.UpdateWorkspaceBundle" }, UpdateWorkspaceBundleRequest, UpdateWorkspaceBundleResult, [AccessDeniedException, InvalidParameterValuesException, OperationNotSupportedException, ResourceNotFoundException, ResourceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Accepts the account link invitation.
- * 
- * 
- * 
  * 
  * There's currently no unlinking capability after you accept the account linking invitation.
  */export const acceptAccountLinkInvitation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.AcceptAccountLinkInvitation" }, AcceptAccountLinkInvitationRequest, AcceptAccountLinkInvitationResult, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -750,14 +687,9 @@ export class WorkspacesDefaultRoleNotFoundException extends S.TaggedError<Worksp
  * information about copying images, see Copy a Custom WorkSpaces
  * Image.
  * 
- * 
  * In the China (Ningxia) Region, you can copy images only within the same Region.
  * 
- * 
  * In Amazon Web Services GovCloud (US), to copy images to and from other Regions, contact Amazon Web ServicesSupport.
- * 
- * 
- * 
  * 
  * Before copying a shared image, be sure to verify that it has been shared from the
  * correct Amazon Web Services account. To determine if an image has been shared and to see
@@ -770,18 +702,15 @@ export class WorkspacesDefaultRoleNotFoundException extends S.TaggedError<Worksp
  * Creates a client-add-in for Amazon Connect within a directory. You can create only
  * one Amazon Connect client add-in within a directory.
  * 
- * 
  * This client add-in allows WorkSpaces users to seamlessly connect to Amazon Connect.
  */export const createConnectClientAddIn = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.CreateConnectClientAddIn" }, CreateConnectClientAddInRequest, CreateConnectClientAddInResult, [AccessDeniedException, InvalidParameterValuesException, ResourceAlreadyExistsException, ResourceCreationFailedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an IP access control group.
  * 
- * 
  * An IP access control group provides you with the ability to control the IP addresses
  * from which users are allowed to access their WorkSpaces. To specify the CIDR address
  * ranges, add rules to your IP access control group and then associate the group with your
  * directory. You can add rules when you create the group or at any time using AuthorizeIpRules.
- * 
  * 
  * There is a default IP access control group associated with your directory. If you don't
  * associate an IP access control group with your directory, the default group is used. The
@@ -824,9 +753,6 @@ export class WorkspacesDefaultRoleNotFoundException extends S.TaggedError<Worksp
  * email address, support link, link to reset password, and a custom message for users trying
  * to sign in.
  * 
- * 
- * 
- * 
  * Only device types that have branding information configured will be shown in the
  * response.
  */export const describeClientBranding = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.DescribeClientBranding" }, DescribeClientBrandingRequest, DescribeClientBrandingResult, [AccessDeniedException, InvalidParameterValuesException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -847,7 +773,6 @@ export class WorkspacesDefaultRoleNotFoundException extends S.TaggedError<Worksp
  */export const describeIpGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.DescribeIpGroups" }, DescribeIpGroupsRequest, DescribeIpGroupsResult, [AccessDeniedException, InvalidParameterValuesException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves a list that describes the available WorkSpace bundles.
- * 
  * 
  * You can filter the results using either bundle ID or owner, but not both.
  */export const describeWorkspaceBundles = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.DescribeWorkspaceBundles" }, DescribeWorkspaceBundlesRequest, DescribeWorkspaceBundlesResult, [InvalidParameterValuesException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -882,16 +807,13 @@ export class WorkspacesDefaultRoleNotFoundException extends S.TaggedError<Worksp
 /**
  * Rebuilds the specified WorkSpace.
  * 
- * 
  * You cannot rebuild a WorkSpace unless its state is `AVAILABLE`,
  * `ERROR`, `UNHEALTHY`, `STOPPED`, or
  * `REBOOTING`.
  * 
- * 
  * Rebuilding a WorkSpace is a potentially destructive action that can result in the loss
  * of data. For more information, see Rebuild a
  * WorkSpace.
- * 
  * 
  * This operation is asynchronous and returns before the WorkSpaces have been completely
  * rebuilt.
@@ -899,13 +821,11 @@ export class WorkspacesDefaultRoleNotFoundException extends S.TaggedError<Worksp
 /**
  * Starts the specified WorkSpaces.
  * 
- * 
  * You cannot start a WorkSpace unless it has a running mode of `AutoStop` or
  * `Manual` and a state of `STOPPED`.
  */export const startWorkspaces = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.StartWorkspaces" }, StartWorkspacesRequest, StartWorkspacesResult, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Stops the specified WorkSpaces.
- * 
  * 
  * You cannot stop a WorkSpace unless it has a running mode of `AutoStop` or
  * `Manual` and a state of `AVAILABLE`, `IMPAIRED`,
@@ -914,18 +834,11 @@ export class WorkspacesDefaultRoleNotFoundException extends S.TaggedError<Worksp
 /**
  * Terminates the specified WorkSpaces.
  * 
- * 
- * 
- * 
  * Terminating a WorkSpace is a permanent action and cannot be undone. The user's data
  * is destroyed. If you need to archive any user data, contact Amazon Web ServicesSupport before
  * terminating the WorkSpace.
  * 
- * 
- * 
- * 
  * You can terminate a WorkSpace that is in any state except `SUSPENDED`.
- * 
  * 
  * This operation is asynchronous and returns before the WorkSpaces have been completely
  * terminated. After a WorkSpace is terminated, the `TERMINATED` state is returned
@@ -935,15 +848,11 @@ export class WorkspacesDefaultRoleNotFoundException extends S.TaggedError<Worksp
  * DescribeWorkSpaces. If the WorkSpace ID isn't returned, then the WorkSpace has
  * been successfully terminated.
  * 
- * 
- * 
- * 
  * Simple AD and AD Connector are made available to you free of charge to use with
  * WorkSpaces. If there are no WorkSpaces being used with your Simple AD or AD Connector
  * directory for 30 consecutive days, this directory will be automatically deregistered for
  * use with Amazon WorkSpaces, and you will be charged for this directory as per the Directory Service pricing
  * terms.
- * 
  * 
  * To delete empty directories, see Delete the
  * Directory for Your WorkSpaces. If you delete your Simple AD or AD Connector
@@ -959,29 +868,18 @@ export class WorkspacesDefaultRoleNotFoundException extends S.TaggedError<Worksp
 /**
  * Creates one or more WorkSpaces.
  * 
- * 
  * This operation is asynchronous and returns before the WorkSpaces are created.
- * 
- * 
- * 
- * 
  * 
  * - The `MANUAL` running mode value is only supported by Amazon WorkSpaces
  * Core. Contact your account team to be allow-listed to use this value. For more
  * information, see Amazon WorkSpaces
  * Core.
  * 
- * 
- * 
  * - You don't need to specify the `PCOIP` protocol for Linux bundles
  * because `DCV` (formerly WSP) is the default protocol for those bundles.
  * 
- * 
- * 
  * - User-decoupled WorkSpaces are only supported by Amazon WorkSpaces
  * Core.
- * 
- * 
  * 
  * - Review your running mode to ensure you are using one that is optimal for your needs and budget.
  * For more information on switching running modes, see
@@ -1000,7 +898,6 @@ export class WorkspacesDefaultRoleNotFoundException extends S.TaggedError<Worksp
 /**
  * Describes the specified WorkSpaces.
  * 
- * 
  * You can filter the results by using the bundle identifier, directory identifier, or
  * owner, but you can specify only one filter at a time.
  */export const describeWorkspaces = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.DescribeWorkspaces" }, DescribeWorkspacesRequest, DescribeWorkspacesResult, [InvalidParameterValuesException, ResourceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1013,30 +910,19 @@ export class WorkspacesDefaultRoleNotFoundException extends S.TaggedError<Worksp
  * support link, link to reset password, and a custom message for users trying to sign
  * in.
  * 
- * 
  * After you import client branding, the default branding experience for the specified
  * platform type is replaced with the imported experience
  * 
- * 
- * 
- * 
- * 
  * - You must specify at least one platform type when importing client
  * branding.
- * 
- * 
  * 
  * - You can import up to 6 MB of data with each request. If your request exceeds
  * this limit, you can import client branding for different platform types using
  * separate requests.
  * 
- * 
- * 
  * - In each platform type, the `SupportEmail` and
  * `SupportLink` parameters are mutually exclusive. You can specify
  * only one parameter for each platform type, but not both.
- * 
- * 
  * 
  * - Imported data can take up to a minute to appear in the WorkSpaces
  * client.
@@ -1044,10 +930,6 @@ export class WorkspacesDefaultRoleNotFoundException extends S.TaggedError<Worksp
 /**
  * Modifies the specified WorkSpace properties. For important information about how to
  * modify the size of the root and user volumes, see Modify a WorkSpace.
- * 
- * 
- * 
- * 
  * 
  * The `MANUAL` running mode value is only supported by Amazon WorkSpaces
  * Core. Contact your account team to be allow-listed to use this value. For more
@@ -1057,11 +939,9 @@ export class WorkspacesDefaultRoleNotFoundException extends S.TaggedError<Worksp
 /**
  * Reboots the specified WorkSpaces.
  * 
- * 
  * You cannot reboot a WorkSpace unless its state is `AVAILABLE`,
  * `UNHEALTHY`, or `REBOOTING`. Reboot a WorkSpace in the `REBOOTING`
  * state only if your WorkSpace has been stuck in the `REBOOTING` state for over 20 minutes.
- * 
  * 
  * This operation is asynchronous and returns before the WorkSpaces have rebooted.
  */export const rebootWorkspaces = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.RebootWorkspaces" }, RebootWorkspacesRequest, RebootWorkspacesResult, [OperationNotSupportedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

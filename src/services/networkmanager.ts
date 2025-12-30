@@ -422,7 +422,6 @@ export class CoreNetworkPolicyException extends S.TaggedError<CoreNetworkPolicyE
 /**
  * Gets information about one or more links in a specified global network.
  * 
- * 
  * If you specify the site ID, you cannot specify the type or provider in the same request. You can specify the type and provider in the same request.
  */export const getLinks = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-07-05", uri: "/global-networks/{GlobalNetworkId}/links", method: "GET", sdkId: "NetworkManager", sigV4ServiceName: "networkmanager", name: "NetworkManager.GetLinks" }, GetLinksRequest, GetLinksResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -516,7 +515,6 @@ export class CoreNetworkPolicyException extends S.TaggedError<CoreNetworkPolicyE
 /**
  * Associates a core network Connect peer with a device and optionally, with a link.
  * 
- * 
  * If you specify a link, it must be associated with the specified device. You can only
  * associate core network Connect peers that have been created on a core network Connect
  * attachment on a core network.
@@ -525,14 +523,12 @@ export class CoreNetworkPolicyException extends S.TaggedError<CoreNetworkPolicyE
  * Associates a customer gateway with a device and optionally, with a link. If you
  * specify a link, it must be associated with the specified device.
  * 
- * 
  * You can only associate customer gateways that are connected to a VPN attachment on a
  * transit gateway or core network registered in your global network. When you register a
  * transit gateway or core network, customer gateways that are connected to the transit
  * gateway are automatically included in the global network. To list customer gateways
  * that are connected to a transit gateway, use the DescribeVpnConnections EC2 API and filter by
  * `transit-gateway-id`.
- * 
  * 
  * You cannot associate a customer gateway with more than one device and link.
  */export const associateCustomerGateway = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-07-05", uri: "/global-networks/{GlobalNetworkId}/customer-gateway-associations", sdkId: "NetworkManager", sigV4ServiceName: "networkmanager", name: "NetworkManager.AssociateCustomerGateway" }, AssociateCustomerGatewayRequest, AssociateCustomerGatewayResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -543,16 +539,13 @@ export class CoreNetworkPolicyException extends S.TaggedError<CoreNetworkPolicyE
  * Associates a transit gateway Connect peer with a device, and optionally, with a link. If you
  * specify a link, it must be associated with the specified device.
  * 
- * 
  * You can only associate transit gateway Connect peers that have been created on a
  * transit gateway that's registered in your global network.
- * 
  * 
  * You cannot associate a transit gateway Connect peer with more than one device and link.
  */export const associateTransitGatewayConnectPeer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-07-05", uri: "/global-networks/{GlobalNetworkId}/transit-gateway-connect-peer-associations", sdkId: "NetworkManager", sigV4ServiceName: "networkmanager", name: "NetworkManager.AssociateTransitGatewayConnectPeer" }, AssociateTransitGatewayConnectPeerRequest, AssociateTransitGatewayConnectPeerResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a core network Connect attachment from a specified core network attachment.
- * 
  * 
  * A core network Connect attachment is a GRE-based tunnel attachment that you can use to
  * establish a connection between a core network and an appliance. A core network Connect
@@ -616,7 +609,6 @@ export class CoreNetworkPolicyException extends S.TaggedError<CoreNetworkPolicyE
 /**
  * Describes the network resources for the specified global network.
  * 
- * 
  * The results include information from the corresponding Describe call for the resource, minus any sensitive information such as pre-shared keys.
  */export const getNetworkResources = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-07-05", uri: "/global-networks/{GlobalNetworkId}/network-resources", method: "GET", sdkId: "NetworkManager", sigV4ServiceName: "networkmanager", name: "NetworkManager.GetNetworkResources" }, GetNetworkResourcesRequest, GetNetworkResourcesResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -652,7 +644,6 @@ export class CoreNetworkPolicyException extends S.TaggedError<CoreNetworkPolicyE
  */export const updateNetworkResourceMetadata = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-07-05", uri: "/global-networks/{GlobalNetworkId}/network-resources/{ResourceArn}/metadata", method: "PATCH", sdkId: "NetworkManager", sigV4ServiceName: "networkmanager", name: "NetworkManager.UpdateNetworkResourceMetadata" }, UpdateNetworkResourceMetadataRequest, UpdateNetworkResourceMetadataResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Accepts a core network attachment request.
- * 
  * 
  * Once the attachment request is accepted by a core network owner, the attachment is
  * created and connected to a core network.

@@ -561,9 +561,6 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
 /**
  * Archives GuardDuty findings that are specified by the list of finding IDs.
  * 
- * 
- * 
- * 
  * Only the administrator account can archive findings. Member accounts don't have
  * permission to archive findings from their accounts.
  */export const archiveFindings = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/findings/archive", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.ArchiveFindings" }, ArchiveFindingsRequest, ArchiveFindingsResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -604,7 +601,6 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
 /**
  * Disassociates the current GuardDuty member account from its administrator account.
  * 
- * 
  * When you
  * disassociate an invited member from a GuardDuty delegated administrator, the member account details
  * obtained from the CreateMembers API, including the associated email addresses, are retained. This is
@@ -612,14 +608,12 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * remove the details associated with a member account, the delegated administrator must invoke the
  * DeleteMembers API.
  * 
- * 
  * With `autoEnableOrganizationMembers` configuration for your organization set to
  * `ALL`, you'll receive an error if you attempt to disable GuardDuty in a member
  * account.
  */export const disassociateFromAdministratorAccount = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/administrator/disassociate", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.DisassociateFromAdministratorAccount" }, DisassociateFromAdministratorAccountRequest, DisassociateFromAdministratorAccountResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Disassociates the current GuardDuty member account from its administrator account.
- * 
  * 
  * When you
  * disassociate an invited member from a GuardDuty delegated administrator, the member account details
@@ -649,13 +643,11 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
 /**
  * Updates the GuardDuty detector specified by the detector ID.
  * 
- * 
  * Specifying both EKS Runtime Monitoring (`EKS_RUNTIME_MONITORING`)
  * and Runtime Monitoring (`RUNTIME_MONITORING`) will cause an error.
  * You can add only one of these two features because Runtime Monitoring already includes the
  * threat detection for Amazon EKS resources. For more information, see
  * Runtime Monitoring.
- * 
  * 
  * There might be regional differences because some data sources might not be
  * available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more
@@ -711,7 +703,6 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * will not generate findings for the entries that are specified in a trusted entity set. At any
  * given time, you can have only one trusted entity set.
  * 
- * 
  * Only users of the administrator account can manage the entity sets, which automatically
  * apply to member accounts.
  */export const createTrustedEntitySet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/trustedentityset", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.CreateTrustedEntitySet" }, CreateTrustedEntitySetRequest, CreateTrustedEntitySetResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -722,7 +713,6 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
 /**
  * Deletes GuardDuty member accounts (to the current GuardDuty administrator account)
  * specified by the account IDs.
- * 
  * 
  * With `autoEnableOrganizationMembers` configuration for your organization set to
  * `ALL`, you'll receive an error if you attempt to disable GuardDuty for a member
@@ -736,7 +726,6 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * Disassociates GuardDuty member accounts (from the current administrator account) specified
  * by the account IDs.
  * 
- * 
  * When you
  * disassociate an invited member from a GuardDuty delegated administrator, the member account details
  * obtained from the CreateMembers API, including the associated email addresses, are retained. This is
@@ -744,18 +733,15 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * remove the details associated with a member account, the delegated administrator must invoke the
  * DeleteMembers API.
  * 
- * 
  * With `autoEnableOrganizationMembers` configuration for your organization set to
  * `ALL`, you'll receive an error if you attempt to disassociate a member account
  * before removing them from your organization.
- * 
  * 
  * If you disassociate a member account that was added by invitation, the member account details
  * obtained from this API, including the associated email addresses, will be retained.
  * This is done so that the delegated administrator can invoke the InviteMembers API without the need to invoke the CreateMembers API again. To
  * remove the details associated with a member account, the delegated administrator must invoke the
  * DeleteMembers API.
- * 
  * 
  * When the member accounts added through Organizations are later disassociated, you (administrator)
  * can't invite them by calling the InviteMembers API. You can create an association with these
@@ -769,7 +755,6 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  */export const getIPSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/ipset/{IpSetId}", method: "GET", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.GetIPSet" }, GetIPSetRequest, GetIPSetResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the details of the malware scan settings.
- * 
  * 
  * There might be regional differences because some data sources might not be
  * available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more
@@ -789,7 +774,6 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * that invokes this API. If you are using Amazon Web Services Organizations to manage your GuardDuty environment, this step is not
  * needed. For more information, see Managing accounts with organizations.
  * 
- * 
  * To invite Amazon Web Services accounts, the first step is
  * to ensure that GuardDuty has been enabled in the potential member accounts. You can now invoke this API
  * to add accounts by invitation. The
@@ -797,7 +781,6 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * choose to accept the invitation from only one Amazon Web Services account. For more information, see
  * Managing GuardDuty accounts
  * by invitation.
- * 
  * 
  * After the invite has been accepted and you choose to disassociate a member account
  * (by using DisassociateMembers) from your account,
@@ -808,13 +791,11 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * remove the details associated with a member account, you must also invoke
  * DeleteMembers.
  * 
- * 
  * If you disassociate a member account that was added by invitation, the member account details
  * obtained from this API, including the associated email addresses, will be retained.
  * This is done so that the delegated administrator can invoke the InviteMembers API without the need to invoke the CreateMembers API again. To
  * remove the details associated with a member account, the delegated administrator must invoke the
  * DeleteMembers API.
- * 
  * 
  * When the member accounts added through Organizations are later disassociated, you (administrator)
  * can't invite them by calling the InviteMembers API. You can create an association with these
@@ -828,7 +809,6 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  */export const listFilters = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/filter", method: "GET", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.ListFilters" }, ListFiltersRequest, ListFiltersResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists GuardDuty findings for the specified detector ID.
- * 
  * 
  * There might be regional differences because some flags might not be available in all the Regions where GuardDuty
  * is currently supported. For more information, see Regions and endpoints.
@@ -866,7 +846,6 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
 /**
  * Initiates a malware scan for a specific S3 object. This API allows you to perform on-demand malware scanning of individual objects in S3 buckets that have Malware Protection for S3 enabled.
  * 
- * 
  * When you use this API, the Amazon Web Services service terms for GuardDuty Malware
  * Protection apply. For more information, see Amazon Web Services service terms for GuardDuty Malware Protection.
  */export const sendObjectMalwareScan = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/object-malware-scan/send", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.SendObjectMalwareScan" }, SendObjectMalwareScanRequest, SendObjectMalwareScanResponse, [AccessDeniedException, BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -878,7 +857,6 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * Stops GuardDuty monitoring for the specified member accounts. Use the
  * `StartMonitoringMembers` operation to restart monitoring for those
  * accounts.
- * 
  * 
  * With `autoEnableOrganizationMembers` configuration for your organization set to
  * `ALL`, you'll receive an error if you attempt to stop monitoring the member
@@ -892,12 +870,10 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * IDs. This step is a prerequisite for managing the associated member accounts either by
  * invitation or through an organization.
  * 
- * 
  * As a delegated administrator, using `CreateMembers` will enable GuardDuty in
  * the added member accounts, with the exception of the
  * organization delegated administrator account. A delegated administrator must enable GuardDuty
  * prior to being added as a member.
- * 
  * 
  * When you use CreateMembers as an Organizations delegated
  * administrator, GuardDuty applies your organization's auto-enable settings to the member
@@ -905,13 +881,11 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * more information about the existing auto-enable settings for your organization, see
  * DescribeOrganizationConfiguration.
  * 
- * 
  * If you disassociate a member account that was added by invitation, the member account details
  * obtained from this API, including the associated email addresses, will be retained.
  * This is done so that the delegated administrator can invoke the InviteMembers API without the need to invoke the CreateMembers API again. To
  * remove the details associated with a member account, the delegated administrator must invoke the
  * DeleteMembers API.
- * 
  * 
  * When the member accounts added through Organizations are later disassociated, you (administrator)
  * can't invite them by calling the InviteMembers API. You can create an association with these
@@ -934,19 +908,12 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * Provides the details of the GuardDuty administrator account associated with the current
  * GuardDuty member account.
  * 
- * 
  * Based on the type of account that runs this API, the following list shows how the API behavior varies:
- * 
- * 
  * 
  * - When the GuardDuty administrator account runs this API, it will return success (`HTTP 200`) but no content.
  * 
- * 
- * 
  * - When a member account runs this API, it will return the details of the GuardDuty administrator account that is associated
  * with this calling member account.
- * 
- * 
  * 
  * - When an individual account (not associated with an organization) runs this API, it will return success (`HTTP 200`)
  * but no content.
@@ -986,11 +953,9 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
 /**
  * Lists GuardDuty findings statistics for the specified detector ID.
  * 
- * 
  * You must provide either `findingStatisticTypes` or
  * `groupBy` parameter, and not both. You can use the `maxResults` and `orderBy`
  * parameters only when using `groupBy`.
- * 
  * 
  * There might be regional differences because some flags might not be available in all the Regions where GuardDuty
  * is currently supported. For more information, see Regions and endpoints.
@@ -999,10 +964,8 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * Initiates the malware scan. Invoking this API will automatically create the Service-linked role in
  * the corresponding account if the resourceArn belongs to an EC2 instance.
  * 
- * 
  * When the malware scan starts, you can use the associated scan ID to track the status of the scan. For more information,
  * see ListMalwareScans and GetMalwareScan.
- * 
  * 
  * When you use this API, the Amazon Web Services service terms for GuardDuty Malware
  * Protection apply. For more information, see Amazon Web Services service terms for GuardDuty Malware Protection.
@@ -1010,13 +973,11 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
 /**
  * Contains information on member accounts to be updated.
  * 
- * 
  * Specifying both EKS Runtime Monitoring (`EKS_RUNTIME_MONITORING`)
  * and Runtime Monitoring (`RUNTIME_MONITORING`) will cause an error.
  * You can add only one of these two features because Runtime Monitoring already includes the
  * threat detection for Amazon EKS resources. For more information, see
  * Runtime Monitoring.
- * 
  * 
  * There might be regional differences because some data sources might not be
  * available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more
@@ -1029,13 +990,11 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
 /**
  * Creates a new Malware Protection plan for the protected resource.
  * 
- * 
  * When you create a Malware Protection plan, the Amazon Web Services service terms for GuardDuty Malware
  * Protection apply. For more information, see Amazon Web Services service terms for GuardDuty Malware Protection.
  */export const createMalwareProtectionPlan = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/malware-protection-plan", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.CreateMalwareProtectionPlan" }, CreateMalwareProtectionPlanRequest, CreateMalwareProtectionPlanResponse, [AccessDeniedException, BadRequestException, ConflictException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes which data sources are enabled for the member account's detector.
- * 
  * 
  * There might be regional differences because some data sources might not be
  * available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more
@@ -1044,7 +1003,6 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
 /**
  * Retrieves how many active member accounts have
  * each feature enabled within GuardDuty. Only a delegated GuardDuty administrator of an organization can run this API.
- * 
  * 
  * When you create a new organization, it might take up to 24
  * hours to generate the statistics for the entire organization.
@@ -1060,7 +1018,6 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
 /**
  * Updates the malware scan settings.
  * 
- * 
  * There might be regional differences because some data sources might not be
  * available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more
  * information, see Regions and endpoints.
@@ -1069,13 +1026,11 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * Configures the delegated administrator account with the provided values. You must provide
  * a value for either `autoEnableOrganizationMembers` or `autoEnable`, but not both.
  * 
- * 
  * Specifying both EKS Runtime Monitoring (`EKS_RUNTIME_MONITORING`)
  * and Runtime Monitoring (`RUNTIME_MONITORING`) will cause an error.
  * You can add only one of these two features because Runtime Monitoring already includes the
  * threat detection for Amazon EKS resources. For more information, see
  * Runtime Monitoring.
- * 
  * 
  * There might be regional differences because some data sources might not be
  * available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more
@@ -1087,27 +1042,18 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * you enable the service. You can have only one detector per account per Region. All data
  * sources are enabled in a new detector by default.
  * 
- * 
- * 
  * - When you don't specify any `features`, with an
  * exception to `RUNTIME_MONITORING`, all the optional features are
  * enabled by default.
  * 
- * 
- * 
  * - When you specify some of the `features`, any feature that is not specified in the
  * API call gets enabled by default, with an exception to `RUNTIME_MONITORING`.
- * 
- * 
- * 
- * 
  * 
  * Specifying both EKS Runtime Monitoring (`EKS_RUNTIME_MONITORING`)
  * and Runtime Monitoring (`RUNTIME_MONITORING`) will cause an error.
  * You can add only one of these two features because Runtime Monitoring already includes the
  * threat detection for Amazon EKS resources. For more information, see
  * Runtime Monitoring.
- * 
  * 
  * There might be regional differences because some data sources might not be
  * available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more
@@ -1117,14 +1063,12 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * Returns information about the account selected as the delegated administrator for
  * GuardDuty.
  * 
- * 
  * There might be regional differences because some data sources might not be
  * available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more
  * information, see Regions and endpoints.
  */export const describeOrganizationConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-28", uri: "/detector/{DetectorId}/admin", method: "GET", sdkId: "GuardDuty", sigV4ServiceName: "guardduty", name: "GuardDutyAPIService.DescribeOrganizationConfiguration" }, DescribeOrganizationConfigurationRequest, DescribeOrganizationConfigurationResponse, [BadRequestException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves a GuardDuty detector specified by the detectorId.
- * 
  * 
  * There might be regional differences because some data sources might not be
  * available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more
@@ -1133,7 +1077,6 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
 /**
  * Retrieves the detailed information for a specific malware scan. Each member account can view the malware scan details for their
  * own account. An administrator can view malware scan details for all accounts in the organization.
- * 
  * 
  * There might be regional differences because some data sources might not be
  * available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more
@@ -1149,7 +1092,6 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * Returns a list of malware scans. Each member account can view the malware scans for their
  * own accounts. An administrator can view the malware scans for all the member accounts.
  * 
- * 
  * There might be regional differences because some data sources might not be
  * available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more
  * information, see Regions and endpoints.
@@ -1163,7 +1105,6 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
 /**
  * Lists coverage details for your GuardDuty account. If you're a GuardDuty administrator, you can
  * retrieve all resources associated with the active member accounts in your organization.
- * 
  * 
  * Make sure the accounts have Runtime Monitoring enabled and GuardDuty agent running on
  * their resources.

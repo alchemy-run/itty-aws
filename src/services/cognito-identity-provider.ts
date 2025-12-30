@@ -432,23 +432,13 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * device without deleting it, so you can enable it again later. For more information about
  * device authentication, see Working with devices.
  * 
- * 
- * 
- * 
  * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you must use IAM credentials to authorize requests, and you must
  * grant yourself the corresponding IAM permission in a policy.
  * 
- * 
  * **Learn more**
  * 
- * 
- * 
- * 
  * - Signing Amazon Web Services API Requests
- * 
- * 
- * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
  */export const adminUpdateDeviceStatus = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminUpdateDeviceStatus" }, AdminUpdateDeviceStatusRequest, AdminUpdateDeviceStatusResponse, [InternalErrorException, InvalidParameterException, InvalidUserPoolConfigurationException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -457,55 +447,34 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * this operation with your administrative credentials when your user signs out of your
  * app. This results in the following behavior.
  * 
- * 
- * 
  * - Amazon Cognito no longer accepts *token-authorized* user operations
  * that you authorize with a signed-out user's access tokens. For more information,
  * see Using the Amazon Cognito user pools API and user pool
  * endpoints.
  * 
- * 
  * Amazon Cognito returns an `Access Token has been revoked` error when your
  * app attempts to authorize a user pools API request with a revoked access token
  * that contains the scope `aws.cognito.signin.user.admin`.
- * 
- * 
  * 
  * - Amazon Cognito no longer accepts a signed-out user's ID token in a GetId request to an identity pool with
  * `ServerSideTokenCheck` enabled for its user pool IdP
  * configuration in CognitoIdentityProvider.
  * 
- * 
- * 
  * - Amazon Cognito no longer accepts a signed-out user's refresh tokens in refresh
  * requests.
- * 
- * 
- * 
- * 
  * 
  * Other requests might be valid until your user's token expires. This operation
  * doesn't clear the managed login session cookie. To clear the session for
  * a user who signed in with managed login or the classic hosted UI, direct their browser
  * session to the logout endpoint.
  * 
- * 
- * 
- * 
  * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you must use IAM credentials to authorize requests, and you must
  * grant yourself the corresponding IAM permission in a policy.
  * 
- * 
  * **Learn more**
  * 
- * 
- * 
- * 
  * - Signing Amazon Web Services API Requests
- * 
- * 
- * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
  */export const adminUserGlobalSignOut = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminUserGlobalSignOut" }, AdminUserGlobalSignOutRequest, AdminUserGlobalSignOutResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -516,23 +485,13 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * that are based on group membership. For more information about user pool groups, see
  * Adding groups to a user pool.
  * 
- * 
- * 
- * 
  * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you must use IAM credentials to authorize requests, and you must
  * grant yourself the corresponding IAM permission in a policy.
  * 
- * 
  * **Learn more**
  * 
- * 
- * 
- * 
  * - Signing Amazon Web Services API Requests
- * 
- * 
- * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
  */export const deleteGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DeleteGroup" }, DeleteGroupRequest, S.Struct({}), [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -542,23 +501,13 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * assigned, your managed login pages for that app client are nonfunctional until you
  * create a new style or switch the domain branding version.
  * 
- * 
- * 
- * 
  * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you must use IAM credentials to authorize requests, and you must
  * grant yourself the corresponding IAM permission in a policy.
  * 
- * 
  * **Learn more**
  * 
- * 
- * 
- * 
  * - Signing Amazon Web Services API Requests
- * 
- * 
- * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
  */export const deleteManagedLoginBranding = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DeleteManagedLoginBranding" }, DeleteManagedLoginBrandingRequest, S.Struct({}), [ConcurrentModificationException, InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -566,50 +515,29 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * Deletes a resource server. After you delete a resource server, users can no longer
  * generate access tokens with scopes that are associate with that resource server.
  * 
- * 
  * Resource servers are associated with custom scopes and machine-to-machine (M2M)
  * authorization. For more information, see Access control with resource servers.
- * 
- * 
- * 
  * 
  * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you must use IAM credentials to authorize requests, and you must
  * grant yourself the corresponding IAM permission in a policy.
  * 
- * 
  * **Learn more**
  * 
- * 
- * 
- * 
  * - Signing Amazon Web Services API Requests
- * 
- * 
- * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
  */export const deleteResourceServer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DeleteResourceServer" }, DeleteResourceServerRequest, S.Struct({}), [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the terms documents with the requested ID from your app client.
  * 
- * 
- * 
- * 
  * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you must use IAM credentials to authorize requests, and you must
  * grant yourself the corresponding IAM permission in a policy.
  * 
- * 
  * **Learn more**
  * 
- * 
- * 
- * 
  * - Signing Amazon Web Services API Requests
- * 
- * 
- * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
  */export const deleteTerms = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DeleteTerms" }, DeleteTermsRequest, S.Struct({}), [ConcurrentModificationException, InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -626,11 +554,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * Deletes a registered passkey, or WebAuthn, authenticator for the currently signed-in
  * user.
  * 
- * 
  * Authorize this action with a signed-in user's access token. It must include the scope `aws.cognito.signin.user.admin`.
- * 
- * 
- * 
  * 
  * Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you can't use IAM credentials to authorize requests, and you can't
@@ -641,11 +565,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * Given a device key, deletes a remembered device as the currently signed-in user. For
  * more information about device authentication, see Working with user devices in your user pool.
  * 
- * 
  * Authorize this action with a signed-in user's access token. It must include the scope `aws.cognito.signin.user.admin`.
- * 
- * 
- * 
  * 
  * Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you can't use IAM credentials to authorize requests, and you can't
@@ -657,43 +577,28 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * this operation when your user signs out of your app. This results in the following
  * behavior.
  * 
- * 
- * 
  * - Amazon Cognito no longer accepts *token-authorized* user operations
  * that you authorize with a signed-out user's access tokens. For more information,
  * see Using the Amazon Cognito user pools API and user pool
  * endpoints.
  * 
- * 
  * Amazon Cognito returns an `Access Token has been revoked` error when your
  * app attempts to authorize a user pools API request with a revoked access token
  * that contains the scope `aws.cognito.signin.user.admin`.
- * 
- * 
  * 
  * - Amazon Cognito no longer accepts a signed-out user's ID token in a GetId request to an identity pool with
  * `ServerSideTokenCheck` enabled for its user pool IdP
  * configuration in CognitoIdentityProvider.
  * 
- * 
- * 
  * - Amazon Cognito no longer accepts a signed-out user's refresh tokens in refresh
  * requests.
- * 
- * 
- * 
- * 
  * 
  * Other requests might be valid until your user's token expires. This operation
  * doesn't clear the managed login session cookie. To clear the session for
  * a user who signed in with managed login or the classic hosted UI, direct their browser
  * session to the logout endpoint.
  * 
- * 
  * Authorize this action with a signed-in user's access token. It must include the scope `aws.cognito.signin.user.admin`.
- * 
- * 
- * 
  * 
  * Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you can't use IAM credentials to authorize requests, and you can't
@@ -711,11 +616,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * be applied selectively based on the assessed risk level of sign-in attempts, deactivate
  * MFA for users and turn on Adaptive Authentication for the user pool.
  * 
- * 
  * Authorize this action with a signed-in user's access token. It must include the scope `aws.cognito.signin.user.admin`.
- * 
- * 
- * 
  * 
  * Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you can't use IAM credentials to authorize requests, and you can't
@@ -727,11 +628,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * only SMS MFA. You can't use it to configure time-based one-time password (TOTP) software
  * token or email MFA.
  * 
- * 
  * Authorize this action with a signed-in user's access token. It must include the scope `aws.cognito.signin.user.admin`.
- * 
- * 
- * 
  * 
  * Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you can't use IAM credentials to authorize requests, and you can't
@@ -743,19 +640,16 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * categorize and manage user pools in different ways, such as by purpose, owner,
  * environment, or other criteria.
  * 
- * 
  * Each tag consists of a key and value, both of which you define. A key is a general
  * category for more specific values. For example, if you have two versions of a user pool,
  * one for testing and another for production, you might assign an `Environment`
  * tag key to both user pools. The value of this key might be `Test` for one
  * user pool, and `Production` for the other.
  * 
- * 
  * Tags are useful for cost tracking and access control. You can activate your tags so
  * that they appear on the Billing and Cost Management console, where you can track the
  * costs associated with your user pools. In an Identity and Access Management policy, you can constrain
  * permissions for user pools based on specific tags or tag values.
- * 
  * 
  * You can use this action up to 5 times per second, per account. A user pool can have as
  * many as 50 tags.
@@ -771,7 +665,6 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * To activate this setting, your user pool must be on the
  * Plus tier.
  * 
- * 
  * This operation requires a `FeedbackToken` that Amazon Cognito generates and adds to
  * notification emails when users have potentially suspicious authentication events. Users
  * invoke this operation when they select the link that corresponds to
@@ -779,9 +672,6 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * notification template. Because `FeedbackToken` is a required parameter, you
  * can't make requests to `UpdateAuthEventFeedback` without the contents of
  * the notification email message.
- * 
- * 
- * 
  * 
  * Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you can't use IAM credentials to authorize requests, and you can't
@@ -796,11 +686,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * the status of a device without deleting it, so you can enable it again later. For more
  * information about device authentication, see Working with devices.
  * 
- * 
  * Authorize this action with a signed-in user's access token. It must include the scope `aws.cognito.signin.user.admin`.
- * 
- * 
- * 
  * 
  * Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you can't use IAM credentials to authorize requests, and you can't
@@ -812,46 +698,26 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * an identity pool, and populates a `cognito:groups` claim to their access and
  * identity tokens.
  * 
- * 
- * 
- * 
  * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you must use IAM credentials to authorize requests, and you must
  * grant yourself the corresponding IAM permission in a policy.
  * 
- * 
  * **Learn more**
  * 
- * 
- * 
- * 
  * - Signing Amazon Web Services API Requests
- * 
- * 
- * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
  */export const adminAddUserToGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminAddUserToGroup" }, AdminAddUserToGroupRequest, S.Struct({}), [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a user profile in your user pool.
  * 
- * 
- * 
- * 
  * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you must use IAM credentials to authorize requests, and you must
  * grant yourself the corresponding IAM permission in a policy.
  * 
- * 
  * **Learn more**
  * 
- * 
- * 
- * 
  * - Signing Amazon Web Services API Requests
- * 
- * 
- * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
  */export const adminDeleteUser = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminDeleteUser" }, AdminDeleteUserRequest, S.Struct({}), [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -860,23 +726,13 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * existing user sessions. The next ID token that the user receives will no longer have the
  * deleted attributes.
  * 
- * 
- * 
- * 
  * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you must use IAM credentials to authorize requests, and you must
  * grant yourself the corresponding IAM permission in a policy.
  * 
- * 
  * **Learn more**
  * 
- * 
- * 
- * 
  * - Signing Amazon Web Services API Requests
- * 
- * 
- * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
  */export const adminDeleteUserAttributes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminDeleteUserAttributes" }, AdminDeleteUserAttributesRequest, AdminDeleteUserAttributesResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -889,19 +745,15 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * attached to the previously linked `DestinationUser`, the user must create a
  * new user account.
  * 
- * 
  * The value of `ProviderName` must match the name of a user pool IdP.
- * 
  * 
  * To deactivate a local user, set `ProviderName` to `Cognito` and
  * the `ProviderAttributeName` to `Cognito_Subject`. The
  * `ProviderAttributeValue` must be user's local username.
  * 
- * 
  * The `ProviderAttributeName` must always be `Cognito_Subject` for
  * social IdPs. The `ProviderAttributeValue` must always be the exact subject
  * that was used when the user was originally linked as a source user.
- * 
  * 
  * For de-linking a SAML identity, there are two scenarios. If the linked identity has
  * not yet been used to sign in, the `ProviderAttributeName` and
@@ -913,23 +765,13 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * `Cognito_Subject` and `ProviderAttributeValue` must be the
  * `NameID` from their SAML assertion.
  * 
- * 
- * 
- * 
  * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you must use IAM credentials to authorize requests, and you must
  * grant yourself the corresponding IAM permission in a policy.
  * 
- * 
  * **Learn more**
  * 
- * 
- * 
- * 
  * - Signing Amazon Web Services API Requests
- * 
- * 
- * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
  */export const adminDisableProviderForUser = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminDisableProviderForUser" }, AdminDisableProviderForUserRequest, AdminDisableProviderForUserResponse, [AliasExistsException, InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -938,23 +780,13 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * user can't sign in, but still appears in the responses to `ListUsers`
  * API requests.
  * 
- * 
- * 
- * 
  * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you must use IAM credentials to authorize requests, and you must
  * grant yourself the corresponding IAM permission in a policy.
  * 
- * 
  * **Learn more**
  * 
- * 
- * 
- * 
  * - Signing Amazon Web Services API Requests
- * 
- * 
- * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
  */export const adminDisableUser = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminDisableUser" }, AdminDisableUserRequest, AdminDisableUserResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -962,23 +794,13 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * Activates sign-in for a user profile that previously had sign-in access
  * disabled.
  * 
- * 
- * 
- * 
  * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you must use IAM credentials to authorize requests, and you must
  * grant yourself the corresponding IAM permission in a policy.
  * 
- * 
  * **Learn more**
  * 
- * 
- * 
- * 
  * - Signing Amazon Web Services API Requests
- * 
- * 
- * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
  */export const adminEnableUser = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminEnableUser" }, AdminEnableUserRequest, AdminEnableUserResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -987,23 +809,13 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * the device, the user can no longer complete device authentication with that device and
  * when applicable, must submit MFA codes again. For more information, see Working with devices.
  * 
- * 
- * 
- * 
  * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you must use IAM credentials to authorize requests, and you must
  * grant yourself the corresponding IAM permission in a policy.
  * 
- * 
  * **Learn more**
  * 
- * 
- * 
- * 
  * - Signing Amazon Web Services API Requests
- * 
- * 
- * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
  */export const adminForgetDevice = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminForgetDevice" }, AdminForgetDeviceRequest, S.Struct({}), [InternalErrorException, InvalidParameterException, InvalidUserPoolConfigurationException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1011,27 +823,16 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * Given a username, returns details about a user profile in a user pool. You can specify
  * alias attributes in the `Username` request parameter.
  * 
- * 
  * This operation contributes to your monthly active user (MAU) count for the purpose of
  * billing.
- * 
- * 
- * 
  * 
  * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you must use IAM credentials to authorize requests, and you must
  * grant yourself the corresponding IAM permission in a policy.
  * 
- * 
  * **Learn more**
  * 
- * 
- * 
- * 
  * - Signing Amazon Web Services API Requests
- * 
- * 
- * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
  */export const adminGetUser = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminGetUser" }, AdminGetUserRequest, AdminGetUserResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1040,46 +841,25 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * identity from an external IdP, or `SourceUser`, based on a specified
  * attribute name and value from the external IdP.
  * 
- * 
  * This operation connects a local user profile with a user identity who hasn't yet
  * signed in from their third-party IdP. When the user signs in with their IdP, they get
  * access-control configuration from the local user profile. Linked local users can also
  * sign in with SDK-based API operations like `InitiateAuth` after they sign in
  * at least once through their IdP. For more information, see Linking federated users.
  * 
- * 
- * 
- * 
  * The maximum number of federated identities linked to a user is five.
- * 
- * 
- * 
- * 
- * 
  * 
  * Because this API allows a user with an external federated identity to sign in as a
  * local user, it is critical that it only be used with external IdPs and linked
  * attributes that you trust.
  * 
- * 
- * 
- * 
- * 
- * 
  * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you must use IAM credentials to authorize requests, and you must
  * grant yourself the corresponding IAM permission in a policy.
  * 
- * 
  * **Learn more**
  * 
- * 
- * 
- * 
  * - Signing Amazon Web Services API Requests
- * 
- * 
- * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
  */export const adminLinkProviderForUser = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminLinkProviderForUser" }, AdminLinkProviderForUserRequest, AdminLinkProviderForUserResponse, [AliasExistsException, InternalErrorException, InvalidParameterException, LimitExceededException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1089,23 +869,13 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * in without MFA from a trusted device. Users can bypass MFA while your application
  * performs device SRP authentication on the back end. For more information, see Working with devices.
  * 
- * 
- * 
- * 
  * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you must use IAM credentials to authorize requests, and you must
  * grant yourself the corresponding IAM permission in a policy.
  * 
- * 
  * **Learn more**
  * 
- * 
- * 
- * 
  * - Signing Amazon Web Services API Requests
- * 
- * 
- * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
  */export const adminListDevices = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminListDevices" }, AdminListDevicesRequest, AdminListDevicesResponse, [InternalErrorException, InvalidParameterException, InvalidUserPoolConfigurationException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1114,23 +884,13 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * identifiers that you can reference from the contents of ID and access tokens, and set
  * preferred IAM roles for identity-pool authentication. For more information, see Adding groups to a user pool.
  * 
- * 
- * 
- * 
  * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you must use IAM credentials to authorize requests, and you must
  * grant yourself the corresponding IAM permission in a policy.
  * 
- * 
  * **Learn more**
  * 
- * 
- * 
- * 
  * - Signing Amazon Web Services API Requests
- * 
- * 
- * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
  */export const adminRemoveUserFromGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminRemoveUserFromGroup" }, AdminRemoveUserFromGroupRequest, S.Struct({}), [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1141,23 +901,13 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * factors are activated. If multiple options are activated and no preference is set, a
  * challenge to choose an MFA option will be returned during sign-in.
  * 
- * 
- * 
- * 
  * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you must use IAM credentials to authorize requests, and you must
  * grant yourself the corresponding IAM permission in a policy.
  * 
- * 
  * **Learn more**
  * 
- * 
- * 
- * 
  * - Signing Amazon Web Services API Requests
- * 
- * 
- * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
  */export const adminSetUserMFAPreference = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminSetUserMFAPreference" }, AdminSetUserMFAPreferenceRequest, AdminSetUserMFAPreferenceResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, PasswordResetRequiredException, ResourceNotFoundException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1166,23 +916,13 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * only SMS MFA. You can't use it to configure time-based one-time password (TOTP) software
  * token MFA.
  * 
- * 
- * 
- * 
  * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you must use IAM credentials to authorize requests, and you must
  * grant yourself the corresponding IAM permission in a policy.
  * 
- * 
  * **Learn more**
  * 
- * 
- * 
- * 
  * - Signing Amazon Web Services API Requests
- * 
- * 
- * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
  */export const adminSetUserSettings = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminSetUserSettings" }, AdminSetUserSettingsRequest, AdminSetUserSettingsResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1194,40 +934,25 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * To activate this setting, your user pool must be on the
  * Plus tier.
  * 
- * 
  * To train the threat-protection model to recognize trusted and untrusted sign-in
  * characteristics, configure threat protection in audit-only mode and provide a mechanism
  * for users or administrators to submit feedback. Your feedback can tell Amazon Cognito that a risk
  * rating was assigned at a level you don't agree with.
  * 
- * 
- * 
- * 
  * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you must use IAM credentials to authorize requests, and you must
  * grant yourself the corresponding IAM permission in a policy.
  * 
- * 
  * **Learn more**
  * 
- * 
- * 
- * 
  * - Signing Amazon Web Services API Requests
- * 
- * 
- * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
  */export const adminUpdateAuthEventFeedback = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminUpdateAuthEventFeedback" }, AdminUpdateAuthEventFeedbackRequest, AdminUpdateAuthEventFeedbackResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserNotFoundException, UserPoolAddOnNotEnabledException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Changes the password for the currently signed-in user.
  * 
- * 
  * Authorize this action with a signed-in user's access token. It must include the scope `aws.cognito.signin.user.admin`.
- * 
- * 
- * 
  * 
  * Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you can't use IAM credentials to authorize requests, and you can't
@@ -1238,11 +963,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * Deletes the profile of the currently signed-in user. A deleted user profile can no
  * longer be used to sign in and can't be restored.
  * 
- * 
  * Authorize this action with a signed-in user's access token. It must include the scope `aws.cognito.signin.user.admin`.
- * 
- * 
- * 
  * 
  * Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you can't use IAM credentials to authorize requests, and you can't
@@ -1254,11 +975,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * can submit a request to this operation when a user wants to remove their
  * `birthdate` attribute value.
  * 
- * 
  * Authorize this action with a signed-in user's access token. It must include the scope `aws.cognito.signin.user.admin`.
- * 
- * 
- * 
  * 
  * Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you can't use IAM credentials to authorize requests, and you can't
@@ -1269,12 +986,10 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * Deletes a user pool. After you delete a user pool, users can no longer sign in to any
  * associated applications.
  * 
- * 
  * When you delete a user pool, it's no longer visible or operational in your Amazon Web Services account. Amazon Cognito retains deleted user pools in an inactive state for 14
  * days, then begins a cleanup process that fully removes them from Amazon Web Services systems. In case
  * of accidental deletion, contact Amazon Web ServicesSupport within 14 days for restoration
  * assistance.
- * 
  * 
  * Amazon Cognito begins full deletion of all resources from deleted user pools after 14 days. In
  * the case of large user pools, the cleanup process might take significant additional time
@@ -1295,23 +1010,13 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * with the usernames and attributes of users that you want to import. For more information
  * about CSV user import, see Importing users from a CSV file.
  * 
- * 
- * 
- * 
  * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you must use IAM credentials to authorize requests, and you must
  * grant yourself the corresponding IAM permission in a policy.
  * 
- * 
  * **Learn more**
  * 
- * 
- * 
- * 
  * - Signing Amazon Web Services API Requests
- * 
- * 
- * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
  */export const getCSVHeader = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.GetCSVHeader" }, GetCSVHeaderRequest, GetCSVHeaderResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1319,11 +1024,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * Given a device key, returns information about a remembered device for the current
  * user. For more information about device authentication, see Working with user devices in your user pool.
  * 
- * 
  * Authorize this action with a signed-in user's access token. It must include the scope `aws.cognito.signin.user.admin`.
- * 
- * 
- * 
  * 
  * Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you can't use IAM credentials to authorize requests, and you can't
@@ -1334,26 +1035,15 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * Given a user pool ID and a group name, returns information about the user
  * group.
  * 
- * 
  * For more information about user pool groups, see Adding groups to a user pool.
- * 
- * 
- * 
  * 
  * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you must use IAM credentials to authorize requests, and you must
  * grant yourself the corresponding IAM permission in a policy.
  * 
- * 
  * **Learn more**
  * 
- * 
- * 
- * 
  * - Signing Amazon Web Services API Requests
- * 
- * 
- * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
  */export const getGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.GetGroup" }, GetGroupRequest, GetGroupResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1365,43 +1055,27 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
 /**
  * Given a user pool ID, returns the signing certificate for SAML 2.0 federation.
  * 
- * 
  * Issued certificates are valid for 10 years from the date of issue. Amazon Cognito issues and
  * assigns a new signing certificate annually. This renewal process returns a new value in
  * the response to `GetSigningCertificate`, but doesn't invalidate the original
  * certificate.
  * 
- * 
  * For more information, see Signing SAML requests.
- * 
- * 
- * 
  * 
  * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you must use IAM credentials to authorize requests, and you must
  * grant yourself the corresponding IAM permission in a policy.
  * 
- * 
  * **Learn more**
  * 
- * 
- * 
- * 
  * - Signing Amazon Web Services API Requests
- * 
- * 
- * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
  */export const getSigningCertificate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.GetSigningCertificate" }, GetSigningCertificateRequest, GetSigningCertificateResponse, [InternalErrorException, InvalidParameterException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets user attributes and and MFA settings for the currently signed-in user.
  * 
- * 
  * Authorize this action with a signed-in user's access token. It must include the scope `aws.cognito.signin.user.admin`.
- * 
- * 
- * 
  * 
  * Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you can't use IAM credentials to authorize requests, and you can't
@@ -1412,22 +1086,12 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * Lists the authentication options for the currently signed-in user. Returns the
  * following:
  * 
- * 
- * 
  * - The user's multi-factor authentication (MFA) preferences.
- * 
- * 
  * 
  * - The user's options for choice-based authentication with the
  * `USER_AUTH` flow.
  * 
- * 
- * 
- * 
  * Authorize this action with a signed-in user's access token. It must include the scope `aws.cognito.signin.user.admin`.
- * 
- * 
- * 
  * 
  * Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you can't use IAM credentials to authorize requests, and you can't
@@ -1439,44 +1103,23 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * and for multi-factor authentication (MFA). This operation describes the
  * following:
  * 
- * 
- * 
  * - The WebAuthn relying party (RP) ID and user-verification settings.
- * 
- * 
  * 
  * - The required, optional, or disabled state of MFA for all user pool
  * users.
  * 
- * 
- * 
  * - The message templates for email and SMS MFA.
- * 
- * 
  * 
  * - The enabled or disabled state of time-based one-time password (TOTP)
  * MFA.
- * 
- * 
- * 
- * 
- * 
- * 
  * 
  * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you must use IAM credentials to authorize requests, and you must
  * grant yourself the corresponding IAM permission in a policy.
  * 
- * 
  * **Learn more**
  * 
- * 
- * 
- * 
  * - Signing Amazon Web Services API Requests
- * 
- * 
- * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
  */export const getUserPoolMfaConfig = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.GetUserPoolMfaConfig" }, GetUserPoolMfaConfigRequest, GetUserPoolMfaConfigResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1484,11 +1127,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * Lists the devices that Amazon Cognito has registered to the currently signed-in user. For more
  * information about device authentication, see Working with user devices in your user pool.
  * 
- * 
  * Authorize this action with a signed-in user's access token. It must include the scope `aws.cognito.signin.user.admin`.
- * 
- * 
- * 
  * 
  * Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you can't use IAM credentials to authorize requests, and you can't
@@ -1498,23 +1137,13 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
 /**
  * Given a user pool ID, returns user pool groups and their details.
  * 
- * 
- * 
- * 
  * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you must use IAM credentials to authorize requests, and you must
  * grant yourself the corresponding IAM permission in a policy.
  * 
- * 
  * **Learn more**
  * 
- * 
- * 
- * 
  * - Signing Amazon Web Services API Requests
- * 
- * 
- * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
  */export const listGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.ListGroups" }, ListGroupsRequest, ListGroupsResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1522,23 +1151,13 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * Given a user pool ID, returns all resource servers and their details. For more
  * information about resource servers, see Access control with resource servers.
  * 
- * 
- * 
- * 
  * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you must use IAM credentials to authorize requests, and you must
  * grant yourself the corresponding IAM permission in a policy.
  * 
- * 
  * **Learn more**
  * 
- * 
- * 
- * 
  * - Signing Amazon Web Services API Requests
- * 
- * 
- * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
  */export const listResourceServers = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.ListResourceServers" }, ListResourceServersRequest, ListResourceServersResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1552,23 +1171,13 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * retained in user pool configuration so that you can stage, stop, start, review, and
  * delete them. For more information about user import, see Importing users from a CSV file.
  * 
- * 
- * 
- * 
  * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you must use IAM credentials to authorize requests, and you must
  * grant yourself the corresponding IAM permission in a policy.
  * 
- * 
  * **Learn more**
  * 
- * 
- * 
- * 
  * - Signing Amazon Web Services API Requests
- * 
- * 
- * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
  */export const listUserImportJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.ListUserImportJobs" }, ListUserImportJobsRequest, ListUserImportJobsResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1576,23 +1185,13 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * Given a user pool ID and a group name, returns a list of users in the group. For more
  * information about user pool groups, see Adding groups to a user pool.
  * 
- * 
- * 
- * 
  * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you must use IAM credentials to authorize requests, and you must
  * grant yourself the corresponding IAM permission in a policy.
  * 
- * 
  * **Learn more**
  * 
- * 
- * 
- * 
  * - Signing Amazon Web Services API Requests
- * 
- * 
- * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
  */export const listUsersInGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.ListUsersInGroup" }, ListUsersInGroupRequest, ListUsersInGroupResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1600,29 +1199,18 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * Configures UI branding settings for domains with the hosted UI (classic) branding
  * version. Your user pool must have a domain. Configure a domain with .
  * 
- * 
  * Set the default configuration for all clients with a `ClientId` of
  * `ALL`. When the `ClientId` value is an app client ID, the
  * settings you pass in this request apply to that app client and override the default
  * `ALL` configuration.
  * 
- * 
- * 
- * 
  * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you must use IAM credentials to authorize requests, and you must
  * grant yourself the corresponding IAM permission in a policy.
  * 
- * 
  * **Learn more**
  * 
- * 
- * 
- * 
  * - Signing Amazon Web Services API Requests
- * 
- * 
- * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
  */export const setUICustomization = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.SetUICustomization" }, SetUICustomizationRequest, SetUICustomizationResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1635,23 +1223,13 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * Given the name of a user pool group, updates any of the properties for precedence,
  * IAM role, or description. For more information about user pool groups, see Adding groups to a user pool.
  * 
- * 
- * 
- * 
  * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you must use IAM credentials to authorize requests, and you must
  * grant yourself the corresponding IAM permission in a policy.
  * 
- * 
  * **Learn more**
  * 
- * 
- * 
- * 
  * - Signing Amazon Web Services API Requests
- * 
- * 
- * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
  */export const updateGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.UpdateGroup" }, UpdateGroupRequest, UpdateGroupResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1661,23 +1239,13 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * providers through managed login and OIDC relying-party libraries. For more information,
  * see Third-party IdP sign-in.
  * 
- * 
- * 
- * 
  * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you must use IAM credentials to authorize requests, and you must
  * grant yourself the corresponding IAM permission in a policy.
  * 
- * 
  * **Learn more**
  * 
- * 
- * 
- * 
  * - Signing Amazon Web Services API Requests
- * 
- * 
- * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
  */export const updateIdentityProvider = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.UpdateIdentityProvider" }, UpdateIdentityProviderRequest, UpdateIdentityProviderResponse, [ConcurrentModificationException, InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UnsupportedIdentityProviderException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1685,10 +1253,8 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * Configures the branding settings for a user pool style. This operation is the
  * programmatic option for the configuration of a style in the branding editor.
  * 
- * 
  * Provides values for UI customization in a `Settings` JSON object and image
  * files in an `Assets` array.
- * 
  * 
  * This operation has a 2-megabyte request-size limit and include the CSS settings and
  * image assets for your app client. Your branding settings might exceed 2MB in size. Amazon Cognito
@@ -1696,23 +1262,13 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * style settings that you don't specify. If your request is larger than 2MB, separate it
  * into multiple requests, each with a size smaller than the limit.
  * 
- * 
- * 
- * 
  * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you must use IAM credentials to authorize requests, and you must
  * grant yourself the corresponding IAM permission in a policy.
  * 
- * 
  * **Learn more**
  * 
- * 
- * 
- * 
  * - Signing Amazon Web Services API Requests
- * 
- * 
- * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
  */export const updateManagedLoginBranding = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.UpdateManagedLoginBranding" }, UpdateManagedLoginBrandingRequest, UpdateManagedLoginBrandingResponse, [ConcurrentModificationException, InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1720,31 +1276,16 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * Updates the name and scopes of a resource server. All other fields are read-only. For
  * more information about resource servers, see Access control with resource servers.
  * 
- * 
- * 
- * 
  * If you don't provide a value for an attribute, it is set to the default
  * value.
- * 
- * 
- * 
- * 
- * 
  * 
  * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you must use IAM credentials to authorize requests, and you must
  * grant yourself the corresponding IAM permission in a policy.
  * 
- * 
  * **Learn more**
  * 
- * 
- * 
- * 
  * - Signing Amazon Web Services API Requests
- * 
- * 
- * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
  */export const updateResourceServer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.UpdateResourceServer" }, UpdateResourceServerRequest, UpdateResourceServerResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1752,25 +1293,15 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * Updates the currently signed-in user's attributes. To delete an attribute from
  * the user, submit the attribute in your API request with a blank value.
  * 
- * 
  * For custom attributes, you must add a `custom:` prefix to the attribute
  * name, for example `custom:department`.
  * 
- * 
  * Authorize this action with a signed-in user's access token. It must include the scope `aws.cognito.signin.user.admin`.
- * 
- * 
- * 
  * 
  * Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you can't use IAM credentials to authorize requests, and you can't
  * grant IAM permissions in policies. For more information about authorization models in
  * Amazon Cognito, see Using the Amazon Cognito user pools API and user pool endpoints.
- * 
- * 
- * 
- * 
- * 
  * 
  * This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers
  * require you to register an origination phone number before you can send SMS messages
@@ -1779,7 +1310,6 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * Amazon Cognito uses the registered number automatically. Otherwise, Amazon Cognito users who must
  * receive SMS messages might not be able to sign up, activate their accounts, or sign
  * in.
- * 
  * 
  * If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Services service,
  * Amazon Simple Notification Service might place your account in the SMS sandbox. In
@@ -1796,46 +1326,31 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * pool domains between `1` for hosted UI (classic) and `2` for
  * managed login. It also updates the SSL certificate for user pool custom domains.
  * 
- * 
  * Changes to the domain branding version take up to one minute to take effect for a
  * prefix domain and up to five minutes for a custom domain.
- * 
  * 
  * This operation doesn't change the name of your user pool domain. To change your
  * domain, delete it with `DeleteUserPoolDomain` and create a new domain with
  * `CreateUserPoolDomain`.
- * 
  * 
  * You can pass the ARN of a new Certificate Manager certificate in this request. Typically, ACM
  * certificates automatically renew and you user pool can continue to use the same ARN. But
  * if you generate a new certificate for your custom domain name, replace the original
  * configuration with the new ARN in this request.
  * 
- * 
  * ACM certificates for custom domains must be in the US East (N. Virginia)
  * Amazon Web Services Region. After you submit your request, Amazon Cognito requires up to 1 hour to distribute
  * your new certificate to your custom domain.
  * 
- * 
  * For more information about adding a custom domain to your user pool, see Configuring a user pool domain.
- * 
- * 
- * 
  * 
  * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you must use IAM credentials to authorize requests, and you must
  * grant yourself the corresponding IAM permission in a policy.
  * 
- * 
  * **Learn more**
  * 
- * 
- * 
- * 
  * - Signing Amazon Web Services API Requests
- * 
- * 
- * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
  */export const updateUserPoolDomain = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.UpdateUserPoolDomain" }, UpdateUserPoolDomainRequest, UpdateUserPoolDomainResponse, [ConcurrentModificationException, FeatureUnavailableInTierException, InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1845,15 +1360,10 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * and the attribute `email_verified` or `phone_number_verified`
  * becomes `true`.
  * 
- * 
  * If your user pool requires verification before Amazon Cognito updates the attribute value,
  * this operation updates the affected attribute to its pending value.
  * 
- * 
  * Authorize this action with a signed-in user's access token. It must include the scope `aws.cognito.signin.user.admin`.
- * 
- * 
- * 
  * 
  * Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you can't use IAM credentials to authorize requests, and you can't
@@ -1865,60 +1375,32 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * mutable or immutable and have a `custom:` or `dev:` prefix. For
  * more information, see Custom attributes.
  * 
- * 
- * 
- * 
  * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you must use IAM credentials to authorize requests, and you must
  * grant yourself the corresponding IAM permission in a policy.
  * 
- * 
  * **Learn more**
  * 
- * 
- * 
- * 
  * - Signing Amazon Web Services API Requests
- * 
- * 
- * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
  */export const addCustomAttributes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AddCustomAttributes" }, AddCustomAttributesRequest, AddCustomAttributesResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserImportInProgressException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Confirms user sign-up as an administrator.
  * 
- * 
  * This request sets a user account active in a user pool that requires confirmation of new user accounts before they can sign in. You can
  * configure your user pool to not send confirmation codes to new users and instead confirm
  * them with this API operation on the back end.
- * 
- * 
- * 
  * 
  * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you must use IAM credentials to authorize requests, and you must
  * grant yourself the corresponding IAM permission in a policy.
  * 
- * 
  * **Learn more**
- * 
- * 
- * 
  * 
  * - Signing Amazon Web Services API Requests
  * 
- * 
- * 
- * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
- * 
- * 
- * 
- * 
- * 
- * 
- * 
  * 
  * To configure your user pool to require administrative confirmation of users, set
  * `AllowAdminCreateUserOnly` to `true` in a
@@ -1928,23 +1410,13 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * Given the device key, returns details for a user's device. For more information,
  * see Working with devices.
  * 
- * 
- * 
- * 
  * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you must use IAM credentials to authorize requests, and you must
  * grant yourself the corresponding IAM permission in a policy.
  * 
- * 
  * **Learn more**
  * 
- * 
- * 
- * 
  * - Signing Amazon Web Services API Requests
- * 
- * 
- * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
  */export const adminGetDevice = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminGetDevice" }, AdminGetDeviceRequest, AdminGetDeviceResponse, [InternalErrorException, InvalidParameterException, InvalidUserPoolConfigurationException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1953,23 +1425,13 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * reference from the contents of ID and access tokens, and set preferred IAM roles for
  * identity-pool authentication. For more information, see Adding groups to a user pool.
  * 
- * 
- * 
- * 
  * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you must use IAM credentials to authorize requests, and you must
  * grant yourself the corresponding IAM permission in a policy.
  * 
- * 
  * **Learn more**
  * 
- * 
- * 
- * 
  * - Signing Amazon Web Services API Requests
- * 
- * 
- * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
  */export const adminListGroupsForUser = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminListGroupsForUser" }, AdminListGroupsForUserRequest, AdminListGroupsForUserResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1981,12 +1443,8 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * receives a challenge to complete the reset by confirming the code and setting a new
  * password.
  * 
- * 
  * To use this API operation, your user pool must have self-service account recovery
  * configured.
- * 
- * 
- * 
  * 
  * This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers
  * require you to register an origination phone number before you can send SMS messages
@@ -1995,7 +1453,6 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * Amazon Cognito uses the registered number automatically. Otherwise, Amazon Cognito users who must
  * receive SMS messages might not be able to sign up, activate their accounts, or sign
  * in.
- * 
  * 
  * If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Services service,
  * Amazon Simple Notification Service might place your account in the SMS sandbox. In
@@ -2006,25 +1463,13 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * of the sandbox and into production. For more information, see SMS message settings for Amazon Cognito user pools in the Amazon Cognito
  * Developer Guide.
  * 
- * 
- * 
- * 
- * 
- * 
  * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you must use IAM credentials to authorize requests, and you must
  * grant yourself the corresponding IAM permission in a policy.
  * 
- * 
  * **Learn more**
  * 
- * 
- * 
- * 
  * - Signing Amazon Web Services API Requests
- * 
- * 
- * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
  */export const adminResetUserPassword = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminResetUserPassword" }, AdminResetUserPasswordRequest, AdminResetUserPasswordResponse, [InternalErrorException, InvalidEmailRoleAccessPolicyException, InvalidLambdaResponseException, InvalidParameterException, InvalidSmsRoleAccessPolicyException, InvalidSmsRoleTrustRelationshipException, LimitExceededException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UnexpectedLambdaException, UserLambdaValidationException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -2035,12 +1480,8 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * to that challenge, like a code or a secure remote password (SRP). The parameters of a
  * response to an authentication challenge vary with the type of challenge.
  * 
- * 
  * For more information about custom authentication challenges, see Custom
  * authentication challenge Lambda triggers.
- * 
- * 
- * 
  * 
  * This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers
  * require you to register an origination phone number before you can send SMS messages
@@ -2049,7 +1490,6 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * Amazon Cognito uses the registered number automatically. Otherwise, Amazon Cognito users who must
  * receive SMS messages might not be able to sign up, activate their accounts, or sign
  * in.
- * 
  * 
  * If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Services service,
  * Amazon Simple Notification Service might place your account in the SMS sandbox. In
@@ -2060,25 +1500,13 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * of the sandbox and into production. For more information, see SMS message settings for Amazon Cognito user pools in the Amazon Cognito
  * Developer Guide.
  * 
- * 
- * 
- * 
- * 
- * 
  * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you must use IAM credentials to authorize requests, and you must
  * grant yourself the corresponding IAM permission in a policy.
  * 
- * 
  * **Learn more**
  * 
- * 
- * 
- * 
  * - Signing Amazon Web Services API Requests
- * 
- * 
- * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
  */export const adminRespondToAuthChallenge = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminRespondToAuthChallenge" }, AdminRespondToAuthChallengeRequest, AdminRespondToAuthChallengeResponse, [AliasExistsException, CodeMismatchException, ExpiredCodeException, InternalErrorException, InvalidEmailRoleAccessPolicyException, InvalidLambdaResponseException, InvalidParameterException, InvalidPasswordException, InvalidSmsRoleAccessPolicyException, InvalidSmsRoleTrustRelationshipException, InvalidUserPoolConfigurationException, MFAMethodNotFoundException, NotAuthorizedException, PasswordHistoryPolicyViolationException, PasswordResetRequiredException, ResourceNotFoundException, SoftwareTokenMFANotFoundException, TooManyRequestsException, UnexpectedLambdaException, UserLambdaValidationException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -2088,11 +1516,9 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * self-service password changes and permit immediate sign-in with the password that you
  * set. To do this, set `Permanent` to `true`.
  * 
- * 
  * You can also set a new temporary password in this request, send it to a user, and
  * require them to choose a new password on their next sign-in. To do this, set
  * `Permanent` to `false`.
- * 
  * 
  * If the password is temporary, the user's `Status` becomes
  * `FORCE_CHANGE_PASSWORD`. When the user next tries to sign in, the
@@ -2101,11 +1527,8 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * before the temporary password expires, they can no longer sign in and you must repeat
  * this operation to set a temporary or permanent password for them.
  * 
- * 
  * After the user sets a new password, or if you set a permanent password, their status
  * becomes `Confirmed`.
- * 
- * 
  * 
  * `AdminSetUserPassword` can set a password for the user profile that Amazon Cognito
  * creates for third-party federated users. When you set a password, the federated user's
@@ -2118,23 +1541,13 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * federated user for native sign-in with a linked native user, refer to Linking federated users to an existing user
  * profile.
  * 
- * 
- * 
- * 
  * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you must use IAM credentials to authorize requests, and you must
  * grant yourself the corresponding IAM permission in a policy.
  * 
- * 
  * **Learn more**
  * 
- * 
- * 
- * 
  * - Signing Amazon Web Services API Requests
- * 
- * 
- * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
  */export const adminSetUserPassword = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminSetUserPassword" }, AdminSetUserPasswordRequest, AdminSetUserPasswordResponse, [InternalErrorException, InvalidParameterException, InvalidPasswordException, NotAuthorizedException, PasswordHistoryPolicyViolationException, ResourceNotFoundException, TooManyRequestsException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -2142,44 +1555,23 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * Updates the specified user's attributes. To delete an attribute from your user,
  * submit the attribute in your API request with a blank value.
  * 
- * 
  * For custom attributes, you must add a `custom:` prefix to the attribute
  * name, for example `custom:department`.
- * 
  * 
  * This operation can set a user's email address or phone number as verified and
  * permit immediate sign-in in user pools that require verification of these attributes. To
  * do this, set the `email_verified` or `phone_number_verified`
  * attribute to `true`.
  * 
- * 
- * 
- * 
  * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you must use IAM credentials to authorize requests, and you must
  * grant yourself the corresponding IAM permission in a policy.
  * 
- * 
  * **Learn more**
- * 
- * 
- * 
  * 
  * - Signing Amazon Web Services API Requests
  * 
- * 
- * 
- * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
  * 
  * This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers
  * require you to register an origination phone number before you can send SMS messages
@@ -2188,7 +1580,6 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * Amazon Cognito uses the registered number automatically. Otherwise, Amazon Cognito users who must
  * receive SMS messages might not be able to sign up, activate their accounts, or sign
  * in.
- * 
  * 
  * If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Services service,
  * Amazon Simple Notification Service might place your account in the SMS sandbox. In
@@ -2206,25 +1597,16 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * the user's access token, or a session string from a challenge response that you received
  * from Amazon Cognito.
  * 
- * 
- * 
- * 
  * Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you can't use IAM credentials to authorize requests, and you can't
  * grant IAM permissions in policies. For more information about authorization models in
  * Amazon Cognito, see Using the Amazon Cognito user pools API and user pool endpoints.
- * 
- * 
- * 
  * 
  * Authorize this action with a signed-in user's access token. It must include the scope `aws.cognito.signin.user.admin`.
  */export const associateSoftwareToken = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AssociateSoftwareToken" }, AssociateSoftwareTokenRequest, AssociateSoftwareTokenResponse, [ConcurrentModificationException, ForbiddenException, InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, SoftwareTokenMFANotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This public API operation accepts a confirmation code that Amazon Cognito sent to a user and
  * accepts a new password for that user.
- * 
- * 
- * 
  * 
  * Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you can't use IAM credentials to authorize requests, and you can't
@@ -2239,13 +1621,9 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * configuration, your users will receive their confirmation code in an email or SMS
  * message.
  * 
- * 
  * Local users who signed up in your user pool are the only type of user who can confirm
  * sign-up with a code. Users who federate through an external identity provider (IdP) have
  * already been confirmed by their IdP.
- * 
- * 
- * 
  * 
  * Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you can't use IAM credentials to authorize requests, and you can't
@@ -2256,23 +1634,13 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * Creates a new group in the specified user pool. For more information about user pool
  * groups, see Adding groups to a user pool.
  * 
- * 
- * 
- * 
  * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you must use IAM credentials to authorize requests, and you must
  * grant yourself the corresponding IAM permission in a policy.
  * 
- * 
  * **Learn more**
  * 
- * 
- * 
- * 
  * - Signing Amazon Web Services API Requests
- * 
- * 
- * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
  */export const createGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.CreateGroup" }, CreateGroupRequest, CreateGroupResponse, [GroupExistsException, InternalErrorException, InvalidParameterException, LimitExceededException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -2281,23 +1649,13 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * servers are associated with custom scopes and machine-to-machine (M2M) authorization.
  * For more information, see Access control with resource servers.
  * 
- * 
- * 
- * 
  * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you must use IAM credentials to authorize requests, and you must
  * grant yourself the corresponding IAM permission in a policy.
  * 
- * 
  * **Learn more**
  * 
- * 
- * 
- * 
  * - Signing Amazon Web Services API Requests
- * 
- * 
- * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
  */export const createResourceServer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.CreateResourceServer" }, CreateResourceServerRequest, CreateResourceServerResponse, [InternalErrorException, InvalidParameterException, LimitExceededException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -2306,37 +1664,24 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * Privacy policy documents are configured, the app client displays links to them in the
  * sign-up page of managed login for the app client.
  * 
- * 
  * You can provide URLs for terms documents in the languages that are supported by managed login localization. Amazon Cognito directs users to the terms documents for
  * their current language, with fallback to `default` if no document exists for
  * the language.
- * 
  * 
  * Each request accepts one type of terms document and a map of language-to-link for that
  * document type. You must provide both types of terms documents in at least one language
  * before Amazon Cognito displays your terms documents. Supply each type in separate
  * requests.
  * 
- * 
  * For more information, see Terms documents.
- * 
- * 
- * 
  * 
  * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you must use IAM credentials to authorize requests, and you must
  * grant yourself the corresponding IAM permission in a policy.
  * 
- * 
  * **Learn more**
  * 
- * 
- * 
- * 
  * - Signing Amazon Web Services API Requests
- * 
- * 
- * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
  */export const createTerms = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.CreateTerms" }, CreateTermsRequest, CreateTermsResponse, [ConcurrentModificationException, InternalErrorException, InvalidParameterException, LimitExceededException, NotAuthorizedException, ResourceNotFoundException, TermsExistsException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -2344,23 +1689,13 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * Creates a user import job. You can import users into user pools from a comma-separated
  * values (CSV) file without adding Amazon Cognito MAU costs to your Amazon Web Services bill.
  * 
- * 
- * 
- * 
  * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you must use IAM credentials to authorize requests, and you must
  * grant yourself the corresponding IAM permission in a policy.
  * 
- * 
  * **Learn more**
  * 
- * 
- * 
- * 
  * - Signing Amazon Web Services API Requests
- * 
- * 
- * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
  */export const createUserImportJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.CreateUserImportJob" }, CreateUserImportJobRequest, CreateUserImportJobResponse, [InternalErrorException, InvalidParameterException, LimitExceededException, NotAuthorizedException, PreconditionNotMetException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -2372,31 +1707,19 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * choose a custom domain, you must provide an SSL certificate in the US East (N. Virginia)
  * Amazon Web Services Region in your request.
  * 
- * 
  * Your prefix domain might take up to one minute to take effect. Your custom domain is
  * online within five minutes, but it can take up to one hour to distribute your SSL
  * certificate.
  * 
- * 
  * For more information about adding a custom domain to your user pool, see Configuring a user pool domain.
- * 
- * 
- * 
  * 
  * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you must use IAM credentials to authorize requests, and you must
  * grant yourself the corresponding IAM permission in a policy.
  * 
- * 
  * **Learn more**
  * 
- * 
- * 
- * 
  * - Signing Amazon Web Services API Requests
- * 
- * 
- * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
  */export const createUserPoolDomain = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.CreateUserPoolDomain" }, CreateUserPoolDomainRequest, CreateUserPoolDomainResponse, [ConcurrentModificationException, FeatureUnavailableInTierException, InternalErrorException, InvalidParameterException, LimitExceededException, NotAuthorizedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -2405,23 +1728,13 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * longer sign in to your user pool through that IdP. For more information about user pool
  * IdPs, see Third-party IdP sign-in.
  * 
- * 
- * 
- * 
  * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you must use IAM credentials to authorize requests, and you must
  * grant yourself the corresponding IAM permission in a policy.
  * 
- * 
  * **Learn more**
  * 
- * 
- * 
- * 
  * - Signing Amazon Web Services API Requests
- * 
- * 
- * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
  */export const deleteIdentityProvider = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DeleteIdentityProvider" }, DeleteIdentityProviderRequest, S.Struct({}), [ConcurrentModificationException, InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UnsupportedIdentityProviderException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -2445,23 +1758,13 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
 /**
  * Returns details for the requested terms documents ID. For more information, see Terms documents.
  * 
- * 
- * 
- * 
  * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you must use IAM credentials to authorize requests, and you must
  * grant yourself the corresponding IAM permission in a policy.
  * 
- * 
  * **Learn more**
  * 
- * 
- * 
- * 
  * - Signing Amazon Web Services API Requests
- * 
- * 
- * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
  */export const describeTerms = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DescribeTerms" }, DescribeTermsRequest, DescribeTermsResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -2470,23 +1773,13 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * when you want to inspect an existing app client and programmatically replicate the
  * configuration to another app client. For more information about app clients, see App clients.
  * 
- * 
- * 
- * 
  * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you must use IAM credentials to authorize requests, and you must
  * grant yourself the corresponding IAM permission in a policy.
  * 
- * 
  * **Learn more**
  * 
- * 
- * 
- * 
  * - Signing Amazon Web Services API Requests
- * 
- * 
- * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
  */export const describeUserPoolClient = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DescribeUserPoolClient" }, DescribeUserPoolClientRequest, DescribeUserPoolClientResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -2494,23 +1787,13 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * Given a user pool domain name, returns information about the domain
  * configuration.
  * 
- * 
- * 
- * 
  * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you must use IAM credentials to authorize requests, and you must
  * grant yourself the corresponding IAM permission in a policy.
  * 
- * 
  * **Learn more**
  * 
- * 
- * 
- * 
  * - Signing Amazon Web Services API Requests
- * 
- * 
- * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
  */export const describeUserPoolDomain = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DescribeUserPoolDomain" }, DescribeUserPoolDomainRequest, DescribeUserPoolDomainResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -2520,28 +1803,18 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * available attributes and the `AccountRecoverySetting` configuration of the
  * user pool.
  * 
- * 
  * For the `Username` parameter, you can use the username or an email, phone,
  * or preferred username alias.
- * 
  * 
  * If neither a verified phone number nor a verified email exists, Amazon Cognito responds with an
  * `InvalidParameterException` error . If your app client has a client
  * secret and you don't provide a `SECRET_HASH` parameter, this API returns
  * `NotAuthorizedException`.
  * 
- * 
- * 
- * 
  * Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you can't use IAM credentials to authorize requests, and you can't
  * grant IAM permissions in policies. For more information about authorization models in
  * Amazon Cognito, see Using the Amazon Cognito user pools API and user pool endpoints.
- * 
- * 
- * 
- * 
- * 
  * 
  * This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers
  * require you to register an origination phone number before you can send SMS messages
@@ -2550,7 +1823,6 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * Amazon Cognito uses the registered number automatically. Otherwise, Amazon Cognito users who must
  * receive SMS messages might not be able to sign up, activate their accounts, or sign
  * in.
- * 
  * 
  * If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Services service,
  * Amazon Simple Notification Service might place your account in the SMS sandbox. In
@@ -2565,23 +1837,13 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * Given a user pool ID, returns the logging configuration. User pools can export
  * message-delivery error and threat-protection activity logs to external Amazon Web Services services. For more information, see Exporting user pool logs.
  * 
- * 
- * 
- * 
  * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you must use IAM credentials to authorize requests, and you must
  * grant yourself the corresponding IAM permission in a policy.
  * 
- * 
  * **Learn more**
  * 
- * 
- * 
- * 
  * - Signing Amazon Web Services API Requests
- * 
- * 
- * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
  */export const getLogDeliveryConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.GetLogDeliveryConfiguration" }, GetLogDeliveryConfigurationRequest, GetLogDeliveryConfigurationResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -2596,21 +1858,12 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * Given an attribute name, sends a user attribute verification code for the specified
  * attribute name to the currently signed-in user.
  * 
- * 
  * Authorize this action with a signed-in user's access token. It must include the scope `aws.cognito.signin.user.admin`.
- * 
- * 
- * 
  * 
  * Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you can't use IAM credentials to authorize requests, and you can't
  * grant IAM permissions in policies. For more information about authorization models in
  * Amazon Cognito, see Using the Amazon Cognito user pools API and user pool endpoints.
- * 
- * 
- * 
- * 
- * 
  * 
  * This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers
  * require you to register an origination phone number before you can send SMS messages
@@ -2619,7 +1872,6 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * Amazon Cognito uses the registered number automatically. Otherwise, Amazon Cognito users who must
  * receive SMS messages might not be able to sign up, activate their accounts, or sign
  * in.
- * 
  * 
  * If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Services service,
  * Amazon Simple Notification Service might place your account in the SMS sandbox. In
@@ -2637,18 +1889,10 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * authentication. You can't sign in a user with a federated IdP with
  * `InitiateAuth`. For more information, see Authentication.
  * 
- * 
- * 
- * 
  * Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you can't use IAM credentials to authorize requests, and you can't
  * grant IAM permissions in policies. For more information about authorization models in
  * Amazon Cognito, see Using the Amazon Cognito user pools API and user pool endpoints.
- * 
- * 
- * 
- * 
- * 
  * 
  * This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers
  * require you to register an origination phone number before you can send SMS messages
@@ -2657,7 +1901,6 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * Amazon Cognito uses the registered number automatically. Otherwise, Amazon Cognito users who must
  * receive SMS messages might not be able to sign up, activate their accounts, or sign
  * in.
- * 
  * 
  * If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Services service,
  * Amazon Simple Notification Service might place your account in the SMS sandbox. In
@@ -2672,46 +1915,26 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * Given a user pool ID, returns information about configured identity providers (IdPs).
  * For more information about IdPs, see Third-party IdP sign-in.
  * 
- * 
- * 
- * 
  * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you must use IAM credentials to authorize requests, and you must
  * grant yourself the corresponding IAM permission in a policy.
  * 
- * 
  * **Learn more**
  * 
- * 
- * 
- * 
  * - Signing Amazon Web Services API Requests
- * 
- * 
- * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
  */export const listIdentityProviders = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.ListIdentityProviders" }, ListIdentityProvidersRequest, ListIdentityProvidersResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns details about all terms documents for the requested user pool.
  * 
- * 
- * 
- * 
  * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you must use IAM credentials to authorize requests, and you must
  * grant yourself the corresponding IAM permission in a policy.
  * 
- * 
  * **Learn more**
  * 
- * 
- * 
- * 
  * - Signing Amazon Web Services API Requests
- * 
- * 
- * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
  */export const listTerms = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.ListTerms" }, ListTermsRequest, ListTermsResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -2719,46 +1942,26 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * Given a user pool ID, lists app clients. App clients are sets of rules for the access
  * that you want a user pool to grant to one application. For more information, see App clients.
  * 
- * 
- * 
- * 
  * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you must use IAM credentials to authorize requests, and you must
  * grant yourself the corresponding IAM permission in a policy.
  * 
- * 
  * **Learn more**
  * 
- * 
- * 
- * 
  * - Signing Amazon Web Services API Requests
- * 
- * 
- * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
  */export const listUserPoolClients = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.ListUserPoolClients" }, ListUserPoolClientsRequest, ListUserPoolClientsResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists user pools and their details in the current Amazon Web Services account.
  * 
- * 
- * 
- * 
  * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you must use IAM credentials to authorize requests, and you must
  * grant yourself the corresponding IAM permission in a policy.
  * 
- * 
  * **Learn more**
  * 
- * 
- * 
- * 
  * - Signing Amazon Web Services API Requests
- * 
- * 
- * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
  */export const listUserPools = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.ListUserPools" }, ListUserPoolsRequest, ListUserPoolsResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -2766,23 +1969,13 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * Given a user pool ID, returns a list of users and their basic details in a user
  * pool.
  * 
- * 
- * 
- * 
  * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you must use IAM credentials to authorize requests, and you must
  * grant yourself the corresponding IAM permission in a policy.
  * 
- * 
  * **Learn more**
  * 
- * 
- * 
- * 
  * - Signing Amazon Web Services API Requests
- * 
- * 
- * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
  */export const listUsers = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.ListUsers" }, ListUsersRequest, ListUsersResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -2790,11 +1983,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * Generates a list of the currently signed-in user's registered passkey, or
  * WebAuthn, credentials.
  * 
- * 
  * Authorize this action with a signed-in user's access token. It must include the scope `aws.cognito.signin.user.admin`.
- * 
- * 
- * 
  * 
  * Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you can't use IAM credentials to authorize requests, and you can't
@@ -2808,18 +1997,10 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * users for the confirmation code, include a "Resend code" option that generates a call to
  * this API operation.
  * 
- * 
- * 
- * 
  * Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you can't use IAM credentials to authorize requests, and you can't
  * grant IAM permissions in policies. For more information about authorization models in
  * Amazon Cognito, see Using the Amazon Cognito user pools API and user pool endpoints.
- * 
- * 
- * 
- * 
- * 
  * 
  * This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers
  * require you to register an origination phone number before you can send SMS messages
@@ -2828,7 +2009,6 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * Amazon Cognito uses the registered number automatically. Otherwise, Amazon Cognito users who must
  * receive SMS messages might not be able to sign up, activate their accounts, or sign
  * in.
- * 
  * 
  * If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Services service,
  * Amazon Simple Notification Service might place your account in the SMS sandbox. In
@@ -2846,22 +2026,13 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * challenge, like a code or a secure remote password (SRP). The parameters of a response
  * to an authentication challenge vary with the type of challenge.
  * 
- * 
  * For more information about custom authentication challenges, see Custom
  * authentication challenge Lambda triggers.
- * 
- * 
- * 
  * 
  * Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you can't use IAM credentials to authorize requests, and you can't
  * grant IAM permissions in policies. For more information about authorization models in
  * Amazon Cognito, see Using the Amazon Cognito user pools API and user pool endpoints.
- * 
- * 
- * 
- * 
- * 
  * 
  * This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers
  * require you to register an origination phone number before you can send SMS messages
@@ -2870,7 +2041,6 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * Amazon Cognito uses the registered number automatically. Otherwise, Amazon Cognito users who must
  * receive SMS messages might not be able to sign up, activate their accounts, or sign
  * in.
- * 
  * 
  * If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Services service,
  * Amazon Simple Notification Service might place your account in the SMS sandbox. In
@@ -2885,9 +2055,6 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * Sets user pool multi-factor authentication (MFA) and passkey configuration. For more
  * information about user pool MFA, see Adding MFA. For more information about WebAuthn passkeys see Authentication flows.
  * 
- * 
- * 
- * 
  * This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers
  * require you to register an origination phone number before you can send SMS messages
  * to US phone numbers. If you use SMS text messages in Amazon Cognito, you must register a
@@ -2895,7 +2062,6 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * Amazon Cognito uses the registered number automatically. Otherwise, Amazon Cognito users who must
  * receive SMS messages might not be able to sign up, activate their accounts, or sign
  * in.
- * 
  * 
  * If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Services service,
  * Amazon Simple Notification Service might place your account in the SMS sandbox. In
@@ -2910,18 +2076,10 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * Registers a user with an app client and requests a user name, password, and user
  * attributes in the user pool.
  * 
- * 
- * 
- * 
  * Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you can't use IAM credentials to authorize requests, and you can't
  * grant IAM permissions in policies. For more information about authorization models in
  * Amazon Cognito, see Using the Amazon Cognito user pools API and user pool endpoints.
- * 
- * 
- * 
- * 
- * 
  * 
  * This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers
  * require you to register an origination phone number before you can send SMS messages
@@ -2931,7 +2089,6 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * receive SMS messages might not be able to sign up, activate their accounts, or sign
  * in.
  * 
- * 
  * If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Services service,
  * Amazon Simple Notification Service might place your account in the SMS sandbox. In
  * sandbox
@@ -2940,9 +2097,6 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * numbers. After you test your app while in the sandbox environment, you can move out
  * of the sandbox and into production. For more information, see SMS message settings for Amazon Cognito user pools in the Amazon Cognito
  * Developer Guide.
- * 
- * 
- * 
  * 
  * You might receive a `LimitExceeded` exception in response to this request
  * if you have exceeded a rate quota for email or SMS messages, and if your user pool
@@ -2960,37 +2114,24 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * conditions and Privacy policy documents are configured, the app client displays links to
  * them in the sign-up page of managed login for the app client.
  * 
- * 
  * You can provide URLs for terms documents in the languages that are supported by managed login localization. Amazon Cognito directs users to the terms documents for
  * their current language, with fallback to `default` if no document exists for
  * the language.
- * 
  * 
  * Each request accepts one type of terms document and a map of language-to-link for that
  * document type. You must provide both types of terms documents in at least one language
  * before Amazon Cognito displays your terms documents. Supply each type in separate
  * requests.
  * 
- * 
  * For more information, see Terms documents.
- * 
- * 
- * 
  * 
  * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you must use IAM credentials to authorize requests, and you must
  * grant yourself the corresponding IAM permission in a policy.
  * 
- * 
  * **Learn more**
  * 
- * 
- * 
- * 
  * - Signing Amazon Web Services API Requests
- * 
- * 
- * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
  */export const updateTerms = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.UpdateTerms" }, UpdateTermsRequest, UpdateTermsResponse, [ConcurrentModificationException, InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TermsExistsException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -2999,15 +2140,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * defaults, construct this API request to pass the existing configuration of your user
  * pool, modified to include the changes that you want to make.
  * 
- * 
- * 
- * 
  * If you don't provide a value for an attribute, Amazon Cognito sets it to its default value.
- * 
- * 
- * 
- * 
- * 
  * 
  * This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers
  * require you to register an origination phone number before you can send SMS messages
@@ -3016,7 +2149,6 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * Amazon Cognito uses the registered number automatically. Otherwise, Amazon Cognito users who must
  * receive SMS messages might not be able to sign up, activate their accounts, or sign
  * in.
- * 
  * 
  * If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Services service,
  * Amazon Simple Notification Service might place your account in the SMS sandbox. In
@@ -3027,25 +2159,13 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * of the sandbox and into production. For more information, see SMS message settings for Amazon Cognito user pools in the Amazon Cognito
  * Developer Guide.
  * 
- * 
- * 
- * 
- * 
- * 
  * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you must use IAM credentials to authorize requests, and you must
  * grant yourself the corresponding IAM permission in a policy.
  * 
- * 
  * **Learn more**
  * 
- * 
- * 
- * 
  * - Signing Amazon Web Services API Requests
- * 
- * 
- * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
  */export const updateUserPool = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.UpdateUserPool" }, UpdateUserPoolRequest, UpdateUserPoolResponse, [ConcurrentModificationException, FeatureUnavailableInTierException, InternalErrorException, InvalidEmailRoleAccessPolicyException, InvalidParameterException, InvalidSmsRoleAccessPolicyException, InvalidSmsRoleTrustRelationshipException, NotAuthorizedException, ResourceNotFoundException, TierChangeNotAllowedException, TooManyRequestsException, UserImportInProgressException, UserPoolTaggingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -3055,35 +2175,19 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * configuration of your app client, modified to include the changes that you want to
  * make.
  * 
- * 
- * 
- * 
  * If you don't provide a value for an attribute, Amazon Cognito sets it to its default value.
- * 
- * 
- * 
  * 
  * Unlike app clients created in the console, Amazon Cognito doesn't automatically assign a
  * branding style to app clients that you configure with this API operation. Managed login and classic hosted UI pages aren't
  * available for your client until after you apply a branding style.
  * 
- * 
- * 
- * 
  * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you must use IAM credentials to authorize requests, and you must
  * grant yourself the corresponding IAM permission in a policy.
  * 
- * 
  * **Learn more**
  * 
- * 
- * 
- * 
  * - Signing Amazon Web Services API Requests
- * 
- * 
- * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
  */export const updateUserPoolClient = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.UpdateUserPoolClient" }, UpdateUserPoolClientRequest, UpdateUserPoolClientResponse, [ConcurrentModificationException, FeatureUnavailableInTierException, InternalErrorException, InvalidOAuthFlowException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, ScopeDoesNotExistException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -3093,9 +2197,6 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * by your user pool. Marks the user's software token MFA status as "verified" if
  * successful. The request takes an access token or a session string, but not both.
  * 
- * 
- * 
- * 
  * Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you can't use IAM credentials to authorize requests, and you can't
  * grant IAM permissions in policies. For more information about authorization models in
@@ -3104,19 +2205,15 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
 /**
  * Creates a new user in the specified user pool.
  * 
- * 
  * If `MessageAction` isn't set, the default is to send a welcome message via
  * email or phone (SMS).
- * 
  * 
  * This message is based on a template that you configured in your call to create or
  * update a user pool. This template includes your custom sign-up instructions and
  * placeholders for user name and temporary password.
  * 
- * 
  * Alternatively, you can call `AdminCreateUser` with `SUPPRESS`
  * for the `MessageAction` parameter, and Amazon Cognito won't send any email.
- * 
  * 
  * In either case, if the user has a password, they will be in the
  * `FORCE_CHANGE_PASSWORD` state until they sign in and set their password.
@@ -3126,9 +2223,6 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * template and resend the password with a new `AdminCreateUser` request with a
  * `MessageAction` value of `RESEND`.
  * 
- * 
- * 
- * 
  * This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers
  * require you to register an origination phone number before you can send SMS messages
  * to US phone numbers. If you use SMS text messages in Amazon Cognito, you must register a
@@ -3136,7 +2230,6 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * Amazon Cognito uses the registered number automatically. Otherwise, Amazon Cognito users who must
  * receive SMS messages might not be able to sign up, activate their accounts, or sign
  * in.
- * 
  * 
  * If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Services service,
  * Amazon Simple Notification Service might place your account in the SMS sandbox. In
@@ -3147,25 +2240,13 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * of the sandbox and into production. For more information, see SMS message settings for Amazon Cognito user pools in the Amazon Cognito
  * Developer Guide.
  * 
- * 
- * 
- * 
- * 
- * 
  * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you must use IAM credentials to authorize requests, and you must
  * grant yourself the corresponding IAM permission in a policy.
  * 
- * 
  * **Learn more**
  * 
- * 
- * 
- * 
  * - Signing Amazon Web Services API Requests
- * 
- * 
- * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
  */export const adminCreateUser = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminCreateUser" }, AdminCreateUserRequest, AdminCreateUserResponse, [CodeDeliveryFailureException, InternalErrorException, InvalidLambdaResponseException, InvalidParameterException, InvalidPasswordException, InvalidSmsRoleAccessPolicyException, InvalidSmsRoleTrustRelationshipException, NotAuthorizedException, PreconditionNotMetException, ResourceNotFoundException, TooManyRequestsException, UnexpectedLambdaException, UnsupportedUserStateException, UserLambdaValidationException, UsernameExistsException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -3176,9 +2257,6 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * your app client configuration. For more information about authentication flows, see
  * Authentication flows.
  * 
- * 
- * 
- * 
  * This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers
  * require you to register an origination phone number before you can send SMS messages
  * to US phone numbers. If you use SMS text messages in Amazon Cognito, you must register a
@@ -3186,7 +2264,6 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * Amazon Cognito uses the registered number automatically. Otherwise, Amazon Cognito users who must
  * receive SMS messages might not be able to sign up, activate their accounts, or sign
  * in.
- * 
  * 
  * If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Services service,
  * Amazon Simple Notification Service might place your account in the SMS sandbox. In
@@ -3197,25 +2274,13 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * of the sandbox and into production. For more information, see SMS message settings for Amazon Cognito user pools in the Amazon Cognito
  * Developer Guide.
  * 
- * 
- * 
- * 
- * 
- * 
  * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you must use IAM credentials to authorize requests, and you must
  * grant yourself the corresponding IAM permission in a policy.
  * 
- * 
  * **Learn more**
  * 
- * 
- * 
- * 
  * - Signing Amazon Web Services API Requests
- * 
- * 
- * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
  */export const adminInitiateAuth = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminInitiateAuth" }, AdminInitiateAuthRequest, AdminInitiateAuthResponse, [InternalErrorException, InvalidEmailRoleAccessPolicyException, InvalidLambdaResponseException, InvalidParameterException, InvalidSmsRoleAccessPolicyException, InvalidSmsRoleTrustRelationshipException, InvalidUserPoolConfigurationException, MFAMethodNotFoundException, NotAuthorizedException, PasswordResetRequiredException, ResourceNotFoundException, TooManyRequestsException, UnexpectedLambdaException, UnsupportedOperationException, UserLambdaValidationException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -3223,23 +2288,13 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * Requests a history of user activity and any risks detected as part of Amazon Cognito threat
  * protection. For more information, see Viewing user event history.
  * 
- * 
- * 
- * 
  * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you must use IAM credentials to authorize requests, and you must
  * grant yourself the corresponding IAM permission in a policy.
  * 
- * 
  * **Learn more**
  * 
- * 
- * 
- * 
  * - Signing Amazon Web Services API Requests
- * 
- * 
- * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
  */export const adminListUserAuthEvents = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminListUserAuthEvents" }, AdminListUserAuthEventsRequest, AdminListUserAuthEventsResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserNotFoundException, UserPoolAddOnNotEnabledException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -3249,11 +2304,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * a trusted device in the back end, instead of a user-provided MFA code. For more
  * information about device authentication, see Working with user devices in your user pool.
  * 
- * 
  * Authorize this action with a signed-in user's access token. It must include the scope `aws.cognito.signin.user.admin`.
- * 
- * 
- * 
  * 
  * Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you can't use IAM credentials to authorize requests, and you can't
@@ -3265,23 +2316,13 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * (IdP) and a user pool. Amazon Cognito accepts sign-in with third-party identity providers through
  * managed login and OIDC relying-party libraries. For more information, see Third-party IdP sign-in.
  * 
- * 
- * 
- * 
  * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you must use IAM credentials to authorize requests, and you must
  * grant yourself the corresponding IAM permission in a policy.
  * 
- * 
  * **Learn more**
  * 
- * 
- * 
- * 
  * - Signing Amazon Web Services API Requests
- * 
- * 
- * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
  */export const createIdentityProvider = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.CreateIdentityProvider" }, CreateIdentityProviderRequest, CreateIdentityProviderResponse, [DuplicateProviderException, InternalErrorException, InvalidParameterException, LimitExceededException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -3290,7 +2331,6 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * app client. This operation is the programmatic option for the creation of a new style in
  * the branding editor.
  * 
- * 
  * Provides values for UI customization in a `Settings` JSON object and image
  * files in an `Assets` array. To send the JSON object `Document`
  * type parameter in `Settings`, you might need to update to the most recent
@@ -3298,30 +2338,19 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * `UseCognitoProvidedValues` to `true` and don't provide
  * values for any other options.
  * 
- * 
  * This operation has a 2-megabyte request-size limit and include the CSS settings and
  * image assets for your app client. Your branding settings might exceed 2MB in size. Amazon Cognito
  * doesn't require that you pass all parameters in one request and preserves existing
  * style settings that you don't specify. If your request is larger than 2MB, separate it
  * into multiple requests, each with a size smaller than the limit.
  * 
- * 
- * 
- * 
  * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you must use IAM credentials to authorize requests, and you must
  * grant yourself the corresponding IAM permission in a policy.
  * 
- * 
  * **Learn more**
  * 
- * 
- * 
- * 
  * - Signing Amazon Web Services API Requests
- * 
- * 
- * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
  */export const createManagedLoginBranding = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.CreateManagedLoginBranding" }, CreateManagedLoginBrandingRequest, CreateManagedLoginBrandingResponse, [ConcurrentModificationException, InternalErrorException, InvalidParameterException, LimitExceededException, ManagedLoginBrandingExistsException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -3329,15 +2358,7 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * Creates a new Amazon Cognito user pool. This operation sets basic and advanced configuration
  * options.
  * 
- * 
- * 
- * 
  * If you don't provide a value for an attribute, Amazon Cognito sets it to its default value.
- * 
- * 
- * 
- * 
- * 
  * 
  * This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers
  * require you to register an origination phone number before you can send SMS messages
@@ -3346,7 +2367,6 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * Amazon Cognito uses the registered number automatically. Otherwise, Amazon Cognito users who must
  * receive SMS messages might not be able to sign up, activate their accounts, or sign
  * in.
- * 
  * 
  * If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Services service,
  * Amazon Simple Notification Service might place your account in the SMS sandbox. In
@@ -3357,25 +2377,13 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * of the sandbox and into production. For more information, see SMS message settings for Amazon Cognito user pools in the Amazon Cognito
  * Developer Guide.
  * 
- * 
- * 
- * 
- * 
- * 
  * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you must use IAM credentials to authorize requests, and you must
  * grant yourself the corresponding IAM permission in a policy.
  * 
- * 
  * **Learn more**
  * 
- * 
- * 
- * 
  * - Signing Amazon Web Services API Requests
- * 
- * 
- * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
  */export const createUserPool = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.CreateUserPool" }, CreateUserPoolRequest, CreateUserPoolResponse, [FeatureUnavailableInTierException, InternalErrorException, InvalidEmailRoleAccessPolicyException, InvalidParameterException, InvalidSmsRoleAccessPolicyException, InvalidSmsRoleTrustRelationshipException, LimitExceededException, NotAuthorizedException, TierChangeNotAllowedException, TooManyRequestsException, UserPoolTaggingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -3383,35 +2391,19 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * Creates an app client in a user pool. This operation sets basic and advanced
  * configuration options.
  * 
- * 
  * Unlike app clients created in the console, Amazon Cognito doesn't automatically assign a
  * branding style to app clients that you configure with this API operation. Managed login and classic hosted UI pages aren't
  * available for your client until after you apply a branding style.
  * 
- * 
- * 
- * 
  * If you don't provide a value for an attribute, Amazon Cognito sets it to its default value.
- * 
- * 
- * 
- * 
- * 
  * 
  * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you must use IAM credentials to authorize requests, and you must
  * grant yourself the corresponding IAM permission in a policy.
  * 
- * 
  * **Learn more**
  * 
- * 
- * 
- * 
  * - Signing Amazon Web Services API Requests
- * 
- * 
- * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
  */export const createUserPoolClient = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.CreateUserPoolClient" }, CreateUserPoolClientRequest, CreateUserPoolClientResponse, [FeatureUnavailableInTierException, InternalErrorException, InvalidOAuthFlowException, InvalidParameterException, LimitExceededException, NotAuthorizedException, ResourceNotFoundException, ScopeDoesNotExistException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -3420,23 +2412,13 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * you want to inspect an existing user pool and programmatically replicate the
  * configuration to another user pool.
  * 
- * 
- * 
- * 
  * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you must use IAM credentials to authorize requests, and you must
  * grant yourself the corresponding IAM permission in a policy.
  * 
- * 
  * **Learn more**
  * 
- * 
- * 
- * 
  * - Signing Amazon Web Services API Requests
- * 
- * 
- * 
  * 
  * - Using the Amazon Cognito user pools API and user pool endpoints
  */export const describeUserPool = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DescribeUserPool" }, DescribeUserPoolRequest, DescribeUserPoolResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserPoolTaggingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -3444,9 +2426,6 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * Revokes all of the access tokens generated by, and at the same time as, the specified
  * refresh token. After a token is revoked, you can't use the revoked token to access Amazon Cognito
  * user APIs, or to authorize access to your resource server.
- * 
- * 
- * 
  * 
  * Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
  * this operation, you can't use IAM credentials to authorize requests, and you can't
@@ -3465,7 +2444,6 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * requirements. Users must provide this information in their request to enroll your
  * application with their passkey provider.
  * 
- * 
  * Authorize this action with a signed-in user's access token. It must include the scope `aws.cognito.signin.user.admin`.
  */export const startWebAuthnRegistration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.StartWebAuthnRegistration" }, StartWebAuthnRegistrationRequest, StartWebAuthnRegistrationResponse, [ForbiddenException, InternalErrorException, InvalidParameterException, LimitExceededException, NotAuthorizedException, TooManyRequestsException, WebAuthnConfigurationMissingException, WebAuthnNotEnabledException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -3479,26 +2457,14 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
  * Configures threat protection for a user pool or app client. Sets configuration for the
  * following.
  * 
- * 
- * 
  * - Responses to risks with adaptive authentication
- * 
- * 
  * 
  * - Responses to vulnerable passwords with compromised-credentials
  * detection
  * 
- * 
- * 
  * - Notifications to users who have had risky activity detected
  * 
- * 
- * 
  * - IP-address denylist and allowlist
- * 
- * 
- * 
- * 
  * 
  * To set the risk configuration for the user pool to defaults, send this request with
  * only the `UserPoolId` parameter. To reset the threat protection settings of
@@ -3511,7 +2477,6 @@ export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuth
 /**
  * Completes registration of a passkey authenticator for the currently signed-in
  * user.
- * 
  * 
  * Authorize this action with a signed-in user's access token. It must include the scope `aws.cognito.signin.user.admin`.
  */export const completeWebAuthnRegistration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.CompleteWebAuthnRegistration" }, CompleteWebAuthnRegistrationRequest, CompleteWebAuthnRegistrationResponse, [ForbiddenException, InternalErrorException, InvalidParameterException, LimitExceededException, NotAuthorizedException, TooManyRequestsException, WebAuthnChallengeNotFoundException, WebAuthnClientMismatchException, WebAuthnCredentialNotSupportedException, WebAuthnNotEnabledException, WebAuthnOriginNotAllowedException, WebAuthnRelyingPartyMismatchException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

@@ -119,12 +119,8 @@ export class NotFoundException extends S.TaggedError<NotFoundException>()("NotFo
 /**
  * Sets the number of days before the `AppInstanceUser` is automatically deleted.
  * 
- * 
- * 
- * 
  * A background process deletes expired `AppInstanceUsers` within 6 hours of expiration.
  * Actual deletion times may vary.
- * 
  * 
  * Expired `AppInstanceUsers` that have not yet been deleted appear as active, and you can update
  * their expiration settings. The system honors the new settings.
@@ -153,7 +149,6 @@ export class NotFoundException extends S.TaggedError<NotFoundException>()("NotFo
  * Only SDK messaging customers use this API. `CreateAppInstance` supports
  * idempotency behavior as described in the AWS API Standard.
  * 
- * 
  * identity
  */export const createAppInstance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-04-20", uri: "/app-instances", sdkId: "Chime SDK Identity", sigV4ServiceName: "chime", name: "ChimeIdentityService.CreateAppInstance" }, CreateAppInstanceRequest, CreateAppInstanceResponse, [BadRequestException, ConflictException, ForbiddenException, ResourceLimitExceededException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -161,18 +156,10 @@ export class NotFoundException extends S.TaggedError<NotFoundException>()("NotFo
  * `AppInstanceAdmin`. The
  * promoted entity can perform the following actions.
  * 
- * 
- * 
  * - `ChannelModerator` actions across all channels in the
  * `AppInstance`.
  * 
- * 
- * 
  * - `DeleteChannelMessage` actions.
- * 
- * 
- * 
- * 
  * 
  * Only an `AppInstanceUser` and `AppInstanceBot` can be promoted to an `AppInstanceAdmin`
  * role.

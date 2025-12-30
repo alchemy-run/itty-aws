@@ -275,9 +275,6 @@ export class StorageTypeNotSupportedFault extends S.TaggedError<StorageTypeNotSu
 /**
  * Returns information about Amazon DocumentDB global clusters. This API supports pagination.
  * 
- * 
- * 
- * 
  * This action only applies to Amazon DocumentDB clusters.
  */export const describeGlobalClusters = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeGlobalClusters" }, DescribeGlobalClustersMessage, GlobalClustersMessage, [GlobalClusterNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
@@ -286,18 +283,10 @@ export class StorageTypeNotSupportedFault extends S.TaggedError<StorageTypeNotSu
  * `ParameterValue`, and `ApplyMethod`. A maximum of 20
  * parameters can be modified in a single request.
  * 
- * 
- * 
- * 
  * Changes to dynamic parameters are applied immediately. Changes to static
  * parameters require a reboot or maintenance window
  * 
  * before the change can take effect.
- * 
- * 
- * 
- * 
- * 
  * 
  * After you create a cluster parameter group, you should wait at least 5 minutes
  * before creating your first cluster that uses that cluster parameter group as
@@ -310,16 +299,10 @@ export class StorageTypeNotSupportedFault extends S.TaggedError<StorageTypeNotSu
 /**
  * Modify a setting for an Amazon DocumentDB global cluster. You can change one or more configuration parameters (for example: deletion protection), or the global cluster identifier by specifying these parameters and the new values in the request.
  * 
- * 
- * 
- * 
  * This action only applies to Amazon DocumentDB clusters.
  */export const modifyGlobalCluster = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.ModifyGlobalCluster" }, ModifyGlobalClusterMessage, ModifyGlobalClusterResult, [GlobalClusterNotFoundFault, InvalidGlobalClusterStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Detaches an Amazon DocumentDB secondary cluster from a global cluster. The cluster becomes a standalone cluster with read-write capability instead of being read-only and receiving data from a primary in a different region.
- * 
- * 
- * 
  * 
  * This action only applies to Amazon DocumentDB clusters.
  */export const removeFromGlobalCluster = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.RemoveFromGlobalCluster" }, RemoveFromGlobalClusterMessage, RemoveFromGlobalClusterResult, [DBClusterNotFoundFault, GlobalClusterNotFoundFault, InvalidGlobalClusterStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
@@ -332,7 +315,6 @@ export class StorageTypeNotSupportedFault extends S.TaggedError<StorageTypeNotSu
  * and `ApplyMethod`. To reset the entire cluster parameter group, specify
  * the `DBClusterParameterGroupName` and `ResetAllParameters`
  * parameters.
- * 
  * 
  * When you reset the entire group, dynamic parameters are updated immediately and
  * static parameters are set to `pending-reboot` to take effect on the next DB
@@ -365,10 +347,8 @@ export class StorageTypeNotSupportedFault extends S.TaggedError<StorageTypeNotSu
 /**
  * Creates a new cluster parameter group.
  * 
- * 
  * Parameters in a cluster parameter group apply to all of the
  * instances in a cluster.
- * 
  * 
  * A cluster parameter group is initially created with the default
  * parameters for the database engine used by instances in the cluster.
@@ -392,9 +372,6 @@ export class StorageTypeNotSupportedFault extends S.TaggedError<StorageTypeNotSu
 /**
  * Deletes a cluster snapshot. If the snapshot is being copied, the copy operation is terminated.
  * 
- * 
- * 
- * 
  * The cluster snapshot must be in the `available` state to be deleted.
  */export const deleteDBClusterSnapshot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.DeleteDBClusterSnapshot" }, DeleteDBClusterSnapshotMessage, DeleteDBClusterSnapshotResult, [DBClusterSnapshotNotFoundFault, InvalidDBClusterSnapshotStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
@@ -405,9 +382,6 @@ export class StorageTypeNotSupportedFault extends S.TaggedError<StorageTypeNotSu
  */export const deleteEventSubscription = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.DeleteEventSubscription" }, DeleteEventSubscriptionMessage, DeleteEventSubscriptionResult, [InvalidEventSubscriptionStateFault, SubscriptionNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes a global cluster. The primary and secondary clusters must already be detached or deleted before attempting to delete a global cluster.
- * 
- * 
- * 
  * 
  * This action only applies to Amazon DocumentDB clusters.
  */export const deleteGlobalCluster = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.DeleteGlobalCluster" }, DeleteGlobalClusterMessage, DeleteGlobalClusterResult, [GlobalClusterNotFoundFault, InvalidGlobalClusterStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
@@ -425,7 +399,6 @@ export class StorageTypeNotSupportedFault extends S.TaggedError<StorageTypeNotSu
 /**
  * Lists all the subscription descriptions for a customer account. The description for a subscription includes `SubscriptionName`, `SNSTopicARN`, `CustomerID`, `SourceType`, `SourceID`, `CreationTime`, and `Status`.
  * 
- * 
  * If you specify a `SubscriptionName`, lists the description for that subscription.
  */export const describeEventSubscriptions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeEventSubscriptions" }, DescribeEventSubscriptionsMessage, EventSubscriptionsMessage, [SubscriptionNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
@@ -435,15 +408,12 @@ export class StorageTypeNotSupportedFault extends S.TaggedError<StorageTypeNotSu
 /**
  * Forces a failover for a cluster.
  * 
- * 
  * A failover for a cluster promotes one of the Amazon DocumentDB replicas (read-only instances) in the cluster to be the primary instance (the cluster writer).
- * 
  * 
  * If the primary instance fails, Amazon DocumentDB automatically fails over to an Amazon DocumentDB replica, if one exists. You can force a failover when you want to simulate a failure of a primary instance for testing.
  */export const failoverDBCluster = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.FailoverDBCluster" }, FailoverDBClusterMessage, FailoverDBClusterResult, [DBClusterNotFoundFault, InvalidDBClusterStateFault, InvalidDBInstanceStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Promotes the specified secondary DB cluster to be the primary DB cluster in the global cluster when failing over a global cluster occurs.
- * 
  * 
  * Use this operation to respond to an unplanned event, such as a regional disaster in the primary region.
  * Failing over can result in a loss of write transaction data that wasn't replicated to the chosen secondary before the failover event occurred.
@@ -457,7 +427,6 @@ export class StorageTypeNotSupportedFault extends S.TaggedError<StorageTypeNotSu
  * example, if you make certain changes, or if you change the cluster parameter group
  * that is associated with the instance, you must reboot the instance for the changes to
  * take effect.
- * 
  * 
  * Rebooting an instance restarts the database engine service. Rebooting an instance
  * results in a momentary outage, during which the instance status is set to
@@ -477,13 +446,11 @@ export class StorageTypeNotSupportedFault extends S.TaggedError<StorageTypeNotSu
 /**
  * Copies a snapshot of a cluster.
  * 
- * 
  * To copy a cluster snapshot from a shared manual cluster snapshot,
  * `SourceDBClusterSnapshotIdentifier` must be the Amazon
  * Resource Name (ARN) of the shared cluster snapshot. You can only
  * copy a shared DB cluster snapshot, whether encrypted or not, in the
  * same Amazon Web Services Region.
- * 
  * 
  * To cancel the copy operation after it is in progress, delete the
  * target cluster snapshot identified by
@@ -499,9 +466,6 @@ export class StorageTypeNotSupportedFault extends S.TaggedError<StorageTypeNotSu
 /**
  * Deletes a subnet group.
  * 
- * 
- * 
- * 
  * The specified database subnet group must not be associated with any DB
  * instances.
  */export const deleteDBSubnetGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.DeleteDBSubnetGroup" }, DeleteDBSubnetGroupMessage, S.Struct({}), [DBSubnetGroupNotFoundFault, InvalidDBSubnetGroupStateFault, InvalidDBSubnetStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
@@ -511,7 +475,6 @@ export class StorageTypeNotSupportedFault extends S.TaggedError<StorageTypeNotSu
 /**
  * Returns a list of cluster snapshot attribute names and values for a manual DB
  * cluster snapshot.
- * 
  * 
  * When you share snapshots with other Amazon Web Services accounts,
  * `DescribeDBClusterSnapshotAttributes` returns the `restore` attribute and a list of IDs for the Amazon Web Services accounts that are authorized to copy or restore the manual cluster snapshot. If `all` is included in the list of values for the `restore` attribute, then the manual cluster snapshot is public and can be copied or restored by all Amazon Web Services accounts.
@@ -525,15 +488,12 @@ export class StorageTypeNotSupportedFault extends S.TaggedError<StorageTypeNotSu
 /**
  * Adds an attribute and values to, or removes an attribute and values from, a manual cluster snapshot.
  * 
- * 
  * To share a manual cluster snapshot with other Amazon Web Services accounts, specify `restore` as the `AttributeName`, and use the `ValuesToAdd` parameter to add a list of IDs of the Amazon Web Services accounts that are authorized to restore the manual cluster snapshot. Use the value `all` to make the manual cluster snapshot public, which means that it can be copied or restored by all Amazon Web Services accounts. Do not add the `all` value for any manual cluster snapshots that contain private information that you don't want available to all Amazon Web Services accounts. If a manual cluster snapshot is encrypted, it can be shared, but only by specifying a list of authorized Amazon Web Services account IDs for the `ValuesToAdd` parameter. You can't use `all` as a value for that parameter in this case.
  */export const modifyDBClusterSnapshotAttribute = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.ModifyDBClusterSnapshotAttribute" }, ModifyDBClusterSnapshotAttributeMessage, ModifyDBClusterSnapshotAttributeResult, [DBClusterSnapshotNotFoundFault, InvalidDBClusterSnapshotStateFault, SharedSnapshotQuotaExceededFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Creates an Amazon DocumentDB event notification subscription. This action requires a topic Amazon Resource Name (ARN) created by using the Amazon DocumentDB console, the Amazon SNS console, or the Amazon SNS API. To obtain an ARN with Amazon SNS, you must create a topic in Amazon SNS and subscribe to the topic. The ARN is displayed in the Amazon SNS console.
  * 
- * 
  * You can specify the type of source (`SourceType`) that you want to be notified of. You can also provide a list of Amazon DocumentDB sources (`SourceIds`) that trigger the events, and you can provide a list of event categories (`EventCategories`) for events that you want to be notified of. For example, you can specify `SourceType = db-instance`, `SourceIds = mydbinstance1, mydbinstance2` and `EventCategories = Availability, Backup`.
- * 
  * 
  * If you specify both the `SourceType` and `SourceIds` (such as `SourceType = db-instance` and `SourceIdentifier = myDBInstance1`), you are notified of all the `db-instance` events for the specified source. If you specify a `SourceType` but do not specify a `SourceIdentifier`, you receive notice of the events for that source type for all your Amazon DocumentDB sources. If you do not specify either the `SourceType` or the `SourceIdentifier`, you are notified of events generated from all Amazon DocumentDB sources belonging to your customer account.
  */export const createEventSubscription = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.CreateEventSubscription" }, CreateEventSubscriptionMessage, CreateEventSubscriptionResult, [EventSubscriptionQuotaExceededFault, SNSInvalidTopicFault, SNSNoAuthorizationFault, SNSTopicArnNotFoundFault, SourceNotFoundFault, SubscriptionAlreadyExistFault, SubscriptionCategoryNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
@@ -546,9 +506,7 @@ export class StorageTypeNotSupportedFault extends S.TaggedError<StorageTypeNotSu
 /**
  * Creates a new cluster from a snapshot or cluster snapshot.
  * 
- * 
  * If a snapshot is specified, the target cluster is created from the source DB snapshot with a default configuration and default security group.
- * 
  * 
  * If a cluster snapshot is specified, the target cluster is created from the source cluster restore point with the same configuration as the original source DB cluster, except that the new cluster is created with the default security group.
  */export const restoreDBClusterFromSnapshot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.RestoreDBClusterFromSnapshot" }, RestoreDBClusterFromSnapshotMessage, RestoreDBClusterFromSnapshotResult, [DBClusterAlreadyExistsFault, DBClusterQuotaExceededFault, DBClusterSnapshotNotFoundFault, DBSnapshotNotFoundFault, DBSubnetGroupNotFoundFault, InsufficientDBClusterCapacityFault, InsufficientStorageClusterCapacityFault, InvalidDBClusterSnapshotStateFault, InvalidDBSnapshotStateFault, InvalidRestoreFault, InvalidSubnet, InvalidVPCNetworkStateFault, KMSKeyNotAccessibleFault, NetworkTypeNotSupported, StorageQuotaExceededFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
@@ -570,14 +528,8 @@ export class StorageTypeNotSupportedFault extends S.TaggedError<StorageTypeNotSu
  * Creates an Amazon DocumentDB global cluster that can span multiple multiple Amazon Web Services Regions.
  * The global cluster contains one primary cluster with read-write capability, and up-to 10 read-only secondary clusters. Global clusters uses storage-based fast replication across regions with latencies less than one second, using dedicated infrastructure with no impact to your workload’s performance.
  * 
- * 
- * 
- * 
  * You can create a global cluster that is initially empty, and then add a primary and a secondary to it.
  * Or you can specify an existing cluster during the create operation, and this cluster becomes the primary of the global cluster.
- * 
- * 
- * 
  * 
  * This action only applies to Amazon DocumentDB clusters.
  */export const createGlobalCluster = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.CreateGlobalCluster" }, CreateGlobalClusterMessage, CreateGlobalClusterResult, [DBClusterNotFoundFault, GlobalClusterAlreadyExistsFault, GlobalClusterQuotaExceededFault, InvalidDBClusterStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);

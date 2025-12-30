@@ -407,7 +407,6 @@ export class SlotNotAvailableException extends S.TaggedError<SlotNotAvailableExc
 /**
  * Gets the ARN of the current default application.
  * 
- * 
  * If the default application isn't set, the operation returns a resource not found
  * error.
  */export const getDefaultApplicationSetting = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-01-01", uri: "/2021-01-01/opensearch/defaultApplicationSetting", method: "GET", sdkId: "OpenSearch", sigV4ServiceName: "es", name: "AmazonOpenSearchService.GetDefaultApplicationSetting" }, GetDefaultApplicationSettingRequest, GetDefaultApplicationSettingResponse, [AccessDeniedException, InternalException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -457,7 +456,6 @@ export class SlotNotAvailableException extends S.TaggedError<SlotNotAvailableExc
  */export const listVpcEndpointsForDomain = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-01-01", uri: "/2021-01-01/opensearch/domain/{DomainName}/vpcEndpoints", method: "GET", sdkId: "OpenSearch", sigV4ServiceName: "es", name: "AmazonOpenSearchService.ListVpcEndpointsForDomain" }, ListVpcEndpointsForDomainRequest, ListVpcEndpointsForDomainResponse, [BaseException, DisabledOperationException, InternalException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Sets the default application to the application with the specified ARN.
- * 
  * 
  * To remove the default application, use the `GetDefaultApplicationSetting`
  * operation to get the current default and then call the
@@ -516,7 +514,6 @@ export class SlotNotAvailableException extends S.TaggedError<SlotNotAvailableExc
 /**
  * Attaches tags to an existing Amazon OpenSearch Service domain, data source, or
  * application.
- * 
  * 
  * Tags are a set of case-sensitive key-value pairs. A domain, data source, or
  * application can have up to 10 tags. For more information, see Tagging Amazon OpenSearch Service resources.

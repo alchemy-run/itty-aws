@@ -176,7 +176,6 @@ export class TagsAlreadyExistException extends S.TaggedError<TagsAlreadyExistExc
  * application. Tags can help you categorize and manage application in different ways, such as
  * by purpose, owner, environment, or other criteria.
  * 
- * 
  * Each tag consists of a required *tag key* and an associated
  * *tag value*, both of which you define. A tag key is a general label
  * that acts as a category for more specific tag values. A tag value acts as a descriptor
@@ -214,16 +213,10 @@ export class TagsAlreadyExistException extends S.TaggedError<TagsAlreadyExistExc
  * Lists the INFO, WARN, and ERROR events for periodic configuration updates performed by
  * Application Insights. Examples of events represented are:
  * 
- * 
- * 
  * - INFO: creating a new alarm or updating an alarm threshold.
- * 
- * 
  * 
  * - WARN: alarm not created due to insufficient data points used to predict
  * thresholds.
- * 
- * 
  * 
  * - ERROR: alarm not created due to permission errors or exceeding quotas.
  */export const listConfigurationHistory = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-25", sdkId: "Application Insights", sigV4ServiceName: "applicationinsights", name: "EC2WindowsBarleyService.ListConfigurationHistory" }, ListConfigurationHistoryRequest, ListConfigurationHistoryResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

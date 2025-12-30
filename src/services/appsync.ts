@@ -320,9 +320,6 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
 /**
  * Lists the API keys for a given API.
  * 
- * 
- * 
- * 
  * API keys are deleted automatically 60 days after they expire. However, they may still
  * be included in the response until they have actually been deleted. You can safely call
  * `DeleteApiKey` to manually delete a key before it's automatically
@@ -331,15 +328,11 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
 /**
  * Lists the APIs in your AppSync account.
  * 
- * 
- * 
  * `ListApis` returns only the high level API details. For more detailed
  * information about an API, use `GetApi`.
  */export const listApis = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/v2/apis", method: "GET", sdkId: "AppSync", sigV4ServiceName: "appsync", name: "AWSDeepdishControlPlaneService.ListApis" }, ListApisRequest, ListApisResponse, [BadRequestException, InternalFailureException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the channel namespaces for a specified `Api`.
- * 
- * 
  * 
  * `ListChannelNamespaces` returns only high level details for the channel
  * namespace. To retrieve code handlers, use `GetChannelNamespace`.
@@ -373,7 +366,6 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  */export const listTypesByAssociation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/v1/mergedApis/{mergedApiIdentifier}/sourceApiAssociations/{associationId}/types", method: "GET", sdkId: "AppSync", sigV4ServiceName: "appsync", name: "AWSDeepdishControlPlaneService.ListTypesByAssociation" }, ListTypesByAssociationRequest, ListTypesByAssociationResponse, [BadRequestException, ConcurrentModificationException, InternalFailureException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Adds a new schema to your GraphQL API.
- * 
  * 
  * This operation is asynchronous. Use to
  * determine when it has completed.
@@ -435,7 +427,6 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
 /**
  * Creates a `Resolver` object.
  * 
- * 
  * A resolver converts incoming requests into a format that a data source can understand,
  * and converts the data source's responses into GraphQL.
  */export const createResolver = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/v1/apis/{apiId}/types/{typeName}/resolvers", sdkId: "AppSync", sigV4ServiceName: "appsync", name: "AWSDeepdishControlPlaneService.CreateResolver" }, CreateResolverRequest, CreateResolverResponse, [BadRequestException, ConcurrentModificationException, InternalFailureException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -454,12 +445,10 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * Evaluates a given template and returns the response. The mapping template can be a
  * request or response template.
  * 
- * 
  * Request templates take the incoming request after a GraphQL operation is parsed and
  * convert it into a request configuration for the selected data source operation. Response
  * templates interpret responses from the data source and map it to the shape of the GraphQL
  * field output type.
- * 
  * 
  * Mapping templates are written in the Apache Velocity Template Language (VTL).
  */export const evaluateMappingTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/v1/dataplane-evaluatetemplate", sdkId: "AppSync", sigV4ServiceName: "appsync", name: "AWSDeepdishControlPlaneService.EvaluateMappingTemplate" }, EvaluateMappingTemplateRequest, EvaluateMappingTemplateResponse, [AccessDeniedException, BadRequestException, InternalFailureException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -487,62 +476,33 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
 /**
  * Creates a list of environmental variables in an API by its ID value.
  * 
- * 
  * When creating an environmental variable, it must follow the constraints below:
- * 
- * 
  * 
  * - Both JavaScript and VTL templates support environmental variables.
  * 
- * 
- * 
  * - Environmental variables are not evaluated before function invocation.
  * 
- * 
- * 
  * - Environmental variables only support string values.
- * 
- * 
  * 
  * - Any defined value in an environmental variable is considered a string literal
  * and not expanded.
  * 
- * 
- * 
  * - Variable evaluations should ideally be performed in the function
  * code.
- * 
- * 
- * 
- * 
  * 
  * When creating an environmental variable key-value pair, it must follow the additional
  * constraints below:
  * 
- * 
- * 
  * - Keys must begin with a letter.
  * 
- * 
- * 
  * - Keys must be at least two characters long.
- * 
- * 
  * 
  * - Keys can only contain letters, numbers, and the underscore character
  * (_).
  * 
- * 
- * 
  * - Values can be up to 512 characters long.
  * 
- * 
- * 
  * - You can configure up to 50 key-value pairs in a GraphQL API.
- * 
- * 
- * 
- * 
  * 
  * You can create a list of environmental variables by adding it to the
  * `environmentVariables` payload as a list in the format
@@ -564,7 +524,6 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  */export const createApiKey = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/v1/apis/{apiId}/apikeys", sdkId: "AppSync", sigV4ServiceName: "appsync", name: "AWSDeepdishControlPlaneService.CreateApiKey" }, CreateApiKeyRequest, CreateApiKeyResponse, [ApiKeyLimitExceededException, ApiKeyValidityOutOfBoundsException, BadRequestException, InternalFailureException, LimitExceededException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a `Function` object.
- * 
  * 
  * A function is a reusable entity. You can use multiple functions to compose the resolver
  * logic.

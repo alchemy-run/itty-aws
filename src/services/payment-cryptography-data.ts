@@ -203,9 +203,7 @@ export class VerificationFailedException extends S.TaggedError<VerificationFaile
  * 
  * For information about valid keys for this operation, see Understanding key attributes and Key types for specific data operations in the *Amazon Web Services Payment Cryptography User Guide*.
  * 
- * 
  * Amazon Web Services Payment Cryptography currently supports ISO PIN block 4 translation for PIN block built using legacy PAN length. That is, PAN is the right most 12 digits excluding the check digits.
- * 
  * 
  * **Cross-account use**: This operation can't be used across different Amazon Web Services accounts.
  * 
@@ -343,9 +341,7 @@ export class VerificationFailedException extends S.TaggedError<VerificationFaile
  * 
  * This operation supports Amex, EMV2000, EMVCommon, Mastercard and Visa derivation methods, each requiring specific input parameters. Users must follow the specific derivation method and input parameters defined by the respective payment card scheme.
  * 
- * 
  * Use GenerateMac operation when sending a script update to an EMV card that does not involve PIN change. When assigning IAM permissions, it is important to understand that EncryptData using EMV keys and GenerateMac perform similar functions to this command.
- * 
  * 
  * **Cross-account use**: This operation can't be used across different Amazon Web Services accounts.
  * 

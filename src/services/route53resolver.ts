@@ -210,27 +210,17 @@ export class ResourceInUseException extends S.TaggedError<ResourceInUseException
 /**
  * Disassociates a VPC from a query logging configuration.
  * 
- * 
- * 
- * 
  * Before you can delete a query logging configuration, you must first disassociate all VPCs
  * from the configuration. If you used Resource Access Manager (RAM) to share a
  * query logging configuration with other accounts, VPCs can be disassociated from the
  * configuration in the following ways:
  * 
- * 
- * 
  * - The accounts that you shared the configuration with can disassociate VPCs from the configuration.
- * 
- * 
  * 
  * - You can stop sharing the configuration.
  */export const disassociateResolverQueryLogConfig = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", sdkId: "Route53Resolver", sigV4ServiceName: "route53resolver", name: "Route53Resolver.DisassociateResolverQueryLogConfig" }, DisassociateResolverQueryLogConfigRequest, DisassociateResolverQueryLogConfigResponse, [AccessDeniedException, InternalServiceErrorException, InvalidParameterException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes the association between a specified Resolver rule and a specified VPC.
- * 
- * 
- * 
  * 
  * If you disassociate a Resolver rule from a VPC, Resolver stops forwarding DNS queries for the
  * domain name that you specified in the Resolver rule.
@@ -275,24 +265,20 @@ export class ResourceInUseException extends S.TaggedError<ResourceInUseException
 /**
  * Retrieves the firewall configurations that you have defined. DNS Firewall uses the configurations to manage firewall behavior for your VPCs.
  * 
- * 
  * A single call might return only a partial list of the configurations. For information, see `MaxResults`.
  */export const listFirewallConfigs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", sdkId: "Route53Resolver", sigV4ServiceName: "route53resolver", name: "Route53Resolver.ListFirewallConfigs" }, ListFirewallConfigsRequest, ListFirewallConfigsResponse, [AccessDeniedException, InternalServiceErrorException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the domains that you have defined for the specified firewall domain list.
- * 
  * 
  * A single call might return only a partial list of the domains. For information, see `MaxResults`.
  */export const listFirewallDomains = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", sdkId: "Route53Resolver", sigV4ServiceName: "route53resolver", name: "Route53Resolver.ListFirewallDomains" }, ListFirewallDomainsRequest, ListFirewallDomainsResponse, [AccessDeniedException, InternalServiceErrorException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the firewall rule group associations that you have defined. Each association enables DNS filtering for a VPC with one rule group.
  * 
- * 
  * A single call might return only a partial list of the associations. For information, see `MaxResults`.
  */export const listFirewallRuleGroupAssociations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", sdkId: "Route53Resolver", sigV4ServiceName: "route53resolver", name: "Route53Resolver.ListFirewallRuleGroupAssociations" }, ListFirewallRuleGroupAssociationsRequest, ListFirewallRuleGroupAssociationsResponse, [AccessDeniedException, InternalServiceErrorException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the firewall rules that you have defined for the specified firewall rule group. DNS Firewall uses the rules in a rule group to filter DNS network traffic for a VPC.
- * 
  * 
  * A single call might return only a partial list of the rules. For information, see `MaxResults`.
  */export const listFirewallRules = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", sdkId: "Route53Resolver", sigV4ServiceName: "route53resolver", name: "Route53Resolver.ListFirewallRules" }, ListFirewallRulesRequest, ListFirewallRulesResponse, [AccessDeniedException, InternalServiceErrorException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -353,7 +339,6 @@ export class ResourceInUseException extends S.TaggedError<ResourceInUseException
  * Adds IP addresses to an inbound or an outbound Resolver endpoint. If you want to add more than one IP address,
  * submit one `AssociateResolverEndpointIpAddress` request for each IP address.
  * 
- * 
  * To remove an IP address from an endpoint, see
  * DisassociateResolverEndpointIpAddress.
  */export const associateResolverEndpointIpAddress = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", sdkId: "Route53Resolver", sigV4ServiceName: "route53resolver", name: "Route53Resolver.AssociateResolverEndpointIpAddress" }, AssociateResolverEndpointIpAddressRequest, AssociateResolverEndpointIpAddressResponse, [InternalServiceErrorException, InvalidParameterException, InvalidRequestException, LimitExceededException, ResourceExistsException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -362,13 +347,7 @@ export class ResourceInUseException extends S.TaggedError<ResourceInUseException
  * that are associated with a specified query logging configuration. To associate more than one VPC with a configuration, submit one `AssociateResolverQueryLogConfig`
  * request for each VPC.
  * 
- * 
- * 
- * 
  * The VPCs that you associate with a query logging configuration must be in the same Region as the configuration.
- * 
- * 
- * 
  * 
  * To remove a VPC from a query logging configuration, see
  * DisassociateResolverQueryLogConfig.
@@ -395,12 +374,8 @@ export class ResourceInUseException extends S.TaggedError<ResourceInUseException
 /**
  * Creates a Resolver endpoint. There are two types of Resolver endpoints, inbound and outbound:
  * 
- * 
- * 
  * - An *inbound Resolver endpoint* forwards DNS queries to the DNS service for a VPC
  * from your network.
- * 
- * 
  * 
  * - An *outbound Resolver endpoint* forwards DNS queries from the DNS service for a VPC
  * to your network.
@@ -409,10 +384,8 @@ export class ResourceInUseException extends S.TaggedError<ResourceInUseException
  * Creates a Resolver query logging configuration, which defines where you want Resolver to save DNS query logs that originate in your VPCs.
  * Resolver can log queries only for VPCs that are in the same Region as the query logging configuration.
  * 
- * 
  * To specify which VPCs you want to log queries for, you use `AssociateResolverQueryLogConfig`. For more information, see
  * AssociateResolverQueryLogConfig.
- * 
  * 
  * You can optionally use Resource Access Manager (RAM) to share a query logging configuration with other Amazon Web Services accounts. The other accounts
  * can then associate VPCs with the configuration. The query logs that Resolver creates for a configuration include all DNS queries that originate in all
@@ -438,12 +411,8 @@ export class ResourceInUseException extends S.TaggedError<ResourceInUseException
  * Deletes a Resolver endpoint. The effect of deleting a Resolver endpoint depends on whether it's an inbound or an outbound
  * Resolver endpoint:
  * 
- * 
- * 
  * - **Inbound**: DNS queries from your network are no longer routed
  * to the DNS service for the specified VPC.
- * 
- * 
  * 
  * - **Outbound**: DNS queries from a VPC are no longer routed to your network.
  */export const deleteResolverEndpoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", sdkId: "Route53Resolver", sigV4ServiceName: "route53resolver", name: "Route53Resolver.DeleteResolverEndpoint" }, DeleteResolverEndpointRequest, DeleteResolverEndpointResponse, [InternalServiceErrorException, InvalidParameterException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -452,10 +421,8 @@ export class ResourceInUseException extends S.TaggedError<ResourceInUseException
  * associated with the configuration. This also applies if the query logging configuration is shared with other Amazon Web Services accounts, and
  * the other accounts have associated VPCs with the shared configuration.
  * 
- * 
  * Before you can delete a query logging configuration, you must first disassociate all VPCs from the configuration. See
  * DisassociateResolverQueryLogConfig.
- * 
  * 
  * If you used Resource Access Manager (RAM) to share a query logging configuration with other accounts, you must stop sharing
  * the configuration before you can delete a configuration. The accounts that you shared the configuration with can first disassociate VPCs
@@ -468,7 +435,6 @@ export class ResourceInUseException extends S.TaggedError<ResourceInUseException
 /**
  * Removes IP addresses from an inbound or an outbound Resolver endpoint. If you want to remove more than one IP address,
  * submit one `DisassociateResolverEndpointIpAddress` request for each IP address.
- * 
  * 
  * To add an IP address to an endpoint, see
  * AssociateResolverEndpointIpAddress.
@@ -495,33 +461,24 @@ export class ResourceInUseException extends S.TaggedError<ResourceInUseException
 /**
  * Imports domain names from a file into a domain list, for use in a DNS firewall rule group.
  * 
- * 
  * Each domain specification in your domain list must satisfy the following
  * requirements:
  * 
- * 
- * 
  * - It can optionally start with `*` (asterisk).
- * 
- * 
  * 
  * - With the exception of the optional starting asterisk, it must only contain
  * the following characters: `A-Z`, `a-z`,
  * `0-9`, `-` (hyphen).
- * 
- * 
  * 
  * - It must be from 1-255 characters in length.
  */export const importFirewallDomains = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", sdkId: "Route53Resolver", sigV4ServiceName: "route53resolver", name: "Route53Resolver.ImportFirewallDomains" }, ImportFirewallDomainsRequest, ImportFirewallDomainsResponse, [AccessDeniedException, ConflictException, InternalServiceErrorException, LimitExceededException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the firewall domain lists that you have defined. For each firewall domain list, you can retrieve the domains that are defined for a list by calling ListFirewallDomains.
  * 
- * 
  * A single call to this list operation might return only a partial list of the domain lists. For information, see `MaxResults`.
  */export const listFirewallDomainLists = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", sdkId: "Route53Resolver", sigV4ServiceName: "route53resolver", name: "Route53Resolver.ListFirewallDomainLists" }, ListFirewallDomainListsRequest, ListFirewallDomainListsResponse, [AccessDeniedException, InternalServiceErrorException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the minimal high-level information for the rule groups that you have defined.
- * 
  * 
  * A single call might return only a partial list of the rule groups. For information, see `MaxResults`.
  */export const listFirewallRuleGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", sdkId: "Route53Resolver", sigV4ServiceName: "route53resolver", name: "Route53Resolver.ListFirewallRuleGroups" }, ListFirewallRuleGroupsRequest, ListFirewallRuleGroupsResponse, [AccessDeniedException, InternalServiceErrorException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

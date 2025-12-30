@@ -260,7 +260,6 @@ export class FailedDependencyException extends S.TaggedError<FailedDependencyExc
 /**
  * Creates a long-lived token.
  * 
- * 
  * A refresh token is a JWT token used to get an access token. With an access token,
  * you can call AssumeRoleWithWebIdentity to get role credentials that you can use to
  * call License Manager to manage the specified license.
@@ -280,12 +279,10 @@ export class FailedDependencyException extends S.TaggedError<FailedDependencyExc
 /**
  * Deletes the specified license configuration.
  * 
- * 
  * You cannot delete a license configuration that is in use.
  */export const deleteLicenseConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-01", sdkId: "License Manager", sigV4ServiceName: "license-manager", name: "AWSLicenseManager.DeleteLicenseConfiguration" }, DeleteLicenseConfigurationRequest, DeleteLicenseConfigurationResponse, [AccessDeniedException, AuthorizationException, InvalidParameterValueException, RateLimitExceededException, ServerInternalException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the specified report generator.
- * 
  * 
  * This action deletes the report generator, which stops it from generating future reports.
  * The action cannot be reversed. It has no effect on the previous reports from this generator.
@@ -343,19 +340,11 @@ export class FailedDependencyException extends S.TaggedError<FailedDependencyExc
  * Adds the specified tags to the specified resource. The following resources support
  * tagging in License Manager:
  * 
- * 
- * 
  * - Licenses
- * 
- * 
  * 
  * - Grants
  * 
- * 
- * 
  * - License configurations
- * 
- * 
  * 
  * - Report generators
  */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-01", sdkId: "License Manager", sigV4ServiceName: "license-manager", name: "AWSLicenseManager.TagResource" }, TagResourceRequest, TagResourceResponse, [AccessDeniedException, AuthorizationException, InvalidParameterValueException, RateLimitExceededException, ServerInternalException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -373,7 +362,6 @@ export class FailedDependencyException extends S.TaggedError<FailedDependencyExc
  */export const updateLicenseConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-01", sdkId: "License Manager", sigV4ServiceName: "license-manager", name: "AWSLicenseManager.UpdateLicenseConfiguration" }, UpdateLicenseConfigurationRequest, UpdateLicenseConfigurationResponse, [AccessDeniedException, AuthorizationException, ConflictException, InvalidParameterValueException, RateLimitExceededException, ResourceLimitExceededException, ServerInternalException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates a report generator.
- * 
  * 
  * After you make changes to a report generator, it starts generating new reports within 60 minutes of being updated.
  */export const updateLicenseManagerReportGenerator = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-01", sdkId: "License Manager", sigV4ServiceName: "license-manager", name: "AWSLicenseManager.UpdateLicenseManagerReportGenerator" }, UpdateLicenseManagerReportGeneratorRequest, UpdateLicenseManagerReportGeneratorResponse, [AccessDeniedException, AuthorizationException, InvalidParameterValueException, RateLimitExceededException, ResourceLimitExceededException, ResourceNotFoundException, ServerInternalException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -413,7 +401,6 @@ export class FailedDependencyException extends S.TaggedError<FailedDependencyExc
 /**
  * Lists the resource associations for the specified license configuration.
  * 
- * 
  * Resource associations need not consume licenses from a license configuration.
  * For example, an AMI or a stopped instance might not consume a license (depending on
  * the license rules).
@@ -447,9 +434,6 @@ export class FailedDependencyException extends S.TaggedError<FailedDependencyExc
 /**
  * Checks out the specified license.
  * 
- * 
- * 
- * 
  * If the account that created the license is the same that is performing the check out, you must
  * specify the account as the beneficiary.
  */export const checkoutLicense = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-01", sdkId: "License Manager", sigV4ServiceName: "license-manager", name: "AWSLicenseManager.CheckoutLicense" }, CheckoutLicenseRequest, CheckoutLicenseResponse, [AccessDeniedException, AuthorizationException, InvalidParameterValueException, NoEntitlementsAllowedException, RateLimitExceededException, RedirectException, ResourceNotFoundException, ServerInternalException, UnsupportedDigitalSignatureMethodException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -458,7 +442,6 @@ export class FailedDependencyException extends S.TaggedError<FailedDependencyExc
  */export const createLicense = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-01", sdkId: "License Manager", sigV4ServiceName: "license-manager", name: "AWSLicenseManager.CreateLicense" }, CreateLicenseRequest, CreateLicenseResponse, [AccessDeniedException, AuthorizationException, InvalidParameterValueException, RateLimitExceededException, RedirectException, ServerInternalException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a license configuration.
- * 
  * 
  * A license configuration is an abstraction of a customer license agreement that can be
  * consumed and enforced by License Manager. Components include specifications for the license
@@ -483,7 +466,6 @@ export class FailedDependencyException extends S.TaggedError<FailedDependencyExc
  */export const listReceivedLicenses = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-01", sdkId: "License Manager", sigV4ServiceName: "license-manager", name: "AWSLicenseManager.ListReceivedLicenses" }, ListReceivedLicensesRequest, ListReceivedLicensesResponse, [AccessDeniedException, AuthorizationException, InvalidParameterValueException, RateLimitExceededException, ResourceLimitExceededException, ServerInternalException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Adds or removes the specified license configurations for the specified Amazon Web Services resource.
- * 
  * 
  * You can update the license specifications of AMIs, instances, and hosts.
  * You cannot update the license specifications for launch templates and CloudFormation templates,
