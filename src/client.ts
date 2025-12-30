@@ -21,7 +21,7 @@ import {
   requestMetaSymbol,
   requestPathSymbol,
 } from "./schema-helpers";
-import { formatNode } from "./xml.ts";
+import { formatNode, parseNode } from "./xml.ts";
 
 const builder = new XMLBuilder();
 const parser = new XMLParser();
@@ -212,11 +212,29 @@ export const FormatXMLResponse = Schema.asSchema(
     encode: (actual, _, ast) =>
       ParseResult.fail(new ParseResult.Forbidden(ast, actual, "cannot encode XML")),
     decode: (value) =>
-      Effect.succeed({
-        headers: value.headers,
-        //todo(pear): wrap in a try-catch
-        body: parser.parse(value.body),
-      }),
+      {
+        const structSchema = value.meta.outputSchema;
+        const structAst = AST.isTransformation(structSchema.ast) ? structSchema.ast.from : undefined;
+        if (structAst) {
+          const props = AST.isTypeLiteral(structAst) ? structAst.propertySignatures : [];
+          for (const prop of props) {
+            // TODO(sam): detect if this property is meant to be parsed from the body
+            const isBodyProperty = prop.name === "TagSet";
+            if (isBodyProperty) {
+              const body = parseNode(prop.type, value.body);
+              return Effect.succeed({
+                headers: value.headers,
+                body,
+              })
+            }
+          }
+        }
+        return Effect.succeed({
+          headers: value.headers,
+          //todo(pear): wrap in a try-catch
+          body: parser.parse(value.body),
+        })
+      },
   }),
 );
 

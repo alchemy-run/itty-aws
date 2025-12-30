@@ -1,8 +1,15 @@
 import * as S from "effect/Schema";
 import type { AST, PropertySignature } from "effect/SchemaAST";
+import { XMLParser } from "fast-xml-parser";
 
 const Identifier = Symbol.for("effect/annotation/Identifier");
 const Surrogate = Symbol.for("effect/annotation/Surrogate");
+
+// Parser instance for parseXml
+const xmlParser = new XMLParser({
+  ignoreAttributes: true,
+  parseTagValue: false, // Keep values as strings, we'll convert based on schema
+});
 
 /**
  * Get the identifier (class name) from an AST node
@@ -137,6 +144,152 @@ const escapeXml = (str: string): string => {
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&apos;");
+};
+
+const unescapeXml = (str: string): string => {
+  return str
+    .replace(/&apos;/g, "'")
+    .replace(/&quot;/g, '"')
+    .replace(/&gt;/g, ">")
+    .replace(/&lt;/g, "<")
+    .replace(/&amp;/g, "&");
+};
+
+/**
+ * Check if an AST represents an array type
+ */
+const isArrayAST = (ast: AST): boolean => {
+  if (ast._tag === "TupleType" && ast.rest?.[0]) {
+    return true;
+  }
+  // For Transformation wrapping an array
+  if (ast._tag === "Transformation") {
+    return isArrayAST(ast.from);
+  }
+  return false;
+};
+
+/**
+ * Check if an AST represents a number type
+ */
+const isNumberAST = (ast: AST): boolean => {
+  if (ast._tag === "NumberKeyword") return true;
+  if (ast._tag === "Transformation") return isNumberAST(ast.from);
+  return false;
+};
+
+/**
+ * Check if an AST represents a boolean type
+ */
+const isBooleanAST = (ast: AST): boolean => {
+  if (ast._tag === "BooleanKeyword") return true;
+  if (ast._tag === "Transformation") return isBooleanAST(ast.from);
+  return false;
+};
+
+/**
+ * Parse an XML string according to a schema
+ */
+export const parseXml = (schema: S.Schema<any, any, any>, xml: string): any => {
+  const parsed = xmlParser.parse(xml);
+  const rootTag = getIdentifier(schema.ast);
+
+  // Get the content, unwrapping the root tag if present
+  let content = rootTag && parsed[rootTag] ? parsed[rootTag] : parsed;
+
+  // If no root tag matched and parsed has exactly one key, unwrap it
+  // This handles cases like <TagSet>...</TagSet> where TagSet is not in the schema
+  if (!rootTag || !parsed[rootTag]) {
+    const keys = Object.keys(parsed);
+    if (keys.length === 1) {
+      content = parsed[keys[0]];
+    }
+  }
+
+  return parseNode(schema.ast, content);
+};
+
+/**
+ * Parse a parsed XML node according to an AST
+ */
+export const parseNode = (ast: AST, value: any): any => {
+  // Handle null/undefined
+  if (value === null || value === undefined) {
+    return undefined;
+  }
+
+  // Handle arrays
+  if (isArrayAST(ast)) {
+    const elementAST = getArrayElementAST(ast);
+    if (!elementAST) {
+      return Array.isArray(value) ? value : value ? [value] : [];
+    }
+
+    const elementTag = getIdentifier(elementAST);
+
+    // If we have a wrapper object with the element tag as key
+    if (elementTag && typeof value === "object" && !Array.isArray(value) && value[elementTag] !== undefined) {
+      const items = value[elementTag];
+      const arr = Array.isArray(items) ? items : items ? [items] : [];
+      return arr.map((item: any) => parseNode(elementAST, item));
+    }
+
+    // If value is already an array or needs to be wrapped
+    if (Array.isArray(value)) {
+      return value.map((item: any) => parseNode(elementAST, item));
+    }
+
+    // Handle empty string (empty element)
+    if (value === "") {
+      return [];
+    }
+
+    // Single item that needs to be wrapped in array
+    return value ? [parseNode(elementAST, value)] : [];
+  }
+
+  // Handle primitives
+  if (typeof value === "string") {
+    const unescaped = unescapeXml(value);
+
+    if (isNumberAST(ast)) {
+      return Number(unescaped);
+    }
+    if (isBooleanAST(ast)) {
+      return unescaped === "true";
+    }
+    return unescaped;
+  }
+
+  if (typeof value === "number" || typeof value === "boolean") {
+    return value;
+  }
+
+  // Handle objects (classes/structs)
+  if (typeof value === "object" && !Array.isArray(value)) {
+    return parseObjectProperties(ast, value);
+  }
+
+  return value;
+};
+
+/**
+ * Parse object properties according to the schema
+ */
+const parseObjectProperties = (ast: AST, value: any): any => {
+  const props = getPropertySignatures(ast);
+  const result: any = {};
+
+  for (const prop of props) {
+    const key = typeof prop.name === "string" ? prop.name : prop.name.toString();
+    const propValue = value[key];
+
+    if (propValue !== undefined) {
+      result[key] = parseNode(prop.type, propValue);
+    }
+  }
+
+  return result;
 };
 
 const Description = Symbol.for("effect/annotation/Description");
