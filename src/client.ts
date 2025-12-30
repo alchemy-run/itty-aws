@@ -21,6 +21,7 @@ import {
   requestMetaSymbol,
   requestPathSymbol,
 } from "./schema-helpers";
+import { formatNode } from "./xml.ts";
 
 const builder = new XMLBuilder();
 const parser = new XMLParser();
@@ -182,14 +183,26 @@ export const FormatXMLRequest = Schema.asSchema(
     strict: true,
     encode: (actual, _, ast) =>
       ParseResult.fail(new ParseResult.Forbidden(ast, actual, "cannot encode XML")),
-    decode: (value) =>
-      Effect.succeed({
-        ...value,
-        unsignedBody: value.unsignedBody
-          ? //todo(pear): wrap in a try-catch
-            builder.build(value.unsignedBody)
-          : undefined,
-      }),
+    decode: (value, _, ast) =>
+      {
+        const structSchema = value.meta.inputSchema;
+        const structAst = structSchema.ast.from;
+        const props = AST.isTypeLiteral(structAst) ? structAst.propertySignatures : [];
+        let body = "";
+        for (const prop of props) {
+          const bodyAnnotation = AST.getAnnotation<string>(prop.type, requestBodySymbol).pipe(
+            Option.getOrUndefined
+          );
+          if (bodyAnnotation) {
+            body += formatNode(prop.type, value.unsignedBody?.[prop.name as keyof typeof value.unsignedBody])
+          }
+        }
+        return Effect.succeed({
+          ...value,
+          unsignedBody: body
+        });
+      },
+      
   }),
 );
 
@@ -652,6 +665,7 @@ export const makeOperation = <A extends ReturnType<typeof Operation>>(
 };
 
 const EFFECT_HTTP_MAP = {
+  GET: "get",
   PUT: "put",
   POST: "post",
   DELETE: "del",

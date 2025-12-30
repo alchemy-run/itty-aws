@@ -66,7 +66,7 @@ export const formatXml = (schema: S.Schema<any, any, any>, value: any): string =
   return formatNode(schema.ast, value, true);
 };
 
-const formatNode = (ast: AST, value: any, includeRootTag: boolean): string => {
+export const formatNode = (ast: AST, value: any, includeRootTag: boolean = true): string => {
   // Handle null/undefined
   if (value === null || value === undefined) {
     return "";
