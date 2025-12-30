@@ -1,4 +1,4 @@
-import { Schema} from "effect"
+import * as Schema from "effect/Schema"
 import { FormatJSONRequest,FormatJSONResponse,FormatAwsRestJSONError, makeOperation } from "../client.ts";
 import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
 
@@ -64,7 +64,7 @@ export class ResourceCount extends Schema.Class<ResourceCount>("ResourceCount")(
 export class GetManagedViewOutput extends Schema.Class<GetManagedViewOutput>("GetManagedViewOutput")({ManagedView: Schema.optional(ManagedView)}) {}
 export class GetServiceViewOutput extends Schema.Class<GetServiceViewOutput>("GetServiceViewOutput")({View: ServiceView}) {}
 export class ListIndexesForMembersOutput extends Schema.Class<ListIndexesForMembersOutput>("ListIndexesForMembersOutput")({Indexes: Schema.optional(MemberIndexList), NextToken: Schema.optional(Schema.String)}) {}
-export class ResourceProperty extends Schema.Class<ResourceProperty>("ResourceProperty")({Name: Schema.optional(Schema.String), LastReportedAt: Schema.optional(Schema.Date), Data: Schema.optional(Schema.JsonValue)}) {}
+export class ResourceProperty extends Schema.Class<ResourceProperty>("ResourceProperty")({Name: Schema.optional(Schema.String), LastReportedAt: Schema.optional(Schema.Date), Data: Schema.optional(Schema.Any)}) {}
 export const ResourcePropertyList = Schema.Array(ResourceProperty);
 export class Resource extends Schema.Class<Resource>("Resource")({Arn: Schema.optional(Schema.String), OwningAccountId: Schema.optional(Schema.String), Region: Schema.optional(Schema.String), ResourceType: Schema.optional(Schema.String), Service: Schema.optional(Schema.String), LastReportedAt: Schema.optional(Schema.Date), Properties: Schema.optional(ResourcePropertyList)}) {}
 export const ResourceList = Schema.Array(Resource);

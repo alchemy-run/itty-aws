@@ -589,6 +589,8 @@ const getNested = (obj: object, path: string) =>
   //@ts-expect-error
   path.split(".").reduce((acc, key) => acc?.[key], obj);
 
+type Instance<T> = T extends abstract new (...args: any) => infer U ? U : T;
+
 export const makeOperation = <A extends ReturnType<typeof Operation>>(
   operationSchemaGenerator: () => A,
   RequestMiddleware: Schema.Schema<
@@ -610,7 +612,7 @@ export const makeOperation = <A extends ReturnType<typeof Operation>>(
   payload: Schema.Schema.Type<A["schema"]["fields"]["input"]>,
 ) => Effect.Effect<
   Schema.Schema.Type<A["schema"]["fields"]["output"]>,
-  | A["errors"]
+  | Instance<A["errors"]>
   | ParseResult.ParseError
   | HttpClientError
   | UnknownAwsError

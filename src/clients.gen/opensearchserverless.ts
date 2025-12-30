@@ -1,4 +1,4 @@
-import { Schema} from "effect"
+import * as Schema from "effect/Schema"
 import { FormatAwsJSON10Request,FormatJSONResponse,FormatAwsRestJSONError, makeOperation } from "../client.ts";
 import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
 
@@ -42,13 +42,13 @@ export class ConflictException extends Schema.Class<ConflictException>("Conflict
 export class UpdateAccountSettingsRequest extends Schema.Class<UpdateAccountSettingsRequest>("UpdateAccountSettingsRequest")({capacityLimits: Schema.optional(CapacityLimits)}) {}
 export class CollectionErrorDetail extends Schema.Class<CollectionErrorDetail>("CollectionErrorDetail")({id: Schema.optional(Schema.String), name: Schema.optional(Schema.String), errorMessage: Schema.optional(Schema.String), errorCode: Schema.optional(Schema.String)}) {}
 export const CollectionErrorDetails = Schema.Array(CollectionErrorDetail);
-export class LifecyclePolicyDetail extends Schema.Class<LifecyclePolicyDetail>("LifecyclePolicyDetail")({type: Schema.optional(Schema.String), name: Schema.optional(Schema.String), policyVersion: Schema.optional(Schema.String), description: Schema.optional(Schema.String), policy: Schema.optional(Schema.JsonValue), createdDate: Schema.optional(Schema.Number), lastModifiedDate: Schema.optional(Schema.Number)}) {}
+export class LifecyclePolicyDetail extends Schema.Class<LifecyclePolicyDetail>("LifecyclePolicyDetail")({type: Schema.optional(Schema.String), name: Schema.optional(Schema.String), policyVersion: Schema.optional(Schema.String), description: Schema.optional(Schema.String), policy: Schema.optional(Schema.Any), createdDate: Schema.optional(Schema.Number), lastModifiedDate: Schema.optional(Schema.Number)}) {}
 export const LifecyclePolicyDetails = Schema.Array(LifecyclePolicyDetail);
 export class VpcEndpointDetail extends Schema.Class<VpcEndpointDetail>("VpcEndpointDetail")({id: Schema.optional(Schema.String), name: Schema.optional(Schema.String), vpcId: Schema.optional(Schema.String), subnetIds: Schema.optional(SubnetIds), securityGroupIds: Schema.optional(SecurityGroupIds), status: Schema.optional(Schema.String), createdDate: Schema.optional(Schema.Number), failureCode: Schema.optional(Schema.String), failureMessage: Schema.optional(Schema.String)}) {}
 export const VpcEndpointDetails = Schema.Array(VpcEndpointDetail);
 export class VpcEndpointErrorDetail extends Schema.Class<VpcEndpointErrorDetail>("VpcEndpointErrorDetail")({id: Schema.optional(Schema.String), errorMessage: Schema.optional(Schema.String), errorCode: Schema.optional(Schema.String)}) {}
 export const VpcEndpointErrorDetails = Schema.Array(VpcEndpointErrorDetail);
-export class SecurityPolicyDetail extends Schema.Class<SecurityPolicyDetail>("SecurityPolicyDetail")({type: Schema.optional(Schema.String), name: Schema.optional(Schema.String), policyVersion: Schema.optional(Schema.String), description: Schema.optional(Schema.String), policy: Schema.optional(Schema.JsonValue), createdDate: Schema.optional(Schema.Number), lastModifiedDate: Schema.optional(Schema.Number)}) {}
+export class SecurityPolicyDetail extends Schema.Class<SecurityPolicyDetail>("SecurityPolicyDetail")({type: Schema.optional(Schema.String), name: Schema.optional(Schema.String), policyVersion: Schema.optional(Schema.String), description: Schema.optional(Schema.String), policy: Schema.optional(Schema.Any), createdDate: Schema.optional(Schema.Number), lastModifiedDate: Schema.optional(Schema.Number)}) {}
 export class UpdateVpcEndpointDetail extends Schema.Class<UpdateVpcEndpointDetail>("UpdateVpcEndpointDetail")({id: Schema.optional(Schema.String), name: Schema.optional(Schema.String), status: Schema.optional(Schema.String), subnetIds: Schema.optional(SubnetIds), securityGroupIds: Schema.optional(SecurityGroupIds), lastModifiedDate: Schema.optional(Schema.Number)}) {}
 export class BatchGetVpcEndpointResponse extends Schema.Class<BatchGetVpcEndpointResponse>("BatchGetVpcEndpointResponse")({vpcEndpointDetails: Schema.optional(VpcEndpointDetails), vpcEndpointErrorDetails: Schema.optional(VpcEndpointErrorDetails)}) {}
 export class CreateLifecyclePolicyResponse extends Schema.Class<CreateLifecyclePolicyResponse>("CreateLifecyclePolicyResponse")({lifecyclePolicyDetail: Schema.optional(LifecyclePolicyDetail)}) {}

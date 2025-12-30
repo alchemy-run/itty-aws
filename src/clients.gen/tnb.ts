@@ -1,4 +1,4 @@
-import { Schema} from "effect"
+import * as Schema from "effect/Schema"
 import { FormatJSONRequest,FormatJSONResponse,FormatAwsRestJSONError, makeOperation } from "../client.ts";
 import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
 
@@ -20,7 +20,7 @@ export class GetSolNetworkOperationInput extends Schema.Class<GetSolNetworkOpera
 export class GetSolNetworkPackageInput extends Schema.Class<GetSolNetworkPackageInput>("GetSolNetworkPackageInput")({nsdInfoId: Schema.String}) {}
 export class GetSolNetworkPackageContentInput extends Schema.Class<GetSolNetworkPackageContentInput>("GetSolNetworkPackageContentInput")({nsdInfoId: Schema.String, accept: Header("Accept")}) {}
 export class GetSolNetworkPackageDescriptorInput extends Schema.Class<GetSolNetworkPackageDescriptorInput>("GetSolNetworkPackageDescriptorInput")({nsdInfoId: Schema.String}) {}
-export class InstantiateSolNetworkInstanceInput extends Schema.Class<InstantiateSolNetworkInstanceInput>("InstantiateSolNetworkInstanceInput")({nsInstanceId: Schema.String, dryRun: Schema.optional(Schema.Boolean), additionalParamsForNs: Schema.optional(Schema.JsonValue), tags: Schema.optional(TagMap)}) {}
+export class InstantiateSolNetworkInstanceInput extends Schema.Class<InstantiateSolNetworkInstanceInput>("InstantiateSolNetworkInstanceInput")({nsInstanceId: Schema.String, dryRun: Schema.optional(Schema.Boolean), additionalParamsForNs: Schema.optional(Schema.Any), tags: Schema.optional(TagMap)}) {}
 export class ListSolFunctionInstancesInput extends Schema.Class<ListSolFunctionInstancesInput>("ListSolFunctionInstancesInput")({maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
 export class ListSolFunctionPackagesInput extends Schema.Class<ListSolFunctionPackagesInput>("ListSolFunctionPackagesInput")({maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
 export class ListSolNetworkInstancesInput extends Schema.Class<ListSolNetworkInstancesInput>("ListSolNetworkInstancesInput")({maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
@@ -39,8 +39,8 @@ export class UpdateSolNetworkPackageInput extends Schema.Class<UpdateSolNetworkP
 export class ValidateSolFunctionPackageContentInput extends Schema.Class<ValidateSolFunctionPackageContentInput>("ValidateSolFunctionPackageContentInput")({vnfPkgId: Schema.String, contentType: Schema.optional(Header("Content-Type")), file: Body("undefined", StreamBody())}) {}
 export class ValidateSolNetworkPackageContentInput extends Schema.Class<ValidateSolNetworkPackageContentInput>("ValidateSolNetworkPackageContentInput")({nsdInfoId: Schema.String, contentType: Schema.optional(Header("Content-Type")), file: Body("undefined", StreamBody())}) {}
 export const VnfPkgIdList = Schema.Array(Schema.String);
-export class UpdateSolNetworkModify extends Schema.Class<UpdateSolNetworkModify>("UpdateSolNetworkModify")({vnfInstanceId: Schema.String, vnfConfigurableProperties: Schema.JsonValue}) {}
-export class UpdateSolNetworkServiceData extends Schema.Class<UpdateSolNetworkServiceData>("UpdateSolNetworkServiceData")({nsdInfoId: Schema.String, additionalParamsForNs: Schema.optional(Schema.JsonValue)}) {}
+export class UpdateSolNetworkModify extends Schema.Class<UpdateSolNetworkModify>("UpdateSolNetworkModify")({vnfInstanceId: Schema.String, vnfConfigurableProperties: Schema.Any}) {}
+export class UpdateSolNetworkServiceData extends Schema.Class<UpdateSolNetworkServiceData>("UpdateSolNetworkServiceData")({nsdInfoId: Schema.String, additionalParamsForNs: Schema.optional(Schema.Any)}) {}
 export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({message: Schema.String}) {}
 export class CreateSolFunctionPackageInput extends Schema.Class<CreateSolFunctionPackageInput>("CreateSolFunctionPackageInput")({tags: Schema.optional(TagMap)}) {}
 export class CreateSolNetworkInstanceOutput extends Schema.Class<CreateSolNetworkInstanceOutput>("CreateSolNetworkInstanceOutput")({id: Schema.String, arn: Schema.String, nsdInfoId: Schema.String, nsInstanceName: Schema.String, tags: Schema.optional(TagMap)}) {}
@@ -79,9 +79,9 @@ export class PutSolNetworkPackageContentOutput extends Schema.Class<PutSolNetwor
 export class UpdateSolNetworkInstanceOutput extends Schema.Class<UpdateSolNetworkInstanceOutput>("UpdateSolNetworkInstanceOutput")({nsLcmOpOccId: Schema.optional(Schema.String), tags: Schema.optional(TagMap)}) {}
 export class ValidateSolFunctionPackageContentOutput extends Schema.Class<ValidateSolFunctionPackageContentOutput>("ValidateSolFunctionPackageContentOutput")({id: Schema.String, vnfdId: Schema.String, vnfProductName: Schema.String, vnfProvider: Schema.String, vnfdVersion: Schema.String, metadata: ValidateSolFunctionPackageContentMetadata}) {}
 export class ValidateSolNetworkPackageContentOutput extends Schema.Class<ValidateSolNetworkPackageContentOutput>("ValidateSolNetworkPackageContentOutput")({id: Schema.String, arn: Schema.String, nsdId: Schema.String, nsdName: Schema.String, nsdVersion: Schema.String, vnfPkgIds: VnfPkgIdList, metadata: ValidateSolNetworkPackageContentMetadata}) {}
-export class UpdateNsMetadata extends Schema.Class<UpdateNsMetadata>("UpdateNsMetadata")({nsdInfoId: Schema.String, additionalParamsForNs: Schema.optional(Schema.JsonValue)}) {}
-export class ModifyVnfInfoMetadata extends Schema.Class<ModifyVnfInfoMetadata>("ModifyVnfInfoMetadata")({vnfInstanceId: Schema.String, vnfConfigurableProperties: Schema.JsonValue}) {}
-export class InstantiateMetadata extends Schema.Class<InstantiateMetadata>("InstantiateMetadata")({nsdInfoId: Schema.String, additionalParamsForNs: Schema.optional(Schema.JsonValue)}) {}
+export class UpdateNsMetadata extends Schema.Class<UpdateNsMetadata>("UpdateNsMetadata")({nsdInfoId: Schema.String, additionalParamsForNs: Schema.optional(Schema.Any)}) {}
+export class ModifyVnfInfoMetadata extends Schema.Class<ModifyVnfInfoMetadata>("ModifyVnfInfoMetadata")({vnfInstanceId: Schema.String, vnfConfigurableProperties: Schema.Any}) {}
+export class InstantiateMetadata extends Schema.Class<InstantiateMetadata>("InstantiateMetadata")({nsdInfoId: Schema.String, additionalParamsForNs: Schema.optional(Schema.Any)}) {}
 export const StringMap = Schema.Record({key: Schema.String, value: Schema.String});
 export class ErrorInfo extends Schema.Class<ErrorInfo>("ErrorInfo")({cause: Schema.optional(Schema.String), details: Schema.optional(Schema.String)}) {}
 export class GetSolInstantiatedVnfInfo extends Schema.Class<GetSolInstantiatedVnfInfo>("GetSolInstantiatedVnfInfo")({vnfState: Schema.optional(Schema.String)}) {}

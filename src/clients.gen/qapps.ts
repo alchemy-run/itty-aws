@@ -1,4 +1,4 @@
-import { Schema} from "effect"
+import * as Schema from "effect/Schema"
 import { FormatJSONRequest,FormatJSONResponse,FormatAwsRestJSONError, makeOperation } from "../client.ts";
 import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
 
@@ -110,14 +110,14 @@ export class UpdateQAppSessionMetadataOutput extends Schema.Class<UpdateQAppSess
 export class User extends Schema.Class<User>("User")({userId: Schema.optional(Schema.String)}) {}
 export const DependencyList = Schema.Array(Schema.String);
 export const MemoryReferenceList = Schema.Array(Schema.String);
-export class QAppSessionData extends Schema.Class<QAppSessionData>("QAppSessionData")({cardId: Schema.String, value: Schema.optional(Schema.JsonValue), user: User, submissionId: Schema.optional(Schema.String), timestamp: Schema.optional(Schema.Date)}) {}
+export class QAppSessionData extends Schema.Class<QAppSessionData>("QAppSessionData")({cardId: Schema.String, value: Schema.optional(Schema.Any), user: User, submissionId: Schema.optional(Schema.String), timestamp: Schema.optional(Schema.Date)}) {}
 export const QAppSessionDataList = Schema.Array(QAppSessionData);
 export class TextInputCard extends Schema.Class<TextInputCard>("TextInputCard")({id: Schema.String, title: Schema.String, dependencies: DependencyList, type: Schema.String, placeholder: Schema.optional(Schema.String), defaultValue: Schema.optional(Schema.String)}) {}
 export class QQueryCard extends Schema.Class<QQueryCard>("QQueryCard")({id: Schema.String, title: Schema.String, dependencies: DependencyList, type: Schema.String, prompt: Schema.String, outputSource: Schema.String, attributeFilter: Schema.optional(AttributeFilter), memoryReferences: Schema.optional(MemoryReferenceList)}) {}
 export class QPluginCard extends Schema.Class<QPluginCard>("QPluginCard")({id: Schema.String, title: Schema.String, dependencies: DependencyList, type: Schema.String, prompt: Schema.String, pluginType: Schema.String, pluginId: Schema.String, actionIdentifier: Schema.optional(Schema.String)}) {}
 export class FileUploadCard extends Schema.Class<FileUploadCard>("FileUploadCard")({id: Schema.String, title: Schema.String, dependencies: DependencyList, type: Schema.String, filename: Schema.optional(Schema.String), fileId: Schema.optional(Schema.String), allowOverride: Schema.optional(Schema.Boolean)}) {}
 export class FormInputCard extends Schema.Class<FormInputCard>("FormInputCard")({id: Schema.String, title: Schema.String, dependencies: DependencyList, type: Schema.String, metadata: FormInputCardMetadata, computeMode: Schema.optional(Schema.String)}) {}
-export class Submission extends Schema.Class<Submission>("Submission")({value: Schema.optional(Schema.JsonValue), submissionId: Schema.optional(Schema.String), timestamp: Schema.optional(Schema.Date)}) {}
+export class Submission extends Schema.Class<Submission>("Submission")({value: Schema.optional(Schema.Any), submissionId: Schema.optional(Schema.String), timestamp: Schema.optional(Schema.Date)}) {}
 export const SubmissionList = Schema.Array(Submission);
 export class DescribeQAppPermissionsOutput extends Schema.Class<DescribeQAppPermissionsOutput>("DescribeQAppPermissionsOutput")({resourceArn: Schema.optional(Schema.String), appId: Schema.optional(Schema.String), permissions: Schema.optional(PermissionsOutputList)}) {}
 export class ListQAppSessionDataOutput extends Schema.Class<ListQAppSessionDataOutput>("ListQAppSessionDataOutput")({sessionId: Schema.String, sessionArn: Schema.String, sessionData: Schema.optional(QAppSessionDataList), nextToken: Schema.optional(Schema.String)}) {}

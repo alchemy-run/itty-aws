@@ -368,7 +368,8 @@ const convertShapeToSchema: (
         ),
         Match.when(
           (s) => s === "smithy.api#Document",
-          () => Effect.succeed("Schema.JsonValue"),
+          // TODO(sam): should we add our own JsonValue schema to handle documents? What are Documents?
+          () => Effect.succeed("Schema.Any"),
         ),
         Match.orElse(() =>
           Effect.fail(
@@ -770,7 +771,7 @@ const generateClient = Effect.fn(function* (
     //todo(pear): optimize imports
     const clientImportsArray = Array.from(clientImports);
     const imports = dedent`
-      import { Schema} from "effect"
+      import * as Schema from "effect/Schema"
       import { ${clientImportsArray.join(",")}${clientImportsArray.length > 0 ? "," : ""} makeOperation } from "../client.ts";
       import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";`;
 

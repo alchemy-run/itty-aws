@@ -1,4 +1,4 @@
-import { Schema} from "effect"
+import * as Schema from "effect/Schema"
 import { FormatJSONRequest,FormatJSONResponse,FormatAwsRestJSONError, makeOperation } from "../client.ts";
 import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
 
@@ -9,7 +9,7 @@ export class CreateWebLoginTokenRequest extends Schema.Class<CreateWebLoginToken
 export class DeleteEnvironmentInput extends Schema.Class<DeleteEnvironmentInput>("DeleteEnvironmentInput")({Name: Schema.String}) {}
 export class DeleteEnvironmentOutput extends Schema.Class<DeleteEnvironmentOutput>("DeleteEnvironmentOutput")({}) {}
 export class GetEnvironmentInput extends Schema.Class<GetEnvironmentInput>("GetEnvironmentInput")({Name: Schema.String}) {}
-export class InvokeRestApiRequest extends Schema.Class<InvokeRestApiRequest>("InvokeRestApiRequest")({Name: Schema.String, Path: Schema.String, Method: Schema.String, QueryParameters: Schema.optional(Schema.JsonValue), Body: Schema.optional(Schema.JsonValue)}) {}
+export class InvokeRestApiRequest extends Schema.Class<InvokeRestApiRequest>("InvokeRestApiRequest")({Name: Schema.String, Path: Schema.String, Method: Schema.String, QueryParameters: Schema.optional(Schema.Any), Body: Schema.optional(Schema.JsonValue)}) {}
 export class ListEnvironmentsInput extends Schema.Class<ListEnvironmentsInput>("ListEnvironmentsInput")({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
 export class ListTagsForResourceInput extends Schema.Class<ListTagsForResourceInput>("ListTagsForResourceInput")({ResourceArn: Schema.String}) {}
 export const TagMap = Schema.Record({key: Schema.String, value: Schema.String});

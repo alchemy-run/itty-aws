@@ -1,4 +1,4 @@
-import { Schema} from "effect"
+import * as Schema from "effect/Schema"
 import { FormatJSONRequest,FormatJSONResponse,FormatAwsRestJSONError, makeOperation } from "../client.ts";
 import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
 
@@ -62,7 +62,7 @@ export class VectorSearchBedrockRerankingConfiguration extends Schema.Class<Vect
 export class SpecificToolChoice extends Schema.Class<SpecificToolChoice>("SpecificToolChoice")({name: Schema.String}) {}
 export class VectorSearchRerankingConfiguration extends Schema.Class<VectorSearchRerankingConfiguration>("VectorSearchRerankingConfiguration")({type: Schema.String, bedrockRerankingConfiguration: Schema.optional(VectorSearchBedrockRerankingConfiguration)}) {}
 export const ToolChoice = Schema.Union(AutoToolChoice, AnyToolChoice, SpecificToolChoice);
-export const ToolInputSchema = Schema.Union(Schema.JsonValue);
+export const ToolInputSchema = Schema.Union(Schema.Any);
 export class KnowledgeBaseFlowNodeConfiguration extends Schema.Class<KnowledgeBaseFlowNodeConfiguration>("KnowledgeBaseFlowNodeConfiguration")({knowledgeBaseId: Schema.String, modelId: Schema.optional(Schema.String), guardrailConfiguration: Schema.optional(GuardrailConfiguration), numberOfResults: Schema.optional(Schema.Number), promptTemplate: Schema.optional(KnowledgeBasePromptTemplate), inferenceConfiguration: Schema.optional(PromptInferenceConfiguration), rerankingConfiguration: Schema.optional(VectorSearchRerankingConfiguration), orchestrationConfiguration: Schema.optional(KnowledgeBaseOrchestrationConfiguration)}) {}
 export class ToolSpecification extends Schema.Class<ToolSpecification>("ToolSpecification")({name: Schema.String, description: Schema.optional(Schema.String), inputSchema: ToolInputSchema}) {}
 export const Tool = Schema.Union(ToolSpecification, CachePointBlock);
@@ -70,7 +70,7 @@ export const Tools = Schema.Array(Tool);
 export class ToolConfiguration extends Schema.Class<ToolConfiguration>("ToolConfiguration")({tools: Tools, toolChoice: Schema.optional(ToolChoice)}) {}
 export class ChatPromptTemplateConfiguration extends Schema.Class<ChatPromptTemplateConfiguration>("ChatPromptTemplateConfiguration")({messages: Messages, system: Schema.optional(SystemContentBlocks), inputVariables: Schema.optional(PromptInputVariablesList), toolConfiguration: Schema.optional(ToolConfiguration)}) {}
 export const PromptTemplateConfiguration = Schema.Union(TextPromptTemplateConfiguration, ChatPromptTemplateConfiguration);
-export class PromptFlowNodeInlineConfiguration extends Schema.Class<PromptFlowNodeInlineConfiguration>("PromptFlowNodeInlineConfiguration")({templateType: Schema.String, templateConfiguration: PromptTemplateConfiguration, modelId: Schema.String, inferenceConfiguration: Schema.optional(PromptInferenceConfiguration), additionalModelRequestFields: Schema.optional(Schema.JsonValue)}) {}
+export class PromptFlowNodeInlineConfiguration extends Schema.Class<PromptFlowNodeInlineConfiguration>("PromptFlowNodeInlineConfiguration")({templateType: Schema.String, templateConfiguration: PromptTemplateConfiguration, modelId: Schema.String, inferenceConfiguration: Schema.optional(PromptInferenceConfiguration), additionalModelRequestFields: Schema.optional(Schema.Any)}) {}
 export const PromptFlowNodeSourceConfiguration = Schema.Union(PromptFlowNodeResourceConfiguration, PromptFlowNodeInlineConfiguration);
 export class PromptFlowNodeConfiguration extends Schema.Class<PromptFlowNodeConfiguration>("PromptFlowNodeConfiguration")({sourceConfiguration: PromptFlowNodeSourceConfiguration, guardrailConfiguration: Schema.optional(GuardrailConfiguration)}) {}
 export const FlowNodeConfiguration = Schema.Union(InputFlowNodeConfiguration, OutputFlowNodeConfiguration, KnowledgeBaseFlowNodeConfiguration, ConditionFlowNodeConfiguration, LexFlowNodeConfiguration, PromptFlowNodeConfiguration, LambdaFunctionFlowNodeConfiguration, StorageFlowNodeConfiguration, AgentFlowNodeConfiguration, RetrievalFlowNodeConfiguration, IteratorFlowNodeConfiguration, CollectorFlowNodeConfiguration, InlineCodeFlowNodeConfiguration, Schema.suspend((): Schema.Schema<LoopFlowNodeConfiguration> => LoopFlowNodeConfiguration), LoopInputFlowNodeConfiguration, LoopControllerFlowNodeConfiguration);

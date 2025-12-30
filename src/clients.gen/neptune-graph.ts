@@ -1,4 +1,4 @@
-import { Schema} from "effect"
+import * as Schema from "effect/Schema"
 import { FormatJSONRequest,FormatJSONResponse,FormatAwsRestJSONError, makeOperation } from "../client.ts";
 import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
 
@@ -11,7 +11,7 @@ export class ListQueriesInput extends Schema.Class<ListQueriesInput>("ListQuerie
 export class ListTagsForResourceInput extends Schema.Class<ListTagsForResourceInput>("ListTagsForResourceInput")({resourceArn: Schema.String}) {}
 export class UntagResourceInput extends Schema.Class<UntagResourceInput>("UntagResourceInput")({resourceArn: Schema.String, tagKeys: TagKeyList}) {}
 export class UntagResourceOutput extends Schema.Class<UntagResourceOutput>("UntagResourceOutput")({}) {}
-export const DocumentValuedMap = Schema.Record({key: Schema.String, value: Schema.JsonValue});
+export const DocumentValuedMap = Schema.Record({key: Schema.String, value: Schema.Any});
 export const TagMap = Schema.Record({key: Schema.String, value: Schema.String});
 export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({message: Schema.String}) {}
 export class ExecuteQueryInput extends Schema.Class<ExecuteQueryInput>("ExecuteQueryInput")({graphIdentifier: Header("graphIdentifier"), queryString: Schema.String, language: Schema.String, parameters: Schema.optional(DocumentValuedMap), planCache: Schema.optional(Schema.String), explainMode: Schema.optional(Schema.String), queryTimeoutMilliseconds: Schema.optional(Schema.Number)}) {}
