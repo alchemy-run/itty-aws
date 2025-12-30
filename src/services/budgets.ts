@@ -121,29 +121,140 @@ export class BillingViewHealthStatusException extends S.TaggedError<BillingViewH
 export class ResourceLockedException extends S.TaggedError<ResourceLockedException>()("ResourceLockedException", {}) {};
 
 //# Operations
-export const updateSubscriber = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-20", uri: "/", method: "POST", sdkId: "Budgets", sigV4ServiceName: "budgets", name: "AWSBudgetServiceGateway.UpdateSubscriber" }, UpdateSubscriberRequest, UpdateSubscriberResponse, [AccessDeniedException, DuplicateRecordException, InternalErrorException, InvalidParameterException, NotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const createSubscriber = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-20", uri: "/", method: "POST", sdkId: "Budgets", sigV4ServiceName: "budgets", name: "AWSBudgetServiceGateway.CreateSubscriber" }, CreateSubscriberRequest, CreateSubscriberResponse, [AccessDeniedException, CreationLimitExceededException, DuplicateRecordException, InternalErrorException, InvalidParameterException, NotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteBudget = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-20", uri: "/", method: "POST", sdkId: "Budgets", sigV4ServiceName: "budgets", name: "AWSBudgetServiceGateway.DeleteBudget" }, DeleteBudgetRequest, DeleteBudgetResponse, [AccessDeniedException, InternalErrorException, InvalidParameterException, NotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteNotification = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-20", uri: "/", method: "POST", sdkId: "Budgets", sigV4ServiceName: "budgets", name: "AWSBudgetServiceGateway.DeleteNotification" }, DeleteNotificationRequest, DeleteNotificationResponse, [AccessDeniedException, InternalErrorException, InvalidParameterException, NotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteSubscriber = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-20", uri: "/", method: "POST", sdkId: "Budgets", sigV4ServiceName: "budgets", name: "AWSBudgetServiceGateway.DeleteSubscriber" }, DeleteSubscriberRequest, DeleteSubscriberResponse, [AccessDeniedException, InternalErrorException, InvalidParameterException, NotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeBudget = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-20", uri: "/", method: "POST", sdkId: "Budgets", sigV4ServiceName: "budgets", name: "AWSBudgetServiceGateway.DescribeBudget" }, DescribeBudgetRequest, DescribeBudgetResponse, [AccessDeniedException, InternalErrorException, InvalidParameterException, NotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeBudgetAction = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-20", uri: "/", method: "POST", sdkId: "Budgets", sigV4ServiceName: "budgets", name: "AWSBudgetServiceGateway.DescribeBudgetAction" }, DescribeBudgetActionRequest, DescribeBudgetActionResponse, [AccessDeniedException, InternalErrorException, InvalidParameterException, NotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeBudgetActionsForBudget = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-20", uri: "/", method: "POST", sdkId: "Budgets", sigV4ServiceName: "budgets", name: "AWSBudgetServiceGateway.DescribeBudgetActionsForBudget" }, DescribeBudgetActionsForBudgetRequest, DescribeBudgetActionsForBudgetResponse, [AccessDeniedException, InternalErrorException, InvalidNextTokenException, InvalidParameterException, NotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeNotificationsForBudget = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-20", uri: "/", method: "POST", sdkId: "Budgets", sigV4ServiceName: "budgets", name: "AWSBudgetServiceGateway.DescribeNotificationsForBudget" }, DescribeNotificationsForBudgetRequest, DescribeNotificationsForBudgetResponse, [AccessDeniedException, ExpiredNextTokenException, InternalErrorException, InvalidNextTokenException, InvalidParameterException, NotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeSubscribersForNotification = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-20", uri: "/", method: "POST", sdkId: "Budgets", sigV4ServiceName: "budgets", name: "AWSBudgetServiceGateway.DescribeSubscribersForNotification" }, DescribeSubscribersForNotificationRequest, DescribeSubscribersForNotificationResponse, [AccessDeniedException, ExpiredNextTokenException, InternalErrorException, InvalidNextTokenException, InvalidParameterException, NotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listTagsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-20", uri: "/", method: "POST", sdkId: "Budgets", sigV4ServiceName: "budgets", name: "AWSBudgetServiceGateway.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [AccessDeniedException, InternalErrorException, InvalidParameterException, NotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const tagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-20", uri: "/", method: "POST", sdkId: "Budgets", sigV4ServiceName: "budgets", name: "AWSBudgetServiceGateway.TagResource" }, TagResourceRequest, TagResourceResponse, [AccessDeniedException, InternalErrorException, InvalidParameterException, NotFoundException, ServiceQuotaExceededException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const untagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-20", uri: "/", method: "POST", sdkId: "Budgets", sigV4ServiceName: "budgets", name: "AWSBudgetServiceGateway.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [AccessDeniedException, InternalErrorException, InvalidParameterException, NotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateBudget = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-20", uri: "/", method: "POST", sdkId: "Budgets", sigV4ServiceName: "budgets", name: "AWSBudgetServiceGateway.UpdateBudget" }, UpdateBudgetRequest, UpdateBudgetResponse, [AccessDeniedException, BillingViewHealthStatusException, InternalErrorException, InvalidParameterException, NotFoundException, ServiceQuotaExceededException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateBudgetAction = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-20", uri: "/", method: "POST", sdkId: "Budgets", sigV4ServiceName: "budgets", name: "AWSBudgetServiceGateway.UpdateBudgetAction" }, UpdateBudgetActionRequest, UpdateBudgetActionResponse, [AccessDeniedException, InternalErrorException, InvalidParameterException, NotFoundException, ResourceLockedException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateNotification = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-20", uri: "/", method: "POST", sdkId: "Budgets", sigV4ServiceName: "budgets", name: "AWSBudgetServiceGateway.UpdateNotification" }, UpdateNotificationRequest, UpdateNotificationResponse, [AccessDeniedException, DuplicateRecordException, InternalErrorException, InvalidParameterException, NotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const createNotification = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-20", uri: "/", method: "POST", sdkId: "Budgets", sigV4ServiceName: "budgets", name: "AWSBudgetServiceGateway.CreateNotification" }, CreateNotificationRequest, CreateNotificationResponse, [AccessDeniedException, CreationLimitExceededException, DuplicateRecordException, InternalErrorException, InvalidParameterException, NotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteBudgetAction = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-20", uri: "/", method: "POST", sdkId: "Budgets", sigV4ServiceName: "budgets", name: "AWSBudgetServiceGateway.DeleteBudgetAction" }, DeleteBudgetActionRequest, DeleteBudgetActionResponse, [AccessDeniedException, InternalErrorException, InvalidParameterException, NotFoundException, ResourceLockedException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeBudgetActionsForAccount = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-20", uri: "/", method: "POST", sdkId: "Budgets", sigV4ServiceName: "budgets", name: "AWSBudgetServiceGateway.DescribeBudgetActionsForAccount" }, DescribeBudgetActionsForAccountRequest, DescribeBudgetActionsForAccountResponse, [AccessDeniedException, InternalErrorException, InvalidNextTokenException, InvalidParameterException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeBudgetNotificationsForAccount = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-20", uri: "/", method: "POST", sdkId: "Budgets", sigV4ServiceName: "budgets", name: "AWSBudgetServiceGateway.DescribeBudgetNotificationsForAccount" }, DescribeBudgetNotificationsForAccountRequest, DescribeBudgetNotificationsForAccountResponse, [AccessDeniedException, ExpiredNextTokenException, InternalErrorException, InvalidNextTokenException, InvalidParameterException, NotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeBudgets = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-20", uri: "/", method: "POST", sdkId: "Budgets", sigV4ServiceName: "budgets", name: "AWSBudgetServiceGateway.DescribeBudgets" }, DescribeBudgetsRequest, DescribeBudgetsResponse, [AccessDeniedException, ExpiredNextTokenException, InternalErrorException, InvalidNextTokenException, InvalidParameterException, NotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const executeBudgetAction = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-20", uri: "/", method: "POST", sdkId: "Budgets", sigV4ServiceName: "budgets", name: "AWSBudgetServiceGateway.ExecuteBudgetAction" }, ExecuteBudgetActionRequest, ExecuteBudgetActionResponse, [AccessDeniedException, InternalErrorException, InvalidParameterException, NotFoundException, ResourceLockedException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const createBudget = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-20", uri: "/", method: "POST", sdkId: "Budgets", sigV4ServiceName: "budgets", name: "AWSBudgetServiceGateway.CreateBudget" }, CreateBudgetRequest, CreateBudgetResponse, [AccessDeniedException, BillingViewHealthStatusException, CreationLimitExceededException, DuplicateRecordException, InternalErrorException, InvalidParameterException, NotFoundException, ServiceQuotaExceededException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const createBudgetAction = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-20", uri: "/", method: "POST", sdkId: "Budgets", sigV4ServiceName: "budgets", name: "AWSBudgetServiceGateway.CreateBudgetAction" }, CreateBudgetActionRequest, CreateBudgetActionResponse, [AccessDeniedException, CreationLimitExceededException, DuplicateRecordException, InternalErrorException, InvalidParameterException, NotFoundException, ServiceQuotaExceededException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeBudgetPerformanceHistory = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-20", uri: "/", method: "POST", sdkId: "Budgets", sigV4ServiceName: "budgets", name: "AWSBudgetServiceGateway.DescribeBudgetPerformanceHistory" }, DescribeBudgetPerformanceHistoryRequest, DescribeBudgetPerformanceHistoryResponse, [AccessDeniedException, BillingViewHealthStatusException, ExpiredNextTokenException, InternalErrorException, InvalidNextTokenException, InvalidParameterException, NotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeBudgetActionHistories = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-20", uri: "/", method: "POST", sdkId: "Budgets", sigV4ServiceName: "budgets", name: "AWSBudgetServiceGateway.DescribeBudgetActionHistories" }, DescribeBudgetActionHistoriesRequest, DescribeBudgetActionHistoriesResponse, [AccessDeniedException, InternalErrorException, InvalidNextTokenException, InvalidParameterException, NotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates a subscriber.
+ */export const updateSubscriber = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-20", uri: "/", method: "POST", sdkId: "Budgets", sigV4ServiceName: "budgets", name: "AWSBudgetServiceGateway.UpdateSubscriber" }, UpdateSubscriberRequest, UpdateSubscriberResponse, [AccessDeniedException, DuplicateRecordException, InternalErrorException, InvalidParameterException, NotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a subscriber. You must create the associated budget and notification before you create the subscriber.
+ */export const createSubscriber = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-20", uri: "/", method: "POST", sdkId: "Budgets", sigV4ServiceName: "budgets", name: "AWSBudgetServiceGateway.CreateSubscriber" }, CreateSubscriberRequest, CreateSubscriberResponse, [AccessDeniedException, CreationLimitExceededException, DuplicateRecordException, InternalErrorException, InvalidParameterException, NotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes a budget. You can delete your budget at any time.
+ * 
+ * 
+ * 
+ * 
+ * Deleting a budget also deletes the notifications and subscribers that are associated with that budget.
+ */export const deleteBudget = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-20", uri: "/", method: "POST", sdkId: "Budgets", sigV4ServiceName: "budgets", name: "AWSBudgetServiceGateway.DeleteBudget" }, DeleteBudgetRequest, DeleteBudgetResponse, [AccessDeniedException, InternalErrorException, InvalidParameterException, NotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes a notification.
+ * 
+ * 
+ * 
+ * 
+ * Deleting a notification also deletes the subscribers that are associated with the notification.
+ */export const deleteNotification = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-20", uri: "/", method: "POST", sdkId: "Budgets", sigV4ServiceName: "budgets", name: "AWSBudgetServiceGateway.DeleteNotification" }, DeleteNotificationRequest, DeleteNotificationResponse, [AccessDeniedException, InternalErrorException, InvalidParameterException, NotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes a subscriber.
+ * 
+ * 
+ * 
+ * 
+ * Deleting the last subscriber to a notification also deletes the notification.
+ */export const deleteSubscriber = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-20", uri: "/", method: "POST", sdkId: "Budgets", sigV4ServiceName: "budgets", name: "AWSBudgetServiceGateway.DeleteSubscriber" }, DeleteSubscriberRequest, DeleteSubscriberResponse, [AccessDeniedException, InternalErrorException, InvalidParameterException, NotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Describes a budget.
+ * 
+ * 
+ * 
+ * 
+ * The Request Syntax section shows the `BudgetLimit` syntax. For
+ * `PlannedBudgetLimits`, see the Examples section.
+ */export const describeBudget = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-20", uri: "/", method: "POST", sdkId: "Budgets", sigV4ServiceName: "budgets", name: "AWSBudgetServiceGateway.DescribeBudget" }, DescribeBudgetRequest, DescribeBudgetResponse, [AccessDeniedException, InternalErrorException, InvalidParameterException, NotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Describes a budget action detail.
+ */export const describeBudgetAction = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-20", uri: "/", method: "POST", sdkId: "Budgets", sigV4ServiceName: "budgets", name: "AWSBudgetServiceGateway.DescribeBudgetAction" }, DescribeBudgetActionRequest, DescribeBudgetActionResponse, [AccessDeniedException, InternalErrorException, InvalidParameterException, NotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Describes all of the budget actions for a budget.
+ */export const describeBudgetActionsForBudget = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-20", uri: "/", method: "POST", sdkId: "Budgets", sigV4ServiceName: "budgets", name: "AWSBudgetServiceGateway.DescribeBudgetActionsForBudget" }, DescribeBudgetActionsForBudgetRequest, DescribeBudgetActionsForBudgetResponse, [AccessDeniedException, InternalErrorException, InvalidNextTokenException, InvalidParameterException, NotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists the notifications that are associated with a budget.
+ */export const describeNotificationsForBudget = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-20", uri: "/", method: "POST", sdkId: "Budgets", sigV4ServiceName: "budgets", name: "AWSBudgetServiceGateway.DescribeNotificationsForBudget" }, DescribeNotificationsForBudgetRequest, DescribeNotificationsForBudgetResponse, [AccessDeniedException, ExpiredNextTokenException, InternalErrorException, InvalidNextTokenException, InvalidParameterException, NotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists the subscribers that are associated with a notification.
+ */export const describeSubscribersForNotification = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-20", uri: "/", method: "POST", sdkId: "Budgets", sigV4ServiceName: "budgets", name: "AWSBudgetServiceGateway.DescribeSubscribersForNotification" }, DescribeSubscribersForNotificationRequest, DescribeSubscribersForNotificationResponse, [AccessDeniedException, ExpiredNextTokenException, InternalErrorException, InvalidNextTokenException, InvalidParameterException, NotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists tags associated with a budget or budget action resource.
+ */export const listTagsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-20", uri: "/", method: "POST", sdkId: "Budgets", sigV4ServiceName: "budgets", name: "AWSBudgetServiceGateway.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [AccessDeniedException, InternalErrorException, InvalidParameterException, NotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates tags for a budget or budget action resource.
+ */export const tagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-20", uri: "/", method: "POST", sdkId: "Budgets", sigV4ServiceName: "budgets", name: "AWSBudgetServiceGateway.TagResource" }, TagResourceRequest, TagResourceResponse, [AccessDeniedException, InternalErrorException, InvalidParameterException, NotFoundException, ServiceQuotaExceededException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes tags associated with a budget or budget action resource.
+ */export const untagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-20", uri: "/", method: "POST", sdkId: "Budgets", sigV4ServiceName: "budgets", name: "AWSBudgetServiceGateway.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [AccessDeniedException, InternalErrorException, InvalidParameterException, NotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates a budget. You can change every part of a budget except for the `budgetName` and the `calculatedSpend`. When you modify a budget, the `calculatedSpend` drops to zero until Amazon Web Services has new usage data to use for forecasting.
+ * 
+ * 
+ * 
+ * 
+ * Only one of `BudgetLimit` or `PlannedBudgetLimits` can be present in
+ * the syntax at one time. Use the syntax that matches your case. The Request Syntax
+ * section shows the `BudgetLimit` syntax. For `PlannedBudgetLimits`,
+ * see the Examples section.
+ * 
+ * 
+ * Similarly, only one set of filter and metric selections can be present in the syntax
+ * at one time. Either `FilterExpression` and `Metrics` or
+ * `CostFilters` and `CostTypes`, not both or a different
+ * combination. We recommend using `FilterExpression` and `Metrics`
+ * as they provide more flexible and powerful filtering capabilities. The Request Syntax
+ * section shows the `FilterExpression`/`Metrics` syntax.
+ */export const updateBudget = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-20", uri: "/", method: "POST", sdkId: "Budgets", sigV4ServiceName: "budgets", name: "AWSBudgetServiceGateway.UpdateBudget" }, UpdateBudgetRequest, UpdateBudgetResponse, [AccessDeniedException, BillingViewHealthStatusException, InternalErrorException, InvalidParameterException, NotFoundException, ServiceQuotaExceededException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates a budget action.
+ */export const updateBudgetAction = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-20", uri: "/", method: "POST", sdkId: "Budgets", sigV4ServiceName: "budgets", name: "AWSBudgetServiceGateway.UpdateBudgetAction" }, UpdateBudgetActionRequest, UpdateBudgetActionResponse, [AccessDeniedException, InternalErrorException, InvalidParameterException, NotFoundException, ResourceLockedException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates a notification.
+ */export const updateNotification = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-20", uri: "/", method: "POST", sdkId: "Budgets", sigV4ServiceName: "budgets", name: "AWSBudgetServiceGateway.UpdateNotification" }, UpdateNotificationRequest, UpdateNotificationResponse, [AccessDeniedException, DuplicateRecordException, InternalErrorException, InvalidParameterException, NotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a notification. You must create the budget before you create the associated notification.
+ */export const createNotification = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-20", uri: "/", method: "POST", sdkId: "Budgets", sigV4ServiceName: "budgets", name: "AWSBudgetServiceGateway.CreateNotification" }, CreateNotificationRequest, CreateNotificationResponse, [AccessDeniedException, CreationLimitExceededException, DuplicateRecordException, InternalErrorException, InvalidParameterException, NotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes a budget action.
+ */export const deleteBudgetAction = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-20", uri: "/", method: "POST", sdkId: "Budgets", sigV4ServiceName: "budgets", name: "AWSBudgetServiceGateway.DeleteBudgetAction" }, DeleteBudgetActionRequest, DeleteBudgetActionResponse, [AccessDeniedException, InternalErrorException, InvalidParameterException, NotFoundException, ResourceLockedException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Describes all of the budget actions for an account.
+ */export const describeBudgetActionsForAccount = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-20", uri: "/", method: "POST", sdkId: "Budgets", sigV4ServiceName: "budgets", name: "AWSBudgetServiceGateway.DescribeBudgetActionsForAccount" }, DescribeBudgetActionsForAccountRequest, DescribeBudgetActionsForAccountResponse, [AccessDeniedException, InternalErrorException, InvalidNextTokenException, InvalidParameterException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists the budget names and notifications that are associated with an account.
+ */export const describeBudgetNotificationsForAccount = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-20", uri: "/", method: "POST", sdkId: "Budgets", sigV4ServiceName: "budgets", name: "AWSBudgetServiceGateway.DescribeBudgetNotificationsForAccount" }, DescribeBudgetNotificationsForAccountRequest, DescribeBudgetNotificationsForAccountResponse, [AccessDeniedException, ExpiredNextTokenException, InternalErrorException, InvalidNextTokenException, InvalidParameterException, NotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists the budgets that are associated with an account.
+ * 
+ * 
+ * 
+ * 
+ * The Request Syntax section shows the `BudgetLimit` syntax. For
+ * `PlannedBudgetLimits`, see the Examples section.
+ */export const describeBudgets = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-20", uri: "/", method: "POST", sdkId: "Budgets", sigV4ServiceName: "budgets", name: "AWSBudgetServiceGateway.DescribeBudgets" }, DescribeBudgetsRequest, DescribeBudgetsResponse, [AccessDeniedException, ExpiredNextTokenException, InternalErrorException, InvalidNextTokenException, InvalidParameterException, NotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Executes a budget action.
+ */export const executeBudgetAction = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-20", uri: "/", method: "POST", sdkId: "Budgets", sigV4ServiceName: "budgets", name: "AWSBudgetServiceGateway.ExecuteBudgetAction" }, ExecuteBudgetActionRequest, ExecuteBudgetActionResponse, [AccessDeniedException, InternalErrorException, InvalidParameterException, NotFoundException, ResourceLockedException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a budget and, if included, notifications and subscribers.
+ * 
+ * 
+ * 
+ * 
+ * Only one of `BudgetLimit` or `PlannedBudgetLimits` can be present in
+ * the syntax at one time. Use the syntax that matches your use case. The Request Syntax
+ * section shows the `BudgetLimit` syntax. For `PlannedBudgetLimits`,
+ * see the Examples section.
+ * 
+ * 
+ * Similarly, only one set of filter and metric selections can be present in the syntax
+ * at one time. Either `FilterExpression` and `Metrics` or
+ * `CostFilters` and `CostTypes`, not both or a different
+ * combination. We recommend using `FilterExpression` and `Metrics`
+ * as they provide more flexible and powerful filtering capabilities. The Request Syntax
+ * section shows the `FilterExpression`/`Metrics` syntax.
+ */export const createBudget = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-20", uri: "/", method: "POST", sdkId: "Budgets", sigV4ServiceName: "budgets", name: "AWSBudgetServiceGateway.CreateBudget" }, CreateBudgetRequest, CreateBudgetResponse, [AccessDeniedException, BillingViewHealthStatusException, CreationLimitExceededException, DuplicateRecordException, InternalErrorException, InvalidParameterException, NotFoundException, ServiceQuotaExceededException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a budget action.
+ */export const createBudgetAction = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-20", uri: "/", method: "POST", sdkId: "Budgets", sigV4ServiceName: "budgets", name: "AWSBudgetServiceGateway.CreateBudgetAction" }, CreateBudgetActionRequest, CreateBudgetActionResponse, [AccessDeniedException, CreationLimitExceededException, DuplicateRecordException, InternalErrorException, InvalidParameterException, NotFoundException, ServiceQuotaExceededException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Describes the history for `DAILY`, `MONTHLY`, and `QUARTERLY` budgets. Budget history isn't available for `ANNUAL` budgets.
+ */export const describeBudgetPerformanceHistory = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-20", uri: "/", method: "POST", sdkId: "Budgets", sigV4ServiceName: "budgets", name: "AWSBudgetServiceGateway.DescribeBudgetPerformanceHistory" }, DescribeBudgetPerformanceHistoryRequest, DescribeBudgetPerformanceHistoryResponse, [AccessDeniedException, BillingViewHealthStatusException, ExpiredNextTokenException, InternalErrorException, InvalidNextTokenException, InvalidParameterException, NotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Describes a budget action history detail.
+ */export const describeBudgetActionHistories = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-20", uri: "/", method: "POST", sdkId: "Budgets", sigV4ServiceName: "budgets", name: "AWSBudgetServiceGateway.DescribeBudgetActionHistories" }, DescribeBudgetActionHistoriesRequest, DescribeBudgetActionHistoriesResponse, [AccessDeniedException, InternalErrorException, InvalidNextTokenException, InvalidParameterException, NotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

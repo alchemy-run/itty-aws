@@ -23,8 +23,18 @@ export class ResourceNotFoundException extends S.TaggedError<ResourceNotFoundExc
 export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExceededException>()("ServiceQuotaExceededException", {}) {};
 
 //# Operations
-export const getPreferences = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2024-06-19", uri: "/", method: "POST", sdkId: "BCM Pricing Calculator", sigV4ServiceName: "bcm-pricing-calculator", name: "AWSBCMPricingCalculator.GetPreferences" }, GetPreferencesRequest, GetPreferencesResponse, [DataUnavailableException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listTagsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2024-06-19", uri: "/", method: "POST", sdkId: "BCM Pricing Calculator", sigV4ServiceName: "bcm-pricing-calculator", name: "AWSBCMPricingCalculator.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [ResourceNotFoundException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const untagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2024-06-19", uri: "/", method: "POST", sdkId: "BCM Pricing Calculator", sigV4ServiceName: "bcm-pricing-calculator", name: "AWSBCMPricingCalculator.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [ResourceNotFoundException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const updatePreferences = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2024-06-19", uri: "/", method: "POST", sdkId: "BCM Pricing Calculator", sigV4ServiceName: "bcm-pricing-calculator", name: "AWSBCMPricingCalculator.UpdatePreferences" }, UpdatePreferencesRequest, UpdatePreferencesResponse, [DataUnavailableException, ServiceQuotaExceededException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const tagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2024-06-19", uri: "/", method: "POST", sdkId: "BCM Pricing Calculator", sigV4ServiceName: "bcm-pricing-calculator", name: "AWSBCMPricingCalculator.TagResource" }, TagResourceRequest, TagResourceResponse, [ResourceNotFoundException, ServiceQuotaExceededException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves the current preferences for Pricing Calculator.
+ */export const getPreferences = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2024-06-19", uri: "/", method: "POST", sdkId: "BCM Pricing Calculator", sigV4ServiceName: "bcm-pricing-calculator", name: "AWSBCMPricingCalculator.GetPreferences" }, GetPreferencesRequest, GetPreferencesResponse, [DataUnavailableException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists all tags associated with a specified resource.
+ */export const listTagsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2024-06-19", uri: "/", method: "POST", sdkId: "BCM Pricing Calculator", sigV4ServiceName: "bcm-pricing-calculator", name: "AWSBCMPricingCalculator.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [ResourceNotFoundException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Removes one or more tags from a specified resource.
+ */export const untagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2024-06-19", uri: "/", method: "POST", sdkId: "BCM Pricing Calculator", sigV4ServiceName: "bcm-pricing-calculator", name: "AWSBCMPricingCalculator.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [ResourceNotFoundException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates the preferences for Pricing Calculator.
+ */export const updatePreferences = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2024-06-19", uri: "/", method: "POST", sdkId: "BCM Pricing Calculator", sigV4ServiceName: "bcm-pricing-calculator", name: "AWSBCMPricingCalculator.UpdatePreferences" }, UpdatePreferencesRequest, UpdatePreferencesResponse, [DataUnavailableException, ServiceQuotaExceededException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Adds one or more tags to a specified resource.
+ */export const tagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2024-06-19", uri: "/", method: "POST", sdkId: "BCM Pricing Calculator", sigV4ServiceName: "bcm-pricing-calculator", name: "AWSBCMPricingCalculator.TagResource" }, TagResourceRequest, TagResourceResponse, [ResourceNotFoundException, ServiceQuotaExceededException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);

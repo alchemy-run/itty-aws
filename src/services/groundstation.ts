@@ -22,8 +22,21 @@ export class InvalidParameterException extends S.TaggedError<InvalidParameterExc
 export class ResourceNotFoundException extends S.TaggedError<ResourceNotFoundException>()("ResourceNotFoundException", {}) {};
 
 //# Operations
-export const listTagsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-05-23", uri: "/tags/{resourceArn}", method: "GET", sdkId: "GroundStation", sigV4ServiceName: "groundstation", name: "GroundStation.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [DependencyException, InvalidParameterException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const tagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-05-23", uri: "/tags/{resourceArn}", method: "POST", sdkId: "GroundStation", sigV4ServiceName: "groundstation", name: "GroundStation.TagResource" }, TagResourceRequest, TagResourceResponse, [DependencyException, InvalidParameterException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const untagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-05-23", uri: "/tags/{resourceArn}", method: "DELETE", sdkId: "GroundStation", sigV4ServiceName: "groundstation", name: "GroundStation.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [DependencyException, InvalidParameterException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getAgentTaskResponseUrl = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-05-23", uri: "/agentResponseUrl/{agentId}/{taskId}", method: "GET", sdkId: "GroundStation", sigV4ServiceName: "groundstation", name: "GroundStation.GetAgentTaskResponseUrl" }, GetAgentTaskResponseUrlRequest, GetAgentTaskResponseUrlResponse, [DependencyException, InvalidParameterException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getMinuteUsage = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-05-23", uri: "/minute-usage", method: "POST", sdkId: "GroundStation", sigV4ServiceName: "groundstation", name: "GroundStation.GetMinuteUsage" }, GetMinuteUsageRequest, GetMinuteUsageResponse, [DependencyException, InvalidParameterException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns a list of tags for a specified resource.
+ */export const listTagsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-05-23", uri: "/tags/{resourceArn}", method: "GET", sdkId: "GroundStation", sigV4ServiceName: "groundstation", name: "GroundStation.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [DependencyException, InvalidParameterException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Assigns a tag to a resource.
+ */export const tagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-05-23", uri: "/tags/{resourceArn}", method: "POST", sdkId: "GroundStation", sigV4ServiceName: "groundstation", name: "GroundStation.TagResource" }, TagResourceRequest, TagResourceResponse, [DependencyException, InvalidParameterException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deassigns a resource tag.
+ */export const untagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-05-23", uri: "/tags/{resourceArn}", method: "DELETE", sdkId: "GroundStation", sigV4ServiceName: "groundstation", name: "GroundStation.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [DependencyException, InvalidParameterException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * For use by AWS Ground Station Agent and shouldn't be called directly.
+ * 
+ * 
+ * Gets a presigned URL for uploading agent task response logs.
+ */export const getAgentTaskResponseUrl = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-05-23", uri: "/agentResponseUrl/{agentId}/{taskId}", method: "GET", sdkId: "GroundStation", sigV4ServiceName: "groundstation", name: "GroundStation.GetAgentTaskResponseUrl" }, GetAgentTaskResponseUrlRequest, GetAgentTaskResponseUrlResponse, [DependencyException, InvalidParameterException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns the number of reserved minutes used by account.
+ */export const getMinuteUsage = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-05-23", uri: "/minute-usage", method: "POST", sdkId: "GroundStation", sigV4ServiceName: "groundstation", name: "GroundStation.GetMinuteUsage" }, GetMinuteUsageRequest, GetMinuteUsageResponse, [DependencyException, InvalidParameterException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

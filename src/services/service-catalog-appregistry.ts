@@ -85,27 +85,246 @@ export class ThrottlingException extends S.TaggedError<ThrottlingException>()("T
 export class ValidationException extends S.TaggedError<ValidationException>()("ValidationException", {}) {};
 
 //# Operations
-export const disassociateResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-06-24", uri: "/applications/{application}/resources/{resourceType}/{resource}", method: "DELETE", sdkId: "Service Catalog AppRegistry", sigV4ServiceName: "servicecatalog", name: "AWS242AppRegistry.DisassociateResource" }, DisassociateResourceRequest, DisassociateResourceResponse, [InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getAttributeGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-06-24", uri: "/attribute-groups/{attributeGroup}", method: "GET", sdkId: "Service Catalog AppRegistry", sigV4ServiceName: "servicecatalog", name: "AWS242AppRegistry.GetAttributeGroup" }, GetAttributeGroupRequest, GetAttributeGroupResponse, [ConflictException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listApplications = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-06-24", uri: "/applications", method: "GET", sdkId: "Service Catalog AppRegistry", sigV4ServiceName: "servicecatalog", name: "AWS242AppRegistry.ListApplications" }, ListApplicationsRequest, ListApplicationsResponse, [InternalServerException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listAssociatedAttributeGroups = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-06-24", uri: "/applications/{application}/attribute-groups", method: "GET", sdkId: "Service Catalog AppRegistry", sigV4ServiceName: "servicecatalog", name: "AWS242AppRegistry.ListAssociatedAttributeGroups" }, ListAssociatedAttributeGroupsRequest, ListAssociatedAttributeGroupsResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listAttributeGroups = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-06-24", uri: "/attribute-groups", method: "GET", sdkId: "Service Catalog AppRegistry", sigV4ServiceName: "servicecatalog", name: "AWS242AppRegistry.ListAttributeGroups" }, ListAttributeGroupsRequest, ListAttributeGroupsResponse, [InternalServerException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listTagsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-06-24", uri: "/tags/{resourceArn}", method: "GET", sdkId: "Service Catalog AppRegistry", sigV4ServiceName: "servicecatalog", name: "AWS242AppRegistry.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const putConfiguration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-06-24", uri: "/configuration", method: "PUT", sdkId: "Service Catalog AppRegistry", sigV4ServiceName: "servicecatalog", name: "AWS242AppRegistry.PutConfiguration" }, PutConfigurationRequest, S.Struct({}), [ConflictException, InternalServerException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const syncResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-06-24", uri: "/sync/{resourceType}/{resource}", method: "POST", sdkId: "Service Catalog AppRegistry", sigV4ServiceName: "servicecatalog", name: "AWS242AppRegistry.SyncResource" }, SyncResourceRequest, SyncResourceResponse, [ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const tagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-06-24", uri: "/tags/{resourceArn}", method: "POST", sdkId: "Service Catalog AppRegistry", sigV4ServiceName: "servicecatalog", name: "AWS242AppRegistry.TagResource" }, TagResourceRequest, TagResourceResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const untagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-06-24", uri: "/tags/{resourceArn}", method: "DELETE", sdkId: "Service Catalog AppRegistry", sigV4ServiceName: "servicecatalog", name: "AWS242AppRegistry.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateAttributeGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-06-24", uri: "/attribute-groups/{attributeGroup}", method: "PATCH", sdkId: "Service Catalog AppRegistry", sigV4ServiceName: "servicecatalog", name: "AWS242AppRegistry.UpdateAttributeGroup" }, UpdateAttributeGroupRequest, UpdateAttributeGroupResponse, [ConflictException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const associateAttributeGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-06-24", uri: "/applications/{application}/attribute-groups/{attributeGroup}", method: "PUT", sdkId: "Service Catalog AppRegistry", sigV4ServiceName: "servicecatalog", name: "AWS242AppRegistry.AssociateAttributeGroup" }, AssociateAttributeGroupRequest, AssociateAttributeGroupResponse, [ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const associateResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-06-24", uri: "/applications/{application}/resources/{resourceType}/{resource}", method: "PUT", sdkId: "Service Catalog AppRegistry", sigV4ServiceName: "servicecatalog", name: "AWS242AppRegistry.AssociateResource" }, AssociateResourceRequest, AssociateResourceResponse, [ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const createApplication = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-06-24", uri: "/applications", method: "POST", sdkId: "Service Catalog AppRegistry", sigV4ServiceName: "servicecatalog", name: "AWS242AppRegistry.CreateApplication" }, CreateApplicationRequest, CreateApplicationResponse, [ConflictException, InternalServerException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const createAttributeGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-06-24", uri: "/attribute-groups", method: "POST", sdkId: "Service Catalog AppRegistry", sigV4ServiceName: "servicecatalog", name: "AWS242AppRegistry.CreateAttributeGroup" }, CreateAttributeGroupRequest, CreateAttributeGroupResponse, [ConflictException, InternalServerException, ServiceQuotaExceededException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteApplication = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-06-24", uri: "/applications/{application}", method: "DELETE", sdkId: "Service Catalog AppRegistry", sigV4ServiceName: "servicecatalog", name: "AWS242AppRegistry.DeleteApplication" }, DeleteApplicationRequest, DeleteApplicationResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteAttributeGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-06-24", uri: "/attribute-groups/{attributeGroup}", method: "DELETE", sdkId: "Service Catalog AppRegistry", sigV4ServiceName: "servicecatalog", name: "AWS242AppRegistry.DeleteAttributeGroup" }, DeleteAttributeGroupRequest, DeleteAttributeGroupResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const disassociateAttributeGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-06-24", uri: "/applications/{application}/attribute-groups/{attributeGroup}", method: "DELETE", sdkId: "Service Catalog AppRegistry", sigV4ServiceName: "servicecatalog", name: "AWS242AppRegistry.DisassociateAttributeGroup" }, DisassociateAttributeGroupRequest, DisassociateAttributeGroupResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getConfiguration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-06-24", uri: "/configuration", method: "GET", sdkId: "Service Catalog AppRegistry", sigV4ServiceName: "servicecatalog", name: "AWS242AppRegistry.GetConfiguration" }, S.Struct({}), GetConfigurationResponse, [InternalServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listAttributeGroupsForApplication = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-06-24", uri: "/applications/{application}/attribute-group-details", method: "GET", sdkId: "Service Catalog AppRegistry", sigV4ServiceName: "servicecatalog", name: "AWS242AppRegistry.ListAttributeGroupsForApplication" }, ListAttributeGroupsForApplicationRequest, ListAttributeGroupsForApplicationResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateApplication = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-06-24", uri: "/applications/{application}", method: "PATCH", sdkId: "Service Catalog AppRegistry", sigV4ServiceName: "servicecatalog", name: "AWS242AppRegistry.UpdateApplication" }, UpdateApplicationRequest, UpdateApplicationResponse, [ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getApplication = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-06-24", uri: "/applications/{application}", method: "GET", sdkId: "Service Catalog AppRegistry", sigV4ServiceName: "servicecatalog", name: "AWS242AppRegistry.GetApplication" }, GetApplicationRequest, GetApplicationResponse, [ConflictException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getAssociatedResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-06-24", uri: "/applications/{application}/resources/{resourceType}/{resource}", method: "GET", sdkId: "Service Catalog AppRegistry", sigV4ServiceName: "servicecatalog", name: "AWS242AppRegistry.GetAssociatedResource" }, GetAssociatedResourceRequest, GetAssociatedResourceResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listAssociatedResources = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-06-24", uri: "/applications/{application}/resources", method: "GET", sdkId: "Service Catalog AppRegistry", sigV4ServiceName: "servicecatalog", name: "AWS242AppRegistry.ListAssociatedResources" }, ListAssociatedResourcesRequest, ListAssociatedResourcesResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Disassociates a resource from application.
+ * Both the resource and the application can be specified either by ID or name.
+ * 
+ * 
+ * 
+ * 
+ * **Minimum permissions**
+ * 
+ * 
+ * 
+ * 
+ * You must have the following permissions to remove a resource that's been associated with an application using the `APPLY_APPLICATION_TAG` option for AssociateResource.
+ * 
+ * 
+ * 
+ * 
+ * - `tag:GetResources`
+ * 
+ * 
+ * 
+ * 
+ * - `tag:UntagResources`
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * You must also have the following permissions if you don't use the `AWSServiceCatalogAppRegistryFullAccess` policy.
+ * For more information, see AWSServiceCatalogAppRegistryFullAccess in the AppRegistry Administrator Guide.
+ * 
+ * 
+ * 
+ * 
+ * - `resource-groups:DisassociateResource`
+ * 
+ * 
+ * 
+ * 
+ * - `cloudformation:UpdateStack`
+ * 
+ * 
+ * 
+ * 
+ * - `cloudformation:DescribeStacks`
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * In addition, you must have the tagging permission defined by the Amazon Web Services service that creates the resource.
+ * For more information, see UntagResources in the *Resource Groups Tagging API Reference*.
+ */export const disassociateResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-06-24", uri: "/applications/{application}/resources/{resourceType}/{resource}", method: "DELETE", sdkId: "Service Catalog AppRegistry", sigV4ServiceName: "servicecatalog", name: "AWS242AppRegistry.DisassociateResource" }, DisassociateResourceRequest, DisassociateResourceResponse, [InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves an attribute group
+ * by its ARN, ID, or name.
+ * The attribute group can be specified
+ * by its ARN, ID, or name.
+ */export const getAttributeGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-06-24", uri: "/attribute-groups/{attributeGroup}", method: "GET", sdkId: "Service Catalog AppRegistry", sigV4ServiceName: "servicecatalog", name: "AWS242AppRegistry.GetAttributeGroup" }, GetAttributeGroupRequest, GetAttributeGroupResponse, [ConflictException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves a list of all of your applications. Results are paginated.
+ */export const listApplications = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-06-24", uri: "/applications", method: "GET", sdkId: "Service Catalog AppRegistry", sigV4ServiceName: "servicecatalog", name: "AWS242AppRegistry.ListApplications" }, ListApplicationsRequest, ListApplicationsResponse, [InternalServerException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists all attribute groups that are associated with specified application. Results are paginated.
+ */export const listAssociatedAttributeGroups = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-06-24", uri: "/applications/{application}/attribute-groups", method: "GET", sdkId: "Service Catalog AppRegistry", sigV4ServiceName: "servicecatalog", name: "AWS242AppRegistry.ListAssociatedAttributeGroups" }, ListAssociatedAttributeGroupsRequest, ListAssociatedAttributeGroupsResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists all attribute groups which you have access to. Results are paginated.
+ */export const listAttributeGroups = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-06-24", uri: "/attribute-groups", method: "GET", sdkId: "Service Catalog AppRegistry", sigV4ServiceName: "servicecatalog", name: "AWS242AppRegistry.ListAttributeGroups" }, ListAttributeGroupsRequest, ListAttributeGroupsResponse, [InternalServerException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists all of the tags on the resource.
+ */export const listTagsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-06-24", uri: "/tags/{resourceArn}", method: "GET", sdkId: "Service Catalog AppRegistry", sigV4ServiceName: "servicecatalog", name: "AWS242AppRegistry.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Associates a `TagKey` configuration
+ * to an account.
+ */export const putConfiguration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-06-24", uri: "/configuration", method: "PUT", sdkId: "Service Catalog AppRegistry", sigV4ServiceName: "servicecatalog", name: "AWS242AppRegistry.PutConfiguration" }, PutConfigurationRequest, S.Struct({}), [ConflictException, InternalServerException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Syncs the resource with current AppRegistry records.
+ * 
+ * 
+ * Specifically, the resource’s AppRegistry system tags sync with its associated application. We remove the resource's AppRegistry system tags if it does not associate with the application. The caller must have permissions to read and update the resource.
+ */export const syncResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-06-24", uri: "/sync/{resourceType}/{resource}", method: "POST", sdkId: "Service Catalog AppRegistry", sigV4ServiceName: "servicecatalog", name: "AWS242AppRegistry.SyncResource" }, SyncResourceRequest, SyncResourceResponse, [ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Assigns one or more tags (key-value pairs) to the specified resource.
+ * 
+ * 
+ * Each tag consists of a key and an optional value. If a tag with the same key is already associated with the resource, this action updates its value.
+ * 
+ * 
+ * This operation returns an empty response if the call was successful.
+ */export const tagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-06-24", uri: "/tags/{resourceArn}", method: "POST", sdkId: "Service Catalog AppRegistry", sigV4ServiceName: "servicecatalog", name: "AWS242AppRegistry.TagResource" }, TagResourceRequest, TagResourceResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Removes tags from a resource.
+ * 
+ * 
+ * This operation returns an empty response if the call was successful.
+ */export const untagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-06-24", uri: "/tags/{resourceArn}", method: "DELETE", sdkId: "Service Catalog AppRegistry", sigV4ServiceName: "servicecatalog", name: "AWS242AppRegistry.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates an existing attribute group with new details.
+ */export const updateAttributeGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-06-24", uri: "/attribute-groups/{attributeGroup}", method: "PATCH", sdkId: "Service Catalog AppRegistry", sigV4ServiceName: "servicecatalog", name: "AWS242AppRegistry.UpdateAttributeGroup" }, UpdateAttributeGroupRequest, UpdateAttributeGroupResponse, [ConflictException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Associates an attribute group with an application to augment the application's metadata
+ * with the group's attributes. This feature enables applications to be described with
+ * user-defined details that are machine-readable, such as third-party integrations.
+ */export const associateAttributeGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-06-24", uri: "/applications/{application}/attribute-groups/{attributeGroup}", method: "PUT", sdkId: "Service Catalog AppRegistry", sigV4ServiceName: "servicecatalog", name: "AWS242AppRegistry.AssociateAttributeGroup" }, AssociateAttributeGroupRequest, AssociateAttributeGroupResponse, [ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Associates a resource with an application.
+ * The resource can be specified by its ARN or name.
+ * The application can be specified by ARN, ID, or name.
+ * 
+ * 
+ * 
+ * 
+ * **Minimum permissions**
+ * 
+ * 
+ * 
+ * 
+ * You must have the following permissions to associate a resource using the `OPTIONS` parameter set to `APPLY_APPLICATION_TAG`.
+ * 
+ * 
+ * 
+ * 
+ * - `tag:GetResources`
+ * 
+ * 
+ * 
+ * 
+ * - `tag:TagResources`
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * You must also have these additional permissions if you don't use the `AWSServiceCatalogAppRegistryFullAccess` policy.
+ * For more information, see AWSServiceCatalogAppRegistryFullAccess in the AppRegistry Administrator Guide.
+ * 
+ * 
+ * 
+ * 
+ * - `resource-groups:AssociateResource`
+ * 
+ * 
+ * 
+ * 
+ * - `cloudformation:UpdateStack`
+ * 
+ * 
+ * 
+ * 
+ * - `cloudformation:DescribeStacks`
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * In addition, you must have the tagging permission defined by the Amazon Web Services service that creates the resource.
+ * For more information, see TagResources in the *Resource Groups Tagging API Reference*.
+ */export const associateResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-06-24", uri: "/applications/{application}/resources/{resourceType}/{resource}", method: "PUT", sdkId: "Service Catalog AppRegistry", sigV4ServiceName: "servicecatalog", name: "AWS242AppRegistry.AssociateResource" }, AssociateResourceRequest, AssociateResourceResponse, [ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a new application that is the top-level node in a hierarchy of related cloud resource abstractions.
+ */export const createApplication = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-06-24", uri: "/applications", method: "POST", sdkId: "Service Catalog AppRegistry", sigV4ServiceName: "servicecatalog", name: "AWS242AppRegistry.CreateApplication" }, CreateApplicationRequest, CreateApplicationResponse, [ConflictException, InternalServerException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a new attribute group as a container for user-defined attributes. This feature
+ * enables users to have full control over their cloud application's metadata in a rich
+ * machine-readable format to facilitate integration with automated workflows and third-party
+ * tools.
+ */export const createAttributeGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-06-24", uri: "/attribute-groups", method: "POST", sdkId: "Service Catalog AppRegistry", sigV4ServiceName: "servicecatalog", name: "AWS242AppRegistry.CreateAttributeGroup" }, CreateAttributeGroupRequest, CreateAttributeGroupResponse, [ConflictException, InternalServerException, ServiceQuotaExceededException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes an application that is specified either by its application ID, name, or ARN. All associated attribute groups and resources must be disassociated from it before deleting an application.
+ */export const deleteApplication = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-06-24", uri: "/applications/{application}", method: "DELETE", sdkId: "Service Catalog AppRegistry", sigV4ServiceName: "servicecatalog", name: "AWS242AppRegistry.DeleteApplication" }, DeleteApplicationRequest, DeleteApplicationResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes an attribute group, specified either by its attribute group ID, name, or ARN.
+ */export const deleteAttributeGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-06-24", uri: "/attribute-groups/{attributeGroup}", method: "DELETE", sdkId: "Service Catalog AppRegistry", sigV4ServiceName: "servicecatalog", name: "AWS242AppRegistry.DeleteAttributeGroup" }, DeleteAttributeGroupRequest, DeleteAttributeGroupResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Disassociates an attribute group from an application to remove the extra attributes contained in the attribute group from the application's metadata. This operation reverts `AssociateAttributeGroup`.
+ */export const disassociateAttributeGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-06-24", uri: "/applications/{application}/attribute-groups/{attributeGroup}", method: "DELETE", sdkId: "Service Catalog AppRegistry", sigV4ServiceName: "servicecatalog", name: "AWS242AppRegistry.DisassociateAttributeGroup" }, DisassociateAttributeGroupRequest, DisassociateAttributeGroupResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves a `TagKey` configuration
+ * from an account.
+ */export const getConfiguration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-06-24", uri: "/configuration", method: "GET", sdkId: "Service Catalog AppRegistry", sigV4ServiceName: "servicecatalog", name: "AWS242AppRegistry.GetConfiguration" }, S.Struct({}), GetConfigurationResponse, [InternalServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists the details of all attribute groups associated with a specific application. The results display in pages.
+ */export const listAttributeGroupsForApplication = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-06-24", uri: "/applications/{application}/attribute-group-details", method: "GET", sdkId: "Service Catalog AppRegistry", sigV4ServiceName: "servicecatalog", name: "AWS242AppRegistry.ListAttributeGroupsForApplication" }, ListAttributeGroupsForApplicationRequest, ListAttributeGroupsForApplicationResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates an existing application with new attributes.
+ */export const updateApplication = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-06-24", uri: "/applications/{application}", method: "PATCH", sdkId: "Service Catalog AppRegistry", sigV4ServiceName: "servicecatalog", name: "AWS242AppRegistry.UpdateApplication" }, UpdateApplicationRequest, UpdateApplicationResponse, [ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves metadata information
+ * about one
+ * of your applications.
+ * The application can be specified
+ * by its ARN, ID, or name
+ * (which is unique
+ * within one account
+ * in one region
+ * at a given point
+ * in time).
+ * Specify
+ * by ARN or ID
+ * in automated workflows
+ * if you want
+ * to make sure
+ * that the exact same application is returned or a `ResourceNotFoundException` is thrown,
+ * avoiding the ABA addressing problem.
+ */export const getApplication = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-06-24", uri: "/applications/{application}", method: "GET", sdkId: "Service Catalog AppRegistry", sigV4ServiceName: "servicecatalog", name: "AWS242AppRegistry.GetApplication" }, GetApplicationRequest, GetApplicationResponse, [ConflictException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets the resource associated with the application.
+ */export const getAssociatedResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-06-24", uri: "/applications/{application}/resources/{resourceType}/{resource}", method: "GET", sdkId: "Service Catalog AppRegistry", sigV4ServiceName: "servicecatalog", name: "AWS242AppRegistry.GetAssociatedResource" }, GetAssociatedResourceRequest, GetAssociatedResourceResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists all
+ * of the resources
+ * that are associated
+ * with the specified application.
+ * Results are paginated.
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * If you share an application,
+ * and a consumer account associates a tag query
+ * to the application,
+ * all of the users
+ * who can access the application
+ * can also view the tag values
+ * in all accounts
+ * that are associated
+ * with it
+ * using this API.
+ */export const listAssociatedResources = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-06-24", uri: "/applications/{application}/resources", method: "GET", sdkId: "Service Catalog AppRegistry", sigV4ServiceName: "servicecatalog", name: "AWS242AppRegistry.ListAssociatedResources" }, ListAssociatedResourcesRequest, ListAssociatedResourcesResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

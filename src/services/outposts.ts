@@ -150,38 +150,182 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
 export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExceededException>()("ServiceQuotaExceededException", {}) {};
 
 //# Operations
-export const untagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-03", uri: "/tags/{ResourceArn}", method: "DELETE", sdkId: "Outposts", sigV4ServiceName: "outposts", name: "OutpostsOlafService.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [InternalServerException, NotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const cancelCapacityTask = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-03", uri: "/outposts/{OutpostIdentifier}/capacity/{CapacityTaskId}", method: "POST", sdkId: "Outposts", sigV4ServiceName: "outposts", name: "OutpostsOlafService.CancelCapacityTask" }, CancelCapacityTaskInput, CancelCapacityTaskOutput, [AccessDeniedException, ConflictException, InternalServerException, NotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const cancelOrder = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-03", uri: "/orders/{OrderId}/cancel", method: "POST", sdkId: "Outposts", sigV4ServiceName: "outposts", name: "OutpostsOlafService.CancelOrder" }, CancelOrderInput, CancelOrderOutput, [AccessDeniedException, ConflictException, InternalServerException, NotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteOutpost = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-03", uri: "/outposts/{OutpostId}", method: "DELETE", sdkId: "Outposts", sigV4ServiceName: "outposts", name: "OutpostsOlafService.DeleteOutpost" }, DeleteOutpostInput, DeleteOutpostOutput, [AccessDeniedException, ConflictException, InternalServerException, NotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteSite = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-03", uri: "/sites/{SiteId}", method: "DELETE", sdkId: "Outposts", sigV4ServiceName: "outposts", name: "OutpostsOlafService.DeleteSite" }, DeleteSiteInput, DeleteSiteOutput, [AccessDeniedException, ConflictException, InternalServerException, NotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getOutpostSupportedInstanceTypes = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-03", uri: "/outposts/{OutpostIdentifier}/supportedInstanceTypes", method: "GET", sdkId: "Outposts", sigV4ServiceName: "outposts", name: "OutpostsOlafService.GetOutpostSupportedInstanceTypes" }, GetOutpostSupportedInstanceTypesInput, GetOutpostSupportedInstanceTypesOutput, [AccessDeniedException, InternalServerException, NotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getSiteAddress = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-03", uri: "/sites/{SiteId}/address", method: "GET", sdkId: "Outposts", sigV4ServiceName: "outposts", name: "OutpostsOlafService.GetSiteAddress" }, GetSiteAddressInput, GetSiteAddressOutput, [AccessDeniedException, InternalServerException, NotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listCatalogItems = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-03", uri: "/catalog/items", method: "GET", sdkId: "Outposts", sigV4ServiceName: "outposts", name: "OutpostsOlafService.ListCatalogItems" }, ListCatalogItemsInput, ListCatalogItemsOutput, [AccessDeniedException, InternalServerException, NotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listOutposts = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-03", uri: "/outposts", method: "GET", sdkId: "Outposts", sigV4ServiceName: "outposts", name: "OutpostsOlafService.ListOutposts" }, ListOutpostsInput, ListOutpostsOutput, [AccessDeniedException, InternalServerException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listSites = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-03", uri: "/sites", method: "GET", sdkId: "Outposts", sigV4ServiceName: "outposts", name: "OutpostsOlafService.ListSites" }, ListSitesInput, ListSitesOutput, [AccessDeniedException, InternalServerException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listTagsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-03", uri: "/tags/{ResourceArn}", method: "GET", sdkId: "Outposts", sigV4ServiceName: "outposts", name: "OutpostsOlafService.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [InternalServerException, NotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const startConnection = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-03", uri: "/connections", method: "POST", sdkId: "Outposts", sigV4ServiceName: "outposts", name: "OutpostsOlafService.StartConnection" }, StartConnectionRequest, StartConnectionResponse, [AccessDeniedException, InternalServerException, NotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const startOutpostDecommission = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-03", uri: "/outposts/{OutpostIdentifier}/decommission", method: "POST", sdkId: "Outposts", sigV4ServiceName: "outposts", name: "OutpostsOlafService.StartOutpostDecommission" }, StartOutpostDecommissionInput, StartOutpostDecommissionOutput, [AccessDeniedException, ConflictException, InternalServerException, NotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const tagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-03", uri: "/tags/{ResourceArn}", method: "POST", sdkId: "Outposts", sigV4ServiceName: "outposts", name: "OutpostsOlafService.TagResource" }, TagResourceRequest, TagResourceResponse, [InternalServerException, NotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateOutpost = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-03", uri: "/outposts/{OutpostId}", method: "PATCH", sdkId: "Outposts", sigV4ServiceName: "outposts", name: "OutpostsOlafService.UpdateOutpost" }, UpdateOutpostInput, UpdateOutpostOutput, [AccessDeniedException, ConflictException, InternalServerException, NotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateSite = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-03", uri: "/sites/{SiteId}", method: "PATCH", sdkId: "Outposts", sigV4ServiceName: "outposts", name: "OutpostsOlafService.UpdateSite" }, UpdateSiteInput, UpdateSiteOutput, [AccessDeniedException, ConflictException, InternalServerException, NotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateSiteAddress = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-03", uri: "/sites/{SiteId}/address", method: "PUT", sdkId: "Outposts", sigV4ServiceName: "outposts", name: "OutpostsOlafService.UpdateSiteAddress" }, UpdateSiteAddressInput, UpdateSiteAddressOutput, [AccessDeniedException, ConflictException, InternalServerException, NotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateSiteRackPhysicalProperties = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-03", uri: "/sites/{SiteId}/rackPhysicalProperties", method: "PATCH", sdkId: "Outposts", sigV4ServiceName: "outposts", name: "OutpostsOlafService.UpdateSiteRackPhysicalProperties" }, UpdateSiteRackPhysicalPropertiesInput, UpdateSiteRackPhysicalPropertiesOutput, [AccessDeniedException, ConflictException, InternalServerException, NotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const createOutpost = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-03", uri: "/outposts", method: "POST", sdkId: "Outposts", sigV4ServiceName: "outposts", name: "OutpostsOlafService.CreateOutpost" }, CreateOutpostInput, CreateOutpostOutput, [AccessDeniedException, ConflictException, InternalServerException, NotFoundException, ServiceQuotaExceededException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const createSite = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-03", uri: "/sites", method: "POST", sdkId: "Outposts", sigV4ServiceName: "outposts", name: "OutpostsOlafService.CreateSite" }, CreateSiteInput, CreateSiteOutput, [AccessDeniedException, ConflictException, InternalServerException, ServiceQuotaExceededException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getCapacityTask = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-03", uri: "/outposts/{OutpostIdentifier}/capacity/{CapacityTaskId}", method: "GET", sdkId: "Outposts", sigV4ServiceName: "outposts", name: "OutpostsOlafService.GetCapacityTask" }, GetCapacityTaskInput, GetCapacityTaskOutput, [AccessDeniedException, InternalServerException, NotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getConnection = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-03", uri: "/connections/{ConnectionId}", method: "GET", sdkId: "Outposts", sigV4ServiceName: "outposts", name: "OutpostsOlafService.GetConnection" }, GetConnectionRequest, GetConnectionResponse, [AccessDeniedException, InternalServerException, NotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getOutpost = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-03", uri: "/outposts/{OutpostId}", method: "GET", sdkId: "Outposts", sigV4ServiceName: "outposts", name: "OutpostsOlafService.GetOutpost" }, GetOutpostInput, GetOutpostOutput, [AccessDeniedException, InternalServerException, NotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getOutpostBillingInformation = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-03", uri: "/outpost/{OutpostIdentifier}/billing-information", method: "GET", sdkId: "Outposts", sigV4ServiceName: "outposts", name: "OutpostsOlafService.GetOutpostBillingInformation" }, GetOutpostBillingInformationInput, GetOutpostBillingInformationOutput, [AccessDeniedException, InternalServerException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getOutpostInstanceTypes = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-03", uri: "/outposts/{OutpostId}/instanceTypes", method: "GET", sdkId: "Outposts", sigV4ServiceName: "outposts", name: "OutpostsOlafService.GetOutpostInstanceTypes" }, GetOutpostInstanceTypesInput, GetOutpostInstanceTypesOutput, [AccessDeniedException, InternalServerException, NotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getSite = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-03", uri: "/sites/{SiteId}", method: "GET", sdkId: "Outposts", sigV4ServiceName: "outposts", name: "OutpostsOlafService.GetSite" }, GetSiteInput, GetSiteOutput, [AccessDeniedException, InternalServerException, NotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listAssetInstances = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-03", uri: "/outposts/{OutpostIdentifier}/assetInstances", method: "GET", sdkId: "Outposts", sigV4ServiceName: "outposts", name: "OutpostsOlafService.ListAssetInstances" }, ListAssetInstancesInput, ListAssetInstancesOutput, [AccessDeniedException, InternalServerException, NotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listBlockingInstancesForCapacityTask = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-03", uri: "/outposts/{OutpostIdentifier}/capacity/{CapacityTaskId}/blockingInstances", method: "GET", sdkId: "Outposts", sigV4ServiceName: "outposts", name: "OutpostsOlafService.ListBlockingInstancesForCapacityTask" }, ListBlockingInstancesForCapacityTaskInput, ListBlockingInstancesForCapacityTaskOutput, [AccessDeniedException, InternalServerException, NotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listCapacityTasks = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-03", uri: "/capacity/tasks", method: "GET", sdkId: "Outposts", sigV4ServiceName: "outposts", name: "OutpostsOlafService.ListCapacityTasks" }, ListCapacityTasksInput, ListCapacityTasksOutput, [AccessDeniedException, InternalServerException, NotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const startCapacityTask = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-03", uri: "/outposts/{OutpostIdentifier}/capacity", method: "POST", sdkId: "Outposts", sigV4ServiceName: "outposts", name: "OutpostsOlafService.StartCapacityTask" }, StartCapacityTaskInput, StartCapacityTaskOutput, [AccessDeniedException, ConflictException, InternalServerException, NotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const createOrder = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-03", uri: "/orders", method: "POST", sdkId: "Outposts", sigV4ServiceName: "outposts", name: "OutpostsOlafService.CreateOrder" }, CreateOrderInput, CreateOrderOutput, [AccessDeniedException, ConflictException, InternalServerException, NotFoundException, ServiceQuotaExceededException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getCatalogItem = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-03", uri: "/catalog/item/{CatalogItemId}", method: "GET", sdkId: "Outposts", sigV4ServiceName: "outposts", name: "OutpostsOlafService.GetCatalogItem" }, GetCatalogItemInput, GetCatalogItemOutput, [AccessDeniedException, InternalServerException, NotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listOrders = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-03", uri: "/list-orders", method: "GET", sdkId: "Outposts", sigV4ServiceName: "outposts", name: "OutpostsOlafService.ListOrders" }, ListOrdersInput, ListOrdersOutput, [AccessDeniedException, InternalServerException, NotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getOrder = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-03", uri: "/orders/{OrderId}", method: "GET", sdkId: "Outposts", sigV4ServiceName: "outposts", name: "OutpostsOlafService.GetOrder" }, GetOrderInput, GetOrderOutput, [InternalServerException, NotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listAssets = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-03", uri: "/outposts/{OutpostIdentifier}/assets", method: "GET", sdkId: "Outposts", sigV4ServiceName: "outposts", name: "OutpostsOlafService.ListAssets" }, ListAssetsInput, ListAssetsOutput, [AccessDeniedException, InternalServerException, NotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Removes tags from the specified resource.
+ */export const untagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-03", uri: "/tags/{ResourceArn}", method: "DELETE", sdkId: "Outposts", sigV4ServiceName: "outposts", name: "OutpostsOlafService.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [InternalServerException, NotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Cancels the capacity task.
+ */export const cancelCapacityTask = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-03", uri: "/outposts/{OutpostIdentifier}/capacity/{CapacityTaskId}", method: "POST", sdkId: "Outposts", sigV4ServiceName: "outposts", name: "OutpostsOlafService.CancelCapacityTask" }, CancelCapacityTaskInput, CancelCapacityTaskOutput, [AccessDeniedException, ConflictException, InternalServerException, NotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Cancels the specified order for an Outpost.
+ */export const cancelOrder = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-03", uri: "/orders/{OrderId}/cancel", method: "POST", sdkId: "Outposts", sigV4ServiceName: "outposts", name: "OutpostsOlafService.CancelOrder" }, CancelOrderInput, CancelOrderOutput, [AccessDeniedException, ConflictException, InternalServerException, NotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes the specified Outpost.
+ */export const deleteOutpost = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-03", uri: "/outposts/{OutpostId}", method: "DELETE", sdkId: "Outposts", sigV4ServiceName: "outposts", name: "OutpostsOlafService.DeleteOutpost" }, DeleteOutpostInput, DeleteOutpostOutput, [AccessDeniedException, ConflictException, InternalServerException, NotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes the specified site.
+ */export const deleteSite = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-03", uri: "/sites/{SiteId}", method: "DELETE", sdkId: "Outposts", sigV4ServiceName: "outposts", name: "OutpostsOlafService.DeleteSite" }, DeleteSiteInput, DeleteSiteOutput, [AccessDeniedException, ConflictException, InternalServerException, NotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets the instance types that an Outpost can support in `InstanceTypeCapacity`.
+ * This will generally include instance types that are not currently configured and therefore
+ * cannot be launched with the current Outpost capacity configuration.
+ */export const getOutpostSupportedInstanceTypes = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-03", uri: "/outposts/{OutpostIdentifier}/supportedInstanceTypes", method: "GET", sdkId: "Outposts", sigV4ServiceName: "outposts", name: "OutpostsOlafService.GetOutpostSupportedInstanceTypes" }, GetOutpostSupportedInstanceTypesInput, GetOutpostSupportedInstanceTypesOutput, [AccessDeniedException, InternalServerException, NotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets the site address of the specified site.
+ */export const getSiteAddress = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-03", uri: "/sites/{SiteId}/address", method: "GET", sdkId: "Outposts", sigV4ServiceName: "outposts", name: "OutpostsOlafService.GetSiteAddress" }, GetSiteAddressInput, GetSiteAddressOutput, [AccessDeniedException, InternalServerException, NotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists the items in the catalog.
+ * 
+ * 
+ * Use filters to return specific results. If you specify multiple filters, the results include only the resources that match
+ * all of the specified filters. For a filter where you can specify multiple values, the results include
+ * items that match any of the values that you specify for the filter.
+ */export const listCatalogItems = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-03", uri: "/catalog/items", method: "GET", sdkId: "Outposts", sigV4ServiceName: "outposts", name: "OutpostsOlafService.ListCatalogItems" }, ListCatalogItemsInput, ListCatalogItemsOutput, [AccessDeniedException, InternalServerException, NotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists the Outposts for your Amazon Web Services account.
+ * 
+ * 
+ * Use filters to return specific results. If you specify multiple filters, the results include only the resources that match
+ * all of the specified filters. For a filter where you can specify multiple values, the results include
+ * items that match any of the values that you specify for the filter.
+ */export const listOutposts = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-03", uri: "/outposts", method: "GET", sdkId: "Outposts", sigV4ServiceName: "outposts", name: "OutpostsOlafService.ListOutposts" }, ListOutpostsInput, ListOutpostsOutput, [AccessDeniedException, InternalServerException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists the Outpost sites for your Amazon Web Services account. Use filters to return specific
+ * results.
+ * 
+ * 
+ * Use filters to return specific results. If you specify multiple filters, the results include only the resources that match
+ * all of the specified filters. For a filter where you can specify multiple values, the results include
+ * items that match any of the values that you specify for the filter.
+ */export const listSites = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-03", uri: "/sites", method: "GET", sdkId: "Outposts", sigV4ServiceName: "outposts", name: "OutpostsOlafService.ListSites" }, ListSitesInput, ListSitesOutput, [AccessDeniedException, InternalServerException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists the tags for the specified resource.
+ */export const listTagsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-03", uri: "/tags/{ResourceArn}", method: "GET", sdkId: "Outposts", sigV4ServiceName: "outposts", name: "OutpostsOlafService.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [InternalServerException, NotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Amazon Web Services uses this action to install Outpost servers.
+ * 
+ * 
+ * 
+ * 
+ * Starts the connection required for Outpost server installation.
+ * 
+ * 
+ * 
+ * Use CloudTrail to monitor this action or Amazon Web Services managed policy for Amazon Web Services Outposts to secure it. For
+ * more information, see
+ * Amazon Web Services managed policies for Amazon Web Services Outposts and
+ * Logging Amazon Web Services Outposts API calls with Amazon Web Services CloudTrail in the *Amazon Web Services Outposts User Guide*.
+ */export const startConnection = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-03", uri: "/connections", method: "POST", sdkId: "Outposts", sigV4ServiceName: "outposts", name: "OutpostsOlafService.StartConnection" }, StartConnectionRequest, StartConnectionResponse, [AccessDeniedException, InternalServerException, NotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Starts the decommission process to return the Outposts racks or servers.
+ */export const startOutpostDecommission = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-03", uri: "/outposts/{OutpostIdentifier}/decommission", method: "POST", sdkId: "Outposts", sigV4ServiceName: "outposts", name: "OutpostsOlafService.StartOutpostDecommission" }, StartOutpostDecommissionInput, StartOutpostDecommissionOutput, [AccessDeniedException, ConflictException, InternalServerException, NotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Adds tags to the specified resource.
+ */export const tagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-03", uri: "/tags/{ResourceArn}", method: "POST", sdkId: "Outposts", sigV4ServiceName: "outposts", name: "OutpostsOlafService.TagResource" }, TagResourceRequest, TagResourceResponse, [InternalServerException, NotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates an Outpost.
+ */export const updateOutpost = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-03", uri: "/outposts/{OutpostId}", method: "PATCH", sdkId: "Outposts", sigV4ServiceName: "outposts", name: "OutpostsOlafService.UpdateOutpost" }, UpdateOutpostInput, UpdateOutpostOutput, [AccessDeniedException, ConflictException, InternalServerException, NotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates the specified site.
+ */export const updateSite = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-03", uri: "/sites/{SiteId}", method: "PATCH", sdkId: "Outposts", sigV4ServiceName: "outposts", name: "OutpostsOlafService.UpdateSite" }, UpdateSiteInput, UpdateSiteOutput, [AccessDeniedException, ConflictException, InternalServerException, NotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates the address of the specified site.
+ * 
+ * 
+ * You can't update a site address if there is an order in progress. You must wait for the
+ * order to complete or cancel the order.
+ * 
+ * 
+ * You can update the operating address before you place an order at the site, or after all
+ * Outposts that belong to the site have been deactivated.
+ */export const updateSiteAddress = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-03", uri: "/sites/{SiteId}/address", method: "PUT", sdkId: "Outposts", sigV4ServiceName: "outposts", name: "OutpostsOlafService.UpdateSiteAddress" }, UpdateSiteAddressInput, UpdateSiteAddressOutput, [AccessDeniedException, ConflictException, InternalServerException, NotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Update the physical and logistical details for a rack at a site. For more information
+ * about hardware requirements for racks, see Network
+ * readiness checklist in the Amazon Web Services Outposts User Guide.
+ * 
+ * 
+ * 
+ * To update a rack at a site with an order of `IN_PROGRESS`, you must wait for
+ * the order to complete or cancel the order.
+ */export const updateSiteRackPhysicalProperties = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-03", uri: "/sites/{SiteId}/rackPhysicalProperties", method: "PATCH", sdkId: "Outposts", sigV4ServiceName: "outposts", name: "OutpostsOlafService.UpdateSiteRackPhysicalProperties" }, UpdateSiteRackPhysicalPropertiesInput, UpdateSiteRackPhysicalPropertiesOutput, [AccessDeniedException, ConflictException, InternalServerException, NotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates an Outpost.
+ * 
+ * 
+ * You can specify either an Availability one or an AZ ID.
+ */export const createOutpost = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-03", uri: "/outposts", method: "POST", sdkId: "Outposts", sigV4ServiceName: "outposts", name: "OutpostsOlafService.CreateOutpost" }, CreateOutpostInput, CreateOutpostOutput, [AccessDeniedException, ConflictException, InternalServerException, NotFoundException, ServiceQuotaExceededException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a site for an Outpost.
+ */export const createSite = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-03", uri: "/sites", method: "POST", sdkId: "Outposts", sigV4ServiceName: "outposts", name: "OutpostsOlafService.CreateSite" }, CreateSiteInput, CreateSiteOutput, [AccessDeniedException, ConflictException, InternalServerException, ServiceQuotaExceededException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets details of the specified capacity task.
+ */export const getCapacityTask = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-03", uri: "/outposts/{OutpostIdentifier}/capacity/{CapacityTaskId}", method: "GET", sdkId: "Outposts", sigV4ServiceName: "outposts", name: "OutpostsOlafService.GetCapacityTask" }, GetCapacityTaskInput, GetCapacityTaskOutput, [AccessDeniedException, InternalServerException, NotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Amazon Web Services uses this action to install Outpost servers.
+ * 
+ * 
+ * 
+ * 
+ * Gets information about the specified connection.
+ * 
+ * 
+ * 
+ * Use CloudTrail to monitor this action or Amazon Web Services managed policy for Amazon Web Services Outposts to secure it. For
+ * more information, see
+ * Amazon Web Services managed policies for Amazon Web Services Outposts and
+ * Logging Amazon Web Services Outposts API calls with Amazon Web Services CloudTrail in the *Amazon Web Services Outposts User Guide*.
+ */export const getConnection = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-03", uri: "/connections/{ConnectionId}", method: "GET", sdkId: "Outposts", sigV4ServiceName: "outposts", name: "OutpostsOlafService.GetConnection" }, GetConnectionRequest, GetConnectionResponse, [AccessDeniedException, InternalServerException, NotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets information about the specified Outpost.
+ */export const getOutpost = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-03", uri: "/outposts/{OutpostId}", method: "GET", sdkId: "Outposts", sigV4ServiceName: "outposts", name: "OutpostsOlafService.GetOutpost" }, GetOutpostInput, GetOutpostOutput, [AccessDeniedException, InternalServerException, NotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets current and historical billing information about the specified Outpost.
+ */export const getOutpostBillingInformation = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-03", uri: "/outpost/{OutpostIdentifier}/billing-information", method: "GET", sdkId: "Outposts", sigV4ServiceName: "outposts", name: "OutpostsOlafService.GetOutpostBillingInformation" }, GetOutpostBillingInformationInput, GetOutpostBillingInformationOutput, [AccessDeniedException, InternalServerException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets the instance types for the specified Outpost.
+ */export const getOutpostInstanceTypes = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-03", uri: "/outposts/{OutpostId}/instanceTypes", method: "GET", sdkId: "Outposts", sigV4ServiceName: "outposts", name: "OutpostsOlafService.GetOutpostInstanceTypes" }, GetOutpostInstanceTypesInput, GetOutpostInstanceTypesOutput, [AccessDeniedException, InternalServerException, NotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets information about the specified Outpost site.
+ */export const getSite = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-03", uri: "/sites/{SiteId}", method: "GET", sdkId: "Outposts", sigV4ServiceName: "outposts", name: "OutpostsOlafService.GetSite" }, GetSiteInput, GetSiteOutput, [AccessDeniedException, InternalServerException, NotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * A list of Amazon EC2 instances, belonging to all accounts, running on the specified Outpost.
+ * Does not include Amazon EBS or Amazon S3 instances.
+ */export const listAssetInstances = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-03", uri: "/outposts/{OutpostIdentifier}/assetInstances", method: "GET", sdkId: "Outposts", sigV4ServiceName: "outposts", name: "OutpostsOlafService.ListAssetInstances" }, ListAssetInstancesInput, ListAssetInstancesOutput, [AccessDeniedException, InternalServerException, NotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * A list of Amazon EC2 instances running on the Outpost and belonging to the account that
+ * initiated the capacity task. Use this list to specify the instances you cannot stop to free up
+ * capacity to run the capacity task.
+ */export const listBlockingInstancesForCapacityTask = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-03", uri: "/outposts/{OutpostIdentifier}/capacity/{CapacityTaskId}/blockingInstances", method: "GET", sdkId: "Outposts", sigV4ServiceName: "outposts", name: "OutpostsOlafService.ListBlockingInstancesForCapacityTask" }, ListBlockingInstancesForCapacityTaskInput, ListBlockingInstancesForCapacityTaskOutput, [AccessDeniedException, InternalServerException, NotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists the capacity tasks for your Amazon Web Services account.
+ * 
+ * 
+ * Use filters to return specific results. If you specify multiple filters, the results include only the resources that match
+ * all of the specified filters. For a filter where you can specify multiple values, the results include
+ * items that match any of the values that you specify for the filter.
+ */export const listCapacityTasks = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-03", uri: "/capacity/tasks", method: "GET", sdkId: "Outposts", sigV4ServiceName: "outposts", name: "OutpostsOlafService.ListCapacityTasks" }, ListCapacityTasksInput, ListCapacityTasksOutput, [AccessDeniedException, InternalServerException, NotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Starts the specified capacity task. You can have one active capacity task for each order
+ * and each Outpost.
+ */export const startCapacityTask = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-03", uri: "/outposts/{OutpostIdentifier}/capacity", method: "POST", sdkId: "Outposts", sigV4ServiceName: "outposts", name: "OutpostsOlafService.StartCapacityTask" }, StartCapacityTaskInput, StartCapacityTaskOutput, [AccessDeniedException, ConflictException, InternalServerException, NotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates an order for an Outpost.
+ */export const createOrder = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-03", uri: "/orders", method: "POST", sdkId: "Outposts", sigV4ServiceName: "outposts", name: "OutpostsOlafService.CreateOrder" }, CreateOrderInput, CreateOrderOutput, [AccessDeniedException, ConflictException, InternalServerException, NotFoundException, ServiceQuotaExceededException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets information about the specified catalog item.
+ */export const getCatalogItem = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-03", uri: "/catalog/item/{CatalogItemId}", method: "GET", sdkId: "Outposts", sigV4ServiceName: "outposts", name: "OutpostsOlafService.GetCatalogItem" }, GetCatalogItemInput, GetCatalogItemOutput, [AccessDeniedException, InternalServerException, NotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists the Outpost orders for your Amazon Web Services account.
+ */export const listOrders = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-03", uri: "/list-orders", method: "GET", sdkId: "Outposts", sigV4ServiceName: "outposts", name: "OutpostsOlafService.ListOrders" }, ListOrdersInput, ListOrdersOutput, [AccessDeniedException, InternalServerException, NotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets information about the specified order.
+ */export const getOrder = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-03", uri: "/orders/{OrderId}", method: "GET", sdkId: "Outposts", sigV4ServiceName: "outposts", name: "OutpostsOlafService.GetOrder" }, GetOrderInput, GetOrderOutput, [InternalServerException, NotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists the hardware assets for the specified Outpost.
+ * 
+ * 
+ * Use filters to return specific results. If you specify multiple filters, the results include only the resources that match
+ * all of the specified filters. For a filter where you can specify multiple values, the results include
+ * items that match any of the values that you specify for the filter.
+ */export const listAssets = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-03", uri: "/outposts/{OutpostIdentifier}/assets", method: "GET", sdkId: "Outposts", sigV4ServiceName: "outposts", name: "OutpostsOlafService.ListAssets" }, ListAssetsInput, ListAssetsOutput, [AccessDeniedException, InternalServerException, NotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

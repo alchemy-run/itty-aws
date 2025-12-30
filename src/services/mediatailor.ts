@@ -26,8 +26,18 @@ export class ListAlertsResponse extends S.Class<ListAlertsResponse>("ListAlertsR
 export class BadRequestException extends S.TaggedError<BadRequestException>()("BadRequestException", {}) {};
 
 //# Operations
-export const listTagsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-23", uri: "/tags/{ResourceArn}", method: "GET", sdkId: "MediaTailor", sigV4ServiceName: "mediatailor", name: "MediaTailor.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [BadRequestException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const tagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-23", uri: "/tags/{ResourceArn}", method: "POST", sdkId: "MediaTailor", sigV4ServiceName: "mediatailor", name: "MediaTailor.TagResource" }, TagResourceRequest, S.Struct({}), [BadRequestException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const untagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-23", uri: "/tags/{ResourceArn}", method: "DELETE", sdkId: "MediaTailor", sigV4ServiceName: "mediatailor", name: "MediaTailor.UntagResource" }, UntagResourceRequest, S.Struct({}), [BadRequestException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const configureLogsForPlaybackConfiguration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-23", uri: "/configureLogs/playbackConfiguration", method: "PUT", sdkId: "MediaTailor", sigV4ServiceName: "mediatailor", name: "MediaTailor.ConfigureLogsForPlaybackConfiguration" }, ConfigureLogsForPlaybackConfigurationRequest, ConfigureLogsForPlaybackConfigurationResponse, []), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listAlerts = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-23", uri: "/alerts", method: "GET", sdkId: "MediaTailor", sigV4ServiceName: "mediatailor", name: "MediaTailor.ListAlerts" }, ListAlertsRequest, ListAlertsResponse, []), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * A list of tags that are associated with this resource. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see Tagging AWS Elemental MediaTailor Resources.
+ */export const listTagsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-23", uri: "/tags/{ResourceArn}", method: "GET", sdkId: "MediaTailor", sigV4ServiceName: "mediatailor", name: "MediaTailor.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [BadRequestException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * The resource to tag. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see Tagging AWS Elemental MediaTailor Resources.
+ */export const tagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-23", uri: "/tags/{ResourceArn}", method: "POST", sdkId: "MediaTailor", sigV4ServiceName: "mediatailor", name: "MediaTailor.TagResource" }, TagResourceRequest, S.Struct({}), [BadRequestException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * The resource to untag.
+ */export const untagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-23", uri: "/tags/{ResourceArn}", method: "DELETE", sdkId: "MediaTailor", sigV4ServiceName: "mediatailor", name: "MediaTailor.UntagResource" }, UntagResourceRequest, S.Struct({}), [BadRequestException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Defines where AWS Elemental MediaTailor sends logs for the playback configuration.
+ */export const configureLogsForPlaybackConfiguration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-23", uri: "/configureLogs/playbackConfiguration", method: "PUT", sdkId: "MediaTailor", sigV4ServiceName: "mediatailor", name: "MediaTailor.ConfigureLogsForPlaybackConfiguration" }, ConfigureLogsForPlaybackConfigurationRequest, ConfigureLogsForPlaybackConfigurationResponse, []), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists the alerts that are associated with a MediaTailor channel assembly resource.
+ */export const listAlerts = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-23", uri: "/alerts", method: "GET", sdkId: "MediaTailor", sigV4ServiceName: "mediatailor", name: "MediaTailor.ListAlerts" }, ListAlertsRequest, ListAlertsResponse, []), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

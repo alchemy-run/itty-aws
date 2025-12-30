@@ -60,14 +60,366 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 export class ResourceNotFoundException extends S.TaggedError<ResourceNotFoundException>()("ResourceNotFoundException", {Message: S.optional(S.String), ResourceId: S.optional(S.String), ResourceType: S.optional(S.String)}) {};
 
 //# Operations
-export const getAttachment = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-07", uri: "/participant/attachment", method: "POST", sdkId: "ConnectParticipant", sigV4ServiceName: "execute-api", name: "AmazonConnectParticipantServiceLambda.GetAttachment" }, GetAttachmentRequest, GetAttachmentResponse, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getAuthenticationUrl = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-07", uri: "/participant/authentication-url", method: "POST", sdkId: "ConnectParticipant", sigV4ServiceName: "execute-api", name: "AmazonConnectParticipantServiceLambda.GetAuthenticationUrl" }, GetAuthenticationUrlRequest, GetAuthenticationUrlResponse, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const sendEvent = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-07", uri: "/participant/event", method: "POST", sdkId: "ConnectParticipant", sigV4ServiceName: "execute-api", name: "AmazonConnectParticipantServiceLambda.SendEvent" }, SendEventRequest, SendEventResponse, [AccessDeniedException, ConflictException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const cancelParticipantAuthentication = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-07", uri: "/participant/cancel-authentication", method: "POST", sdkId: "ConnectParticipant", sigV4ServiceName: "execute-api", name: "AmazonConnectParticipantServiceLambda.CancelParticipantAuthentication" }, CancelParticipantAuthenticationRequest, CancelParticipantAuthenticationResponse, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const completeAttachmentUpload = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-07", uri: "/participant/complete-attachment-upload", method: "POST", sdkId: "ConnectParticipant", sigV4ServiceName: "execute-api", name: "AmazonConnectParticipantServiceLambda.CompleteAttachmentUpload" }, CompleteAttachmentUploadRequest, CompleteAttachmentUploadResponse, [AccessDeniedException, ConflictException, InternalServerException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const disconnectParticipant = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-07", uri: "/participant/disconnect", method: "POST", sdkId: "ConnectParticipant", sigV4ServiceName: "execute-api", name: "AmazonConnectParticipantServiceLambda.DisconnectParticipant" }, DisconnectParticipantRequest, DisconnectParticipantResponse, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const sendMessage = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-07", uri: "/participant/message", method: "POST", sdkId: "ConnectParticipant", sigV4ServiceName: "execute-api", name: "AmazonConnectParticipantServiceLambda.SendMessage" }, SendMessageRequest, SendMessageResponse, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const startAttachmentUpload = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-07", uri: "/participant/start-attachment-upload", method: "POST", sdkId: "ConnectParticipant", sigV4ServiceName: "execute-api", name: "AmazonConnectParticipantServiceLambda.StartAttachmentUpload" }, StartAttachmentUploadRequest, StartAttachmentUploadResponse, [AccessDeniedException, InternalServerException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeView = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-07", uri: "/participant/views/{ViewToken}", method: "GET", sdkId: "ConnectParticipant", sigV4ServiceName: "execute-api", name: "AmazonConnectParticipantServiceLambda.DescribeView" }, DescribeViewRequest, DescribeViewResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const createParticipantConnection = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-07", uri: "/participant/connection", method: "POST", sdkId: "ConnectParticipant", sigV4ServiceName: "execute-api", name: "AmazonConnectParticipantServiceLambda.CreateParticipantConnection" }, CreateParticipantConnectionRequest, CreateParticipantConnectionResponse, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getTranscript = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-07", uri: "/participant/transcript", method: "POST", sdkId: "ConnectParticipant", sigV4ServiceName: "execute-api", name: "AmazonConnectParticipantServiceLambda.GetTranscript" }, GetTranscriptRequest, GetTranscriptResponse, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Provides a pre-signed URL for download of a completed attachment. This is an
+ * asynchronous API for use with active contacts.
+ * 
+ * 
+ * For security recommendations, see Amazon Connect Chat security best practices.
+ * 
+ * 
+ * 
+ * 
+ * 
+ * - The participant role `CUSTOM_BOT` is not permitted to access
+ * attachments customers may upload. An `AccessDeniedException` can
+ * indicate that the participant may be a CUSTOM_BOT, and it doesn't have
+ * access to attachments.
+ * 
+ * 
+ * 
+ * - `ConnectionToken` is used for invoking this API instead of
+ * `ParticipantToken`.
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * The Amazon Connect Participant Service APIs do not use Signature Version 4
+ * authentication.
+ */export const getAttachment = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-07", uri: "/participant/attachment", method: "POST", sdkId: "ConnectParticipant", sigV4ServiceName: "execute-api", name: "AmazonConnectParticipantServiceLambda.GetAttachment" }, GetAttachmentRequest, GetAttachmentResponse, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves the AuthenticationUrl for the current authentication session for the
+ * AuthenticateCustomer flow block.
+ * 
+ * 
+ * For security recommendations, see Amazon Connect Chat security best practices.
+ * 
+ * 
+ * 
+ * 
+ * 
+ * - This API can only be called within one minute of receiving the
+ * authenticationInitiated event.
+ * 
+ * 
+ * 
+ * - The current supported channel is chat. This API is not supported for Apple
+ * Messages for Business, WhatsApp, or SMS chats.
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * `ConnectionToken` is used for invoking this API instead of
+ * `ParticipantToken`.
+ * 
+ * 
+ * 
+ * 
+ * The Amazon Connect Participant Service APIs do not use Signature Version 4
+ * authentication.
+ */export const getAuthenticationUrl = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-07", uri: "/participant/authentication-url", method: "POST", sdkId: "ConnectParticipant", sigV4ServiceName: "execute-api", name: "AmazonConnectParticipantServiceLambda.GetAuthenticationUrl" }, GetAuthenticationUrlRequest, GetAuthenticationUrlResponse, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * The `application/vnd.amazonaws.connect.event.connection.acknowledged`
+ * ContentType is no longer maintained since December 31, 2024. This event has been
+ * migrated to the CreateParticipantConnection API using the
+ * `ConnectParticipant` field.
+ * 
+ * 
+ * 
+ * 
+ * Sends an event. Message receipts are not supported when there are more than two active
+ * participants in the chat. Using the SendEvent API for message receipts when a supervisor
+ * is barged-in will result in a conflict exception.
+ * 
+ * 
+ * For security recommendations, see Amazon Connect Chat security best practices.
+ * 
+ * 
+ * 
+ * 
+ * 
+ * `ConnectionToken` is used for invoking this API instead of
+ * `ParticipantToken`.
+ * 
+ * 
+ * 
+ * 
+ * The Amazon Connect Participant Service APIs do not use Signature Version 4
+ * authentication.
+ */export const sendEvent = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-07", uri: "/participant/event", method: "POST", sdkId: "ConnectParticipant", sigV4ServiceName: "execute-api", name: "AmazonConnectParticipantServiceLambda.SendEvent" }, SendEventRequest, SendEventResponse, [AccessDeniedException, ConflictException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Cancels the authentication session. The opted out branch of the Authenticate Customer
+ * flow block will be taken.
+ * 
+ * 
+ * 
+ * 
+ * The current supported channel is chat. This API is not supported for Apple
+ * Messages for Business, WhatsApp, or SMS chats.
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * `ConnectionToken` is used for invoking this API instead of
+ * `ParticipantToken`.
+ * 
+ * 
+ * 
+ * 
+ * The Amazon Connect Participant Service APIs do not use Signature Version 4
+ * authentication.
+ */export const cancelParticipantAuthentication = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-07", uri: "/participant/cancel-authentication", method: "POST", sdkId: "ConnectParticipant", sigV4ServiceName: "execute-api", name: "AmazonConnectParticipantServiceLambda.CancelParticipantAuthentication" }, CancelParticipantAuthenticationRequest, CancelParticipantAuthenticationResponse, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Allows you to confirm that the attachment has been uploaded using the pre-signed URL
+ * provided in StartAttachmentUpload API. A conflict exception is thrown when an attachment
+ * with that identifier is already being uploaded.
+ * 
+ * 
+ * For security recommendations, see Amazon Connect Chat security best practices.
+ * 
+ * 
+ * 
+ * 
+ * 
+ * `ConnectionToken` is used for invoking this API instead of
+ * `ParticipantToken`.
+ * 
+ * 
+ * 
+ * 
+ * The Amazon Connect Participant Service APIs do not use Signature Version 4
+ * authentication.
+ */export const completeAttachmentUpload = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-07", uri: "/participant/complete-attachment-upload", method: "POST", sdkId: "ConnectParticipant", sigV4ServiceName: "execute-api", name: "AmazonConnectParticipantServiceLambda.CompleteAttachmentUpload" }, CompleteAttachmentUploadRequest, CompleteAttachmentUploadResponse, [AccessDeniedException, ConflictException, InternalServerException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Disconnects a participant.
+ * 
+ * 
+ * For security recommendations, see Amazon Connect Chat security best practices.
+ * 
+ * 
+ * 
+ * 
+ * 
+ * `ConnectionToken` is used for invoking this API instead of
+ * `ParticipantToken`.
+ * 
+ * 
+ * 
+ * 
+ * The Amazon Connect Participant Service APIs do not use Signature Version 4
+ * authentication.
+ */export const disconnectParticipant = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-07", uri: "/participant/disconnect", method: "POST", sdkId: "ConnectParticipant", sigV4ServiceName: "execute-api", name: "AmazonConnectParticipantServiceLambda.DisconnectParticipant" }, DisconnectParticipantRequest, DisconnectParticipantResponse, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Sends a message.
+ * 
+ * 
+ * For security recommendations, see Amazon Connect Chat security best practices.
+ * 
+ * 
+ * 
+ * 
+ * 
+ * `ConnectionToken` is used for invoking this API instead of
+ * `ParticipantToken`.
+ * 
+ * 
+ * 
+ * 
+ * The Amazon Connect Participant Service APIs do not use Signature Version 4
+ * authentication.
+ */export const sendMessage = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-07", uri: "/participant/message", method: "POST", sdkId: "ConnectParticipant", sigV4ServiceName: "execute-api", name: "AmazonConnectParticipantServiceLambda.SendMessage" }, SendMessageRequest, SendMessageResponse, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Provides a pre-signed Amazon S3 URL in response for uploading the file directly to
+ * S3.
+ * 
+ * 
+ * For security recommendations, see Amazon Connect Chat security best practices.
+ * 
+ * 
+ * 
+ * 
+ * 
+ * `ConnectionToken` is used for invoking this API instead of
+ * `ParticipantToken`.
+ * 
+ * 
+ * 
+ * 
+ * The Amazon Connect Participant Service APIs do not use Signature Version 4
+ * authentication.
+ */export const startAttachmentUpload = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-07", uri: "/participant/start-attachment-upload", method: "POST", sdkId: "ConnectParticipant", sigV4ServiceName: "execute-api", name: "AmazonConnectParticipantServiceLambda.StartAttachmentUpload" }, StartAttachmentUploadRequest, StartAttachmentUploadResponse, [AccessDeniedException, InternalServerException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves the view for the specified view token.
+ * 
+ * 
+ * For security recommendations, see Amazon Connect Chat security best practices.
+ */export const describeView = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-07", uri: "/participant/views/{ViewToken}", method: "GET", sdkId: "ConnectParticipant", sigV4ServiceName: "execute-api", name: "AmazonConnectParticipantServiceLambda.DescribeView" }, DescribeViewRequest, DescribeViewResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates the participant's connection.
+ * 
+ * 
+ * For security recommendations, see Amazon Connect Chat security best practices.
+ * 
+ * 
+ * For WebRTC security recommendations, see Amazon Connect WebRTC security best practices.
+ * 
+ * 
+ * 
+ * 
+ * 
+ * `ParticipantToken` is used for invoking this API instead of
+ * `ConnectionToken`.
+ * 
+ * 
+ * 
+ * 
+ * The participant token is valid for the lifetime of the participant – until they are
+ * part of a contact. For WebRTC participants, if they leave or are disconnected for 60
+ * seconds, a new participant needs to be created using the CreateParticipant API.
+ * 
+ * 
+ * 
+ * **For `WEBSOCKET` Type**:
+ * 
+ * 
+ * The response URL for has a connect expiry timeout of 100s. Clients must manually
+ * connect to the returned websocket URL and subscribe to the desired topic.
+ * 
+ * 
+ * For chat, you need to publish the following on the established websocket
+ * connection:
+ * 
+ * 
+ * 
+ * `{"topic":"aws/subscribe","content":{"topics":["aws/chat"]}}`
+ * 
+ * 
+ * 
+ * Upon websocket URL expiry, as specified in the response ConnectionExpiry parameter,
+ * clients need to call this API again to obtain a new websocket URL and perform the same
+ * steps as before.
+ * 
+ * 
+ * The expiry time for the connection token is different than the
+ * `ChatDurationInMinutes`. Expiry time for the connection token is 1
+ * day.
+ * 
+ * 
+ * 
+ * **For `WEBRTC_CONNECTION` Type**:
+ * 
+ * 
+ * The response includes connection data required for the client application to join the
+ * call using the Amazon Chime SDK client libraries. The WebRTCConnection response contains
+ * Meeting and Attendee information needed to establish the media connection.
+ * 
+ * 
+ * The attendee join token in WebRTCConnection response is valid for the lifetime of the
+ * participant in the call. If a participant leaves or is disconnected for 60 seconds,
+ * their participant credentials will no longer be valid, and a new participant will need
+ * to be created to rejoin the call.
+ * 
+ * 
+ * 
+ * **Message streaming support**: This API can also be used
+ * together with the StartContactStreaming API to create a participant connection for chat
+ * contacts that are not using a websocket. For more information about message streaming,
+ * Enable real-time chat
+ * message streaming in the Amazon Connect Administrator
+ * Guide.
+ * 
+ * 
+ * 
+ * **Multi-user web, in-app, video calling support**:
+ * 
+ * 
+ * For WebRTC calls, this API is used in conjunction with the CreateParticipant API to
+ * enable multi-party calling. The StartWebRTCContact API creates the initial contact and
+ * routes it to an agent, while CreateParticipant adds additional participants to the
+ * ongoing call. For more information about multi-party WebRTC calls, see Enable multi-user web, in-app, and video calling in the Amazon Connect
+ * Administrator Guide.
+ * 
+ * 
+ * 
+ * **Feature specifications**: For information about feature
+ * specifications, such as the allowed number of open websocket connections per participant
+ * or maximum number of WebRTC participants, see Feature specifications in the Amazon Connect Administrator
+ * Guide.
+ * 
+ * 
+ * 
+ * 
+ * The Amazon Connect Participant Service APIs do not use Signature Version 4
+ * authentication.
+ */export const createParticipantConnection = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-07", uri: "/participant/connection", method: "POST", sdkId: "ConnectParticipant", sigV4ServiceName: "execute-api", name: "AmazonConnectParticipantServiceLambda.CreateParticipantConnection" }, CreateParticipantConnectionRequest, CreateParticipantConnectionResponse, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves a transcript of the session, including details about any attachments. For
+ * information about accessing past chat contact transcripts for a persistent chat, see
+ * Enable persistent chat.
+ * 
+ * 
+ * For security recommendations, see Amazon Connect Chat security best practices.
+ * 
+ * 
+ * If you have a process that consumes events in the transcript of an chat that has
+ * ended, note that chat transcripts contain the following event content types if the event
+ * has occurred during the chat session:
+ * 
+ * 
+ * 
+ * - `application/vnd.amazonaws.connect.event.participant.invited`
+ * 
+ * 
+ * 
+ * 
+ * - `application/vnd.amazonaws.connect.event.participant.joined`
+ * 
+ * 
+ * 
+ * 
+ * - `application/vnd.amazonaws.connect.event.participant.left`
+ * 
+ * 
+ * 
+ * 
+ * - `application/vnd.amazonaws.connect.event.chat.ended`
+ * 
+ * 
+ * 
+ * 
+ * - `application/vnd.amazonaws.connect.event.transfer.succeeded`
+ * 
+ * 
+ * 
+ * 
+ * - `application/vnd.amazonaws.connect.event.transfer.failed`
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * `ConnectionToken` is used for invoking this API instead of
+ * `ParticipantToken`.
+ * 
+ * 
+ * 
+ * 
+ * The Amazon Connect Participant Service APIs do not use Signature Version 4
+ * authentication.
+ */export const getTranscript = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-07", uri: "/participant/transcript", method: "POST", sdkId: "ConnectParticipant", sigV4ServiceName: "execute-api", name: "AmazonConnectParticipantServiceLambda.GetTranscript" }, GetTranscriptRequest, GetTranscriptResponse, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

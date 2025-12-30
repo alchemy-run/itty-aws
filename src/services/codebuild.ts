@@ -259,62 +259,250 @@ export class ResourceAlreadyExistsException extends S.TaggedError<ResourceAlread
 export class AccountSuspendedException extends S.TaggedError<AccountSuspendedException>()("AccountSuspendedException", {message: S.optional(S.String)}) {};
 
 //# Operations
-export const deleteProject = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.DeleteProject" }, DeleteProjectInput, DeleteProjectOutput, [InvalidInputException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteReport = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.DeleteReport" }, DeleteReportInput, DeleteReportOutput, [InvalidInputException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteReportGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.DeleteReportGroup" }, DeleteReportGroupInput, DeleteReportGroupOutput, [InvalidInputException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteResourcePolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.DeleteResourcePolicy" }, DeleteResourcePolicyInput, DeleteResourcePolicyOutput, [InvalidInputException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteBuildBatch = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.DeleteBuildBatch" }, DeleteBuildBatchInput, DeleteBuildBatchOutput, [InvalidInputException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteFleet = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.DeleteFleet" }, DeleteFleetInput, DeleteFleetOutput, [InvalidInputException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteSourceCredentials = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.DeleteSourceCredentials" }, DeleteSourceCredentialsInput, DeleteSourceCredentialsOutput, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteWebhook = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.DeleteWebhook" }, DeleteWebhookInput, DeleteWebhookOutput, [InvalidInputException, OAuthProviderException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const getResourcePolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.GetResourcePolicy" }, GetResourcePolicyInput, GetResourcePolicyOutput, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const invalidateProjectCache = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.InvalidateProjectCache" }, InvalidateProjectCacheInput, InvalidateProjectCacheOutput, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listBuildBatchesForProject = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.ListBuildBatchesForProject" }, ListBuildBatchesForProjectInput, ListBuildBatchesForProjectOutput, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listBuilds = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.ListBuilds" }, ListBuildsInput, ListBuildsOutput, [InvalidInputException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listBuildsForProject = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.ListBuildsForProject" }, ListBuildsForProjectInput, ListBuildsForProjectOutput, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listCommandExecutionsForSandbox = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.ListCommandExecutionsForSandbox" }, ListCommandExecutionsForSandboxInput, ListCommandExecutionsForSandboxOutput, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listFleets = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.ListFleets" }, ListFleetsInput, ListFleetsOutput, [InvalidInputException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listProjects = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.ListProjects" }, ListProjectsInput, ListProjectsOutput, [InvalidInputException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listReportGroups = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.ListReportGroups" }, ListReportGroupsInput, ListReportGroupsOutput, [InvalidInputException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listReportsForReportGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.ListReportsForReportGroup" }, ListReportsForReportGroupInput, ListReportsForReportGroupOutput, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listSandboxes = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.ListSandboxes" }, ListSandboxesInput, ListSandboxesOutput, [InvalidInputException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listSandboxesForProject = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.ListSandboxesForProject" }, ListSandboxesForProjectInput, ListSandboxesForProjectOutput, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listSharedProjects = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.ListSharedProjects" }, ListSharedProjectsInput, ListSharedProjectsOutput, [InvalidInputException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listSharedReportGroups = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.ListSharedReportGroups" }, ListSharedReportGroupsInput, ListSharedReportGroupsOutput, [InvalidInputException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listSourceCredentials = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.ListSourceCredentials" }, ListSourceCredentialsInput, ListSourceCredentialsOutput, [InvalidInputException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const putResourcePolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.PutResourcePolicy" }, PutResourcePolicyInput, PutResourcePolicyOutput, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const retryBuild = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.RetryBuild" }, RetryBuildInput, RetryBuildOutput, [AccountLimitExceededException, InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const retryBuildBatch = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.RetryBuildBatch" }, RetryBuildBatchInput, RetryBuildBatchOutput, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const startBuildBatch = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.StartBuildBatch" }, StartBuildBatchInput, StartBuildBatchOutput, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const startCommandExecution = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.StartCommandExecution" }, StartCommandExecutionInput, StartCommandExecutionOutput, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const stopBuild = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.StopBuild" }, StopBuildInput, StopBuildOutput, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const stopBuildBatch = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.StopBuildBatch" }, StopBuildBatchInput, StopBuildBatchOutput, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const stopSandbox = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.StopSandbox" }, StopSandboxInput, StopSandboxOutput, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateFleet = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.UpdateFleet" }, UpdateFleetInput, UpdateFleetOutput, [AccountLimitExceededException, InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateProject = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.UpdateProject" }, UpdateProjectInput, UpdateProjectOutput, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateProjectVisibility = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.UpdateProjectVisibility" }, UpdateProjectVisibilityInput, UpdateProjectVisibilityOutput, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateReportGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.UpdateReportGroup" }, UpdateReportGroupInput, UpdateReportGroupOutput, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const batchDeleteBuilds = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.BatchDeleteBuilds" }, BatchDeleteBuildsInput, BatchDeleteBuildsOutput, [InvalidInputException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const batchGetCommandExecutions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.BatchGetCommandExecutions" }, BatchGetCommandExecutionsInput, BatchGetCommandExecutionsOutput, [InvalidInputException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const batchGetReportGroups = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.BatchGetReportGroups" }, BatchGetReportGroupsInput, BatchGetReportGroupsOutput, [InvalidInputException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeCodeCoverages = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.DescribeCodeCoverages" }, DescribeCodeCoveragesInput, DescribeCodeCoveragesOutput, [InvalidInputException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const getReportGroupTrend = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.GetReportGroupTrend" }, GetReportGroupTrendInput, GetReportGroupTrendOutput, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const importSourceCredentials = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.ImportSourceCredentials" }, ImportSourceCredentialsInput, ImportSourceCredentialsOutput, [AccountLimitExceededException, InvalidInputException, ResourceAlreadyExistsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listBuildBatches = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.ListBuildBatches" }, ListBuildBatchesInput, ListBuildBatchesOutput, [InvalidInputException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listReports = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.ListReports" }, ListReportsInput, ListReportsOutput, [InvalidInputException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const startBuild = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.StartBuild" }, StartBuildInput, StartBuildOutput, [AccountLimitExceededException, InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const startSandbox = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.StartSandbox" }, StartSandboxInput, StartSandboxOutput, [AccountSuspendedException, InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const startSandboxConnection = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.StartSandboxConnection" }, StartSandboxConnectionInput, StartSandboxConnectionOutput, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateWebhook = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.UpdateWebhook" }, UpdateWebhookInput, UpdateWebhookOutput, [InvalidInputException, OAuthProviderException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const batchGetBuilds = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.BatchGetBuilds" }, BatchGetBuildsInput, BatchGetBuildsOutput, [InvalidInputException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const batchGetFleets = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.BatchGetFleets" }, BatchGetFleetsInput, BatchGetFleetsOutput, [InvalidInputException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const batchGetProjects = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.BatchGetProjects" }, BatchGetProjectsInput, BatchGetProjectsOutput, [InvalidInputException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const createFleet = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.CreateFleet" }, CreateFleetInput, CreateFleetOutput, [AccountLimitExceededException, InvalidInputException, ResourceAlreadyExistsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const createReportGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.CreateReportGroup" }, CreateReportGroupInput, CreateReportGroupOutput, [AccountLimitExceededException, InvalidInputException, ResourceAlreadyExistsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const createWebhook = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.CreateWebhook" }, CreateWebhookInput, CreateWebhookOutput, [InvalidInputException, OAuthProviderException, ResourceAlreadyExistsException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeTestCases = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.DescribeTestCases" }, DescribeTestCasesInput, DescribeTestCasesOutput, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listCuratedEnvironmentImages = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.ListCuratedEnvironmentImages" }, ListCuratedEnvironmentImagesInput, ListCuratedEnvironmentImagesOutput, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const batchGetReports = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.BatchGetReports" }, BatchGetReportsInput, BatchGetReportsOutput, [InvalidInputException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const batchGetSandboxes = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.BatchGetSandboxes" }, BatchGetSandboxesInput, BatchGetSandboxesOutput, [InvalidInputException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const createProject = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.CreateProject" }, CreateProjectInput, CreateProjectOutput, [AccountLimitExceededException, InvalidInputException, ResourceAlreadyExistsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const batchGetBuildBatches = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.BatchGetBuildBatches" }, BatchGetBuildBatchesInput, BatchGetBuildBatchesOutput, [InvalidInputException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes a build project. When you delete a project, its builds are not deleted.
+ */export const deleteProject = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.DeleteProject" }, DeleteProjectInput, DeleteProjectOutput, [InvalidInputException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes a report.
+ */export const deleteReport = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.DeleteReport" }, DeleteReportInput, DeleteReportOutput, [InvalidInputException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes a report group. Before you delete a report group, you must delete its reports.
+ */export const deleteReportGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.DeleteReportGroup" }, DeleteReportGroupInput, DeleteReportGroupOutput, [InvalidInputException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes a resource policy that is identified by its resource ARN.
+ */export const deleteResourcePolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.DeleteResourcePolicy" }, DeleteResourcePolicyInput, DeleteResourcePolicyOutput, [InvalidInputException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes a batch build.
+ */export const deleteBuildBatch = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.DeleteBuildBatch" }, DeleteBuildBatchInput, DeleteBuildBatchOutput, [InvalidInputException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes a compute fleet. When you delete a compute fleet, its builds are not deleted.
+ */export const deleteFleet = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.DeleteFleet" }, DeleteFleetInput, DeleteFleetOutput, [InvalidInputException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes a set of GitHub, GitHub Enterprise, or Bitbucket source credentials.
+ */export const deleteSourceCredentials = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.DeleteSourceCredentials" }, DeleteSourceCredentialsInput, DeleteSourceCredentialsOutput, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * For an existing CodeBuild build project that has its source code stored in a GitHub or
+ * Bitbucket repository, stops CodeBuild from rebuilding the source code every time a code
+ * change is pushed to the repository.
+ */export const deleteWebhook = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.DeleteWebhook" }, DeleteWebhookInput, DeleteWebhookOutput, [InvalidInputException, OAuthProviderException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets a resource policy that is identified by its resource ARN.
+ */export const getResourcePolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.GetResourcePolicy" }, GetResourcePolicyInput, GetResourcePolicyOutput, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Resets the cache for a project.
+ */export const invalidateProjectCache = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.InvalidateProjectCache" }, InvalidateProjectCacheInput, InvalidateProjectCacheOutput, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves the identifiers of the build batches for a specific project.
+ */export const listBuildBatchesForProject = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.ListBuildBatchesForProject" }, ListBuildBatchesForProjectInput, ListBuildBatchesForProjectOutput, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets a list of build IDs, with each build ID representing a single build.
+ */export const listBuilds = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.ListBuilds" }, ListBuildsInput, ListBuildsOutput, [InvalidInputException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets a list of build identifiers for the specified build project, with each build
+ * identifier representing a single build.
+ */export const listBuildsForProject = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.ListBuildsForProject" }, ListBuildsForProjectInput, ListBuildsForProjectOutput, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets a list of command executions for a sandbox.
+ */export const listCommandExecutionsForSandbox = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.ListCommandExecutionsForSandbox" }, ListCommandExecutionsForSandboxInput, ListCommandExecutionsForSandboxOutput, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets a list of compute fleet names with each compute fleet name representing a single compute fleet.
+ */export const listFleets = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.ListFleets" }, ListFleetsInput, ListFleetsOutput, [InvalidInputException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets a list of build project names, with each build project name representing a single
+ * build project.
+ */export const listProjects = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.ListProjects" }, ListProjectsInput, ListProjectsOutput, [InvalidInputException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets a list ARNs for the report groups in the current Amazon Web Services account.
+ */export const listReportGroups = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.ListReportGroups" }, ListReportGroupsInput, ListReportGroupsOutput, [InvalidInputException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns a list of ARNs for the reports that belong to a `ReportGroup`.
+ */export const listReportsForReportGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.ListReportsForReportGroup" }, ListReportsForReportGroupInput, ListReportsForReportGroupOutput, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets a list of sandboxes.
+ */export const listSandboxes = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.ListSandboxes" }, ListSandboxesInput, ListSandboxesOutput, [InvalidInputException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets a list of sandboxes for a given project.
+ */export const listSandboxesForProject = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.ListSandboxesForProject" }, ListSandboxesForProjectInput, ListSandboxesForProjectOutput, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets a list of projects that are shared with other Amazon Web Services accounts or users.
+ */export const listSharedProjects = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.ListSharedProjects" }, ListSharedProjectsInput, ListSharedProjectsOutput, [InvalidInputException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets a list of report groups that are shared with other Amazon Web Services accounts or users.
+ */export const listSharedReportGroups = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.ListSharedReportGroups" }, ListSharedReportGroupsInput, ListSharedReportGroupsOutput, [InvalidInputException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns a list of `SourceCredentialsInfo` objects.
+ */export const listSourceCredentials = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.ListSourceCredentials" }, ListSourceCredentialsInput, ListSourceCredentialsOutput, [InvalidInputException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Stores a resource policy for the ARN of a `Project` or
+ * `ReportGroup` object.
+ */export const putResourcePolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.PutResourcePolicy" }, PutResourcePolicyInput, PutResourcePolicyOutput, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Restarts a build.
+ */export const retryBuild = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.RetryBuild" }, RetryBuildInput, RetryBuildOutput, [AccountLimitExceededException, InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Restarts a failed batch build. Only batch builds that have failed can be retried.
+ */export const retryBuildBatch = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.RetryBuildBatch" }, RetryBuildBatchInput, RetryBuildBatchOutput, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Starts a batch build for a project.
+ */export const startBuildBatch = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.StartBuildBatch" }, StartBuildBatchInput, StartBuildBatchOutput, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Starts a command execution.
+ */export const startCommandExecution = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.StartCommandExecution" }, StartCommandExecutionInput, StartCommandExecutionOutput, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Attempts to stop running a build.
+ */export const stopBuild = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.StopBuild" }, StopBuildInput, StopBuildOutput, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Stops a running batch build.
+ */export const stopBuildBatch = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.StopBuildBatch" }, StopBuildBatchInput, StopBuildBatchOutput, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Stops a sandbox.
+ */export const stopSandbox = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.StopSandbox" }, StopSandboxInput, StopSandboxOutput, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates a compute fleet.
+ */export const updateFleet = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.UpdateFleet" }, UpdateFleetInput, UpdateFleetOutput, [AccountLimitExceededException, InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Changes the settings of a build project.
+ */export const updateProject = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.UpdateProject" }, UpdateProjectInput, UpdateProjectOutput, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Changes the public visibility for a project. The project's build results, logs, and
+ * artifacts are available to the general public. For more information, see Public build
+ * projects in the *CodeBuild User Guide*.
+ * 
+ * 
+ * 
+ * 
+ * The following should be kept in mind when making your projects public:
+ * 
+ * 
+ * 
+ * - All of a project's build results, logs, and artifacts, including builds that were run
+ * when the project was private, are available to the general public.
+ * 
+ * 
+ * 
+ * - All build logs and artifacts are available to the public. Environment variables, source
+ * code, and other sensitive information may have been output to the build logs and artifacts.
+ * You must be careful about what information is output to the build logs. Some best practice
+ * are:
+ * 
+ * 
+ * 
+ * - Do not store sensitive values in environment variables. We recommend that you use an Amazon EC2 Systems Manager Parameter Store
+ * or Secrets Manager to store sensitive values.
+ * 
+ * 
+ * 
+ * - Follow Best
+ * practices for using webhooks in the CodeBuild User
+ * Guide to limit which entities can trigger a build, and do
+ * not store the buildspec in the project itself, to ensure that your webhooks are as
+ * secure as possible.
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * - A malicious user can use public builds to distribute malicious artifacts. We recommend
+ * that you review all pull requests to verify that the pull request is a legitimate change. We
+ * also recommend that you validate any artifacts with their checksums to make sure that the
+ * correct artifacts are being downloaded.
+ */export const updateProjectVisibility = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.UpdateProjectVisibility" }, UpdateProjectVisibilityInput, UpdateProjectVisibilityOutput, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates a report group.
+ */export const updateReportGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.UpdateReportGroup" }, UpdateReportGroupInput, UpdateReportGroupOutput, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes one or more builds.
+ */export const batchDeleteBuilds = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.BatchDeleteBuilds" }, BatchDeleteBuildsInput, BatchDeleteBuildsOutput, [InvalidInputException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets information about the command executions.
+ */export const batchGetCommandExecutions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.BatchGetCommandExecutions" }, BatchGetCommandExecutionsInput, BatchGetCommandExecutionsOutput, [InvalidInputException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns an array of report groups.
+ */export const batchGetReportGroups = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.BatchGetReportGroups" }, BatchGetReportGroupsInput, BatchGetReportGroupsOutput, [InvalidInputException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves one or more code coverage reports.
+ */export const describeCodeCoverages = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.DescribeCodeCoverages" }, DescribeCodeCoveragesInput, DescribeCodeCoveragesOutput, [InvalidInputException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Analyzes and accumulates test report values for the specified test reports.
+ */export const getReportGroupTrend = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.GetReportGroupTrend" }, GetReportGroupTrendInput, GetReportGroupTrendOutput, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Imports the source repository credentials for an CodeBuild project that has its
+ * source code stored in a GitHub, GitHub Enterprise, GitLab, GitLab Self Managed, or Bitbucket repository.
+ */export const importSourceCredentials = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.ImportSourceCredentials" }, ImportSourceCredentialsInput, ImportSourceCredentialsOutput, [AccountLimitExceededException, InvalidInputException, ResourceAlreadyExistsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves the identifiers of your build batches in the current region.
+ */export const listBuildBatches = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.ListBuildBatches" }, ListBuildBatchesInput, ListBuildBatchesOutput, [InvalidInputException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns a list of ARNs for the reports in the current Amazon Web Services account.
+ */export const listReports = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.ListReports" }, ListReportsInput, ListReportsOutput, [InvalidInputException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Starts running a build with the settings defined in the project. These setting include: how to run a build,
+ * where to get the source code, which build environment to use, which build commands to run, and where to store the build output.
+ * 
+ * 
+ * You can also start a build run by overriding some of the build settings in the project. The overrides only apply for that
+ * specific start build request. The settings in the project are unaltered.
+ */export const startBuild = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.StartBuild" }, StartBuildInput, StartBuildOutput, [AccountLimitExceededException, InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Starts a sandbox.
+ */export const startSandbox = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.StartSandbox" }, StartSandboxInput, StartSandboxOutput, [AccountSuspendedException, InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Starts a sandbox connection.
+ */export const startSandboxConnection = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.StartSandboxConnection" }, StartSandboxConnectionInput, StartSandboxConnectionOutput, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates the webhook associated with an CodeBuild build project.
+ * 
+ * 
+ * 
+ * 
+ * If you use Bitbucket for your repository, `rotateSecret` is ignored.
+ */export const updateWebhook = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.UpdateWebhook" }, UpdateWebhookInput, UpdateWebhookOutput, [InvalidInputException, OAuthProviderException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets information about one or more builds.
+ */export const batchGetBuilds = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.BatchGetBuilds" }, BatchGetBuildsInput, BatchGetBuildsOutput, [InvalidInputException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets information about one or more compute fleets.
+ */export const batchGetFleets = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.BatchGetFleets" }, BatchGetFleetsInput, BatchGetFleetsOutput, [InvalidInputException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets information about one or more build projects.
+ */export const batchGetProjects = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.BatchGetProjects" }, BatchGetProjectsInput, BatchGetProjectsOutput, [InvalidInputException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a compute fleet.
+ */export const createFleet = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.CreateFleet" }, CreateFleetInput, CreateFleetOutput, [AccountLimitExceededException, InvalidInputException, ResourceAlreadyExistsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a report group. A report group contains a collection of reports.
+ */export const createReportGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.CreateReportGroup" }, CreateReportGroupInput, CreateReportGroupOutput, [AccountLimitExceededException, InvalidInputException, ResourceAlreadyExistsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * For an existing CodeBuild build project that has its source code stored in a GitHub or
+ * Bitbucket repository, enables CodeBuild to start rebuilding the source code every time a
+ * code change is pushed to the repository.
+ * 
+ * 
+ * 
+ * 
+ * If you enable webhooks for an CodeBuild project, and the project is used as a build
+ * step in CodePipeline, then two identical builds are created for each commit. One build is
+ * triggered through webhooks, and one through CodePipeline. Because billing is on a per-build
+ * basis, you are billed for both builds. Therefore, if you are using CodePipeline, we
+ * recommend that you disable webhooks in CodeBuild. In the CodeBuild console, clear the
+ * Webhook box. For more information, see step 5 in Change a Build Project's Settings.
+ */export const createWebhook = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.CreateWebhook" }, CreateWebhookInput, CreateWebhookOutput, [InvalidInputException, OAuthProviderException, ResourceAlreadyExistsException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns a list of details about test cases for a report.
+ */export const describeTestCases = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.DescribeTestCases" }, DescribeTestCasesInput, DescribeTestCasesOutput, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets information about Docker images that are managed by CodeBuild.
+ */export const listCuratedEnvironmentImages = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.ListCuratedEnvironmentImages" }, ListCuratedEnvironmentImagesInput, ListCuratedEnvironmentImagesOutput, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns an array of reports.
+ */export const batchGetReports = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.BatchGetReports" }, BatchGetReportsInput, BatchGetReportsOutput, [InvalidInputException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets information about the sandbox status.
+ */export const batchGetSandboxes = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.BatchGetSandboxes" }, BatchGetSandboxesInput, BatchGetSandboxesOutput, [InvalidInputException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a build project.
+ */export const createProject = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.CreateProject" }, CreateProjectInput, CreateProjectOutput, [AccountLimitExceededException, InvalidInputException, ResourceAlreadyExistsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves information about one or more batch builds.
+ */export const batchGetBuildBatches = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-10-06", uri: "/", method: "POST", sdkId: "CodeBuild", sigV4ServiceName: "codebuild", name: "CodeBuild_20161006.BatchGetBuildBatches" }, BatchGetBuildBatchesInput, BatchGetBuildBatchesOutput, [InvalidInputException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

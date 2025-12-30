@@ -469,107 +469,758 @@ export class QueryTimeoutException extends S.TaggedError<QueryTimeoutException>(
 export class ValidationException extends S.TaggedError<ValidationException>()("ValidationException", {message: S.optional(S.String)}) {};
 
 //# Operations
-export const deleteProject = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/projects/{projectId}", method: "DELETE", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.DeleteProject" }, DeleteProjectRequest, DeleteProjectResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteTimeSeries = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/timeseries/delete", method: "POST", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.DeleteTimeSeries" }, DeleteTimeSeriesRequest, S.Struct({}), [ConflictingOperationException, InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const disassociateAssets = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/assets/{assetId}/disassociate", method: "POST", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.DisassociateAssets" }, DisassociateAssetsRequest, S.Struct({}), [ConflictingOperationException, InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const disassociateTimeSeriesFromAssetProperty = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/timeseries/disassociate", method: "POST", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.DisassociateTimeSeriesFromAssetProperty" }, DisassociateTimeSeriesFromAssetPropertyRequest, S.Struct({}), [ConflictingOperationException, InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const putLoggingOptions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/logging", method: "PUT", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.PutLoggingOptions" }, PutLoggingOptionsRequest, PutLoggingOptionsResponse, [ConflictingOperationException, InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateAccessPolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/access-policies/{accessPolicyId}", method: "PUT", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.UpdateAccessPolicy" }, UpdateAccessPolicyRequest, UpdateAccessPolicyResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateAssetProperty = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/assets/{assetId}/properties/{propertyId}", method: "PUT", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.UpdateAssetProperty" }, UpdateAssetPropertyRequest, S.Struct({}), [ConflictingOperationException, InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateDashboard = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/dashboards/{dashboardId}", method: "PUT", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.UpdateDashboard" }, UpdateDashboardRequest, UpdateDashboardResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateGateway = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/20200301/gateways/{gatewayId}", method: "PUT", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.UpdateGateway" }, UpdateGatewayRequest, S.Struct({}), [ConflictingOperationException, InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateProject = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/projects/{projectId}", method: "PUT", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.UpdateProject" }, UpdateProjectRequest, UpdateProjectResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const associateTimeSeriesToAssetProperty = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/timeseries/associate", method: "POST", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.AssociateTimeSeriesToAssetProperty" }, AssociateTimeSeriesToAssetPropertyRequest, S.Struct({}), [ConflictingOperationException, InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const batchDisassociateProjectAssets = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/projects/{projectId}/assets/disassociate", method: "POST", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.BatchDisassociateProjectAssets" }, BatchDisassociateProjectAssetsRequest, BatchDisassociateProjectAssetsResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const createDashboard = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/dashboards", method: "POST", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.CreateDashboard" }, CreateDashboardRequest, CreateDashboardResponse, [InternalFailureException, InvalidRequestException, LimitExceededException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const createProject = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/projects", method: "POST", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.CreateProject" }, CreateProjectRequest, CreateProjectResponse, [InternalFailureException, InvalidRequestException, LimitExceededException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteAccessPolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/access-policies/{accessPolicyId}", method: "DELETE", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.DeleteAccessPolicy" }, DeleteAccessPolicyRequest, DeleteAccessPolicyResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteAsset = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/assets/{assetId}", method: "DELETE", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.DeleteAsset" }, DeleteAssetRequest, DeleteAssetResponse, [ConflictingOperationException, InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteAssetModelCompositeModel = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/asset-models/{assetModelId}/composite-models/{assetModelCompositeModelId}", method: "DELETE", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.DeleteAssetModelCompositeModel" }, DeleteAssetModelCompositeModelRequest, DeleteAssetModelCompositeModelResponse, [ConflictingOperationException, InternalFailureException, InvalidRequestException, PreconditionFailedException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteAssetModelInterfaceRelationship = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/asset-models/{assetModelId}/interface/{interfaceAssetModelId}/asset-model-interface-relationship", method: "DELETE", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.DeleteAssetModelInterfaceRelationship" }, DeleteAssetModelInterfaceRelationshipRequest, DeleteAssetModelInterfaceRelationshipResponse, [ConflictingOperationException, InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteDashboard = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/dashboards/{dashboardId}", method: "DELETE", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.DeleteDashboard" }, DeleteDashboardRequest, DeleteDashboardResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteGateway = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/20200301/gateways/{gatewayId}", method: "DELETE", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.DeleteGateway" }, DeleteGatewayRequest, S.Struct({}), [ConflictingOperationException, InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeAccessPolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/access-policies/{accessPolicyId}", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.DescribeAccessPolicy" }, DescribeAccessPolicyRequest, DescribeAccessPolicyResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeAction = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/actions/{actionId}", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.DescribeAction" }, DescribeActionRequest, DescribeActionResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeBulkImportJob = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/jobs/{jobId}", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.DescribeBulkImportJob" }, DescribeBulkImportJobRequest, DescribeBulkImportJobResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeComputationModel = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/computation-models/{computationModelId}", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.DescribeComputationModel" }, DescribeComputationModelRequest, DescribeComputationModelResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeDashboard = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/dashboards/{dashboardId}", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.DescribeDashboard" }, DescribeDashboardRequest, DescribeDashboardResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeDataset = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/datasets/{datasetId}", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.DescribeDataset" }, DescribeDatasetRequest, DescribeDatasetResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeGatewayCapabilityConfiguration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/20200301/gateways/{gatewayId}/capability/{capabilityNamespace}", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.DescribeGatewayCapabilityConfiguration" }, DescribeGatewayCapabilityConfigurationRequest, DescribeGatewayCapabilityConfigurationResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeLoggingOptions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/logging", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.DescribeLoggingOptions" }, DescribeLoggingOptionsRequest, DescribeLoggingOptionsResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeProject = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/projects/{projectId}", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.DescribeProject" }, DescribeProjectRequest, DescribeProjectResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeTimeSeries = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/timeseries/describe", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.DescribeTimeSeries" }, DescribeTimeSeriesRequest, DescribeTimeSeriesResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getAssetPropertyValueHistory = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/properties/history", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.GetAssetPropertyValueHistory" }, GetAssetPropertyValueHistoryRequest, GetAssetPropertyValueHistoryResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listAssetModelCompositeModels = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/asset-models/{assetModelId}/composite-models", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.ListAssetModelCompositeModels" }, ListAssetModelCompositeModelsRequest, ListAssetModelCompositeModelsResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listProjectAssets = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/projects/{projectId}/assets", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.ListProjectAssets" }, ListProjectAssetsRequest, ListProjectAssetsResponse, [InternalFailureException, InvalidRequestException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listTagsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/tags", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [ConflictingOperationException, InternalFailureException, InvalidRequestException, LimitExceededException, ResourceNotFoundException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const putDefaultEncryptionConfiguration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/configuration/account/encryption", method: "POST", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.PutDefaultEncryptionConfiguration" }, PutDefaultEncryptionConfigurationRequest, PutDefaultEncryptionConfigurationResponse, [ConflictingOperationException, InternalFailureException, InvalidRequestException, LimitExceededException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const putStorageConfiguration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/configuration/account/storage", method: "POST", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.PutStorageConfiguration" }, PutStorageConfigurationRequest, PutStorageConfigurationResponse, [ConflictingOperationException, InternalFailureException, InvalidRequestException, LimitExceededException, ResourceAlreadyExistsException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const untagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/tags", method: "DELETE", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [ConflictingOperationException, InternalFailureException, InvalidRequestException, LimitExceededException, ResourceNotFoundException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateAsset = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/assets/{assetId}", method: "PUT", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.UpdateAsset" }, UpdateAssetRequest, UpdateAssetResponse, [ConflictingOperationException, InternalFailureException, InvalidRequestException, ResourceAlreadyExistsException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateAssetModelCompositeModel = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/asset-models/{assetModelId}/composite-models/{assetModelCompositeModelId}", method: "PUT", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.UpdateAssetModelCompositeModel" }, UpdateAssetModelCompositeModelRequest, UpdateAssetModelCompositeModelResponse, [ConflictingOperationException, InternalFailureException, InvalidRequestException, LimitExceededException, PreconditionFailedException, ResourceAlreadyExistsException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateComputationModel = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/computation-models/{computationModelId}", method: "POST", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.UpdateComputationModel" }, UpdateComputationModelRequest, UpdateComputationModelResponse, [ConflictingOperationException, InternalFailureException, InvalidRequestException, LimitExceededException, ResourceAlreadyExistsException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateDataset = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/datasets/{datasetId}", method: "PUT", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.UpdateDataset" }, UpdateDatasetRequest, UpdateDatasetResponse, [ConflictingOperationException, InternalFailureException, InvalidRequestException, LimitExceededException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateGatewayCapabilityConfiguration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/20200301/gateways/{gatewayId}/capability", method: "POST", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.UpdateGatewayCapabilityConfiguration" }, UpdateGatewayCapabilityConfigurationRequest, UpdateGatewayCapabilityConfigurationResponse, [ConflictingOperationException, InternalFailureException, InvalidRequestException, LimitExceededException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const associateAssets = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/assets/{assetId}/associate", method: "POST", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.AssociateAssets" }, AssociateAssetsRequest, S.Struct({}), [ConflictingOperationException, InternalFailureException, InvalidRequestException, LimitExceededException, ResourceAlreadyExistsException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const batchAssociateProjectAssets = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/projects/{projectId}/assets/associate", method: "POST", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.BatchAssociateProjectAssets" }, BatchAssociateProjectAssetsRequest, BatchAssociateProjectAssetsResponse, [InternalFailureException, InvalidRequestException, LimitExceededException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const createAssetModelCompositeModel = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/asset-models/{assetModelId}/composite-models", method: "POST", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.CreateAssetModelCompositeModel" }, CreateAssetModelCompositeModelRequest, CreateAssetModelCompositeModelResponse, [ConflictingOperationException, InternalFailureException, InvalidRequestException, LimitExceededException, PreconditionFailedException, ResourceAlreadyExistsException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteAssetModel = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/asset-models/{assetModelId}", method: "DELETE", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.DeleteAssetModel" }, DeleteAssetModelRequest, DeleteAssetModelResponse, [ConflictingOperationException, InternalFailureException, InvalidRequestException, PreconditionFailedException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteComputationModel = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/computation-models/{computationModelId}", method: "DELETE", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.DeleteComputationModel" }, DeleteComputationModelRequest, DeleteComputationModelResponse, [ConflictingOperationException, InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteDataset = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/datasets/{datasetId}", method: "DELETE", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.DeleteDataset" }, DeleteDatasetRequest, DeleteDatasetResponse, [ConflictingOperationException, InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeAssetCompositeModel = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/assets/{assetId}/composite-models/{assetCompositeModelId}", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.DescribeAssetCompositeModel" }, DescribeAssetCompositeModelRequest, DescribeAssetCompositeModelResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeAssetModel = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/asset-models/{assetModelId}", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.DescribeAssetModel" }, DescribeAssetModelRequest, DescribeAssetModelResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeAssetModelInterfaceRelationship = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/asset-models/{assetModelId}/interface/{interfaceAssetModelId}/asset-model-interface-relationship", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.DescribeAssetModelInterfaceRelationship" }, DescribeAssetModelInterfaceRelationshipRequest, DescribeAssetModelInterfaceRelationshipResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeAssetProperty = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/assets/{assetId}/properties/{propertyId}", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.DescribeAssetProperty" }, DescribeAssetPropertyRequest, DescribeAssetPropertyResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeComputationModelExecutionSummary = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/computation-models/{computationModelId}/execution-summary", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.DescribeComputationModelExecutionSummary" }, DescribeComputationModelExecutionSummaryRequest, DescribeComputationModelExecutionSummaryResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeDefaultEncryptionConfiguration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/configuration/account/encryption", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.DescribeDefaultEncryptionConfiguration" }, DescribeDefaultEncryptionConfigurationRequest, DescribeDefaultEncryptionConfigurationResponse, [InternalFailureException, InvalidRequestException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeExecution = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/executions/{executionId}", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.DescribeExecution" }, DescribeExecutionRequest, DescribeExecutionResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeGateway = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/20200301/gateways/{gatewayId}", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.DescribeGateway" }, DescribeGatewayRequest, DescribeGatewayResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const describePortal = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/portals/{portalId}", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.DescribePortal" }, DescribePortalRequest, DescribePortalResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeStorageConfiguration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/configuration/account/storage", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.DescribeStorageConfiguration" }, DescribeStorageConfigurationRequest, DescribeStorageConfigurationResponse, [ConflictingOperationException, InternalFailureException, InvalidRequestException, LimitExceededException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const executeAction = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/actions", method: "POST", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.ExecuteAction" }, ExecuteActionRequest, ExecuteActionResponse, [ConflictingOperationException, InternalFailureException, InvalidRequestException, LimitExceededException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getAssetPropertyValue = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/properties/latest", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.GetAssetPropertyValue" }, GetAssetPropertyValueRequest, GetAssetPropertyValueResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getInterpolatedAssetPropertyValues = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/properties/interpolated", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.GetInterpolatedAssetPropertyValues" }, GetInterpolatedAssetPropertyValuesRequest, GetInterpolatedAssetPropertyValuesResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listAccessPolicies = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/access-policies", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.ListAccessPolicies" }, ListAccessPoliciesRequest, ListAccessPoliciesResponse, [InternalFailureException, InvalidRequestException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listActions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/actions", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.ListActions" }, ListActionsRequest, ListActionsResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listAssetModels = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/asset-models", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.ListAssetModels" }, ListAssetModelsRequest, ListAssetModelsResponse, [InternalFailureException, InvalidRequestException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listAssetProperties = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/assets/{assetId}/properties", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.ListAssetProperties" }, ListAssetPropertiesRequest, ListAssetPropertiesResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listAssets = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/assets", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.ListAssets" }, ListAssetsRequest, ListAssetsResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listAssociatedAssets = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/assets/{assetId}/hierarchies", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.ListAssociatedAssets" }, ListAssociatedAssetsRequest, ListAssociatedAssetsResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listBulkImportJobs = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/jobs", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.ListBulkImportJobs" }, ListBulkImportJobsRequest, ListBulkImportJobsResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listCompositionRelationships = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/asset-models/{assetModelId}/composition-relationships", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.ListCompositionRelationships" }, ListCompositionRelationshipsRequest, ListCompositionRelationshipsResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listComputationModelResolveToResources = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/computation-models/{computationModelId}/resolve-to-resources", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.ListComputationModelResolveToResources" }, ListComputationModelResolveToResourcesRequest, ListComputationModelResolveToResourcesResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listComputationModels = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/computation-models", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.ListComputationModels" }, ListComputationModelsRequest, ListComputationModelsResponse, [InternalFailureException, InvalidRequestException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listDashboards = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/dashboards", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.ListDashboards" }, ListDashboardsRequest, ListDashboardsResponse, [InternalFailureException, InvalidRequestException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listDatasets = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/datasets", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.ListDatasets" }, ListDatasetsRequest, ListDatasetsResponse, [InternalFailureException, InvalidRequestException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listExecutions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/executions", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.ListExecutions" }, ListExecutionsRequest, ListExecutionsResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listGateways = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/20200301/gateways", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.ListGateways" }, ListGatewaysRequest, ListGatewaysResponse, [InternalFailureException, InvalidRequestException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listInterfaceRelationships = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/interface/{interfaceAssetModelId}/asset-models", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.ListInterfaceRelationships" }, ListInterfaceRelationshipsRequest, ListInterfaceRelationshipsResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listPortals = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/portals", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.ListPortals" }, ListPortalsRequest, ListPortalsResponse, [InternalFailureException, InvalidRequestException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listProjects = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/projects", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.ListProjects" }, ListProjectsRequest, ListProjectsResponse, [InternalFailureException, InvalidRequestException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listTimeSeries = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/timeseries", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.ListTimeSeries" }, ListTimeSeriesRequest, ListTimeSeriesResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const tagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/tags", method: "POST", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.TagResource" }, TagResourceRequest, TagResourceResponse, [ConflictingOperationException, InternalFailureException, InvalidRequestException, LimitExceededException, ResourceNotFoundException, ThrottlingException, TooManyTagsException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const updatePortal = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/portals/{portalId}", method: "PUT", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.UpdatePortal" }, UpdatePortalRequest, UpdatePortalResponse, [ConflictingOperationException, InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const createAccessPolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/access-policies", method: "POST", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.CreateAccessPolicy" }, CreateAccessPolicyRequest, CreateAccessPolicyResponse, [InternalFailureException, InvalidRequestException, LimitExceededException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const createGateway = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/20200301/gateways", method: "POST", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.CreateGateway" }, CreateGatewayRequest, CreateGatewayResponse, [InternalFailureException, InvalidRequestException, LimitExceededException, ResourceAlreadyExistsException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const createPortal = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/portals", method: "POST", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.CreatePortal" }, CreatePortalRequest, CreatePortalResponse, [InternalFailureException, InvalidRequestException, LimitExceededException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const deletePortal = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/portals/{portalId}", method: "DELETE", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.DeletePortal" }, DeletePortalRequest, DeletePortalResponse, [ConflictingOperationException, InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeAsset = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/assets/{assetId}", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.DescribeAsset" }, DescribeAssetRequest, DescribeAssetResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeAssetModelCompositeModel = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/asset-models/{assetModelId}/composite-models/{assetModelCompositeModelId}", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.DescribeAssetModelCompositeModel" }, DescribeAssetModelCompositeModelRequest, DescribeAssetModelCompositeModelResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getAssetPropertyAggregates = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/properties/aggregates", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.GetAssetPropertyAggregates" }, GetAssetPropertyAggregatesRequest, GetAssetPropertyAggregatesResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listAssetModelProperties = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/asset-models/{assetModelId}/properties", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.ListAssetModelProperties" }, ListAssetModelPropertiesRequest, ListAssetModelPropertiesResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listAssetRelationships = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/assets/{assetId}/assetRelationships", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.ListAssetRelationships" }, ListAssetRelationshipsRequest, ListAssetRelationshipsResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const putAssetModelInterfaceRelationship = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/asset-models/{assetModelId}/interface/{interfaceAssetModelId}/asset-model-interface-relationship", method: "PUT", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.PutAssetModelInterfaceRelationship" }, PutAssetModelInterfaceRelationshipRequest, PutAssetModelInterfaceRelationshipResponse, [ConflictingOperationException, InternalFailureException, InvalidRequestException, LimitExceededException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateAssetModel = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/asset-models/{assetModelId}", method: "PUT", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.UpdateAssetModel" }, UpdateAssetModelRequest, UpdateAssetModelResponse, [ConflictingOperationException, InternalFailureException, InvalidRequestException, LimitExceededException, PreconditionFailedException, ResourceAlreadyExistsException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const batchGetAssetPropertyAggregates = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/properties/batch/aggregates", method: "POST", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.BatchGetAssetPropertyAggregates" }, BatchGetAssetPropertyAggregatesRequest, BatchGetAssetPropertyAggregatesResponse, [InternalFailureException, InvalidRequestException, ServiceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const batchGetAssetPropertyValue = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/properties/batch/latest", method: "POST", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.BatchGetAssetPropertyValue" }, BatchGetAssetPropertyValueRequest, BatchGetAssetPropertyValueResponse, [InternalFailureException, InvalidRequestException, ServiceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const batchGetAssetPropertyValueHistory = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/properties/batch/history", method: "POST", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.BatchGetAssetPropertyValueHistory" }, BatchGetAssetPropertyValueHistoryRequest, BatchGetAssetPropertyValueHistoryResponse, [InternalFailureException, InvalidRequestException, ServiceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const createAsset = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/assets", method: "POST", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.CreateAsset" }, CreateAssetRequest, CreateAssetResponse, [ConflictingOperationException, InternalFailureException, InvalidRequestException, LimitExceededException, ResourceAlreadyExistsException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const createBulkImportJob = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/jobs", method: "POST", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.CreateBulkImportJob" }, CreateBulkImportJobRequest, CreateBulkImportJobResponse, [ConflictingOperationException, InternalFailureException, InvalidRequestException, LimitExceededException, ResourceAlreadyExistsException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const createComputationModel = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/computation-models", method: "POST", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.CreateComputationModel" }, CreateComputationModelRequest, CreateComputationModelResponse, [ConflictingOperationException, InternalFailureException, InvalidRequestException, LimitExceededException, ResourceAlreadyExistsException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const createDataset = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/datasets", method: "POST", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.CreateDataset" }, CreateDatasetRequest, CreateDatasetResponse, [ConflictingOperationException, InternalFailureException, InvalidRequestException, LimitExceededException, ResourceAlreadyExistsException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const executeQuery = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/queries/execution", method: "POST", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.ExecuteQuery" }, ExecuteQueryRequest, ExecuteQueryResponse, [AccessDeniedException, InternalFailureException, InvalidRequestException, QueryTimeoutException, ServiceUnavailableException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const createAssetModel = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/asset-models", method: "POST", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.CreateAssetModel" }, CreateAssetModelRequest, CreateAssetModelResponse, [ConflictingOperationException, InternalFailureException, InvalidRequestException, LimitExceededException, ResourceAlreadyExistsException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listComputationModelDataBindingUsages = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/computation-models/data-binding-usages", method: "POST", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.ListComputationModelDataBindingUsages" }, ListComputationModelDataBindingUsagesRequest, ListComputationModelDataBindingUsagesResponse, [InternalFailureException, InvalidRequestException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const batchPutAssetPropertyValue = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/properties", method: "POST", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.BatchPutAssetPropertyValue" }, BatchPutAssetPropertyValueRequest, BatchPutAssetPropertyValueResponse, [ConflictingOperationException, InternalFailureException, InvalidRequestException, LimitExceededException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const invokeAssistant = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/assistant/invocation", method: "POST", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.InvokeAssistant" }, InvokeAssistantRequest, InvokeAssistantResponse, [AccessDeniedException, ConflictingOperationException, InternalFailureException, InvalidRequestException, LimitExceededException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes a project from IoT SiteWise Monitor.
+ */export const deleteProject = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/projects/{projectId}", method: "DELETE", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.DeleteProject" }, DeleteProjectRequest, DeleteProjectResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes a time series (data stream). If you delete a time series that's associated with an
+ * asset property, the asset property still exists, but the time series will no longer be
+ * associated with this asset property.
+ * 
+ * 
+ * To identify a time series, do one of the following:
+ * 
+ * 
+ * 
+ * - If the time series isn't associated with an asset property,
+ * specify the `alias` of the time series.
+ * 
+ * 
+ * 
+ * - If the time series is associated with an asset property,
+ * specify one of the following:
+ * 
+ * 
+ * 
+ * - The `alias` of the time series.
+ * 
+ * 
+ * 
+ * - The `assetId` and `propertyId` that identifies the asset property.
+ */export const deleteTimeSeries = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/timeseries/delete", method: "POST", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.DeleteTimeSeries" }, DeleteTimeSeriesRequest, S.Struct({}), [ConflictingOperationException, InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Disassociates a child asset from the given parent asset through a hierarchy defined in the
+ * parent asset's model.
+ */export const disassociateAssets = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/assets/{assetId}/disassociate", method: "POST", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.DisassociateAssets" }, DisassociateAssetsRequest, S.Struct({}), [ConflictingOperationException, InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Disassociates a time series (data stream) from an asset property.
+ */export const disassociateTimeSeriesFromAssetProperty = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/timeseries/disassociate", method: "POST", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.DisassociateTimeSeriesFromAssetProperty" }, DisassociateTimeSeriesFromAssetPropertyRequest, S.Struct({}), [ConflictingOperationException, InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Sets logging options for IoT SiteWise.
+ */export const putLoggingOptions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/logging", method: "PUT", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.PutLoggingOptions" }, PutLoggingOptionsRequest, PutLoggingOptionsResponse, [ConflictingOperationException, InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates an existing access policy that specifies an identity's access to an IoT SiteWise Monitor
+ * portal or project resource.
+ */export const updateAccessPolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/access-policies/{accessPolicyId}", method: "PUT", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.UpdateAccessPolicy" }, UpdateAccessPolicyRequest, UpdateAccessPolicyResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates an asset property's alias and notification state.
+ * 
+ * 
+ * 
+ * 
+ * This operation overwrites the property's existing alias and notification state. To keep
+ * your existing property's alias or notification state, you must include the existing values
+ * in the UpdateAssetProperty request. For more information, see DescribeAssetProperty.
+ */export const updateAssetProperty = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/assets/{assetId}/properties/{propertyId}", method: "PUT", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.UpdateAssetProperty" }, UpdateAssetPropertyRequest, S.Struct({}), [ConflictingOperationException, InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates an IoT SiteWise Monitor dashboard.
+ */export const updateDashboard = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/dashboards/{dashboardId}", method: "PUT", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.UpdateDashboard" }, UpdateDashboardRequest, UpdateDashboardResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates a gateway's name.
+ */export const updateGateway = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/20200301/gateways/{gatewayId}", method: "PUT", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.UpdateGateway" }, UpdateGatewayRequest, S.Struct({}), [ConflictingOperationException, InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates an IoT SiteWise Monitor project.
+ */export const updateProject = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/projects/{projectId}", method: "PUT", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.UpdateProject" }, UpdateProjectRequest, UpdateProjectResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Associates a time series (data stream) with an asset property.
+ */export const associateTimeSeriesToAssetProperty = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/timeseries/associate", method: "POST", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.AssociateTimeSeriesToAssetProperty" }, AssociateTimeSeriesToAssetPropertyRequest, S.Struct({}), [ConflictingOperationException, InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Disassociates a group (batch) of assets from an IoT SiteWise Monitor project.
+ */export const batchDisassociateProjectAssets = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/projects/{projectId}/assets/disassociate", method: "POST", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.BatchDisassociateProjectAssets" }, BatchDisassociateProjectAssetsRequest, BatchDisassociateProjectAssetsResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a dashboard in an IoT SiteWise Monitor project.
+ */export const createDashboard = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/dashboards", method: "POST", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.CreateDashboard" }, CreateDashboardRequest, CreateDashboardResponse, [InternalFailureException, InvalidRequestException, LimitExceededException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a project in the specified portal.
+ * 
+ * 
+ * 
+ * 
+ * Make sure that the project name and description don't contain confidential
+ * information.
+ */export const createProject = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/projects", method: "POST", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.CreateProject" }, CreateProjectRequest, CreateProjectResponse, [InternalFailureException, InvalidRequestException, LimitExceededException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes an access policy that grants the specified identity access to the specified
+ * IoT SiteWise Monitor resource. You can use this operation to revoke access to an IoT SiteWise Monitor
+ * resource.
+ */export const deleteAccessPolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/access-policies/{accessPolicyId}", method: "DELETE", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.DeleteAccessPolicy" }, DeleteAccessPolicyRequest, DeleteAccessPolicyResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes an asset. This action can't be undone. For more information, see Deleting assets and
+ * models in the *IoT SiteWise User Guide*.
+ * 
+ * 
+ * 
+ * 
+ * You can't delete an asset that's associated to another asset. For more information, see
+ * DisassociateAssets.
+ */export const deleteAsset = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/assets/{assetId}", method: "DELETE", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.DeleteAsset" }, DeleteAssetRequest, DeleteAssetResponse, [ConflictingOperationException, InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes a composite model. This action can't be undone. You must delete all assets created
+ * from a composite model before you can delete the model. Also, you can't delete a composite
+ * model if a parent asset model exists that contains a property formula expression that depends
+ * on the asset model that you want to delete. For more information, see Deleting assets and
+ * models in the *IoT SiteWise User Guide*.
+ */export const deleteAssetModelCompositeModel = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/asset-models/{assetModelId}/composite-models/{assetModelCompositeModelId}", method: "DELETE", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.DeleteAssetModelCompositeModel" }, DeleteAssetModelCompositeModelRequest, DeleteAssetModelCompositeModelResponse, [ConflictingOperationException, InternalFailureException, InvalidRequestException, PreconditionFailedException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes an interface relationship between an asset model and an interface asset
+ * model.
+ */export const deleteAssetModelInterfaceRelationship = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/asset-models/{assetModelId}/interface/{interfaceAssetModelId}/asset-model-interface-relationship", method: "DELETE", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.DeleteAssetModelInterfaceRelationship" }, DeleteAssetModelInterfaceRelationshipRequest, DeleteAssetModelInterfaceRelationshipResponse, [ConflictingOperationException, InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes a dashboard from IoT SiteWise Monitor.
+ */export const deleteDashboard = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/dashboards/{dashboardId}", method: "DELETE", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.DeleteDashboard" }, DeleteDashboardRequest, DeleteDashboardResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes a gateway from IoT SiteWise. When you delete a gateway, some of the gateway's files remain
+ * in your gateway's file system.
+ */export const deleteGateway = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/20200301/gateways/{gatewayId}", method: "DELETE", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.DeleteGateway" }, DeleteGatewayRequest, S.Struct({}), [ConflictingOperationException, InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Describes an access policy, which specifies an identity's access to an IoT SiteWise Monitor portal or
+ * project.
+ */export const describeAccessPolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/access-policies/{accessPolicyId}", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.DescribeAccessPolicy" }, DescribeAccessPolicyRequest, DescribeAccessPolicyResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves information about an action.
+ */export const describeAction = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/actions/{actionId}", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.DescribeAction" }, DescribeActionRequest, DescribeActionResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves information about a bulk import job request. For more information, see Describe
+ * a bulk import job (CLI) in the *Amazon Simple Storage Service User Guide*.
+ */export const describeBulkImportJob = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/jobs/{jobId}", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.DescribeBulkImportJob" }, DescribeBulkImportJobRequest, DescribeBulkImportJobResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves information about a computation model.
+ */export const describeComputationModel = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/computation-models/{computationModelId}", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.DescribeComputationModel" }, DescribeComputationModelRequest, DescribeComputationModelResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves information about a dashboard.
+ */export const describeDashboard = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/dashboards/{dashboardId}", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.DescribeDashboard" }, DescribeDashboardRequest, DescribeDashboardResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves information about a dataset.
+ */export const describeDataset = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/datasets/{datasetId}", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.DescribeDataset" }, DescribeDatasetRequest, DescribeDatasetResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Each gateway capability defines data sources for a gateway. This is the namespace of the gateway capability.
+ * 
+ * 
+ * . The namespace follows the format `service:capability:version`, where:
+ * 
+ * 
+ * 
+ * - `service` - The service providing the capability, or `iotsitewise`.
+ * 
+ * 
+ * 
+ * - `capability` - The specific capability type. Options include: `opcuacollector` for the OPC UA data source collector, or `publisher` for data publisher capability.
+ * 
+ * 
+ * 
+ * - `version` - The version number of the capability. Option include `2` for Classic streams, V2 gateways, and `3` for MQTT-enabled, V3 gateways.
+ * 
+ * 
+ * 
+ * 
+ * 
+ * After updating a capability configuration, the sync status becomes `OUT_OF_SYNC` until the gateway processes the configuration.Use `DescribeGatewayCapabilityConfiguration` to check the sync status and verify the configuration was applied.
+ * 
+ * 
+ * A gateway can have multiple capability configurations with different namespaces.
+ */export const describeGatewayCapabilityConfiguration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/20200301/gateways/{gatewayId}/capability/{capabilityNamespace}", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.DescribeGatewayCapabilityConfiguration" }, DescribeGatewayCapabilityConfigurationRequest, DescribeGatewayCapabilityConfigurationResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves the current IoT SiteWise logging options.
+ */export const describeLoggingOptions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/logging", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.DescribeLoggingOptions" }, DescribeLoggingOptionsRequest, DescribeLoggingOptionsResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves information about a project.
+ */export const describeProject = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/projects/{projectId}", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.DescribeProject" }, DescribeProjectRequest, DescribeProjectResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves information about a time series (data stream).
+ * 
+ * 
+ * To identify a time series, do one of the following:
+ * 
+ * 
+ * 
+ * - If the time series isn't associated with an asset property,
+ * specify the `alias` of the time series.
+ * 
+ * 
+ * 
+ * - If the time series is associated with an asset property,
+ * specify one of the following:
+ * 
+ * 
+ * 
+ * - The `alias` of the time series.
+ * 
+ * 
+ * 
+ * - The `assetId` and `propertyId` that identifies the asset property.
+ */export const describeTimeSeries = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/timeseries/describe", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.DescribeTimeSeries" }, DescribeTimeSeriesRequest, DescribeTimeSeriesResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets the history of an asset property's values. For more information, see Querying
+ * historical values in the *IoT SiteWise User Guide*.
+ * 
+ * 
+ * To identify an asset property, you must specify one of the following:
+ * 
+ * 
+ * 
+ * - The `assetId` and `propertyId` of an asset property.
+ * 
+ * 
+ * 
+ * - A `propertyAlias`, which is a data stream alias (for example,
+ * `/company/windfarm/3/turbine/7/temperature`). To define an asset property's alias, see UpdateAssetProperty.
+ */export const getAssetPropertyValueHistory = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/properties/history", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.GetAssetPropertyValueHistory" }, GetAssetPropertyValueHistoryRequest, GetAssetPropertyValueHistoryResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves a paginated list of composite models associated with the asset model
+ */export const listAssetModelCompositeModels = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/asset-models/{assetModelId}/composite-models", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.ListAssetModelCompositeModels" }, ListAssetModelCompositeModelsRequest, ListAssetModelCompositeModelsResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves a paginated list of assets associated with an IoT SiteWise Monitor project.
+ */export const listProjectAssets = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/projects/{projectId}/assets", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.ListProjectAssets" }, ListProjectAssetsRequest, ListProjectAssetsResponse, [InternalFailureException, InvalidRequestException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves the list of tags for an IoT SiteWise resource.
+ */export const listTagsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/tags", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [ConflictingOperationException, InternalFailureException, InvalidRequestException, LimitExceededException, ResourceNotFoundException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Sets the default encryption configuration for the Amazon Web Services account. For more information, see
+ * Key management in
+ * the *IoT SiteWise User Guide*.
+ */export const putDefaultEncryptionConfiguration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/configuration/account/encryption", method: "POST", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.PutDefaultEncryptionConfiguration" }, PutDefaultEncryptionConfigurationRequest, PutDefaultEncryptionConfigurationResponse, [ConflictingOperationException, InternalFailureException, InvalidRequestException, LimitExceededException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Configures storage settings for IoT SiteWise.
+ */export const putStorageConfiguration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/configuration/account/storage", method: "POST", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.PutStorageConfiguration" }, PutStorageConfigurationRequest, PutStorageConfigurationResponse, [ConflictingOperationException, InternalFailureException, InvalidRequestException, LimitExceededException, ResourceAlreadyExistsException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Removes a tag from an IoT SiteWise resource.
+ */export const untagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/tags", method: "DELETE", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [ConflictingOperationException, InternalFailureException, InvalidRequestException, LimitExceededException, ResourceNotFoundException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates an asset's name. For more information, see Updating assets and models in the
+ * *IoT SiteWise User Guide*.
+ */export const updateAsset = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/assets/{assetId}", method: "PUT", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.UpdateAsset" }, UpdateAssetRequest, UpdateAssetResponse, [ConflictingOperationException, InternalFailureException, InvalidRequestException, ResourceAlreadyExistsException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates a composite model and all of the assets that were created from the model. Each
+ * asset created from the model inherits the updated asset model's property and hierarchy
+ * definitions. For more information, see Updating assets and models in the
+ * *IoT SiteWise User Guide*.
+ * 
+ * 
+ * 
+ * 
+ * If you remove a property from a composite asset model, IoT SiteWise deletes all previous data
+ * for that property. You can’t change the type or data type of an existing property.
+ * 
+ * 
+ * To replace an existing composite asset model property with a new one with the same
+ * `name`, do the following:
+ * 
+ * 
+ * 
+ * - Submit an `UpdateAssetModelCompositeModel` request with the entire
+ * existing property removed.
+ * 
+ * 
+ * 
+ * - Submit a second `UpdateAssetModelCompositeModel` request that includes
+ * the new property. The new asset property will have the same `name` as the
+ * previous one and IoT SiteWise will generate a new unique `id`.
+ */export const updateAssetModelCompositeModel = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/asset-models/{assetModelId}/composite-models/{assetModelCompositeModelId}", method: "PUT", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.UpdateAssetModelCompositeModel" }, UpdateAssetModelCompositeModelRequest, UpdateAssetModelCompositeModelResponse, [ConflictingOperationException, InternalFailureException, InvalidRequestException, LimitExceededException, PreconditionFailedException, ResourceAlreadyExistsException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates the computation model.
+ */export const updateComputationModel = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/computation-models/{computationModelId}", method: "POST", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.UpdateComputationModel" }, UpdateComputationModelRequest, UpdateComputationModelResponse, [ConflictingOperationException, InternalFailureException, InvalidRequestException, LimitExceededException, ResourceAlreadyExistsException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates a dataset.
+ */export const updateDataset = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/datasets/{datasetId}", method: "PUT", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.UpdateDataset" }, UpdateDatasetRequest, UpdateDatasetResponse, [ConflictingOperationException, InternalFailureException, InvalidRequestException, LimitExceededException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates a gateway capability configuration or defines a new capability configuration. Each gateway capability defines data sources for a gateway.
+ * 
+ * 
+ * Important workflow notes:
+ * 
+ * 
+ * Each gateway capability defines data sources for a gateway. This is the namespace of the gateway capability.
+ * 
+ * 
+ * . The namespace follows the format `service:capability:version`, where:
+ * 
+ * 
+ * 
+ * - `service` - The service providing the capability, or `iotsitewise`.
+ * 
+ * 
+ * 
+ * - `capability` - The specific capability type. Options include: `opcuacollector` for the OPC UA data source collector, or `publisher` for data publisher capability.
+ * 
+ * 
+ * 
+ * - `version` - The version number of the capability. Option include `2` for Classic streams, V2 gateways, and `3` for MQTT-enabled, V3 gateways.
+ * 
+ * 
+ * 
+ * 
+ * 
+ * After updating a capability configuration, the sync status becomes `OUT_OF_SYNC` until the gateway processes the configuration.Use `DescribeGatewayCapabilityConfiguration` to check the sync status and verify the configuration was applied.
+ * 
+ * 
+ * A gateway can have multiple capability configurations with different namespaces.
+ */export const updateGatewayCapabilityConfiguration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/20200301/gateways/{gatewayId}/capability", method: "POST", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.UpdateGatewayCapabilityConfiguration" }, UpdateGatewayCapabilityConfigurationRequest, UpdateGatewayCapabilityConfigurationResponse, [ConflictingOperationException, InternalFailureException, InvalidRequestException, LimitExceededException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Associates a child asset with the given parent asset through a hierarchy defined in the
+ * parent asset's model. For more information, see Associating assets in the
+ * *IoT SiteWise User Guide*.
+ */export const associateAssets = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/assets/{assetId}/associate", method: "POST", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.AssociateAssets" }, AssociateAssetsRequest, S.Struct({}), [ConflictingOperationException, InternalFailureException, InvalidRequestException, LimitExceededException, ResourceAlreadyExistsException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Associates a group (batch) of assets with an IoT SiteWise Monitor project.
+ */export const batchAssociateProjectAssets = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/projects/{projectId}/assets/associate", method: "POST", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.BatchAssociateProjectAssets" }, BatchAssociateProjectAssetsRequest, BatchAssociateProjectAssetsResponse, [InternalFailureException, InvalidRequestException, LimitExceededException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a custom composite model from specified property and hierarchy definitions. There
+ * are two types of custom composite models, `inline` and
+ * `component-model-based`.
+ * 
+ * 
+ * Use component-model-based custom composite models to define standard, reusable components.
+ * A component-model-based custom composite model consists of a name, a description, and the ID
+ * of the component model it references. A component-model-based custom composite model has no
+ * properties of its own; its referenced component model provides its associated properties to
+ * any created assets. For more information, see Custom composite models (Components)
+ * in the *IoT SiteWise User Guide*.
+ * 
+ * 
+ * Use inline custom composite models to organize the properties of an asset model. The
+ * properties of inline custom composite models are local to the asset model where they are
+ * included and can't be used to create multiple assets.
+ * 
+ * 
+ * To create a component-model-based model, specify the `composedAssetModelId` of
+ * an existing asset model with `assetModelType` of
+ * `COMPONENT_MODEL`.
+ * 
+ * 
+ * To create an inline model, specify the `assetModelCompositeModelProperties` and
+ * don't include an `composedAssetModelId`.
+ */export const createAssetModelCompositeModel = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/asset-models/{assetModelId}/composite-models", method: "POST", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.CreateAssetModelCompositeModel" }, CreateAssetModelCompositeModelRequest, CreateAssetModelCompositeModelResponse, [ConflictingOperationException, InternalFailureException, InvalidRequestException, LimitExceededException, PreconditionFailedException, ResourceAlreadyExistsException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes an asset model. This action can't be undone. You must delete all assets created
+ * from an asset model before you can delete the model. Also, you can't delete an asset model if
+ * a parent asset model exists that contains a property formula expression that depends on the
+ * asset model that you want to delete. For more information, see Deleting assets and models in the
+ * *IoT SiteWise User Guide*.
+ */export const deleteAssetModel = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/asset-models/{assetModelId}", method: "DELETE", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.DeleteAssetModel" }, DeleteAssetModelRequest, DeleteAssetModelResponse, [ConflictingOperationException, InternalFailureException, InvalidRequestException, PreconditionFailedException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes a computation model. This action can't be undone.
+ */export const deleteComputationModel = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/computation-models/{computationModelId}", method: "DELETE", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.DeleteComputationModel" }, DeleteComputationModelRequest, DeleteComputationModelResponse, [ConflictingOperationException, InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes a dataset. This cannot be undone.
+ */export const deleteDataset = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/datasets/{datasetId}", method: "DELETE", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.DeleteDataset" }, DeleteDatasetRequest, DeleteDatasetResponse, [ConflictingOperationException, InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves information about an asset composite model (also known as an asset component).
+ * An `AssetCompositeModel` is an instance of an
+ * `AssetModelCompositeModel`. If you want to see information about the model this is
+ * based on, call DescribeAssetModelCompositeModel.
+ */export const describeAssetCompositeModel = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/assets/{assetId}/composite-models/{assetCompositeModelId}", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.DescribeAssetCompositeModel" }, DescribeAssetCompositeModelRequest, DescribeAssetCompositeModelResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves information about an asset model. This includes details about the asset model's
+ * properties, hierarchies, composite models, and any interface relationships if the asset model
+ * implements interfaces.
+ */export const describeAssetModel = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/asset-models/{assetModelId}", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.DescribeAssetModel" }, DescribeAssetModelRequest, DescribeAssetModelResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves information about an interface relationship between an asset model and an
+ * interface asset model.
+ */export const describeAssetModelInterfaceRelationship = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/asset-models/{assetModelId}/interface/{interfaceAssetModelId}/asset-model-interface-relationship", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.DescribeAssetModelInterfaceRelationship" }, DescribeAssetModelInterfaceRelationshipRequest, DescribeAssetModelInterfaceRelationshipResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves information about an asset property.
+ * 
+ * 
+ * 
+ * 
+ * When you call this operation for an attribute property, this response includes the
+ * default attribute value that you define in the asset model. If you update the default value
+ * in the model, this operation's response includes the new default value.
+ * 
+ * 
+ * 
+ * 
+ * This operation doesn't return the value of the asset property. To get the value of an
+ * asset property, use GetAssetPropertyValue.
+ */export const describeAssetProperty = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/assets/{assetId}/properties/{propertyId}", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.DescribeAssetProperty" }, DescribeAssetPropertyRequest, DescribeAssetPropertyResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves information about the execution summary of a computation model.
+ */export const describeComputationModelExecutionSummary = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/computation-models/{computationModelId}/execution-summary", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.DescribeComputationModelExecutionSummary" }, DescribeComputationModelExecutionSummaryRequest, DescribeComputationModelExecutionSummaryResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves information about the default encryption configuration for the Amazon Web Services account in
+ * the default or specified Region. For more information, see Key management in the
+ * *IoT SiteWise User Guide*.
+ */export const describeDefaultEncryptionConfiguration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/configuration/account/encryption", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.DescribeDefaultEncryptionConfiguration" }, DescribeDefaultEncryptionConfigurationRequest, DescribeDefaultEncryptionConfigurationResponse, [InternalFailureException, InvalidRequestException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves information about the execution.
+ */export const describeExecution = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/executions/{executionId}", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.DescribeExecution" }, DescribeExecutionRequest, DescribeExecutionResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves information about a gateway.
+ */export const describeGateway = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/20200301/gateways/{gatewayId}", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.DescribeGateway" }, DescribeGatewayRequest, DescribeGatewayResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves information about a portal.
+ */export const describePortal = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/portals/{portalId}", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.DescribePortal" }, DescribePortalRequest, DescribePortalResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves information about the storage configuration for IoT SiteWise.
+ */export const describeStorageConfiguration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/configuration/account/storage", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.DescribeStorageConfiguration" }, DescribeStorageConfigurationRequest, DescribeStorageConfigurationResponse, [ConflictingOperationException, InternalFailureException, InvalidRequestException, LimitExceededException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Executes an action on a target resource.
+ */export const executeAction = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/actions", method: "POST", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.ExecuteAction" }, ExecuteActionRequest, ExecuteActionResponse, [ConflictingOperationException, InternalFailureException, InvalidRequestException, LimitExceededException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets an asset property's current value. For more information, see Querying
+ * current values in the *IoT SiteWise User Guide*.
+ * 
+ * 
+ * To identify an asset property, you must specify one of the following:
+ * 
+ * 
+ * 
+ * - The `assetId` and `propertyId` of an asset property.
+ * 
+ * 
+ * 
+ * - A `propertyAlias`, which is a data stream alias (for example,
+ * `/company/windfarm/3/turbine/7/temperature`). To define an asset property's alias, see UpdateAssetProperty.
+ */export const getAssetPropertyValue = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/properties/latest", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.GetAssetPropertyValue" }, GetAssetPropertyValueRequest, GetAssetPropertyValueResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Get interpolated values for an asset property for a specified time interval, during a
+ * period of time. If your time series is missing data points during the specified time interval,
+ * you can use interpolation to estimate the missing data.
+ * 
+ * 
+ * For example, you can use this operation to return the interpolated temperature values for
+ * a wind turbine every 24 hours over a duration of 7 days.
+ * 
+ * 
+ * To identify an asset property, you must specify one of the following:
+ * 
+ * 
+ * 
+ * - The `assetId` and `propertyId` of an asset property.
+ * 
+ * 
+ * 
+ * - A `propertyAlias`, which is a data stream alias (for example,
+ * `/company/windfarm/3/turbine/7/temperature`). To define an asset property's alias, see UpdateAssetProperty.
+ */export const getInterpolatedAssetPropertyValues = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/properties/interpolated", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.GetInterpolatedAssetPropertyValues" }, GetInterpolatedAssetPropertyValuesRequest, GetInterpolatedAssetPropertyValuesResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves a paginated list of access policies for an identity (an IAM Identity Center user, an IAM Identity Center
+ * group, or an IAM user) or an IoT SiteWise Monitor resource (a portal or project).
+ */export const listAccessPolicies = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/access-policies", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.ListAccessPolicies" }, ListAccessPoliciesRequest, ListAccessPoliciesResponse, [InternalFailureException, InvalidRequestException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves a paginated list of actions for a specific target resource.
+ */export const listActions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/actions", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.ListActions" }, ListActionsRequest, ListActionsResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves a paginated list of summaries of all asset models.
+ */export const listAssetModels = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/asset-models", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.ListAssetModels" }, ListAssetModelsRequest, ListAssetModelsResponse, [InternalFailureException, InvalidRequestException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves a paginated list of properties associated with an asset.
+ * If you update properties associated with the model before you finish listing all the properties,
+ * you need to start all over again.
+ */export const listAssetProperties = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/assets/{assetId}/properties", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.ListAssetProperties" }, ListAssetPropertiesRequest, ListAssetPropertiesResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves a paginated list of asset summaries.
+ * 
+ * 
+ * You can use this operation to do the following:
+ * 
+ * 
+ * 
+ * - List assets based on a specific asset model.
+ * 
+ * 
+ * 
+ * - List top-level assets.
+ * 
+ * 
+ * 
+ * 
+ * 
+ * You can't use this operation to list all assets. To retrieve summaries for all of your
+ * assets, use ListAssetModels to get all of your asset model IDs. Then, use ListAssets to get all
+ * assets for each asset model.
+ */export const listAssets = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/assets", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.ListAssets" }, ListAssetsRequest, ListAssetsResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves a paginated list of associated assets.
+ * 
+ * 
+ * You can use this operation to do the following:
+ * 
+ * 
+ * 
+ * - `CHILD` - List all child assets associated to the asset.
+ * 
+ * 
+ * 
+ * - `PARENT` - List the asset's parent asset.
+ */export const listAssociatedAssets = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/assets/{assetId}/hierarchies", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.ListAssociatedAssets" }, ListAssociatedAssetsRequest, ListAssociatedAssetsResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves a paginated list of bulk import job requests. For more information, see List bulk
+ * import jobs (CLI) in the *IoT SiteWise User Guide*.
+ */export const listBulkImportJobs = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/jobs", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.ListBulkImportJobs" }, ListBulkImportJobsRequest, ListBulkImportJobsResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves a paginated list of composition relationships for an asset model of type
+ * `COMPONENT_MODEL`.
+ */export const listCompositionRelationships = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/asset-models/{assetModelId}/composition-relationships", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.ListCompositionRelationships" }, ListCompositionRelationshipsRequest, ListCompositionRelationshipsResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists all distinct resources that are resolved from the executed actions of the
+ * computation model.
+ */export const listComputationModelResolveToResources = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/computation-models/{computationModelId}/resolve-to-resources", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.ListComputationModelResolveToResources" }, ListComputationModelResolveToResourcesRequest, ListComputationModelResolveToResourcesResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves a paginated list of summaries of all computation models.
+ */export const listComputationModels = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/computation-models", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.ListComputationModels" }, ListComputationModelsRequest, ListComputationModelsResponse, [InternalFailureException, InvalidRequestException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves a paginated list of dashboards for an IoT SiteWise Monitor project.
+ */export const listDashboards = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/dashboards", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.ListDashboards" }, ListDashboardsRequest, ListDashboardsResponse, [InternalFailureException, InvalidRequestException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves a paginated list of datasets for a specific target resource.
+ */export const listDatasets = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/datasets", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.ListDatasets" }, ListDatasetsRequest, ListDatasetsResponse, [InternalFailureException, InvalidRequestException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves a paginated list of summaries of all executions.
+ */export const listExecutions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/executions", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.ListExecutions" }, ListExecutionsRequest, ListExecutionsResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves a paginated list of gateways.
+ */export const listGateways = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/20200301/gateways", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.ListGateways" }, ListGatewaysRequest, ListGatewaysResponse, [InternalFailureException, InvalidRequestException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves a paginated list of asset models that have a specific interface asset model
+ * applied to them.
+ */export const listInterfaceRelationships = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/interface/{interfaceAssetModelId}/asset-models", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.ListInterfaceRelationships" }, ListInterfaceRelationshipsRequest, ListInterfaceRelationshipsResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves a paginated list of IoT SiteWise Monitor portals.
+ */export const listPortals = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/portals", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.ListPortals" }, ListPortalsRequest, ListPortalsResponse, [InternalFailureException, InvalidRequestException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves a paginated list of projects for an IoT SiteWise Monitor portal.
+ */export const listProjects = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/projects", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.ListProjects" }, ListProjectsRequest, ListProjectsResponse, [InternalFailureException, InvalidRequestException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves a paginated list of time series (data streams).
+ */export const listTimeSeries = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/timeseries", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.ListTimeSeries" }, ListTimeSeriesRequest, ListTimeSeriesResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Adds tags to an IoT SiteWise resource. If a tag already exists for the resource, this operation
+ * updates the tag's value.
+ */export const tagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/tags", method: "POST", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.TagResource" }, TagResourceRequest, TagResourceResponse, [ConflictingOperationException, InternalFailureException, InvalidRequestException, LimitExceededException, ResourceNotFoundException, ThrottlingException, TooManyTagsException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates an IoT SiteWise Monitor portal.
+ */export const updatePortal = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/portals/{portalId}", method: "PUT", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.UpdatePortal" }, UpdatePortalRequest, UpdatePortalResponse, [ConflictingOperationException, InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates an access policy that grants the specified identity (IAM Identity Center user, IAM Identity Center group, or
+ * IAM user) access to the specified IoT SiteWise Monitor portal or project resource.
+ * 
+ * 
+ * 
+ * 
+ * Support for access policies that use an SSO Group as the identity is not supported at this time.
+ */export const createAccessPolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/access-policies", method: "POST", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.CreateAccessPolicy" }, CreateAccessPolicyRequest, CreateAccessPolicyResponse, [InternalFailureException, InvalidRequestException, LimitExceededException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a gateway, which is a virtual or edge device that delivers industrial data streams
+ * from local servers to IoT SiteWise. For more information, see Ingesting data using a gateway in the
+ * *IoT SiteWise User Guide*.
+ */export const createGateway = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/20200301/gateways", method: "POST", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.CreateGateway" }, CreateGatewayRequest, CreateGatewayResponse, [InternalFailureException, InvalidRequestException, LimitExceededException, ResourceAlreadyExistsException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a portal, which can contain projects and dashboards. IoT SiteWise Monitor uses IAM Identity Center or IAM
+ * to authenticate portal users and manage user permissions.
+ * 
+ * 
+ * 
+ * 
+ * Before you can sign in to a new portal, you must add at least one identity to that
+ * portal. For more information, see Adding or removing portal
+ * administrators in the *IoT SiteWise User Guide*.
+ */export const createPortal = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/portals", method: "POST", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.CreatePortal" }, CreatePortalRequest, CreatePortalResponse, [InternalFailureException, InvalidRequestException, LimitExceededException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes a portal from IoT SiteWise Monitor.
+ */export const deletePortal = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/portals/{portalId}", method: "DELETE", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.DeletePortal" }, DeletePortalRequest, DeletePortalResponse, [ConflictingOperationException, InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves information about an asset.
+ */export const describeAsset = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/assets/{assetId}", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.DescribeAsset" }, DescribeAssetRequest, DescribeAssetResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves information about an asset model composite model (also known as an asset model
+ * component). For more information, see Custom composite models
+ * (Components) in the *IoT SiteWise User Guide*.
+ */export const describeAssetModelCompositeModel = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/asset-models/{assetModelId}/composite-models/{assetModelCompositeModelId}", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.DescribeAssetModelCompositeModel" }, DescribeAssetModelCompositeModelRequest, DescribeAssetModelCompositeModelResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets aggregated values for an asset property. For more information, see Querying
+ * aggregates in the *IoT SiteWise User Guide*.
+ * 
+ * 
+ * To identify an asset property, you must specify one of the following:
+ * 
+ * 
+ * 
+ * - The `assetId` and `propertyId` of an asset property.
+ * 
+ * 
+ * 
+ * - A `propertyAlias`, which is a data stream alias (for example,
+ * `/company/windfarm/3/turbine/7/temperature`). To define an asset property's alias, see UpdateAssetProperty.
+ */export const getAssetPropertyAggregates = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/properties/aggregates", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.GetAssetPropertyAggregates" }, GetAssetPropertyAggregatesRequest, GetAssetPropertyAggregatesResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves a paginated list of properties associated with an asset model.
+ * If you update properties associated with the model before you finish listing all the properties,
+ * you need to start all over again.
+ */export const listAssetModelProperties = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/asset-models/{assetModelId}/properties", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.ListAssetModelProperties" }, ListAssetModelPropertiesRequest, ListAssetModelPropertiesResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves a paginated list of asset relationships for an asset. You can use this operation
+ * to identify an asset's root asset and all associated assets between that asset and its
+ * root.
+ */export const listAssetRelationships = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/assets/{assetId}/assetRelationships", method: "GET", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.ListAssetRelationships" }, ListAssetRelationshipsRequest, ListAssetRelationshipsResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates or updates an interface relationship between an asset model and an interface asset
+ * model. This operation applies an interface to an asset model.
+ */export const putAssetModelInterfaceRelationship = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/asset-models/{assetModelId}/interface/{interfaceAssetModelId}/asset-model-interface-relationship", method: "PUT", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.PutAssetModelInterfaceRelationship" }, PutAssetModelInterfaceRelationshipRequest, PutAssetModelInterfaceRelationshipResponse, [ConflictingOperationException, InternalFailureException, InvalidRequestException, LimitExceededException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates an asset model and all of the assets that were created from the model. Each asset
+ * created from the model inherits the updated asset model's property and hierarchy definitions.
+ * For more information, see Updating assets and models in the
+ * *IoT SiteWise User Guide*.
+ * 
+ * 
+ * 
+ * 
+ * If you remove a property from an asset model, IoT SiteWise deletes all previous data for that
+ * property. You can’t change the type or data type of an existing property.
+ * 
+ * 
+ * To replace an existing asset model property with a new one with the same
+ * `name`, do the following:
+ * 
+ * 
+ * 
+ * - Submit an `UpdateAssetModel` request with the entire existing property
+ * removed.
+ * 
+ * 
+ * 
+ * - Submit a second `UpdateAssetModel` request that includes the new
+ * property. The new asset property will have the same `name` as the previous
+ * one and IoT SiteWise will generate a new unique `id`.
+ */export const updateAssetModel = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/asset-models/{assetModelId}", method: "PUT", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.UpdateAssetModel" }, UpdateAssetModelRequest, UpdateAssetModelResponse, [ConflictingOperationException, InternalFailureException, InvalidRequestException, LimitExceededException, PreconditionFailedException, ResourceAlreadyExistsException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets aggregated values (for example, average, minimum, and maximum) for one or more asset
+ * properties. For more information, see Querying aggregates in the
+ * *IoT SiteWise User Guide*.
+ */export const batchGetAssetPropertyAggregates = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/properties/batch/aggregates", method: "POST", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.BatchGetAssetPropertyAggregates" }, BatchGetAssetPropertyAggregatesRequest, BatchGetAssetPropertyAggregatesResponse, [InternalFailureException, InvalidRequestException, ServiceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets the current value for one or more asset properties. For more information, see Querying
+ * current values in the *IoT SiteWise User Guide*.
+ */export const batchGetAssetPropertyValue = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/properties/batch/latest", method: "POST", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.BatchGetAssetPropertyValue" }, BatchGetAssetPropertyValueRequest, BatchGetAssetPropertyValueResponse, [InternalFailureException, InvalidRequestException, ServiceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets the historical values for one or more asset properties. For more information, see
+ * Querying historical values in the *IoT SiteWise User Guide*.
+ */export const batchGetAssetPropertyValueHistory = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/properties/batch/history", method: "POST", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.BatchGetAssetPropertyValueHistory" }, BatchGetAssetPropertyValueHistoryRequest, BatchGetAssetPropertyValueHistoryResponse, [InternalFailureException, InvalidRequestException, ServiceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates an asset from an existing asset model. For more information, see Creating assets in the
+ * *IoT SiteWise User Guide*.
+ */export const createAsset = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/assets", method: "POST", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.CreateAsset" }, CreateAssetRequest, CreateAssetResponse, [ConflictingOperationException, InternalFailureException, InvalidRequestException, LimitExceededException, ResourceAlreadyExistsException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Defines a job to ingest data to IoT SiteWise from Amazon S3. For more information, see Create a
+ * bulk import job (CLI) in the *Amazon Simple Storage Service User Guide*.
+ * 
+ * 
+ * 
+ * 
+ * Before you create a bulk import job, you must enable IoT SiteWise warm tier or IoT SiteWise cold tier.
+ * For more information about how to configure storage settings, see PutStorageConfiguration.
+ * 
+ * 
+ * Bulk import is designed to store historical data to IoT SiteWise.
+ * 
+ * 
+ * 
+ * - Newly ingested data in the hot tier triggers notifications and computations.
+ * 
+ * 
+ * 
+ * - After data moves from the hot tier to the warm or cold tier based on retention
+ * settings, it does not trigger computations or notifications.
+ * 
+ * 
+ * 
+ * - Data older than 7 days does not trigger computations or notifications.
+ */export const createBulkImportJob = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/jobs", method: "POST", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.CreateBulkImportJob" }, CreateBulkImportJobRequest, CreateBulkImportJobResponse, [ConflictingOperationException, InternalFailureException, InvalidRequestException, LimitExceededException, ResourceAlreadyExistsException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Create a computation model with a configuration and data binding.
+ */export const createComputationModel = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/computation-models", method: "POST", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.CreateComputationModel" }, CreateComputationModelRequest, CreateComputationModelResponse, [ConflictingOperationException, InternalFailureException, InvalidRequestException, LimitExceededException, ResourceAlreadyExistsException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a dataset to connect an external datasource.
+ */export const createDataset = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/datasets", method: "POST", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.CreateDataset" }, CreateDatasetRequest, CreateDatasetResponse, [ConflictingOperationException, InternalFailureException, InvalidRequestException, LimitExceededException, ResourceAlreadyExistsException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Run SQL queries to retrieve metadata and time-series data from asset models, assets,
+ * measurements, metrics, transforms, and aggregates.
+ */export const executeQuery = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/queries/execution", method: "POST", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.ExecuteQuery" }, ExecuteQueryRequest, ExecuteQueryResponse, [AccessDeniedException, InternalFailureException, InvalidRequestException, QueryTimeoutException, ServiceUnavailableException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates an asset model from specified property and hierarchy definitions. You create
+ * assets from asset models. With asset models, you can easily create assets of the same type
+ * that have standardized definitions. Each asset created from a model inherits the asset model's
+ * property and hierarchy definitions. For more information, see Defining asset models in the
+ * *IoT SiteWise User Guide*.
+ * 
+ * 
+ * You can create three types of asset models, `ASSET_MODEL`,
+ * `COMPONENT_MODEL`, or an `INTERFACE`.
+ * 
+ * 
+ * 
+ * - **ASSET_MODEL** – (default) An asset model that
+ * you can use to create assets. Can't be included as a component in another asset
+ * model.
+ * 
+ * 
+ * 
+ * - **COMPONENT_MODEL** – A reusable component that
+ * you can include in the composite models of other asset models. You can't create
+ * assets directly from this type of asset model.
+ * 
+ * 
+ * 
+ * - **INTERFACE** – An interface is a type of model
+ * that defines a standard structure that can be applied to different asset models.
+ */export const createAssetModel = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/asset-models", method: "POST", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.CreateAssetModel" }, CreateAssetModelRequest, CreateAssetModelResponse, [ConflictingOperationException, InternalFailureException, InvalidRequestException, LimitExceededException, ResourceAlreadyExistsException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists all data binding usages for computation models. This allows to identify where
+ * specific data bindings are being utilized across the computation models. This track
+ * dependencies between data sources and computation models.
+ */export const listComputationModelDataBindingUsages = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/computation-models/data-binding-usages", method: "POST", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.ListComputationModelDataBindingUsages" }, ListComputationModelDataBindingUsagesRequest, ListComputationModelDataBindingUsagesResponse, [InternalFailureException, InvalidRequestException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Sends a list of asset property values to IoT SiteWise. Each value is a timestamp-quality-value
+ * (TQV) data point. For more information, see Ingesting data using the API in the
+ * *IoT SiteWise User Guide*.
+ * 
+ * 
+ * To identify an asset property, you must specify one of the following:
+ * 
+ * 
+ * 
+ * - The `assetId` and `propertyId` of an asset property.
+ * 
+ * 
+ * 
+ * - A `propertyAlias`, which is a data stream alias (for example,
+ * `/company/windfarm/3/turbine/7/temperature`). To define an asset property's alias, see UpdateAssetProperty.
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * With respect to Unix epoch time, IoT SiteWise accepts only TQVs that have a timestamp of no more
+ * than 7 days in the past and no more than 10 minutes in the future. IoT SiteWise rejects timestamps
+ * outside of the inclusive range of [-7 days, +10 minutes] and returns a
+ * `TimestampOutOfRangeException` error.
+ * 
+ * 
+ * For each asset property, IoT SiteWise overwrites TQVs with duplicate timestamps unless the newer
+ * TQV has a different quality. For example, if you store a TQV `{T1, GOOD, V1}`,
+ * then storing `{T1, GOOD, V2}` replaces the existing TQV.
+ * 
+ * 
+ * 
+ * 
+ * IoT SiteWise authorizes access to each `BatchPutAssetPropertyValue` entry individually.
+ * For more information, see BatchPutAssetPropertyValue authorization in the
+ * *IoT SiteWise User Guide*.
+ */export const batchPutAssetPropertyValue = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/properties", method: "POST", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.BatchPutAssetPropertyValue" }, BatchPutAssetPropertyValueRequest, BatchPutAssetPropertyValueResponse, [ConflictingOperationException, InternalFailureException, InvalidRequestException, LimitExceededException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Invokes SiteWise Assistant to start or continue a conversation.
+ */export const invokeAssistant = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/assistant/invocation", method: "POST", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.InvokeAssistant" }, InvokeAssistantRequest, InvokeAssistantResponse, [AccessDeniedException, ConflictingOperationException, InternalFailureException, InvalidRequestException, LimitExceededException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

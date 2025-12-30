@@ -21,4 +21,10 @@ export class InvalidChannelARN extends S.TaggedError<InvalidChannelARN>()("Inval
 export class UnsupportedOperationException extends S.TaggedError<UnsupportedOperationException>()("UnsupportedOperationException", {message: S.optional(S.String)}) {};
 
 //# Operations
-export const putAuditEvents = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-08-11", uri: "/PutAuditEvents", method: "POST", sdkId: "CloudTrail Data", sigV4ServiceName: "cloudtrail-data", name: "CloudTrailDataService.PutAuditEvents" }, PutAuditEventsRequest, PutAuditEventsResponse, [ChannelInsufficientPermission, ChannelNotFound, ChannelUnsupportedSchema, DuplicatedAuditEventId, InvalidChannelARN, UnsupportedOperationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Ingests your application events into CloudTrail Lake. A required parameter,
+ * `auditEvents`, accepts the JSON records (also called
+ * *payload*) of events that you want CloudTrail to ingest. You
+ * can add up to 100 of these events (or up to 1 MB) per `PutAuditEvents`
+ * request.
+ */export const putAuditEvents = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-08-11", uri: "/PutAuditEvents", method: "POST", sdkId: "CloudTrail Data", sigV4ServiceName: "cloudtrail-data", name: "CloudTrailDataService.PutAuditEvents" }, PutAuditEventsRequest, PutAuditEventsResponse, [ChannelInsufficientPermission, ChannelNotFound, ChannelUnsupportedSchema, DuplicatedAuditEventId, InvalidChannelARN, UnsupportedOperationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

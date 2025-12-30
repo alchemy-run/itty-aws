@@ -164,51 +164,374 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
 export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExceededException>()("ServiceQuotaExceededException", {}) {};
 
 //# Operations
-export const describePackageGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/package-group", method: "GET", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.DescribePackageGroup" }, DescribePackageGroupRequest, DescribePackageGroupResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeRepository = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/repository", method: "GET", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.DescribeRepository" }, DescribeRepositoryRequest, DescribeRepositoryResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const disposePackageVersions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/package/versions/dispose", method: "POST", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.DisposePackageVersions" }, DisposePackageVersionsRequest, DisposePackageVersionsResult, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getAssociatedPackageGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/get-associated-package-group", method: "GET", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.GetAssociatedPackageGroup" }, GetAssociatedPackageGroupRequest, GetAssociatedPackageGroupResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getAuthorizationToken = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/authorization-token", method: "POST", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.GetAuthorizationToken" }, GetAuthorizationTokenRequest, GetAuthorizationTokenResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getDomainPermissionsPolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/domain/permissions/policy", method: "GET", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.GetDomainPermissionsPolicy" }, GetDomainPermissionsPolicyRequest, GetDomainPermissionsPolicyResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getPackageVersionAsset = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/package/version/asset", method: "GET", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.GetPackageVersionAsset" }, GetPackageVersionAssetRequest, GetPackageVersionAssetResult, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getPackageVersionReadme = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/package/version/readme", method: "GET", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.GetPackageVersionReadme" }, GetPackageVersionReadmeRequest, GetPackageVersionReadmeResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getRepositoryEndpoint = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/repository/endpoint", method: "GET", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.GetRepositoryEndpoint" }, GetRepositoryEndpointRequest, GetRepositoryEndpointResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getRepositoryPermissionsPolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/repository/permissions/policy", method: "GET", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.GetRepositoryPermissionsPolicy" }, GetRepositoryPermissionsPolicyRequest, GetRepositoryPermissionsPolicyResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listAllowedRepositoriesForGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/package-group-allowed-repositories", method: "GET", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.ListAllowedRepositoriesForGroup" }, ListAllowedRepositoriesForGroupRequest, ListAllowedRepositoriesForGroupResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listPackages = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/packages", method: "POST", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.ListPackages" }, ListPackagesRequest, ListPackagesResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listRepositoriesInDomain = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/domain/repositories", method: "POST", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.ListRepositoriesInDomain" }, ListRepositoriesInDomainRequest, ListRepositoriesInDomainResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listSubPackageGroups = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/package-groups/sub-groups", method: "POST", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.ListSubPackageGroups" }, ListSubPackageGroupsRequest, ListSubPackageGroupsResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listTagsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/tags", method: "POST", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResult, [AccessDeniedException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const publishPackageVersion = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/package/version/publish", method: "POST", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.PublishPackageVersion" }, PublishPackageVersionRequest, PublishPackageVersionResult, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const putDomainPermissionsPolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/domain/permissions/policy", method: "PUT", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.PutDomainPermissionsPolicy" }, PutDomainPermissionsPolicyRequest, PutDomainPermissionsPolicyResult, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const putRepositoryPermissionsPolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/repository/permissions/policy", method: "PUT", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.PutRepositoryPermissionsPolicy" }, PutRepositoryPermissionsPolicyRequest, PutRepositoryPermissionsPolicyResult, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const tagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/tag", method: "POST", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.TagResource" }, TagResourceRequest, TagResourceResult, [AccessDeniedException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const untagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/untag", method: "POST", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.UntagResource" }, UntagResourceRequest, UntagResourceResult, [AccessDeniedException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const updatePackageGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/package-group", method: "PUT", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.UpdatePackageGroup" }, UpdatePackageGroupRequest, UpdatePackageGroupResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const updatePackageVersionsStatus = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/package/versions/update_status", method: "POST", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.UpdatePackageVersionsStatus" }, UpdatePackageVersionsStatusRequest, UpdatePackageVersionsStatusResult, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateRepository = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/repository", method: "PUT", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.UpdateRepository" }, UpdateRepositoryRequest, UpdateRepositoryResult, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const copyPackageVersions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/package/versions/copy", method: "POST", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.CopyPackageVersions" }, CopyPackageVersionsRequest, CopyPackageVersionsResult, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const createDomain = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/domain", method: "POST", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.CreateDomain" }, CreateDomainRequest, CreateDomainResult, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const createRepository = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/repository", method: "POST", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.CreateRepository" }, CreateRepositoryRequest, CreateRepositoryResult, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteDomain = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/domain", method: "DELETE", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.DeleteDomain" }, DeleteDomainRequest, DeleteDomainResult, [AccessDeniedException, ConflictException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteDomainPermissionsPolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/domain/permissions/policy", method: "DELETE", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.DeleteDomainPermissionsPolicy" }, DeleteDomainPermissionsPolicyRequest, DeleteDomainPermissionsPolicyResult, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const deletePackageGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/package-group", method: "DELETE", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.DeletePackageGroup" }, DeletePackageGroupRequest, DeletePackageGroupResult, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteRepository = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/repository", method: "DELETE", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.DeleteRepository" }, DeleteRepositoryRequest, DeleteRepositoryResult, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteRepositoryPermissionsPolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/repository/permissions/policies", method: "DELETE", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.DeleteRepositoryPermissionsPolicy" }, DeleteRepositoryPermissionsPolicyRequest, DeleteRepositoryPermissionsPolicyResult, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeDomain = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/domain", method: "GET", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.DescribeDomain" }, DescribeDomainRequest, DescribeDomainResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const describePackage = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/package", method: "GET", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.DescribePackage" }, DescribePackageRequest, DescribePackageResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const disassociateExternalConnection = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/repository/external-connection", method: "DELETE", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.DisassociateExternalConnection" }, DisassociateExternalConnectionRequest, DisassociateExternalConnectionResult, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listAssociatedPackages = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/list-associated-packages", method: "GET", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.ListAssociatedPackages" }, ListAssociatedPackagesRequest, ListAssociatedPackagesResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listDomains = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/domains", method: "POST", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.ListDomains" }, ListDomainsRequest, ListDomainsResult, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listPackageGroups = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/package-groups", method: "POST", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.ListPackageGroups" }, ListPackageGroupsRequest, ListPackageGroupsResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listPackageVersionDependencies = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/package/version/dependencies", method: "POST", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.ListPackageVersionDependencies" }, ListPackageVersionDependenciesRequest, ListPackageVersionDependenciesResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listPackageVersions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/package/versions", method: "POST", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.ListPackageVersions" }, ListPackageVersionsRequest, ListPackageVersionsResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listRepositories = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/repositories", method: "POST", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.ListRepositories" }, ListRepositoriesRequest, ListRepositoriesResult, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const putPackageOriginConfiguration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/package", method: "POST", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.PutPackageOriginConfiguration" }, PutPackageOriginConfigurationRequest, PutPackageOriginConfigurationResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const associateExternalConnection = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/repository/external-connection", method: "POST", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.AssociateExternalConnection" }, AssociateExternalConnectionRequest, AssociateExternalConnectionResult, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const deletePackage = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/package", method: "DELETE", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.DeletePackage" }, DeletePackageRequest, DeletePackageResult, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const deletePackageVersions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/package/versions/delete", method: "POST", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.DeletePackageVersions" }, DeletePackageVersionsRequest, DeletePackageVersionsResult, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listPackageVersionAssets = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/package/version/assets", method: "POST", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.ListPackageVersionAssets" }, ListPackageVersionAssetsRequest, ListPackageVersionAssetsResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const describePackageVersion = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/package/version", method: "GET", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.DescribePackageVersion" }, DescribePackageVersionRequest, DescribePackageVersionResult, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const updatePackageGroupOriginConfiguration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/package-group-origin-configuration", method: "PUT", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.UpdatePackageGroupOriginConfiguration" }, UpdatePackageGroupOriginConfigurationRequest, UpdatePackageGroupOriginConfigurationResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const createPackageGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/package-group", method: "POST", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.CreatePackageGroup" }, CreatePackageGroupRequest, CreatePackageGroupResult, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns a PackageGroupDescription object that
+ * contains information about the requested package group.
+ */export const describePackageGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/package-group", method: "GET", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.DescribePackageGroup" }, DescribePackageGroupRequest, DescribePackageGroupResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns a `RepositoryDescription` object that contains detailed information
+ * about the requested repository.
+ */export const describeRepository = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/repository", method: "GET", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.DescribeRepository" }, DescribeRepositoryRequest, DescribeRepositoryResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes the assets in package versions and sets the package versions' status to `Disposed`.
+ * A disposed package version cannot be restored in your repository because its assets are deleted.
+ * 
+ * 
+ * 
+ * 
+ * To view all disposed package versions in a repository, use ListPackageVersions and set the
+ * status parameter
+ * to `Disposed`.
+ * 
+ * 
+ * 
+ * 
+ * To view information about a disposed package version, use DescribePackageVersion.
+ */export const disposePackageVersions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/package/versions/dispose", method: "POST", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.DisposePackageVersions" }, DisposePackageVersionsRequest, DisposePackageVersionsResult, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns the most closely associated package group to the specified package. This API does not require that the package exist
+ * in any repository in the domain. As such, `GetAssociatedPackageGroup` can be used to see which package group's origin configuration
+ * applies to a package before that package is in a repository. This can be helpful to check if public packages are blocked without ingesting them.
+ * 
+ * 
+ * For information package group association and matching, see
+ * Package group
+ * definition syntax and matching behavior in the *CodeArtifact User Guide*.
+ */export const getAssociatedPackageGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/get-associated-package-group", method: "GET", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.GetAssociatedPackageGroup" }, GetAssociatedPackageGroupRequest, GetAssociatedPackageGroupResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Generates a temporary authorization token for accessing repositories in the domain.
+ * This API requires the `codeartifact:GetAuthorizationToken` and `sts:GetServiceBearerToken` permissions.
+ * For more information about authorization tokens, see
+ * CodeArtifact authentication and tokens.
+ * 
+ * 
+ * 
+ * 
+ * 
+ * CodeArtifact authorization tokens are valid for a period of 12 hours when created with the `login` command.
+ * You can call `login` periodically to refresh the token. When
+ * you create an authorization token with the `GetAuthorizationToken` API, you can set a custom authorization period,
+ * up to a maximum of 12 hours, with the `durationSeconds` parameter.
+ * 
+ * 
+ * The authorization period begins after `login`
+ * or `GetAuthorizationToken` is called. If `login` or `GetAuthorizationToken` is called while
+ * assuming a role, the token lifetime is independent of the maximum session duration
+ * of the role. For example, if you call `sts assume-role` and specify a session duration of 15 minutes, then
+ * generate a CodeArtifact authorization token, the token will be valid for the full authorization period
+ * even though this is longer than the 15-minute session duration.
+ * 
+ * 
+ * See
+ * Using IAM Roles
+ * for more information on controlling session duration.
+ */export const getAuthorizationToken = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/authorization-token", method: "POST", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.GetAuthorizationToken" }, GetAuthorizationTokenRequest, GetAuthorizationTokenResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns the resource policy attached to the specified domain.
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * The policy is a resource-based policy, not an identity-based policy. For more information, see
+ * Identity-based policies
+ * and resource-based policies in the *IAM User Guide*.
+ */export const getDomainPermissionsPolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/domain/permissions/policy", method: "GET", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.GetDomainPermissionsPolicy" }, GetDomainPermissionsPolicyRequest, GetDomainPermissionsPolicyResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns an asset (or file) that is in a package. For example, for a Maven package version, use
+ * `GetPackageVersionAsset` to download a `JAR` file, a `POM` file,
+ * or any other assets in the package version.
+ */export const getPackageVersionAsset = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/package/version/asset", method: "GET", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.GetPackageVersionAsset" }, GetPackageVersionAssetRequest, GetPackageVersionAssetResult, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets the readme file or descriptive text for a package version.
+ * 
+ * 
+ * 
+ * 
+ * The returned text might contain formatting. For example, it might contain formatting for Markdown or reStructuredText.
+ */export const getPackageVersionReadme = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/package/version/readme", method: "GET", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.GetPackageVersionReadme" }, GetPackageVersionReadmeRequest, GetPackageVersionReadmeResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns the endpoint of a repository for a specific package format. A repository has one endpoint for each
+ * package format:
+ * 
+ * 
+ * 
+ * 
+ * - `cargo`
+ * 
+ * 
+ * 
+ * 
+ * - `generic`
+ * 
+ * 
+ * 
+ * 
+ * - `maven`
+ * 
+ * 
+ * 
+ * 
+ * - `npm`
+ * 
+ * 
+ * 
+ * 
+ * - `nuget`
+ * 
+ * 
+ * 
+ * 
+ * - `pypi`
+ * 
+ * 
+ * 
+ * 
+ * - `ruby`
+ * 
+ * 
+ * 
+ * 
+ * - `swift`
+ */export const getRepositoryEndpoint = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/repository/endpoint", method: "GET", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.GetRepositoryEndpoint" }, GetRepositoryEndpointRequest, GetRepositoryEndpointResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns the resource policy that is set on a repository.
+ */export const getRepositoryPermissionsPolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/repository/permissions/policy", method: "GET", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.GetRepositoryPermissionsPolicy" }, GetRepositoryPermissionsPolicyRequest, GetRepositoryPermissionsPolicyResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists the repositories in the added repositories list of the specified restriction type for a package group. For more information about restriction types
+ * and added repository lists, see Package group origin controls in the *CodeArtifact User Guide*.
+ */export const listAllowedRepositoriesForGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/package-group-allowed-repositories", method: "GET", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.ListAllowedRepositoriesForGroup" }, ListAllowedRepositoriesForGroupRequest, ListAllowedRepositoriesForGroupResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns a list of
+ * PackageSummary
+ * objects for packages in a repository that match the request parameters.
+ */export const listPackages = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/packages", method: "POST", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.ListPackages" }, ListPackagesRequest, ListPackagesResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns a list of
+ * RepositorySummary
+ * objects. Each `RepositorySummary` contains information about a repository in the specified domain and that matches the input
+ * parameters.
+ */export const listRepositoriesInDomain = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/domain/repositories", method: "POST", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.ListRepositoriesInDomain" }, ListRepositoriesInDomainRequest, ListRepositoriesInDomainResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns a list of direct children of the specified package group.
+ * 
+ * 
+ * For information package group hierarchy, see
+ * Package group
+ * definition syntax and matching behavior in the *CodeArtifact User Guide*.
+ */export const listSubPackageGroups = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/package-groups/sub-groups", method: "POST", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.ListSubPackageGroups" }, ListSubPackageGroupsRequest, ListSubPackageGroupsResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets information about Amazon Web Services tags for a specified Amazon Resource Name (ARN) in CodeArtifact.
+ */export const listTagsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/tags", method: "POST", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResult, [AccessDeniedException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a new package version containing one or more assets (or files).
+ * 
+ * 
+ * The `unfinished` flag can be used to keep the package version in the
+ * `Unfinished` state until all of its assets have been uploaded (see Package version status in the *CodeArtifact user guide*). To set
+ * the package version’s status to `Published`, omit the `unfinished` flag
+ * when uploading the final asset, or set the status using UpdatePackageVersionStatus. Once a package version’s status is set to
+ * `Published`, it cannot change back to `Unfinished`.
+ * 
+ * 
+ * 
+ * 
+ * Only generic packages can be published using this API. For more information, see Using generic
+ * packages in the *CodeArtifact User Guide*.
+ */export const publishPackageVersion = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/package/version/publish", method: "POST", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.PublishPackageVersion" }, PublishPackageVersionRequest, PublishPackageVersionResult, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Sets a resource policy on a domain that specifies permissions to access it.
+ * 
+ * 
+ * 
+ * 
+ * When you call `PutDomainPermissionsPolicy`, the resource policy on the domain is ignored when evaluting permissions.
+ * This ensures that the owner of a domain cannot lock themselves out of the domain, which would prevent them from being
+ * able to update the resource policy.
+ */export const putDomainPermissionsPolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/domain/permissions/policy", method: "PUT", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.PutDomainPermissionsPolicy" }, PutDomainPermissionsPolicyRequest, PutDomainPermissionsPolicyResult, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Sets the resource policy on a repository that specifies permissions to access it.
+ * 
+ * 
+ * 
+ * 
+ * When you call `PutRepositoryPermissionsPolicy`, the resource policy on the repository is ignored when evaluting permissions.
+ * This ensures that the owner of a repository cannot lock themselves out of the repository, which would prevent them from being
+ * able to update the resource policy.
+ */export const putRepositoryPermissionsPolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/repository/permissions/policy", method: "PUT", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.PutRepositoryPermissionsPolicy" }, PutRepositoryPermissionsPolicyRequest, PutRepositoryPermissionsPolicyResult, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Adds or updates tags for a resource in CodeArtifact.
+ */export const tagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/tag", method: "POST", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.TagResource" }, TagResourceRequest, TagResourceResult, [AccessDeniedException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Removes tags from a resource in CodeArtifact.
+ */export const untagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/untag", method: "POST", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.UntagResource" }, UntagResourceRequest, UntagResourceResult, [AccessDeniedException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates a package group. This API cannot be used to update a package group's origin configuration or pattern. To update a
+ * package group's origin configuration, use UpdatePackageGroupOriginConfiguration.
+ */export const updatePackageGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/package-group", method: "PUT", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.UpdatePackageGroup" }, UpdatePackageGroupRequest, UpdatePackageGroupResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates the status of one or more versions of a package. Using `UpdatePackageVersionsStatus`,
+ * you can update the status of package versions to `Archived`, `Published`, or `Unlisted`.
+ * To set the status of a package version to `Disposed`, use
+ * DisposePackageVersions.
+ */export const updatePackageVersionsStatus = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/package/versions/update_status", method: "POST", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.UpdatePackageVersionsStatus" }, UpdatePackageVersionsStatusRequest, UpdatePackageVersionsStatusResult, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Update the properties of a repository.
+ */export const updateRepository = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/repository", method: "PUT", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.UpdateRepository" }, UpdateRepositoryRequest, UpdateRepositoryResult, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Copies package versions from one repository to another repository in the same domain.
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * You must specify `versions` or `versionRevisions`. You cannot specify both.
+ */export const copyPackageVersions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/package/versions/copy", method: "POST", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.CopyPackageVersions" }, CopyPackageVersionsRequest, CopyPackageVersionsResult, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a domain. CodeArtifact *domains* make it easier to manage multiple repositories across an
+ * organization. You can use a domain to apply permissions across many
+ * repositories owned by different Amazon Web Services accounts. An asset is stored only once
+ * in a domain, even if it's in multiple repositories.
+ * 
+ * 
+ * 
+ * Although you can have multiple domains, we recommend a single production domain that contains all
+ * published artifacts so that your development teams can find and share packages. You can use a second
+ * pre-production domain to test changes to the production domain configuration.
+ */export const createDomain = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/domain", method: "POST", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.CreateDomain" }, CreateDomainRequest, CreateDomainResult, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a repository.
+ */export const createRepository = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/repository", method: "POST", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.CreateRepository" }, CreateRepositoryRequest, CreateRepositoryResult, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes a domain. You cannot delete a domain that contains repositories. If you want to delete a domain
+ * with repositories, first delete its repositories.
+ */export const deleteDomain = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/domain", method: "DELETE", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.DeleteDomain" }, DeleteDomainRequest, DeleteDomainResult, [AccessDeniedException, ConflictException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes the resource policy set on a domain.
+ */export const deleteDomainPermissionsPolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/domain/permissions/policy", method: "DELETE", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.DeleteDomainPermissionsPolicy" }, DeleteDomainPermissionsPolicyRequest, DeleteDomainPermissionsPolicyResult, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes a package group.
+ * Deleting a package group does not delete packages or package versions associated with the package group.
+ * When a package group is deleted, the direct child package groups will become children of the package
+ * group's direct parent package group. Therefore, if any of the child groups are inheriting any settings
+ * from the parent, those settings could change.
+ */export const deletePackageGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/package-group", method: "DELETE", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.DeletePackageGroup" }, DeletePackageGroupRequest, DeletePackageGroupResult, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes a repository.
+ */export const deleteRepository = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/repository", method: "DELETE", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.DeleteRepository" }, DeleteRepositoryRequest, DeleteRepositoryResult, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes the resource policy that is set on a repository. After a resource policy is deleted, the
+ * permissions allowed and denied by the deleted policy are removed. The effect of deleting a resource policy might not be immediate.
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * Use `DeleteRepositoryPermissionsPolicy` with caution. After a policy is deleted, Amazon Web Services users, roles, and accounts lose permissions to perform
+ * the repository actions granted by the deleted policy.
+ */export const deleteRepositoryPermissionsPolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/repository/permissions/policies", method: "DELETE", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.DeleteRepositoryPermissionsPolicy" }, DeleteRepositoryPermissionsPolicyRequest, DeleteRepositoryPermissionsPolicyResult, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns a
+ * DomainDescription
+ * object that contains information about the requested domain.
+ */export const describeDomain = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/domain", method: "GET", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.DescribeDomain" }, DescribeDomainRequest, DescribeDomainResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns a
+ * PackageDescription
+ * object that contains information about the requested package.
+ */export const describePackage = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/package", method: "GET", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.DescribePackage" }, DescribePackageRequest, DescribePackageResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Removes an existing external connection from a repository.
+ */export const disassociateExternalConnection = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/repository/external-connection", method: "DELETE", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.DisassociateExternalConnection" }, DisassociateExternalConnectionRequest, DisassociateExternalConnectionResult, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns a list of packages associated with the requested package group. For information package group association and matching, see
+ * Package group
+ * definition syntax and matching behavior in the *CodeArtifact User Guide*.
+ */export const listAssociatedPackages = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/list-associated-packages", method: "GET", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.ListAssociatedPackages" }, ListAssociatedPackagesRequest, ListAssociatedPackagesResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns a list of DomainSummary objects for all domains owned by the Amazon Web Services account that makes
+ * this call. Each returned `DomainSummary` object contains information about a
+ * domain.
+ */export const listDomains = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/domains", method: "POST", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.ListDomains" }, ListDomainsRequest, ListDomainsResult, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns a list of package groups in the requested domain.
+ */export const listPackageGroups = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/package-groups", method: "POST", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.ListPackageGroups" }, ListPackageGroupsRequest, ListPackageGroupsResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns the direct dependencies for a package version. The dependencies are returned as
+ * PackageDependency
+ * objects. CodeArtifact extracts the dependencies for a package version from the metadata file for the package
+ * format (for example, the `package.json` file for npm packages and the `pom.xml` file
+ * for Maven). Any package version dependencies that are not listed in the configuration file are not returned.
+ */export const listPackageVersionDependencies = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/package/version/dependencies", method: "POST", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.ListPackageVersionDependencies" }, ListPackageVersionDependenciesRequest, ListPackageVersionDependenciesResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns a list of
+ * PackageVersionSummary
+ * objects for package versions in a repository that match the request parameters. Package versions of all statuses will be returned by default when calling `list-package-versions` with no `--status` parameter.
+ */export const listPackageVersions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/package/versions", method: "POST", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.ListPackageVersions" }, ListPackageVersionsRequest, ListPackageVersionsResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns a list of
+ * RepositorySummary
+ * objects. Each `RepositorySummary` contains information about a repository in the specified Amazon Web Services account and that matches the input
+ * parameters.
+ */export const listRepositories = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/repositories", method: "POST", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.ListRepositories" }, ListRepositoriesRequest, ListRepositoriesResult, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Sets the package origin configuration for a package.
+ * 
+ * 
+ * The package origin configuration determines how new versions of a package can be added to a repository. You can allow or block direct
+ * publishing of new package versions, or ingestion and retaining of new package versions from an external connection or upstream source.
+ * For more information about package origin controls and configuration, see Editing package origin controls in the *CodeArtifact User Guide*.
+ * 
+ * 
+ * 
+ * `PutPackageOriginConfiguration` can be called on a package that doesn't yet exist in the repository. When called
+ * on a package that does not exist, a package is created in the repository with no versions and the requested restrictions are set on the package.
+ * This can be used to preemptively block ingesting or retaining any versions from external connections or upstream repositories, or to block
+ * publishing any versions of the package into the repository before connecting any package managers or publishers to the repository.
+ */export const putPackageOriginConfiguration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/package", method: "POST", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.PutPackageOriginConfiguration" }, PutPackageOriginConfigurationRequest, PutPackageOriginConfigurationResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Adds an existing external connection to a repository. One external connection is allowed
+ * per repository.
+ * 
+ * 
+ * 
+ * 
+ * A repository can have one or more upstream repositories, or an external connection.
+ */export const associateExternalConnection = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/repository/external-connection", method: "POST", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.AssociateExternalConnection" }, AssociateExternalConnectionRequest, AssociateExternalConnectionResult, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes a package and all associated package versions. A deleted package cannot be restored. To delete one or more package versions, use the
+ * DeletePackageVersions API.
+ */export const deletePackage = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/package", method: "DELETE", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.DeletePackage" }, DeletePackageRequest, DeletePackageResult, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes one or more versions of a package. A deleted package version cannot be restored
+ * in your repository. If you want to remove a package version from your repository and be able
+ * to restore it later, set its status to `Archived`. Archived packages cannot be
+ * downloaded from a repository and don't show up with list package APIs (for example,
+ * ListPackageVersions), but you can restore them using UpdatePackageVersionsStatus.
+ */export const deletePackageVersions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/package/versions/delete", method: "POST", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.DeletePackageVersions" }, DeletePackageVersionsRequest, DeletePackageVersionsResult, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns a list of
+ * AssetSummary
+ * objects for assets in a package version.
+ */export const listPackageVersionAssets = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/package/version/assets", method: "POST", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.ListPackageVersionAssets" }, ListPackageVersionAssetsRequest, ListPackageVersionAssetsResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns a
+ * PackageVersionDescription
+ * object that contains information about the requested package version.
+ */export const describePackageVersion = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/package/version", method: "GET", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.DescribePackageVersion" }, DescribePackageVersionRequest, DescribePackageVersionResult, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates the package origin configuration for a package group.
+ * 
+ * 
+ * The package origin configuration determines how new versions of a package can be added to a repository. You can allow or block direct
+ * publishing of new package versions, or ingestion and retaining of new package versions from an external connection or upstream source.
+ * For more information about package group origin controls and configuration, see
+ * Package group origin controls
+ * in the *CodeArtifact User Guide*.
+ */export const updatePackageGroupOriginConfiguration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/package-group-origin-configuration", method: "PUT", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.UpdatePackageGroupOriginConfiguration" }, UpdatePackageGroupOriginConfigurationRequest, UpdatePackageGroupOriginConfigurationResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a package group. For more information about creating package groups, including example CLI commands, see Create a package group in the *CodeArtifact User Guide*.
+ */export const createPackageGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-22", uri: "/v1/package-group", method: "POST", sdkId: "codeartifact", sigV4ServiceName: "codeartifact", name: "CodeArtifactControlPlaneService.CreatePackageGroup" }, CreatePackageGroupRequest, CreatePackageGroupResult, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

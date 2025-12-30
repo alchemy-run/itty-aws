@@ -283,76 +283,377 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
 export class ResourceUnavailableException extends S.TaggedError<ResourceUnavailableException>()("ResourceUnavailableException", {message: S.optional(S.String)}) {};
 
 //# Operations
-export const createModel = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.CreateModel" }, CreateModelRequest, CreateModelResult, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const createVariable = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.CreateVariable" }, CreateVariableRequest, CreateVariableResult, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteBatchImportJob = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.DeleteBatchImportJob" }, DeleteBatchImportJobRequest, DeleteBatchImportJobResult, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteBatchPredictionJob = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.DeleteBatchPredictionJob" }, DeleteBatchPredictionJobRequest, DeleteBatchPredictionJobResult, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteDetectorVersion = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.DeleteDetectorVersion" }, DeleteDetectorVersionRequest, DeleteDetectorVersionResult, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteEntityType = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.DeleteEntityType" }, DeleteEntityTypeRequest, DeleteEntityTypeResult, [AccessDeniedException, ConflictException, InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteEvent = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.DeleteEvent" }, DeleteEventRequest, DeleteEventResult, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteEventType = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.DeleteEventType" }, DeleteEventTypeRequest, DeleteEventTypeResult, [AccessDeniedException, ConflictException, InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteExternalModel = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.DeleteExternalModel" }, DeleteExternalModelRequest, DeleteExternalModelResult, [AccessDeniedException, ConflictException, InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteLabel = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.DeleteLabel" }, DeleteLabelRequest, DeleteLabelResult, [ConflictException, InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteList = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.DeleteList" }, DeleteListRequest, DeleteListResult, [AccessDeniedException, ConflictException, InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteModel = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.DeleteModel" }, DeleteModelRequest, DeleteModelResult, [AccessDeniedException, ConflictException, InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteModelVersion = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.DeleteModelVersion" }, DeleteModelVersionRequest, DeleteModelVersionResult, [AccessDeniedException, ConflictException, InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteOutcome = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.DeleteOutcome" }, DeleteOutcomeRequest, DeleteOutcomeResult, [AccessDeniedException, ConflictException, InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteRule = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.DeleteRule" }, DeleteRuleRequest, DeleteRuleResult, [AccessDeniedException, ConflictException, InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteVariable = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.DeleteVariable" }, DeleteVariableRequest, DeleteVariableResult, [AccessDeniedException, ConflictException, InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const putDetector = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.PutDetector" }, PutDetectorRequest, PutDetectorResult, [AccessDeniedException, ConflictException, InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const putEntityType = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.PutEntityType" }, PutEntityTypeRequest, PutEntityTypeResult, [AccessDeniedException, ConflictException, InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const putKMSEncryptionKey = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.PutKMSEncryptionKey" }, PutKMSEncryptionKeyRequest, PutKMSEncryptionKeyResult, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const putLabel = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.PutLabel" }, PutLabelRequest, PutLabelResult, [AccessDeniedException, ConflictException, InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const putOutcome = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.PutOutcome" }, PutOutcomeRequest, PutOutcomeResult, [AccessDeniedException, ConflictException, InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const sendEvent = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.SendEvent" }, SendEventRequest, SendEventResult, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const tagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.TagResource" }, TagResourceRequest, TagResourceResult, [AccessDeniedException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const untagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.UntagResource" }, UntagResourceRequest, UntagResourceResult, [AccessDeniedException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateDetectorVersion = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.UpdateDetectorVersion" }, UpdateDetectorVersionRequest, UpdateDetectorVersionResult, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateDetectorVersionMetadata = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.UpdateDetectorVersionMetadata" }, UpdateDetectorVersionMetadataRequest, UpdateDetectorVersionMetadataResult, [AccessDeniedException, ConflictException, InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateDetectorVersionStatus = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.UpdateDetectorVersionStatus" }, UpdateDetectorVersionStatusRequest, UpdateDetectorVersionStatusResult, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateEventLabel = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.UpdateEventLabel" }, UpdateEventLabelRequest, UpdateEventLabelResult, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateList = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.UpdateList" }, UpdateListRequest, UpdateListResult, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateModel = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.UpdateModel" }, UpdateModelRequest, UpdateModelResult, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateModelVersionStatus = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.UpdateModelVersionStatus" }, UpdateModelVersionStatusRequest, UpdateModelVersionStatusResult, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateRuleMetadata = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.UpdateRuleMetadata" }, UpdateRuleMetadataRequest, UpdateRuleMetadataResult, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateVariable = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.UpdateVariable" }, UpdateVariableRequest, UpdateVariableResult, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const cancelBatchImportJob = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.CancelBatchImportJob" }, CancelBatchImportJobRequest, CancelBatchImportJobResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const cancelBatchPredictionJob = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.CancelBatchPredictionJob" }, CancelBatchPredictionJobRequest, CancelBatchPredictionJobResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const createBatchImportJob = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.CreateBatchImportJob" }, CreateBatchImportJobRequest, CreateBatchImportJobResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const createBatchPredictionJob = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.CreateBatchPredictionJob" }, CreateBatchPredictionJobRequest, CreateBatchPredictionJobResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const createList = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.CreateList" }, CreateListRequest, CreateListResult, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const createRule = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.CreateRule" }, CreateRuleRequest, CreateRuleResult, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteDetector = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.DeleteDetector" }, DeleteDetectorRequest, DeleteDetectorResult, [AccessDeniedException, ConflictException, InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteEventsByEventType = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.DeleteEventsByEventType" }, DeleteEventsByEventTypeRequest, DeleteEventsByEventTypeResult, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const getDeleteEventsByEventTypeStatus = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.GetDeleteEventsByEventTypeStatus" }, GetDeleteEventsByEventTypeStatusRequest, GetDeleteEventsByEventTypeStatusResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const getDetectorVersion = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.GetDetectorVersion" }, GetDetectorVersionRequest, GetDetectorVersionResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const getKMSEncryptionKey = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.GetKMSEncryptionKey" }, S.Struct({}), GetKMSEncryptionKeyResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const getListElements = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.GetListElements" }, GetListElementsRequest, GetListElementsResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const getModelVersion = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.GetModelVersion" }, GetModelVersionRequest, GetModelVersionResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const getVariables = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.GetVariables" }, GetVariablesRequest, GetVariablesResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listTagsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResult, [AccessDeniedException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const putEventType = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.PutEventType" }, PutEventTypeRequest, PutEventTypeResult, [AccessDeniedException, ConflictException, InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateModelVersion = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.UpdateModelVersion" }, UpdateModelVersionRequest, UpdateModelVersionResult, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateRuleVersion = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.UpdateRuleVersion" }, UpdateRuleVersionRequest, UpdateRuleVersionResult, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const batchGetVariable = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.BatchGetVariable" }, BatchGetVariableRequest, BatchGetVariableResult, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const createDetectorVersion = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.CreateDetectorVersion" }, CreateDetectorVersionRequest, CreateDetectorVersionResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeDetector = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.DescribeDetector" }, DescribeDetectorRequest, DescribeDetectorResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const getBatchImportJobs = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.GetBatchImportJobs" }, GetBatchImportJobsRequest, GetBatchImportJobsResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const getBatchPredictionJobs = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.GetBatchPredictionJobs" }, GetBatchPredictionJobsRequest, GetBatchPredictionJobsResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const getDetectors = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.GetDetectors" }, GetDetectorsRequest, GetDetectorsResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const getEntityTypes = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.GetEntityTypes" }, GetEntityTypesRequest, GetEntityTypesResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const getExternalModels = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.GetExternalModels" }, GetExternalModelsRequest, GetExternalModelsResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const getLabels = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.GetLabels" }, GetLabelsRequest, GetLabelsResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const getListsMetadata = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.GetListsMetadata" }, GetListsMetadataRequest, GetListsMetadataResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const getModels = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.GetModels" }, GetModelsRequest, GetModelsResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const getOutcomes = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.GetOutcomes" }, GetOutcomesRequest, GetOutcomesResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const getRules = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.GetRules" }, GetRulesRequest, GetRulesResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const putExternalModel = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.PutExternalModel" }, PutExternalModelRequest, PutExternalModelResult, [AccessDeniedException, ConflictException, InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const batchCreateVariable = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.BatchCreateVariable" }, BatchCreateVariableRequest, BatchCreateVariableResult, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const getEvent = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.GetEvent" }, GetEventRequest, GetEventResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const getEventTypes = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.GetEventTypes" }, GetEventTypesRequest, GetEventTypesResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listEventPredictions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.ListEventPredictions" }, ListEventPredictionsRequest, ListEventPredictionsResult, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const createModelVersion = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.CreateModelVersion" }, CreateModelVersionRequest, CreateModelVersionResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const getEventPredictionMetadata = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.GetEventPredictionMetadata" }, GetEventPredictionMetadataRequest, GetEventPredictionMetadataResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const getEventPrediction = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.GetEventPrediction" }, GetEventPredictionRequest, GetEventPredictionResult, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ResourceUnavailableException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeModelVersions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.DescribeModelVersions" }, DescribeModelVersionsRequest, DescribeModelVersionsResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a model using the specified model type.
+ */export const createModel = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.CreateModel" }, CreateModelRequest, CreateModelResult, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a variable.
+ */export const createVariable = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.CreateVariable" }, CreateVariableRequest, CreateVariableResult, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes the specified batch import job ID record. This action does not delete the data that was batch imported.
+ */export const deleteBatchImportJob = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.DeleteBatchImportJob" }, DeleteBatchImportJobRequest, DeleteBatchImportJobResult, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes a batch prediction job.
+ */export const deleteBatchPredictionJob = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.DeleteBatchPredictionJob" }, DeleteBatchPredictionJobRequest, DeleteBatchPredictionJobResult, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes the detector version. You cannot delete detector versions that are in `ACTIVE` status.
+ * 
+ * 
+ * When you delete a detector version, Amazon Fraud Detector permanently deletes the detector and the data is no longer stored in Amazon Fraud Detector.
+ */export const deleteDetectorVersion = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.DeleteDetectorVersion" }, DeleteDetectorVersionRequest, DeleteDetectorVersionResult, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes an entity type.
+ * 
+ * 
+ * You cannot delete an entity type that is included in an event type.
+ * 
+ * 
+ * When you delete an entity type, Amazon Fraud Detector permanently deletes that entity type and the data is no longer stored in Amazon Fraud Detector.
+ */export const deleteEntityType = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.DeleteEntityType" }, DeleteEntityTypeRequest, DeleteEntityTypeResult, [AccessDeniedException, ConflictException, InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes the specified event.
+ * 
+ * 
+ * When you delete an event, Amazon Fraud Detector permanently deletes that event and the event data is no longer stored in Amazon Fraud Detector.
+ * If `deleteAuditHistory` is `True`, event data is available through search for up to 30 seconds after the delete operation is completed.
+ */export const deleteEvent = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.DeleteEvent" }, DeleteEventRequest, DeleteEventResult, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes an event type.
+ * 
+ * 
+ * You cannot delete an event type that is used in a detector or a model.
+ * 
+ * 
+ * When you delete an event type, Amazon Fraud Detector permanently deletes that event type and the data is no longer stored in Amazon Fraud Detector.
+ */export const deleteEventType = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.DeleteEventType" }, DeleteEventTypeRequest, DeleteEventTypeResult, [AccessDeniedException, ConflictException, InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Removes a SageMaker model from Amazon Fraud Detector.
+ * 
+ * 
+ * You can remove an Amazon SageMaker model if it is not associated with a detector version. Removing a SageMaker model disconnects it from Amazon Fraud Detector, but the model remains available in SageMaker.
+ */export const deleteExternalModel = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.DeleteExternalModel" }, DeleteExternalModelRequest, DeleteExternalModelResult, [AccessDeniedException, ConflictException, InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes a label.
+ * 
+ * 
+ * You cannot delete labels that are included in an event type in Amazon Fraud Detector.
+ * 
+ * 
+ * You cannot delete a label assigned to an event ID. You must first delete the relevant event ID.
+ * 
+ * 
+ * When you delete a label, Amazon Fraud Detector permanently deletes that label and the data is no longer stored in Amazon Fraud Detector.
+ */export const deleteLabel = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.DeleteLabel" }, DeleteLabelRequest, DeleteLabelResult, [ConflictException, InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes the list, provided it is not used in a rule.
+ * 
+ * 
+ * 
+ * When you delete a list, Amazon Fraud Detector permanently deletes that list and the elements in the list.
+ */export const deleteList = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.DeleteList" }, DeleteListRequest, DeleteListResult, [AccessDeniedException, ConflictException, InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes a model.
+ * 
+ * 
+ * You can delete models and model versions in Amazon Fraud Detector, provided that they are not associated with a detector version.
+ * 
+ * 
+ * When you delete a model, Amazon Fraud Detector permanently deletes that model and the data is no longer stored in Amazon Fraud Detector.
+ */export const deleteModel = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.DeleteModel" }, DeleteModelRequest, DeleteModelResult, [AccessDeniedException, ConflictException, InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes a model version.
+ * 
+ * 
+ * You can delete models and model versions in Amazon Fraud Detector, provided that they are not associated with a detector version.
+ * 
+ * 
+ * When you delete a model version, Amazon Fraud Detector permanently deletes that model version and the data is no longer stored in Amazon Fraud Detector.
+ */export const deleteModelVersion = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.DeleteModelVersion" }, DeleteModelVersionRequest, DeleteModelVersionResult, [AccessDeniedException, ConflictException, InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes an outcome.
+ * 
+ * 
+ * You cannot delete an outcome that is used in a rule version.
+ * 
+ * 
+ * When you delete an outcome, Amazon Fraud Detector permanently deletes that outcome and the data is no longer stored in Amazon Fraud Detector.
+ */export const deleteOutcome = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.DeleteOutcome" }, DeleteOutcomeRequest, DeleteOutcomeResult, [AccessDeniedException, ConflictException, InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes the rule. You cannot delete a rule if it is used by an `ACTIVE` or `INACTIVE` detector version.
+ * 
+ * 
+ * When you delete a rule, Amazon Fraud Detector permanently deletes that rule and the data is no longer stored in Amazon Fraud Detector.
+ */export const deleteRule = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.DeleteRule" }, DeleteRuleRequest, DeleteRuleResult, [AccessDeniedException, ConflictException, InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes a variable.
+ * 
+ * 
+ * You can't delete variables that are included in an event type in Amazon Fraud Detector.
+ * 
+ * 
+ * Amazon Fraud Detector automatically deletes model output variables and SageMaker model output variables when you delete the model. You can't delete these variables manually.
+ * 
+ * 
+ * When you delete a variable, Amazon Fraud Detector permanently deletes that variable and the data is no longer stored in Amazon Fraud Detector.
+ */export const deleteVariable = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.DeleteVariable" }, DeleteVariableRequest, DeleteVariableResult, [AccessDeniedException, ConflictException, InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates or updates a detector.
+ */export const putDetector = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.PutDetector" }, PutDetectorRequest, PutDetectorResult, [AccessDeniedException, ConflictException, InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates or updates an entity type. An entity represents who is performing the event. As part of a fraud prediction, you pass the entity ID to indicate the specific entity who performed the event. An entity type classifies the entity. Example classifications include customer, merchant, or account.
+ */export const putEntityType = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.PutEntityType" }, PutEntityTypeRequest, PutEntityTypeResult, [AccessDeniedException, ConflictException, InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Specifies the KMS key to be used to encrypt content in Amazon Fraud Detector.
+ */export const putKMSEncryptionKey = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.PutKMSEncryptionKey" }, PutKMSEncryptionKeyRequest, PutKMSEncryptionKeyResult, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates or updates label. A label classifies an event as fraudulent or legitimate. Labels are associated with event types and used to train supervised machine learning models in Amazon Fraud Detector.
+ */export const putLabel = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.PutLabel" }, PutLabelRequest, PutLabelResult, [AccessDeniedException, ConflictException, InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates or updates an outcome.
+ */export const putOutcome = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.PutOutcome" }, PutOutcomeRequest, PutOutcomeResult, [AccessDeniedException, ConflictException, InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Stores events in Amazon Fraud Detector without generating fraud predictions for those events. For example, you can use `SendEvent` to upload a historical dataset, which you can then later use to train a model.
+ */export const sendEvent = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.SendEvent" }, SendEventRequest, SendEventResult, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Assigns tags to a resource.
+ */export const tagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.TagResource" }, TagResourceRequest, TagResourceResult, [AccessDeniedException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Removes tags from a resource.
+ */export const untagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.UntagResource" }, UntagResourceRequest, UntagResourceResult, [AccessDeniedException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates a detector version. The detector version attributes that you can update include models, external model endpoints, rules, rule execution mode, and description. You can only update a `DRAFT` detector version.
+ */export const updateDetectorVersion = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.UpdateDetectorVersion" }, UpdateDetectorVersionRequest, UpdateDetectorVersionResult, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates the detector version's description. You can update the metadata for any detector version (`DRAFT, ACTIVE,` or
+ * `INACTIVE`).
+ */export const updateDetectorVersionMetadata = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.UpdateDetectorVersionMetadata" }, UpdateDetectorVersionMetadataRequest, UpdateDetectorVersionMetadataResult, [AccessDeniedException, ConflictException, InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates the detector version’s status. You can perform the following promotions or
+ * demotions using `UpdateDetectorVersionStatus`: `DRAFT` to `ACTIVE`, `ACTIVE` to `INACTIVE`, and `INACTIVE` to `ACTIVE`.
+ */export const updateDetectorVersionStatus = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.UpdateDetectorVersionStatus" }, UpdateDetectorVersionStatusRequest, UpdateDetectorVersionStatusResult, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates the specified event with a new label.
+ */export const updateEventLabel = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.UpdateEventLabel" }, UpdateEventLabelRequest, UpdateEventLabelResult, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates a list.
+ */export const updateList = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.UpdateList" }, UpdateListRequest, UpdateListResult, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates model description.
+ */export const updateModel = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.UpdateModel" }, UpdateModelRequest, UpdateModelResult, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates the status of a model version.
+ * 
+ * 
+ * You can perform the following status updates:
+ * 
+ * 
+ * 
+ * - Change the `TRAINING_IN_PROGRESS` status to `TRAINING_CANCELLED`.
+ * 
+ * 
+ * 
+ * - Change the `TRAINING_COMPLETE` status to `ACTIVE`.
+ * 
+ * 
+ * 
+ * - Change `ACTIVE` to `INACTIVE`.
+ */export const updateModelVersionStatus = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.UpdateModelVersionStatus" }, UpdateModelVersionStatusRequest, UpdateModelVersionStatusResult, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates a rule's metadata. The description attribute can be updated.
+ */export const updateRuleMetadata = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.UpdateRuleMetadata" }, UpdateRuleMetadataRequest, UpdateRuleMetadataResult, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates a variable.
+ */export const updateVariable = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.UpdateVariable" }, UpdateVariableRequest, UpdateVariableResult, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Cancels an in-progress batch import job.
+ */export const cancelBatchImportJob = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.CancelBatchImportJob" }, CancelBatchImportJobRequest, CancelBatchImportJobResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Cancels the specified batch prediction job.
+ */export const cancelBatchPredictionJob = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.CancelBatchPredictionJob" }, CancelBatchPredictionJobRequest, CancelBatchPredictionJobResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a batch import job.
+ */export const createBatchImportJob = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.CreateBatchImportJob" }, CreateBatchImportJobRequest, CreateBatchImportJobResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a batch prediction job.
+ */export const createBatchPredictionJob = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.CreateBatchPredictionJob" }, CreateBatchPredictionJobRequest, CreateBatchPredictionJobResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a list.
+ * 
+ * 
+ * 
+ * List is a set of input data for a variable in your event dataset. You use the input data in a rule that's associated with your detector.
+ * For more information, see Lists.
+ */export const createList = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.CreateList" }, CreateListRequest, CreateListResult, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a rule for use with the specified detector.
+ */export const createRule = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.CreateRule" }, CreateRuleRequest, CreateRuleResult, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes the detector. Before deleting a detector, you must first delete all detector versions and rule versions associated with the detector.
+ * 
+ * 
+ * When you delete a detector, Amazon Fraud Detector permanently deletes the detector and the data is no longer stored in Amazon Fraud Detector.
+ */export const deleteDetector = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.DeleteDetector" }, DeleteDetectorRequest, DeleteDetectorResult, [AccessDeniedException, ConflictException, InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes all events of a particular event type.
+ */export const deleteEventsByEventType = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.DeleteEventsByEventType" }, DeleteEventsByEventTypeRequest, DeleteEventsByEventTypeResult, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves the status of a `DeleteEventsByEventType` action.
+ */export const getDeleteEventsByEventTypeStatus = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.GetDeleteEventsByEventTypeStatus" }, GetDeleteEventsByEventTypeStatusRequest, GetDeleteEventsByEventTypeStatusResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets a particular detector version.
+ */export const getDetectorVersion = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.GetDetectorVersion" }, GetDetectorVersionRequest, GetDetectorVersionResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets the encryption key if a KMS key has been specified to be used to encrypt content in Amazon Fraud Detector.
+ */export const getKMSEncryptionKey = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.GetKMSEncryptionKey" }, S.Struct({}), GetKMSEncryptionKeyResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets all the elements in the specified list.
+ */export const getListElements = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.GetListElements" }, GetListElementsRequest, GetListElementsResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets the details of the specified model version.
+ */export const getModelVersion = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.GetModelVersion" }, GetModelVersionRequest, GetModelVersionResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets all of the variables or the specific variable. This is a
+ * paginated API. Providing null `maxSizePerPage` results in retrieving maximum of
+ * 100 records per page. If you provide `maxSizePerPage` the value must be between
+ * 50 and 100. To get the next page result, a provide a pagination token from
+ * `GetVariablesResult` as part of your request. Null pagination token
+ * fetches the records from the beginning.
+ */export const getVariables = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.GetVariables" }, GetVariablesRequest, GetVariablesResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists all tags associated with the resource. This is a paginated API. To get the next page results, provide the pagination token from the
+ * response as part of your request. A null pagination token
+ * fetches the records from the beginning.
+ */export const listTagsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResult, [AccessDeniedException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates or updates an event type. An event is a business activity that is evaluated for fraud risk. With Amazon Fraud Detector, you generate fraud predictions for events. An event type defines the structure for an event sent to Amazon Fraud Detector. This includes the variables sent as part of the event, the entity performing the event (such as a customer), and the labels that classify the event. Example event types include online payment transactions, account registrations, and authentications.
+ */export const putEventType = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.PutEventType" }, PutEventTypeRequest, PutEventTypeResult, [AccessDeniedException, ConflictException, InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates a model version. Updating a model version retrains an existing model version using updated training data and produces a new minor version of the model. You can update the training data set location and data access role attributes using this action. This action creates and trains a new minor version of the model, for example version 1.01, 1.02, 1.03.
+ */export const updateModelVersion = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.UpdateModelVersion" }, UpdateModelVersionRequest, UpdateModelVersionResult, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates a rule version resulting in a new rule version. Updates a rule version resulting in a new rule version (version 1, 2, 3 ...).
+ */export const updateRuleVersion = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.UpdateRuleVersion" }, UpdateRuleVersionRequest, UpdateRuleVersionResult, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets a batch of variables.
+ */export const batchGetVariable = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.BatchGetVariable" }, BatchGetVariableRequest, BatchGetVariableResult, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a detector version. The detector version starts in a `DRAFT` status.
+ */export const createDetectorVersion = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.CreateDetectorVersion" }, CreateDetectorVersionRequest, CreateDetectorVersionResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets all versions for a specified detector.
+ */export const describeDetector = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.DescribeDetector" }, DescribeDetectorRequest, DescribeDetectorResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets all batch import jobs or a specific job of the specified ID. This is a paginated API. If you provide a null `maxResults`,
+ * this action retrieves a maximum of 50 records per page. If you provide a `maxResults`, the value must be between 1 and 50.
+ * To get the next page results, provide the pagination token from the `GetBatchImportJobsResponse` as part of your request.
+ * A null pagination token fetches the records from the beginning.
+ */export const getBatchImportJobs = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.GetBatchImportJobs" }, GetBatchImportJobsRequest, GetBatchImportJobsResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets all batch prediction jobs or a specific job if you specify a job ID. This is a paginated API. If you provide a null maxResults, this action retrieves a maximum of 50 records per page. If you provide a maxResults, the value must be between 1 and 50. To get the next page results, provide the pagination token from the GetBatchPredictionJobsResponse as part of your request. A null pagination token fetches the records from the beginning.
+ */export const getBatchPredictionJobs = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.GetBatchPredictionJobs" }, GetBatchPredictionJobsRequest, GetBatchPredictionJobsResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets all detectors or a single detector if a `detectorId` is specified. This is a paginated API. If you
+ * provide a null `maxResults`, this action retrieves a maximum of 10 records
+ * per page. If you provide a `maxResults`, the value must be between 5 and 10.
+ * To get the next page results, provide the pagination token from the
+ * `GetDetectorsResponse` as part of your request. A null pagination token
+ * fetches the records from the beginning.
+ */export const getDetectors = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.GetDetectors" }, GetDetectorsRequest, GetDetectorsResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets all entity types or a specific entity type if a name is specified. This is a paginated API. If you
+ * provide a null `maxResults`, this action retrieves a maximum of 10 records
+ * per page. If you provide a `maxResults`, the value must be between 5 and 10.
+ * To get the next page results, provide the pagination token from the
+ * `GetEntityTypesResponse` as part of your request. A null pagination token
+ * fetches the records from the beginning.
+ */export const getEntityTypes = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.GetEntityTypes" }, GetEntityTypesRequest, GetEntityTypesResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets the details for one or more Amazon SageMaker models that have been imported into the
+ * service. This is a paginated API. If you provide a null `maxResults`, this
+ * actions retrieves a maximum of 10 records per page. If you provide a
+ * `maxResults`, the value must be between 5 and 10. To get the next page
+ * results, provide the pagination token from the `GetExternalModelsResult` as part
+ * of your request. A null pagination token fetches the records from the beginning.
+ */export const getExternalModels = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.GetExternalModels" }, GetExternalModelsRequest, GetExternalModelsResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets all labels or a specific label if name is provided. This is a paginated API. If you
+ * provide a null `maxResults`, this action retrieves a maximum of 50 records
+ * per page. If you provide a `maxResults`, the value must be between 10 and 50.
+ * To get the next page results, provide the pagination token from the
+ * `GetGetLabelsResponse` as part of your request. A null pagination token
+ * fetches the records from the beginning.
+ */export const getLabels = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.GetLabels" }, GetLabelsRequest, GetLabelsResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets the metadata of either all the lists under the account or the specified list.
+ */export const getListsMetadata = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.GetListsMetadata" }, GetListsMetadataRequest, GetListsMetadataResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets one or more models. Gets all models for the Amazon Web Services account if no model type and no model id provided. Gets all models for the Amazon Web Services account and model type, if the model type is specified but model id is not provided. Gets a specific model if (model type, model id) tuple is specified.
+ * 
+ * 
+ * This is a paginated API. If you
+ * provide a null `maxResults`, this action retrieves a maximum of 10 records
+ * per page. If you provide a `maxResults`, the value must be between 1 and 10.
+ * To get the next page results, provide the pagination token from the
+ * response as part of your request. A null pagination token
+ * fetches the records from the beginning.
+ */export const getModels = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.GetModels" }, GetModelsRequest, GetModelsResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets one or more outcomes. This is a paginated
+ * API. If you provide a null `maxResults`, this actions retrieves a maximum of
+ * 100 records per page. If you provide a `maxResults`, the value must be
+ * between 50 and 100. To get the next page results, provide the pagination token from the
+ * `GetOutcomesResult` as part of your request. A null pagination token
+ * fetches the records from the beginning.
+ */export const getOutcomes = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.GetOutcomes" }, GetOutcomesRequest, GetOutcomesResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Get all rules for a detector (paginated) if `ruleId` and `ruleVersion` are not specified. Gets all rules for the detector and the `ruleId` if present (paginated). Gets a specific rule if both the `ruleId` and the `ruleVersion` are specified.
+ * 
+ * 
+ * This is a paginated API. Providing null maxResults results in retrieving maximum of 100 records per page. If you provide maxResults the value must be between 50 and 100. To get the next page result, a provide a pagination token from GetRulesResult as part of your request. Null pagination token fetches the records from the beginning.
+ */export const getRules = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.GetRules" }, GetRulesRequest, GetRulesResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates or updates an Amazon SageMaker model endpoint. You can also use this action to update the configuration of the model endpoint, including the IAM role and/or the mapped variables.
+ */export const putExternalModel = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.PutExternalModel" }, PutExternalModelRequest, PutExternalModelResult, [AccessDeniedException, ConflictException, InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a batch of variables.
+ */export const batchCreateVariable = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.BatchCreateVariable" }, BatchCreateVariableRequest, BatchCreateVariableResult, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves details of events stored with Amazon Fraud Detector. This action does not retrieve prediction results.
+ */export const getEvent = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.GetEvent" }, GetEventRequest, GetEventResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets all event types or a specific event type if name is provided. This is a paginated API. If you
+ * provide a null `maxResults`, this action retrieves a maximum of 10 records
+ * per page. If you provide a `maxResults`, the value must be between 5 and 10.
+ * To get the next page results, provide the pagination token from the
+ * `GetEventTypesResponse` as part of your request. A null pagination token
+ * fetches the records from the beginning.
+ */export const getEventTypes = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.GetEventTypes" }, GetEventTypesRequest, GetEventTypesResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets a list of past predictions. The list can be filtered by detector ID, detector version ID, event ID, event type, or by specifying a time period.
+ * If filter is not specified, the most recent prediction is returned.
+ * 
+ * 
+ * For example, the following filter lists all past predictions for `xyz` event type -
+ * {
+ * "eventType":{
+ * "value": "xyz" }”
+ * }
+ * 
+ * 
+ * 
+ * This is a paginated API. If you provide a null `maxResults`, this action will retrieve a maximum of 10 records per page.
+ * If you provide a `maxResults`, the value must be between 50 and 100. To get the next page results, provide
+ * the `nextToken` from the response as part of your request. A null `nextToken` fetches the records from the beginning.
+ */export const listEventPredictions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.ListEventPredictions" }, ListEventPredictionsRequest, ListEventPredictionsResult, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a version of the model using the specified model type and model id.
+ */export const createModelVersion = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.CreateModelVersion" }, CreateModelVersionRequest, CreateModelVersionResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets details of the past fraud predictions for the specified event ID, event type, detector ID, and detector version ID that was generated in the specified time period.
+ */export const getEventPredictionMetadata = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.GetEventPredictionMetadata" }, GetEventPredictionMetadataRequest, GetEventPredictionMetadataResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Evaluates an event against a detector version. If a version ID is not provided, the detector’s (`ACTIVE`) version is used.
+ */export const getEventPrediction = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.GetEventPrediction" }, GetEventPredictionRequest, GetEventPredictionResult, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ResourceUnavailableException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets all of the model versions for the specified model type or for the specified model type and model ID. You can also get details for a single, specified model version.
+ */export const describeModelVersions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.DescribeModelVersions" }, DescribeModelVersionsRequest, DescribeModelVersionsResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

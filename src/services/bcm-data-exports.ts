@@ -62,15 +62,63 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
 export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExceededException>()("ServiceQuotaExceededException", {Message: S.String, ResourceId: S.optional(S.String), ResourceType: S.optional(S.String), QuotaCode: S.String, ServiceCode: S.String}) {};
 
 //# Operations
-export const tagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-11-26", uri: "/", method: "POST", sdkId: "BCM Data Exports", sigV4ServiceName: "bcm-data-exports", name: "AWSBillingAndCostManagementDataExports.TagResource" }, TagResourceRequest, TagResourceResponse, [InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const untagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-11-26", uri: "/", method: "POST", sdkId: "BCM Data Exports", sigV4ServiceName: "bcm-data-exports", name: "AWSBillingAndCostManagementDataExports.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateExport = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-11-26", uri: "/", method: "POST", sdkId: "BCM Data Exports", sigV4ServiceName: "bcm-data-exports", name: "AWSBillingAndCostManagementDataExports.UpdateExport" }, UpdateExportRequest, UpdateExportResponse, [InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteExport = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-11-26", uri: "/", method: "POST", sdkId: "BCM Data Exports", sigV4ServiceName: "bcm-data-exports", name: "AWSBillingAndCostManagementDataExports.DeleteExport" }, DeleteExportRequest, DeleteExportResponse, [InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const getExecution = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-11-26", uri: "/", method: "POST", sdkId: "BCM Data Exports", sigV4ServiceName: "bcm-data-exports", name: "AWSBillingAndCostManagementDataExports.GetExecution" }, GetExecutionRequest, GetExecutionResponse, [InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const getExport = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-11-26", uri: "/", method: "POST", sdkId: "BCM Data Exports", sigV4ServiceName: "bcm-data-exports", name: "AWSBillingAndCostManagementDataExports.GetExport" }, GetExportRequest, GetExportResponse, [InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listExecutions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-11-26", uri: "/", method: "POST", sdkId: "BCM Data Exports", sigV4ServiceName: "bcm-data-exports", name: "AWSBillingAndCostManagementDataExports.ListExecutions" }, ListExecutionsRequest, ListExecutionsResponse, [InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listExports = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-11-26", uri: "/", method: "POST", sdkId: "BCM Data Exports", sigV4ServiceName: "bcm-data-exports", name: "AWSBillingAndCostManagementDataExports.ListExports" }, ListExportsRequest, ListExportsResponse, [InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const getTable = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-11-26", uri: "/", method: "POST", sdkId: "BCM Data Exports", sigV4ServiceName: "bcm-data-exports", name: "AWSBillingAndCostManagementDataExports.GetTable" }, GetTableRequest, GetTableResponse, [InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listTables = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-11-26", uri: "/", method: "POST", sdkId: "BCM Data Exports", sigV4ServiceName: "bcm-data-exports", name: "AWSBillingAndCostManagementDataExports.ListTables" }, ListTablesRequest, ListTablesResponse, [InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listTagsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-11-26", uri: "/", method: "POST", sdkId: "BCM Data Exports", sigV4ServiceName: "bcm-data-exports", name: "AWSBillingAndCostManagementDataExports.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const createExport = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-11-26", uri: "/", method: "POST", sdkId: "BCM Data Exports", sigV4ServiceName: "bcm-data-exports", name: "AWSBillingAndCostManagementDataExports.CreateExport" }, CreateExportRequest, CreateExportResponse, [InternalServerException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Adds tags for an existing data export definition.
+ */export const tagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-11-26", uri: "/", method: "POST", sdkId: "BCM Data Exports", sigV4ServiceName: "bcm-data-exports", name: "AWSBillingAndCostManagementDataExports.TagResource" }, TagResourceRequest, TagResourceResponse, [InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes tags associated with an existing data export definition.
+ */export const untagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-11-26", uri: "/", method: "POST", sdkId: "BCM Data Exports", sigV4ServiceName: "bcm-data-exports", name: "AWSBillingAndCostManagementDataExports.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates an existing data export by overwriting all export parameters. All export
+ * parameters must be provided in the UpdateExport request.
+ */export const updateExport = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-11-26", uri: "/", method: "POST", sdkId: "BCM Data Exports", sigV4ServiceName: "bcm-data-exports", name: "AWSBillingAndCostManagementDataExports.UpdateExport" }, UpdateExportRequest, UpdateExportResponse, [InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes an existing data export.
+ */export const deleteExport = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-11-26", uri: "/", method: "POST", sdkId: "BCM Data Exports", sigV4ServiceName: "bcm-data-exports", name: "AWSBillingAndCostManagementDataExports.DeleteExport" }, DeleteExportRequest, DeleteExportResponse, [InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Exports data based on the source data update.
+ */export const getExecution = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-11-26", uri: "/", method: "POST", sdkId: "BCM Data Exports", sigV4ServiceName: "bcm-data-exports", name: "AWSBillingAndCostManagementDataExports.GetExecution" }, GetExecutionRequest, GetExecutionResponse, [InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Views the definition of an existing data export.
+ */export const getExport = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-11-26", uri: "/", method: "POST", sdkId: "BCM Data Exports", sigV4ServiceName: "bcm-data-exports", name: "AWSBillingAndCostManagementDataExports.GetExport" }, GetExportRequest, GetExportResponse, [InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists the historical executions for the export.
+ */export const listExecutions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-11-26", uri: "/", method: "POST", sdkId: "BCM Data Exports", sigV4ServiceName: "bcm-data-exports", name: "AWSBillingAndCostManagementDataExports.ListExecutions" }, ListExecutionsRequest, ListExecutionsResponse, [InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists all data export definitions.
+ */export const listExports = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-11-26", uri: "/", method: "POST", sdkId: "BCM Data Exports", sigV4ServiceName: "bcm-data-exports", name: "AWSBillingAndCostManagementDataExports.ListExports" }, ListExportsRequest, ListExportsResponse, [InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns the metadata for the specified table and table properties. This includes the list
+ * of columns in the table schema, their data types, and column descriptions.
+ */export const getTable = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-11-26", uri: "/", method: "POST", sdkId: "BCM Data Exports", sigV4ServiceName: "bcm-data-exports", name: "AWSBillingAndCostManagementDataExports.GetTable" }, GetTableRequest, GetTableResponse, [InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists all available tables in data exports.
+ */export const listTables = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-11-26", uri: "/", method: "POST", sdkId: "BCM Data Exports", sigV4ServiceName: "bcm-data-exports", name: "AWSBillingAndCostManagementDataExports.ListTables" }, ListTablesRequest, ListTablesResponse, [InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * List tags associated with an existing data export.
+ */export const listTagsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-11-26", uri: "/", method: "POST", sdkId: "BCM Data Exports", sigV4ServiceName: "bcm-data-exports", name: "AWSBillingAndCostManagementDataExports.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a data export and specifies the data query, the delivery preference, and any
+ * optional resource tags.
+ * 
+ * 
+ * A `DataQuery` consists of both a `QueryStatement` and
+ * `TableConfigurations`.
+ * 
+ * 
+ * The `QueryStatement` is an SQL statement. Data Exports only supports a limited
+ * subset of the SQL syntax. For more information on the SQL syntax that is supported, see Data query. To
+ * view the available tables and columns, see the Data Exports table
+ * dictionary.
+ * 
+ * 
+ * The `TableConfigurations` is a collection of specified
+ * `TableProperties` for the table being queried in the `QueryStatement`.
+ * TableProperties are additional configurations you can provide to change the data and schema of
+ * a table. Each table can have different TableProperties. However, tables are not required to
+ * have any TableProperties. Each table property has a default value that it assumes if not
+ * specified. For more information on table configurations, see Data query. To
+ * view the table properties available for each table, see the Data Exports table
+ * dictionary or use the `ListTables` API to get a response of all tables
+ * and their available properties.
+ */export const createExport = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-11-26", uri: "/", method: "POST", sdkId: "BCM Data Exports", sigV4ServiceName: "bcm-data-exports", name: "AWSBillingAndCostManagementDataExports.CreateExport" }, CreateExportRequest, CreateExportResponse, [InternalServerException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

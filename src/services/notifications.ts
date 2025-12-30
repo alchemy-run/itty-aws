@@ -30,8 +30,30 @@ export class ThrottlingException extends S.TaggedError<ThrottlingException>()("T
 export class ValidationException extends S.TaggedError<ValidationException>()("ValidationException", {}) {};
 
 //# Operations
-export const listMemberAccounts = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/list-member-accounts", method: "GET", sdkId: "Notifications", sigV4ServiceName: "notifications", name: "Notifications.ListMemberAccounts" }, ListMemberAccountsRequest, ListMemberAccountsResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listTagsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/tags/{arn}", method: "GET", sdkId: "Notifications", sigV4ServiceName: "notifications", name: "Notifications.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const tagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/tags/{arn}", method: "POST", sdkId: "Notifications", sigV4ServiceName: "notifications", name: "Notifications.TagResource" }, TagResourceRequest, TagResourceResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const untagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/tags/{arn}", method: "DELETE", sdkId: "Notifications", sigV4ServiceName: "notifications", name: "Notifications.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listManagedNotificationChannelAssociations = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/channels/list-managed-notification-channel-associations", method: "GET", sdkId: "Notifications", sigV4ServiceName: "notifications", name: "Notifications.ListManagedNotificationChannelAssociations" }, ListManagedNotificationChannelAssociationsRequest, ListManagedNotificationChannelAssociationsResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns a list of member accounts associated with a notification configuration.
+ */export const listMemberAccounts = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/list-member-accounts", method: "GET", sdkId: "Notifications", sigV4ServiceName: "notifications", name: "Notifications.ListMemberAccounts" }, ListMemberAccountsRequest, ListMemberAccountsResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns a list of tags for a specified Amazon Resource Name (ARN).
+ * 
+ * For more information, see Tagging your Amazon Web Services resources in the *Tagging Amazon Web Services Resources User Guide*.
+ * 
+ * 
+ * This is only supported for `NotificationConfigurations`.
+ */export const listTagsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/tags/{arn}", method: "GET", sdkId: "Notifications", sigV4ServiceName: "notifications", name: "Notifications.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Tags the resource with a tag key and value.
+ * 
+ * For more information, see Tagging your Amazon Web Services resources in the *Tagging Amazon Web Services Resources User Guide*.
+ * 
+ * 
+ * This is only supported for `NotificationConfigurations`.
+ */export const tagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/tags/{arn}", method: "POST", sdkId: "Notifications", sigV4ServiceName: "notifications", name: "Notifications.TagResource" }, TagResourceRequest, TagResourceResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Untags a resource with a specified Amazon Resource Name (ARN).
+ * 
+ * For more information, see Tagging your Amazon Web Services resources in the *Tagging Amazon Web Services Resources User Guide*.
+ */export const untagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/tags/{arn}", method: "DELETE", sdkId: "Notifications", sigV4ServiceName: "notifications", name: "Notifications.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns a list of Account contacts and Channels associated with a `ManagedNotificationConfiguration`, in paginated format.
+ */export const listManagedNotificationChannelAssociations = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/channels/list-managed-notification-channel-associations", method: "GET", sdkId: "Notifications", sigV4ServiceName: "notifications", name: "Notifications.ListManagedNotificationChannelAssociations" }, ListManagedNotificationChannelAssociationsRequest, ListManagedNotificationChannelAssociationsResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

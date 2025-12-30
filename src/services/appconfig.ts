@@ -113,48 +113,306 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 export class PayloadTooLargeException extends S.TaggedError<PayloadTooLargeException>()("PayloadTooLargeException", {Message: S.optional(S.String), Measure: S.optional(S.String), Limit: S.optional(S.Number), Size: S.optional(S.Number)}) {};
 
 //# Operations
-export const deleteExtension = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/extensions/{ExtensionIdentifier}", method: "DELETE", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.DeleteExtension" }, DeleteExtensionRequest, S.Struct({}), [BadRequestException, InternalServerException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteExtensionAssociation = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/extensionassociations/{ExtensionAssociationId}", method: "DELETE", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.DeleteExtensionAssociation" }, DeleteExtensionAssociationRequest, S.Struct({}), [BadRequestException, InternalServerException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteHostedConfigurationVersion = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}/hostedconfigurationversions/{VersionNumber}", method: "DELETE", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.DeleteHostedConfigurationVersion" }, DeleteHostedConfigurationVersionRequest, S.Struct({}), [BadRequestException, InternalServerException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getDeploymentStrategy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/deploymentstrategies/{DeploymentStrategyId}", method: "GET", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.GetDeploymentStrategy" }, GetDeploymentStrategyRequest, DeploymentStrategy, [BadRequestException, InternalServerException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getHostedConfigurationVersion = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}/hostedconfigurationversions/{VersionNumber}", method: "GET", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.GetHostedConfigurationVersion" }, GetHostedConfigurationVersionRequest, HostedConfigurationVersion, [BadRequestException, InternalServerException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const stopDeployment = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/applications/{ApplicationId}/environments/{EnvironmentId}/deployments/{DeploymentNumber}", method: "DELETE", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.StopDeployment" }, StopDeploymentRequest, Deployment, [BadRequestException, InternalServerException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const tagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/tags/{ResourceArn}", method: "POST", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.TagResource" }, TagResourceRequest, S.Struct({}), [BadRequestException, InternalServerException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const untagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/tags/{ResourceArn}", method: "DELETE", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.UntagResource" }, UntagResourceRequest, S.Struct({}), [BadRequestException, InternalServerException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateAccountSettings = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/settings", method: "PATCH", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.UpdateAccountSettings" }, UpdateAccountSettingsRequest, AccountSettings, [BadRequestException, InternalServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateApplication = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/applications/{ApplicationId}", method: "PATCH", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.UpdateApplication" }, UpdateApplicationRequest, Application, [BadRequestException, InternalServerException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateConfigurationProfile = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}", method: "PATCH", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.UpdateConfigurationProfile" }, UpdateConfigurationProfileRequest, ConfigurationProfile, [BadRequestException, InternalServerException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateDeploymentStrategy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/deploymentstrategies/{DeploymentStrategyId}", method: "PATCH", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.UpdateDeploymentStrategy" }, UpdateDeploymentStrategyRequest, DeploymentStrategy, [BadRequestException, InternalServerException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateEnvironment = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/applications/{ApplicationId}/environments/{EnvironmentId}", method: "PATCH", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.UpdateEnvironment" }, UpdateEnvironmentRequest, Environment, [BadRequestException, InternalServerException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateExtension = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/extensions/{ExtensionIdentifier}", method: "PATCH", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.UpdateExtension" }, UpdateExtensionRequest, Extension, [BadRequestException, ConflictException, InternalServerException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateExtensionAssociation = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/extensionassociations/{ExtensionAssociationId}", method: "PATCH", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.UpdateExtensionAssociation" }, UpdateExtensionAssociationRequest, ExtensionAssociation, [BadRequestException, InternalServerException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const validateConfiguration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}/validators", method: "POST", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.ValidateConfiguration" }, ValidateConfigurationRequest, S.Struct({}), [BadRequestException, InternalServerException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const createConfigurationProfile = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/applications/{ApplicationId}/configurationprofiles", method: "POST", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.CreateConfigurationProfile" }, CreateConfigurationProfileRequest, ConfigurationProfile, [BadRequestException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const createDeploymentStrategy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/deploymentstrategies", method: "POST", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.CreateDeploymentStrategy" }, CreateDeploymentStrategyRequest, DeploymentStrategy, [BadRequestException, InternalServerException, ServiceQuotaExceededException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const createEnvironment = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/applications/{ApplicationId}/environments", method: "POST", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.CreateEnvironment" }, CreateEnvironmentRequest, Environment, [BadRequestException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const createExtensionAssociation = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/extensionassociations", method: "POST", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.CreateExtensionAssociation" }, CreateExtensionAssociationRequest, ExtensionAssociation, [BadRequestException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteConfigurationProfile = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}", method: "DELETE", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.DeleteConfigurationProfile" }, DeleteConfigurationProfileRequest, S.Struct({}), [BadRequestException, ConflictException, InternalServerException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteDeploymentStrategy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/deployementstrategies/{DeploymentStrategyId}", method: "DELETE", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.DeleteDeploymentStrategy" }, DeleteDeploymentStrategyRequest, S.Struct({}), [BadRequestException, InternalServerException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteEnvironment = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/applications/{ApplicationId}/environments/{EnvironmentId}", method: "DELETE", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.DeleteEnvironment" }, DeleteEnvironmentRequest, S.Struct({}), [BadRequestException, ConflictException, InternalServerException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getAccountSettings = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/settings", method: "GET", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.GetAccountSettings" }, S.Struct({}), AccountSettings, [BadRequestException, InternalServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getApplication = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/applications/{ApplicationId}", method: "GET", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.GetApplication" }, GetApplicationRequest, Application, [BadRequestException, InternalServerException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getConfiguration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/applications/{Application}/environments/{Environment}/configurations/{Configuration}", method: "GET", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.GetConfiguration" }, GetConfigurationRequest, Configuration, [BadRequestException, InternalServerException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getConfigurationProfile = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}", method: "GET", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.GetConfigurationProfile" }, GetConfigurationProfileRequest, ConfigurationProfile, [BadRequestException, InternalServerException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getEnvironment = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/applications/{ApplicationId}/environments/{EnvironmentId}", method: "GET", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.GetEnvironment" }, GetEnvironmentRequest, Environment, [BadRequestException, InternalServerException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getExtension = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/extensions/{ExtensionIdentifier}", method: "GET", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.GetExtension" }, GetExtensionRequest, Extension, [BadRequestException, InternalServerException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getExtensionAssociation = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/extensionassociations/{ExtensionAssociationId}", method: "GET", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.GetExtensionAssociation" }, GetExtensionAssociationRequest, ExtensionAssociation, [BadRequestException, InternalServerException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listApplications = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/applications", method: "GET", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.ListApplications" }, ListApplicationsRequest, Applications, [BadRequestException, InternalServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listDeploymentStrategies = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/deploymentstrategies", method: "GET", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.ListDeploymentStrategies" }, ListDeploymentStrategiesRequest, DeploymentStrategies, [BadRequestException, InternalServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listEnvironments = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/applications/{ApplicationId}/environments", method: "GET", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.ListEnvironments" }, ListEnvironmentsRequest, Environments, [BadRequestException, InternalServerException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listTagsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/tags/{ResourceArn}", method: "GET", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.ListTagsForResource" }, ListTagsForResourceRequest, ResourceTags, [BadRequestException, InternalServerException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const startDeployment = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/applications/{ApplicationId}/environments/{EnvironmentId}/deployments", method: "POST", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.StartDeployment" }, StartDeploymentRequest, Deployment, [BadRequestException, ConflictException, InternalServerException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const createApplication = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/applications", method: "POST", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.CreateApplication" }, CreateApplicationRequest, Application, [BadRequestException, InternalServerException, ServiceQuotaExceededException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const createExtension = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/extensions", method: "POST", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.CreateExtension" }, CreateExtensionRequest, Extension, [BadRequestException, ConflictException, InternalServerException, ServiceQuotaExceededException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const createHostedConfigurationVersion = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}/hostedconfigurationversions", method: "POST", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.CreateHostedConfigurationVersion" }, CreateHostedConfigurationVersionRequest, HostedConfigurationVersion, [BadRequestException, ConflictException, InternalServerException, PayloadTooLargeException, ResourceNotFoundException, ServiceQuotaExceededException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listConfigurationProfiles = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/applications/{ApplicationId}/configurationprofiles", method: "GET", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.ListConfigurationProfiles" }, ListConfigurationProfilesRequest, ConfigurationProfiles, [BadRequestException, InternalServerException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listDeployments = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/applications/{ApplicationId}/environments/{EnvironmentId}/deployments", method: "GET", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.ListDeployments" }, ListDeploymentsRequest, Deployments, [BadRequestException, InternalServerException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listExtensionAssociations = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/extensionassociations", method: "GET", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.ListExtensionAssociations" }, ListExtensionAssociationsRequest, ExtensionAssociations, [BadRequestException, InternalServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listExtensions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/extensions", method: "GET", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.ListExtensions" }, ListExtensionsRequest, Extensions, [BadRequestException, InternalServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listHostedConfigurationVersions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}/hostedconfigurationversions", method: "GET", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.ListHostedConfigurationVersions" }, ListHostedConfigurationVersionsRequest, HostedConfigurationVersions, [BadRequestException, InternalServerException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteApplication = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/applications/{ApplicationId}", method: "DELETE", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.DeleteApplication" }, DeleteApplicationRequest, S.Struct({}), [BadRequestException, InternalServerException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getDeployment = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/applications/{ApplicationId}/environments/{EnvironmentId}/deployments/{DeploymentNumber}", method: "GET", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.GetDeployment" }, GetDeploymentRequest, Deployment, [BadRequestException, InternalServerException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes an AppConfig extension. You must delete all associations to an
+ * extension before you delete the extension.
+ */export const deleteExtension = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/extensions/{ExtensionIdentifier}", method: "DELETE", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.DeleteExtension" }, DeleteExtensionRequest, S.Struct({}), [BadRequestException, InternalServerException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes an extension association. This action doesn't delete extensions defined in the
+ * association.
+ */export const deleteExtensionAssociation = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/extensionassociations/{ExtensionAssociationId}", method: "DELETE", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.DeleteExtensionAssociation" }, DeleteExtensionAssociationRequest, S.Struct({}), [BadRequestException, InternalServerException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes a version of a configuration from the AppConfig hosted configuration
+ * store.
+ */export const deleteHostedConfigurationVersion = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}/hostedconfigurationversions/{VersionNumber}", method: "DELETE", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.DeleteHostedConfigurationVersion" }, DeleteHostedConfigurationVersionRequest, S.Struct({}), [BadRequestException, InternalServerException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves information about a deployment strategy. A deployment strategy defines
+ * important criteria for rolling out your configuration to the designated targets. A
+ * deployment strategy includes the overall duration required, a percentage of targets to
+ * receive the deployment during each interval, an algorithm that defines how percentage
+ * grows, and bake time.
+ */export const getDeploymentStrategy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/deploymentstrategies/{DeploymentStrategyId}", method: "GET", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.GetDeploymentStrategy" }, GetDeploymentStrategyRequest, DeploymentStrategy, [BadRequestException, InternalServerException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves information about a specific configuration version.
+ */export const getHostedConfigurationVersion = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}/hostedconfigurationversions/{VersionNumber}", method: "GET", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.GetHostedConfigurationVersion" }, GetHostedConfigurationVersionRequest, HostedConfigurationVersion, [BadRequestException, InternalServerException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Stops a deployment. This API action works only on deployments that have a status of
+ * `DEPLOYING`, unless an `AllowRevert` parameter is supplied. If the
+ * `AllowRevert` parameter is supplied, the status of an in-progress deployment
+ * will be `ROLLED_BACK`. The status of a completed deployment will be
+ * `REVERTED`. AppConfig only allows a revert within 72 hours of
+ * deployment completion.
+ */export const stopDeployment = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/applications/{ApplicationId}/environments/{EnvironmentId}/deployments/{DeploymentNumber}", method: "DELETE", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.StopDeployment" }, StopDeploymentRequest, Deployment, [BadRequestException, InternalServerException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Assigns metadata to an AppConfig resource. Tags help organize and categorize
+ * your AppConfig resources. Each tag consists of a key and an optional value, both
+ * of which you define. You can specify a maximum of 50 tags for a resource.
+ */export const tagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/tags/{ResourceArn}", method: "POST", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.TagResource" }, TagResourceRequest, S.Struct({}), [BadRequestException, InternalServerException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes a tag key and value from an AppConfig resource.
+ */export const untagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/tags/{ResourceArn}", method: "DELETE", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.UntagResource" }, UntagResourceRequest, S.Struct({}), [BadRequestException, InternalServerException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates the value of the `DeletionProtection` parameter.
+ */export const updateAccountSettings = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/settings", method: "PATCH", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.UpdateAccountSettings" }, UpdateAccountSettingsRequest, AccountSettings, [BadRequestException, InternalServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates an application.
+ */export const updateApplication = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/applications/{ApplicationId}", method: "PATCH", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.UpdateApplication" }, UpdateApplicationRequest, Application, [BadRequestException, InternalServerException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates a configuration profile.
+ */export const updateConfigurationProfile = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}", method: "PATCH", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.UpdateConfigurationProfile" }, UpdateConfigurationProfileRequest, ConfigurationProfile, [BadRequestException, InternalServerException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates a deployment strategy.
+ */export const updateDeploymentStrategy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/deploymentstrategies/{DeploymentStrategyId}", method: "PATCH", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.UpdateDeploymentStrategy" }, UpdateDeploymentStrategyRequest, DeploymentStrategy, [BadRequestException, InternalServerException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates an environment.
+ */export const updateEnvironment = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/applications/{ApplicationId}/environments/{EnvironmentId}", method: "PATCH", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.UpdateEnvironment" }, UpdateEnvironmentRequest, Environment, [BadRequestException, InternalServerException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates an AppConfig extension. For more information about extensions, see
+ * Extending
+ * workflows in the *AppConfig User Guide*.
+ */export const updateExtension = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/extensions/{ExtensionIdentifier}", method: "PATCH", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.UpdateExtension" }, UpdateExtensionRequest, Extension, [BadRequestException, ConflictException, InternalServerException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates an association. For more information about extensions and associations, see
+ * Extending
+ * workflows in the *AppConfig User Guide*.
+ */export const updateExtensionAssociation = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/extensionassociations/{ExtensionAssociationId}", method: "PATCH", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.UpdateExtensionAssociation" }, UpdateExtensionAssociationRequest, ExtensionAssociation, [BadRequestException, InternalServerException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Uses the validators in a configuration profile to validate a configuration.
+ */export const validateConfiguration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}/validators", method: "POST", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.ValidateConfiguration" }, ValidateConfigurationRequest, S.Struct({}), [BadRequestException, InternalServerException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a configuration profile, which is information that enables AppConfig
+ * to access the configuration source. Valid configuration sources include the
+ * following:
+ * 
+ * 
+ * 
+ * - Configuration data in YAML, JSON, and other formats stored in the AppConfig hosted configuration store
+ * 
+ * 
+ * 
+ * - Configuration data stored as objects in an Amazon Simple Storage Service (Amazon S3)
+ * bucket
+ * 
+ * 
+ * 
+ * - Pipelines stored in CodePipeline
+ * 
+ * 
+ * 
+ * - Secrets stored in Secrets Manager
+ * 
+ * 
+ * 
+ * - Standard and secure string parameters stored in Amazon Web Services Systems Manager Parameter Store
+ * 
+ * 
+ * 
+ * - Configuration data in SSM documents stored in the Systems Manager document store
+ * 
+ * 
+ * 
+ * 
+ * 
+ * A configuration profile includes the following information:
+ * 
+ * 
+ * 
+ * - The URI location of the configuration data.
+ * 
+ * 
+ * 
+ * - The Identity and Access Management (IAM) role that provides access to the configuration data.
+ * 
+ * 
+ * 
+ * - A validator for the configuration data. Available validators include either a JSON
+ * Schema or an Amazon Web Services Lambda function.
+ * 
+ * 
+ * 
+ * 
+ * 
+ * For more information, see Create a
+ * Configuration and a Configuration Profile in the AppConfig
+ * User Guide.
+ */export const createConfigurationProfile = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/applications/{ApplicationId}/configurationprofiles", method: "POST", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.CreateConfigurationProfile" }, CreateConfigurationProfileRequest, ConfigurationProfile, [BadRequestException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a deployment strategy that defines important criteria for rolling out your
+ * configuration to the designated targets. A deployment strategy includes the overall
+ * duration required, a percentage of targets to receive the deployment during each interval,
+ * an algorithm that defines how percentage grows, and bake time.
+ */export const createDeploymentStrategy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/deploymentstrategies", method: "POST", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.CreateDeploymentStrategy" }, CreateDeploymentStrategyRequest, DeploymentStrategy, [BadRequestException, InternalServerException, ServiceQuotaExceededException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates an environment. For each application, you define one or more environments. An
+ * environment is a deployment group of AppConfig targets, such as applications in a
+ * `Beta` or `Production` environment. You can also define
+ * environments for application subcomponents such as the `Web`,
+ * `Mobile` and `Back-end` components for your application. You can
+ * configure Amazon CloudWatch alarms for each environment. The system monitors alarms during a
+ * configuration deployment. If an alarm is triggered, the system rolls back the
+ * configuration.
+ */export const createEnvironment = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/applications/{ApplicationId}/environments", method: "POST", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.CreateEnvironment" }, CreateEnvironmentRequest, Environment, [BadRequestException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * When you create an extension or configure an Amazon Web Services authored extension, you
+ * associate the extension with an AppConfig application, environment, or
+ * configuration profile. For example, you can choose to run the AppConfig
+ * deployment events to Amazon SNS
+ * Amazon Web Services authored extension and receive notifications on an Amazon SNS
+ * topic anytime a configuration deployment is started for a specific application. Defining
+ * which extension to associate with an AppConfig resource is called an
+ * *extension association*. An extension association is a specified
+ * relationship between an extension and an AppConfig resource, such as an
+ * application or a configuration profile. For more information about extensions and
+ * associations, see Extending
+ * workflows in the *AppConfig User Guide*.
+ */export const createExtensionAssociation = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/extensionassociations", method: "POST", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.CreateExtensionAssociation" }, CreateExtensionAssociationRequest, ExtensionAssociation, [BadRequestException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes a configuration profile.
+ * 
+ * 
+ * To prevent users from unintentionally deleting actively-used configuration profiles,
+ * enable deletion
+ * protection.
+ */export const deleteConfigurationProfile = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}", method: "DELETE", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.DeleteConfigurationProfile" }, DeleteConfigurationProfileRequest, S.Struct({}), [BadRequestException, ConflictException, InternalServerException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes a deployment strategy.
+ */export const deleteDeploymentStrategy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/deployementstrategies/{DeploymentStrategyId}", method: "DELETE", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.DeleteDeploymentStrategy" }, DeleteDeploymentStrategyRequest, S.Struct({}), [BadRequestException, InternalServerException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes an environment.
+ * 
+ * 
+ * To prevent users from unintentionally deleting actively-used environments, enable deletion
+ * protection.
+ */export const deleteEnvironment = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/applications/{ApplicationId}/environments/{EnvironmentId}", method: "DELETE", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.DeleteEnvironment" }, DeleteEnvironmentRequest, S.Struct({}), [BadRequestException, ConflictException, InternalServerException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns information about the status of the `DeletionProtection`
+ * parameter.
+ */export const getAccountSettings = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/settings", method: "GET", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.GetAccountSettings" }, S.Struct({}), AccountSettings, [BadRequestException, InternalServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves information about an application.
+ */export const getApplication = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/applications/{ApplicationId}", method: "GET", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.GetApplication" }, GetApplicationRequest, Application, [BadRequestException, InternalServerException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * (Deprecated) Retrieves the latest deployed configuration.
+ * 
+ * 
+ * 
+ * 
+ * Note the following important information.
+ * 
+ * 
+ * 
+ * - This API action is deprecated. Calls to receive configuration data should use
+ * the StartConfigurationSession and GetLatestConfiguration APIs instead.
+ * 
+ * 
+ * 
+ * - GetConfiguration is a priced call. For more information, see
+ * Pricing.
+ */export const getConfiguration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/applications/{Application}/environments/{Environment}/configurations/{Configuration}", method: "GET", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.GetConfiguration" }, GetConfigurationRequest, Configuration, [BadRequestException, InternalServerException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves information about a configuration profile.
+ */export const getConfigurationProfile = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}", method: "GET", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.GetConfigurationProfile" }, GetConfigurationProfileRequest, ConfigurationProfile, [BadRequestException, InternalServerException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves information about an environment. An environment is a deployment group of
+ * AppConfig applications, such as applications in a `Production`
+ * environment or in an `EU_Region` environment. Each configuration deployment
+ * targets an environment. You can enable one or more Amazon CloudWatch alarms for an environment. If
+ * an alarm is triggered during a deployment, AppConfig roles back the
+ * configuration.
+ */export const getEnvironment = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/applications/{ApplicationId}/environments/{EnvironmentId}", method: "GET", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.GetEnvironment" }, GetEnvironmentRequest, Environment, [BadRequestException, InternalServerException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns information about an AppConfig extension.
+ */export const getExtension = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/extensions/{ExtensionIdentifier}", method: "GET", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.GetExtension" }, GetExtensionRequest, Extension, [BadRequestException, InternalServerException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns information about an AppConfig extension association. For more
+ * information about extensions and associations, see Extending
+ * workflows in the *AppConfig User Guide*.
+ */export const getExtensionAssociation = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/extensionassociations/{ExtensionAssociationId}", method: "GET", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.GetExtensionAssociation" }, GetExtensionAssociationRequest, ExtensionAssociation, [BadRequestException, InternalServerException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists all applications in your Amazon Web Services account.
+ */export const listApplications = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/applications", method: "GET", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.ListApplications" }, ListApplicationsRequest, Applications, [BadRequestException, InternalServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists deployment strategies.
+ */export const listDeploymentStrategies = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/deploymentstrategies", method: "GET", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.ListDeploymentStrategies" }, ListDeploymentStrategiesRequest, DeploymentStrategies, [BadRequestException, InternalServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists the environments for an application.
+ */export const listEnvironments = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/applications/{ApplicationId}/environments", method: "GET", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.ListEnvironments" }, ListEnvironmentsRequest, Environments, [BadRequestException, InternalServerException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves the list of key-value tags assigned to the resource.
+ */export const listTagsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/tags/{ResourceArn}", method: "GET", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.ListTagsForResource" }, ListTagsForResourceRequest, ResourceTags, [BadRequestException, InternalServerException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Starts a deployment.
+ */export const startDeployment = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/applications/{ApplicationId}/environments/{EnvironmentId}/deployments", method: "POST", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.StartDeployment" }, StartDeploymentRequest, Deployment, [BadRequestException, ConflictException, InternalServerException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates an application. In AppConfig, an application is simply an
+ * organizational construct like a folder. This organizational construct has a relationship
+ * with some unit of executable code. For example, you could create an application called
+ * MyMobileApp to organize and manage configuration data for a mobile application installed by
+ * your users.
+ */export const createApplication = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/applications", method: "POST", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.CreateApplication" }, CreateApplicationRequest, Application, [BadRequestException, InternalServerException, ServiceQuotaExceededException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates an AppConfig extension. An extension augments your ability to inject
+ * logic or behavior at different points during the AppConfig workflow of creating
+ * or deploying a configuration.
+ * 
+ * 
+ * You can create your own extensions or use the Amazon Web Services authored extensions provided by
+ * AppConfig. For an AppConfig extension that uses Lambda, you must create a Lambda function to perform any computation and processing
+ * defined in the extension. If you plan to create custom versions of the Amazon Web Services
+ * authored notification extensions, you only need to specify an Amazon Resource Name (ARN) in
+ * the `Uri` field for the new extension version.
+ * 
+ * 
+ * 
+ * - For a custom EventBridge notification extension, enter the ARN of the EventBridge
+ * default events in the `Uri` field.
+ * 
+ * 
+ * 
+ * - For a custom Amazon SNS notification extension, enter the ARN of an Amazon SNS
+ * topic in the `Uri` field.
+ * 
+ * 
+ * 
+ * - For a custom Amazon SQS notification extension, enter the ARN of an Amazon SQS
+ * message queue in the `Uri` field.
+ * 
+ * 
+ * 
+ * 
+ * 
+ * For more information about extensions, see Extending
+ * workflows in the *AppConfig User Guide*.
+ */export const createExtension = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/extensions", method: "POST", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.CreateExtension" }, CreateExtensionRequest, Extension, [BadRequestException, ConflictException, InternalServerException, ServiceQuotaExceededException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a new configuration in the AppConfig hosted configuration store. If
+ * you're creating a feature flag, we recommend you familiarize yourself with the JSON schema
+ * for feature flag data. For more information, see Type reference for AWS.AppConfig.FeatureFlags in the
+ * *AppConfig User Guide*.
+ */export const createHostedConfigurationVersion = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}/hostedconfigurationversions", method: "POST", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.CreateHostedConfigurationVersion" }, CreateHostedConfigurationVersionRequest, HostedConfigurationVersion, [BadRequestException, ConflictException, InternalServerException, PayloadTooLargeException, ResourceNotFoundException, ServiceQuotaExceededException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists the configuration profiles for an application.
+ */export const listConfigurationProfiles = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/applications/{ApplicationId}/configurationprofiles", method: "GET", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.ListConfigurationProfiles" }, ListConfigurationProfilesRequest, ConfigurationProfiles, [BadRequestException, InternalServerException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists the deployments for an environment in descending deployment number order.
+ */export const listDeployments = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/applications/{ApplicationId}/environments/{EnvironmentId}/deployments", method: "GET", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.ListDeployments" }, ListDeploymentsRequest, Deployments, [BadRequestException, InternalServerException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists all AppConfig extension associations in the account. For more
+ * information about extensions and associations, see Extending
+ * workflows in the *AppConfig User Guide*.
+ */export const listExtensionAssociations = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/extensionassociations", method: "GET", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.ListExtensionAssociations" }, ListExtensionAssociationsRequest, ExtensionAssociations, [BadRequestException, InternalServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists all custom and Amazon Web Services authored AppConfig extensions in the
+ * account. For more information about extensions, see Extending
+ * workflows in the *AppConfig User Guide*.
+ */export const listExtensions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/extensions", method: "GET", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.ListExtensions" }, ListExtensionsRequest, Extensions, [BadRequestException, InternalServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists configurations stored in the AppConfig hosted configuration store by
+ * version.
+ */export const listHostedConfigurationVersions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}/hostedconfigurationversions", method: "GET", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.ListHostedConfigurationVersions" }, ListHostedConfigurationVersionsRequest, HostedConfigurationVersions, [BadRequestException, InternalServerException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes an application.
+ */export const deleteApplication = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/applications/{ApplicationId}", method: "DELETE", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.DeleteApplication" }, DeleteApplicationRequest, S.Struct({}), [BadRequestException, InternalServerException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves information about a configuration deployment.
+ */export const getDeployment = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/applications/{ApplicationId}/environments/{EnvironmentId}/deployments/{DeploymentNumber}", method: "GET", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.GetDeployment" }, GetDeploymentRequest, Deployment, [BadRequestException, InternalServerException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

@@ -136,37 +136,245 @@ export class PermissionVersionsLimitExceededException extends S.TaggedError<Perm
 export class PermissionLimitExceededException extends S.TaggedError<PermissionLimitExceededException>()("PermissionLimitExceededException", {message: S.String}) {};
 
 //# Operations
-export const enableSharingWithAwsOrganization = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-04", uri: "/enablesharingwithawsorganization", method: "POST", sdkId: "RAM", sigV4ServiceName: "ram", name: "AmazonResourceSharing.EnableSharingWithAwsOrganization" }, EnableSharingWithAwsOrganizationRequest, EnableSharingWithAwsOrganizationResponse, [OperationNotPermittedException, ServerInternalException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getResourceShareAssociations = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-04", uri: "/getresourceshareassociations", method: "POST", sdkId: "RAM", sigV4ServiceName: "ram", name: "AmazonResourceSharing.GetResourceShareAssociations" }, GetResourceShareAssociationsRequest, GetResourceShareAssociationsResponse, [InvalidNextTokenException, InvalidParameterException, MalformedArnException, OperationNotPermittedException, ServerInternalException, ServiceUnavailableException, UnknownResourceException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listPermissionVersions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-04", uri: "/listpermissionversions", method: "POST", sdkId: "RAM", sigV4ServiceName: "ram", name: "AmazonResourceSharing.ListPermissionVersions" }, ListPermissionVersionsRequest, ListPermissionVersionsResponse, [InvalidNextTokenException, InvalidParameterException, MalformedArnException, OperationNotPermittedException, ServerInternalException, ServiceUnavailableException, UnknownResourceException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listResourceSharePermissions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-04", uri: "/listresourcesharepermissions", method: "POST", sdkId: "RAM", sigV4ServiceName: "ram", name: "AmazonResourceSharing.ListResourceSharePermissions" }, ListResourceSharePermissionsRequest, ListResourceSharePermissionsResponse, [InvalidNextTokenException, InvalidParameterException, MalformedArnException, OperationNotPermittedException, ServerInternalException, ServiceUnavailableException, UnknownResourceException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const replacePermissionAssociations = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-04", uri: "/replacepermissionassociations", method: "POST", sdkId: "RAM", sigV4ServiceName: "ram", name: "AmazonResourceSharing.ReplacePermissionAssociations" }, ReplacePermissionAssociationsRequest, ReplacePermissionAssociationsResponse, [IdempotentParameterMismatchException, InvalidClientTokenException, InvalidParameterException, MalformedArnException, OperationNotPermittedException, ServerInternalException, ServiceUnavailableException, UnknownResourceException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const setDefaultPermissionVersion = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-04", uri: "/setdefaultpermissionversion", method: "POST", sdkId: "RAM", sigV4ServiceName: "ram", name: "AmazonResourceSharing.SetDefaultPermissionVersion" }, SetDefaultPermissionVersionRequest, SetDefaultPermissionVersionResponse, [IdempotentParameterMismatchException, InvalidClientTokenException, InvalidParameterException, MalformedArnException, ServerInternalException, ServiceUnavailableException, UnknownResourceException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const untagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-04", uri: "/untagresource", method: "POST", sdkId: "RAM", sigV4ServiceName: "ram", name: "AmazonResourceSharing.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [InvalidParameterException, MalformedArnException, ServerInternalException, ServiceUnavailableException, UnknownResourceException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateResourceShare = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-04", uri: "/updateresourceshare", method: "POST", sdkId: "RAM", sigV4ServiceName: "ram", name: "AmazonResourceSharing.UpdateResourceShare" }, UpdateResourceShareRequest, UpdateResourceShareResponse, [IdempotentParameterMismatchException, InvalidClientTokenException, InvalidParameterException, MalformedArnException, MissingRequiredParameterException, OperationNotPermittedException, ServerInternalException, ServiceUnavailableException, UnknownResourceException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const associateResourceSharePermission = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-04", uri: "/associateresourcesharepermission", method: "POST", sdkId: "RAM", sigV4ServiceName: "ram", name: "AmazonResourceSharing.AssociateResourceSharePermission" }, AssociateResourceSharePermissionRequest, AssociateResourceSharePermissionResponse, [InvalidClientTokenException, InvalidParameterException, MalformedArnException, OperationNotPermittedException, ServerInternalException, ServiceUnavailableException, UnknownResourceException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const deletePermission = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-04", uri: "/deletepermission", method: "DELETE", sdkId: "RAM", sigV4ServiceName: "ram", name: "AmazonResourceSharing.DeletePermission" }, DeletePermissionRequest, DeletePermissionResponse, [IdempotentParameterMismatchException, InvalidClientTokenException, MalformedArnException, OperationNotPermittedException, ServerInternalException, ServiceUnavailableException, UnknownResourceException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const deletePermissionVersion = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-04", uri: "/deletepermissionversion", method: "DELETE", sdkId: "RAM", sigV4ServiceName: "ram", name: "AmazonResourceSharing.DeletePermissionVersion" }, DeletePermissionVersionRequest, DeletePermissionVersionResponse, [IdempotentParameterMismatchException, InvalidClientTokenException, InvalidParameterException, MalformedArnException, OperationNotPermittedException, ServerInternalException, ServiceUnavailableException, UnknownResourceException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteResourceShare = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-04", uri: "/deleteresourceshare", method: "DELETE", sdkId: "RAM", sigV4ServiceName: "ram", name: "AmazonResourceSharing.DeleteResourceShare" }, DeleteResourceShareRequest, DeleteResourceShareResponse, [IdempotentParameterMismatchException, InvalidClientTokenException, InvalidParameterException, InvalidStateTransitionException, MalformedArnException, OperationNotPermittedException, ServerInternalException, ServiceUnavailableException, UnknownResourceException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const disassociateResourceShare = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-04", uri: "/disassociateresourceshare", method: "POST", sdkId: "RAM", sigV4ServiceName: "ram", name: "AmazonResourceSharing.DisassociateResourceShare" }, DisassociateResourceShareRequest, DisassociateResourceShareResponse, [IdempotentParameterMismatchException, InvalidClientTokenException, InvalidParameterException, InvalidStateTransitionException, MalformedArnException, OperationNotPermittedException, ResourceShareLimitExceededException, ServerInternalException, ServiceUnavailableException, UnknownResourceException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const disassociateResourceSharePermission = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-04", uri: "/disassociateresourcesharepermission", method: "POST", sdkId: "RAM", sigV4ServiceName: "ram", name: "AmazonResourceSharing.DisassociateResourceSharePermission" }, DisassociateResourceSharePermissionRequest, DisassociateResourceSharePermissionResponse, [InvalidClientTokenException, InvalidParameterException, InvalidStateTransitionException, MalformedArnException, OperationNotPermittedException, ServerInternalException, ServiceUnavailableException, UnknownResourceException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getPermission = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-04", uri: "/getpermission", method: "POST", sdkId: "RAM", sigV4ServiceName: "ram", name: "AmazonResourceSharing.GetPermission" }, GetPermissionRequest, GetPermissionResponse, [InvalidParameterException, MalformedArnException, OperationNotPermittedException, ServerInternalException, ServiceUnavailableException, UnknownResourceException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getResourcePolicies = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-04", uri: "/getresourcepolicies", method: "POST", sdkId: "RAM", sigV4ServiceName: "ram", name: "AmazonResourceSharing.GetResourcePolicies" }, GetResourcePoliciesRequest, GetResourcePoliciesResponse, [InvalidNextTokenException, InvalidParameterException, MalformedArnException, ResourceArnNotFoundException, ServerInternalException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getResourceShares = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-04", uri: "/getresourceshares", method: "POST", sdkId: "RAM", sigV4ServiceName: "ram", name: "AmazonResourceSharing.GetResourceShares" }, GetResourceSharesRequest, GetResourceSharesResponse, [InvalidNextTokenException, InvalidParameterException, MalformedArnException, ServerInternalException, ServiceUnavailableException, UnknownResourceException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listPermissionAssociations = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-04", uri: "/listpermissionassociations", method: "POST", sdkId: "RAM", sigV4ServiceName: "ram", name: "AmazonResourceSharing.ListPermissionAssociations" }, ListPermissionAssociationsRequest, ListPermissionAssociationsResponse, [InvalidNextTokenException, InvalidParameterException, MalformedArnException, ServerInternalException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listPermissions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-04", uri: "/listpermissions", method: "POST", sdkId: "RAM", sigV4ServiceName: "ram", name: "AmazonResourceSharing.ListPermissions" }, ListPermissionsRequest, ListPermissionsResponse, [InvalidNextTokenException, InvalidParameterException, OperationNotPermittedException, ServerInternalException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listPrincipals = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-04", uri: "/listprincipals", method: "POST", sdkId: "RAM", sigV4ServiceName: "ram", name: "AmazonResourceSharing.ListPrincipals" }, ListPrincipalsRequest, ListPrincipalsResponse, [InvalidNextTokenException, InvalidParameterException, MalformedArnException, ServerInternalException, ServiceUnavailableException, UnknownResourceException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listReplacePermissionAssociationsWork = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-04", uri: "/listreplacepermissionassociationswork", method: "POST", sdkId: "RAM", sigV4ServiceName: "ram", name: "AmazonResourceSharing.ListReplacePermissionAssociationsWork" }, ListReplacePermissionAssociationsWorkRequest, ListReplacePermissionAssociationsWorkResponse, [InvalidNextTokenException, InvalidParameterException, ServerInternalException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listResources = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-04", uri: "/listresources", method: "POST", sdkId: "RAM", sigV4ServiceName: "ram", name: "AmazonResourceSharing.ListResources" }, ListResourcesRequest, ListResourcesResponse, [InvalidNextTokenException, InvalidParameterException, InvalidResourceTypeException, MalformedArnException, ServerInternalException, ServiceUnavailableException, UnknownResourceException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listResourceTypes = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-04", uri: "/listresourcetypes", method: "POST", sdkId: "RAM", sigV4ServiceName: "ram", name: "AmazonResourceSharing.ListResourceTypes" }, ListResourceTypesRequest, ListResourceTypesResponse, [InvalidNextTokenException, InvalidParameterException, ServerInternalException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const promotePermissionCreatedFromPolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-04", uri: "/promotepermissioncreatedfrompolicy", method: "POST", sdkId: "RAM", sigV4ServiceName: "ram", name: "AmazonResourceSharing.PromotePermissionCreatedFromPolicy" }, PromotePermissionCreatedFromPolicyRequest, PromotePermissionCreatedFromPolicyResponse, [InvalidParameterException, MalformedArnException, MissingRequiredParameterException, OperationNotPermittedException, ServerInternalException, ServiceUnavailableException, UnknownResourceException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const promoteResourceShareCreatedFromPolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-04", uri: "/promoteresourcesharecreatedfrompolicy", method: "POST", sdkId: "RAM", sigV4ServiceName: "ram", name: "AmazonResourceSharing.PromoteResourceShareCreatedFromPolicy" }, PromoteResourceShareCreatedFromPolicyRequest, PromoteResourceShareCreatedFromPolicyResponse, [InvalidParameterException, InvalidStateTransitionException, MalformedArnException, MissingRequiredParameterException, OperationNotPermittedException, ResourceShareLimitExceededException, ServerInternalException, ServiceUnavailableException, UnknownResourceException, UnmatchedPolicyPermissionException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const rejectResourceShareInvitation = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-04", uri: "/rejectresourceshareinvitation", method: "POST", sdkId: "RAM", sigV4ServiceName: "ram", name: "AmazonResourceSharing.RejectResourceShareInvitation" }, RejectResourceShareInvitationRequest, RejectResourceShareInvitationResponse, [IdempotentParameterMismatchException, InvalidClientTokenException, MalformedArnException, OperationNotPermittedException, ResourceShareInvitationAlreadyAcceptedException, ResourceShareInvitationAlreadyRejectedException, ResourceShareInvitationArnNotFoundException, ResourceShareInvitationExpiredException, ServerInternalException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const acceptResourceShareInvitation = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-04", uri: "/acceptresourceshareinvitation", method: "POST", sdkId: "RAM", sigV4ServiceName: "ram", name: "AmazonResourceSharing.AcceptResourceShareInvitation" }, AcceptResourceShareInvitationRequest, AcceptResourceShareInvitationResponse, [IdempotentParameterMismatchException, InvalidClientTokenException, MalformedArnException, OperationNotPermittedException, ResourceShareInvitationAlreadyAcceptedException, ResourceShareInvitationAlreadyRejectedException, ResourceShareInvitationArnNotFoundException, ResourceShareInvitationExpiredException, ServerInternalException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const associateResourceShare = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-04", uri: "/associateresourceshare", method: "POST", sdkId: "RAM", sigV4ServiceName: "ram", name: "AmazonResourceSharing.AssociateResourceShare" }, AssociateResourceShareRequest, AssociateResourceShareResponse, [IdempotentParameterMismatchException, InvalidClientTokenException, InvalidParameterException, InvalidStateTransitionException, MalformedArnException, OperationNotPermittedException, ResourceShareLimitExceededException, ServerInternalException, ServiceUnavailableException, ThrottlingException, UnknownResourceException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const createResourceShare = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-04", uri: "/createresourceshare", method: "POST", sdkId: "RAM", sigV4ServiceName: "ram", name: "AmazonResourceSharing.CreateResourceShare" }, CreateResourceShareRequest, CreateResourceShareResponse, [IdempotentParameterMismatchException, InvalidClientTokenException, InvalidParameterException, InvalidStateTransitionException, MalformedArnException, OperationNotPermittedException, ResourceShareLimitExceededException, ServerInternalException, ServiceUnavailableException, TagLimitExceededException, TagPolicyViolationException, UnknownResourceException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getResourceShareInvitations = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-04", uri: "/getresourceshareinvitations", method: "POST", sdkId: "RAM", sigV4ServiceName: "ram", name: "AmazonResourceSharing.GetResourceShareInvitations" }, GetResourceShareInvitationsRequest, GetResourceShareInvitationsResponse, [InvalidMaxResultsException, InvalidNextTokenException, InvalidParameterException, MalformedArnException, ResourceShareInvitationArnNotFoundException, ServerInternalException, ServiceUnavailableException, UnknownResourceException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listPendingInvitationResources = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-04", uri: "/listpendinginvitationresources", method: "POST", sdkId: "RAM", sigV4ServiceName: "ram", name: "AmazonResourceSharing.ListPendingInvitationResources" }, ListPendingInvitationResourcesRequest, ListPendingInvitationResourcesResponse, [InvalidNextTokenException, InvalidParameterException, MalformedArnException, MissingRequiredParameterException, ResourceShareInvitationAlreadyRejectedException, ResourceShareInvitationArnNotFoundException, ResourceShareInvitationExpiredException, ServerInternalException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const tagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-04", uri: "/tagresource", method: "POST", sdkId: "RAM", sigV4ServiceName: "ram", name: "AmazonResourceSharing.TagResource" }, TagResourceRequest, TagResourceResponse, [InvalidParameterException, MalformedArnException, ResourceArnNotFoundException, ServerInternalException, ServiceUnavailableException, TagLimitExceededException, TagPolicyViolationException, UnknownResourceException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const createPermissionVersion = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-04", uri: "/createpermissionversion", method: "POST", sdkId: "RAM", sigV4ServiceName: "ram", name: "AmazonResourceSharing.CreatePermissionVersion" }, CreatePermissionVersionRequest, CreatePermissionVersionResponse, [IdempotentParameterMismatchException, InvalidClientTokenException, InvalidParameterException, InvalidPolicyException, MalformedArnException, MalformedPolicyTemplateException, PermissionVersionsLimitExceededException, ServerInternalException, ServiceUnavailableException, UnknownResourceException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const createPermission = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-04", uri: "/createpermission", method: "POST", sdkId: "RAM", sigV4ServiceName: "ram", name: "AmazonResourceSharing.CreatePermission" }, CreatePermissionRequest, CreatePermissionResponse, [IdempotentParameterMismatchException, InvalidClientTokenException, InvalidParameterException, InvalidPolicyException, MalformedPolicyTemplateException, OperationNotPermittedException, PermissionAlreadyExistsException, PermissionLimitExceededException, ServerInternalException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Enables resource sharing within your organization in Organizations. This operation creates
+ * a service-linked role called `AWSServiceRoleForResourceAccessManager` that has the IAM managed policy
+ * named AWSResourceAccessManagerServiceRolePolicy attached. This role permits RAM to retrieve information about
+ * the organization and its structure. This lets you share resources with all of the
+ * accounts in the calling account's organization by specifying the organization ID, or all
+ * of the accounts in an organizational unit (OU) by specifying the OU ID. Until you enable
+ * sharing within the organization, you can specify only individual Amazon Web Services accounts, or for
+ * supported resource types, IAM roles and users.
+ * 
+ * 
+ * You must call this operation from an IAM role or user in the organization's
+ * management account.
+ */export const enableSharingWithAwsOrganization = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-04", uri: "/enablesharingwithawsorganization", method: "POST", sdkId: "RAM", sigV4ServiceName: "ram", name: "AmazonResourceSharing.EnableSharingWithAwsOrganization" }, EnableSharingWithAwsOrganizationRequest, EnableSharingWithAwsOrganizationResponse, [OperationNotPermittedException, ServerInternalException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves the lists of resources and principals that associated for resource shares that you
+ * own.
+ */export const getResourceShareAssociations = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-04", uri: "/getresourceshareassociations", method: "POST", sdkId: "RAM", sigV4ServiceName: "ram", name: "AmazonResourceSharing.GetResourceShareAssociations" }, GetResourceShareAssociationsRequest, GetResourceShareAssociationsResponse, [InvalidNextTokenException, InvalidParameterException, MalformedArnException, OperationNotPermittedException, ServerInternalException, ServiceUnavailableException, UnknownResourceException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists the available versions of the specified RAM permission.
+ */export const listPermissionVersions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-04", uri: "/listpermissionversions", method: "POST", sdkId: "RAM", sigV4ServiceName: "ram", name: "AmazonResourceSharing.ListPermissionVersions" }, ListPermissionVersionsRequest, ListPermissionVersionsResponse, [InvalidNextTokenException, InvalidParameterException, MalformedArnException, OperationNotPermittedException, ServerInternalException, ServiceUnavailableException, UnknownResourceException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists the RAM permissions that are associated with a resource share.
+ */export const listResourceSharePermissions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-04", uri: "/listresourcesharepermissions", method: "POST", sdkId: "RAM", sigV4ServiceName: "ram", name: "AmazonResourceSharing.ListResourceSharePermissions" }, ListResourceSharePermissionsRequest, ListResourceSharePermissionsResponse, [InvalidNextTokenException, InvalidParameterException, MalformedArnException, OperationNotPermittedException, ServerInternalException, ServiceUnavailableException, UnknownResourceException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates all resource shares that use a managed permission to a different managed
+ * permission. This operation always applies the default version of the target managed
+ * permission. You can optionally specify that the update applies to only resource shares that
+ * currently use a specified version. This enables you to update to the latest version,
+ * without changing the which managed permission is used.
+ * 
+ * 
+ * You can use this operation to update all of your resource shares to use the current
+ * default version of the permission by specifying the same value for the
+ * `fromPermissionArn` and `toPermissionArn` parameters.
+ * 
+ * 
+ * You can use the optional `fromPermissionVersion` parameter to update only
+ * those resources that use a specified version of the managed permission to the new managed
+ * permission.
+ * 
+ * 
+ * 
+ * 
+ * To successfully perform this operation, you must have permission to update the
+ * resource-based policy on all affected resource types.
+ */export const replacePermissionAssociations = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-04", uri: "/replacepermissionassociations", method: "POST", sdkId: "RAM", sigV4ServiceName: "ram", name: "AmazonResourceSharing.ReplacePermissionAssociations" }, ReplacePermissionAssociationsRequest, ReplacePermissionAssociationsResponse, [IdempotentParameterMismatchException, InvalidClientTokenException, InvalidParameterException, MalformedArnException, OperationNotPermittedException, ServerInternalException, ServiceUnavailableException, UnknownResourceException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Designates the specified version number as the default version for the specified
+ * customer managed permission. New resource shares automatically use this new default permission. Existing
+ * resource shares continue to use their original permission version, but you can use ReplacePermissionAssociations to update them.
+ */export const setDefaultPermissionVersion = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-04", uri: "/setdefaultpermissionversion", method: "POST", sdkId: "RAM", sigV4ServiceName: "ram", name: "AmazonResourceSharing.SetDefaultPermissionVersion" }, SetDefaultPermissionVersionRequest, SetDefaultPermissionVersionResponse, [IdempotentParameterMismatchException, InvalidClientTokenException, InvalidParameterException, MalformedArnException, ServerInternalException, ServiceUnavailableException, UnknownResourceException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Removes the specified tag key and value pairs from the specified resource share or managed permission.
+ */export const untagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-04", uri: "/untagresource", method: "POST", sdkId: "RAM", sigV4ServiceName: "ram", name: "AmazonResourceSharing.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [InvalidParameterException, MalformedArnException, ServerInternalException, ServiceUnavailableException, UnknownResourceException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Modifies some of the properties of the specified resource share.
+ */export const updateResourceShare = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-04", uri: "/updateresourceshare", method: "POST", sdkId: "RAM", sigV4ServiceName: "ram", name: "AmazonResourceSharing.UpdateResourceShare" }, UpdateResourceShareRequest, UpdateResourceShareResponse, [IdempotentParameterMismatchException, InvalidClientTokenException, InvalidParameterException, MalformedArnException, MissingRequiredParameterException, OperationNotPermittedException, ServerInternalException, ServiceUnavailableException, UnknownResourceException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Adds or replaces the RAM permission for a resource type included in a resource share. You can
+ * have exactly one permission associated with each resource type in the resource share. You can add
+ * a new RAM permission only if there are currently no resources of that resource type
+ * currently in the resource share.
+ */export const associateResourceSharePermission = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-04", uri: "/associateresourcesharepermission", method: "POST", sdkId: "RAM", sigV4ServiceName: "ram", name: "AmazonResourceSharing.AssociateResourceSharePermission" }, AssociateResourceSharePermissionRequest, AssociateResourceSharePermissionResponse, [InvalidClientTokenException, InvalidParameterException, MalformedArnException, OperationNotPermittedException, ServerInternalException, ServiceUnavailableException, UnknownResourceException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes the specified customer managed permission in the Amazon Web Services Region in which you call this operation. You
+ * can delete a customer managed permission only if it isn't attached to any resource share. The operation deletes all
+ * versions associated with the customer managed permission.
+ */export const deletePermission = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-04", uri: "/deletepermission", method: "DELETE", sdkId: "RAM", sigV4ServiceName: "ram", name: "AmazonResourceSharing.DeletePermission" }, DeletePermissionRequest, DeletePermissionResponse, [IdempotentParameterMismatchException, InvalidClientTokenException, MalformedArnException, OperationNotPermittedException, ServerInternalException, ServiceUnavailableException, UnknownResourceException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes one version of a customer managed permission. The version you specify must not be attached to any
+ * resource share and must not be the default version for the permission.
+ * 
+ * 
+ * If a customer managed permission has the maximum of 5 versions, then you must delete at
+ * least one version before you can create another.
+ */export const deletePermissionVersion = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-04", uri: "/deletepermissionversion", method: "DELETE", sdkId: "RAM", sigV4ServiceName: "ram", name: "AmazonResourceSharing.DeletePermissionVersion" }, DeletePermissionVersionRequest, DeletePermissionVersionResponse, [IdempotentParameterMismatchException, InvalidClientTokenException, InvalidParameterException, MalformedArnException, OperationNotPermittedException, ServerInternalException, ServiceUnavailableException, UnknownResourceException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes the specified resource share.
+ * 
+ * 
+ * 
+ * 
+ * This doesn't delete any of the resources that were associated with the resource share; it
+ * only stops the sharing of those resources through this resource share.
+ */export const deleteResourceShare = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-04", uri: "/deleteresourceshare", method: "DELETE", sdkId: "RAM", sigV4ServiceName: "ram", name: "AmazonResourceSharing.DeleteResourceShare" }, DeleteResourceShareRequest, DeleteResourceShareResponse, [IdempotentParameterMismatchException, InvalidClientTokenException, InvalidParameterException, InvalidStateTransitionException, MalformedArnException, OperationNotPermittedException, ServerInternalException, ServiceUnavailableException, UnknownResourceException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Removes the specified principals or resources from participating in the specified
+ * resource share.
+ */export const disassociateResourceShare = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-04", uri: "/disassociateresourceshare", method: "POST", sdkId: "RAM", sigV4ServiceName: "ram", name: "AmazonResourceSharing.DisassociateResourceShare" }, DisassociateResourceShareRequest, DisassociateResourceShareResponse, [IdempotentParameterMismatchException, InvalidClientTokenException, InvalidParameterException, InvalidStateTransitionException, MalformedArnException, OperationNotPermittedException, ResourceShareLimitExceededException, ServerInternalException, ServiceUnavailableException, UnknownResourceException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Removes a managed permission from a resource share. Permission changes take effect immediately. You can
+ * remove a managed permission from a resource share only if there are currently no resources of the relevant
+ * resource type currently attached to the resource share.
+ */export const disassociateResourceSharePermission = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-04", uri: "/disassociateresourcesharepermission", method: "POST", sdkId: "RAM", sigV4ServiceName: "ram", name: "AmazonResourceSharing.DisassociateResourceSharePermission" }, DisassociateResourceSharePermissionRequest, DisassociateResourceSharePermissionResponse, [InvalidClientTokenException, InvalidParameterException, InvalidStateTransitionException, MalformedArnException, OperationNotPermittedException, ServerInternalException, ServiceUnavailableException, UnknownResourceException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves the contents of a managed permission in JSON format.
+ */export const getPermission = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-04", uri: "/getpermission", method: "POST", sdkId: "RAM", sigV4ServiceName: "ram", name: "AmazonResourceSharing.GetPermission" }, GetPermissionRequest, GetPermissionResponse, [InvalidParameterException, MalformedArnException, OperationNotPermittedException, ServerInternalException, ServiceUnavailableException, UnknownResourceException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves the resource policies for the specified resources that you own and have
+ * shared.
+ */export const getResourcePolicies = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-04", uri: "/getresourcepolicies", method: "POST", sdkId: "RAM", sigV4ServiceName: "ram", name: "AmazonResourceSharing.GetResourcePolicies" }, GetResourcePoliciesRequest, GetResourcePoliciesResponse, [InvalidNextTokenException, InvalidParameterException, MalformedArnException, ResourceArnNotFoundException, ServerInternalException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves details about the resource shares that you own or that are shared with you.
+ */export const getResourceShares = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-04", uri: "/getresourceshares", method: "POST", sdkId: "RAM", sigV4ServiceName: "ram", name: "AmazonResourceSharing.GetResourceShares" }, GetResourceSharesRequest, GetResourceSharesResponse, [InvalidNextTokenException, InvalidParameterException, MalformedArnException, ServerInternalException, ServiceUnavailableException, UnknownResourceException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists information about the managed permission and its associations to any resource shares that use
+ * this managed permission. This lets you see which resource shares use which versions of the specified
+ * managed permission.
+ */export const listPermissionAssociations = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-04", uri: "/listpermissionassociations", method: "POST", sdkId: "RAM", sigV4ServiceName: "ram", name: "AmazonResourceSharing.ListPermissionAssociations" }, ListPermissionAssociationsRequest, ListPermissionAssociationsResponse, [InvalidNextTokenException, InvalidParameterException, MalformedArnException, ServerInternalException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves a list of available RAM permissions that you can use for the supported
+ * resource types.
+ */export const listPermissions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-04", uri: "/listpermissions", method: "POST", sdkId: "RAM", sigV4ServiceName: "ram", name: "AmazonResourceSharing.ListPermissions" }, ListPermissionsRequest, ListPermissionsResponse, [InvalidNextTokenException, InvalidParameterException, OperationNotPermittedException, ServerInternalException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists the principals that you are sharing resources with or that are sharing resources
+ * with you.
+ */export const listPrincipals = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-04", uri: "/listprincipals", method: "POST", sdkId: "RAM", sigV4ServiceName: "ram", name: "AmazonResourceSharing.ListPrincipals" }, ListPrincipalsRequest, ListPrincipalsResponse, [InvalidNextTokenException, InvalidParameterException, MalformedArnException, ServerInternalException, ServiceUnavailableException, UnknownResourceException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves the current status of the asynchronous tasks performed by RAM when you
+ * perform the ReplacePermissionAssociationsWork operation.
+ */export const listReplacePermissionAssociationsWork = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-04", uri: "/listreplacepermissionassociationswork", method: "POST", sdkId: "RAM", sigV4ServiceName: "ram", name: "AmazonResourceSharing.ListReplacePermissionAssociationsWork" }, ListReplacePermissionAssociationsWorkRequest, ListReplacePermissionAssociationsWorkResponse, [InvalidNextTokenException, InvalidParameterException, ServerInternalException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists the resources that you added to a resource share or the resources that are shared with
+ * you.
+ */export const listResources = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-04", uri: "/listresources", method: "POST", sdkId: "RAM", sigV4ServiceName: "ram", name: "AmazonResourceSharing.ListResources" }, ListResourcesRequest, ListResourcesResponse, [InvalidNextTokenException, InvalidParameterException, InvalidResourceTypeException, MalformedArnException, ServerInternalException, ServiceUnavailableException, UnknownResourceException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists the resource types that can be shared by RAM.
+ */export const listResourceTypes = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-04", uri: "/listresourcetypes", method: "POST", sdkId: "RAM", sigV4ServiceName: "ram", name: "AmazonResourceSharing.ListResourceTypes" }, ListResourceTypesRequest, ListResourceTypesResponse, [InvalidNextTokenException, InvalidParameterException, ServerInternalException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * When you attach a resource-based policy to a resource, RAM automatically creates
+ * a resource share of `featureSet`=`CREATED_FROM_POLICY` with a managed permission that
+ * has the same IAM permissions as the original resource-based policy. However, this type
+ * of managed permission is visible to only the resource share owner, and the associated resource share can't be modified by
+ * using RAM.
+ * 
+ * 
+ * This operation creates a separate, fully manageable customer managed permission that has the same IAM
+ * permissions as the original resource-based policy. You can associate this customer managed permission to any
+ * resource shares.
+ * 
+ * 
+ * Before you use PromoteResourceShareCreatedFromPolicy, you should
+ * first run this operation to ensure that you have an appropriate customer managed permission that can be
+ * associated with the promoted resource share.
+ * 
+ * 
+ * 
+ * 
+ * 
+ * - The original `CREATED_FROM_POLICY` policy isn't deleted, and
+ * resource shares using that original policy aren't automatically
+ * updated.
+ * 
+ * 
+ * 
+ * - You can't modify a `CREATED_FROM_POLICY` resource share so you can't
+ * associate the new customer managed permission by using
+ * `ReplacePermsissionAssociations`. However, if you use PromoteResourceShareCreatedFromPolicy, that operation
+ * automatically associates the fully manageable customer managed permission to the newly promoted
+ * `STANDARD` resource share.
+ * 
+ * 
+ * 
+ * - After you promote a resource share, if the original `CREATED_FROM_POLICY`
+ * managed permission has no other associations to A resource share, then RAM automatically deletes
+ * it.
+ */export const promotePermissionCreatedFromPolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-04", uri: "/promotepermissioncreatedfrompolicy", method: "POST", sdkId: "RAM", sigV4ServiceName: "ram", name: "AmazonResourceSharing.PromotePermissionCreatedFromPolicy" }, PromotePermissionCreatedFromPolicyRequest, PromotePermissionCreatedFromPolicyResponse, [InvalidParameterException, MalformedArnException, MissingRequiredParameterException, OperationNotPermittedException, ServerInternalException, ServiceUnavailableException, UnknownResourceException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * When you attach a resource-based policy to a resource, RAM automatically creates
+ * a resource share of `featureSet`=`CREATED_FROM_POLICY` with a managed permission that
+ * has the same IAM permissions as the original resource-based policy. However, this type
+ * of managed permission is visible to only the resource share owner, and the associated resource share can't be modified by
+ * using RAM.
+ * 
+ * 
+ * This operation promotes the resource share to a `STANDARD` resource share that is fully
+ * manageable in RAM. When you promote a resource share, you can then manage the resource share in RAM and
+ * it becomes visible to all of the principals you shared it with.
+ * 
+ * 
+ * 
+ * 
+ * Before you perform this operation, you should first run PromotePermissionCreatedFromPolicyto ensure that you have an
+ * appropriate customer managed permission that can be associated with this resource share after its is promoted. If
+ * this operation can't find a managed permission that exactly matches the existing
+ * `CREATED_FROM_POLICY` permission, then this operation fails.
+ */export const promoteResourceShareCreatedFromPolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-04", uri: "/promoteresourcesharecreatedfrompolicy", method: "POST", sdkId: "RAM", sigV4ServiceName: "ram", name: "AmazonResourceSharing.PromoteResourceShareCreatedFromPolicy" }, PromoteResourceShareCreatedFromPolicyRequest, PromoteResourceShareCreatedFromPolicyResponse, [InvalidParameterException, InvalidStateTransitionException, MalformedArnException, MissingRequiredParameterException, OperationNotPermittedException, ResourceShareLimitExceededException, ServerInternalException, ServiceUnavailableException, UnknownResourceException, UnmatchedPolicyPermissionException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Rejects an invitation to a resource share from another Amazon Web Services account.
+ */export const rejectResourceShareInvitation = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-04", uri: "/rejectresourceshareinvitation", method: "POST", sdkId: "RAM", sigV4ServiceName: "ram", name: "AmazonResourceSharing.RejectResourceShareInvitation" }, RejectResourceShareInvitationRequest, RejectResourceShareInvitationResponse, [IdempotentParameterMismatchException, InvalidClientTokenException, MalformedArnException, OperationNotPermittedException, ResourceShareInvitationAlreadyAcceptedException, ResourceShareInvitationAlreadyRejectedException, ResourceShareInvitationArnNotFoundException, ResourceShareInvitationExpiredException, ServerInternalException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Accepts an invitation to a resource share from another Amazon Web Services account. After you accept the
+ * invitation, the resources included in the resource share are available to interact with in the
+ * relevant Amazon Web Services Management Consoles and tools.
+ */export const acceptResourceShareInvitation = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-04", uri: "/acceptresourceshareinvitation", method: "POST", sdkId: "RAM", sigV4ServiceName: "ram", name: "AmazonResourceSharing.AcceptResourceShareInvitation" }, AcceptResourceShareInvitationRequest, AcceptResourceShareInvitationResponse, [IdempotentParameterMismatchException, InvalidClientTokenException, MalformedArnException, OperationNotPermittedException, ResourceShareInvitationAlreadyAcceptedException, ResourceShareInvitationAlreadyRejectedException, ResourceShareInvitationArnNotFoundException, ResourceShareInvitationExpiredException, ServerInternalException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Adds the specified list of principals and list of resources to a resource share. Principals that
+ * already have access to this resource share immediately receive access to the added resources.
+ * Newly added principals immediately receive access to the resources shared in this resource share.
+ */export const associateResourceShare = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-04", uri: "/associateresourceshare", method: "POST", sdkId: "RAM", sigV4ServiceName: "ram", name: "AmazonResourceSharing.AssociateResourceShare" }, AssociateResourceShareRequest, AssociateResourceShareResponse, [IdempotentParameterMismatchException, InvalidClientTokenException, InvalidParameterException, InvalidStateTransitionException, MalformedArnException, OperationNotPermittedException, ResourceShareLimitExceededException, ServerInternalException, ServiceUnavailableException, ThrottlingException, UnknownResourceException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a resource share. You can provide a list of the Amazon Resource Names (ARNs) for the resources that you
+ * want to share, a list of principals you want to share the resources with, and the
+ * permissions to grant those principals.
+ * 
+ * 
+ * 
+ * 
+ * Sharing a resource makes it available for use by principals outside of the
+ * Amazon Web Services account that created the resource. Sharing doesn't change any permissions or
+ * quotas that apply to the resource in the account that created it.
+ */export const createResourceShare = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-04", uri: "/createresourceshare", method: "POST", sdkId: "RAM", sigV4ServiceName: "ram", name: "AmazonResourceSharing.CreateResourceShare" }, CreateResourceShareRequest, CreateResourceShareResponse, [IdempotentParameterMismatchException, InvalidClientTokenException, InvalidParameterException, InvalidStateTransitionException, MalformedArnException, OperationNotPermittedException, ResourceShareLimitExceededException, ServerInternalException, ServiceUnavailableException, TagLimitExceededException, TagPolicyViolationException, UnknownResourceException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves details about invitations that you have received for resource shares.
+ */export const getResourceShareInvitations = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-04", uri: "/getresourceshareinvitations", method: "POST", sdkId: "RAM", sigV4ServiceName: "ram", name: "AmazonResourceSharing.GetResourceShareInvitations" }, GetResourceShareInvitationsRequest, GetResourceShareInvitationsResponse, [InvalidMaxResultsException, InvalidNextTokenException, InvalidParameterException, MalformedArnException, ResourceShareInvitationArnNotFoundException, ServerInternalException, ServiceUnavailableException, UnknownResourceException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists the resources in a resource share that is shared with you but for which the invitation is
+ * still `PENDING`. That means that you haven't accepted or rejected the
+ * invitation and the invitation hasn't expired.
+ */export const listPendingInvitationResources = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-04", uri: "/listpendinginvitationresources", method: "POST", sdkId: "RAM", sigV4ServiceName: "ram", name: "AmazonResourceSharing.ListPendingInvitationResources" }, ListPendingInvitationResourcesRequest, ListPendingInvitationResourcesResponse, [InvalidNextTokenException, InvalidParameterException, MalformedArnException, MissingRequiredParameterException, ResourceShareInvitationAlreadyRejectedException, ResourceShareInvitationArnNotFoundException, ResourceShareInvitationExpiredException, ServerInternalException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Adds the specified tag keys and values to a resource share or managed permission. If you choose a resource share, the
+ * tags are attached to only the resource share, not to the resources that are in the resource share.
+ * 
+ * 
+ * The tags on a managed permission are the same for all versions of the managed permission.
+ */export const tagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-04", uri: "/tagresource", method: "POST", sdkId: "RAM", sigV4ServiceName: "ram", name: "AmazonResourceSharing.TagResource" }, TagResourceRequest, TagResourceResponse, [InvalidParameterException, MalformedArnException, ResourceArnNotFoundException, ServerInternalException, ServiceUnavailableException, TagLimitExceededException, TagPolicyViolationException, UnknownResourceException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a new version of the specified customer managed permission. The new version is automatically set as
+ * the default version of the customer managed permission. New resource shares automatically use the default
+ * permission. Existing resource shares continue to use their original permission versions,
+ * but you can use ReplacePermissionAssociations to update them.
+ * 
+ * 
+ * If the specified customer managed permission already has the maximum of 5 versions, then
+ * you must delete one of the existing versions before you can create a new one.
+ */export const createPermissionVersion = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-04", uri: "/createpermissionversion", method: "POST", sdkId: "RAM", sigV4ServiceName: "ram", name: "AmazonResourceSharing.CreatePermissionVersion" }, CreatePermissionVersionRequest, CreatePermissionVersionResponse, [IdempotentParameterMismatchException, InvalidClientTokenException, InvalidParameterException, InvalidPolicyException, MalformedArnException, MalformedPolicyTemplateException, PermissionVersionsLimitExceededException, ServerInternalException, ServiceUnavailableException, UnknownResourceException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a customer managed permission for a specified resource type that you can attach to resource shares.
+ * It is created in the Amazon Web Services Region in which you call the operation.
+ */export const createPermission = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-04", uri: "/createpermission", method: "POST", sdkId: "RAM", sigV4ServiceName: "ram", name: "AmazonResourceSharing.CreatePermission" }, CreatePermissionRequest, CreatePermissionResponse, [IdempotentParameterMismatchException, InvalidClientTokenException, InvalidParameterException, InvalidPolicyException, MalformedPolicyTemplateException, OperationNotPermittedException, PermissionAlreadyExistsException, PermissionLimitExceededException, ServerInternalException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

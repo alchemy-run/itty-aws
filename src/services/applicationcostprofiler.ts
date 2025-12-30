@@ -28,9 +28,30 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
 export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExceededException>()("ServiceQuotaExceededException", {message: S.optional(S.String)}) {};
 
 //# Operations
-export const getReportDefinition = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-09-10", uri: "/reportDefinition/{reportId}", method: "GET", sdkId: "ApplicationCostProfiler", sigV4ServiceName: "application-cost-profiler", name: "AWSApplicationCostProfiler.GetReportDefinition" }, GetReportDefinitionRequest, GetReportDefinitionResult, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const importApplicationUsage = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-09-10", uri: "/importApplicationUsage", method: "POST", sdkId: "ApplicationCostProfiler", sigV4ServiceName: "application-cost-profiler", name: "AWSApplicationCostProfiler.ImportApplicationUsage" }, ImportApplicationUsageRequest, ImportApplicationUsageResult, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listReportDefinitions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-09-10", uri: "/reportDefinition", method: "GET", sdkId: "ApplicationCostProfiler", sigV4ServiceName: "application-cost-profiler", name: "AWSApplicationCostProfiler.ListReportDefinitions" }, ListReportDefinitionsRequest, ListReportDefinitionsResult, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateReportDefinition = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-09-10", uri: "/reportDefinition/{reportId}", method: "PUT", sdkId: "ApplicationCostProfiler", sigV4ServiceName: "application-cost-profiler", name: "AWSApplicationCostProfiler.UpdateReportDefinition" }, UpdateReportDefinitionRequest, UpdateReportDefinitionResult, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteReportDefinition = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-09-10", uri: "/reportDefinition/{reportId}", method: "DELETE", sdkId: "ApplicationCostProfiler", sigV4ServiceName: "application-cost-profiler", name: "AWSApplicationCostProfiler.DeleteReportDefinition" }, DeleteReportDefinitionRequest, DeleteReportDefinitionResult, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const putReportDefinition = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-09-10", uri: "/reportDefinition", method: "POST", sdkId: "ApplicationCostProfiler", sigV4ServiceName: "application-cost-profiler", name: "AWSApplicationCostProfiler.PutReportDefinition" }, PutReportDefinitionRequest, PutReportDefinitionResult, [AccessDeniedException, InternalServerException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves the definition of a report already configured in AWS Application Cost Profiler.
+ */export const getReportDefinition = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-09-10", uri: "/reportDefinition/{reportId}", method: "GET", sdkId: "ApplicationCostProfiler", sigV4ServiceName: "application-cost-profiler", name: "AWSApplicationCostProfiler.GetReportDefinition" }, GetReportDefinitionRequest, GetReportDefinitionResult, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Ingests application usage data from Amazon Simple Storage Service (Amazon S3).
+ * 
+ * 
+ * The data must already exist in the S3 location. As part of the action, AWS Application Cost Profiler
+ * copies the object from your S3 bucket to an S3 bucket owned by Amazon for processing
+ * asynchronously.
+ */export const importApplicationUsage = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-09-10", uri: "/importApplicationUsage", method: "POST", sdkId: "ApplicationCostProfiler", sigV4ServiceName: "application-cost-profiler", name: "AWSApplicationCostProfiler.ImportApplicationUsage" }, ImportApplicationUsageRequest, ImportApplicationUsageResult, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves a list of all reports and their configurations for your AWS account.
+ * 
+ * 
+ * The maximum number of reports is one.
+ */export const listReportDefinitions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-09-10", uri: "/reportDefinition", method: "GET", sdkId: "ApplicationCostProfiler", sigV4ServiceName: "application-cost-profiler", name: "AWSApplicationCostProfiler.ListReportDefinitions" }, ListReportDefinitionsRequest, ListReportDefinitionsResult, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates existing report in AWS Application Cost Profiler.
+ */export const updateReportDefinition = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-09-10", uri: "/reportDefinition/{reportId}", method: "PUT", sdkId: "ApplicationCostProfiler", sigV4ServiceName: "application-cost-profiler", name: "AWSApplicationCostProfiler.UpdateReportDefinition" }, UpdateReportDefinitionRequest, UpdateReportDefinitionResult, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes the specified report definition in AWS Application Cost Profiler. This stops the report from being
+ * generated.
+ */export const deleteReportDefinition = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-09-10", uri: "/reportDefinition/{reportId}", method: "DELETE", sdkId: "ApplicationCostProfiler", sigV4ServiceName: "application-cost-profiler", name: "AWSApplicationCostProfiler.DeleteReportDefinition" }, DeleteReportDefinitionRequest, DeleteReportDefinitionResult, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates the report definition for a report in Application Cost Profiler.
+ */export const putReportDefinition = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-09-10", uri: "/reportDefinition", method: "POST", sdkId: "ApplicationCostProfiler", sigV4ServiceName: "application-cost-profiler", name: "AWSApplicationCostProfiler.PutReportDefinition" }, PutReportDefinitionRequest, PutReportDefinitionResult, [AccessDeniedException, InternalServerException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

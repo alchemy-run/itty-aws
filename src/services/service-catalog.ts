@@ -321,93 +321,681 @@ export class TagOptionNotMigratedException extends S.TaggedError<TagOptionNotMig
 export class OperationNotSupportedException extends S.TaggedError<OperationNotSupportedException>()("OperationNotSupportedException", {}) {};
 
 //# Operations
-export const associateServiceActionWithProvisioningArtifact = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.AssociateServiceActionWithProvisioningArtifact" }, AssociateServiceActionWithProvisioningArtifactInput, AssociateServiceActionWithProvisioningArtifactOutput, [DuplicateResourceException, InvalidParametersException, LimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteConstraint = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.DeleteConstraint" }, DeleteConstraintInput, DeleteConstraintOutput, [InvalidParametersException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteProduct = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.DeleteProduct" }, DeleteProductInput, DeleteProductOutput, [InvalidParametersException, ResourceInUseException, ResourceNotFoundException, TagOptionNotMigratedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteProvisionedProductPlan = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.DeleteProvisionedProductPlan" }, DeleteProvisionedProductPlanInput, DeleteProvisionedProductPlanOutput, [InvalidParametersException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteProvisioningArtifact = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.DeleteProvisioningArtifact" }, DeleteProvisioningArtifactInput, DeleteProvisioningArtifactOutput, [InvalidParametersException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteServiceAction = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.DeleteServiceAction" }, DeleteServiceActionInput, DeleteServiceActionOutput, [InvalidParametersException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteTagOption = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.DeleteTagOption" }, DeleteTagOptionInput, DeleteTagOptionOutput, [ResourceInUseException, ResourceNotFoundException, TagOptionNotMigratedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const disableAWSOrganizationsAccess = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.DisableAWSOrganizationsAccess" }, DisableAWSOrganizationsAccessInput, DisableAWSOrganizationsAccessOutput, [InvalidStateException, OperationNotSupportedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const disassociateBudgetFromResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.DisassociateBudgetFromResource" }, DisassociateBudgetFromResourceInput, DisassociateBudgetFromResourceOutput, [ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const disassociatePrincipalFromPortfolio = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.DisassociatePrincipalFromPortfolio" }, DisassociatePrincipalFromPortfolioInput, DisassociatePrincipalFromPortfolioOutput, [InvalidParametersException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const disassociateProductFromPortfolio = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.DisassociateProductFromPortfolio" }, DisassociateProductFromPortfolioInput, DisassociateProductFromPortfolioOutput, [InvalidParametersException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const disassociateServiceActionFromProvisioningArtifact = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.DisassociateServiceActionFromProvisioningArtifact" }, DisassociateServiceActionFromProvisioningArtifactInput, DisassociateServiceActionFromProvisioningArtifactOutput, [InvalidParametersException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const disassociateTagOptionFromResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.DisassociateTagOptionFromResource" }, DisassociateTagOptionFromResourceInput, DisassociateTagOptionFromResourceOutput, [ResourceNotFoundException, TagOptionNotMigratedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const enableAWSOrganizationsAccess = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.EnableAWSOrganizationsAccess" }, EnableAWSOrganizationsAccessInput, EnableAWSOrganizationsAccessOutput, [InvalidStateException, OperationNotSupportedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const getAWSOrganizationsAccessStatus = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.GetAWSOrganizationsAccessStatus" }, GetAWSOrganizationsAccessStatusInput, GetAWSOrganizationsAccessStatusOutput, [OperationNotSupportedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const notifyTerminateProvisionedProductEngineWorkflowResult = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.NotifyTerminateProvisionedProductEngineWorkflowResult" }, NotifyTerminateProvisionedProductEngineWorkflowResultInput, NotifyTerminateProvisionedProductEngineWorkflowResultOutput, [InvalidParametersException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const notifyUpdateProvisionedProductEngineWorkflowResult = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.NotifyUpdateProvisionedProductEngineWorkflowResult" }, NotifyUpdateProvisionedProductEngineWorkflowResultInput, NotifyUpdateProvisionedProductEngineWorkflowResultOutput, [InvalidParametersException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const rejectPortfolioShare = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.RejectPortfolioShare" }, RejectPortfolioShareInput, RejectPortfolioShareOutput, [ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const acceptPortfolioShare = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.AcceptPortfolioShare" }, AcceptPortfolioShareInput, AcceptPortfolioShareOutput, [InvalidParametersException, LimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const associateBudgetWithResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.AssociateBudgetWithResource" }, AssociateBudgetWithResourceInput, AssociateBudgetWithResourceOutput, [DuplicateResourceException, InvalidParametersException, LimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const associatePrincipalWithPortfolio = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.AssociatePrincipalWithPortfolio" }, AssociatePrincipalWithPortfolioInput, AssociatePrincipalWithPortfolioOutput, [InvalidParametersException, LimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const associateProductWithPortfolio = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.AssociateProductWithPortfolio" }, AssociateProductWithPortfolioInput, AssociateProductWithPortfolioOutput, [InvalidParametersException, LimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const associateTagOptionWithResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.AssociateTagOptionWithResource" }, AssociateTagOptionWithResourceInput, AssociateTagOptionWithResourceOutput, [DuplicateResourceException, InvalidParametersException, InvalidStateException, LimitExceededException, ResourceNotFoundException, TagOptionNotMigratedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const deletePortfolio = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.DeletePortfolio" }, DeletePortfolioInput, DeletePortfolioOutput, [InvalidParametersException, ResourceInUseException, ResourceNotFoundException, TagOptionNotMigratedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const deletePortfolioShare = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.DeletePortfolioShare" }, DeletePortfolioShareInput, DeletePortfolioShareOutput, [InvalidParametersException, InvalidStateException, OperationNotSupportedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeConstraint = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.DescribeConstraint" }, DescribeConstraintInput, DescribeConstraintOutput, [ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeCopyProductStatus = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.DescribeCopyProductStatus" }, DescribeCopyProductStatusInput, DescribeCopyProductStatusOutput, [ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeProductView = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.DescribeProductView" }, DescribeProductViewInput, DescribeProductViewOutput, [InvalidParametersException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeTagOption = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.DescribeTagOption" }, DescribeTagOptionInput, DescribeTagOptionOutput, [ResourceNotFoundException, TagOptionNotMigratedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const executeProvisionedProductPlan = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.ExecuteProvisionedProductPlan" }, ExecuteProvisionedProductPlanInput, ExecuteProvisionedProductPlanOutput, [InvalidParametersException, InvalidStateException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const getProvisionedProductOutputs = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.GetProvisionedProductOutputs" }, GetProvisionedProductOutputsInput, GetProvisionedProductOutputsOutput, [InvalidParametersException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const importAsProvisionedProduct = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.ImportAsProvisionedProduct" }, ImportAsProvisionedProductInput, ImportAsProvisionedProductOutput, [DuplicateResourceException, InvalidParametersException, InvalidStateException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listAcceptedPortfolioShares = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.ListAcceptedPortfolioShares" }, ListAcceptedPortfolioSharesInput, ListAcceptedPortfolioSharesOutput, [InvalidParametersException, OperationNotSupportedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listBudgetsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.ListBudgetsForResource" }, ListBudgetsForResourceInput, ListBudgetsForResourceOutput, [InvalidParametersException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listConstraintsForPortfolio = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.ListConstraintsForPortfolio" }, ListConstraintsForPortfolioInput, ListConstraintsForPortfolioOutput, [InvalidParametersException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listOrganizationPortfolioAccess = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.ListOrganizationPortfolioAccess" }, ListOrganizationPortfolioAccessInput, ListOrganizationPortfolioAccessOutput, [InvalidParametersException, OperationNotSupportedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listPortfolioAccess = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.ListPortfolioAccess" }, ListPortfolioAccessInput, ListPortfolioAccessOutput, [InvalidParametersException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listPortfolios = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.ListPortfolios" }, ListPortfoliosInput, ListPortfoliosOutput, [InvalidParametersException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listPortfoliosForProduct = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.ListPortfoliosForProduct" }, ListPortfoliosForProductInput, ListPortfoliosForProductOutput, [InvalidParametersException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listProvisioningArtifacts = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.ListProvisioningArtifacts" }, ListProvisioningArtifactsInput, ListProvisioningArtifactsOutput, [InvalidParametersException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listServiceActionsForProvisioningArtifact = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.ListServiceActionsForProvisioningArtifact" }, ListServiceActionsForProvisioningArtifactInput, ListServiceActionsForProvisioningArtifactOutput, [InvalidParametersException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const scanProvisionedProducts = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.ScanProvisionedProducts" }, ScanProvisionedProductsInput, ScanProvisionedProductsOutput, [InvalidParametersException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const searchProductsAsAdmin = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.SearchProductsAsAdmin" }, SearchProductsAsAdminInput, SearchProductsAsAdminOutput, [InvalidParametersException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const terminateProvisionedProduct = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.TerminateProvisionedProduct" }, TerminateProvisionedProductInput, TerminateProvisionedProductOutput, [ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateConstraint = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.UpdateConstraint" }, UpdateConstraintInput, UpdateConstraintOutput, [InvalidParametersException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const updatePortfolio = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.UpdatePortfolio" }, UpdatePortfolioInput, UpdatePortfolioOutput, [InvalidParametersException, LimitExceededException, ResourceNotFoundException, TagOptionNotMigratedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const updatePortfolioShare = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.UpdatePortfolioShare" }, UpdatePortfolioShareInput, UpdatePortfolioShareOutput, [InvalidParametersException, InvalidStateException, OperationNotSupportedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateProduct = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.UpdateProduct" }, UpdateProductInput, UpdateProductOutput, [InvalidParametersException, ResourceNotFoundException, TagOptionNotMigratedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateProvisioningArtifact = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.UpdateProvisioningArtifact" }, UpdateProvisioningArtifactInput, UpdateProvisioningArtifactOutput, [InvalidParametersException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateServiceAction = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.UpdateServiceAction" }, UpdateServiceActionInput, UpdateServiceActionOutput, [InvalidParametersException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateTagOption = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.UpdateTagOption" }, UpdateTagOptionInput, UpdateTagOptionOutput, [DuplicateResourceException, InvalidParametersException, ResourceNotFoundException, TagOptionNotMigratedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const batchAssociateServiceActionWithProvisioningArtifact = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.BatchAssociateServiceActionWithProvisioningArtifact" }, BatchAssociateServiceActionWithProvisioningArtifactInput, BatchAssociateServiceActionWithProvisioningArtifactOutput, [InvalidParametersException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const batchDisassociateServiceActionFromProvisioningArtifact = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.BatchDisassociateServiceActionFromProvisioningArtifact" }, BatchDisassociateServiceActionFromProvisioningArtifactInput, BatchDisassociateServiceActionFromProvisioningArtifactOutput, [InvalidParametersException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const copyProduct = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.CopyProduct" }, CopyProductInput, CopyProductOutput, [InvalidParametersException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const createConstraint = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.CreateConstraint" }, CreateConstraintInput, CreateConstraintOutput, [DuplicateResourceException, InvalidParametersException, LimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const createPortfolio = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.CreatePortfolio" }, CreatePortfolioInput, CreatePortfolioOutput, [InvalidParametersException, LimitExceededException, TagOptionNotMigratedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const createPortfolioShare = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.CreatePortfolioShare" }, CreatePortfolioShareInput, CreatePortfolioShareOutput, [InvalidParametersException, InvalidStateException, LimitExceededException, OperationNotSupportedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const createProvisionedProductPlan = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.CreateProvisionedProductPlan" }, CreateProvisionedProductPlanInput, CreateProvisionedProductPlanOutput, [InvalidParametersException, InvalidStateException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const createProvisioningArtifact = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.CreateProvisioningArtifact" }, CreateProvisioningArtifactInput, CreateProvisioningArtifactOutput, [InvalidParametersException, LimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const createServiceAction = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.CreateServiceAction" }, CreateServiceActionInput, CreateServiceActionOutput, [InvalidParametersException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const createTagOption = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.CreateTagOption" }, CreateTagOptionInput, CreateTagOptionOutput, [DuplicateResourceException, LimitExceededException, TagOptionNotMigratedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const describePortfolio = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.DescribePortfolio" }, DescribePortfolioInput, DescribePortfolioOutput, [ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const describePortfolioShares = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.DescribePortfolioShares" }, DescribePortfolioSharesInput, DescribePortfolioSharesOutput, [InvalidParametersException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeProduct = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.DescribeProduct" }, DescribeProductInput, DescribeProductOutput, [InvalidParametersException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeProvisionedProduct = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.DescribeProvisionedProduct" }, DescribeProvisionedProductInput, DescribeProvisionedProductOutput, [InvalidParametersException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeProvisioningParameters = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.DescribeProvisioningParameters" }, DescribeProvisioningParametersInput, DescribeProvisioningParametersOutput, [InvalidParametersException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeServiceAction = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.DescribeServiceAction" }, DescribeServiceActionInput, DescribeServiceActionOutput, [ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeServiceActionExecutionParameters = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.DescribeServiceActionExecutionParameters" }, DescribeServiceActionExecutionParametersInput, DescribeServiceActionExecutionParametersOutput, [InvalidParametersException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const executeProvisionedProductServiceAction = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.ExecuteProvisionedProductServiceAction" }, ExecuteProvisionedProductServiceActionInput, ExecuteProvisionedProductServiceActionOutput, [InvalidParametersException, InvalidStateException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listLaunchPaths = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.ListLaunchPaths" }, ListLaunchPathsInput, ListLaunchPathsOutput, [InvalidParametersException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listPrincipalsForPortfolio = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.ListPrincipalsForPortfolio" }, ListPrincipalsForPortfolioInput, ListPrincipalsForPortfolioOutput, [InvalidParametersException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listProvisioningArtifactsForServiceAction = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.ListProvisioningArtifactsForServiceAction" }, ListProvisioningArtifactsForServiceActionInput, ListProvisioningArtifactsForServiceActionOutput, [InvalidParametersException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listRecordHistory = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.ListRecordHistory" }, ListRecordHistoryInput, ListRecordHistoryOutput, [InvalidParametersException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listResourcesForTagOption = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.ListResourcesForTagOption" }, ListResourcesForTagOptionInput, ListResourcesForTagOptionOutput, [InvalidParametersException, ResourceNotFoundException, TagOptionNotMigratedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listServiceActions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.ListServiceActions" }, ListServiceActionsInput, ListServiceActionsOutput, [InvalidParametersException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listStackInstancesForProvisionedProduct = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.ListStackInstancesForProvisionedProduct" }, ListStackInstancesForProvisionedProductInput, ListStackInstancesForProvisionedProductOutput, [InvalidParametersException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listTagOptions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.ListTagOptions" }, ListTagOptionsInput, ListTagOptionsOutput, [InvalidParametersException, TagOptionNotMigratedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const notifyProvisionProductEngineWorkflowResult = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.NotifyProvisionProductEngineWorkflowResult" }, NotifyProvisionProductEngineWorkflowResultInput, NotifyProvisionProductEngineWorkflowResultOutput, [InvalidParametersException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const provisionProduct = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.ProvisionProduct" }, ProvisionProductInput, ProvisionProductOutput, [DuplicateResourceException, InvalidParametersException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateProvisionedProduct = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.UpdateProvisionedProduct" }, UpdateProvisionedProductInput, UpdateProvisionedProductOutput, [InvalidParametersException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateProvisionedProductProperties = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.UpdateProvisionedProductProperties" }, UpdateProvisionedProductPropertiesInput, UpdateProvisionedProductPropertiesOutput, [InvalidParametersException, InvalidStateException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const describePortfolioShareStatus = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.DescribePortfolioShareStatus" }, DescribePortfolioShareStatusInput, DescribePortfolioShareStatusOutput, [InvalidParametersException, OperationNotSupportedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeProvisioningArtifact = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.DescribeProvisioningArtifact" }, DescribeProvisioningArtifactInput, DescribeProvisioningArtifactOutput, [InvalidParametersException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeRecord = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.DescribeRecord" }, DescribeRecordInput, DescribeRecordOutput, [ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listProvisionedProductPlans = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.ListProvisionedProductPlans" }, ListProvisionedProductPlansInput, ListProvisionedProductPlansOutput, [InvalidParametersException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const searchProvisionedProducts = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.SearchProvisionedProducts" }, SearchProvisionedProductsInput, SearchProvisionedProductsOutput, [InvalidParametersException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const createProduct = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.CreateProduct" }, CreateProductInput, CreateProductOutput, [InvalidParametersException, LimitExceededException, TagOptionNotMigratedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeProductAsAdmin = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.DescribeProductAsAdmin" }, DescribeProductAsAdminInput, DescribeProductAsAdminOutput, [InvalidParametersException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeProvisionedProductPlan = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.DescribeProvisionedProductPlan" }, DescribeProvisionedProductPlanInput, DescribeProvisionedProductPlanOutput, [InvalidParametersException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const searchProducts = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.SearchProducts" }, SearchProductsInput, SearchProductsOutput, [InvalidParametersException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Associates a self-service action with a provisioning artifact.
+ */export const associateServiceActionWithProvisioningArtifact = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.AssociateServiceActionWithProvisioningArtifact" }, AssociateServiceActionWithProvisioningArtifactInput, AssociateServiceActionWithProvisioningArtifactOutput, [DuplicateResourceException, InvalidParametersException, LimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes the specified constraint.
+ * 
+ * 
+ * A delegated admin is authorized to invoke this command.
+ */export const deleteConstraint = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.DeleteConstraint" }, DeleteConstraintInput, DeleteConstraintOutput, [InvalidParametersException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes the specified product.
+ * 
+ * 
+ * You cannot delete a product if it was shared with you or is associated with a portfolio.
+ * 
+ * 
+ * A delegated admin is authorized to invoke this command.
+ */export const deleteProduct = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.DeleteProduct" }, DeleteProductInput, DeleteProductOutput, [InvalidParametersException, ResourceInUseException, ResourceNotFoundException, TagOptionNotMigratedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes the specified plan.
+ */export const deleteProvisionedProductPlan = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.DeleteProvisionedProductPlan" }, DeleteProvisionedProductPlanInput, DeleteProvisionedProductPlanOutput, [InvalidParametersException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes the specified provisioning artifact (also known as a version) for the specified product.
+ * 
+ * 
+ * You cannot delete a provisioning artifact associated with a product that was shared with you.
+ * You cannot delete the last provisioning artifact for a product, because a product must have at
+ * least one provisioning artifact.
+ */export const deleteProvisioningArtifact = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.DeleteProvisioningArtifact" }, DeleteProvisioningArtifactInput, DeleteProvisioningArtifactOutput, [InvalidParametersException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes a self-service action.
+ */export const deleteServiceAction = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.DeleteServiceAction" }, DeleteServiceActionInput, DeleteServiceActionOutput, [InvalidParametersException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes the specified TagOption.
+ * 
+ * 
+ * You cannot delete a TagOption if it is associated with a product or portfolio.
+ */export const deleteTagOption = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.DeleteTagOption" }, DeleteTagOptionInput, DeleteTagOptionOutput, [ResourceInUseException, ResourceNotFoundException, TagOptionNotMigratedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Disable portfolio sharing through the Organizations service. This command will not
+ * delete your current shares, but prevents you from creating new shares throughout your
+ * organization. Current shares are not kept in sync with your organization structure if the structure
+ * changes after calling this API. Only the management account in the organization can call this API.
+ * 
+ * 
+ * You cannot call this API if there are active delegated administrators in the organization.
+ * 
+ * 
+ * Note that a delegated administrator is not authorized to invoke `DisableAWSOrganizationsAccess`.
+ * 
+ * 
+ * 
+ * 
+ * If you share an Service Catalog portfolio in an organization within
+ * Organizations, and then disable Organizations access for Service Catalog,
+ * the portfolio access permissions will not sync with the latest changes to the organization
+ * structure. Specifically, accounts that you removed from the organization after
+ * disabling Service Catalog access will retain access to the previously shared portfolio.
+ */export const disableAWSOrganizationsAccess = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.DisableAWSOrganizationsAccess" }, DisableAWSOrganizationsAccessInput, DisableAWSOrganizationsAccessOutput, [InvalidStateException, OperationNotSupportedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Disassociates the specified budget from the specified resource.
+ */export const disassociateBudgetFromResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.DisassociateBudgetFromResource" }, DisassociateBudgetFromResourceInput, DisassociateBudgetFromResourceOutput, [ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Disassociates a previously associated principal ARN from a specified
+ * portfolio.
+ * 
+ * 
+ * The `PrincipalType` and `PrincipalARN` must match the
+ * `AssociatePrincipalWithPortfolio` call request details. For example,
+ * to disassociate an association created with a `PrincipalARN` of `PrincipalType`
+ * IAM you must use the `PrincipalType` IAM when calling `DisassociatePrincipalFromPortfolio`.
+ * 
+ * 
+ * For portfolios that have been shared with principal name sharing enabled: after disassociating a principal,
+ * share recipient accounts will no longer be able to provision products in this portfolio using a role matching the name
+ * of the associated principal.
+ * 
+ * 
+ * For more information, review associate-principal-with-portfolio
+ * in the Amazon Web Services CLI Command Reference.
+ * 
+ * 
+ * 
+ * 
+ * If you disassociate a principal from a portfolio, with PrincipalType as `IAM`, the same principal will
+ * still have access to the portfolio if it matches one of the associated principals of type `IAM_PATTERN`.
+ * To fully remove access for a principal, verify all the associated Principals of type `IAM_PATTERN`,
+ * and then ensure you disassociate any `IAM_PATTERN` principals that match the principal
+ * whose access you are removing.
+ */export const disassociatePrincipalFromPortfolio = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.DisassociatePrincipalFromPortfolio" }, DisassociatePrincipalFromPortfolioInput, DisassociatePrincipalFromPortfolioOutput, [InvalidParametersException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Disassociates the specified product from the specified portfolio.
+ * 
+ * 
+ * A delegated admin is authorized to invoke this command.
+ */export const disassociateProductFromPortfolio = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.DisassociateProductFromPortfolio" }, DisassociateProductFromPortfolioInput, DisassociateProductFromPortfolioOutput, [InvalidParametersException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Disassociates the specified self-service action association from the specified provisioning artifact.
+ */export const disassociateServiceActionFromProvisioningArtifact = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.DisassociateServiceActionFromProvisioningArtifact" }, DisassociateServiceActionFromProvisioningArtifactInput, DisassociateServiceActionFromProvisioningArtifactOutput, [InvalidParametersException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Disassociates the specified TagOption from the specified resource.
+ */export const disassociateTagOptionFromResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.DisassociateTagOptionFromResource" }, DisassociateTagOptionFromResourceInput, DisassociateTagOptionFromResourceOutput, [ResourceNotFoundException, TagOptionNotMigratedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Enable portfolio sharing feature through Organizations. This API will allow Service Catalog to receive updates on your organization in order to sync your shares with the
+ * current structure. This API can only be called by the management account in the organization.
+ * 
+ * 
+ * When you call this API, Service Catalog calls `organizations:EnableAWSServiceAccess` on your behalf so that your shares stay in sync with any changes in your Organizations structure.
+ * 
+ * 
+ * Note that a delegated administrator is not authorized to invoke `EnableAWSOrganizationsAccess`.
+ * 
+ * 
+ * 
+ * 
+ * If you have previously disabled Organizations access for Service Catalog, and then
+ * enable access again, the portfolio access permissions might not sync with the latest changes to
+ * the organization structure. Specifically, accounts that you removed from the organization after
+ * disabling Service Catalog access, and before you enabled access again, can retain access to the
+ * previously shared portfolio. As a result, an account that has been removed from the organization
+ * might still be able to create or manage Amazon Web Services resources when it is no longer
+ * authorized to do so. Amazon Web Services is working to resolve this issue.
+ */export const enableAWSOrganizationsAccess = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.EnableAWSOrganizationsAccess" }, EnableAWSOrganizationsAccessInput, EnableAWSOrganizationsAccessOutput, [InvalidStateException, OperationNotSupportedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Get the Access Status for Organizations portfolio share feature. This API can only be
+ * called by the management account in the organization or by a delegated admin.
+ */export const getAWSOrganizationsAccessStatus = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.GetAWSOrganizationsAccessStatus" }, GetAWSOrganizationsAccessStatusInput, GetAWSOrganizationsAccessStatusOutput, [OperationNotSupportedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Notifies the result
+ * of the terminate engine execution.
+ */export const notifyTerminateProvisionedProductEngineWorkflowResult = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.NotifyTerminateProvisionedProductEngineWorkflowResult" }, NotifyTerminateProvisionedProductEngineWorkflowResultInput, NotifyTerminateProvisionedProductEngineWorkflowResultOutput, [InvalidParametersException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Notifies the result
+ * of the update engine execution.
+ */export const notifyUpdateProvisionedProductEngineWorkflowResult = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.NotifyUpdateProvisionedProductEngineWorkflowResult" }, NotifyUpdateProvisionedProductEngineWorkflowResultInput, NotifyUpdateProvisionedProductEngineWorkflowResultOutput, [InvalidParametersException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Rejects an offer to share the specified portfolio.
+ */export const rejectPortfolioShare = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.RejectPortfolioShare" }, RejectPortfolioShareInput, RejectPortfolioShareOutput, [ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Accepts an offer to share the specified portfolio.
+ */export const acceptPortfolioShare = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.AcceptPortfolioShare" }, AcceptPortfolioShareInput, AcceptPortfolioShareOutput, [InvalidParametersException, LimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Associates the specified budget with the specified resource.
+ */export const associateBudgetWithResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.AssociateBudgetWithResource" }, AssociateBudgetWithResourceInput, AssociateBudgetWithResourceOutput, [DuplicateResourceException, InvalidParametersException, LimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Associates the specified principal ARN with the specified portfolio.
+ * 
+ * 
+ * If you share the portfolio with principal name sharing enabled, the `PrincipalARN` association is
+ * included in the share.
+ * 
+ * 
+ * The `PortfolioID`, `PrincipalARN`, and `PrincipalType` parameters are
+ * required.
+ * 
+ * 
+ * You can associate a maximum of 10 Principals with a portfolio using `PrincipalType` as `IAM_PATTERN`.
+ * 
+ * 
+ * 
+ * 
+ * When you associate a principal with portfolio, a potential privilege escalation path may occur when that portfolio is
+ * then shared with other accounts. For a user in a recipient account who is *not* an Service Catalog Admin,
+ * but still has the ability to create Principals (Users/Groups/Roles), that user could create a role that matches a principal
+ * name association for the portfolio. Although this user may not know which principal names are associated through
+ * Service Catalog, they may be able to guess the user. If this potential escalation path is a concern, then
+ * Service Catalog recommends using `PrincipalType` as `IAM`. With this configuration,
+ * the `PrincipalARN` must already exist in the recipient account before it can be associated.
+ */export const associatePrincipalWithPortfolio = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.AssociatePrincipalWithPortfolio" }, AssociatePrincipalWithPortfolioInput, AssociatePrincipalWithPortfolioOutput, [InvalidParametersException, LimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Associates the specified product with the specified portfolio.
+ * 
+ * 
+ * A delegated admin is authorized to invoke this command.
+ */export const associateProductWithPortfolio = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.AssociateProductWithPortfolio" }, AssociateProductWithPortfolioInput, AssociateProductWithPortfolioOutput, [InvalidParametersException, LimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Associate the specified TagOption with the specified portfolio or product.
+ */export const associateTagOptionWithResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.AssociateTagOptionWithResource" }, AssociateTagOptionWithResourceInput, AssociateTagOptionWithResourceOutput, [DuplicateResourceException, InvalidParametersException, InvalidStateException, LimitExceededException, ResourceNotFoundException, TagOptionNotMigratedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes the specified portfolio.
+ * 
+ * 
+ * You cannot delete a portfolio if it was shared with you or if it has associated
+ * products, users, constraints, or shared accounts.
+ * 
+ * 
+ * A delegated admin is authorized to invoke this command.
+ */export const deletePortfolio = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.DeletePortfolio" }, DeletePortfolioInput, DeletePortfolioOutput, [InvalidParametersException, ResourceInUseException, ResourceNotFoundException, TagOptionNotMigratedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Stops sharing the specified portfolio with the specified account or organization
+ * node. Shares to an organization node can only be deleted by the management account of an
+ * organization or by a delegated administrator.
+ * 
+ * 
+ * Note that if a delegated admin is de-registered, portfolio shares created from that account are removed.
+ */export const deletePortfolioShare = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.DeletePortfolioShare" }, DeletePortfolioShareInput, DeletePortfolioShareOutput, [InvalidParametersException, InvalidStateException, OperationNotSupportedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets information about the specified constraint.
+ */export const describeConstraint = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.DescribeConstraint" }, DescribeConstraintInput, DescribeConstraintOutput, [ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets the status of the specified copy product operation.
+ */export const describeCopyProductStatus = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.DescribeCopyProductStatus" }, DescribeCopyProductStatusInput, DescribeCopyProductStatusOutput, [ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets information about the specified product.
+ */export const describeProductView = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.DescribeProductView" }, DescribeProductViewInput, DescribeProductViewOutput, [InvalidParametersException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets information about the specified TagOption.
+ */export const describeTagOption = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.DescribeTagOption" }, DescribeTagOptionInput, DescribeTagOptionOutput, [ResourceNotFoundException, TagOptionNotMigratedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Provisions or modifies a product based on the resource changes for the specified plan.
+ */export const executeProvisionedProductPlan = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.ExecuteProvisionedProductPlan" }, ExecuteProvisionedProductPlanInput, ExecuteProvisionedProductPlanOutput, [InvalidParametersException, InvalidStateException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * This API takes either a `ProvisonedProductId` or a `ProvisionedProductName`, along with a list of one or more output keys, and responds with the key/value pairs of those outputs.
+ */export const getProvisionedProductOutputs = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.GetProvisionedProductOutputs" }, GetProvisionedProductOutputsInput, GetProvisionedProductOutputsOutput, [InvalidParametersException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Requests the import of a resource as an Service Catalog provisioned product
+ * that is associated to an Service Catalog product and provisioning artifact.
+ * Once imported, all supported governance actions are supported on the provisioned product.
+ * 
+ * 
+ * 
+ * 
+ * Resource import only supports CloudFormation stack ARNs. CloudFormation StackSets,
+ * and non-root nested stacks, are not supported.
+ * 
+ * 
+ * 
+ * 
+ * The CloudFormation stack must have one
+ * of the following statuses
+ * to be imported: `CREATE_COMPLETE`, `UPDATE_COMPLETE`,
+ * `UPDATE_ROLLBACK_COMPLETE`, `IMPORT_COMPLETE`, and
+ * `IMPORT_ROLLBACK_COMPLETE`.
+ * 
+ * 
+ * 
+ * 
+ * Import of the resource requires that the CloudFormation stack template matches
+ * the associated Service Catalog product provisioning artifact.
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * When you import an existing CloudFormation stack
+ * into a portfolio, Service Catalog does not apply the product's associated constraints
+ * during the import process. Service Catalog applies the constraints
+ * after you call `UpdateProvisionedProduct` for the provisioned product.
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * The user or role that performs this operation must have the `cloudformation:GetTemplate`
+ * and `cloudformation:DescribeStacks` IAM policy permissions.
+ * 
+ * 
+ * 
+ * You can only import one provisioned product at a time. The product's CloudFormation stack must have the
+ * `IMPORT_COMPLETE` status before you import another.
+ */export const importAsProvisionedProduct = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.ImportAsProvisionedProduct" }, ImportAsProvisionedProductInput, ImportAsProvisionedProductOutput, [DuplicateResourceException, InvalidParametersException, InvalidStateException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists all imported portfolios for which account-to-account shares were accepted by
+ * this account. By specifying the `PortfolioShareType`, you can list portfolios for which
+ * organizational shares were accepted by this account.
+ */export const listAcceptedPortfolioShares = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.ListAcceptedPortfolioShares" }, ListAcceptedPortfolioSharesInput, ListAcceptedPortfolioSharesOutput, [InvalidParametersException, OperationNotSupportedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists all the budgets associated to the specified resource.
+ */export const listBudgetsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.ListBudgetsForResource" }, ListBudgetsForResourceInput, ListBudgetsForResourceOutput, [InvalidParametersException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists the constraints for the specified portfolio and product.
+ */export const listConstraintsForPortfolio = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.ListConstraintsForPortfolio" }, ListConstraintsForPortfolioInput, ListConstraintsForPortfolioOutput, [InvalidParametersException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists the organization nodes that have access to the specified portfolio. This API can
+ * only be called by the management account in the organization or by a delegated
+ * admin.
+ * 
+ * 
+ * If a delegated admin is de-registered, they can no longer perform this operation.
+ */export const listOrganizationPortfolioAccess = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.ListOrganizationPortfolioAccess" }, ListOrganizationPortfolioAccessInput, ListOrganizationPortfolioAccessOutput, [InvalidParametersException, OperationNotSupportedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists the account IDs that have access to the specified portfolio.
+ * 
+ * 
+ * A delegated admin can list the accounts that have access to the shared portfolio. Note that if a delegated admin is de-registered, they can no longer perform this operation.
+ */export const listPortfolioAccess = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.ListPortfolioAccess" }, ListPortfolioAccessInput, ListPortfolioAccessOutput, [InvalidParametersException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists all portfolios in the catalog.
+ */export const listPortfolios = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.ListPortfolios" }, ListPortfoliosInput, ListPortfoliosOutput, [InvalidParametersException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists all portfolios that the specified product is associated with.
+ */export const listPortfoliosForProduct = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.ListPortfoliosForProduct" }, ListPortfoliosForProductInput, ListPortfoliosForProductOutput, [InvalidParametersException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists all provisioning artifacts (also known as versions) for the specified product.
+ */export const listProvisioningArtifacts = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.ListProvisioningArtifacts" }, ListProvisioningArtifactsInput, ListProvisioningArtifactsOutput, [InvalidParametersException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns a paginated list of self-service actions associated with the specified Product ID and Provisioning Artifact ID.
+ */export const listServiceActionsForProvisioningArtifact = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.ListServiceActionsForProvisioningArtifact" }, ListServiceActionsForProvisioningArtifactInput, ListServiceActionsForProvisioningArtifactOutput, [InvalidParametersException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists the provisioned products that are available (not terminated).
+ * 
+ * 
+ * To use additional filtering, see SearchProvisionedProducts.
+ */export const scanProvisionedProducts = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.ScanProvisionedProducts" }, ScanProvisionedProductsInput, ScanProvisionedProductsOutput, [InvalidParametersException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets information about the products for the specified portfolio or all products.
+ */export const searchProductsAsAdmin = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.SearchProductsAsAdmin" }, SearchProductsAsAdminInput, SearchProductsAsAdminOutput, [InvalidParametersException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Terminates the specified provisioned product.
+ * 
+ * 
+ * This operation does not delete any records associated with the provisioned product.
+ * 
+ * 
+ * You can check the status of this request using DescribeRecord.
+ */export const terminateProvisionedProduct = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.TerminateProvisionedProduct" }, TerminateProvisionedProductInput, TerminateProvisionedProductOutput, [ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates the specified constraint.
+ */export const updateConstraint = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.UpdateConstraint" }, UpdateConstraintInput, UpdateConstraintOutput, [InvalidParametersException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates the specified portfolio.
+ * 
+ * 
+ * You cannot update a product that was shared with you.
+ */export const updatePortfolio = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.UpdatePortfolio" }, UpdatePortfolioInput, UpdatePortfolioOutput, [InvalidParametersException, LimitExceededException, ResourceNotFoundException, TagOptionNotMigratedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates the specified portfolio share. You can use this API to enable or disable `TagOptions` sharing
+ * or Principal sharing for an existing portfolio share.
+ * 
+ * 
+ * The portfolio share cannot be updated if the `CreatePortfolioShare` operation is `IN_PROGRESS`, as the share is not available to recipient entities.
+ * In this case, you must wait for the portfolio share to be completed.
+ * 
+ * 
+ * You must provide the `accountId` or organization node in the input, but not both.
+ * 
+ * 
+ * If the portfolio is shared to both an external account and an organization node, and both shares need to be updated, you must invoke `UpdatePortfolioShare` separately for each share type.
+ * 
+ * 
+ * This API cannot be used for removing the portfolio share. You must use `DeletePortfolioShare` API for that action.
+ * 
+ * 
+ * 
+ * 
+ * When you associate a principal with portfolio, a potential privilege escalation path may occur when that portfolio is
+ * then shared with other accounts. For a user in a recipient account who is *not* an Service Catalog Admin,
+ * but still has the ability to create Principals (Users/Groups/Roles), that user could create a role that matches a principal
+ * name association for the portfolio. Although this user may not know which principal names are associated through
+ * Service Catalog, they may be able to guess the user. If this potential escalation path is a concern, then
+ * Service Catalog recommends using `PrincipalType` as `IAM`. With this configuration,
+ * the `PrincipalARN` must already exist in the recipient account before it can be associated.
+ */export const updatePortfolioShare = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.UpdatePortfolioShare" }, UpdatePortfolioShareInput, UpdatePortfolioShareOutput, [InvalidParametersException, InvalidStateException, OperationNotSupportedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates the specified product.
+ */export const updateProduct = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.UpdateProduct" }, UpdateProductInput, UpdateProductOutput, [InvalidParametersException, ResourceNotFoundException, TagOptionNotMigratedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates the specified provisioning artifact (also known as a version) for the specified product.
+ * 
+ * 
+ * You cannot update a provisioning artifact for a product that was shared with you.
+ */export const updateProvisioningArtifact = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.UpdateProvisioningArtifact" }, UpdateProvisioningArtifactInput, UpdateProvisioningArtifactOutput, [InvalidParametersException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates a self-service action.
+ */export const updateServiceAction = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.UpdateServiceAction" }, UpdateServiceActionInput, UpdateServiceActionOutput, [InvalidParametersException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates the specified TagOption.
+ */export const updateTagOption = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.UpdateTagOption" }, UpdateTagOptionInput, UpdateTagOptionOutput, [DuplicateResourceException, InvalidParametersException, ResourceNotFoundException, TagOptionNotMigratedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Associates multiple self-service actions with provisioning artifacts.
+ */export const batchAssociateServiceActionWithProvisioningArtifact = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.BatchAssociateServiceActionWithProvisioningArtifact" }, BatchAssociateServiceActionWithProvisioningArtifactInput, BatchAssociateServiceActionWithProvisioningArtifactOutput, [InvalidParametersException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Disassociates a batch of self-service actions from the specified provisioning artifact.
+ */export const batchDisassociateServiceActionFromProvisioningArtifact = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.BatchDisassociateServiceActionFromProvisioningArtifact" }, BatchDisassociateServiceActionFromProvisioningArtifactInput, BatchDisassociateServiceActionFromProvisioningArtifactOutput, [InvalidParametersException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Copies the specified source product to the specified target product or a new
+ * product.
+ * 
+ * 
+ * You can copy a product to the same account or another account. You can copy a product
+ * to the same Region or another Region. If you copy a product to another account, you must
+ * first share the product in a portfolio using CreatePortfolioShare.
+ * 
+ * 
+ * This operation is performed asynchronously. To track the progress of the
+ * operation, use DescribeCopyProductStatus.
+ */export const copyProduct = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.CopyProduct" }, CopyProductInput, CopyProductOutput, [InvalidParametersException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a constraint.
+ * 
+ * 
+ * A delegated admin is authorized to invoke this command.
+ */export const createConstraint = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.CreateConstraint" }, CreateConstraintInput, CreateConstraintOutput, [DuplicateResourceException, InvalidParametersException, LimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a portfolio.
+ * 
+ * 
+ * A delegated admin is authorized to invoke this command.
+ */export const createPortfolio = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.CreatePortfolio" }, CreatePortfolioInput, CreatePortfolioOutput, [InvalidParametersException, LimitExceededException, TagOptionNotMigratedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Shares the specified portfolio with the specified account or organization node.
+ * Shares to an organization node can only be created by the management account of an
+ * organization or by a delegated administrator. You can share portfolios to an organization,
+ * an organizational unit, or a specific account.
+ * 
+ * 
+ * Note that if a delegated admin is de-registered, they can no longer create portfolio shares.
+ * 
+ * 
+ * 
+ * `AWSOrganizationsAccess` must be enabled in order to create a portfolio share to an organization node.
+ * 
+ * 
+ * You can't share a shared resource, including portfolios that contain a shared product.
+ * 
+ * 
+ * If the portfolio share with the specified account or organization node already exists, this action will have no effect
+ * and will not return an error. To update an existing share, you must use the ` UpdatePortfolioShare` API instead.
+ * 
+ * 
+ * 
+ * 
+ * When you associate a principal with portfolio, a potential privilege escalation path may occur when that portfolio is
+ * then shared with other accounts. For a user in a recipient account who is *not* an Service Catalog Admin,
+ * but still has the ability to create Principals (Users/Groups/Roles), that user could create a role that matches a principal
+ * name association for the portfolio. Although this user may not know which principal names are associated through
+ * Service Catalog, they may be able to guess the user. If this potential escalation path is a concern, then
+ * Service Catalog recommends using `PrincipalType` as `IAM`. With this configuration,
+ * the `PrincipalARN` must already exist in the recipient account before it can be associated.
+ */export const createPortfolioShare = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.CreatePortfolioShare" }, CreatePortfolioShareInput, CreatePortfolioShareOutput, [InvalidParametersException, InvalidStateException, LimitExceededException, OperationNotSupportedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a plan.
+ * 
+ * 
+ * A plan includes the list of resources to be
+ * created (when provisioning a new product) or modified (when updating a provisioned product)
+ * when the plan is executed.
+ * 
+ * 
+ * You can create one plan for each provisioned product. To create a plan for an existing
+ * provisioned product, the product status must be AVAILABLE or TAINTED.
+ * 
+ * 
+ * To view the resource changes in the change set, use DescribeProvisionedProductPlan.
+ * To create or modify the provisioned product, use ExecuteProvisionedProductPlan.
+ */export const createProvisionedProductPlan = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.CreateProvisionedProductPlan" }, CreateProvisionedProductPlanInput, CreateProvisionedProductPlanOutput, [InvalidParametersException, InvalidStateException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a provisioning artifact (also known as a version) for the specified product.
+ * 
+ * 
+ * You cannot create a provisioning artifact for a product that was shared with you.
+ * 
+ * 
+ * The user or role that performs this operation must have the `cloudformation:GetTemplate`
+ * IAM policy permission. This policy permission is required when using the
+ * `ImportFromPhysicalId` template source in the information data section.
+ */export const createProvisioningArtifact = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.CreateProvisioningArtifact" }, CreateProvisioningArtifactInput, CreateProvisioningArtifactOutput, [InvalidParametersException, LimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a self-service action.
+ */export const createServiceAction = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.CreateServiceAction" }, CreateServiceActionInput, CreateServiceActionOutput, [InvalidParametersException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a TagOption.
+ */export const createTagOption = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.CreateTagOption" }, CreateTagOptionInput, CreateTagOptionOutput, [DuplicateResourceException, LimitExceededException, TagOptionNotMigratedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets information about the specified portfolio.
+ * 
+ * 
+ * A delegated admin is authorized to invoke this command.
+ */export const describePortfolio = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.DescribePortfolio" }, DescribePortfolioInput, DescribePortfolioOutput, [ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns a summary of each of the portfolio shares that were created for the specified portfolio.
+ * 
+ * 
+ * You can use this API to determine which accounts or organizational nodes this
+ * portfolio have been shared, whether the recipient entity has imported the share, and
+ * whether TagOptions are included with the share.
+ * 
+ * 
+ * The `PortfolioId` and `Type` parameters are both required.
+ */export const describePortfolioShares = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.DescribePortfolioShares" }, DescribePortfolioSharesInput, DescribePortfolioSharesOutput, [InvalidParametersException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets information about the specified product.
+ * 
+ * 
+ * 
+ * 
+ * 
+ * Running this operation
+ * with administrator access
+ * results
+ * in a failure.
+ * DescribeProductAsAdmin should be used instead.
+ */export const describeProduct = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.DescribeProduct" }, DescribeProductInput, DescribeProductOutput, [InvalidParametersException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets information about the specified provisioned product.
+ */export const describeProvisionedProduct = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.DescribeProvisionedProduct" }, DescribeProvisionedProductInput, DescribeProvisionedProductOutput, [InvalidParametersException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets information about the configuration required to provision the specified product using
+ * the specified provisioning artifact.
+ * 
+ * 
+ * If the output contains a TagOption key with an empty list of values, there is a
+ * TagOption conflict for that key. The end user cannot take action to fix the conflict, and
+ * launch is not blocked. In subsequent calls to ProvisionProduct,
+ * do not include conflicted TagOption keys as tags, or this causes the error
+ * "Parameter validation failed: Missing required parameter in Tags[*N*]:*Value*".
+ * Tag the provisioned product with the value `sc-tagoption-conflict-portfolioId-productId`.
+ */export const describeProvisioningParameters = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.DescribeProvisioningParameters" }, DescribeProvisioningParametersInput, DescribeProvisioningParametersOutput, [InvalidParametersException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Describes a self-service action.
+ */export const describeServiceAction = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.DescribeServiceAction" }, DescribeServiceActionInput, DescribeServiceActionOutput, [ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Finds the default parameters for a specific self-service action on a specific provisioned product and returns a map of the results to the user.
+ */export const describeServiceActionExecutionParameters = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.DescribeServiceActionExecutionParameters" }, DescribeServiceActionExecutionParametersInput, DescribeServiceActionExecutionParametersOutput, [InvalidParametersException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Executes a self-service action against a provisioned product.
+ */export const executeProvisionedProductServiceAction = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.ExecuteProvisionedProductServiceAction" }, ExecuteProvisionedProductServiceActionInput, ExecuteProvisionedProductServiceActionOutput, [InvalidParametersException, InvalidStateException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists the paths
+ * to the specified product.
+ * A path describes
+ * how the user
+ * gets access
+ * to a specified product
+ * and is necessary
+ * when provisioning a product.
+ * A path also determines the constraints
+ * that are put on a product.
+ * A path is dependent
+ * on a specific product, porfolio, and principal.
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * When provisioning a product
+ * that's been added
+ * to a portfolio,
+ * you must grant your user, group, or role access
+ * to the portfolio.
+ * For more information,
+ * see Granting users access
+ * in the *Service Catalog User Guide*.
+ */export const listLaunchPaths = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.ListLaunchPaths" }, ListLaunchPathsInput, ListLaunchPathsOutput, [InvalidParametersException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists all `PrincipalARN`s and corresponding `PrincipalType`s associated with the specified portfolio.
+ */export const listPrincipalsForPortfolio = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.ListPrincipalsForPortfolio" }, ListPrincipalsForPortfolioInput, ListPrincipalsForPortfolioOutput, [InvalidParametersException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists all provisioning artifacts (also known as versions) for the specified self-service action.
+ */export const listProvisioningArtifactsForServiceAction = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.ListProvisioningArtifactsForServiceAction" }, ListProvisioningArtifactsForServiceActionInput, ListProvisioningArtifactsForServiceActionOutput, [InvalidParametersException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists the specified requests or all performed requests.
+ */export const listRecordHistory = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.ListRecordHistory" }, ListRecordHistoryInput, ListRecordHistoryOutput, [InvalidParametersException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists the resources associated with the specified TagOption.
+ */export const listResourcesForTagOption = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.ListResourcesForTagOption" }, ListResourcesForTagOptionInput, ListResourcesForTagOptionOutput, [InvalidParametersException, ResourceNotFoundException, TagOptionNotMigratedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists all self-service actions.
+ */export const listServiceActions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.ListServiceActions" }, ListServiceActionsInput, ListServiceActionsOutput, [InvalidParametersException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns summary information about stack instances that are associated with the specified `CFN_STACKSET` type provisioned product. You can filter for stack instances that are associated with a specific Amazon Web Services account name or Region.
+ */export const listStackInstancesForProvisionedProduct = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.ListStackInstancesForProvisionedProduct" }, ListStackInstancesForProvisionedProductInput, ListStackInstancesForProvisionedProductOutput, [InvalidParametersException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists the specified TagOptions or all TagOptions.
+ */export const listTagOptions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.ListTagOptions" }, ListTagOptionsInput, ListTagOptionsOutput, [InvalidParametersException, TagOptionNotMigratedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Notifies the result
+ * of the provisioning engine execution.
+ */export const notifyProvisionProductEngineWorkflowResult = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.NotifyProvisionProductEngineWorkflowResult" }, NotifyProvisionProductEngineWorkflowResultInput, NotifyProvisionProductEngineWorkflowResultOutput, [InvalidParametersException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Provisions the specified product.
+ * 
+ * 
+ * 
+ * 
+ * A provisioned product is a resourced instance
+ * of a product.
+ * For example,
+ * provisioning a product
+ * that's based
+ * on an CloudFormation template
+ * launches an CloudFormation stack and its underlying resources.
+ * You can check the status
+ * of this request
+ * using DescribeRecord.
+ * 
+ * 
+ * 
+ * 
+ * If the request contains a tag key
+ * with an empty list
+ * of values,
+ * there's a tag conflict
+ * for that key.
+ * Don't include conflicted keys
+ * as tags,
+ * or this will cause the error "Parameter validation failed: Missing required parameter in Tags[*N*]:*Value*".
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * When provisioning a product
+ * that's been added
+ * to a portfolio,
+ * you must grant your user, group, or role access
+ * to the portfolio.
+ * For more information,
+ * see Granting users access
+ * in the *Service Catalog User Guide*.
+ */export const provisionProduct = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.ProvisionProduct" }, ProvisionProductInput, ProvisionProductOutput, [DuplicateResourceException, InvalidParametersException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Requests updates to the configuration of the specified provisioned product.
+ * 
+ * 
+ * If there are tags associated with the object, they cannot be updated or added.
+ * Depending on the specific updates requested, this operation can update with no
+ * interruption, with some interruption, or replace the provisioned product entirely.
+ * 
+ * 
+ * You can check the status of this request using DescribeRecord.
+ */export const updateProvisionedProduct = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.UpdateProvisionedProduct" }, UpdateProvisionedProductInput, UpdateProvisionedProductOutput, [InvalidParametersException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Requests updates to the properties of the specified provisioned product.
+ */export const updateProvisionedProductProperties = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.UpdateProvisionedProductProperties" }, UpdateProvisionedProductPropertiesInput, UpdateProvisionedProductPropertiesOutput, [InvalidParametersException, InvalidStateException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets the status of the specified portfolio share operation. This API can only be called
+ * by the management account in the organization or by a delegated admin.
+ */export const describePortfolioShareStatus = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.DescribePortfolioShareStatus" }, DescribePortfolioShareStatusInput, DescribePortfolioShareStatusOutput, [InvalidParametersException, OperationNotSupportedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets information about the specified provisioning artifact (also known as a version) for the specified product.
+ */export const describeProvisioningArtifact = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.DescribeProvisioningArtifact" }, DescribeProvisioningArtifactInput, DescribeProvisioningArtifactOutput, [InvalidParametersException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets information about the specified request operation.
+ * 
+ * 
+ * Use this operation after calling a request operation (for example, ProvisionProduct,
+ * TerminateProvisionedProduct, or UpdateProvisionedProduct).
+ * 
+ * 
+ * 
+ * 
+ * 
+ * If a provisioned product was transferred to a new owner using UpdateProvisionedProductProperties, the new owner
+ * will be able to describe all past records for that product. The previous owner will no longer be able to describe the records, but will be able to
+ * use ListRecordHistory to see the product's history from when he was the owner.
+ */export const describeRecord = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.DescribeRecord" }, DescribeRecordInput, DescribeRecordOutput, [ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists the plans for the specified provisioned product or all plans to which the user has access.
+ */export const listProvisionedProductPlans = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.ListProvisionedProductPlans" }, ListProvisionedProductPlansInput, ListProvisionedProductPlansOutput, [InvalidParametersException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets information about the provisioned products that meet the specified criteria.
+ */export const searchProvisionedProducts = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.SearchProvisionedProducts" }, SearchProvisionedProductsInput, SearchProvisionedProductsOutput, [InvalidParametersException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a product.
+ * 
+ * 
+ * A delegated admin is authorized to invoke this command.
+ * 
+ * 
+ * The user or role that performs this operation must have the
+ * `cloudformation:GetTemplate` IAM policy permission. This policy permission is
+ * required when using the `ImportFromPhysicalId` template source in the
+ * information data section.
+ */export const createProduct = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.CreateProduct" }, CreateProductInput, CreateProductOutput, [InvalidParametersException, LimitExceededException, TagOptionNotMigratedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets information about the specified product. This operation is run with administrator access.
+ */export const describeProductAsAdmin = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.DescribeProductAsAdmin" }, DescribeProductAsAdminInput, DescribeProductAsAdminOutput, [InvalidParametersException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets information about the resource changes for the specified plan.
+ */export const describeProvisionedProductPlan = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.DescribeProvisionedProductPlan" }, DescribeProvisionedProductPlanInput, DescribeProvisionedProductPlanOutput, [InvalidParametersException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets information about the products to which the caller has access.
+ */export const searchProducts = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-10", uri: "/", method: "POST", sdkId: "Service Catalog", sigV4ServiceName: "servicecatalog", name: "AWS242ServiceCatalogService.SearchProducts" }, SearchProductsInput, SearchProductsOutput, [InvalidParametersException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

@@ -23,7 +23,35 @@ export class TooManyRequestsException extends S.TaggedError<TooManyRequestsExcep
 export class UnauthorizedException extends S.TaggedError<UnauthorizedException>()("UnauthorizedException", {}) {};
 
 //# Operations
-export const listAccounts = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-06-10", uri: "/assignment/accounts", method: "GET", sdkId: "SSO", sigV4ServiceName: "awsssoportal", name: "SWBPortalService.ListAccounts" }, ListAccountsRequest, ListAccountsResponse, [InvalidRequestException, ResourceNotFoundException, TooManyRequestsException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const logout = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-06-10", uri: "/logout", method: "POST", sdkId: "SSO", sigV4ServiceName: "awsssoportal", name: "SWBPortalService.Logout" }, LogoutRequest, S.Struct({}), [InvalidRequestException, TooManyRequestsException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getRoleCredentials = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-06-10", uri: "/federation/credentials", method: "GET", sdkId: "SSO", sigV4ServiceName: "awsssoportal", name: "SWBPortalService.GetRoleCredentials" }, GetRoleCredentialsRequest, GetRoleCredentialsResponse, [InvalidRequestException, ResourceNotFoundException, TooManyRequestsException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listAccountRoles = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-06-10", uri: "/assignment/roles", method: "GET", sdkId: "SSO", sigV4ServiceName: "awsssoportal", name: "SWBPortalService.ListAccountRoles" }, ListAccountRolesRequest, ListAccountRolesResponse, [InvalidRequestException, ResourceNotFoundException, TooManyRequestsException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists all AWS accounts assigned to the user. These AWS accounts are assigned by the
+ * administrator of the account. For more information, see Assign User Access in the *IAM Identity Center User Guide*. This operation
+ * returns a paginated response.
+ */export const listAccounts = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-06-10", uri: "/assignment/accounts", method: "GET", sdkId: "SSO", sigV4ServiceName: "awsssoportal", name: "SWBPortalService.ListAccounts" }, ListAccountsRequest, ListAccountsResponse, [InvalidRequestException, ResourceNotFoundException, TooManyRequestsException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Removes the locally stored SSO tokens from the client-side cache and sends an API call to
+ * the IAM Identity Center service to invalidate the corresponding server-side IAM Identity Center sign in
+ * session.
+ * 
+ * 
+ * 
+ * 
+ * If a user uses IAM Identity Center to access the AWS CLI, the user’s IAM Identity Center sign in session is
+ * used to obtain an IAM session, as specified in the corresponding IAM Identity Center permission set.
+ * More specifically, IAM Identity Center assumes an IAM role in the target account on behalf of the user,
+ * and the corresponding temporary AWS credentials are returned to the client.
+ * 
+ * 
+ * After user logout, any existing IAM role sessions that were created by using IAM Identity Center
+ * permission sets continue based on the duration configured in the permission set.
+ * For more information, see User
+ * authentications in the IAM Identity Center User
+ * Guide.
+ */export const logout = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-06-10", uri: "/logout", method: "POST", sdkId: "SSO", sigV4ServiceName: "awsssoportal", name: "SWBPortalService.Logout" }, LogoutRequest, S.Struct({}), [InvalidRequestException, TooManyRequestsException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns the STS short-term credentials for a given role name that is assigned to the
+ * user.
+ */export const getRoleCredentials = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-06-10", uri: "/federation/credentials", method: "GET", sdkId: "SSO", sigV4ServiceName: "awsssoportal", name: "SWBPortalService.GetRoleCredentials" }, GetRoleCredentialsRequest, GetRoleCredentialsResponse, [InvalidRequestException, ResourceNotFoundException, TooManyRequestsException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists all roles that are assigned to the user for a given AWS account.
+ */export const listAccountRoles = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-06-10", uri: "/assignment/roles", method: "GET", sdkId: "SSO", sigV4ServiceName: "awsssoportal", name: "SWBPortalService.ListAccountRoles" }, ListAccountRolesRequest, ListAccountRolesResponse, [InvalidRequestException, ResourceNotFoundException, TooManyRequestsException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
