@@ -95,147 +95,103 @@ const errorResponse = Schema.Struct({
   }),
 });
 
-export const FormatJSONRequest = Schema.asSchema(
-  Schema.transformOrFail(rawRequest, unsignedRequest, {
-    strict: true,
-    encode: (actual, _, ast) =>
-      ParseResult.fail(
-        new ParseResult.Forbidden(ast, actual, "cannot encode JSON"),
-      ),
-    decode: (value) =>
-      Effect.succeed({
-        ...value,
-        unsignedBody: value.unsignedBody
-          ? JSON.stringify(value.unsignedBody)
-          : undefined,
-      }),
-  }),
-);
+type RawRequest = Schema.Schema.Type<typeof rawRequest>;
+type UnsignedRequest = Schema.Schema.Type<typeof unsignedRequest>;
+type RawResponse = Schema.Schema.Type<typeof rawResponse>;
+type Response = Schema.Schema.Type<typeof response>;
+type ErrorResponse = Schema.Schema.Type<typeof errorResponse>;
 
-export const FormatAwsJSON10Request = Schema.asSchema(
-  Schema.transformOrFail(rawRequest, unsignedRequest, {
-    strict: true,
-    encode: (actual, _, ast) =>
-      ParseResult.fail(
-        new ParseResult.Forbidden(ast, actual, "cannot encode JSON"),
-      ),
-    decode: (value) =>
-      Effect.succeed({
-        ...value,
-        unsignedHeaders: {
-          ...value.unsignedHeaders,
-          "Content-Type": "application/x-amz-json-1.0",
-          "X-Amz-Target": value.meta.name,
-        },
-        unsignedBody: value.unsignedBody
-          ? JSON.stringify(value.unsignedBody)
-          : undefined,
-      }),
-  }),
-);
+export type FormatMiddleware = {
+  request: (value: RawRequest) => Effect.Effect<UnsignedRequest, ParseResult.ParseIssue>;
+  response: (value: RawResponse) => Effect.Effect<Response, ParseResult.ParseIssue>;
+};
 
-export const FormatAwsJSON11Request = Schema.asSchema(
-  Schema.transformOrFail(rawRequest, unsignedRequest, {
-    strict: true,
-    encode: (actual, _, ast) =>
-      ParseResult.fail(
-        new ParseResult.Forbidden(ast, actual, "cannot encode JSON"),
-      ),
-    decode: (value) =>
-      Effect.succeed({
-        ...value,
-        unsignedHeaders: {
-          ...value.unsignedHeaders,
-          "Content-Type": "application/x-amz-json-1.0",
-          "X-Amz-Target": value.meta.name,
-        },
-        unsignedBody: value.unsignedBody
-          ? JSON.stringify(value.unsignedBody)
-          : undefined,
-      }),
-  }),
-);
+export type ErrorFormatMiddleware = (
+  value: RawResponse,
+) => Effect.Effect<ErrorResponse, ParseResult.ParseIssue>;
 
-export const FormatJSONResponse = Schema.asSchema(
-  Schema.transformOrFail(rawResponse, response, {
-    strict: true,
-    encode: (actual, _, ast) =>
-      ParseResult.fail(
-        new ParseResult.Forbidden(ast, actual, "cannot encode JSON"),
-      ),
-    decode: (value) =>
-      Effect.succeed({
-        headers: value.headers,
-        body: JSON.parse(value.body),
-      }),
-  }),
-);
-
-export const FormatAwsRestJSONError = Schema.asSchema(
-  Schema.transformOrFail(rawResponse, errorResponse, {
-    strict: true,
-    encode: (actual, _, ast) =>
-      ParseResult.fail(
-        new ParseResult.Forbidden(ast, actual, "cannot encode JSON"),
-      ),
-    //see: https://smithy.io/2.0/aws/protocols/aws-restjson1-protocol.html#operation-error-serialization
-    decode: Effect.fn(function* (value, _, ast) {
-      const data = yield* Effect.try({
-        try: () => JSON.parse(value.body),
-        catch: () =>
-          new ParseResult.Forbidden(ast, value, "cannot decode JSON"),
-      });
-
-      const errorTagValue =
-        value.headers?.["X-Amzn-Errortype"] ?? data?.code ?? data?.__type;
-
-      if (typeof errorTagValue !== "string") {
-        return yield* Effect.fail(
-          new ParseResult.Forbidden(ast, value, "Unable to parse error code"),
-        );
-      }
-
-      return {
-        _tag: errorTagValue.replace(/^.*#/, "").replace(/:.*$/, ""),
-        data,
-      };
+export const FormatJSON: FormatMiddleware = {
+  request: (value) =>
+    Effect.succeed({
+      ...value,
+      unsignedBody: value.unsignedBody
+        ? JSON.stringify(value.unsignedBody)
+        : undefined,
     }),
-  }),
-);
+  response: (value) =>
+    Effect.succeed({
+      headers: value.headers,
+      body: JSON.parse(value.body),
+    }),
+};
 
-export const FormatXMLRequest = Schema.asSchema(
-  Schema.transformOrFail(rawRequest, unsignedRequest, {
-    strict: true,
-    encode: (actual, _, ast) =>
-      ParseResult.fail(
-        new ParseResult.Forbidden(ast, actual, "cannot encode XML"),
-      ),
-    decode: (value) =>
-      Effect.succeed({
-        ...value,
-        unsignedBody: value.unsignedBody
-          ? //todo(pear): wrap in a try-catch
-            builder.build(value.unsignedBody)
-          : undefined,
-      }),
-  }),
-);
+export const FormatAwsJSON10: FormatMiddleware = {
+  request: (value) =>
+    Effect.succeed({
+      ...value,
+      unsignedHeaders: {
+        ...value.unsignedHeaders,
+        "Content-Type": "application/x-amz-json-1.0",
+        "X-Amz-Target": value.meta.name,
+      },
+      unsignedBody: value.unsignedBody
+        ? JSON.stringify(value.unsignedBody)
+        : undefined,
+    }),
+  response: FormatJSON.response,
+};
 
-export const FormatXMLResponse = Schema.asSchema(
-  Schema.transformOrFail(rawResponse, response, {
-    strict: true,
-    encode: (actual, _, ast) =>
-      ParseResult.fail(
-        new ParseResult.Forbidden(ast, actual, "cannot encode XML"),
-      ),
-    decode: (value) =>
-      Effect.succeed({
-        headers: value.headers,
-        //todo(pear): wrap in a try-catch
-        body: parser.parse(value.body),
-      }),
-  }),
-);
+export const FormatAwsJSON11: FormatMiddleware = {
+  request: (value) =>
+    Effect.succeed({
+      ...value,
+      unsignedHeaders: {
+        ...value.unsignedHeaders,
+        "Content-Type": "application/x-amz-json-1.0",
+        "X-Amz-Target": value.meta.name,
+      },
+      unsignedBody: value.unsignedBody
+        ? JSON.stringify(value.unsignedBody)
+        : undefined,
+    }),
+  response: FormatJSON.response,
+};
+
+//see: https://smithy.io/2.0/aws/protocols/aws-restjson1-protocol.html#operation-error-serialization
+export const FormatAwsRestJSONError: ErrorFormatMiddleware = (value) =>
+  Effect.gen(function* () {
+    const data = JSON.parse(value.body);
+    const errorTagValue =
+      value.headers?.["X-Amzn-Errortype"] ?? data?.code ?? data?.__type;
+
+    if (typeof errorTagValue !== "string") {
+      return yield* Effect.fail(
+        new ParseResult.Type(errorResponse.ast, value, "Unable to parse error code"),
+      );
+    }
+
+    return {
+      _tag: errorTagValue.replace(/^.*#/, "").replace(/:.*$/, ""),
+      data,
+    };
+  });
+
+export const FormatXML: FormatMiddleware = {
+  request: (value) =>
+    Effect.succeed({
+      ...value,
+      unsignedBody: value.unsignedBody
+        ? //todo(pear): wrap in a try-catch
+          builder.build(value.unsignedBody)
+        : undefined,
+    }),
+  response: (value) =>
+    Effect.succeed({
+      headers: value.headers,
+      //todo(pear): wrap in a try-catch
+      body: parser.parse(value.body),
+    }),
+};
 
 //todo(pear): this is vibe coded. maybe give it a 2nd look / move to effect match
 function serializeAwsQueryValue(
@@ -269,165 +225,106 @@ function serializeAwsQueryValue(
   }
 }
 
-export const FormatAwsQueryRequest = Schema.asSchema(
-  Schema.transformOrFail(rawRequest, unsignedRequest, {
-    strict: true,
-    encode: (actual, _, ast) =>
-      ParseResult.fail(
-        new ParseResult.Forbidden(ast, actual, "cannot encode aws query"),
-      ),
-    decode: Effect.fn(function* (value, _, ast) {
-      if (
-        typeof value.unsignedBody === "string" ||
-        value.unsignedBody instanceof Uint8Array ||
-        value.unsignedBody instanceof ReadableStream
-      ) {
-        return yield* Effect.fail(
-          new ParseResult.Forbidden(ast, value, "cannot encode aws query"),
-        );
+const formatAwsQueryRequest = (value: RawRequest) =>
+  Effect.gen(function* () {
+    if (
+      typeof value.unsignedBody === "string" ||
+      value.unsignedBody instanceof Uint8Array ||
+      value.unsignedBody instanceof ReadableStream
+    ) {
+      return yield* Effect.fail(
+        new ParseResult.Type(rawRequest.ast, value, "cannot encode aws query"),
+      );
+    }
+
+    const params = new URLSearchParams();
+    params.append("Action", value.meta.name);
+    params.append("Version", value.meta.version);
+
+    if (value.unsignedBody) {
+      for (const [key, propertyValue] of Object.entries(value.unsignedBody)) {
+        serializeAwsQueryValue(params, key, propertyValue);
       }
+    }
 
-      const params = new URLSearchParams();
-      params.append("Action", value.meta.name);
-      params.append("Version", value.meta.version);
+    const queryParams = `${value.unsignedUri}?${params.toString()}`;
 
-      if (value.unsignedBody) {
-        for (const [key, propertyValue] of Object.entries(value.unsignedBody)) {
-          serializeAwsQueryValue(params, key, propertyValue);
-        }
-      }
+    return {
+      unsignedUri: queryParams,
+      unsignedBody: undefined,
+      unsignedHeaders: {
+        ...value.unsignedHeaders,
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+    };
+  });
 
-      const queryParams = `${value.unsignedUri}?${params.toString()}`;
-
-      return {
-        unsignedUri: queryParams,
-        unsignedBody: undefined,
-        unsignedHeaders: {
-          ...value.unsignedHeaders,
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-      };
+export const FormatAwsQuery: FormatMiddleware = {
+  request: formatAwsQueryRequest,
+  response: (value) =>
+    Effect.succeed({
+      headers: value.headers,
+      body: (() => {
+        const data = parser.parse(value.body);
+        const name = value.meta.name.split(".")[1];
+        return data?.[`${name}Response`]?.[`${name}Result`];
+      })(),
     }),
-  }),
-);
+};
 
-export const FormatAwsQueryResponse = Schema.asSchema(
-  Schema.transformOrFail(rawResponse, response, {
-    strict: true,
-    encode: (actual, _, ast) =>
-      ParseResult.fail(
-        new ParseResult.Forbidden(ast, actual, "cannot encode XML"),
-      ),
-    decode: Effect.fn(function* (value, _, ast) {
-      const data = yield* Effect.try({
-        try: () => parser.parse(value.body),
-        catch: () =>
-          new ParseResult.Forbidden(ast, value, "cannot decode JSON"),
-      });
-
-      const name = value.meta.name.split(".")[1];
-
-      return {
-        headers: value.headers,
-        body: data?.[`${name}Response`]?.[`${name}Result`],
-      };
+//todo(pear): can we just make this different behavior in `FormatAwsQuery`
+export const FormatAwsEc2Query: FormatMiddleware = {
+  request: formatAwsQueryRequest,
+  response: (value) =>
+    Effect.succeed({
+      headers: value.headers,
+      body: (() => {
+        const data = parser.parse(value.body);
+        const name = value.meta.name.split(".")[1];
+        return data?.[`${name}Response`];
+      })(),
     }),
-  }),
-);
-
-//todo(pear): can we just make this different behavior in `FormatAwsQueryResponse`
-export const FormatAwsEc2QueryResponse = Schema.asSchema(
-  Schema.transformOrFail(rawResponse, response, {
-    strict: true,
-    encode: (actual, _, ast) =>
-      ParseResult.fail(
-        new ParseResult.Forbidden(ast, actual, "cannot encode XML"),
-      ),
-    decode: Effect.fn(function* (value, _, ast) {
-      const data = yield* Effect.try({
-        try: () => parser.parse(value.body),
-        catch: () =>
-          new ParseResult.Forbidden(ast, value, "cannot decode JSON"),
-      });
-
-      const name = value.meta.name.split(".")[1];
-
-      return {
-        headers: value.headers,
-        body: data?.[`${name}Response`],
-      };
-    }),
-  }),
-);
+};
 
 //todo(pear) support error wrapping https://smithy.io/2.0/aws/protocols/aws-restxml-protocol.html#restxml-errors
-export const FormatAwsXMLError = Schema.asSchema(
-  Schema.transformOrFail(rawResponse, errorResponse, {
-    strict: true,
-    encode: (actual, _, ast) =>
-      ParseResult.fail(
-        new ParseResult.Forbidden(ast, actual, "cannot encode XML"),
-      ),
-    decode: Effect.fn(function* (value, _, ast) {
-      const data = yield* Effect.try({
-        try: () => parser.parse(value.body),
-        catch: () => new ParseResult.Forbidden(ast, value, "cannot decode XML"),
-      });
+export const FormatAwsXMLError: ErrorFormatMiddleware = (value) =>
+  Effect.gen(function* () {
+    const data = parser.parse(value.body);
 
-      //todo(pear): define options somehow in generate-client
-      //            part of the problem here is aws defaults might not be the smartest
-      //            which then creates bloat for each request and its all just gross
-      //            proper solution for just aws rest xml:
-      // const _tag = yield* Effect.if(options?.noErrorWrapping ?? false, {
-      //   onTrue: () => Effect.succeed(data?.Error?.Code),
-      //   onFalse: () => Effect.succeed(data?.ErrorResponse?.Error?.Code),
-      // });
-      //            however we also handle it for AWS query and AWS EC2 query
-      const _tag =
-        data?.Response?.Errors?.Error?.Code ??
-        data?.ErrorResponse?.Error?.Code ??
-        data?.Error?.Code;
+    //todo(pear): define options somehow in generate-client
+    //            part of the problem here is aws defaults might not be the smartest
+    //            which then creates bloat for each request and its all just gross
+    //            proper solution for just aws rest xml:
+    // const _tag = yield* Effect.if(options?.noErrorWrapping ?? false, {
+    //   onTrue: () => Effect.succeed(data?.Error?.Code),
+    //   onFalse: () => Effect.succeed(data?.ErrorResponse?.Error?.Code),
+    // });
+    //            however we also handle it for AWS query and AWS EC2 query
+    const _tag =
+      data?.Response?.Errors?.Error?.Code ??
+      data?.ErrorResponse?.Error?.Code ??
+      data?.Error?.Code;
 
-      if (typeof _tag !== "string") {
-        return yield* Effect.fail(
-          new ParseResult.Forbidden(ast, value, "Unable to parse error code"),
-        );
-      }
+    if (typeof _tag !== "string") {
+      return yield* Effect.fail(
+        new ParseResult.Type(errorResponse.ast, value, "Unable to parse error code"),
+      );
+    }
 
-      return {
-        _tag,
-        data,
-      };
+    return {
+      _tag,
+      data,
+    };
+  });
+
+export const FormatNoop: FormatMiddleware = {
+  request: (value) => Effect.succeed(value as UnsignedRequest),
+  response: (value) =>
+    Effect.succeed({
+      headers: value.headers,
+      body: {},
     }),
-  }),
-);
-
-export const NoopRequest = Schema.asSchema(
-  Schema.transformOrFail(rawRequest, unsignedRequest, {
-    strict: true,
-    encode: (actual, _, ast) =>
-      ParseResult.fail(
-        new ParseResult.Forbidden(ast, actual, "cannot encode Noop"),
-      ),
-    decode: (value) =>
-      Effect.succeed(value as Schema.Schema.Type<typeof unsignedRequest>),
-  }),
-);
-
-export const NoopResponse = Schema.asSchema(
-  Schema.transformOrFail(rawResponse, response, {
-    strict: true,
-    encode: (actual, _, ast) =>
-      ParseResult.fail(
-        new ParseResult.Forbidden(ast, actual, "cannot decode Noop"),
-      ),
-    decode: (value) =>
-      Effect.succeed({
-        headers: value.headers,
-        body: {},
-      }),
-  }),
-);
+};
 
 function getSafeMetadata(
   partialMeta: Schema.Schema.Type<typeof OperationMeta>,
@@ -439,165 +336,6 @@ function getSafeMetadata(
   };
 }
 
-export const makeFormatRequestSchema = <A extends Schema.Schema.AnyNoContext>(
-  operationSchema: Schema.Struct<{
-    input: A;
-    output: Schema.Schema.AnyNoContext;
-  }>,
-  MiddlewareSchema: Schema.Schema<
-    Schema.Schema.Type<typeof unsignedRequest>,
-    Schema.Schema.Type<typeof rawRequest>,
-    never
-  >,
-) => {
-  const inputSchema = operationSchema.fields.input;
-  const inputAst = inputSchema.ast;
-
-  const RequestFromInput = Schema.asSchema(
-    Schema.transformOrFail(inputSchema, rawRequest, {
-      strict: true,
-      encode: (actual, _, ast) =>
-        ParseResult.fail(
-          new ParseResult.Forbidden(ast, actual, "cannot encode Input"),
-        ),
-      decode: (value, _, ast) =>
-        Effect.gen(function* () {
-          const structAst = AST.isTransformation(inputAst)
-            ? inputAst.from
-            : inputAst;
-          const props = AST.isTypeLiteral(structAst)
-            ? structAst.propertySignatures
-            : [];
-          const meta = getSafeMetadata(
-            yield* AST.getAnnotation<Schema.Schema.Type<typeof OperationMeta>>(
-              operationSchema.ast,
-              requestMetaSymbol,
-            ),
-          );
-
-          const headers: Record<string, string> = {
-            "User-Agent": "itty-aws",
-          };
-          let uri = meta.uri;
-          let body:
-            | Record<string, unknown>
-            | undefined
-            | string
-            | Uint8Array
-            | ReadableStream;
-
-          for (const prop of props) {
-            const name = prop.name as keyof typeof value;
-
-            const headerAannotations = AST.getAnnotation<string>(
-              prop.type,
-              requestHeaderSymbol,
-            );
-            const bodyAnnotation = AST.getAnnotation<string>(
-              prop.type,
-              requestBodySymbol,
-            );
-            const streamBodyAnnotation = AST.getAnnotation<string>(
-              prop.type,
-              requestBodyStreamSymbol,
-            );
-            const pathAnnotation = AST.getAnnotation<string>(
-              prop.type,
-              requestPathSymbol,
-            );
-
-            if (Option.isSome(headerAannotations)) {
-              headers[headerAannotations.value] = value[name] as string;
-            } else if (Option.isSome(pathAnnotation)) {
-              uri = uri.replace(
-                new RegExp(`{${pathAnnotation.value}\\+?}`),
-                `${value[name]}`,
-              );
-              // uri = `https://s3.us-east-1.amazonaws.com/${value[name]}`;
-            } else if (Option.isSome(bodyAnnotation)) {
-              body = { [bodyAnnotation.value]: value[name] };
-            } else if (Option.isSome(streamBodyAnnotation)) {
-              body = value[name] as string | Uint8Array | ReadableStream;
-            }
-          }
-
-          return {
-            unsignedUri: uri,
-            unsignedHeaders: headers,
-            unsignedBody: body,
-            meta,
-          };
-        }).pipe(
-          Effect.mapError((e) => new ParseResult.Type(ast, value, e.message)),
-        ),
-    }),
-  );
-
-  return Schema.asSchema(Schema.compose(RequestFromInput, MiddlewareSchema));
-};
-
-export const makeFormatResponseSchema = <A extends Schema.Schema.AnyNoContext>(
-  operationSchema: Schema.Struct<{
-    output: A;
-    input: Schema.Schema.AnyNoContext;
-  }>,
-  MiddlewareSchema: Schema.Schema<
-    Schema.Schema.Type<typeof response>,
-    Schema.Schema.Type<typeof rawResponse>,
-    never
-  >,
-) => {
-  const outputSchema = operationSchema.fields.output;
-  const outputAst = outputSchema.ast;
-
-  const OutputFromResponse = Schema.asSchema(
-    Schema.transformOrFail(response, outputSchema, {
-      strict: true,
-      encode: (actual, _, ast) =>
-        ParseResult.fail(
-          new ParseResult.Forbidden(ast, actual, "cannot encode output"),
-        ),
-      decode: (value, _, ast) =>
-        Effect.gen(function* () {
-          const structAst = AST.isTransformation(outputAst)
-            ? outputAst.from
-            : outputAst;
-          const props = AST.isTypeLiteral(structAst)
-            ? structAst.propertySignatures
-            : [];
-
-          const payload: Record<string, unknown> = {};
-
-          for (const prop of props) {
-            const name = prop.name as keyof typeof value;
-
-            const headerAannotations = AST.getAnnotation<string>(
-              prop.type,
-              requestHeaderSymbol,
-            );
-            const bodyAnnotation = AST.getAnnotation<string>(
-              prop.type,
-              requestBodySymbol,
-            );
-
-            if (Option.isSome(headerAannotations)) {
-              payload[name] = value.headers[headerAannotations.value];
-            } else if (Option.isSome(bodyAnnotation)) {
-              payload[name] = getNested(value.body, bodyAnnotation.value);
-            }
-          }
-
-          const result = yield* Schema.decodeUnknown(outputSchema)(payload);
-          return result;
-        }).pipe(
-          Effect.mapError((e) => new ParseResult.Type(ast, value, e.message)),
-        ),
-    }),
-  );
-
-  return Schema.asSchema(Schema.compose(MiddlewareSchema, OutputFromResponse));
-};
-
 const getNested = (obj: object, path: string) =>
   //@ts-expect-error
   path.split(".").reduce((acc, key) => acc?.[key], obj);
@@ -606,21 +344,8 @@ type Instance<T> = T extends abstract new (...args: any) => infer U ? U : T;
 
 export const makeOperation = <A extends ReturnType<typeof Operation>>(
   operationSchemaGenerator: () => A,
-  RequestMiddleware: Schema.Schema<
-    Schema.Schema.Type<typeof unsignedRequest>,
-    Schema.Schema.Type<typeof rawRequest>,
-    never
-  >,
-  ResponseMiddleware: Schema.Schema<
-    Schema.Schema.Type<typeof response>,
-    Schema.Schema.Type<typeof rawResponse>,
-    never
-  >,
-  ErrorMiddleware: Schema.Schema<
-    Schema.Schema.Type<typeof errorResponse>,
-    Schema.Schema.Type<typeof rawResponse>,
-    never
-  >,
+  Format: FormatMiddleware,
+  ErrorMiddleware: ErrorFormatMiddleware,
 ): ((
   payload: Schema.Schema.Type<A["schema"]["fields"]["input"]>,
 ) => Effect.Effect<
@@ -633,29 +358,87 @@ export const makeOperation = <A extends ReturnType<typeof Operation>>(
   Region | Credentials | HttpClient.HttpClient
 >) => {
   const operationSchema = operationSchemaGenerator() as any as A["schema"];
-  const FormatRequest = makeFormatRequestSchema(
-    operationSchema,
-    RequestMiddleware,
-  );
-  const FormatResponse = makeFormatResponseSchema(
-    operationSchema,
-    ResponseMiddleware,
-  );
-  // const FormatError = makeFormatErrorSchema(operationSchema, ErrorMiddleware);
+  const inputSchema = operationSchema.fields.input;
+  const inputAst = inputSchema.ast;
+  const outputSchema = operationSchema.fields.output;
+  const outputAst = outputSchema.ast;
+
   return Effect.fn(function* (
     payload: Schema.Schema.Type<A["schema"]["fields"]["input"]>,
   ) {
     const httpClient = yield* HttpClient.HttpClient;
 
-    const meta = yield* AST.getAnnotation<
-      Schema.Schema.Type<typeof OperationMeta>
-    >(operationSchema.ast, requestMetaSymbol);
+    const meta = getSafeMetadata(
+      yield* AST.getAnnotation<Schema.Schema.Type<typeof OperationMeta>>(
+        operationSchema.ast,
+        requestMetaSymbol,
+      ),
+    );
 
     yield* Effect.logDebug(
       `AWS Request - ${meta.sdkId}:${meta.name} - payload: ${JSON.stringify(payload)}`,
     );
 
-    const unsignedRequest = yield* Schema.decode(FormatRequest)(payload);
+    // Build raw request from input payload
+    const structAst = AST.isTransformation(inputAst) ? inputAst.from : inputAst;
+    const inputProps = AST.isTypeLiteral(structAst)
+      ? structAst.propertySignatures
+      : [];
+
+    const headers: Record<string, string> = {
+      "User-Agent": "itty-aws",
+    };
+    let uri = meta.uri;
+    let requestBody:
+      | Record<string, unknown>
+      | undefined
+      | string
+      | Uint8Array
+      | ReadableStream;
+
+    for (const prop of inputProps) {
+      const name = prop.name as keyof typeof payload;
+
+      const headerAnnotation = AST.getAnnotation<string>(
+        prop.type,
+        requestHeaderSymbol,
+      );
+      const bodyAnnotation = AST.getAnnotation<string>(
+        prop.type,
+        requestBodySymbol,
+      );
+      const streamBodyAnnotation = AST.getAnnotation<string>(
+        prop.type,
+        requestBodyStreamSymbol,
+      );
+      const pathAnnotation = AST.getAnnotation<string>(
+        prop.type,
+        requestPathSymbol,
+      );
+
+      if (Option.isSome(headerAnnotation)) {
+        headers[headerAnnotation.value] = payload[name] as string;
+      } else if (Option.isSome(pathAnnotation)) {
+        uri = uri.replace(
+          new RegExp(`{${pathAnnotation.value}\\+?}`),
+          `${payload[name]}`,
+        );
+      } else if (Option.isSome(bodyAnnotation)) {
+        requestBody = { [bodyAnnotation.value]: payload[name] };
+      } else if (Option.isSome(streamBodyAnnotation)) {
+        requestBody = payload[name] as string | Uint8Array | ReadableStream;
+      }
+    }
+
+    const rawReq: RawRequest = {
+      unsignedUri: uri,
+      unsignedHeaders: headers,
+      unsignedBody: requestBody,
+      meta,
+    };
+
+    // Apply format middleware to request
+    const unsignedRequest = yield* Format.request(rawReq);
 
     yield* Effect.logDebug(
       `AWS Request - ${meta.sdkId}:${meta.name} - formatted request: ${JSON.stringify(unsignedRequest)}`,
@@ -692,7 +475,7 @@ export const makeOperation = <A extends ReturnType<typeof Operation>>(
       );
     }
 
-    const rawResponse = yield* httpClient[effectHttpMethod](signedRequest.url, {
+    const httpResponse = yield* httpClient[effectHttpMethod](signedRequest.url, {
       // @ts-expect-error - TODO(sam): what are the proper types here
       headers: signedRequest.headers,
       body: signedRequest.body
@@ -703,23 +486,61 @@ export const makeOperation = <A extends ReturnType<typeof Operation>>(
         : undefined,
     });
 
-    const responsePayload = {
+    const rawResp: RawResponse = {
       meta,
-      body: yield* rawResponse.text,
-      headers: rawResponse.headers,
+      body: yield* httpResponse.text,
+      headers: httpResponse.headers,
     };
+
     yield* Effect.logDebug(
-      `AWS Request - ${meta.sdkId}:${meta.name} - raw response: ${JSON.stringify(responsePayload)}`,
+      `AWS Request - ${meta.sdkId}:${meta.name} - raw response: ${JSON.stringify(rawResp)}`,
     );
-    if (rawResponse.status >= 200 && rawResponse.status < 300) {
-      const response = yield* Schema.decode(FormatResponse)(responsePayload);
+
+    if (httpResponse.status >= 200 && httpResponse.status < 300) {
+      // Apply format middleware to response
+      const formattedResponse = yield* Format.response(rawResp);
+
+      // Extract output from formatted response
+      const outputStructAst = AST.isTransformation(outputAst)
+        ? outputAst.from
+        : outputAst;
+      const outputProps = AST.isTypeLiteral(outputStructAst)
+        ? outputStructAst.propertySignatures
+        : [];
+
+      const outputPayload: Record<string, unknown> = {};
+
+      for (const prop of outputProps) {
+        const name = prop.name as string;
+
+        const headerAnnotation = AST.getAnnotation<string>(
+          prop.type,
+          requestHeaderSymbol,
+        );
+        const bodyAnnotation = AST.getAnnotation<string>(
+          prop.type,
+          requestBodySymbol,
+        );
+
+        if (Option.isSome(headerAnnotation)) {
+          outputPayload[name] = formattedResponse.headers[headerAnnotation.value];
+        } else if (Option.isSome(bodyAnnotation)) {
+          outputPayload[name] = getNested(
+            formattedResponse.body,
+            bodyAnnotation.value,
+          );
+        }
+      }
+
+      const result = yield* Schema.decodeUnknown(outputSchema)(outputPayload);
+
       yield* Effect.logDebug(
-        `AWS Request - ${meta.sdkId}:${meta.name} - parsed response: ${JSON.stringify(response)}`,
+        `AWS Request - ${meta.sdkId}:${meta.name} - parsed response: ${JSON.stringify(result)}`,
       );
-      return response;
+      return result;
     } else {
       const { _tag: errorTag, data: errorData } =
-        yield* Schema.decode(ErrorMiddleware)(responsePayload);
+        yield* ErrorMiddleware(rawResp);
       const errorClasses = [
         ...(operationSchema.ast.annotations[requestError] as Array<unknown>),
         ...COMMON_ERRORS,

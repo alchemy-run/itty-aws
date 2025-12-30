@@ -892,50 +892,24 @@ const generateClient = Effect.fn(function* (
           uri: "/",
         };
 
-        const [responseParser, requestParser, errorParser] = yield* Match.value(
-          protocol,
-        ).pipe(
+        const [format, errorParser] = yield* Match.value(protocol).pipe(
           Match.when("aws.protocols#restXml", () =>
-            Effect.succeed([
-              "FormatXMLRequest",
-              "FormatXMLResponse",
-              "FormatAwsXMLError",
-            ]),
+            Effect.succeed(["FormatXML", "FormatAwsXMLError"]),
           ),
           Match.when("aws.protocols#restJson1", () =>
-            Effect.succeed([
-              "FormatJSONRequest",
-              "FormatJSONResponse",
-              "FormatAwsRestJSONError",
-            ]),
+            Effect.succeed(["FormatJSON", "FormatAwsRestJSONError"]),
           ),
           Match.when("aws.protocols#awsJson1_0", () =>
-            Effect.succeed([
-              "FormatAwsJSON10Request",
-              "FormatJSONResponse",
-              "FormatAwsRestJSONError",
-            ]),
+            Effect.succeed(["FormatAwsJSON10", "FormatAwsRestJSONError"]),
           ),
           Match.when("aws.protocols#awsJson1_1", () =>
-            Effect.succeed([
-              "FormatAwsJSON11Request",
-              "FormatJSONResponse",
-              "FormatAwsRestJSONError",
-            ]),
+            Effect.succeed(["FormatAwsJSON11", "FormatAwsRestJSONError"]),
           ),
           Match.when("aws.protocols#awsQuery", () =>
-            Effect.succeed([
-              "FormatAwsQueryRequest",
-              "FormatAwsQueryResponse",
-              "FormatAwsXMLError",
-            ]),
+            Effect.succeed(["FormatAwsQuery", "FormatAwsXMLError"]),
           ),
           Match.when("aws.protocols#ec2Query", () =>
-            Effect.succeed([
-              "FormatAwsQueryRequest",
-              "FormatAwsEc2QueryResponse",
-              "FormatAwsXMLError",
-            ]),
+            Effect.succeed(["FormatAwsEc2Query", "FormatAwsXMLError"]),
           ),
           Match.orElse(() =>
             Effect.fail(
@@ -946,8 +920,7 @@ const generateClient = Effect.fn(function* (
           ),
         );
 
-        MutableHashSet.add(clientImports, responseParser);
-        MutableHashSet.add(clientImports, requestParser);
+        MutableHashSet.add(clientImports, format);
         MutableHashSet.add(clientImports, errorParser);
 
         // Build meta object, omitting uri if "/" and method if "POST"
@@ -970,7 +943,7 @@ const generateClient = Effect.fn(function* (
             (c) =>
               c +
               operationComment +
-              `export const ${formatName(operationShapeName, true)} = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation(${metaObject}, ${input}, ${output}, ${operationErrors}), ${responseParser}, ${requestParser}, ${errorParser});\n`,
+              `export const ${formatName(operationShapeName, true)} = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation(${metaObject}, ${input}, ${output}, ${operationErrors}), ${format}, ${errorParser});\n`,
           ),
         );
       }),
