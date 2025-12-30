@@ -4,7 +4,7 @@ import {
   Effect,
   LogLevel,
   Logger,
-  Schema,
+  Schema as S,
   Data,
   Context,
   Match,
@@ -123,7 +123,6 @@ function findShape(
 }
 
 const aliasMappings: Record<string, string> = {
-  Body: "_Body",
 };
 
 function formatName(shapeId: string, lowercase = false) {
@@ -137,7 +136,7 @@ function formatName(shapeId: string, lowercase = false) {
 }
 
 // Topological sort for schema definitions to ensure dependencies come before dependents
-// Handles cycles by treating cyclic schemas specially (they will use Schema.Class and Schema.suspend)
+// Handles cycles by treating cyclic schemas specially (they will use S.Class and S.suspend)
 function topologicalSortWithCycles(
   schemas: Array<{ name: string; definition: string; deps: string[] }>,
   cyclicSchemas: Set<string>,
@@ -154,7 +153,7 @@ function topologicalSortWithCycles(
     const schema = schemaMap.get(name);
     if (schema) {
       // For cyclic schemas, only require non-cyclic dependencies to be visited first
-      // Cyclic dependencies will use Schema.suspend so order among them doesn't matter
+      // Cyclic dependencies will use S.suspend so order among them doesn't matter
       const effectiveDeps = cyclicSchemas.has(name)
         ? schema.deps.filter((dep) => !cyclicSchemas.has(dep))
         : schema.deps;
@@ -337,7 +336,7 @@ const convertShapeToSchema: (
       Match.value(target).pipe(
         Match.when(
           (s) => s === "smithy.api#String",
-          () => Effect.succeed("Schema.String"),
+          () => Effect.succeed("S.String"),
         ),
         Match.when(
           (s) =>
@@ -346,30 +345,30 @@ const convertShapeToSchema: (
             s === "smithy.api#Long" ||
             s === "smithy.api#Float" ||
             s === "smithy.api#PrimitiveLong",
-          () => Effect.succeed("Schema.Number"),
+          () => Effect.succeed("S.Number"),
         ),
         Match.when(
           (s) =>
             s === "smithy.api#Boolean" || s === "smithy.api#PrimitiveBoolean",
-          () => Effect.succeed("Schema.Boolean"),
+          () => Effect.succeed("S.Boolean"),
         ),
         Match.when(
           (s) => s === "smithy.api#Timestamp",
-          () => Effect.succeed("Schema.Date"),
+          () => Effect.succeed("S.Date"),
         ),
         Match.when(
           (s) => s === "smithy.api#Blob",
-          () => Effect.succeed("StreamBody()"),
+          () => Effect.succeed("H.StreamBody()"),
         ),
         Match.when(
-          //todo(pear): should this be Schema.Never?
+          //todo(pear): should this be S.Never?
           (s) => s === "smithy.api#Unit",
-          () => Effect.succeed("Schema.Struct({})"),
+          () => Effect.succeed("S.Struct({})"),
         ),
         Match.when(
           (s) => s === "smithy.api#Document",
           // TODO(sam): should we add our own JsonValue schema to handle documents? What are Documents?
-          () => Effect.succeed("Schema.Any"),
+          () => Effect.succeed("S.Any"),
         ),
         Match.orElse(() =>
           Effect.fail(
@@ -389,27 +388,28 @@ const convertShapeToSchema: (
               s.type === "long" ||
               s.type === "double" ||
               s.type === "float",
-            () => Effect.succeed("Schema.Number"),
+            () => Effect.succeed("S.Number"),
           ),
           Match.when(
             (s) => s.type === "string",
-            () => Effect.succeed("Schema.String"),
+            () => Effect.succeed("S.String"),
           ),
           Match.when(
             (s) => s.type === "blob",
-            () => Effect.succeed("StreamBody()"),
+            () => Effect.succeed("H.StreamBody()"),
           ),
           Match.when(
             (s) => s.type === "boolean",
-            () => Effect.succeed("Schema.Boolean"),
+            () => Effect.succeed("S.Boolean"),
           ),
           Match.when(
             (s) => s.type === "timestamp",
-            () => Effect.succeed("Schema.Date"),
+            () => Effect.succeed("S.Date"),
           ),
           Match.when(
             (s) => s.type === "document",
-            () => Effect.succeed("Schema.JsonValue"),
+            // TODO(sam): should we add our own JsonValue schema to handle documents? What are Documents?
+            () => Effect.succeed("S.Any"),
           ),
           Match.when(
             (s) => s.type === "enum",
@@ -417,11 +417,11 @@ const convertShapeToSchema: (
               Effect.succeed(
                 Object.values(s.members).map(
                   ({ traits }) =>
-                    `Schema.Literal("${traits["smithy.api#enumValue"]}")`,
+                    `S.Literal("${traits["smithy.api#enumValue"]}")`,
                 ),
                 //todo(pear): figure our a more typesafe way of doing this
-                // ).pipe(Effect.map((members) => `Schema.Union(${members.join(", ")})`)),
-              ).pipe(Effect.map(() => `Schema.String`)),
+                // ).pipe(Effect.map((members) => `S.Union(${members.join(", ")})`)),
+              ).pipe(Effect.map(() => `S.String`)),
           ),
           Match.when(
             (s) => s.type === "intEnum",
@@ -429,11 +429,11 @@ const convertShapeToSchema: (
               Effect.succeed(
                 Object.values(s.members).map(
                   ({ traits }) =>
-                    `Schema.Literal("${traits["smithy.api#enumValue"]}")`,
+                    `S.Literal("${traits["smithy.api#enumValue"]}")`,
                 ),
                 //todo(pear): figure our a more typesafe way of doing this
-                // ).pipe(Effect.map((members) => `Schema.Union(${members.join(", ")})`)),
-              ).pipe(Effect.map(() => `Schema.Number`)),
+                // ).pipe(Effect.map((members) => `S.Union(${members.join(", ")})`)),
+              ).pipe(Effect.map(() => `S.Number`)),
           ),
           Match.when(
             (s) => s.type === "list",
@@ -444,14 +444,14 @@ const convertShapeToSchema: (
                 convertShapeToSchema(s.member.target).pipe(
                   Effect.flatMap(Deferred.await),
                   Effect.map((type) => {
-                    // Wrap cyclic references in Schema.suspend
+                    // Wrap cyclic references in S.suspend
                     let innerType = type;
                     if (sdkFile.cyclicSchemas.has(memberName)) {
                       innerType = sdkFile.cyclicClasses.has(memberName)
-                        ? `Schema.suspend((): Schema.Schema<${type}> => ${type})`
-                        : `Schema.suspend(() => ${type})`;
+                        ? `S.suspend((): S.Schema<${type}> => ${type})`
+                        : `S.suspend(() => ${type})`;
                     }
-                    return `export const ${schemaName} = Schema.Array(${innerType});`;
+                    return `export const ${schemaName} = S.Array(${innerType});`;
                   }),
                 ),
                 [memberName],
@@ -476,34 +476,34 @@ const convertShapeToSchema: (
                       Effect.map((baseSchema) => {
                         let schema = baseSchema;
 
-                        // Wrap cyclic references in Schema.suspend (only if current schema is also cyclic)
+                        // Wrap cyclic references in S.suspend (only if current schema is also cyclic)
                         if (isCurrentCyclic && sdkFile.cyclicSchemas.has(memberTargetName)) {
                           if (sdkFile.cyclicClasses.has(memberTargetName)) {
-                            schema = `Schema.suspend((): Schema.Schema<${schema}> => ${schema})`;
+                            schema = `S.suspend((): S.Schema<${schema}> => ${schema})`;
                           } else {
-                            schema = `Schema.suspend(() => ${schema})`;
+                            schema = `S.suspend(() => ${schema})`;
                           }
                         }
 
                         if (member.traits?.["smithy.api#httpHeader"] != null) {
-                          if (baseSchema === "Schema.String") {
-                            schema = `Header("${member.traits?.["smithy.api#httpHeader"]}")`;
+                          if (baseSchema === "S.String") {
+                            schema = `H.Header("${member.traits?.["smithy.api#httpHeader"]}")`;
                           } else {
-                            schema = `Header("${member.traits?.["smithy.api#httpHeader"]}", ${schema})`;
+                            schema = `H.Header("${member.traits?.["smithy.api#httpHeader"]}", ${schema})`;
                           }
                         }
                         if (member.traits?.["smithy.api#httpPayload"] != null) {
-                          schema = `Body("${member.traits?.["smithy.api#xmlName"]}", ${schema})`;
+                          schema = `H.Body("${member.traits?.["smithy.api#xmlName"]}", ${schema})`;
                         }
                         if (
                           member.traits?.["smithy.api#httpLabel"] != null &&
                           member.traits?.["smithy.rules#contextParam"] != null
                         ) {
-                          schema = `Path("${(member.traits?.["smithy.rules#contextParam"] as { name: string })?.name}", ${schema})`;
+                          schema = `H.Path("${(member.traits?.["smithy.rules#contextParam"] as { name: string })?.name}", ${schema})`;
                         }
 
                         if (member.traits?.["smithy.api#required"] == null) {
-                          schema = `Schema.optional(${schema})`;
+                          schema = `S.optional(${schema})`;
                         }
 
                         return `${memberName}: ${schema}`;
@@ -514,8 +514,8 @@ const convertShapeToSchema: (
                 ).pipe(
                   Effect.map((members) => {
                     const fields = `{${members.join(", ")}}`;
-                    // Always use Schema.Class for structs
-                    return `export class ${currentSchemaName} extends Schema.Class<${currentSchemaName}>("${currentSchemaName}")(${fields}) {}`;
+                    // Always use S.Class for structs
+                    return `export class ${currentSchemaName} extends S.Class<${currentSchemaName}>("${currentSchemaName}")(${fields}) {}`;
                   }),
                 ),
                 memberTargets,
@@ -538,12 +538,12 @@ const convertShapeToSchema: (
                     return convertShapeToSchema(member.target).pipe(
                       Effect.flatMap(Deferred.await),
                       Effect.map((schema) => {
-                        // Wrap cyclic references in Schema.suspend
+                        // Wrap cyclic references in S.suspend
                         if (isCurrentCyclic && sdkFile.cyclicSchemas.has(memberTargetName)) {
                           if (sdkFile.cyclicClasses.has(memberTargetName)) {
-                            return `Schema.suspend((): Schema.Schema<${schema}> => ${schema})`;
+                            return `S.suspend((): S.Schema<${schema}> => ${schema})`;
                           } else {
-                            return `Schema.suspend(() => ${schema})`;
+                            return `S.suspend(() => ${schema})`;
                           }
                         }
                         return schema;
@@ -553,7 +553,7 @@ const convertShapeToSchema: (
                   { concurrency: "unbounded" },
                 ).pipe(
                   Effect.map(
-                    (members) => `export const ${schemaName} = Schema.Union(${members.join(", ")});`,
+                    (members) => `export const ${schemaName} = S.Union(${members.join(", ")});`,
                   ),
                 ),
                 memberTargets,
@@ -578,7 +578,7 @@ const convertShapeToSchema: (
                 ).pipe(
                   Effect.map(
                     ([keySchema, valueSchema]) =>
-                      `export const ${schemaName} = Schema.Record({key: ${keySchema}, value: ${valueSchema}});`,
+                      `export const ${schemaName} = S.Record({key: ${keySchema}, value: ${valueSchema}});`,
                   ),
                 ),
                 [formatName(s.key.target), formatName(s.value.target)],
@@ -611,7 +611,7 @@ const addError = Effect.fn(function* (error: { name: string; schema: string }) {
       ...errors,
       {
         name: error.name,
-        definition: `export class ${error.name}Error extends Schema.TaggedError<${error.name}Error>()("${error.name}", ${error.schema}.fields) {};`,
+        definition: `export class ${error.name}Error extends S.TaggedError<${error.name}Error>()("${error.name}", ${error.schema}.fields) {};`,
       },
     ]);
   }
@@ -628,7 +628,7 @@ const generateClient = Effect.fn(function* (
 
   const model = yield* fs
     .readFileString(modelPath)
-    .pipe(Effect.flatMap(Schema.decodeUnknown(Schema.parseJson(SmithyModel))));
+    .pipe(Effect.flatMap(S.decodeUnknown(S.parseJson(SmithyModel))));
 
   const client = Effect.gen(function* () {
     const [serviceShapeName, serviceShape] = yield* findServiceShape;
@@ -721,14 +721,14 @@ const generateClient = Effect.fn(function* (
             Effect.succeed([
               "FormatAwsQueryRequest",
               "FormatAwsQueryResponse",
-              "FormatAWSXMLError",
+              "FormatAwsXMLError",
             ]),
           ),
           Match.when("aws.protocols#ec2Query", () =>
             Effect.succeed([
               "FormatAwsQueryRequest",
               "FormatAwsEc2QueryResponse",
-              "FormatAWSXMLError",
+              "FormatAwsXMLError",
             ]),
           ),
           Match.orElse(() =>
@@ -748,7 +748,7 @@ const generateClient = Effect.fn(function* (
           Ref.update(
             (c) =>
               c +
-              `export const ${formatName(operationShapeName, true)} = /*#__PURE__*/ makeOperation(() => Operation({ version: "${serviceShape.version}", uri: "${httpTrait["uri"]}", method: "${httpTrait["method"]}", sdkId: "${serviceShape.traits["aws.api#service"].sdkId}", sigV4ServiceName: ${serviceShape.traits["aws.auth#sigv4"]?.name == null ? "null" : `"${serviceShape.traits["aws.auth#sigv4"]?.name}"`}, name: "${operationName}" }, ${input}, ${output}, ${operationErrors}), ${responseParser}, ${requestParser}, ${errorParser});\n`,
+              `export const ${formatName(operationShapeName, true)} = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "${serviceShape.version}", uri: "${httpTrait["uri"]}", method: "${httpTrait["method"]}", sdkId: "${serviceShape.traits["aws.api#service"].sdkId}", sigV4ServiceName: ${serviceShape.traits["aws.auth#sigv4"]?.name == null ? "null" : `"${serviceShape.traits["aws.auth#sigv4"]?.name}"`}, name: "${operationName}" }, ${input}, ${output}, ${operationErrors}), ${responseParser}, ${requestParser}, ${errorParser});\n`,
           ),
         );
       }),
@@ -771,9 +771,9 @@ const generateClient = Effect.fn(function* (
     //todo(pear): optimize imports
     const clientImportsArray = Array.from(clientImports);
     const imports = dedent`
-      import * as Schema from "effect/Schema"
+      import * as S from "effect/Schema"
       import { ${clientImportsArray.join(",")}${clientImportsArray.length > 0 ? "," : ""} makeOperation } from "../client.ts";
-      import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";`;
+      import * as H from "../schema-helpers.ts";`;
 
     const fileContents = `${imports}\n\n//# Schemas\n${schemaDefinitions}\n\n//# Errors\n${errorDefinitions}\n\n//# Operations\n${operations}`;
 

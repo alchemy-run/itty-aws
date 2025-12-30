@@ -1,46 +1,46 @@
-import * as Schema from "effect/Schema"
+import * as S from "effect/Schema"
 import { FormatAwsJSON10Request,FormatJSONResponse,FormatAwsRestJSONError, makeOperation } from "../client.ts";
-import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
+import * as H from "../schema-helpers.ts";
 
 //# Schemas
-export class GetAccountPlanStateRequest extends Schema.Class<GetAccountPlanStateRequest>("GetAccountPlanStateRequest")({}) {}
-export const FilterActivityStatuses = Schema.Array(Schema.String);
-export class GetAccountActivityRequest extends Schema.Class<GetAccountActivityRequest>("GetAccountActivityRequest")({activityId: Schema.String, languageCode: Schema.optional(Schema.String)}) {}
-export class ListAccountActivitiesRequest extends Schema.Class<ListAccountActivitiesRequest>("ListAccountActivitiesRequest")({filterActivityStatuses: Schema.optional(FilterActivityStatuses), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), languageCode: Schema.optional(Schema.String)}) {}
-export class UpgradeAccountPlanRequest extends Schema.Class<UpgradeAccountPlanRequest>("UpgradeAccountPlanRequest")({accountPlanType: Schema.String}) {}
-export const Expressions = Schema.Array(Schema.suspend((): Schema.Schema<Expression> => Expression));
-export class MonetaryAmount extends Schema.Class<MonetaryAmount>("MonetaryAmount")({amount: Schema.Number, unit: Schema.String}) {}
-export const Values = Schema.Array(Schema.String);
-export const MatchOptions = Schema.Array(Schema.String);
-export class GetAccountPlanStateResponse extends Schema.Class<GetAccountPlanStateResponse>("GetAccountPlanStateResponse")({accountId: Schema.String, accountPlanType: Schema.String, accountPlanStatus: Schema.String, accountPlanRemainingCredits: Schema.optional(MonetaryAmount), accountPlanExpirationDate: Schema.optional(Schema.Date)}) {}
-export class UpgradeAccountPlanResponse extends Schema.Class<UpgradeAccountPlanResponse>("UpgradeAccountPlanResponse")({accountId: Schema.String, accountPlanType: Schema.String, accountPlanStatus: Schema.String}) {}
-export class DimensionValues extends Schema.Class<DimensionValues>("DimensionValues")({Key: Schema.String, Values: Values, MatchOptions: MatchOptions}) {}
-export const ActivityReward = Schema.Union(MonetaryAmount);
-export class Expression extends Schema.Class<Expression>("Expression")({Or: Schema.optional(Schema.suspend(() => Expressions)), And: Schema.optional(Schema.suspend(() => Expressions)), Not: Schema.optional(Schema.suspend((): Schema.Schema<Expression> => Expression)), Dimensions: Schema.optional(DimensionValues)}) {}
-export class ActivitySummary extends Schema.Class<ActivitySummary>("ActivitySummary")({activityId: Schema.String, title: Schema.String, reward: ActivityReward, status: Schema.String}) {}
-export const Activities = Schema.Array(ActivitySummary);
-export class GetAccountActivityResponse extends Schema.Class<GetAccountActivityResponse>("GetAccountActivityResponse")({activityId: Schema.String, title: Schema.String, description: Schema.String, status: Schema.String, instructionsUrl: Schema.String, reward: ActivityReward, estimatedTimeToCompleteInMinutes: Schema.optional(Schema.Number), expiresAt: Schema.optional(Schema.Date), startedAt: Schema.optional(Schema.Date), completedAt: Schema.optional(Schema.Date)}) {}
-export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({message: Schema.String}) {}
-export class GetFreeTierUsageRequest extends Schema.Class<GetFreeTierUsageRequest>("GetFreeTierUsageRequest")({filter: Schema.optional(Expression), maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
-export class ListAccountActivitiesResponse extends Schema.Class<ListAccountActivitiesResponse>("ListAccountActivitiesResponse")({activities: Activities, nextToken: Schema.optional(Schema.String)}) {}
-export class InternalServerException extends Schema.Class<InternalServerException>("InternalServerException")({message: Schema.String}) {}
-export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({message: Schema.String}) {}
-export class ThrottlingException extends Schema.Class<ThrottlingException>("ThrottlingException")({message: Schema.String}) {}
-export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({message: Schema.String}) {}
-export class FreeTierUsage extends Schema.Class<FreeTierUsage>("FreeTierUsage")({service: Schema.optional(Schema.String), operation: Schema.optional(Schema.String), usageType: Schema.optional(Schema.String), region: Schema.optional(Schema.String), actualUsageAmount: Schema.optional(Schema.Number), forecastedUsageAmount: Schema.optional(Schema.Number), limit: Schema.optional(Schema.Number), unit: Schema.optional(Schema.String), description: Schema.optional(Schema.String), freeTierType: Schema.optional(Schema.String)}) {}
-export const FreeTierUsages = Schema.Array(FreeTierUsage);
-export class GetFreeTierUsageResponse extends Schema.Class<GetFreeTierUsageResponse>("GetFreeTierUsageResponse")({freeTierUsages: FreeTierUsages, nextToken: Schema.optional(Schema.String)}) {}
+export class GetAccountPlanStateRequest extends S.Class<GetAccountPlanStateRequest>("GetAccountPlanStateRequest")({}) {}
+export const FilterActivityStatuses = S.Array(S.String);
+export class GetAccountActivityRequest extends S.Class<GetAccountActivityRequest>("GetAccountActivityRequest")({activityId: S.String, languageCode: S.optional(S.String)}) {}
+export class ListAccountActivitiesRequest extends S.Class<ListAccountActivitiesRequest>("ListAccountActivitiesRequest")({filterActivityStatuses: S.optional(FilterActivityStatuses), nextToken: S.optional(S.String), maxResults: S.optional(S.Number), languageCode: S.optional(S.String)}) {}
+export class UpgradeAccountPlanRequest extends S.Class<UpgradeAccountPlanRequest>("UpgradeAccountPlanRequest")({accountPlanType: S.String}) {}
+export const Expressions = S.Array(S.suspend((): S.Schema<Expression> => Expression));
+export class MonetaryAmount extends S.Class<MonetaryAmount>("MonetaryAmount")({amount: S.Number, unit: S.String}) {}
+export const Values = S.Array(S.String);
+export const MatchOptions = S.Array(S.String);
+export class GetAccountPlanStateResponse extends S.Class<GetAccountPlanStateResponse>("GetAccountPlanStateResponse")({accountId: S.String, accountPlanType: S.String, accountPlanStatus: S.String, accountPlanRemainingCredits: S.optional(MonetaryAmount), accountPlanExpirationDate: S.optional(S.Date)}) {}
+export class UpgradeAccountPlanResponse extends S.Class<UpgradeAccountPlanResponse>("UpgradeAccountPlanResponse")({accountId: S.String, accountPlanType: S.String, accountPlanStatus: S.String}) {}
+export class DimensionValues extends S.Class<DimensionValues>("DimensionValues")({Key: S.String, Values: Values, MatchOptions: MatchOptions}) {}
+export const ActivityReward = S.Union(MonetaryAmount);
+export class Expression extends S.Class<Expression>("Expression")({Or: S.optional(S.suspend(() => Expressions)), And: S.optional(S.suspend(() => Expressions)), Not: S.optional(S.suspend((): S.Schema<Expression> => Expression)), Dimensions: S.optional(DimensionValues)}) {}
+export class ActivitySummary extends S.Class<ActivitySummary>("ActivitySummary")({activityId: S.String, title: S.String, reward: ActivityReward, status: S.String}) {}
+export const Activities = S.Array(ActivitySummary);
+export class GetAccountActivityResponse extends S.Class<GetAccountActivityResponse>("GetAccountActivityResponse")({activityId: S.String, title: S.String, description: S.String, status: S.String, instructionsUrl: S.String, reward: ActivityReward, estimatedTimeToCompleteInMinutes: S.optional(S.Number), expiresAt: S.optional(S.Date), startedAt: S.optional(S.Date), completedAt: S.optional(S.Date)}) {}
+export class AccessDeniedException extends S.Class<AccessDeniedException>("AccessDeniedException")({message: S.String}) {}
+export class GetFreeTierUsageRequest extends S.Class<GetFreeTierUsageRequest>("GetFreeTierUsageRequest")({filter: S.optional(Expression), maxResults: S.optional(S.Number), nextToken: S.optional(S.String)}) {}
+export class ListAccountActivitiesResponse extends S.Class<ListAccountActivitiesResponse>("ListAccountActivitiesResponse")({activities: Activities, nextToken: S.optional(S.String)}) {}
+export class InternalServerException extends S.Class<InternalServerException>("InternalServerException")({message: S.String}) {}
+export class ResourceNotFoundException extends S.Class<ResourceNotFoundException>("ResourceNotFoundException")({message: S.String}) {}
+export class ThrottlingException extends S.Class<ThrottlingException>("ThrottlingException")({message: S.String}) {}
+export class ValidationException extends S.Class<ValidationException>("ValidationException")({message: S.String}) {}
+export class FreeTierUsage extends S.Class<FreeTierUsage>("FreeTierUsage")({service: S.optional(S.String), operation: S.optional(S.String), usageType: S.optional(S.String), region: S.optional(S.String), actualUsageAmount: S.optional(S.Number), forecastedUsageAmount: S.optional(S.Number), limit: S.optional(S.Number), unit: S.optional(S.String), description: S.optional(S.String), freeTierType: S.optional(S.String)}) {}
+export const FreeTierUsages = S.Array(FreeTierUsage);
+export class GetFreeTierUsageResponse extends S.Class<GetFreeTierUsageResponse>("GetFreeTierUsageResponse")({freeTierUsages: FreeTierUsages, nextToken: S.optional(S.String)}) {}
 
 //# Errors
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
-export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException.fields) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
-export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
+export class AccessDeniedExceptionError extends S.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class InternalServerExceptionError extends S.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException.fields) {};
+export class ResourceNotFoundExceptionError extends S.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ThrottlingExceptionError extends S.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
+export class ValidationExceptionError extends S.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
 
 //# Operations
-export const upgradeAccountPlan = /*#__PURE__*/ makeOperation(() => Operation({ version: "2023-09-07", uri: "/", method: "POST", sdkId: "FreeTier", sigV4ServiceName: "freetier", name: "AWSFreeTierService.UpgradeAccountPlan" }, UpgradeAccountPlanRequest, UpgradeAccountPlanResponse, [AccessDeniedExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const getAccountActivity = /*#__PURE__*/ makeOperation(() => Operation({ version: "2023-09-07", uri: "/", method: "POST", sdkId: "FreeTier", sigV4ServiceName: "freetier", name: "AWSFreeTierService.GetAccountActivity" }, GetAccountActivityRequest, GetAccountActivityResponse, [InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const getAccountPlanState = /*#__PURE__*/ makeOperation(() => Operation({ version: "2023-09-07", uri: "/", method: "POST", sdkId: "FreeTier", sigV4ServiceName: "freetier", name: "AWSFreeTierService.GetAccountPlanState" }, GetAccountPlanStateRequest, GetAccountPlanStateResponse, [AccessDeniedExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listAccountActivities = /*#__PURE__*/ makeOperation(() => Operation({ version: "2023-09-07", uri: "/", method: "POST", sdkId: "FreeTier", sigV4ServiceName: "freetier", name: "AWSFreeTierService.ListAccountActivities" }, ListAccountActivitiesRequest, ListAccountActivitiesResponse, [InternalServerExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const getFreeTierUsage = /*#__PURE__*/ makeOperation(() => Operation({ version: "2023-09-07", uri: "/", method: "POST", sdkId: "FreeTier", sigV4ServiceName: "freetier", name: "AWSFreeTierService.GetFreeTierUsage" }, GetFreeTierUsageRequest, GetFreeTierUsageResponse, [InternalServerExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const upgradeAccountPlan = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-09-07", uri: "/", method: "POST", sdkId: "FreeTier", sigV4ServiceName: "freetier", name: "AWSFreeTierService.UpgradeAccountPlan" }, UpgradeAccountPlanRequest, UpgradeAccountPlanResponse, [AccessDeniedExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const getAccountActivity = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-09-07", uri: "/", method: "POST", sdkId: "FreeTier", sigV4ServiceName: "freetier", name: "AWSFreeTierService.GetAccountActivity" }, GetAccountActivityRequest, GetAccountActivityResponse, [InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const getAccountPlanState = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-09-07", uri: "/", method: "POST", sdkId: "FreeTier", sigV4ServiceName: "freetier", name: "AWSFreeTierService.GetAccountPlanState" }, GetAccountPlanStateRequest, GetAccountPlanStateResponse, [AccessDeniedExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const listAccountActivities = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-09-07", uri: "/", method: "POST", sdkId: "FreeTier", sigV4ServiceName: "freetier", name: "AWSFreeTierService.ListAccountActivities" }, ListAccountActivitiesRequest, ListAccountActivitiesResponse, [InternalServerExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const getFreeTierUsage = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-09-07", uri: "/", method: "POST", sdkId: "FreeTier", sigV4ServiceName: "freetier", name: "AWSFreeTierService.GetFreeTierUsage" }, GetFreeTierUsageRequest, GetFreeTierUsageResponse, [InternalServerExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);

@@ -1,23 +1,23 @@
-import * as Schema from "effect/Schema"
+import * as S from "effect/Schema"
 import { FormatAwsJSON11Request,FormatJSONResponse,FormatAwsRestJSONError, makeOperation } from "../client.ts";
-import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
+import * as H from "../schema-helpers.ts";
 
 //# Schemas
-export const FilterValueList = Schema.Array(Schema.String);
-export const GetEntitlementFilters = Schema.Record({key: Schema.String, value: FilterValueList});
-export class GetEntitlementsRequest extends Schema.Class<GetEntitlementsRequest>("GetEntitlementsRequest")({ProductCode: Schema.String, Filter: Schema.optional(GetEntitlementFilters), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
-export class EntitlementValue extends Schema.Class<EntitlementValue>("EntitlementValue")({IntegerValue: Schema.optional(Schema.Number), DoubleValue: Schema.optional(Schema.Number), BooleanValue: Schema.optional(Schema.Boolean), StringValue: Schema.optional(Schema.String)}) {}
-export class Entitlement extends Schema.Class<Entitlement>("Entitlement")({ProductCode: Schema.optional(Schema.String), Dimension: Schema.optional(Schema.String), CustomerIdentifier: Schema.optional(Schema.String), CustomerAWSAccountId: Schema.optional(Schema.String), Value: Schema.optional(EntitlementValue), ExpirationDate: Schema.optional(Schema.Date)}) {}
-export const EntitlementList = Schema.Array(Entitlement);
-export class GetEntitlementsResult extends Schema.Class<GetEntitlementsResult>("GetEntitlementsResult")({Entitlements: Schema.optional(EntitlementList), NextToken: Schema.optional(Schema.String)}) {}
-export class InternalServiceErrorException extends Schema.Class<InternalServiceErrorException>("InternalServiceErrorException")({message: Schema.optional(Schema.String)}) {}
-export class InvalidParameterException extends Schema.Class<InvalidParameterException>("InvalidParameterException")({message: Schema.optional(Schema.String)}) {}
-export class ThrottlingException extends Schema.Class<ThrottlingException>("ThrottlingException")({message: Schema.optional(Schema.String)}) {}
+export const FilterValueList = S.Array(S.String);
+export const GetEntitlementFilters = S.Record({key: S.String, value: FilterValueList});
+export class GetEntitlementsRequest extends S.Class<GetEntitlementsRequest>("GetEntitlementsRequest")({ProductCode: S.String, Filter: S.optional(GetEntitlementFilters), NextToken: S.optional(S.String), MaxResults: S.optional(S.Number)}) {}
+export class EntitlementValue extends S.Class<EntitlementValue>("EntitlementValue")({IntegerValue: S.optional(S.Number), DoubleValue: S.optional(S.Number), BooleanValue: S.optional(S.Boolean), StringValue: S.optional(S.String)}) {}
+export class Entitlement extends S.Class<Entitlement>("Entitlement")({ProductCode: S.optional(S.String), Dimension: S.optional(S.String), CustomerIdentifier: S.optional(S.String), CustomerAWSAccountId: S.optional(S.String), Value: S.optional(EntitlementValue), ExpirationDate: S.optional(S.Date)}) {}
+export const EntitlementList = S.Array(Entitlement);
+export class GetEntitlementsResult extends S.Class<GetEntitlementsResult>("GetEntitlementsResult")({Entitlements: S.optional(EntitlementList), NextToken: S.optional(S.String)}) {}
+export class InternalServiceErrorException extends S.Class<InternalServiceErrorException>("InternalServiceErrorException")({message: S.optional(S.String)}) {}
+export class InvalidParameterException extends S.Class<InvalidParameterException>("InvalidParameterException")({message: S.optional(S.String)}) {}
+export class ThrottlingException extends S.Class<ThrottlingException>("ThrottlingException")({message: S.optional(S.String)}) {}
 
 //# Errors
-export class InternalServiceErrorExceptionError extends Schema.TaggedError<InternalServiceErrorExceptionError>()("InternalServiceErrorException", InternalServiceErrorException.fields) {};
-export class InvalidParameterExceptionError extends Schema.TaggedError<InvalidParameterExceptionError>()("InvalidParameterException", InvalidParameterException.fields) {};
-export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
+export class InternalServiceErrorExceptionError extends S.TaggedError<InternalServiceErrorExceptionError>()("InternalServiceErrorException", InternalServiceErrorException.fields) {};
+export class InvalidParameterExceptionError extends S.TaggedError<InvalidParameterExceptionError>()("InvalidParameterException", InvalidParameterException.fields) {};
+export class ThrottlingExceptionError extends S.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
 
 //# Operations
-export const getEntitlements = /*#__PURE__*/ makeOperation(() => Operation({ version: "2017-01-11", uri: "/", method: "POST", sdkId: "Marketplace Entitlement Service", sigV4ServiceName: "aws-marketplace", name: "AWSMPEntitlementService.GetEntitlements" }, GetEntitlementsRequest, GetEntitlementsResult, [InternalServiceErrorExceptionError, InvalidParameterExceptionError, ThrottlingExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const getEntitlements = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-11", uri: "/", method: "POST", sdkId: "Marketplace Entitlement Service", sigV4ServiceName: "aws-marketplace", name: "AWSMPEntitlementService.GetEntitlements" }, GetEntitlementsRequest, GetEntitlementsResult, [InternalServiceErrorExceptionError, InvalidParameterExceptionError, ThrottlingExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

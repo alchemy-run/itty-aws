@@ -1,30 +1,30 @@
-import * as Schema from "effect/Schema"
+import * as S from "effect/Schema"
 import { FormatJSONRequest,FormatJSONResponse,FormatAwsRestJSONError, makeOperation } from "../client.ts";
-import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
+import * as H from "../schema-helpers.ts";
 
 //# Schemas
-export const ControlArnFilterList = Schema.Array(Schema.String);
-export const CommonControlArnFilterList = Schema.Array(Schema.String);
-export const MappingTypeFilterList = Schema.Array(Schema.String);
-export class ControlMappingFilter extends Schema.Class<ControlMappingFilter>("ControlMappingFilter")({ControlArns: Schema.optional(ControlArnFilterList), CommonControlArns: Schema.optional(CommonControlArnFilterList), MappingTypes: Schema.optional(MappingTypeFilterList)}) {}
-export class ListControlMappingsRequest extends Schema.Class<ListControlMappingsRequest>("ListControlMappingsRequest")({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), Filter: Schema.optional(ControlMappingFilter)}) {}
-export class FrameworkMappingDetails extends Schema.Class<FrameworkMappingDetails>("FrameworkMappingDetails")({Name: Schema.String, Item: Schema.String}) {}
-export class CommonControlMappingDetails extends Schema.Class<CommonControlMappingDetails>("CommonControlMappingDetails")({CommonControlArn: Schema.String}) {}
-export class RelatedControlMappingDetails extends Schema.Class<RelatedControlMappingDetails>("RelatedControlMappingDetails")({ControlArn: Schema.optional(Schema.String), RelationType: Schema.String}) {}
-export const Mapping = Schema.Union(FrameworkMappingDetails, CommonControlMappingDetails, RelatedControlMappingDetails);
-export class ControlMapping extends Schema.Class<ControlMapping>("ControlMapping")({ControlArn: Schema.String, MappingType: Schema.String, Mapping: Mapping}) {}
-export const ControlMappings = Schema.Array(ControlMapping);
-export class ListControlMappingsResponse extends Schema.Class<ListControlMappingsResponse>("ListControlMappingsResponse")({ControlMappings: ControlMappings, NextToken: Schema.optional(Schema.String)}) {}
-export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({Message: Schema.optional(Schema.String)}) {}
-export class InternalServerException extends Schema.Class<InternalServerException>("InternalServerException")({Message: Schema.optional(Schema.String)}) {}
-export class ThrottlingException extends Schema.Class<ThrottlingException>("ThrottlingException")({Message: Schema.optional(Schema.String)}) {}
-export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({Message: Schema.optional(Schema.String)}) {}
+export const ControlArnFilterList = S.Array(S.String);
+export const CommonControlArnFilterList = S.Array(S.String);
+export const MappingTypeFilterList = S.Array(S.String);
+export class ControlMappingFilter extends S.Class<ControlMappingFilter>("ControlMappingFilter")({ControlArns: S.optional(ControlArnFilterList), CommonControlArns: S.optional(CommonControlArnFilterList), MappingTypes: S.optional(MappingTypeFilterList)}) {}
+export class ListControlMappingsRequest extends S.Class<ListControlMappingsRequest>("ListControlMappingsRequest")({NextToken: S.optional(S.String), MaxResults: S.optional(S.Number), Filter: S.optional(ControlMappingFilter)}) {}
+export class FrameworkMappingDetails extends S.Class<FrameworkMappingDetails>("FrameworkMappingDetails")({Name: S.String, Item: S.String}) {}
+export class CommonControlMappingDetails extends S.Class<CommonControlMappingDetails>("CommonControlMappingDetails")({CommonControlArn: S.String}) {}
+export class RelatedControlMappingDetails extends S.Class<RelatedControlMappingDetails>("RelatedControlMappingDetails")({ControlArn: S.optional(S.String), RelationType: S.String}) {}
+export const Mapping = S.Union(FrameworkMappingDetails, CommonControlMappingDetails, RelatedControlMappingDetails);
+export class ControlMapping extends S.Class<ControlMapping>("ControlMapping")({ControlArn: S.String, MappingType: S.String, Mapping: Mapping}) {}
+export const ControlMappings = S.Array(ControlMapping);
+export class ListControlMappingsResponse extends S.Class<ListControlMappingsResponse>("ListControlMappingsResponse")({ControlMappings: ControlMappings, NextToken: S.optional(S.String)}) {}
+export class AccessDeniedException extends S.Class<AccessDeniedException>("AccessDeniedException")({Message: S.optional(S.String)}) {}
+export class InternalServerException extends S.Class<InternalServerException>("InternalServerException")({Message: S.optional(S.String)}) {}
+export class ThrottlingException extends S.Class<ThrottlingException>("ThrottlingException")({Message: S.optional(S.String)}) {}
+export class ValidationException extends S.Class<ValidationException>("ValidationException")({Message: S.optional(S.String)}) {}
 
 //# Errors
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
-export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException.fields) {};
-export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
+export class AccessDeniedExceptionError extends S.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class InternalServerExceptionError extends S.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException.fields) {};
+export class ThrottlingExceptionError extends S.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
+export class ValidationExceptionError extends S.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
 
 //# Operations
-export const listControlMappings = /*#__PURE__*/ makeOperation(() => Operation({ version: "2018-05-10", uri: "/list-control-mappings", method: "POST", sdkId: "ControlCatalog", sigV4ServiceName: "controlcatalog", name: "ControlCatalog.ListControlMappings" }, ListControlMappingsRequest, ListControlMappingsResponse, [AccessDeniedExceptionError, InternalServerExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const listControlMappings = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/list-control-mappings", method: "POST", sdkId: "ControlCatalog", sigV4ServiceName: "controlcatalog", name: "ControlCatalog.ListControlMappings" }, ListControlMappingsRequest, ListControlMappingsResponse, [AccessDeniedExceptionError, InternalServerExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

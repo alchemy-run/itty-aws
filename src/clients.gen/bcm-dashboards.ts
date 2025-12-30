@@ -1,79 +1,79 @@
-import * as Schema from "effect/Schema"
+import * as S from "effect/Schema"
 import { FormatAwsJSON10Request,FormatJSONResponse,FormatAwsRestJSONError, makeOperation } from "../client.ts";
-import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
+import * as H from "../schema-helpers.ts";
 
 //# Schemas
-export const ResourceTagKeyList = Schema.Array(Schema.String);
-export class DeleteDashboardRequest extends Schema.Class<DeleteDashboardRequest>("DeleteDashboardRequest")({arn: Schema.String}) {}
-export class GetDashboardRequest extends Schema.Class<GetDashboardRequest>("GetDashboardRequest")({arn: Schema.String}) {}
-export class GetResourcePolicyRequest extends Schema.Class<GetResourcePolicyRequest>("GetResourcePolicyRequest")({resourceArn: Schema.String}) {}
-export class ListDashboardsRequest extends Schema.Class<ListDashboardsRequest>("ListDashboardsRequest")({maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
-export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({resourceArn: Schema.String}) {}
-export class ResourceTag extends Schema.Class<ResourceTag>("ResourceTag")({key: Schema.String, value: Schema.String}) {}
-export const ResourceTagList = Schema.Array(ResourceTag);
-export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({resourceArn: Schema.String, resourceTags: ResourceTagList}) {}
-export class TagResourceResponse extends Schema.Class<TagResourceResponse>("TagResourceResponse")({}) {}
-export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({resourceArn: Schema.String, resourceTagKeys: ResourceTagKeyList}) {}
-export class UntagResourceResponse extends Schema.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
-export const MetricNames = Schema.Array(Schema.String);
-export class DateTimeValue extends Schema.Class<DateTimeValue>("DateTimeValue")({type: Schema.String, value: Schema.String}) {}
-export class DateTimeRange extends Schema.Class<DateTimeRange>("DateTimeRange")({startTime: DateTimeValue, endTime: DateTimeValue}) {}
-export class GroupDefinition extends Schema.Class<GroupDefinition>("GroupDefinition")({key: Schema.String, type: Schema.optional(Schema.String)}) {}
-export const GroupDefinitions = Schema.Array(GroupDefinition);
-export const StringList = Schema.Array(Schema.String);
-export const MatchOptions = Schema.Array(Schema.String);
-export class DimensionValues extends Schema.Class<DimensionValues>("DimensionValues")({key: Schema.String, values: StringList, matchOptions: Schema.optional(MatchOptions)}) {}
-export class TagValues extends Schema.Class<TagValues>("TagValues")({key: Schema.optional(Schema.String), values: Schema.optional(StringList), matchOptions: Schema.optional(MatchOptions)}) {}
-export class CostCategoryValues extends Schema.Class<CostCategoryValues>("CostCategoryValues")({key: Schema.optional(Schema.String), values: Schema.optional(StringList), matchOptions: Schema.optional(MatchOptions)}) {}
-export class Expression extends Schema.Class<Expression>("Expression")({or: Schema.optional(Schema.suspend(() => Expressions)), and: Schema.optional(Schema.suspend(() => Expressions)), not: Schema.optional(Schema.suspend((): Schema.Schema<Expression> => Expression)), dimensions: Schema.optional(DimensionValues), tags: Schema.optional(TagValues), costCategories: Schema.optional(CostCategoryValues)}) {}
-export class CostAndUsageQuery extends Schema.Class<CostAndUsageQuery>("CostAndUsageQuery")({metrics: MetricNames, timeRange: DateTimeRange, granularity: Schema.String, groupBy: Schema.optional(GroupDefinitions), filter: Schema.optional(Expression)}) {}
-export class SavingsPlansCoverageQuery extends Schema.Class<SavingsPlansCoverageQuery>("SavingsPlansCoverageQuery")({timeRange: DateTimeRange, metrics: Schema.optional(MetricNames), granularity: Schema.optional(Schema.String), groupBy: Schema.optional(GroupDefinitions), filter: Schema.optional(Expression)}) {}
-export class SavingsPlansUtilizationQuery extends Schema.Class<SavingsPlansUtilizationQuery>("SavingsPlansUtilizationQuery")({timeRange: DateTimeRange, granularity: Schema.optional(Schema.String), filter: Schema.optional(Expression)}) {}
-export class ReservationCoverageQuery extends Schema.Class<ReservationCoverageQuery>("ReservationCoverageQuery")({timeRange: DateTimeRange, groupBy: Schema.optional(GroupDefinitions), granularity: Schema.optional(Schema.String), filter: Schema.optional(Expression), metrics: Schema.optional(MetricNames)}) {}
-export class ReservationUtilizationQuery extends Schema.Class<ReservationUtilizationQuery>("ReservationUtilizationQuery")({timeRange: DateTimeRange, groupBy: Schema.optional(GroupDefinitions), granularity: Schema.optional(Schema.String), filter: Schema.optional(Expression)}) {}
-export const QueryParameters = Schema.Union(CostAndUsageQuery, SavingsPlansCoverageQuery, SavingsPlansUtilizationQuery, ReservationCoverageQuery, ReservationUtilizationQuery);
-export class GraphDisplayConfig extends Schema.Class<GraphDisplayConfig>("GraphDisplayConfig")({visualType: Schema.String}) {}
-export const GraphDisplayConfigMap = Schema.Record({key: Schema.String, value: GraphDisplayConfig});
-export class TableDisplayConfigStruct extends Schema.Class<TableDisplayConfigStruct>("TableDisplayConfigStruct")({}) {}
-export const DisplayConfig = Schema.Union(GraphDisplayConfigMap, TableDisplayConfigStruct);
-export class WidgetConfig extends Schema.Class<WidgetConfig>("WidgetConfig")({queryParameters: QueryParameters, displayConfig: DisplayConfig}) {}
-export const WidgetConfigList = Schema.Array(WidgetConfig);
-export class Widget extends Schema.Class<Widget>("Widget")({title: Schema.String, description: Schema.optional(Schema.String), width: Schema.optional(Schema.Number), height: Schema.optional(Schema.Number), horizontalOffset: Schema.optional(Schema.Number), configs: WidgetConfigList}) {}
-export const WidgetList = Schema.Array(Widget);
-export class UpdateDashboardRequest extends Schema.Class<UpdateDashboardRequest>("UpdateDashboardRequest")({arn: Schema.String, name: Schema.optional(Schema.String), description: Schema.optional(Schema.String), widgets: Schema.optional(WidgetList)}) {}
-export class DeleteDashboardResponse extends Schema.Class<DeleteDashboardResponse>("DeleteDashboardResponse")({arn: Schema.String}) {}
-export class GetDashboardResponse extends Schema.Class<GetDashboardResponse>("GetDashboardResponse")({arn: Schema.String, name: Schema.String, description: Schema.optional(Schema.String), type: Schema.String, widgets: WidgetList, createdAt: Schema.Date, updatedAt: Schema.Date}) {}
-export class GetResourcePolicyResponse extends Schema.Class<GetResourcePolicyResponse>("GetResourcePolicyResponse")({resourceArn: Schema.String, policyDocument: Schema.String}) {}
-export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({resourceTags: Schema.optional(ResourceTagList)}) {}
-export class InternalServerException extends Schema.Class<InternalServerException>("InternalServerException")({message: Schema.String}) {}
-export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({message: Schema.String}) {}
-export class UpdateDashboardResponse extends Schema.Class<UpdateDashboardResponse>("UpdateDashboardResponse")({arn: Schema.String}) {}
-export class DashboardReference extends Schema.Class<DashboardReference>("DashboardReference")({arn: Schema.String, name: Schema.String, description: Schema.optional(Schema.String), type: Schema.String, createdAt: Schema.Date, updatedAt: Schema.Date}) {}
-export const DashboardReferenceList = Schema.Array(DashboardReference);
-export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({message: Schema.String}) {}
-export class ThrottlingException extends Schema.Class<ThrottlingException>("ThrottlingException")({message: Schema.String}) {}
-export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({message: Schema.String}) {}
-export class ListDashboardsResponse extends Schema.Class<ListDashboardsResponse>("ListDashboardsResponse")({dashboards: DashboardReferenceList, nextToken: Schema.optional(Schema.String)}) {}
-export const Expressions = Schema.Array(Schema.suspend((): Schema.Schema<Expression> => Expression));
-export class CreateDashboardRequest extends Schema.Class<CreateDashboardRequest>("CreateDashboardRequest")({name: Schema.String, description: Schema.optional(Schema.String), widgets: WidgetList, resourceTags: Schema.optional(ResourceTagList)}) {}
-export class CreateDashboardResponse extends Schema.Class<CreateDashboardResponse>("CreateDashboardResponse")({arn: Schema.String}) {}
-export class ServiceQuotaExceededException extends Schema.Class<ServiceQuotaExceededException>("ServiceQuotaExceededException")({message: Schema.String}) {}
+export const ResourceTagKeyList = S.Array(S.String);
+export class DeleteDashboardRequest extends S.Class<DeleteDashboardRequest>("DeleteDashboardRequest")({arn: S.String}) {}
+export class GetDashboardRequest extends S.Class<GetDashboardRequest>("GetDashboardRequest")({arn: S.String}) {}
+export class GetResourcePolicyRequest extends S.Class<GetResourcePolicyRequest>("GetResourcePolicyRequest")({resourceArn: S.String}) {}
+export class ListDashboardsRequest extends S.Class<ListDashboardsRequest>("ListDashboardsRequest")({maxResults: S.optional(S.Number), nextToken: S.optional(S.String)}) {}
+export class ListTagsForResourceRequest extends S.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({resourceArn: S.String}) {}
+export class ResourceTag extends S.Class<ResourceTag>("ResourceTag")({key: S.String, value: S.String}) {}
+export const ResourceTagList = S.Array(ResourceTag);
+export class TagResourceRequest extends S.Class<TagResourceRequest>("TagResourceRequest")({resourceArn: S.String, resourceTags: ResourceTagList}) {}
+export class TagResourceResponse extends S.Class<TagResourceResponse>("TagResourceResponse")({}) {}
+export class UntagResourceRequest extends S.Class<UntagResourceRequest>("UntagResourceRequest")({resourceArn: S.String, resourceTagKeys: ResourceTagKeyList}) {}
+export class UntagResourceResponse extends S.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
+export const MetricNames = S.Array(S.String);
+export class DateTimeValue extends S.Class<DateTimeValue>("DateTimeValue")({type: S.String, value: S.String}) {}
+export class DateTimeRange extends S.Class<DateTimeRange>("DateTimeRange")({startTime: DateTimeValue, endTime: DateTimeValue}) {}
+export class GroupDefinition extends S.Class<GroupDefinition>("GroupDefinition")({key: S.String, type: S.optional(S.String)}) {}
+export const GroupDefinitions = S.Array(GroupDefinition);
+export const StringList = S.Array(S.String);
+export const MatchOptions = S.Array(S.String);
+export class DimensionValues extends S.Class<DimensionValues>("DimensionValues")({key: S.String, values: StringList, matchOptions: S.optional(MatchOptions)}) {}
+export class TagValues extends S.Class<TagValues>("TagValues")({key: S.optional(S.String), values: S.optional(StringList), matchOptions: S.optional(MatchOptions)}) {}
+export class CostCategoryValues extends S.Class<CostCategoryValues>("CostCategoryValues")({key: S.optional(S.String), values: S.optional(StringList), matchOptions: S.optional(MatchOptions)}) {}
+export class Expression extends S.Class<Expression>("Expression")({or: S.optional(S.suspend(() => Expressions)), and: S.optional(S.suspend(() => Expressions)), not: S.optional(S.suspend((): S.Schema<Expression> => Expression)), dimensions: S.optional(DimensionValues), tags: S.optional(TagValues), costCategories: S.optional(CostCategoryValues)}) {}
+export class CostAndUsageQuery extends S.Class<CostAndUsageQuery>("CostAndUsageQuery")({metrics: MetricNames, timeRange: DateTimeRange, granularity: S.String, groupBy: S.optional(GroupDefinitions), filter: S.optional(Expression)}) {}
+export class SavingsPlansCoverageQuery extends S.Class<SavingsPlansCoverageQuery>("SavingsPlansCoverageQuery")({timeRange: DateTimeRange, metrics: S.optional(MetricNames), granularity: S.optional(S.String), groupBy: S.optional(GroupDefinitions), filter: S.optional(Expression)}) {}
+export class SavingsPlansUtilizationQuery extends S.Class<SavingsPlansUtilizationQuery>("SavingsPlansUtilizationQuery")({timeRange: DateTimeRange, granularity: S.optional(S.String), filter: S.optional(Expression)}) {}
+export class ReservationCoverageQuery extends S.Class<ReservationCoverageQuery>("ReservationCoverageQuery")({timeRange: DateTimeRange, groupBy: S.optional(GroupDefinitions), granularity: S.optional(S.String), filter: S.optional(Expression), metrics: S.optional(MetricNames)}) {}
+export class ReservationUtilizationQuery extends S.Class<ReservationUtilizationQuery>("ReservationUtilizationQuery")({timeRange: DateTimeRange, groupBy: S.optional(GroupDefinitions), granularity: S.optional(S.String), filter: S.optional(Expression)}) {}
+export const QueryParameters = S.Union(CostAndUsageQuery, SavingsPlansCoverageQuery, SavingsPlansUtilizationQuery, ReservationCoverageQuery, ReservationUtilizationQuery);
+export class GraphDisplayConfig extends S.Class<GraphDisplayConfig>("GraphDisplayConfig")({visualType: S.String}) {}
+export const GraphDisplayConfigMap = S.Record({key: S.String, value: GraphDisplayConfig});
+export class TableDisplayConfigStruct extends S.Class<TableDisplayConfigStruct>("TableDisplayConfigStruct")({}) {}
+export const DisplayConfig = S.Union(GraphDisplayConfigMap, TableDisplayConfigStruct);
+export class WidgetConfig extends S.Class<WidgetConfig>("WidgetConfig")({queryParameters: QueryParameters, displayConfig: DisplayConfig}) {}
+export const WidgetConfigList = S.Array(WidgetConfig);
+export class Widget extends S.Class<Widget>("Widget")({title: S.String, description: S.optional(S.String), width: S.optional(S.Number), height: S.optional(S.Number), horizontalOffset: S.optional(S.Number), configs: WidgetConfigList}) {}
+export const WidgetList = S.Array(Widget);
+export class UpdateDashboardRequest extends S.Class<UpdateDashboardRequest>("UpdateDashboardRequest")({arn: S.String, name: S.optional(S.String), description: S.optional(S.String), widgets: S.optional(WidgetList)}) {}
+export class DeleteDashboardResponse extends S.Class<DeleteDashboardResponse>("DeleteDashboardResponse")({arn: S.String}) {}
+export class GetDashboardResponse extends S.Class<GetDashboardResponse>("GetDashboardResponse")({arn: S.String, name: S.String, description: S.optional(S.String), type: S.String, widgets: WidgetList, createdAt: S.Date, updatedAt: S.Date}) {}
+export class GetResourcePolicyResponse extends S.Class<GetResourcePolicyResponse>("GetResourcePolicyResponse")({resourceArn: S.String, policyDocument: S.String}) {}
+export class ListTagsForResourceResponse extends S.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({resourceTags: S.optional(ResourceTagList)}) {}
+export class InternalServerException extends S.Class<InternalServerException>("InternalServerException")({message: S.String}) {}
+export class ResourceNotFoundException extends S.Class<ResourceNotFoundException>("ResourceNotFoundException")({message: S.String}) {}
+export class UpdateDashboardResponse extends S.Class<UpdateDashboardResponse>("UpdateDashboardResponse")({arn: S.String}) {}
+export class DashboardReference extends S.Class<DashboardReference>("DashboardReference")({arn: S.String, name: S.String, description: S.optional(S.String), type: S.String, createdAt: S.Date, updatedAt: S.Date}) {}
+export const DashboardReferenceList = S.Array(DashboardReference);
+export class AccessDeniedException extends S.Class<AccessDeniedException>("AccessDeniedException")({message: S.String}) {}
+export class ThrottlingException extends S.Class<ThrottlingException>("ThrottlingException")({message: S.String}) {}
+export class ValidationException extends S.Class<ValidationException>("ValidationException")({message: S.String}) {}
+export class ListDashboardsResponse extends S.Class<ListDashboardsResponse>("ListDashboardsResponse")({dashboards: DashboardReferenceList, nextToken: S.optional(S.String)}) {}
+export const Expressions = S.Array(S.suspend((): S.Schema<Expression> => Expression));
+export class CreateDashboardRequest extends S.Class<CreateDashboardRequest>("CreateDashboardRequest")({name: S.String, description: S.optional(S.String), widgets: WidgetList, resourceTags: S.optional(ResourceTagList)}) {}
+export class CreateDashboardResponse extends S.Class<CreateDashboardResponse>("CreateDashboardResponse")({arn: S.String}) {}
+export class ServiceQuotaExceededException extends S.Class<ServiceQuotaExceededException>("ServiceQuotaExceededException")({message: S.String}) {}
 
 //# Errors
-export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException.fields) {};
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
-export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
-export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException.fields) {};
+export class InternalServerExceptionError extends S.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException.fields) {};
+export class AccessDeniedExceptionError extends S.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class ResourceNotFoundExceptionError extends S.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ThrottlingExceptionError extends S.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
+export class ValidationExceptionError extends S.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
+export class ServiceQuotaExceededExceptionError extends S.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException.fields) {};
 
 //# Operations
-export const listTagsForResource = /*#__PURE__*/ makeOperation(() => Operation({ version: "2025-08-18", uri: "/", method: "POST", sdkId: "BCM Dashboards", sigV4ServiceName: "bcm-dashboards", name: "AWSBCMDashboardsService.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const tagResource = /*#__PURE__*/ makeOperation(() => Operation({ version: "2025-08-18", uri: "/", method: "POST", sdkId: "BCM Dashboards", sigV4ServiceName: "bcm-dashboards", name: "AWSBCMDashboardsService.TagResource" }, TagResourceRequest, TagResourceResponse, [InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const untagResource = /*#__PURE__*/ makeOperation(() => Operation({ version: "2025-08-18", uri: "/", method: "POST", sdkId: "BCM Dashboards", sigV4ServiceName: "bcm-dashboards", name: "AWSBCMDashboardsService.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateDashboard = /*#__PURE__*/ makeOperation(() => Operation({ version: "2025-08-18", uri: "/", method: "POST", sdkId: "BCM Dashboards", sigV4ServiceName: "bcm-dashboards", name: "AWSBCMDashboardsService.UpdateDashboard" }, UpdateDashboardRequest, UpdateDashboardResponse, [AccessDeniedExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteDashboard = /*#__PURE__*/ makeOperation(() => Operation({ version: "2025-08-18", uri: "/", method: "POST", sdkId: "BCM Dashboards", sigV4ServiceName: "bcm-dashboards", name: "AWSBCMDashboardsService.DeleteDashboard" }, DeleteDashboardRequest, DeleteDashboardResponse, [AccessDeniedExceptionError, InternalServerExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const getDashboard = /*#__PURE__*/ makeOperation(() => Operation({ version: "2025-08-18", uri: "/", method: "POST", sdkId: "BCM Dashboards", sigV4ServiceName: "bcm-dashboards", name: "AWSBCMDashboardsService.GetDashboard" }, GetDashboardRequest, GetDashboardResponse, [AccessDeniedExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const getResourcePolicy = /*#__PURE__*/ makeOperation(() => Operation({ version: "2025-08-18", uri: "/", method: "POST", sdkId: "BCM Dashboards", sigV4ServiceName: "bcm-dashboards", name: "AWSBCMDashboardsService.GetResourcePolicy" }, GetResourcePolicyRequest, GetResourcePolicyResponse, [AccessDeniedExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listDashboards = /*#__PURE__*/ makeOperation(() => Operation({ version: "2025-08-18", uri: "/", method: "POST", sdkId: "BCM Dashboards", sigV4ServiceName: "bcm-dashboards", name: "AWSBCMDashboardsService.ListDashboards" }, ListDashboardsRequest, ListDashboardsResponse, [AccessDeniedExceptionError, InternalServerExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const createDashboard = /*#__PURE__*/ makeOperation(() => Operation({ version: "2025-08-18", uri: "/", method: "POST", sdkId: "BCM Dashboards", sigV4ServiceName: "bcm-dashboards", name: "AWSBCMDashboardsService.CreateDashboard" }, CreateDashboardRequest, CreateDashboardResponse, [AccessDeniedExceptionError, InternalServerExceptionError, ServiceQuotaExceededExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const listTagsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2025-08-18", uri: "/", method: "POST", sdkId: "BCM Dashboards", sigV4ServiceName: "bcm-dashboards", name: "AWSBCMDashboardsService.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const tagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2025-08-18", uri: "/", method: "POST", sdkId: "BCM Dashboards", sigV4ServiceName: "bcm-dashboards", name: "AWSBCMDashboardsService.TagResource" }, TagResourceRequest, TagResourceResponse, [InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const untagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2025-08-18", uri: "/", method: "POST", sdkId: "BCM Dashboards", sigV4ServiceName: "bcm-dashboards", name: "AWSBCMDashboardsService.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const updateDashboard = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2025-08-18", uri: "/", method: "POST", sdkId: "BCM Dashboards", sigV4ServiceName: "bcm-dashboards", name: "AWSBCMDashboardsService.UpdateDashboard" }, UpdateDashboardRequest, UpdateDashboardResponse, [AccessDeniedExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const deleteDashboard = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2025-08-18", uri: "/", method: "POST", sdkId: "BCM Dashboards", sigV4ServiceName: "bcm-dashboards", name: "AWSBCMDashboardsService.DeleteDashboard" }, DeleteDashboardRequest, DeleteDashboardResponse, [AccessDeniedExceptionError, InternalServerExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const getDashboard = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2025-08-18", uri: "/", method: "POST", sdkId: "BCM Dashboards", sigV4ServiceName: "bcm-dashboards", name: "AWSBCMDashboardsService.GetDashboard" }, GetDashboardRequest, GetDashboardResponse, [AccessDeniedExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const getResourcePolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2025-08-18", uri: "/", method: "POST", sdkId: "BCM Dashboards", sigV4ServiceName: "bcm-dashboards", name: "AWSBCMDashboardsService.GetResourcePolicy" }, GetResourcePolicyRequest, GetResourcePolicyResponse, [AccessDeniedExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const listDashboards = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2025-08-18", uri: "/", method: "POST", sdkId: "BCM Dashboards", sigV4ServiceName: "bcm-dashboards", name: "AWSBCMDashboardsService.ListDashboards" }, ListDashboardsRequest, ListDashboardsResponse, [AccessDeniedExceptionError, InternalServerExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const createDashboard = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2025-08-18", uri: "/", method: "POST", sdkId: "BCM Dashboards", sigV4ServiceName: "bcm-dashboards", name: "AWSBCMDashboardsService.CreateDashboard" }, CreateDashboardRequest, CreateDashboardResponse, [AccessDeniedExceptionError, InternalServerExceptionError, ServiceQuotaExceededExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);

@@ -1,51 +1,51 @@
-import * as Schema from "effect/Schema"
+import * as S from "effect/Schema"
 import { FormatAwsJSON10Request,FormatJSONResponse,FormatAwsRestJSONError, makeOperation } from "../client.ts";
-import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
+import * as H from "../schema-helpers.ts";
 
 //# Schemas
-export class GetRecordsInput extends Schema.Class<GetRecordsInput>("GetRecordsInput")({ShardIterator: Schema.String, Limit: Schema.optional(Schema.Number)}) {}
-export class GetShardIteratorInput extends Schema.Class<GetShardIteratorInput>("GetShardIteratorInput")({StreamArn: Schema.String, ShardId: Schema.String, ShardIteratorType: Schema.String, SequenceNumber: Schema.optional(Schema.String)}) {}
-export class ListStreamsInput extends Schema.Class<ListStreamsInput>("ListStreamsInput")({TableName: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number), ExclusiveStartStreamArn: Schema.optional(Schema.String)}) {}
-export class ShardFilter extends Schema.Class<ShardFilter>("ShardFilter")({Type: Schema.optional(Schema.String), ShardId: Schema.optional(Schema.String)}) {}
-export class DescribeStreamInput extends Schema.Class<DescribeStreamInput>("DescribeStreamInput")({StreamArn: Schema.String, Limit: Schema.optional(Schema.Number), ExclusiveStartShardId: Schema.optional(Schema.String), ShardFilter: Schema.optional(ShardFilter)}) {}
-export class GetShardIteratorOutput extends Schema.Class<GetShardIteratorOutput>("GetShardIteratorOutput")({ShardIterator: Schema.optional(Schema.String)}) {}
-export class Stream extends Schema.Class<Stream>("Stream")({StreamArn: Schema.optional(Schema.String), TableName: Schema.optional(Schema.String), StreamLabel: Schema.optional(Schema.String)}) {}
-export const StreamList = Schema.Array(Stream);
-export class InternalServerError extends Schema.Class<InternalServerError>("InternalServerError")({message: Schema.optional(Schema.String)}) {}
-export class ListStreamsOutput extends Schema.Class<ListStreamsOutput>("ListStreamsOutput")({Streams: Schema.optional(StreamList), LastEvaluatedStreamArn: Schema.optional(Schema.String)}) {}
-export class Identity extends Schema.Class<Identity>("Identity")({PrincipalId: Schema.optional(Schema.String), Type: Schema.optional(Schema.String)}) {}
-export const StringSetAttributeValue = Schema.Array(Schema.String);
-export const NumberSetAttributeValue = Schema.Array(Schema.String);
-export const BinarySetAttributeValue = Schema.Array(StreamBody());
-export const ListAttributeValue = Schema.Array(Schema.suspend(() => AttributeValue));
-export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({message: Schema.optional(Schema.String)}) {}
-export class KeySchemaElement extends Schema.Class<KeySchemaElement>("KeySchemaElement")({AttributeName: Schema.String, KeyType: Schema.String}) {}
-export const KeySchema = Schema.Array(KeySchemaElement);
-export class SequenceNumberRange extends Schema.Class<SequenceNumberRange>("SequenceNumberRange")({StartingSequenceNumber: Schema.optional(Schema.String), EndingSequenceNumber: Schema.optional(Schema.String)}) {}
-export const MapAttributeValue = Schema.Record({key: Schema.String, value: AttributeValue});
-export class TrimmedDataAccessException extends Schema.Class<TrimmedDataAccessException>("TrimmedDataAccessException")({message: Schema.optional(Schema.String)}) {}
-export class Shard extends Schema.Class<Shard>("Shard")({ShardId: Schema.optional(Schema.String), SequenceNumberRange: Schema.optional(SequenceNumberRange), ParentShardId: Schema.optional(Schema.String)}) {}
-export const ShardDescriptionList = Schema.Array(Shard);
-export const AttributeValue = Schema.Union(Schema.String, Schema.String, StreamBody(), StringSetAttributeValue, NumberSetAttributeValue, BinarySetAttributeValue, Schema.suspend(() => MapAttributeValue), Schema.suspend(() => ListAttributeValue), Schema.Boolean, Schema.Boolean);
-export class StreamDescription extends Schema.Class<StreamDescription>("StreamDescription")({StreamArn: Schema.optional(Schema.String), StreamLabel: Schema.optional(Schema.String), StreamStatus: Schema.optional(Schema.String), StreamViewType: Schema.optional(Schema.String), CreationRequestDateTime: Schema.optional(Schema.Date), TableName: Schema.optional(Schema.String), KeySchema: Schema.optional(KeySchema), Shards: Schema.optional(ShardDescriptionList), LastEvaluatedShardId: Schema.optional(Schema.String)}) {}
-export const AttributeMap = Schema.Record({key: Schema.String, value: AttributeValue});
-export class DescribeStreamOutput extends Schema.Class<DescribeStreamOutput>("DescribeStreamOutput")({StreamDescription: Schema.optional(StreamDescription)}) {}
-export class StreamRecord extends Schema.Class<StreamRecord>("StreamRecord")({ApproximateCreationDateTime: Schema.optional(Schema.Date), Keys: Schema.optional(AttributeMap), NewImage: Schema.optional(AttributeMap), OldImage: Schema.optional(AttributeMap), SequenceNumber: Schema.optional(Schema.String), SizeBytes: Schema.optional(Schema.Number), StreamViewType: Schema.optional(Schema.String)}) {}
-export class Record extends Schema.Class<Record>("Record")({eventID: Schema.optional(Schema.String), eventName: Schema.optional(Schema.String), eventVersion: Schema.optional(Schema.String), eventSource: Schema.optional(Schema.String), awsRegion: Schema.optional(Schema.String), dynamodb: Schema.optional(StreamRecord), userIdentity: Schema.optional(Identity)}) {}
-export const RecordList = Schema.Array(Record);
-export class GetRecordsOutput extends Schema.Class<GetRecordsOutput>("GetRecordsOutput")({Records: Schema.optional(RecordList), NextShardIterator: Schema.optional(Schema.String)}) {}
-export class ExpiredIteratorException extends Schema.Class<ExpiredIteratorException>("ExpiredIteratorException")({message: Schema.optional(Schema.String)}) {}
-export class LimitExceededException extends Schema.Class<LimitExceededException>("LimitExceededException")({message: Schema.optional(Schema.String)}) {}
+export class GetRecordsInput extends S.Class<GetRecordsInput>("GetRecordsInput")({ShardIterator: S.String, Limit: S.optional(S.Number)}) {}
+export class GetShardIteratorInput extends S.Class<GetShardIteratorInput>("GetShardIteratorInput")({StreamArn: S.String, ShardId: S.String, ShardIteratorType: S.String, SequenceNumber: S.optional(S.String)}) {}
+export class ListStreamsInput extends S.Class<ListStreamsInput>("ListStreamsInput")({TableName: S.optional(S.String), Limit: S.optional(S.Number), ExclusiveStartStreamArn: S.optional(S.String)}) {}
+export class ShardFilter extends S.Class<ShardFilter>("ShardFilter")({Type: S.optional(S.String), ShardId: S.optional(S.String)}) {}
+export class DescribeStreamInput extends S.Class<DescribeStreamInput>("DescribeStreamInput")({StreamArn: S.String, Limit: S.optional(S.Number), ExclusiveStartShardId: S.optional(S.String), ShardFilter: S.optional(ShardFilter)}) {}
+export class GetShardIteratorOutput extends S.Class<GetShardIteratorOutput>("GetShardIteratorOutput")({ShardIterator: S.optional(S.String)}) {}
+export class Stream extends S.Class<Stream>("Stream")({StreamArn: S.optional(S.String), TableName: S.optional(S.String), StreamLabel: S.optional(S.String)}) {}
+export const StreamList = S.Array(Stream);
+export class InternalServerError extends S.Class<InternalServerError>("InternalServerError")({message: S.optional(S.String)}) {}
+export class ListStreamsOutput extends S.Class<ListStreamsOutput>("ListStreamsOutput")({Streams: S.optional(StreamList), LastEvaluatedStreamArn: S.optional(S.String)}) {}
+export class Identity extends S.Class<Identity>("Identity")({PrincipalId: S.optional(S.String), Type: S.optional(S.String)}) {}
+export const StringSetAttributeValue = S.Array(S.String);
+export const NumberSetAttributeValue = S.Array(S.String);
+export const BinarySetAttributeValue = S.Array(H.StreamBody());
+export const ListAttributeValue = S.Array(S.suspend(() => AttributeValue));
+export class ResourceNotFoundException extends S.Class<ResourceNotFoundException>("ResourceNotFoundException")({message: S.optional(S.String)}) {}
+export class KeySchemaElement extends S.Class<KeySchemaElement>("KeySchemaElement")({AttributeName: S.String, KeyType: S.String}) {}
+export const KeySchema = S.Array(KeySchemaElement);
+export class SequenceNumberRange extends S.Class<SequenceNumberRange>("SequenceNumberRange")({StartingSequenceNumber: S.optional(S.String), EndingSequenceNumber: S.optional(S.String)}) {}
+export const MapAttributeValue = S.Record({key: S.String, value: AttributeValue});
+export class TrimmedDataAccessException extends S.Class<TrimmedDataAccessException>("TrimmedDataAccessException")({message: S.optional(S.String)}) {}
+export class Shard extends S.Class<Shard>("Shard")({ShardId: S.optional(S.String), SequenceNumberRange: S.optional(SequenceNumberRange), ParentShardId: S.optional(S.String)}) {}
+export const ShardDescriptionList = S.Array(Shard);
+export const AttributeValue = S.Union(S.String, S.String, H.StreamBody(), StringSetAttributeValue, NumberSetAttributeValue, BinarySetAttributeValue, S.suspend(() => MapAttributeValue), S.suspend(() => ListAttributeValue), S.Boolean, S.Boolean);
+export class StreamDescription extends S.Class<StreamDescription>("StreamDescription")({StreamArn: S.optional(S.String), StreamLabel: S.optional(S.String), StreamStatus: S.optional(S.String), StreamViewType: S.optional(S.String), CreationRequestDateTime: S.optional(S.Date), TableName: S.optional(S.String), KeySchema: S.optional(KeySchema), Shards: S.optional(ShardDescriptionList), LastEvaluatedShardId: S.optional(S.String)}) {}
+export const AttributeMap = S.Record({key: S.String, value: AttributeValue});
+export class DescribeStreamOutput extends S.Class<DescribeStreamOutput>("DescribeStreamOutput")({StreamDescription: S.optional(StreamDescription)}) {}
+export class StreamRecord extends S.Class<StreamRecord>("StreamRecord")({ApproximateCreationDateTime: S.optional(S.Date), Keys: S.optional(AttributeMap), NewImage: S.optional(AttributeMap), OldImage: S.optional(AttributeMap), SequenceNumber: S.optional(S.String), SizeBytes: S.optional(S.Number), StreamViewType: S.optional(S.String)}) {}
+export class Record extends S.Class<Record>("Record")({eventID: S.optional(S.String), eventName: S.optional(S.String), eventVersion: S.optional(S.String), eventSource: S.optional(S.String), awsRegion: S.optional(S.String), dynamodb: S.optional(StreamRecord), userIdentity: S.optional(Identity)}) {}
+export const RecordList = S.Array(Record);
+export class GetRecordsOutput extends S.Class<GetRecordsOutput>("GetRecordsOutput")({Records: S.optional(RecordList), NextShardIterator: S.optional(S.String)}) {}
+export class ExpiredIteratorException extends S.Class<ExpiredIteratorException>("ExpiredIteratorException")({message: S.optional(S.String)}) {}
+export class LimitExceededException extends S.Class<LimitExceededException>("LimitExceededException")({message: S.optional(S.String)}) {}
 
 //# Errors
-export class InternalServerErrorError extends Schema.TaggedError<InternalServerErrorError>()("InternalServerError", InternalServerError.fields) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
-export class TrimmedDataAccessExceptionError extends Schema.TaggedError<TrimmedDataAccessExceptionError>()("TrimmedDataAccessException", TrimmedDataAccessException.fields) {};
-export class ExpiredIteratorExceptionError extends Schema.TaggedError<ExpiredIteratorExceptionError>()("ExpiredIteratorException", ExpiredIteratorException.fields) {};
-export class LimitExceededExceptionError extends Schema.TaggedError<LimitExceededExceptionError>()("LimitExceededException", LimitExceededException.fields) {};
+export class InternalServerErrorError extends S.TaggedError<InternalServerErrorError>()("InternalServerError", InternalServerError.fields) {};
+export class ResourceNotFoundExceptionError extends S.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class TrimmedDataAccessExceptionError extends S.TaggedError<TrimmedDataAccessExceptionError>()("TrimmedDataAccessException", TrimmedDataAccessException.fields) {};
+export class ExpiredIteratorExceptionError extends S.TaggedError<ExpiredIteratorExceptionError>()("ExpiredIteratorException", ExpiredIteratorException.fields) {};
+export class LimitExceededExceptionError extends S.TaggedError<LimitExceededExceptionError>()("LimitExceededException", LimitExceededException.fields) {};
 
 //# Operations
-export const listStreams = /*#__PURE__*/ makeOperation(() => Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB Streams", sigV4ServiceName: "dynamodb", name: "DynamoDBStreams_20120810.ListStreams" }, ListStreamsInput, ListStreamsOutput, [InternalServerErrorError, ResourceNotFoundExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const getShardIterator = /*#__PURE__*/ makeOperation(() => Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB Streams", sigV4ServiceName: "dynamodb", name: "DynamoDBStreams_20120810.GetShardIterator" }, GetShardIteratorInput, GetShardIteratorOutput, [InternalServerErrorError, ResourceNotFoundExceptionError, TrimmedDataAccessExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeStream = /*#__PURE__*/ makeOperation(() => Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB Streams", sigV4ServiceName: "dynamodb", name: "DynamoDBStreams_20120810.DescribeStream" }, DescribeStreamInput, DescribeStreamOutput, [InternalServerErrorError, ResourceNotFoundExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const getRecords = /*#__PURE__*/ makeOperation(() => Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB Streams", sigV4ServiceName: "dynamodb", name: "DynamoDBStreams_20120810.GetRecords" }, GetRecordsInput, GetRecordsOutput, [ExpiredIteratorExceptionError, InternalServerErrorError, LimitExceededExceptionError, ResourceNotFoundExceptionError, TrimmedDataAccessExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const listStreams = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB Streams", sigV4ServiceName: "dynamodb", name: "DynamoDBStreams_20120810.ListStreams" }, ListStreamsInput, ListStreamsOutput, [InternalServerErrorError, ResourceNotFoundExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const getShardIterator = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB Streams", sigV4ServiceName: "dynamodb", name: "DynamoDBStreams_20120810.GetShardIterator" }, GetShardIteratorInput, GetShardIteratorOutput, [InternalServerErrorError, ResourceNotFoundExceptionError, TrimmedDataAccessExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const describeStream = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB Streams", sigV4ServiceName: "dynamodb", name: "DynamoDBStreams_20120810.DescribeStream" }, DescribeStreamInput, DescribeStreamOutput, [InternalServerErrorError, ResourceNotFoundExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const getRecords = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB Streams", sigV4ServiceName: "dynamodb", name: "DynamoDBStreams_20120810.GetRecords" }, GetRecordsInput, GetRecordsOutput, [ExpiredIteratorExceptionError, InternalServerErrorError, LimitExceededExceptionError, ResourceNotFoundExceptionError, TrimmedDataAccessExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);

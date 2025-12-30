@@ -1,6 +1,6 @@
-import * as Schema from "effect/Schema"
+import * as S from "effect/Schema"
 import {  makeOperation } from "../client.ts";
-import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
+import * as H from "../schema-helpers.ts";
 
 //# Schemas
 

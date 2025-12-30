@@ -1,21 +1,21 @@
-import * as Schema from "effect/Schema"
+import * as S from "effect/Schema"
 import { FormatJSONRequest,FormatJSONResponse,FormatAwsRestJSONError, makeOperation } from "../client.ts";
-import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
+import * as H from "../schema-helpers.ts";
 
 //# Schemas
-export class JoinStorageSessionInput extends Schema.Class<JoinStorageSessionInput>("JoinStorageSessionInput")({channelArn: Schema.String}) {}
-export class JoinStorageSessionAsViewerInput extends Schema.Class<JoinStorageSessionAsViewerInput>("JoinStorageSessionAsViewerInput")({channelArn: Schema.String, clientId: Schema.String}) {}
-export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({message: Schema.optional(Schema.String)}) {}
-export class ClientLimitExceededException extends Schema.Class<ClientLimitExceededException>("ClientLimitExceededException")({message: Schema.optional(Schema.String)}) {}
-export class InvalidArgumentException extends Schema.Class<InvalidArgumentException>("InvalidArgumentException")({message: Schema.optional(Schema.String)}) {}
-export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({message: Schema.optional(Schema.String)}) {}
+export class JoinStorageSessionInput extends S.Class<JoinStorageSessionInput>("JoinStorageSessionInput")({channelArn: S.String}) {}
+export class JoinStorageSessionAsViewerInput extends S.Class<JoinStorageSessionAsViewerInput>("JoinStorageSessionAsViewerInput")({channelArn: S.String, clientId: S.String}) {}
+export class AccessDeniedException extends S.Class<AccessDeniedException>("AccessDeniedException")({message: S.optional(S.String)}) {}
+export class ClientLimitExceededException extends S.Class<ClientLimitExceededException>("ClientLimitExceededException")({message: S.optional(S.String)}) {}
+export class InvalidArgumentException extends S.Class<InvalidArgumentException>("InvalidArgumentException")({message: S.optional(S.String)}) {}
+export class ResourceNotFoundException extends S.Class<ResourceNotFoundException>("ResourceNotFoundException")({message: S.optional(S.String)}) {}
 
 //# Errors
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
-export class ClientLimitExceededExceptionError extends Schema.TaggedError<ClientLimitExceededExceptionError>()("ClientLimitExceededException", ClientLimitExceededException.fields) {};
-export class InvalidArgumentExceptionError extends Schema.TaggedError<InvalidArgumentExceptionError>()("InvalidArgumentException", InvalidArgumentException.fields) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class AccessDeniedExceptionError extends S.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class ClientLimitExceededExceptionError extends S.TaggedError<ClientLimitExceededExceptionError>()("ClientLimitExceededException", ClientLimitExceededException.fields) {};
+export class InvalidArgumentExceptionError extends S.TaggedError<InvalidArgumentExceptionError>()("InvalidArgumentException", InvalidArgumentException.fields) {};
+export class ResourceNotFoundExceptionError extends S.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
 
 //# Operations
-export const joinStorageSession = /*#__PURE__*/ makeOperation(() => Operation({ version: "2018-05-10", uri: "/joinStorageSession", method: "POST", sdkId: "Kinesis Video WebRTC Storage", sigV4ServiceName: "kinesisvideo", name: "AWSAcuityRoutingServiceLambda.JoinStorageSession" }, JoinStorageSessionInput, Schema.Struct({}), [AccessDeniedExceptionError, ClientLimitExceededExceptionError, InvalidArgumentExceptionError, ResourceNotFoundExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const joinStorageSessionAsViewer = /*#__PURE__*/ makeOperation(() => Operation({ version: "2018-05-10", uri: "/joinStorageSessionAsViewer", method: "POST", sdkId: "Kinesis Video WebRTC Storage", sigV4ServiceName: "kinesisvideo", name: "AWSAcuityRoutingServiceLambda.JoinStorageSessionAsViewer" }, JoinStorageSessionAsViewerInput, Schema.Struct({}), [AccessDeniedExceptionError, ClientLimitExceededExceptionError, InvalidArgumentExceptionError, ResourceNotFoundExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const joinStorageSession = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/joinStorageSession", method: "POST", sdkId: "Kinesis Video WebRTC Storage", sigV4ServiceName: "kinesisvideo", name: "AWSAcuityRoutingServiceLambda.JoinStorageSession" }, JoinStorageSessionInput, S.Struct({}), [AccessDeniedExceptionError, ClientLimitExceededExceptionError, InvalidArgumentExceptionError, ResourceNotFoundExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const joinStorageSessionAsViewer = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/joinStorageSessionAsViewer", method: "POST", sdkId: "Kinesis Video WebRTC Storage", sigV4ServiceName: "kinesisvideo", name: "AWSAcuityRoutingServiceLambda.JoinStorageSessionAsViewer" }, JoinStorageSessionAsViewerInput, S.Struct({}), [AccessDeniedExceptionError, ClientLimitExceededExceptionError, InvalidArgumentExceptionError, ResourceNotFoundExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

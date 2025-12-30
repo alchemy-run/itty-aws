@@ -1,55 +1,55 @@
-import * as Schema from "effect/Schema"
+import * as S from "effect/Schema"
 import { FormatJSONRequest,FormatJSONResponse,FormatAwsRestJSONError, makeOperation } from "../client.ts";
-import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
+import * as H from "../schema-helpers.ts";
 
 //# Schemas
-export const GroupByAttributesList = Schema.Array(Schema.String);
-export const TagKeyList = Schema.Array(Schema.String);
-export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({ResourceArn: Schema.String}) {}
-export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({ResourceArn: Schema.String, TagKeys: TagKeyList}) {}
-export class UntagResourceResponse extends Schema.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
-export const AccountIdFilterList = Schema.Array(Schema.String);
-export const BillingGroupArnList = Schema.Array(Schema.String);
-export class BillingPeriodRange extends Schema.Class<BillingPeriodRange>("BillingPeriodRange")({InclusiveStartBillingPeriod: Schema.String, ExclusiveEndBillingPeriod: Schema.String}) {}
-export class ListAccountAssociationsFilter extends Schema.Class<ListAccountAssociationsFilter>("ListAccountAssociationsFilter")({Association: Schema.optional(Schema.String), AccountId: Schema.optional(Schema.String), AccountIds: Schema.optional(AccountIdFilterList)}) {}
-export class ListBillingGroupCostReportsFilter extends Schema.Class<ListBillingGroupCostReportsFilter>("ListBillingGroupCostReportsFilter")({BillingGroupArns: Schema.optional(BillingGroupArnList)}) {}
-export const TagMap = Schema.Record({key: Schema.String, value: Schema.String});
-export class GetBillingGroupCostReportInput extends Schema.Class<GetBillingGroupCostReportInput>("GetBillingGroupCostReportInput")({Arn: Schema.String, BillingPeriodRange: Schema.optional(BillingPeriodRange), GroupBy: Schema.optional(GroupByAttributesList), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
-export class ListAccountAssociationsInput extends Schema.Class<ListAccountAssociationsInput>("ListAccountAssociationsInput")({BillingPeriod: Schema.optional(Schema.String), Filters: Schema.optional(ListAccountAssociationsFilter), NextToken: Schema.optional(Schema.String)}) {}
-export class ListBillingGroupCostReportsInput extends Schema.Class<ListBillingGroupCostReportsInput>("ListBillingGroupCostReportsInput")({BillingPeriod: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), Filters: Schema.optional(ListBillingGroupCostReportsFilter)}) {}
-export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({Tags: Schema.optional(TagMap)}) {}
-export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({ResourceArn: Schema.String, Tags: TagMap}) {}
-export class TagResourceResponse extends Schema.Class<TagResourceResponse>("TagResourceResponse")({}) {}
-export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({Message: Schema.String}) {}
-export class InternalServerException extends Schema.Class<InternalServerException>("InternalServerException")({Message: Schema.String, RetryAfterSeconds: Schema.optional(Header("Retry-After", Schema.Number))}) {}
-export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({Message: Schema.String, ResourceId: Schema.String, ResourceType: Schema.String}) {}
-export class ThrottlingException extends Schema.Class<ThrottlingException>("ThrottlingException")({Message: Schema.String, RetryAfterSeconds: Schema.optional(Header("Retry-After", Schema.Number))}) {}
-export class AccountAssociationsListElement extends Schema.Class<AccountAssociationsListElement>("AccountAssociationsListElement")({AccountId: Schema.optional(Schema.String), BillingGroupArn: Schema.optional(Schema.String), AccountName: Schema.optional(Schema.String), AccountEmail: Schema.optional(Schema.String)}) {}
-export const AccountAssociationsList = Schema.Array(AccountAssociationsListElement);
-export class BillingGroupCostReportElement extends Schema.Class<BillingGroupCostReportElement>("BillingGroupCostReportElement")({Arn: Schema.optional(Schema.String), AWSCost: Schema.optional(Schema.String), ProformaCost: Schema.optional(Schema.String), Margin: Schema.optional(Schema.String), MarginPercentage: Schema.optional(Schema.String), Currency: Schema.optional(Schema.String)}) {}
-export const BillingGroupCostReportList = Schema.Array(BillingGroupCostReportElement);
-export class ListAccountAssociationsOutput extends Schema.Class<ListAccountAssociationsOutput>("ListAccountAssociationsOutput")({LinkedAccounts: Schema.optional(AccountAssociationsList), NextToken: Schema.optional(Schema.String)}) {}
-export class ListBillingGroupCostReportsOutput extends Schema.Class<ListBillingGroupCostReportsOutput>("ListBillingGroupCostReportsOutput")({BillingGroupCostReports: Schema.optional(BillingGroupCostReportList), NextToken: Schema.optional(Schema.String)}) {}
-export class Attribute extends Schema.Class<Attribute>("Attribute")({Key: Schema.optional(Schema.String), Value: Schema.optional(Schema.String)}) {}
-export const AttributesList = Schema.Array(Attribute);
-export class BillingGroupCostReportResultElement extends Schema.Class<BillingGroupCostReportResultElement>("BillingGroupCostReportResultElement")({Arn: Schema.optional(Schema.String), AWSCost: Schema.optional(Schema.String), ProformaCost: Schema.optional(Schema.String), Margin: Schema.optional(Schema.String), MarginPercentage: Schema.optional(Schema.String), Currency: Schema.optional(Schema.String), Attributes: Schema.optional(AttributesList)}) {}
-export const BillingGroupCostReportResultsList = Schema.Array(BillingGroupCostReportResultElement);
-export class ValidationExceptionField extends Schema.Class<ValidationExceptionField>("ValidationExceptionField")({Name: Schema.String, Message: Schema.String}) {}
-export const ValidationExceptionFieldList = Schema.Array(ValidationExceptionField);
-export class GetBillingGroupCostReportOutput extends Schema.Class<GetBillingGroupCostReportOutput>("GetBillingGroupCostReportOutput")({BillingGroupCostReportResults: Schema.optional(BillingGroupCostReportResultsList), NextToken: Schema.optional(Schema.String)}) {}
-export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({Message: Schema.String, Reason: Schema.optional(Schema.String), Fields: Schema.optional(ValidationExceptionFieldList)}) {}
+export const GroupByAttributesList = S.Array(S.String);
+export const TagKeyList = S.Array(S.String);
+export class ListTagsForResourceRequest extends S.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({ResourceArn: S.String}) {}
+export class UntagResourceRequest extends S.Class<UntagResourceRequest>("UntagResourceRequest")({ResourceArn: S.String, TagKeys: TagKeyList}) {}
+export class UntagResourceResponse extends S.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
+export const AccountIdFilterList = S.Array(S.String);
+export const BillingGroupArnList = S.Array(S.String);
+export class BillingPeriodRange extends S.Class<BillingPeriodRange>("BillingPeriodRange")({InclusiveStartBillingPeriod: S.String, ExclusiveEndBillingPeriod: S.String}) {}
+export class ListAccountAssociationsFilter extends S.Class<ListAccountAssociationsFilter>("ListAccountAssociationsFilter")({Association: S.optional(S.String), AccountId: S.optional(S.String), AccountIds: S.optional(AccountIdFilterList)}) {}
+export class ListBillingGroupCostReportsFilter extends S.Class<ListBillingGroupCostReportsFilter>("ListBillingGroupCostReportsFilter")({BillingGroupArns: S.optional(BillingGroupArnList)}) {}
+export const TagMap = S.Record({key: S.String, value: S.String});
+export class GetBillingGroupCostReportInput extends S.Class<GetBillingGroupCostReportInput>("GetBillingGroupCostReportInput")({Arn: S.String, BillingPeriodRange: S.optional(BillingPeriodRange), GroupBy: S.optional(GroupByAttributesList), MaxResults: S.optional(S.Number), NextToken: S.optional(S.String)}) {}
+export class ListAccountAssociationsInput extends S.Class<ListAccountAssociationsInput>("ListAccountAssociationsInput")({BillingPeriod: S.optional(S.String), Filters: S.optional(ListAccountAssociationsFilter), NextToken: S.optional(S.String)}) {}
+export class ListBillingGroupCostReportsInput extends S.Class<ListBillingGroupCostReportsInput>("ListBillingGroupCostReportsInput")({BillingPeriod: S.optional(S.String), MaxResults: S.optional(S.Number), NextToken: S.optional(S.String), Filters: S.optional(ListBillingGroupCostReportsFilter)}) {}
+export class ListTagsForResourceResponse extends S.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({Tags: S.optional(TagMap)}) {}
+export class TagResourceRequest extends S.Class<TagResourceRequest>("TagResourceRequest")({ResourceArn: S.String, Tags: TagMap}) {}
+export class TagResourceResponse extends S.Class<TagResourceResponse>("TagResourceResponse")({}) {}
+export class AccessDeniedException extends S.Class<AccessDeniedException>("AccessDeniedException")({Message: S.String}) {}
+export class InternalServerException extends S.Class<InternalServerException>("InternalServerException")({Message: S.String, RetryAfterSeconds: S.optional(H.Header("Retry-After", S.Number))}) {}
+export class ResourceNotFoundException extends S.Class<ResourceNotFoundException>("ResourceNotFoundException")({Message: S.String, ResourceId: S.String, ResourceType: S.String}) {}
+export class ThrottlingException extends S.Class<ThrottlingException>("ThrottlingException")({Message: S.String, RetryAfterSeconds: S.optional(H.Header("Retry-After", S.Number))}) {}
+export class AccountAssociationsListElement extends S.Class<AccountAssociationsListElement>("AccountAssociationsListElement")({AccountId: S.optional(S.String), BillingGroupArn: S.optional(S.String), AccountName: S.optional(S.String), AccountEmail: S.optional(S.String)}) {}
+export const AccountAssociationsList = S.Array(AccountAssociationsListElement);
+export class BillingGroupCostReportElement extends S.Class<BillingGroupCostReportElement>("BillingGroupCostReportElement")({Arn: S.optional(S.String), AWSCost: S.optional(S.String), ProformaCost: S.optional(S.String), Margin: S.optional(S.String), MarginPercentage: S.optional(S.String), Currency: S.optional(S.String)}) {}
+export const BillingGroupCostReportList = S.Array(BillingGroupCostReportElement);
+export class ListAccountAssociationsOutput extends S.Class<ListAccountAssociationsOutput>("ListAccountAssociationsOutput")({LinkedAccounts: S.optional(AccountAssociationsList), NextToken: S.optional(S.String)}) {}
+export class ListBillingGroupCostReportsOutput extends S.Class<ListBillingGroupCostReportsOutput>("ListBillingGroupCostReportsOutput")({BillingGroupCostReports: S.optional(BillingGroupCostReportList), NextToken: S.optional(S.String)}) {}
+export class Attribute extends S.Class<Attribute>("Attribute")({Key: S.optional(S.String), Value: S.optional(S.String)}) {}
+export const AttributesList = S.Array(Attribute);
+export class BillingGroupCostReportResultElement extends S.Class<BillingGroupCostReportResultElement>("BillingGroupCostReportResultElement")({Arn: S.optional(S.String), AWSCost: S.optional(S.String), ProformaCost: S.optional(S.String), Margin: S.optional(S.String), MarginPercentage: S.optional(S.String), Currency: S.optional(S.String), Attributes: S.optional(AttributesList)}) {}
+export const BillingGroupCostReportResultsList = S.Array(BillingGroupCostReportResultElement);
+export class ValidationExceptionField extends S.Class<ValidationExceptionField>("ValidationExceptionField")({Name: S.String, Message: S.String}) {}
+export const ValidationExceptionFieldList = S.Array(ValidationExceptionField);
+export class GetBillingGroupCostReportOutput extends S.Class<GetBillingGroupCostReportOutput>("GetBillingGroupCostReportOutput")({BillingGroupCostReportResults: S.optional(BillingGroupCostReportResultsList), NextToken: S.optional(S.String)}) {}
+export class ValidationException extends S.Class<ValidationException>("ValidationException")({Message: S.String, Reason: S.optional(S.String), Fields: S.optional(ValidationExceptionFieldList)}) {}
 
 //# Errors
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
-export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException.fields) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
-export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
+export class AccessDeniedExceptionError extends S.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class InternalServerExceptionError extends S.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException.fields) {};
+export class ResourceNotFoundExceptionError extends S.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ThrottlingExceptionError extends S.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
+export class ValidationExceptionError extends S.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
 
 //# Operations
-export const tagResource = /*#__PURE__*/ makeOperation(() => Operation({ version: "2021-07-30", uri: "/tags/{ResourceArn}", method: "POST", sdkId: "billingconductor", sigV4ServiceName: "billingconductor", name: "AWSBillingConductor.TagResource" }, TagResourceRequest, TagResourceResponse, [AccessDeniedExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const untagResource = /*#__PURE__*/ makeOperation(() => Operation({ version: "2021-07-30", uri: "/tags/{ResourceArn}", method: "DELETE", sdkId: "billingconductor", sigV4ServiceName: "billingconductor", name: "AWSBillingConductor.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [AccessDeniedExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listAccountAssociations = /*#__PURE__*/ makeOperation(() => Operation({ version: "2021-07-30", uri: "/list-account-associations", method: "POST", sdkId: "billingconductor", sigV4ServiceName: "billingconductor", name: "AWSBillingConductor.ListAccountAssociations" }, ListAccountAssociationsInput, ListAccountAssociationsOutput, [AccessDeniedExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listBillingGroupCostReports = /*#__PURE__*/ makeOperation(() => Operation({ version: "2021-07-30", uri: "/list-billing-group-cost-reports", method: "POST", sdkId: "billingconductor", sigV4ServiceName: "billingconductor", name: "AWSBillingConductor.ListBillingGroupCostReports" }, ListBillingGroupCostReportsInput, ListBillingGroupCostReportsOutput, [AccessDeniedExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getBillingGroupCostReport = /*#__PURE__*/ makeOperation(() => Operation({ version: "2021-07-30", uri: "/get-billing-group-cost-report", method: "POST", sdkId: "billingconductor", sigV4ServiceName: "billingconductor", name: "AWSBillingConductor.GetBillingGroupCostReport" }, GetBillingGroupCostReportInput, GetBillingGroupCostReportOutput, [AccessDeniedExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listTagsForResource = /*#__PURE__*/ makeOperation(() => Operation({ version: "2021-07-30", uri: "/tags/{ResourceArn}", method: "GET", sdkId: "billingconductor", sigV4ServiceName: "billingconductor", name: "AWSBillingConductor.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [AccessDeniedExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const tagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-07-30", uri: "/tags/{ResourceArn}", method: "POST", sdkId: "billingconductor", sigV4ServiceName: "billingconductor", name: "AWSBillingConductor.TagResource" }, TagResourceRequest, TagResourceResponse, [AccessDeniedExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const untagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-07-30", uri: "/tags/{ResourceArn}", method: "DELETE", sdkId: "billingconductor", sigV4ServiceName: "billingconductor", name: "AWSBillingConductor.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [AccessDeniedExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const listAccountAssociations = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-07-30", uri: "/list-account-associations", method: "POST", sdkId: "billingconductor", sigV4ServiceName: "billingconductor", name: "AWSBillingConductor.ListAccountAssociations" }, ListAccountAssociationsInput, ListAccountAssociationsOutput, [AccessDeniedExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const listBillingGroupCostReports = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-07-30", uri: "/list-billing-group-cost-reports", method: "POST", sdkId: "billingconductor", sigV4ServiceName: "billingconductor", name: "AWSBillingConductor.ListBillingGroupCostReports" }, ListBillingGroupCostReportsInput, ListBillingGroupCostReportsOutput, [AccessDeniedExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const getBillingGroupCostReport = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-07-30", uri: "/get-billing-group-cost-report", method: "POST", sdkId: "billingconductor", sigV4ServiceName: "billingconductor", name: "AWSBillingConductor.GetBillingGroupCostReport" }, GetBillingGroupCostReportInput, GetBillingGroupCostReportOutput, [AccessDeniedExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const listTagsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-07-30", uri: "/tags/{ResourceArn}", method: "GET", sdkId: "billingconductor", sigV4ServiceName: "billingconductor", name: "AWSBillingConductor.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [AccessDeniedExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

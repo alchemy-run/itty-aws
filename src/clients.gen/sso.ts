@@ -1,33 +1,33 @@
-import * as Schema from "effect/Schema"
+import * as S from "effect/Schema"
 import { FormatJSONRequest,FormatJSONResponse,FormatAwsRestJSONError, makeOperation } from "../client.ts";
-import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
+import * as H from "../schema-helpers.ts";
 
 //# Schemas
-export class GetRoleCredentialsRequest extends Schema.Class<GetRoleCredentialsRequest>("GetRoleCredentialsRequest")({roleName: Schema.String, accountId: Schema.String, accessToken: Header("x-amz-sso_bearer_token")}) {}
-export class ListAccountRolesRequest extends Schema.Class<ListAccountRolesRequest>("ListAccountRolesRequest")({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), accessToken: Header("x-amz-sso_bearer_token"), accountId: Schema.String}) {}
-export class ListAccountsRequest extends Schema.Class<ListAccountsRequest>("ListAccountsRequest")({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), accessToken: Header("x-amz-sso_bearer_token")}) {}
-export class LogoutRequest extends Schema.Class<LogoutRequest>("LogoutRequest")({accessToken: Header("x-amz-sso_bearer_token")}) {}
-export class InvalidRequestException extends Schema.Class<InvalidRequestException>("InvalidRequestException")({message: Schema.optional(Schema.String)}) {}
-export class RoleCredentials extends Schema.Class<RoleCredentials>("RoleCredentials")({accessKeyId: Schema.optional(Schema.String), secretAccessKey: Schema.optional(Schema.String), sessionToken: Schema.optional(Schema.String), expiration: Schema.optional(Schema.Number)}) {}
-export class RoleInfo extends Schema.Class<RoleInfo>("RoleInfo")({roleName: Schema.optional(Schema.String), accountId: Schema.optional(Schema.String)}) {}
-export const RoleListType = Schema.Array(RoleInfo);
-export class AccountInfo extends Schema.Class<AccountInfo>("AccountInfo")({accountId: Schema.optional(Schema.String), accountName: Schema.optional(Schema.String), emailAddress: Schema.optional(Schema.String)}) {}
-export const AccountListType = Schema.Array(AccountInfo);
-export class GetRoleCredentialsResponse extends Schema.Class<GetRoleCredentialsResponse>("GetRoleCredentialsResponse")({roleCredentials: Schema.optional(RoleCredentials)}) {}
-export class ListAccountRolesResponse extends Schema.Class<ListAccountRolesResponse>("ListAccountRolesResponse")({nextToken: Schema.optional(Schema.String), roleList: Schema.optional(RoleListType)}) {}
-export class ListAccountsResponse extends Schema.Class<ListAccountsResponse>("ListAccountsResponse")({nextToken: Schema.optional(Schema.String), accountList: Schema.optional(AccountListType)}) {}
-export class TooManyRequestsException extends Schema.Class<TooManyRequestsException>("TooManyRequestsException")({message: Schema.optional(Schema.String)}) {}
-export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({message: Schema.optional(Schema.String)}) {}
-export class UnauthorizedException extends Schema.Class<UnauthorizedException>("UnauthorizedException")({message: Schema.optional(Schema.String)}) {}
+export class GetRoleCredentialsRequest extends S.Class<GetRoleCredentialsRequest>("GetRoleCredentialsRequest")({roleName: S.String, accountId: S.String, accessToken: H.Header("x-amz-sso_bearer_token")}) {}
+export class ListAccountRolesRequest extends S.Class<ListAccountRolesRequest>("ListAccountRolesRequest")({nextToken: S.optional(S.String), maxResults: S.optional(S.Number), accessToken: H.Header("x-amz-sso_bearer_token"), accountId: S.String}) {}
+export class ListAccountsRequest extends S.Class<ListAccountsRequest>("ListAccountsRequest")({nextToken: S.optional(S.String), maxResults: S.optional(S.Number), accessToken: H.Header("x-amz-sso_bearer_token")}) {}
+export class LogoutRequest extends S.Class<LogoutRequest>("LogoutRequest")({accessToken: H.Header("x-amz-sso_bearer_token")}) {}
+export class InvalidRequestException extends S.Class<InvalidRequestException>("InvalidRequestException")({message: S.optional(S.String)}) {}
+export class RoleCredentials extends S.Class<RoleCredentials>("RoleCredentials")({accessKeyId: S.optional(S.String), secretAccessKey: S.optional(S.String), sessionToken: S.optional(S.String), expiration: S.optional(S.Number)}) {}
+export class RoleInfo extends S.Class<RoleInfo>("RoleInfo")({roleName: S.optional(S.String), accountId: S.optional(S.String)}) {}
+export const RoleListType = S.Array(RoleInfo);
+export class AccountInfo extends S.Class<AccountInfo>("AccountInfo")({accountId: S.optional(S.String), accountName: S.optional(S.String), emailAddress: S.optional(S.String)}) {}
+export const AccountListType = S.Array(AccountInfo);
+export class GetRoleCredentialsResponse extends S.Class<GetRoleCredentialsResponse>("GetRoleCredentialsResponse")({roleCredentials: S.optional(RoleCredentials)}) {}
+export class ListAccountRolesResponse extends S.Class<ListAccountRolesResponse>("ListAccountRolesResponse")({nextToken: S.optional(S.String), roleList: S.optional(RoleListType)}) {}
+export class ListAccountsResponse extends S.Class<ListAccountsResponse>("ListAccountsResponse")({nextToken: S.optional(S.String), accountList: S.optional(AccountListType)}) {}
+export class TooManyRequestsException extends S.Class<TooManyRequestsException>("TooManyRequestsException")({message: S.optional(S.String)}) {}
+export class ResourceNotFoundException extends S.Class<ResourceNotFoundException>("ResourceNotFoundException")({message: S.optional(S.String)}) {}
+export class UnauthorizedException extends S.Class<UnauthorizedException>("UnauthorizedException")({message: S.optional(S.String)}) {}
 
 //# Errors
-export class InvalidRequestExceptionError extends Schema.TaggedError<InvalidRequestExceptionError>()("InvalidRequestException", InvalidRequestException.fields) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
-export class TooManyRequestsExceptionError extends Schema.TaggedError<TooManyRequestsExceptionError>()("TooManyRequestsException", TooManyRequestsException.fields) {};
-export class UnauthorizedExceptionError extends Schema.TaggedError<UnauthorizedExceptionError>()("UnauthorizedException", UnauthorizedException.fields) {};
+export class InvalidRequestExceptionError extends S.TaggedError<InvalidRequestExceptionError>()("InvalidRequestException", InvalidRequestException.fields) {};
+export class ResourceNotFoundExceptionError extends S.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class TooManyRequestsExceptionError extends S.TaggedError<TooManyRequestsExceptionError>()("TooManyRequestsException", TooManyRequestsException.fields) {};
+export class UnauthorizedExceptionError extends S.TaggedError<UnauthorizedExceptionError>()("UnauthorizedException", UnauthorizedException.fields) {};
 
 //# Operations
-export const listAccounts = /*#__PURE__*/ makeOperation(() => Operation({ version: "2019-06-10", uri: "/assignment/accounts", method: "GET", sdkId: "SSO", sigV4ServiceName: "awsssoportal", name: "SWBPortalService.ListAccounts" }, ListAccountsRequest, ListAccountsResponse, [InvalidRequestExceptionError, ResourceNotFoundExceptionError, TooManyRequestsExceptionError, UnauthorizedExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const logout = /*#__PURE__*/ makeOperation(() => Operation({ version: "2019-06-10", uri: "/logout", method: "POST", sdkId: "SSO", sigV4ServiceName: "awsssoportal", name: "SWBPortalService.Logout" }, LogoutRequest, Schema.Struct({}), [InvalidRequestExceptionError, TooManyRequestsExceptionError, UnauthorizedExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getRoleCredentials = /*#__PURE__*/ makeOperation(() => Operation({ version: "2019-06-10", uri: "/federation/credentials", method: "GET", sdkId: "SSO", sigV4ServiceName: "awsssoportal", name: "SWBPortalService.GetRoleCredentials" }, GetRoleCredentialsRequest, GetRoleCredentialsResponse, [InvalidRequestExceptionError, ResourceNotFoundExceptionError, TooManyRequestsExceptionError, UnauthorizedExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listAccountRoles = /*#__PURE__*/ makeOperation(() => Operation({ version: "2019-06-10", uri: "/assignment/roles", method: "GET", sdkId: "SSO", sigV4ServiceName: "awsssoportal", name: "SWBPortalService.ListAccountRoles" }, ListAccountRolesRequest, ListAccountRolesResponse, [InvalidRequestExceptionError, ResourceNotFoundExceptionError, TooManyRequestsExceptionError, UnauthorizedExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const listAccounts = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-06-10", uri: "/assignment/accounts", method: "GET", sdkId: "SSO", sigV4ServiceName: "awsssoportal", name: "SWBPortalService.ListAccounts" }, ListAccountsRequest, ListAccountsResponse, [InvalidRequestExceptionError, ResourceNotFoundExceptionError, TooManyRequestsExceptionError, UnauthorizedExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const logout = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-06-10", uri: "/logout", method: "POST", sdkId: "SSO", sigV4ServiceName: "awsssoportal", name: "SWBPortalService.Logout" }, LogoutRequest, S.Struct({}), [InvalidRequestExceptionError, TooManyRequestsExceptionError, UnauthorizedExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const getRoleCredentials = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-06-10", uri: "/federation/credentials", method: "GET", sdkId: "SSO", sigV4ServiceName: "awsssoportal", name: "SWBPortalService.GetRoleCredentials" }, GetRoleCredentialsRequest, GetRoleCredentialsResponse, [InvalidRequestExceptionError, ResourceNotFoundExceptionError, TooManyRequestsExceptionError, UnauthorizedExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const listAccountRoles = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-06-10", uri: "/assignment/roles", method: "GET", sdkId: "SSO", sigV4ServiceName: "awsssoportal", name: "SWBPortalService.ListAccountRoles" }, ListAccountRolesRequest, ListAccountRolesResponse, [InvalidRequestExceptionError, ResourceNotFoundExceptionError, TooManyRequestsExceptionError, UnauthorizedExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

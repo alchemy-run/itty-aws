@@ -1,31 +1,31 @@
-import * as Schema from "effect/Schema"
+import * as S from "effect/Schema"
 import { FormatJSONRequest,FormatJSONResponse,FormatAwsRestJSONError, makeOperation } from "../client.ts";
-import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
+import * as H from "../schema-helpers.ts";
 
 //# Schemas
-export class GetDeploymentsRequest extends Schema.Class<GetDeploymentsRequest>("GetDeploymentsRequest")({DeviceName: Schema.String, DeviceFleetName: Schema.String}) {}
-export class GetDeviceRegistrationRequest extends Schema.Class<GetDeviceRegistrationRequest>("GetDeviceRegistrationRequest")({DeviceName: Schema.String, DeviceFleetName: Schema.String}) {}
-export class EdgeMetric extends Schema.Class<EdgeMetric>("EdgeMetric")({Dimension: Schema.optional(Schema.String), MetricName: Schema.optional(Schema.String), Value: Schema.optional(Schema.Number), Timestamp: Schema.optional(Schema.Date)}) {}
-export const EdgeMetrics = Schema.Array(EdgeMetric);
-export class Model extends Schema.Class<Model>("Model")({ModelName: Schema.optional(Schema.String), ModelVersion: Schema.optional(Schema.String), LatestSampleTime: Schema.optional(Schema.Date), LatestInference: Schema.optional(Schema.Date), ModelMetrics: Schema.optional(EdgeMetrics)}) {}
-export const Models = Schema.Array(Model);
-export class GetDeviceRegistrationResult extends Schema.Class<GetDeviceRegistrationResult>("GetDeviceRegistrationResult")({DeviceRegistration: Schema.optional(Schema.String), CacheTTL: Schema.optional(Schema.String)}) {}
-export class DeploymentModel extends Schema.Class<DeploymentModel>("DeploymentModel")({ModelHandle: Schema.optional(Schema.String), ModelName: Schema.optional(Schema.String), ModelVersion: Schema.optional(Schema.String), DesiredState: Schema.optional(Schema.String), State: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), StatusReason: Schema.optional(Schema.String), RollbackFailureReason: Schema.optional(Schema.String)}) {}
-export const DeploymentModels = Schema.Array(DeploymentModel);
-export class DeploymentResult extends Schema.Class<DeploymentResult>("DeploymentResult")({DeploymentName: Schema.optional(Schema.String), DeploymentStatus: Schema.optional(Schema.String), DeploymentStatusMessage: Schema.optional(Schema.String), DeploymentStartTime: Schema.optional(Schema.Date), DeploymentEndTime: Schema.optional(Schema.Date), DeploymentModels: Schema.optional(DeploymentModels)}) {}
-export class InternalServiceException extends Schema.Class<InternalServiceException>("InternalServiceException")({Message: Schema.optional(Schema.String)}) {}
-export class SendHeartbeatRequest extends Schema.Class<SendHeartbeatRequest>("SendHeartbeatRequest")({AgentMetrics: Schema.optional(EdgeMetrics), Models: Schema.optional(Models), AgentVersion: Schema.String, DeviceName: Schema.String, DeviceFleetName: Schema.String, DeploymentResult: Schema.optional(DeploymentResult)}) {}
-export class Checksum extends Schema.Class<Checksum>("Checksum")({Type: Schema.optional(Schema.String), Sum: Schema.optional(Schema.String)}) {}
-export class Definition extends Schema.Class<Definition>("Definition")({ModelHandle: Schema.optional(Schema.String), S3Url: Schema.optional(Schema.String), Checksum: Schema.optional(Checksum), State: Schema.optional(Schema.String)}) {}
-export const Definitions = Schema.Array(Definition);
-export class EdgeDeployment extends Schema.Class<EdgeDeployment>("EdgeDeployment")({DeploymentName: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), FailureHandlingPolicy: Schema.optional(Schema.String), Definitions: Schema.optional(Definitions)}) {}
-export const EdgeDeployments = Schema.Array(EdgeDeployment);
-export class GetDeploymentsResult extends Schema.Class<GetDeploymentsResult>("GetDeploymentsResult")({Deployments: Schema.optional(EdgeDeployments)}) {}
+export class GetDeploymentsRequest extends S.Class<GetDeploymentsRequest>("GetDeploymentsRequest")({DeviceName: S.String, DeviceFleetName: S.String}) {}
+export class GetDeviceRegistrationRequest extends S.Class<GetDeviceRegistrationRequest>("GetDeviceRegistrationRequest")({DeviceName: S.String, DeviceFleetName: S.String}) {}
+export class EdgeMetric extends S.Class<EdgeMetric>("EdgeMetric")({Dimension: S.optional(S.String), MetricName: S.optional(S.String), Value: S.optional(S.Number), Timestamp: S.optional(S.Date)}) {}
+export const EdgeMetrics = S.Array(EdgeMetric);
+export class Model extends S.Class<Model>("Model")({ModelName: S.optional(S.String), ModelVersion: S.optional(S.String), LatestSampleTime: S.optional(S.Date), LatestInference: S.optional(S.Date), ModelMetrics: S.optional(EdgeMetrics)}) {}
+export const Models = S.Array(Model);
+export class GetDeviceRegistrationResult extends S.Class<GetDeviceRegistrationResult>("GetDeviceRegistrationResult")({DeviceRegistration: S.optional(S.String), CacheTTL: S.optional(S.String)}) {}
+export class DeploymentModel extends S.Class<DeploymentModel>("DeploymentModel")({ModelHandle: S.optional(S.String), ModelName: S.optional(S.String), ModelVersion: S.optional(S.String), DesiredState: S.optional(S.String), State: S.optional(S.String), Status: S.optional(S.String), StatusReason: S.optional(S.String), RollbackFailureReason: S.optional(S.String)}) {}
+export const DeploymentModels = S.Array(DeploymentModel);
+export class DeploymentResult extends S.Class<DeploymentResult>("DeploymentResult")({DeploymentName: S.optional(S.String), DeploymentStatus: S.optional(S.String), DeploymentStatusMessage: S.optional(S.String), DeploymentStartTime: S.optional(S.Date), DeploymentEndTime: S.optional(S.Date), DeploymentModels: S.optional(DeploymentModels)}) {}
+export class InternalServiceException extends S.Class<InternalServiceException>("InternalServiceException")({Message: S.optional(S.String)}) {}
+export class SendHeartbeatRequest extends S.Class<SendHeartbeatRequest>("SendHeartbeatRequest")({AgentMetrics: S.optional(EdgeMetrics), Models: S.optional(Models), AgentVersion: S.String, DeviceName: S.String, DeviceFleetName: S.String, DeploymentResult: S.optional(DeploymentResult)}) {}
+export class Checksum extends S.Class<Checksum>("Checksum")({Type: S.optional(S.String), Sum: S.optional(S.String)}) {}
+export class Definition extends S.Class<Definition>("Definition")({ModelHandle: S.optional(S.String), S3Url: S.optional(S.String), Checksum: S.optional(Checksum), State: S.optional(S.String)}) {}
+export const Definitions = S.Array(Definition);
+export class EdgeDeployment extends S.Class<EdgeDeployment>("EdgeDeployment")({DeploymentName: S.optional(S.String), Type: S.optional(S.String), FailureHandlingPolicy: S.optional(S.String), Definitions: S.optional(Definitions)}) {}
+export const EdgeDeployments = S.Array(EdgeDeployment);
+export class GetDeploymentsResult extends S.Class<GetDeploymentsResult>("GetDeploymentsResult")({Deployments: S.optional(EdgeDeployments)}) {}
 
 //# Errors
-export class InternalServiceExceptionError extends Schema.TaggedError<InternalServiceExceptionError>()("InternalServiceException", InternalServiceException.fields) {};
+export class InternalServiceExceptionError extends S.TaggedError<InternalServiceExceptionError>()("InternalServiceException", InternalServiceException.fields) {};
 
 //# Operations
-export const getDeviceRegistration = /*#__PURE__*/ makeOperation(() => Operation({ version: "2020-09-23", uri: "/GetDeviceRegistration", method: "POST", sdkId: "Sagemaker Edge", sigV4ServiceName: "sagemaker", name: "AmazonSageMakerEdge.GetDeviceRegistration" }, GetDeviceRegistrationRequest, GetDeviceRegistrationResult, [InternalServiceExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const sendHeartbeat = /*#__PURE__*/ makeOperation(() => Operation({ version: "2020-09-23", uri: "/SendHeartbeat", method: "POST", sdkId: "Sagemaker Edge", sigV4ServiceName: "sagemaker", name: "AmazonSageMakerEdge.SendHeartbeat" }, SendHeartbeatRequest, Schema.Struct({}), [InternalServiceExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getDeployments = /*#__PURE__*/ makeOperation(() => Operation({ version: "2020-09-23", uri: "/GetDeployments", method: "POST", sdkId: "Sagemaker Edge", sigV4ServiceName: "sagemaker", name: "AmazonSageMakerEdge.GetDeployments" }, GetDeploymentsRequest, GetDeploymentsResult, [InternalServiceExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const getDeviceRegistration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-09-23", uri: "/GetDeviceRegistration", method: "POST", sdkId: "Sagemaker Edge", sigV4ServiceName: "sagemaker", name: "AmazonSageMakerEdge.GetDeviceRegistration" }, GetDeviceRegistrationRequest, GetDeviceRegistrationResult, [InternalServiceExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const sendHeartbeat = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-09-23", uri: "/SendHeartbeat", method: "POST", sdkId: "Sagemaker Edge", sigV4ServiceName: "sagemaker", name: "AmazonSageMakerEdge.SendHeartbeat" }, SendHeartbeatRequest, S.Struct({}), [InternalServiceExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const getDeployments = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-09-23", uri: "/GetDeployments", method: "POST", sdkId: "Sagemaker Edge", sigV4ServiceName: "sagemaker", name: "AmazonSageMakerEdge.GetDeployments" }, GetDeploymentsRequest, GetDeploymentsResult, [InternalServiceExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

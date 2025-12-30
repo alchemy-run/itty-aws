@@ -1,74 +1,74 @@
-import * as Schema from "effect/Schema"
+import * as S from "effect/Schema"
 import { FormatAwsJSON10Request,FormatJSONResponse,FormatAwsRestJSONError, makeOperation } from "../client.ts";
-import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
+import * as H from "../schema-helpers.ts";
 
 //# Schemas
-export const TagKeyList = Schema.Array(Schema.String);
-export class GenerateMappingRequest extends Schema.Class<GenerateMappingRequest>("GenerateMappingRequest")({inputFileContent: Schema.String, outputFileContent: Schema.String, mappingType: Schema.String}) {}
-export class GetTransformerJobRequest extends Schema.Class<GetTransformerJobRequest>("GetTransformerJobRequest")({transformerJobId: Schema.String, transformerId: Schema.String}) {}
-export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({ResourceARN: Schema.String}) {}
-export class S3Location extends Schema.Class<S3Location>("S3Location")({bucketName: Schema.optional(Schema.String), key: Schema.optional(Schema.String)}) {}
-export class StartTransformerJobRequest extends Schema.Class<StartTransformerJobRequest>("StartTransformerJobRequest")({inputFile: S3Location, outputLocation: S3Location, transformerId: Schema.String, clientToken: Schema.optional(Schema.String)}) {}
-export class TestMappingRequest extends Schema.Class<TestMappingRequest>("TestMappingRequest")({inputFileContent: Schema.String, mappingTemplate: Schema.String, fileFormat: Schema.String}) {}
-export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({ResourceARN: Schema.String, TagKeys: TagKeyList}) {}
-export const S3LocationList = Schema.Array(S3Location);
-export class Tag extends Schema.Class<Tag>("Tag")({Key: Schema.String, Value: Schema.String}) {}
-export const TagList = Schema.Array(Tag);
-export class X12Details extends Schema.Class<X12Details>("X12Details")({transactionSet: Schema.optional(Schema.String), version: Schema.optional(Schema.String)}) {}
-export const EdiType = Schema.Union(X12Details);
-export class GenerateMappingResponse extends Schema.Class<GenerateMappingResponse>("GenerateMappingResponse")({mappingTemplate: Schema.String, mappingAccuracy: Schema.optional(Schema.Number)}) {}
-export class GetTransformerJobResponse extends Schema.Class<GetTransformerJobResponse>("GetTransformerJobResponse")({status: Schema.String, outputFiles: Schema.optional(S3LocationList), message: Schema.optional(Schema.String)}) {}
-export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({Tags: Schema.optional(TagList)}) {}
-export class StartTransformerJobResponse extends Schema.Class<StartTransformerJobResponse>("StartTransformerJobResponse")({transformerJobId: Schema.String}) {}
-export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({ResourceARN: Schema.String, Tags: TagList}) {}
-export class TestMappingResponse extends Schema.Class<TestMappingResponse>("TestMappingResponse")({mappedFileContent: Schema.String}) {}
-export class InternalServerException extends Schema.Class<InternalServerException>("InternalServerException")({message: Schema.String, retryAfterSeconds: Schema.optional(Header("Retry-After", Schema.Number))}) {}
-export const InputFileSource = Schema.Union(Schema.String);
-export const ConversionTargetFormatDetails = Schema.Union(X12Details);
-export const OutputSampleFileSource = Schema.Union(S3Location);
-export const TemplateDetails = Schema.Union(X12Details);
-export class ConversionSource extends Schema.Class<ConversionSource>("ConversionSource")({fileFormat: Schema.String, inputFile: InputFileSource}) {}
-export class X12SplitOptions extends Schema.Class<X12SplitOptions>("X12SplitOptions")({splitBy: Schema.String}) {}
-export const CodeList = Schema.Array(Schema.String);
-export class X12CodeListValidationRule extends Schema.Class<X12CodeListValidationRule>("X12CodeListValidationRule")({elementId: Schema.String, codesToAdd: Schema.optional(CodeList), codesToRemove: Schema.optional(CodeList)}) {}
-export class X12ElementLengthValidationRule extends Schema.Class<X12ElementLengthValidationRule>("X12ElementLengthValidationRule")({elementId: Schema.String, maxLength: Schema.Number, minLength: Schema.Number}) {}
-export class X12ElementRequirementValidationRule extends Schema.Class<X12ElementRequirementValidationRule>("X12ElementRequirementValidationRule")({elementPosition: Schema.String, requirement: Schema.String}) {}
-export const X12ValidationRule = Schema.Union(X12CodeListValidationRule, X12ElementLengthValidationRule, X12ElementRequirementValidationRule);
-export const X12ValidationRules = Schema.Array(X12ValidationRule);
-export class X12ValidationOptions extends Schema.Class<X12ValidationOptions>("X12ValidationOptions")({validationRules: Schema.optional(X12ValidationRules)}) {}
-export class X12AdvancedOptions extends Schema.Class<X12AdvancedOptions>("X12AdvancedOptions")({splitOptions: Schema.optional(X12SplitOptions), validationOptions: Schema.optional(X12ValidationOptions)}) {}
-export class AdvancedOptions extends Schema.Class<AdvancedOptions>("AdvancedOptions")({x12: Schema.optional(X12AdvancedOptions)}) {}
-export class ConversionTarget extends Schema.Class<ConversionTarget>("ConversionTarget")({fileFormat: Schema.String, formatDetails: Schema.optional(ConversionTargetFormatDetails), outputSampleFile: Schema.optional(OutputSampleFileSource), advancedOptions: Schema.optional(AdvancedOptions)}) {}
-export class CreateStarterMappingTemplateRequest extends Schema.Class<CreateStarterMappingTemplateRequest>("CreateStarterMappingTemplateRequest")({outputSampleLocation: Schema.optional(S3Location), mappingType: Schema.String, templateDetails: TemplateDetails}) {}
-export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({message: Schema.String}) {}
-export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({message: Schema.String}) {}
-export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({Message: Schema.String}) {}
-export class ConflictException extends Schema.Class<ConflictException>("ConflictException")({message: Schema.String}) {}
-export class ThrottlingException extends Schema.Class<ThrottlingException>("ThrottlingException")({message: Schema.String, retryAfterSeconds: Schema.optional(Header("Retry-After", Schema.Number))}) {}
-export class TestConversionRequest extends Schema.Class<TestConversionRequest>("TestConversionRequest")({source: ConversionSource, target: ConversionTarget}) {}
-export const ValidationMessages = Schema.Array(Schema.String);
-export class CreateStarterMappingTemplateResponse extends Schema.Class<CreateStarterMappingTemplateResponse>("CreateStarterMappingTemplateResponse")({mappingTemplate: Schema.String}) {}
-export class TestConversionResponse extends Schema.Class<TestConversionResponse>("TestConversionResponse")({convertedFileContent: Schema.String, validationMessages: Schema.optional(ValidationMessages)}) {}
-export class TestParsingRequest extends Schema.Class<TestParsingRequest>("TestParsingRequest")({inputFile: S3Location, fileFormat: Schema.String, ediType: EdiType, advancedOptions: Schema.optional(AdvancedOptions)}) {}
-export const ParsedSplitFileContentsList = Schema.Array(Schema.String);
-export class TestParsingResponse extends Schema.Class<TestParsingResponse>("TestParsingResponse")({parsedFileContent: Schema.String, parsedSplitFileContents: Schema.optional(ParsedSplitFileContentsList), validationMessages: Schema.optional(ValidationMessages)}) {}
+export const TagKeyList = S.Array(S.String);
+export class GenerateMappingRequest extends S.Class<GenerateMappingRequest>("GenerateMappingRequest")({inputFileContent: S.String, outputFileContent: S.String, mappingType: S.String}) {}
+export class GetTransformerJobRequest extends S.Class<GetTransformerJobRequest>("GetTransformerJobRequest")({transformerJobId: S.String, transformerId: S.String}) {}
+export class ListTagsForResourceRequest extends S.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({ResourceARN: S.String}) {}
+export class S3Location extends S.Class<S3Location>("S3Location")({bucketName: S.optional(S.String), key: S.optional(S.String)}) {}
+export class StartTransformerJobRequest extends S.Class<StartTransformerJobRequest>("StartTransformerJobRequest")({inputFile: S3Location, outputLocation: S3Location, transformerId: S.String, clientToken: S.optional(S.String)}) {}
+export class TestMappingRequest extends S.Class<TestMappingRequest>("TestMappingRequest")({inputFileContent: S.String, mappingTemplate: S.String, fileFormat: S.String}) {}
+export class UntagResourceRequest extends S.Class<UntagResourceRequest>("UntagResourceRequest")({ResourceARN: S.String, TagKeys: TagKeyList}) {}
+export const S3LocationList = S.Array(S3Location);
+export class Tag extends S.Class<Tag>("Tag")({Key: S.String, Value: S.String}) {}
+export const TagList = S.Array(Tag);
+export class X12Details extends S.Class<X12Details>("X12Details")({transactionSet: S.optional(S.String), version: S.optional(S.String)}) {}
+export const EdiType = S.Union(X12Details);
+export class GenerateMappingResponse extends S.Class<GenerateMappingResponse>("GenerateMappingResponse")({mappingTemplate: S.String, mappingAccuracy: S.optional(S.Number)}) {}
+export class GetTransformerJobResponse extends S.Class<GetTransformerJobResponse>("GetTransformerJobResponse")({status: S.String, outputFiles: S.optional(S3LocationList), message: S.optional(S.String)}) {}
+export class ListTagsForResourceResponse extends S.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({Tags: S.optional(TagList)}) {}
+export class StartTransformerJobResponse extends S.Class<StartTransformerJobResponse>("StartTransformerJobResponse")({transformerJobId: S.String}) {}
+export class TagResourceRequest extends S.Class<TagResourceRequest>("TagResourceRequest")({ResourceARN: S.String, Tags: TagList}) {}
+export class TestMappingResponse extends S.Class<TestMappingResponse>("TestMappingResponse")({mappedFileContent: S.String}) {}
+export class InternalServerException extends S.Class<InternalServerException>("InternalServerException")({message: S.String, retryAfterSeconds: S.optional(H.Header("Retry-After", S.Number))}) {}
+export const InputFileSource = S.Union(S.String);
+export const ConversionTargetFormatDetails = S.Union(X12Details);
+export const OutputSampleFileSource = S.Union(S3Location);
+export const TemplateDetails = S.Union(X12Details);
+export class ConversionSource extends S.Class<ConversionSource>("ConversionSource")({fileFormat: S.String, inputFile: InputFileSource}) {}
+export class X12SplitOptions extends S.Class<X12SplitOptions>("X12SplitOptions")({splitBy: S.String}) {}
+export const CodeList = S.Array(S.String);
+export class X12CodeListValidationRule extends S.Class<X12CodeListValidationRule>("X12CodeListValidationRule")({elementId: S.String, codesToAdd: S.optional(CodeList), codesToRemove: S.optional(CodeList)}) {}
+export class X12ElementLengthValidationRule extends S.Class<X12ElementLengthValidationRule>("X12ElementLengthValidationRule")({elementId: S.String, maxLength: S.Number, minLength: S.Number}) {}
+export class X12ElementRequirementValidationRule extends S.Class<X12ElementRequirementValidationRule>("X12ElementRequirementValidationRule")({elementPosition: S.String, requirement: S.String}) {}
+export const X12ValidationRule = S.Union(X12CodeListValidationRule, X12ElementLengthValidationRule, X12ElementRequirementValidationRule);
+export const X12ValidationRules = S.Array(X12ValidationRule);
+export class X12ValidationOptions extends S.Class<X12ValidationOptions>("X12ValidationOptions")({validationRules: S.optional(X12ValidationRules)}) {}
+export class X12AdvancedOptions extends S.Class<X12AdvancedOptions>("X12AdvancedOptions")({splitOptions: S.optional(X12SplitOptions), validationOptions: S.optional(X12ValidationOptions)}) {}
+export class AdvancedOptions extends S.Class<AdvancedOptions>("AdvancedOptions")({x12: S.optional(X12AdvancedOptions)}) {}
+export class ConversionTarget extends S.Class<ConversionTarget>("ConversionTarget")({fileFormat: S.String, formatDetails: S.optional(ConversionTargetFormatDetails), outputSampleFile: S.optional(OutputSampleFileSource), advancedOptions: S.optional(AdvancedOptions)}) {}
+export class CreateStarterMappingTemplateRequest extends S.Class<CreateStarterMappingTemplateRequest>("CreateStarterMappingTemplateRequest")({outputSampleLocation: S.optional(S3Location), mappingType: S.String, templateDetails: TemplateDetails}) {}
+export class AccessDeniedException extends S.Class<AccessDeniedException>("AccessDeniedException")({message: S.String}) {}
+export class ResourceNotFoundException extends S.Class<ResourceNotFoundException>("ResourceNotFoundException")({message: S.String}) {}
+export class ValidationException extends S.Class<ValidationException>("ValidationException")({Message: S.String}) {}
+export class ConflictException extends S.Class<ConflictException>("ConflictException")({message: S.String}) {}
+export class ThrottlingException extends S.Class<ThrottlingException>("ThrottlingException")({message: S.String, retryAfterSeconds: S.optional(H.Header("Retry-After", S.Number))}) {}
+export class TestConversionRequest extends S.Class<TestConversionRequest>("TestConversionRequest")({source: ConversionSource, target: ConversionTarget}) {}
+export const ValidationMessages = S.Array(S.String);
+export class CreateStarterMappingTemplateResponse extends S.Class<CreateStarterMappingTemplateResponse>("CreateStarterMappingTemplateResponse")({mappingTemplate: S.String}) {}
+export class TestConversionResponse extends S.Class<TestConversionResponse>("TestConversionResponse")({convertedFileContent: S.String, validationMessages: S.optional(ValidationMessages)}) {}
+export class TestParsingRequest extends S.Class<TestParsingRequest>("TestParsingRequest")({inputFile: S3Location, fileFormat: S.String, ediType: EdiType, advancedOptions: S.optional(AdvancedOptions)}) {}
+export const ParsedSplitFileContentsList = S.Array(S.String);
+export class TestParsingResponse extends S.Class<TestParsingResponse>("TestParsingResponse")({parsedFileContent: S.String, parsedSplitFileContents: S.optional(ParsedSplitFileContentsList), validationMessages: S.optional(ValidationMessages)}) {}
 
 //# Errors
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
-export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException.fields) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
-export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
-export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
+export class AccessDeniedExceptionError extends S.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class InternalServerExceptionError extends S.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException.fields) {};
+export class ResourceNotFoundExceptionError extends S.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ThrottlingExceptionError extends S.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
+export class ValidationExceptionError extends S.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
+export class ConflictExceptionError extends S.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
 
 //# Operations
-export const testMapping = /*#__PURE__*/ makeOperation(() => Operation({ version: "2022-06-23", uri: "/testmapping", method: "POST", sdkId: "b2bi", sigV4ServiceName: "b2bi", name: "B2BI.TestMapping" }, TestMappingRequest, TestMappingResponse, [AccessDeniedExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const untagResource = /*#__PURE__*/ makeOperation(() => Operation({ version: "2022-06-23", uri: "/tags/{ResourceARN}", method: "DELETE", sdkId: "b2bi", sigV4ServiceName: "b2bi", name: "B2BI.UntagResource" }, UntagResourceRequest, Schema.Struct({}), [InternalServerExceptionError, ResourceNotFoundExceptionError, ValidationExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const generateMapping = /*#__PURE__*/ makeOperation(() => Operation({ version: "2022-06-23", uri: "/generate-mapping", method: "POST", sdkId: "b2bi", sigV4ServiceName: "b2bi", name: "B2BI.GenerateMapping" }, GenerateMappingRequest, GenerateMappingResponse, [AccessDeniedExceptionError, InternalServerExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const getTransformerJob = /*#__PURE__*/ makeOperation(() => Operation({ version: "2022-06-23", uri: "/transformer-jobs/{transformerJobId}", method: "GET", sdkId: "b2bi", sigV4ServiceName: "b2bi", name: "B2BI.GetTransformerJob" }, GetTransformerJobRequest, GetTransformerJobResponse, [AccessDeniedExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listTagsForResource = /*#__PURE__*/ makeOperation(() => Operation({ version: "2022-06-23", uri: "/tags/{ResourceARN}", method: "GET", sdkId: "b2bi", sigV4ServiceName: "b2bi", name: "B2BI.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [InternalServerExceptionError, ResourceNotFoundExceptionError, ValidationExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const startTransformerJob = /*#__PURE__*/ makeOperation(() => Operation({ version: "2022-06-23", uri: "/transformer-jobs", method: "POST", sdkId: "b2bi", sigV4ServiceName: "b2bi", name: "B2BI.StartTransformerJob" }, StartTransformerJobRequest, StartTransformerJobResponse, [AccessDeniedExceptionError, ConflictExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const tagResource = /*#__PURE__*/ makeOperation(() => Operation({ version: "2022-06-23", uri: "/tags/{ResourceARN}", method: "POST", sdkId: "b2bi", sigV4ServiceName: "b2bi", name: "B2BI.TagResource" }, TagResourceRequest, Schema.Struct({}), [InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const createStarterMappingTemplate = /*#__PURE__*/ makeOperation(() => Operation({ version: "2022-06-23", uri: "/createmappingstarttemplate", method: "POST", sdkId: "b2bi", sigV4ServiceName: "b2bi", name: "B2BI.CreateStarterMappingTemplate" }, CreateStarterMappingTemplateRequest, CreateStarterMappingTemplateResponse, [AccessDeniedExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ValidationExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const testConversion = /*#__PURE__*/ makeOperation(() => Operation({ version: "2022-06-23", uri: "/testconversion", method: "POST", sdkId: "b2bi", sigV4ServiceName: "b2bi", name: "B2BI.TestConversion" }, TestConversionRequest, TestConversionResponse, [AccessDeniedExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const testParsing = /*#__PURE__*/ makeOperation(() => Operation({ version: "2022-06-23", uri: "/testparsing", method: "POST", sdkId: "b2bi", sigV4ServiceName: "b2bi", name: "B2BI.TestParsing" }, TestParsingRequest, TestParsingResponse, [AccessDeniedExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const testMapping = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-06-23", uri: "/testmapping", method: "POST", sdkId: "b2bi", sigV4ServiceName: "b2bi", name: "B2BI.TestMapping" }, TestMappingRequest, TestMappingResponse, [AccessDeniedExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const untagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-06-23", uri: "/tags/{ResourceARN}", method: "DELETE", sdkId: "b2bi", sigV4ServiceName: "b2bi", name: "B2BI.UntagResource" }, UntagResourceRequest, S.Struct({}), [InternalServerExceptionError, ResourceNotFoundExceptionError, ValidationExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const generateMapping = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-06-23", uri: "/generate-mapping", method: "POST", sdkId: "b2bi", sigV4ServiceName: "b2bi", name: "B2BI.GenerateMapping" }, GenerateMappingRequest, GenerateMappingResponse, [AccessDeniedExceptionError, InternalServerExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const getTransformerJob = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-06-23", uri: "/transformer-jobs/{transformerJobId}", method: "GET", sdkId: "b2bi", sigV4ServiceName: "b2bi", name: "B2BI.GetTransformerJob" }, GetTransformerJobRequest, GetTransformerJobResponse, [AccessDeniedExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const listTagsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-06-23", uri: "/tags/{ResourceARN}", method: "GET", sdkId: "b2bi", sigV4ServiceName: "b2bi", name: "B2BI.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [InternalServerExceptionError, ResourceNotFoundExceptionError, ValidationExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const startTransformerJob = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-06-23", uri: "/transformer-jobs", method: "POST", sdkId: "b2bi", sigV4ServiceName: "b2bi", name: "B2BI.StartTransformerJob" }, StartTransformerJobRequest, StartTransformerJobResponse, [AccessDeniedExceptionError, ConflictExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const tagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-06-23", uri: "/tags/{ResourceARN}", method: "POST", sdkId: "b2bi", sigV4ServiceName: "b2bi", name: "B2BI.TagResource" }, TagResourceRequest, S.Struct({}), [InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const createStarterMappingTemplate = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-06-23", uri: "/createmappingstarttemplate", method: "POST", sdkId: "b2bi", sigV4ServiceName: "b2bi", name: "B2BI.CreateStarterMappingTemplate" }, CreateStarterMappingTemplateRequest, CreateStarterMappingTemplateResponse, [AccessDeniedExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ValidationExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const testConversion = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-06-23", uri: "/testconversion", method: "POST", sdkId: "b2bi", sigV4ServiceName: "b2bi", name: "B2BI.TestConversion" }, TestConversionRequest, TestConversionResponse, [AccessDeniedExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const testParsing = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-06-23", uri: "/testparsing", method: "POST", sdkId: "b2bi", sigV4ServiceName: "b2bi", name: "B2BI.TestParsing" }, TestParsingRequest, TestParsingResponse, [AccessDeniedExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);

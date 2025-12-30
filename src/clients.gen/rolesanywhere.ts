@@ -1,44 +1,44 @@
-import * as Schema from "effect/Schema"
+import * as S from "effect/Schema"
 import { FormatJSONRequest,FormatJSONResponse,FormatAwsRestJSONError, makeOperation } from "../client.ts";
-import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
+import * as H from "../schema-helpers.ts";
 
 //# Schemas
-export const TagKeyList = Schema.Array(Schema.String);
-export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({resourceArn: Schema.String}) {}
-export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({resourceArn: Schema.String, tagKeys: TagKeyList}) {}
-export class UntagResourceResponse extends Schema.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
-export class NotificationSetting extends Schema.Class<NotificationSetting>("NotificationSetting")({enabled: Schema.Boolean, event: Schema.String, threshold: Schema.optional(Schema.Number), channel: Schema.optional(Schema.String)}) {}
-export const NotificationSettings = Schema.Array(NotificationSetting);
-export class NotificationSettingKey extends Schema.Class<NotificationSettingKey>("NotificationSettingKey")({event: Schema.String, channel: Schema.optional(Schema.String)}) {}
-export const NotificationSettingKeys = Schema.Array(NotificationSettingKey);
-export class Tag extends Schema.Class<Tag>("Tag")({key: Schema.String, value: Schema.String}) {}
-export const TagList = Schema.Array(Tag);
-export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({tags: Schema.optional(TagList)}) {}
-export class PutNotificationSettingsRequest extends Schema.Class<PutNotificationSettingsRequest>("PutNotificationSettingsRequest")({trustAnchorId: Schema.String, notificationSettings: NotificationSettings}) {}
-export class ResetNotificationSettingsRequest extends Schema.Class<ResetNotificationSettingsRequest>("ResetNotificationSettingsRequest")({trustAnchorId: Schema.String, notificationSettingKeys: NotificationSettingKeys}) {}
-export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({resourceArn: Schema.String, tags: TagList}) {}
-export class TagResourceResponse extends Schema.Class<TagResourceResponse>("TagResourceResponse")({}) {}
-export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({message: Schema.optional(Schema.String)}) {}
-export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({message: Schema.optional(Schema.String)}) {}
-export const SourceData = Schema.Union(Schema.String, Schema.String);
-export class Source extends Schema.Class<Source>("Source")({sourceType: Schema.optional(Schema.String), sourceData: Schema.optional(SourceData)}) {}
-export class NotificationSettingDetail extends Schema.Class<NotificationSettingDetail>("NotificationSettingDetail")({enabled: Schema.Boolean, event: Schema.String, threshold: Schema.optional(Schema.Number), channel: Schema.optional(Schema.String), configuredBy: Schema.optional(Schema.String)}) {}
-export const NotificationSettingDetails = Schema.Array(NotificationSettingDetail);
-export class TrustAnchorDetail extends Schema.Class<TrustAnchorDetail>("TrustAnchorDetail")({trustAnchorId: Schema.optional(Schema.String), trustAnchorArn: Schema.optional(Schema.String), name: Schema.optional(Schema.String), source: Schema.optional(Source), enabled: Schema.optional(Schema.Boolean), createdAt: Schema.optional(Schema.Date), updatedAt: Schema.optional(Schema.Date), notificationSettings: Schema.optional(NotificationSettingDetails)}) {}
-export class ResetNotificationSettingsResponse extends Schema.Class<ResetNotificationSettingsResponse>("ResetNotificationSettingsResponse")({trustAnchor: TrustAnchorDetail}) {}
-export class TooManyTagsException extends Schema.Class<TooManyTagsException>("TooManyTagsException")({message: Schema.optional(Schema.String)}) {}
-export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({message: Schema.optional(Schema.String)}) {}
-export class PutNotificationSettingsResponse extends Schema.Class<PutNotificationSettingsResponse>("PutNotificationSettingsResponse")({trustAnchor: TrustAnchorDetail}) {}
+export const TagKeyList = S.Array(S.String);
+export class ListTagsForResourceRequest extends S.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({resourceArn: S.String}) {}
+export class UntagResourceRequest extends S.Class<UntagResourceRequest>("UntagResourceRequest")({resourceArn: S.String, tagKeys: TagKeyList}) {}
+export class UntagResourceResponse extends S.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
+export class NotificationSetting extends S.Class<NotificationSetting>("NotificationSetting")({enabled: S.Boolean, event: S.String, threshold: S.optional(S.Number), channel: S.optional(S.String)}) {}
+export const NotificationSettings = S.Array(NotificationSetting);
+export class NotificationSettingKey extends S.Class<NotificationSettingKey>("NotificationSettingKey")({event: S.String, channel: S.optional(S.String)}) {}
+export const NotificationSettingKeys = S.Array(NotificationSettingKey);
+export class Tag extends S.Class<Tag>("Tag")({key: S.String, value: S.String}) {}
+export const TagList = S.Array(Tag);
+export class ListTagsForResourceResponse extends S.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({tags: S.optional(TagList)}) {}
+export class PutNotificationSettingsRequest extends S.Class<PutNotificationSettingsRequest>("PutNotificationSettingsRequest")({trustAnchorId: S.String, notificationSettings: NotificationSettings}) {}
+export class ResetNotificationSettingsRequest extends S.Class<ResetNotificationSettingsRequest>("ResetNotificationSettingsRequest")({trustAnchorId: S.String, notificationSettingKeys: NotificationSettingKeys}) {}
+export class TagResourceRequest extends S.Class<TagResourceRequest>("TagResourceRequest")({resourceArn: S.String, tags: TagList}) {}
+export class TagResourceResponse extends S.Class<TagResourceResponse>("TagResourceResponse")({}) {}
+export class AccessDeniedException extends S.Class<AccessDeniedException>("AccessDeniedException")({message: S.optional(S.String)}) {}
+export class ResourceNotFoundException extends S.Class<ResourceNotFoundException>("ResourceNotFoundException")({message: S.optional(S.String)}) {}
+export const SourceData = S.Union(S.String, S.String);
+export class Source extends S.Class<Source>("Source")({sourceType: S.optional(S.String), sourceData: S.optional(SourceData)}) {}
+export class NotificationSettingDetail extends S.Class<NotificationSettingDetail>("NotificationSettingDetail")({enabled: S.Boolean, event: S.String, threshold: S.optional(S.Number), channel: S.optional(S.String), configuredBy: S.optional(S.String)}) {}
+export const NotificationSettingDetails = S.Array(NotificationSettingDetail);
+export class TrustAnchorDetail extends S.Class<TrustAnchorDetail>("TrustAnchorDetail")({trustAnchorId: S.optional(S.String), trustAnchorArn: S.optional(S.String), name: S.optional(S.String), source: S.optional(Source), enabled: S.optional(S.Boolean), createdAt: S.optional(S.Date), updatedAt: S.optional(S.Date), notificationSettings: S.optional(NotificationSettingDetails)}) {}
+export class ResetNotificationSettingsResponse extends S.Class<ResetNotificationSettingsResponse>("ResetNotificationSettingsResponse")({trustAnchor: TrustAnchorDetail}) {}
+export class TooManyTagsException extends S.Class<TooManyTagsException>("TooManyTagsException")({message: S.optional(S.String)}) {}
+export class ValidationException extends S.Class<ValidationException>("ValidationException")({message: S.optional(S.String)}) {}
+export class PutNotificationSettingsResponse extends S.Class<PutNotificationSettingsResponse>("PutNotificationSettingsResponse")({trustAnchor: TrustAnchorDetail}) {}
 
 //# Errors
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
-export class TooManyTagsExceptionError extends Schema.TaggedError<TooManyTagsExceptionError>()("TooManyTagsException", TooManyTagsException.fields) {};
+export class AccessDeniedExceptionError extends S.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class ResourceNotFoundExceptionError extends S.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ValidationExceptionError extends S.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
+export class TooManyTagsExceptionError extends S.TaggedError<TooManyTagsExceptionError>()("TooManyTagsException", TooManyTagsException.fields) {};
 
 //# Operations
-export const listTagsForResource = /*#__PURE__*/ makeOperation(() => Operation({ version: "2018-05-10", uri: "/ListTagsForResource", method: "GET", sdkId: "RolesAnywhere", sigV4ServiceName: "rolesanywhere", name: "RolesAnywhere.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [AccessDeniedExceptionError, ResourceNotFoundExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const resetNotificationSettings = /*#__PURE__*/ makeOperation(() => Operation({ version: "2018-05-10", uri: "/reset-notifications-settings", method: "PATCH", sdkId: "RolesAnywhere", sigV4ServiceName: "rolesanywhere", name: "RolesAnywhere.ResetNotificationSettings" }, ResetNotificationSettingsRequest, ResetNotificationSettingsResponse, [AccessDeniedExceptionError, ResourceNotFoundExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const tagResource = /*#__PURE__*/ makeOperation(() => Operation({ version: "2018-05-10", uri: "/TagResource", method: "POST", sdkId: "RolesAnywhere", sigV4ServiceName: "rolesanywhere", name: "RolesAnywhere.TagResource" }, TagResourceRequest, TagResourceResponse, [AccessDeniedExceptionError, ResourceNotFoundExceptionError, TooManyTagsExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const untagResource = /*#__PURE__*/ makeOperation(() => Operation({ version: "2018-05-10", uri: "/UntagResource", method: "POST", sdkId: "RolesAnywhere", sigV4ServiceName: "rolesanywhere", name: "RolesAnywhere.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [AccessDeniedExceptionError, ResourceNotFoundExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const putNotificationSettings = /*#__PURE__*/ makeOperation(() => Operation({ version: "2018-05-10", uri: "/put-notifications-settings", method: "PATCH", sdkId: "RolesAnywhere", sigV4ServiceName: "rolesanywhere", name: "RolesAnywhere.PutNotificationSettings" }, PutNotificationSettingsRequest, PutNotificationSettingsResponse, [AccessDeniedExceptionError, ResourceNotFoundExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const listTagsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/ListTagsForResource", method: "GET", sdkId: "RolesAnywhere", sigV4ServiceName: "rolesanywhere", name: "RolesAnywhere.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [AccessDeniedExceptionError, ResourceNotFoundExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const resetNotificationSettings = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/reset-notifications-settings", method: "PATCH", sdkId: "RolesAnywhere", sigV4ServiceName: "rolesanywhere", name: "RolesAnywhere.ResetNotificationSettings" }, ResetNotificationSettingsRequest, ResetNotificationSettingsResponse, [AccessDeniedExceptionError, ResourceNotFoundExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const tagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/TagResource", method: "POST", sdkId: "RolesAnywhere", sigV4ServiceName: "rolesanywhere", name: "RolesAnywhere.TagResource" }, TagResourceRequest, TagResourceResponse, [AccessDeniedExceptionError, ResourceNotFoundExceptionError, TooManyTagsExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const untagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/UntagResource", method: "POST", sdkId: "RolesAnywhere", sigV4ServiceName: "rolesanywhere", name: "RolesAnywhere.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [AccessDeniedExceptionError, ResourceNotFoundExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const putNotificationSettings = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/put-notifications-settings", method: "PATCH", sdkId: "RolesAnywhere", sigV4ServiceName: "rolesanywhere", name: "RolesAnywhere.PutNotificationSettings" }, PutNotificationSettingsRequest, PutNotificationSettingsResponse, [AccessDeniedExceptionError, ResourceNotFoundExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

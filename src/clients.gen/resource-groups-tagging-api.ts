@@ -1,75 +1,75 @@
-import * as Schema from "effect/Schema"
+import * as S from "effect/Schema"
 import { FormatAwsJSON11Request,FormatJSONResponse,FormatAwsRestJSONError, makeOperation } from "../client.ts";
-import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
+import * as H from "../schema-helpers.ts";
 
 //# Schemas
-export class DescribeReportCreationInput extends Schema.Class<DescribeReportCreationInput>("DescribeReportCreationInput")({}) {}
-export const TargetIdFilterList = Schema.Array(Schema.String);
-export const RegionFilterList = Schema.Array(Schema.String);
-export const ResourceTypeFilterList = Schema.Array(Schema.String);
-export const TagKeyFilterList = Schema.Array(Schema.String);
-export const GroupBy = Schema.Array(Schema.String);
-export const ResourceARNListForGet = Schema.Array(Schema.String);
-export const ResourceARNListForTagUntag = Schema.Array(Schema.String);
-export const TagKeyListForUntag = Schema.Array(Schema.String);
-export class DescribeReportCreationOutput extends Schema.Class<DescribeReportCreationOutput>("DescribeReportCreationOutput")({Status: Schema.optional(Schema.String), S3Location: Schema.optional(Schema.String), StartDate: Schema.optional(Schema.String), ErrorMessage: Schema.optional(Schema.String)}) {}
-export class GetComplianceSummaryInput extends Schema.Class<GetComplianceSummaryInput>("GetComplianceSummaryInput")({TargetIdFilters: Schema.optional(TargetIdFilterList), RegionFilters: Schema.optional(RegionFilterList), ResourceTypeFilters: Schema.optional(ResourceTypeFilterList), TagKeyFilters: Schema.optional(TagKeyFilterList), GroupBy: Schema.optional(GroupBy), MaxResults: Schema.optional(Schema.Number), PaginationToken: Schema.optional(Schema.String)}) {}
-export class GetTagKeysInput extends Schema.Class<GetTagKeysInput>("GetTagKeysInput")({PaginationToken: Schema.optional(Schema.String)}) {}
-export class GetTagValuesInput extends Schema.Class<GetTagValuesInput>("GetTagValuesInput")({PaginationToken: Schema.optional(Schema.String), Key: Schema.String}) {}
-export class ListRequiredTagsInput extends Schema.Class<ListRequiredTagsInput>("ListRequiredTagsInput")({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
-export class StartReportCreationInput extends Schema.Class<StartReportCreationInput>("StartReportCreationInput")({S3Bucket: Schema.String}) {}
-export class StartReportCreationOutput extends Schema.Class<StartReportCreationOutput>("StartReportCreationOutput")({}) {}
-export class UntagResourcesInput extends Schema.Class<UntagResourcesInput>("UntagResourcesInput")({ResourceARNList: ResourceARNListForTagUntag, TagKeys: TagKeyListForUntag}) {}
-export const TagValueList = Schema.Array(Schema.String);
-export class TagFilter extends Schema.Class<TagFilter>("TagFilter")({Key: Schema.optional(Schema.String), Values: Schema.optional(TagValueList)}) {}
-export const TagFilterList = Schema.Array(TagFilter);
-export const TagKeyList = Schema.Array(Schema.String);
-export const TagValuesOutputList = Schema.Array(Schema.String);
-export const TagMap = Schema.Record({key: Schema.String, value: Schema.String});
-export class ConstraintViolationException extends Schema.Class<ConstraintViolationException>("ConstraintViolationException")({Message: Schema.optional(Schema.String)}) {}
-export class GetResourcesInput extends Schema.Class<GetResourcesInput>("GetResourcesInput")({PaginationToken: Schema.optional(Schema.String), TagFilters: Schema.optional(TagFilterList), ResourcesPerPage: Schema.optional(Schema.Number), TagsPerPage: Schema.optional(Schema.Number), ResourceTypeFilters: Schema.optional(ResourceTypeFilterList), IncludeComplianceDetails: Schema.optional(Schema.Boolean), ExcludeCompliantResources: Schema.optional(Schema.Boolean), ResourceARNList: Schema.optional(ResourceARNListForGet)}) {}
-export class GetTagKeysOutput extends Schema.Class<GetTagKeysOutput>("GetTagKeysOutput")({PaginationToken: Schema.optional(Schema.String), TagKeys: Schema.optional(TagKeyList)}) {}
-export class GetTagValuesOutput extends Schema.Class<GetTagValuesOutput>("GetTagValuesOutput")({PaginationToken: Schema.optional(Schema.String), TagValues: Schema.optional(TagValuesOutputList)}) {}
-export class ConcurrentModificationException extends Schema.Class<ConcurrentModificationException>("ConcurrentModificationException")({Message: Schema.optional(Schema.String)}) {}
-export class TagResourcesInput extends Schema.Class<TagResourcesInput>("TagResourcesInput")({ResourceARNList: ResourceARNListForTagUntag, Tags: TagMap}) {}
-export const CloudFormationResourceTypes = Schema.Array(Schema.String);
-export const ReportingTagKeys = Schema.Array(Schema.String);
-export class Summary extends Schema.Class<Summary>("Summary")({LastUpdated: Schema.optional(Schema.String), TargetId: Schema.optional(Schema.String), TargetIdType: Schema.optional(Schema.String), Region: Schema.optional(Schema.String), ResourceType: Schema.optional(Schema.String), NonCompliantResources: Schema.optional(Schema.Number)}) {}
-export const SummaryList = Schema.Array(Summary);
-export class RequiredTag extends Schema.Class<RequiredTag>("RequiredTag")({ResourceType: Schema.optional(Schema.String), CloudFormationResourceTypes: Schema.optional(CloudFormationResourceTypes), ReportingTagKeys: Schema.optional(ReportingTagKeys)}) {}
-export const RequiredTagsForListRequiredTags = Schema.Array(RequiredTag);
-export class InternalServiceException extends Schema.Class<InternalServiceException>("InternalServiceException")({Message: Schema.optional(Schema.String)}) {}
-export class GetComplianceSummaryOutput extends Schema.Class<GetComplianceSummaryOutput>("GetComplianceSummaryOutput")({SummaryList: Schema.optional(SummaryList), PaginationToken: Schema.optional(Schema.String)}) {}
-export class InvalidParameterException extends Schema.Class<InvalidParameterException>("InvalidParameterException")({Message: Schema.optional(Schema.String)}) {}
-export class PaginationTokenExpiredException extends Schema.Class<PaginationTokenExpiredException>("PaginationTokenExpiredException")({Message: Schema.optional(Schema.String)}) {}
-export class ListRequiredTagsOutput extends Schema.Class<ListRequiredTagsOutput>("ListRequiredTagsOutput")({RequiredTags: Schema.optional(RequiredTagsForListRequiredTags), NextToken: Schema.optional(Schema.String)}) {}
-export class ThrottledException extends Schema.Class<ThrottledException>("ThrottledException")({Message: Schema.optional(Schema.String)}) {}
-export class FailureInfo extends Schema.Class<FailureInfo>("FailureInfo")({StatusCode: Schema.optional(Schema.Number), ErrorCode: Schema.optional(Schema.String), ErrorMessage: Schema.optional(Schema.String)}) {}
-export const FailedResourcesMap = Schema.Record({key: Schema.String, value: FailureInfo});
-export class TagResourcesOutput extends Schema.Class<TagResourcesOutput>("TagResourcesOutput")({FailedResourcesMap: Schema.optional(FailedResourcesMap)}) {}
-export class UntagResourcesOutput extends Schema.Class<UntagResourcesOutput>("UntagResourcesOutput")({FailedResourcesMap: Schema.optional(FailedResourcesMap)}) {}
-export class Tag extends Schema.Class<Tag>("Tag")({Key: Schema.String, Value: Schema.String}) {}
-export const TagList = Schema.Array(Tag);
-export class ComplianceDetails extends Schema.Class<ComplianceDetails>("ComplianceDetails")({NoncompliantKeys: Schema.optional(TagKeyList), KeysWithNoncompliantValues: Schema.optional(TagKeyList), ComplianceStatus: Schema.optional(Schema.Boolean)}) {}
-export class ResourceTagMapping extends Schema.Class<ResourceTagMapping>("ResourceTagMapping")({ResourceARN: Schema.optional(Schema.String), Tags: Schema.optional(TagList), ComplianceDetails: Schema.optional(ComplianceDetails)}) {}
-export const ResourceTagMappingList = Schema.Array(ResourceTagMapping);
-export class GetResourcesOutput extends Schema.Class<GetResourcesOutput>("GetResourcesOutput")({PaginationToken: Schema.optional(Schema.String), ResourceTagMappingList: Schema.optional(ResourceTagMappingList)}) {}
+export class DescribeReportCreationInput extends S.Class<DescribeReportCreationInput>("DescribeReportCreationInput")({}) {}
+export const TargetIdFilterList = S.Array(S.String);
+export const RegionFilterList = S.Array(S.String);
+export const ResourceTypeFilterList = S.Array(S.String);
+export const TagKeyFilterList = S.Array(S.String);
+export const GroupBy = S.Array(S.String);
+export const ResourceARNListForGet = S.Array(S.String);
+export const ResourceARNListForTagUntag = S.Array(S.String);
+export const TagKeyListForUntag = S.Array(S.String);
+export class DescribeReportCreationOutput extends S.Class<DescribeReportCreationOutput>("DescribeReportCreationOutput")({Status: S.optional(S.String), S3Location: S.optional(S.String), StartDate: S.optional(S.String), ErrorMessage: S.optional(S.String)}) {}
+export class GetComplianceSummaryInput extends S.Class<GetComplianceSummaryInput>("GetComplianceSummaryInput")({TargetIdFilters: S.optional(TargetIdFilterList), RegionFilters: S.optional(RegionFilterList), ResourceTypeFilters: S.optional(ResourceTypeFilterList), TagKeyFilters: S.optional(TagKeyFilterList), GroupBy: S.optional(GroupBy), MaxResults: S.optional(S.Number), PaginationToken: S.optional(S.String)}) {}
+export class GetTagKeysInput extends S.Class<GetTagKeysInput>("GetTagKeysInput")({PaginationToken: S.optional(S.String)}) {}
+export class GetTagValuesInput extends S.Class<GetTagValuesInput>("GetTagValuesInput")({PaginationToken: S.optional(S.String), Key: S.String}) {}
+export class ListRequiredTagsInput extends S.Class<ListRequiredTagsInput>("ListRequiredTagsInput")({NextToken: S.optional(S.String), MaxResults: S.optional(S.Number)}) {}
+export class StartReportCreationInput extends S.Class<StartReportCreationInput>("StartReportCreationInput")({S3Bucket: S.String}) {}
+export class StartReportCreationOutput extends S.Class<StartReportCreationOutput>("StartReportCreationOutput")({}) {}
+export class UntagResourcesInput extends S.Class<UntagResourcesInput>("UntagResourcesInput")({ResourceARNList: ResourceARNListForTagUntag, TagKeys: TagKeyListForUntag}) {}
+export const TagValueList = S.Array(S.String);
+export class TagFilter extends S.Class<TagFilter>("TagFilter")({Key: S.optional(S.String), Values: S.optional(TagValueList)}) {}
+export const TagFilterList = S.Array(TagFilter);
+export const TagKeyList = S.Array(S.String);
+export const TagValuesOutputList = S.Array(S.String);
+export const TagMap = S.Record({key: S.String, value: S.String});
+export class ConstraintViolationException extends S.Class<ConstraintViolationException>("ConstraintViolationException")({Message: S.optional(S.String)}) {}
+export class GetResourcesInput extends S.Class<GetResourcesInput>("GetResourcesInput")({PaginationToken: S.optional(S.String), TagFilters: S.optional(TagFilterList), ResourcesPerPage: S.optional(S.Number), TagsPerPage: S.optional(S.Number), ResourceTypeFilters: S.optional(ResourceTypeFilterList), IncludeComplianceDetails: S.optional(S.Boolean), ExcludeCompliantResources: S.optional(S.Boolean), ResourceARNList: S.optional(ResourceARNListForGet)}) {}
+export class GetTagKeysOutput extends S.Class<GetTagKeysOutput>("GetTagKeysOutput")({PaginationToken: S.optional(S.String), TagKeys: S.optional(TagKeyList)}) {}
+export class GetTagValuesOutput extends S.Class<GetTagValuesOutput>("GetTagValuesOutput")({PaginationToken: S.optional(S.String), TagValues: S.optional(TagValuesOutputList)}) {}
+export class ConcurrentModificationException extends S.Class<ConcurrentModificationException>("ConcurrentModificationException")({Message: S.optional(S.String)}) {}
+export class TagResourcesInput extends S.Class<TagResourcesInput>("TagResourcesInput")({ResourceARNList: ResourceARNListForTagUntag, Tags: TagMap}) {}
+export const CloudFormationResourceTypes = S.Array(S.String);
+export const ReportingTagKeys = S.Array(S.String);
+export class Summary extends S.Class<Summary>("Summary")({LastUpdated: S.optional(S.String), TargetId: S.optional(S.String), TargetIdType: S.optional(S.String), Region: S.optional(S.String), ResourceType: S.optional(S.String), NonCompliantResources: S.optional(S.Number)}) {}
+export const SummaryList = S.Array(Summary);
+export class RequiredTag extends S.Class<RequiredTag>("RequiredTag")({ResourceType: S.optional(S.String), CloudFormationResourceTypes: S.optional(CloudFormationResourceTypes), ReportingTagKeys: S.optional(ReportingTagKeys)}) {}
+export const RequiredTagsForListRequiredTags = S.Array(RequiredTag);
+export class InternalServiceException extends S.Class<InternalServiceException>("InternalServiceException")({Message: S.optional(S.String)}) {}
+export class GetComplianceSummaryOutput extends S.Class<GetComplianceSummaryOutput>("GetComplianceSummaryOutput")({SummaryList: S.optional(SummaryList), PaginationToken: S.optional(S.String)}) {}
+export class InvalidParameterException extends S.Class<InvalidParameterException>("InvalidParameterException")({Message: S.optional(S.String)}) {}
+export class PaginationTokenExpiredException extends S.Class<PaginationTokenExpiredException>("PaginationTokenExpiredException")({Message: S.optional(S.String)}) {}
+export class ListRequiredTagsOutput extends S.Class<ListRequiredTagsOutput>("ListRequiredTagsOutput")({RequiredTags: S.optional(RequiredTagsForListRequiredTags), NextToken: S.optional(S.String)}) {}
+export class ThrottledException extends S.Class<ThrottledException>("ThrottledException")({Message: S.optional(S.String)}) {}
+export class FailureInfo extends S.Class<FailureInfo>("FailureInfo")({StatusCode: S.optional(S.Number), ErrorCode: S.optional(S.String), ErrorMessage: S.optional(S.String)}) {}
+export const FailedResourcesMap = S.Record({key: S.String, value: FailureInfo});
+export class TagResourcesOutput extends S.Class<TagResourcesOutput>("TagResourcesOutput")({FailedResourcesMap: S.optional(FailedResourcesMap)}) {}
+export class UntagResourcesOutput extends S.Class<UntagResourcesOutput>("UntagResourcesOutput")({FailedResourcesMap: S.optional(FailedResourcesMap)}) {}
+export class Tag extends S.Class<Tag>("Tag")({Key: S.String, Value: S.String}) {}
+export const TagList = S.Array(Tag);
+export class ComplianceDetails extends S.Class<ComplianceDetails>("ComplianceDetails")({NoncompliantKeys: S.optional(TagKeyList), KeysWithNoncompliantValues: S.optional(TagKeyList), ComplianceStatus: S.optional(S.Boolean)}) {}
+export class ResourceTagMapping extends S.Class<ResourceTagMapping>("ResourceTagMapping")({ResourceARN: S.optional(S.String), Tags: S.optional(TagList), ComplianceDetails: S.optional(ComplianceDetails)}) {}
+export const ResourceTagMappingList = S.Array(ResourceTagMapping);
+export class GetResourcesOutput extends S.Class<GetResourcesOutput>("GetResourcesOutput")({PaginationToken: S.optional(S.String), ResourceTagMappingList: S.optional(ResourceTagMappingList)}) {}
 
 //# Errors
-export class ConstraintViolationExceptionError extends Schema.TaggedError<ConstraintViolationExceptionError>()("ConstraintViolationException", ConstraintViolationException.fields) {};
-export class InternalServiceExceptionError extends Schema.TaggedError<InternalServiceExceptionError>()("InternalServiceException", InternalServiceException.fields) {};
-export class InvalidParameterExceptionError extends Schema.TaggedError<InvalidParameterExceptionError>()("InvalidParameterException", InvalidParameterException.fields) {};
-export class ConcurrentModificationExceptionError extends Schema.TaggedError<ConcurrentModificationExceptionError>()("ConcurrentModificationException", ConcurrentModificationException.fields) {};
-export class ThrottledExceptionError extends Schema.TaggedError<ThrottledExceptionError>()("ThrottledException", ThrottledException.fields) {};
-export class PaginationTokenExpiredExceptionError extends Schema.TaggedError<PaginationTokenExpiredExceptionError>()("PaginationTokenExpiredException", PaginationTokenExpiredException.fields) {};
+export class ConstraintViolationExceptionError extends S.TaggedError<ConstraintViolationExceptionError>()("ConstraintViolationException", ConstraintViolationException.fields) {};
+export class InternalServiceExceptionError extends S.TaggedError<InternalServiceExceptionError>()("InternalServiceException", InternalServiceException.fields) {};
+export class InvalidParameterExceptionError extends S.TaggedError<InvalidParameterExceptionError>()("InvalidParameterException", InvalidParameterException.fields) {};
+export class ConcurrentModificationExceptionError extends S.TaggedError<ConcurrentModificationExceptionError>()("ConcurrentModificationException", ConcurrentModificationException.fields) {};
+export class ThrottledExceptionError extends S.TaggedError<ThrottledExceptionError>()("ThrottledException", ThrottledException.fields) {};
+export class PaginationTokenExpiredExceptionError extends S.TaggedError<PaginationTokenExpiredExceptionError>()("PaginationTokenExpiredException", PaginationTokenExpiredException.fields) {};
 
 //# Operations
-export const describeReportCreation = /*#__PURE__*/ makeOperation(() => Operation({ version: "2017-01-26", uri: "/DescribeReportCreation", method: "POST", sdkId: "Resource Groups Tagging API", sigV4ServiceName: "tagging", name: "ResourceGroupsTaggingAPI_20170126.DescribeReportCreation" }, DescribeReportCreationInput, DescribeReportCreationOutput, [ConstraintViolationExceptionError, InternalServiceExceptionError, InvalidParameterExceptionError, ThrottledExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const getComplianceSummary = /*#__PURE__*/ makeOperation(() => Operation({ version: "2017-01-26", uri: "/GetComplianceSummary", method: "POST", sdkId: "Resource Groups Tagging API", sigV4ServiceName: "tagging", name: "ResourceGroupsTaggingAPI_20170126.GetComplianceSummary" }, GetComplianceSummaryInput, GetComplianceSummaryOutput, [ConstraintViolationExceptionError, InternalServiceExceptionError, InvalidParameterExceptionError, ThrottledExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const getTagKeys = /*#__PURE__*/ makeOperation(() => Operation({ version: "2017-01-26", uri: "/GetTagKeys", method: "POST", sdkId: "Resource Groups Tagging API", sigV4ServiceName: "tagging", name: "ResourceGroupsTaggingAPI_20170126.GetTagKeys" }, GetTagKeysInput, GetTagKeysOutput, [InternalServiceExceptionError, InvalidParameterExceptionError, PaginationTokenExpiredExceptionError, ThrottledExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const getTagValues = /*#__PURE__*/ makeOperation(() => Operation({ version: "2017-01-26", uri: "/GetTagValues", method: "POST", sdkId: "Resource Groups Tagging API", sigV4ServiceName: "tagging", name: "ResourceGroupsTaggingAPI_20170126.GetTagValues" }, GetTagValuesInput, GetTagValuesOutput, [InternalServiceExceptionError, InvalidParameterExceptionError, PaginationTokenExpiredExceptionError, ThrottledExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listRequiredTags = /*#__PURE__*/ makeOperation(() => Operation({ version: "2017-01-26", uri: "/ListRequiredTags", method: "POST", sdkId: "Resource Groups Tagging API", sigV4ServiceName: "tagging", name: "ResourceGroupsTaggingAPI_20170126.ListRequiredTags" }, ListRequiredTagsInput, ListRequiredTagsOutput, [InternalServiceExceptionError, InvalidParameterExceptionError, PaginationTokenExpiredExceptionError, ThrottledExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const startReportCreation = /*#__PURE__*/ makeOperation(() => Operation({ version: "2017-01-26", uri: "/StartReportCreation", method: "POST", sdkId: "Resource Groups Tagging API", sigV4ServiceName: "tagging", name: "ResourceGroupsTaggingAPI_20170126.StartReportCreation" }, StartReportCreationInput, StartReportCreationOutput, [ConcurrentModificationExceptionError, ConstraintViolationExceptionError, InternalServiceExceptionError, InvalidParameterExceptionError, ThrottledExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const tagResources = /*#__PURE__*/ makeOperation(() => Operation({ version: "2017-01-26", uri: "/TagResources", method: "POST", sdkId: "Resource Groups Tagging API", sigV4ServiceName: "tagging", name: "ResourceGroupsTaggingAPI_20170126.TagResources" }, TagResourcesInput, TagResourcesOutput, [InternalServiceExceptionError, InvalidParameterExceptionError, ThrottledExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const untagResources = /*#__PURE__*/ makeOperation(() => Operation({ version: "2017-01-26", uri: "/UntagResources", method: "POST", sdkId: "Resource Groups Tagging API", sigV4ServiceName: "tagging", name: "ResourceGroupsTaggingAPI_20170126.UntagResources" }, UntagResourcesInput, UntagResourcesOutput, [InternalServiceExceptionError, InvalidParameterExceptionError, ThrottledExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const getResources = /*#__PURE__*/ makeOperation(() => Operation({ version: "2017-01-26", uri: "/GetResources", method: "POST", sdkId: "Resource Groups Tagging API", sigV4ServiceName: "tagging", name: "ResourceGroupsTaggingAPI_20170126.GetResources" }, GetResourcesInput, GetResourcesOutput, [InternalServiceExceptionError, InvalidParameterExceptionError, PaginationTokenExpiredExceptionError, ThrottledExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const describeReportCreation = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-26", uri: "/DescribeReportCreation", method: "POST", sdkId: "Resource Groups Tagging API", sigV4ServiceName: "tagging", name: "ResourceGroupsTaggingAPI_20170126.DescribeReportCreation" }, DescribeReportCreationInput, DescribeReportCreationOutput, [ConstraintViolationExceptionError, InternalServiceExceptionError, InvalidParameterExceptionError, ThrottledExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const getComplianceSummary = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-26", uri: "/GetComplianceSummary", method: "POST", sdkId: "Resource Groups Tagging API", sigV4ServiceName: "tagging", name: "ResourceGroupsTaggingAPI_20170126.GetComplianceSummary" }, GetComplianceSummaryInput, GetComplianceSummaryOutput, [ConstraintViolationExceptionError, InternalServiceExceptionError, InvalidParameterExceptionError, ThrottledExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const getTagKeys = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-26", uri: "/GetTagKeys", method: "POST", sdkId: "Resource Groups Tagging API", sigV4ServiceName: "tagging", name: "ResourceGroupsTaggingAPI_20170126.GetTagKeys" }, GetTagKeysInput, GetTagKeysOutput, [InternalServiceExceptionError, InvalidParameterExceptionError, PaginationTokenExpiredExceptionError, ThrottledExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const getTagValues = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-26", uri: "/GetTagValues", method: "POST", sdkId: "Resource Groups Tagging API", sigV4ServiceName: "tagging", name: "ResourceGroupsTaggingAPI_20170126.GetTagValues" }, GetTagValuesInput, GetTagValuesOutput, [InternalServiceExceptionError, InvalidParameterExceptionError, PaginationTokenExpiredExceptionError, ThrottledExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const listRequiredTags = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-26", uri: "/ListRequiredTags", method: "POST", sdkId: "Resource Groups Tagging API", sigV4ServiceName: "tagging", name: "ResourceGroupsTaggingAPI_20170126.ListRequiredTags" }, ListRequiredTagsInput, ListRequiredTagsOutput, [InternalServiceExceptionError, InvalidParameterExceptionError, PaginationTokenExpiredExceptionError, ThrottledExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const startReportCreation = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-26", uri: "/StartReportCreation", method: "POST", sdkId: "Resource Groups Tagging API", sigV4ServiceName: "tagging", name: "ResourceGroupsTaggingAPI_20170126.StartReportCreation" }, StartReportCreationInput, StartReportCreationOutput, [ConcurrentModificationExceptionError, ConstraintViolationExceptionError, InternalServiceExceptionError, InvalidParameterExceptionError, ThrottledExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const tagResources = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-26", uri: "/TagResources", method: "POST", sdkId: "Resource Groups Tagging API", sigV4ServiceName: "tagging", name: "ResourceGroupsTaggingAPI_20170126.TagResources" }, TagResourcesInput, TagResourcesOutput, [InternalServiceExceptionError, InvalidParameterExceptionError, ThrottledExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const untagResources = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-26", uri: "/UntagResources", method: "POST", sdkId: "Resource Groups Tagging API", sigV4ServiceName: "tagging", name: "ResourceGroupsTaggingAPI_20170126.UntagResources" }, UntagResourcesInput, UntagResourcesOutput, [InternalServiceExceptionError, InvalidParameterExceptionError, ThrottledExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const getResources = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-26", uri: "/GetResources", method: "POST", sdkId: "Resource Groups Tagging API", sigV4ServiceName: "tagging", name: "ResourceGroupsTaggingAPI_20170126.GetResources" }, GetResourcesInput, GetResourcesOutput, [InternalServiceExceptionError, InvalidParameterExceptionError, PaginationTokenExpiredExceptionError, ThrottledExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

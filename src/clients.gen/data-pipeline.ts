@@ -1,104 +1,104 @@
-import * as Schema from "effect/Schema"
+import * as S from "effect/Schema"
 import { FormatAwsJSON11Request,FormatJSONResponse,FormatAwsRestJSONError, makeOperation } from "../client.ts";
-import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
+import * as H from "../schema-helpers.ts";
 
 //# Schemas
-export const idList = Schema.Array(Schema.String);
-export const stringList = Schema.Array(Schema.String);
-export class Tag extends Schema.Class<Tag>("Tag")({key: Schema.String, value: Schema.String}) {}
-export const tagList = Schema.Array(Tag);
-export class CreatePipelineInput extends Schema.Class<CreatePipelineInput>("CreatePipelineInput")({name: Schema.String, uniqueId: Schema.String, description: Schema.optional(Schema.String), tags: Schema.optional(tagList)}) {}
-export class DeactivatePipelineInput extends Schema.Class<DeactivatePipelineInput>("DeactivatePipelineInput")({pipelineId: Schema.String, cancelActive: Schema.optional(Schema.Boolean)}) {}
-export class DeactivatePipelineOutput extends Schema.Class<DeactivatePipelineOutput>("DeactivatePipelineOutput")({}) {}
-export class DeletePipelineInput extends Schema.Class<DeletePipelineInput>("DeletePipelineInput")({pipelineId: Schema.String}) {}
-export class DescribeObjectsInput extends Schema.Class<DescribeObjectsInput>("DescribeObjectsInput")({pipelineId: Schema.String, objectIds: idList, evaluateExpressions: Schema.optional(Schema.Boolean), marker: Schema.optional(Schema.String)}) {}
-export class DescribePipelinesInput extends Schema.Class<DescribePipelinesInput>("DescribePipelinesInput")({pipelineIds: idList}) {}
-export class EvaluateExpressionInput extends Schema.Class<EvaluateExpressionInput>("EvaluateExpressionInput")({pipelineId: Schema.String, objectId: Schema.String, expression: Schema.String}) {}
-export class GetPipelineDefinitionInput extends Schema.Class<GetPipelineDefinitionInput>("GetPipelineDefinitionInput")({pipelineId: Schema.String, version: Schema.optional(Schema.String)}) {}
-export class ListPipelinesInput extends Schema.Class<ListPipelinesInput>("ListPipelinesInput")({marker: Schema.optional(Schema.String)}) {}
-export class RemoveTagsInput extends Schema.Class<RemoveTagsInput>("RemoveTagsInput")({pipelineId: Schema.String, tagKeys: stringList}) {}
-export class RemoveTagsOutput extends Schema.Class<RemoveTagsOutput>("RemoveTagsOutput")({}) {}
-export class ReportTaskRunnerHeartbeatInput extends Schema.Class<ReportTaskRunnerHeartbeatInput>("ReportTaskRunnerHeartbeatInput")({taskrunnerId: Schema.String, workerGroup: Schema.optional(Schema.String), hostname: Schema.optional(Schema.String)}) {}
-export class SetStatusInput extends Schema.Class<SetStatusInput>("SetStatusInput")({pipelineId: Schema.String, objectIds: idList, status: Schema.String}) {}
-export class SetTaskStatusInput extends Schema.Class<SetTaskStatusInput>("SetTaskStatusInput")({taskId: Schema.String, taskStatus: Schema.String, errorId: Schema.optional(Schema.String), errorMessage: Schema.optional(Schema.String), errorStackTrace: Schema.optional(Schema.String)}) {}
-export class SetTaskStatusOutput extends Schema.Class<SetTaskStatusOutput>("SetTaskStatusOutput")({}) {}
-export class Field extends Schema.Class<Field>("Field")({key: Schema.String, stringValue: Schema.optional(Schema.String), refValue: Schema.optional(Schema.String)}) {}
-export const fieldList = Schema.Array(Field);
-export class PipelineObject extends Schema.Class<PipelineObject>("PipelineObject")({id: Schema.String, name: Schema.String, fields: fieldList}) {}
-export const PipelineObjectList = Schema.Array(PipelineObject);
-export class ParameterAttribute extends Schema.Class<ParameterAttribute>("ParameterAttribute")({key: Schema.String, stringValue: Schema.String}) {}
-export const ParameterAttributeList = Schema.Array(ParameterAttribute);
-export class ParameterObject extends Schema.Class<ParameterObject>("ParameterObject")({id: Schema.String, attributes: ParameterAttributeList}) {}
-export const ParameterObjectList = Schema.Array(ParameterObject);
-export class ParameterValue extends Schema.Class<ParameterValue>("ParameterValue")({id: Schema.String, stringValue: Schema.String}) {}
-export const ParameterValueList = Schema.Array(ParameterValue);
-export class ValidatePipelineDefinitionInput extends Schema.Class<ValidatePipelineDefinitionInput>("ValidatePipelineDefinitionInput")({pipelineId: Schema.String, pipelineObjects: PipelineObjectList, parameterObjects: Schema.optional(ParameterObjectList), parameterValues: Schema.optional(ParameterValueList)}) {}
-export class InstanceIdentity extends Schema.Class<InstanceIdentity>("InstanceIdentity")({document: Schema.optional(Schema.String), signature: Schema.optional(Schema.String)}) {}
-export class ActivatePipelineInput extends Schema.Class<ActivatePipelineInput>("ActivatePipelineInput")({pipelineId: Schema.String, parameterValues: Schema.optional(ParameterValueList), startTimestamp: Schema.optional(Schema.Date)}) {}
-export class ActivatePipelineOutput extends Schema.Class<ActivatePipelineOutput>("ActivatePipelineOutput")({}) {}
-export class AddTagsInput extends Schema.Class<AddTagsInput>("AddTagsInput")({pipelineId: Schema.String, tags: tagList}) {}
-export class AddTagsOutput extends Schema.Class<AddTagsOutput>("AddTagsOutput")({}) {}
-export class CreatePipelineOutput extends Schema.Class<CreatePipelineOutput>("CreatePipelineOutput")({pipelineId: Schema.String}) {}
-export class InternalServiceError extends Schema.Class<InternalServiceError>("InternalServiceError")({message: Schema.optional(Schema.String)}) {}
-export class InvalidRequestException extends Schema.Class<InvalidRequestException>("InvalidRequestException")({message: Schema.optional(Schema.String)}) {}
-export class DescribeObjectsOutput extends Schema.Class<DescribeObjectsOutput>("DescribeObjectsOutput")({pipelineObjects: PipelineObjectList, marker: Schema.optional(Schema.String), hasMoreResults: Schema.optional(Schema.Boolean)}) {}
-export class EvaluateExpressionOutput extends Schema.Class<EvaluateExpressionOutput>("EvaluateExpressionOutput")({evaluatedExpression: Schema.String}) {}
-export class GetPipelineDefinitionOutput extends Schema.Class<GetPipelineDefinitionOutput>("GetPipelineDefinitionOutput")({pipelineObjects: Schema.optional(PipelineObjectList), parameterObjects: Schema.optional(ParameterObjectList), parameterValues: Schema.optional(ParameterValueList)}) {}
-export class PollForTaskInput extends Schema.Class<PollForTaskInput>("PollForTaskInput")({workerGroup: Schema.String, hostname: Schema.optional(Schema.String), instanceIdentity: Schema.optional(InstanceIdentity)}) {}
-export class PipelineDeletedException extends Schema.Class<PipelineDeletedException>("PipelineDeletedException")({message: Schema.optional(Schema.String)}) {}
-export class ReportTaskProgressInput extends Schema.Class<ReportTaskProgressInput>("ReportTaskProgressInput")({taskId: Schema.String, fields: Schema.optional(fieldList)}) {}
-export class ReportTaskRunnerHeartbeatOutput extends Schema.Class<ReportTaskRunnerHeartbeatOutput>("ReportTaskRunnerHeartbeatOutput")({terminate: Schema.Boolean}) {}
-export class PipelineNotFoundException extends Schema.Class<PipelineNotFoundException>("PipelineNotFoundException")({message: Schema.optional(Schema.String)}) {}
-export class TaskNotFoundException extends Schema.Class<TaskNotFoundException>("TaskNotFoundException")({message: Schema.optional(Schema.String)}) {}
-export const validationMessages = Schema.Array(Schema.String);
-export class PipelineDescription extends Schema.Class<PipelineDescription>("PipelineDescription")({pipelineId: Schema.String, name: Schema.String, fields: fieldList, description: Schema.optional(Schema.String), tags: Schema.optional(tagList)}) {}
-export const PipelineDescriptionList = Schema.Array(PipelineDescription);
-export class PipelineIdName extends Schema.Class<PipelineIdName>("PipelineIdName")({id: Schema.optional(Schema.String), name: Schema.optional(Schema.String)}) {}
-export const pipelineList = Schema.Array(PipelineIdName);
-export class ValidationError extends Schema.Class<ValidationError>("ValidationError")({id: Schema.optional(Schema.String), errors: Schema.optional(validationMessages)}) {}
-export const ValidationErrors = Schema.Array(ValidationError);
-export class ValidationWarning extends Schema.Class<ValidationWarning>("ValidationWarning")({id: Schema.optional(Schema.String), warnings: Schema.optional(validationMessages)}) {}
-export const ValidationWarnings = Schema.Array(ValidationWarning);
-export class Operator extends Schema.Class<Operator>("Operator")({type: Schema.optional(Schema.String), values: Schema.optional(stringList)}) {}
-export class DescribePipelinesOutput extends Schema.Class<DescribePipelinesOutput>("DescribePipelinesOutput")({pipelineDescriptionList: PipelineDescriptionList}) {}
-export class ListPipelinesOutput extends Schema.Class<ListPipelinesOutput>("ListPipelinesOutput")({pipelineIdList: pipelineList, marker: Schema.optional(Schema.String), hasMoreResults: Schema.optional(Schema.Boolean)}) {}
-export class PutPipelineDefinitionInput extends Schema.Class<PutPipelineDefinitionInput>("PutPipelineDefinitionInput")({pipelineId: Schema.String, pipelineObjects: PipelineObjectList, parameterObjects: Schema.optional(ParameterObjectList), parameterValues: Schema.optional(ParameterValueList)}) {}
-export class ReportTaskProgressOutput extends Schema.Class<ReportTaskProgressOutput>("ReportTaskProgressOutput")({canceled: Schema.Boolean}) {}
-export class ValidatePipelineDefinitionOutput extends Schema.Class<ValidatePipelineDefinitionOutput>("ValidatePipelineDefinitionOutput")({validationErrors: Schema.optional(ValidationErrors), validationWarnings: Schema.optional(ValidationWarnings), errored: Schema.Boolean}) {}
-export class Selector extends Schema.Class<Selector>("Selector")({fieldName: Schema.optional(Schema.String), operator: Schema.optional(Operator)}) {}
-export const SelectorList = Schema.Array(Selector);
-export class Query extends Schema.Class<Query>("Query")({selectors: Schema.optional(SelectorList)}) {}
-export class PutPipelineDefinitionOutput extends Schema.Class<PutPipelineDefinitionOutput>("PutPipelineDefinitionOutput")({validationErrors: Schema.optional(ValidationErrors), validationWarnings: Schema.optional(ValidationWarnings), errored: Schema.Boolean}) {}
-export class QueryObjectsInput extends Schema.Class<QueryObjectsInput>("QueryObjectsInput")({pipelineId: Schema.String, query: Schema.optional(Query), sphere: Schema.String, marker: Schema.optional(Schema.String), limit: Schema.optional(Schema.Number)}) {}
-export const PipelineObjectMap = Schema.Record({key: Schema.String, value: PipelineObject});
-export class TaskObject extends Schema.Class<TaskObject>("TaskObject")({taskId: Schema.optional(Schema.String), pipelineId: Schema.optional(Schema.String), attemptId: Schema.optional(Schema.String), objects: Schema.optional(PipelineObjectMap)}) {}
-export class PollForTaskOutput extends Schema.Class<PollForTaskOutput>("PollForTaskOutput")({taskObject: Schema.optional(TaskObject)}) {}
-export class QueryObjectsOutput extends Schema.Class<QueryObjectsOutput>("QueryObjectsOutput")({ids: Schema.optional(idList), marker: Schema.optional(Schema.String), hasMoreResults: Schema.optional(Schema.Boolean)}) {}
+export const idList = S.Array(S.String);
+export const stringList = S.Array(S.String);
+export class Tag extends S.Class<Tag>("Tag")({key: S.String, value: S.String}) {}
+export const tagList = S.Array(Tag);
+export class CreatePipelineInput extends S.Class<CreatePipelineInput>("CreatePipelineInput")({name: S.String, uniqueId: S.String, description: S.optional(S.String), tags: S.optional(tagList)}) {}
+export class DeactivatePipelineInput extends S.Class<DeactivatePipelineInput>("DeactivatePipelineInput")({pipelineId: S.String, cancelActive: S.optional(S.Boolean)}) {}
+export class DeactivatePipelineOutput extends S.Class<DeactivatePipelineOutput>("DeactivatePipelineOutput")({}) {}
+export class DeletePipelineInput extends S.Class<DeletePipelineInput>("DeletePipelineInput")({pipelineId: S.String}) {}
+export class DescribeObjectsInput extends S.Class<DescribeObjectsInput>("DescribeObjectsInput")({pipelineId: S.String, objectIds: idList, evaluateExpressions: S.optional(S.Boolean), marker: S.optional(S.String)}) {}
+export class DescribePipelinesInput extends S.Class<DescribePipelinesInput>("DescribePipelinesInput")({pipelineIds: idList}) {}
+export class EvaluateExpressionInput extends S.Class<EvaluateExpressionInput>("EvaluateExpressionInput")({pipelineId: S.String, objectId: S.String, expression: S.String}) {}
+export class GetPipelineDefinitionInput extends S.Class<GetPipelineDefinitionInput>("GetPipelineDefinitionInput")({pipelineId: S.String, version: S.optional(S.String)}) {}
+export class ListPipelinesInput extends S.Class<ListPipelinesInput>("ListPipelinesInput")({marker: S.optional(S.String)}) {}
+export class RemoveTagsInput extends S.Class<RemoveTagsInput>("RemoveTagsInput")({pipelineId: S.String, tagKeys: stringList}) {}
+export class RemoveTagsOutput extends S.Class<RemoveTagsOutput>("RemoveTagsOutput")({}) {}
+export class ReportTaskRunnerHeartbeatInput extends S.Class<ReportTaskRunnerHeartbeatInput>("ReportTaskRunnerHeartbeatInput")({taskrunnerId: S.String, workerGroup: S.optional(S.String), hostname: S.optional(S.String)}) {}
+export class SetStatusInput extends S.Class<SetStatusInput>("SetStatusInput")({pipelineId: S.String, objectIds: idList, status: S.String}) {}
+export class SetTaskStatusInput extends S.Class<SetTaskStatusInput>("SetTaskStatusInput")({taskId: S.String, taskStatus: S.String, errorId: S.optional(S.String), errorMessage: S.optional(S.String), errorStackTrace: S.optional(S.String)}) {}
+export class SetTaskStatusOutput extends S.Class<SetTaskStatusOutput>("SetTaskStatusOutput")({}) {}
+export class Field extends S.Class<Field>("Field")({key: S.String, stringValue: S.optional(S.String), refValue: S.optional(S.String)}) {}
+export const fieldList = S.Array(Field);
+export class PipelineObject extends S.Class<PipelineObject>("PipelineObject")({id: S.String, name: S.String, fields: fieldList}) {}
+export const PipelineObjectList = S.Array(PipelineObject);
+export class ParameterAttribute extends S.Class<ParameterAttribute>("ParameterAttribute")({key: S.String, stringValue: S.String}) {}
+export const ParameterAttributeList = S.Array(ParameterAttribute);
+export class ParameterObject extends S.Class<ParameterObject>("ParameterObject")({id: S.String, attributes: ParameterAttributeList}) {}
+export const ParameterObjectList = S.Array(ParameterObject);
+export class ParameterValue extends S.Class<ParameterValue>("ParameterValue")({id: S.String, stringValue: S.String}) {}
+export const ParameterValueList = S.Array(ParameterValue);
+export class ValidatePipelineDefinitionInput extends S.Class<ValidatePipelineDefinitionInput>("ValidatePipelineDefinitionInput")({pipelineId: S.String, pipelineObjects: PipelineObjectList, parameterObjects: S.optional(ParameterObjectList), parameterValues: S.optional(ParameterValueList)}) {}
+export class InstanceIdentity extends S.Class<InstanceIdentity>("InstanceIdentity")({document: S.optional(S.String), signature: S.optional(S.String)}) {}
+export class ActivatePipelineInput extends S.Class<ActivatePipelineInput>("ActivatePipelineInput")({pipelineId: S.String, parameterValues: S.optional(ParameterValueList), startTimestamp: S.optional(S.Date)}) {}
+export class ActivatePipelineOutput extends S.Class<ActivatePipelineOutput>("ActivatePipelineOutput")({}) {}
+export class AddTagsInput extends S.Class<AddTagsInput>("AddTagsInput")({pipelineId: S.String, tags: tagList}) {}
+export class AddTagsOutput extends S.Class<AddTagsOutput>("AddTagsOutput")({}) {}
+export class CreatePipelineOutput extends S.Class<CreatePipelineOutput>("CreatePipelineOutput")({pipelineId: S.String}) {}
+export class InternalServiceError extends S.Class<InternalServiceError>("InternalServiceError")({message: S.optional(S.String)}) {}
+export class InvalidRequestException extends S.Class<InvalidRequestException>("InvalidRequestException")({message: S.optional(S.String)}) {}
+export class DescribeObjectsOutput extends S.Class<DescribeObjectsOutput>("DescribeObjectsOutput")({pipelineObjects: PipelineObjectList, marker: S.optional(S.String), hasMoreResults: S.optional(S.Boolean)}) {}
+export class EvaluateExpressionOutput extends S.Class<EvaluateExpressionOutput>("EvaluateExpressionOutput")({evaluatedExpression: S.String}) {}
+export class GetPipelineDefinitionOutput extends S.Class<GetPipelineDefinitionOutput>("GetPipelineDefinitionOutput")({pipelineObjects: S.optional(PipelineObjectList), parameterObjects: S.optional(ParameterObjectList), parameterValues: S.optional(ParameterValueList)}) {}
+export class PollForTaskInput extends S.Class<PollForTaskInput>("PollForTaskInput")({workerGroup: S.String, hostname: S.optional(S.String), instanceIdentity: S.optional(InstanceIdentity)}) {}
+export class PipelineDeletedException extends S.Class<PipelineDeletedException>("PipelineDeletedException")({message: S.optional(S.String)}) {}
+export class ReportTaskProgressInput extends S.Class<ReportTaskProgressInput>("ReportTaskProgressInput")({taskId: S.String, fields: S.optional(fieldList)}) {}
+export class ReportTaskRunnerHeartbeatOutput extends S.Class<ReportTaskRunnerHeartbeatOutput>("ReportTaskRunnerHeartbeatOutput")({terminate: S.Boolean}) {}
+export class PipelineNotFoundException extends S.Class<PipelineNotFoundException>("PipelineNotFoundException")({message: S.optional(S.String)}) {}
+export class TaskNotFoundException extends S.Class<TaskNotFoundException>("TaskNotFoundException")({message: S.optional(S.String)}) {}
+export const validationMessages = S.Array(S.String);
+export class PipelineDescription extends S.Class<PipelineDescription>("PipelineDescription")({pipelineId: S.String, name: S.String, fields: fieldList, description: S.optional(S.String), tags: S.optional(tagList)}) {}
+export const PipelineDescriptionList = S.Array(PipelineDescription);
+export class PipelineIdName extends S.Class<PipelineIdName>("PipelineIdName")({id: S.optional(S.String), name: S.optional(S.String)}) {}
+export const pipelineList = S.Array(PipelineIdName);
+export class ValidationError extends S.Class<ValidationError>("ValidationError")({id: S.optional(S.String), errors: S.optional(validationMessages)}) {}
+export const ValidationErrors = S.Array(ValidationError);
+export class ValidationWarning extends S.Class<ValidationWarning>("ValidationWarning")({id: S.optional(S.String), warnings: S.optional(validationMessages)}) {}
+export const ValidationWarnings = S.Array(ValidationWarning);
+export class Operator extends S.Class<Operator>("Operator")({type: S.optional(S.String), values: S.optional(stringList)}) {}
+export class DescribePipelinesOutput extends S.Class<DescribePipelinesOutput>("DescribePipelinesOutput")({pipelineDescriptionList: PipelineDescriptionList}) {}
+export class ListPipelinesOutput extends S.Class<ListPipelinesOutput>("ListPipelinesOutput")({pipelineIdList: pipelineList, marker: S.optional(S.String), hasMoreResults: S.optional(S.Boolean)}) {}
+export class PutPipelineDefinitionInput extends S.Class<PutPipelineDefinitionInput>("PutPipelineDefinitionInput")({pipelineId: S.String, pipelineObjects: PipelineObjectList, parameterObjects: S.optional(ParameterObjectList), parameterValues: S.optional(ParameterValueList)}) {}
+export class ReportTaskProgressOutput extends S.Class<ReportTaskProgressOutput>("ReportTaskProgressOutput")({canceled: S.Boolean}) {}
+export class ValidatePipelineDefinitionOutput extends S.Class<ValidatePipelineDefinitionOutput>("ValidatePipelineDefinitionOutput")({validationErrors: S.optional(ValidationErrors), validationWarnings: S.optional(ValidationWarnings), errored: S.Boolean}) {}
+export class Selector extends S.Class<Selector>("Selector")({fieldName: S.optional(S.String), operator: S.optional(Operator)}) {}
+export const SelectorList = S.Array(Selector);
+export class Query extends S.Class<Query>("Query")({selectors: S.optional(SelectorList)}) {}
+export class PutPipelineDefinitionOutput extends S.Class<PutPipelineDefinitionOutput>("PutPipelineDefinitionOutput")({validationErrors: S.optional(ValidationErrors), validationWarnings: S.optional(ValidationWarnings), errored: S.Boolean}) {}
+export class QueryObjectsInput extends S.Class<QueryObjectsInput>("QueryObjectsInput")({pipelineId: S.String, query: S.optional(Query), sphere: S.String, marker: S.optional(S.String), limit: S.optional(S.Number)}) {}
+export const PipelineObjectMap = S.Record({key: S.String, value: PipelineObject});
+export class TaskObject extends S.Class<TaskObject>("TaskObject")({taskId: S.optional(S.String), pipelineId: S.optional(S.String), attemptId: S.optional(S.String), objects: S.optional(PipelineObjectMap)}) {}
+export class PollForTaskOutput extends S.Class<PollForTaskOutput>("PollForTaskOutput")({taskObject: S.optional(TaskObject)}) {}
+export class QueryObjectsOutput extends S.Class<QueryObjectsOutput>("QueryObjectsOutput")({ids: S.optional(idList), marker: S.optional(S.String), hasMoreResults: S.optional(S.Boolean)}) {}
 
 //# Errors
-export class InternalServiceErrorError extends Schema.TaggedError<InternalServiceErrorError>()("InternalServiceError", InternalServiceError.fields) {};
-export class InvalidRequestExceptionError extends Schema.TaggedError<InvalidRequestExceptionError>()("InvalidRequestException", InvalidRequestException.fields) {};
-export class PipelineDeletedExceptionError extends Schema.TaggedError<PipelineDeletedExceptionError>()("PipelineDeletedException", PipelineDeletedException.fields) {};
-export class PipelineNotFoundExceptionError extends Schema.TaggedError<PipelineNotFoundExceptionError>()("PipelineNotFoundException", PipelineNotFoundException.fields) {};
-export class TaskNotFoundExceptionError extends Schema.TaggedError<TaskNotFoundExceptionError>()("TaskNotFoundException", TaskNotFoundException.fields) {};
+export class InternalServiceErrorError extends S.TaggedError<InternalServiceErrorError>()("InternalServiceError", InternalServiceError.fields) {};
+export class InvalidRequestExceptionError extends S.TaggedError<InvalidRequestExceptionError>()("InvalidRequestException", InvalidRequestException.fields) {};
+export class PipelineDeletedExceptionError extends S.TaggedError<PipelineDeletedExceptionError>()("PipelineDeletedException", PipelineDeletedException.fields) {};
+export class PipelineNotFoundExceptionError extends S.TaggedError<PipelineNotFoundExceptionError>()("PipelineNotFoundException", PipelineNotFoundException.fields) {};
+export class TaskNotFoundExceptionError extends S.TaggedError<TaskNotFoundExceptionError>()("TaskNotFoundException", TaskNotFoundException.fields) {};
 
 //# Operations
-export const activatePipeline = /*#__PURE__*/ makeOperation(() => Operation({ version: "2012-10-29", uri: "/", method: "POST", sdkId: "Data Pipeline", sigV4ServiceName: "datapipeline", name: "DataPipeline.ActivatePipeline" }, ActivatePipelineInput, ActivatePipelineOutput, [InternalServiceErrorError, InvalidRequestExceptionError, PipelineDeletedExceptionError, PipelineNotFoundExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const addTags = /*#__PURE__*/ makeOperation(() => Operation({ version: "2012-10-29", uri: "/", method: "POST", sdkId: "Data Pipeline", sigV4ServiceName: "datapipeline", name: "DataPipeline.AddTags" }, AddTagsInput, AddTagsOutput, [InternalServiceErrorError, InvalidRequestExceptionError, PipelineDeletedExceptionError, PipelineNotFoundExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const createPipeline = /*#__PURE__*/ makeOperation(() => Operation({ version: "2012-10-29", uri: "/", method: "POST", sdkId: "Data Pipeline", sigV4ServiceName: "datapipeline", name: "DataPipeline.CreatePipeline" }, CreatePipelineInput, CreatePipelineOutput, [InternalServiceErrorError, InvalidRequestExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const deactivatePipeline = /*#__PURE__*/ makeOperation(() => Operation({ version: "2012-10-29", uri: "/", method: "POST", sdkId: "Data Pipeline", sigV4ServiceName: "datapipeline", name: "DataPipeline.DeactivatePipeline" }, DeactivatePipelineInput, DeactivatePipelineOutput, [InternalServiceErrorError, InvalidRequestExceptionError, PipelineDeletedExceptionError, PipelineNotFoundExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const deletePipeline = /*#__PURE__*/ makeOperation(() => Operation({ version: "2012-10-29", uri: "/", method: "POST", sdkId: "Data Pipeline", sigV4ServiceName: "datapipeline", name: "DataPipeline.DeletePipeline" }, DeletePipelineInput, Schema.Struct({}), [InternalServiceErrorError, InvalidRequestExceptionError, PipelineNotFoundExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeObjects = /*#__PURE__*/ makeOperation(() => Operation({ version: "2012-10-29", uri: "/", method: "POST", sdkId: "Data Pipeline", sigV4ServiceName: "datapipeline", name: "DataPipeline.DescribeObjects" }, DescribeObjectsInput, DescribeObjectsOutput, [InternalServiceErrorError, InvalidRequestExceptionError, PipelineDeletedExceptionError, PipelineNotFoundExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const evaluateExpression = /*#__PURE__*/ makeOperation(() => Operation({ version: "2012-10-29", uri: "/", method: "POST", sdkId: "Data Pipeline", sigV4ServiceName: "datapipeline", name: "DataPipeline.EvaluateExpression" }, EvaluateExpressionInput, EvaluateExpressionOutput, [InternalServiceErrorError, InvalidRequestExceptionError, PipelineDeletedExceptionError, PipelineNotFoundExceptionError, TaskNotFoundExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const getPipelineDefinition = /*#__PURE__*/ makeOperation(() => Operation({ version: "2012-10-29", uri: "/", method: "POST", sdkId: "Data Pipeline", sigV4ServiceName: "datapipeline", name: "DataPipeline.GetPipelineDefinition" }, GetPipelineDefinitionInput, GetPipelineDefinitionOutput, [InternalServiceErrorError, InvalidRequestExceptionError, PipelineDeletedExceptionError, PipelineNotFoundExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const removeTags = /*#__PURE__*/ makeOperation(() => Operation({ version: "2012-10-29", uri: "/", method: "POST", sdkId: "Data Pipeline", sigV4ServiceName: "datapipeline", name: "DataPipeline.RemoveTags" }, RemoveTagsInput, RemoveTagsOutput, [InternalServiceErrorError, InvalidRequestExceptionError, PipelineDeletedExceptionError, PipelineNotFoundExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const reportTaskRunnerHeartbeat = /*#__PURE__*/ makeOperation(() => Operation({ version: "2012-10-29", uri: "/", method: "POST", sdkId: "Data Pipeline", sigV4ServiceName: "datapipeline", name: "DataPipeline.ReportTaskRunnerHeartbeat" }, ReportTaskRunnerHeartbeatInput, ReportTaskRunnerHeartbeatOutput, [InternalServiceErrorError, InvalidRequestExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const setStatus = /*#__PURE__*/ makeOperation(() => Operation({ version: "2012-10-29", uri: "/", method: "POST", sdkId: "Data Pipeline", sigV4ServiceName: "datapipeline", name: "DataPipeline.SetStatus" }, SetStatusInput, Schema.Struct({}), [InternalServiceErrorError, InvalidRequestExceptionError, PipelineDeletedExceptionError, PipelineNotFoundExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const setTaskStatus = /*#__PURE__*/ makeOperation(() => Operation({ version: "2012-10-29", uri: "/", method: "POST", sdkId: "Data Pipeline", sigV4ServiceName: "datapipeline", name: "DataPipeline.SetTaskStatus" }, SetTaskStatusInput, SetTaskStatusOutput, [InternalServiceErrorError, InvalidRequestExceptionError, PipelineDeletedExceptionError, PipelineNotFoundExceptionError, TaskNotFoundExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const describePipelines = /*#__PURE__*/ makeOperation(() => Operation({ version: "2012-10-29", uri: "/", method: "POST", sdkId: "Data Pipeline", sigV4ServiceName: "datapipeline", name: "DataPipeline.DescribePipelines" }, DescribePipelinesInput, DescribePipelinesOutput, [InternalServiceErrorError, InvalidRequestExceptionError, PipelineDeletedExceptionError, PipelineNotFoundExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listPipelines = /*#__PURE__*/ makeOperation(() => Operation({ version: "2012-10-29", uri: "/", method: "POST", sdkId: "Data Pipeline", sigV4ServiceName: "datapipeline", name: "DataPipeline.ListPipelines" }, ListPipelinesInput, ListPipelinesOutput, [InternalServiceErrorError, InvalidRequestExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const reportTaskProgress = /*#__PURE__*/ makeOperation(() => Operation({ version: "2012-10-29", uri: "/", method: "POST", sdkId: "Data Pipeline", sigV4ServiceName: "datapipeline", name: "DataPipeline.ReportTaskProgress" }, ReportTaskProgressInput, ReportTaskProgressOutput, [InternalServiceErrorError, InvalidRequestExceptionError, PipelineDeletedExceptionError, PipelineNotFoundExceptionError, TaskNotFoundExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const validatePipelineDefinition = /*#__PURE__*/ makeOperation(() => Operation({ version: "2012-10-29", uri: "/", method: "POST", sdkId: "Data Pipeline", sigV4ServiceName: "datapipeline", name: "DataPipeline.ValidatePipelineDefinition" }, ValidatePipelineDefinitionInput, ValidatePipelineDefinitionOutput, [InternalServiceErrorError, InvalidRequestExceptionError, PipelineDeletedExceptionError, PipelineNotFoundExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const putPipelineDefinition = /*#__PURE__*/ makeOperation(() => Operation({ version: "2012-10-29", uri: "/", method: "POST", sdkId: "Data Pipeline", sigV4ServiceName: "datapipeline", name: "DataPipeline.PutPipelineDefinition" }, PutPipelineDefinitionInput, PutPipelineDefinitionOutput, [InternalServiceErrorError, InvalidRequestExceptionError, PipelineDeletedExceptionError, PipelineNotFoundExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const pollForTask = /*#__PURE__*/ makeOperation(() => Operation({ version: "2012-10-29", uri: "/", method: "POST", sdkId: "Data Pipeline", sigV4ServiceName: "datapipeline", name: "DataPipeline.PollForTask" }, PollForTaskInput, PollForTaskOutput, [InternalServiceErrorError, InvalidRequestExceptionError, TaskNotFoundExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const queryObjects = /*#__PURE__*/ makeOperation(() => Operation({ version: "2012-10-29", uri: "/", method: "POST", sdkId: "Data Pipeline", sigV4ServiceName: "datapipeline", name: "DataPipeline.QueryObjects" }, QueryObjectsInput, QueryObjectsOutput, [InternalServiceErrorError, InvalidRequestExceptionError, PipelineDeletedExceptionError, PipelineNotFoundExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const activatePipeline = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-10-29", uri: "/", method: "POST", sdkId: "Data Pipeline", sigV4ServiceName: "datapipeline", name: "DataPipeline.ActivatePipeline" }, ActivatePipelineInput, ActivatePipelineOutput, [InternalServiceErrorError, InvalidRequestExceptionError, PipelineDeletedExceptionError, PipelineNotFoundExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const addTags = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-10-29", uri: "/", method: "POST", sdkId: "Data Pipeline", sigV4ServiceName: "datapipeline", name: "DataPipeline.AddTags" }, AddTagsInput, AddTagsOutput, [InternalServiceErrorError, InvalidRequestExceptionError, PipelineDeletedExceptionError, PipelineNotFoundExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const createPipeline = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-10-29", uri: "/", method: "POST", sdkId: "Data Pipeline", sigV4ServiceName: "datapipeline", name: "DataPipeline.CreatePipeline" }, CreatePipelineInput, CreatePipelineOutput, [InternalServiceErrorError, InvalidRequestExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const deactivatePipeline = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-10-29", uri: "/", method: "POST", sdkId: "Data Pipeline", sigV4ServiceName: "datapipeline", name: "DataPipeline.DeactivatePipeline" }, DeactivatePipelineInput, DeactivatePipelineOutput, [InternalServiceErrorError, InvalidRequestExceptionError, PipelineDeletedExceptionError, PipelineNotFoundExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const deletePipeline = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-10-29", uri: "/", method: "POST", sdkId: "Data Pipeline", sigV4ServiceName: "datapipeline", name: "DataPipeline.DeletePipeline" }, DeletePipelineInput, S.Struct({}), [InternalServiceErrorError, InvalidRequestExceptionError, PipelineNotFoundExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const describeObjects = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-10-29", uri: "/", method: "POST", sdkId: "Data Pipeline", sigV4ServiceName: "datapipeline", name: "DataPipeline.DescribeObjects" }, DescribeObjectsInput, DescribeObjectsOutput, [InternalServiceErrorError, InvalidRequestExceptionError, PipelineDeletedExceptionError, PipelineNotFoundExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const evaluateExpression = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-10-29", uri: "/", method: "POST", sdkId: "Data Pipeline", sigV4ServiceName: "datapipeline", name: "DataPipeline.EvaluateExpression" }, EvaluateExpressionInput, EvaluateExpressionOutput, [InternalServiceErrorError, InvalidRequestExceptionError, PipelineDeletedExceptionError, PipelineNotFoundExceptionError, TaskNotFoundExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const getPipelineDefinition = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-10-29", uri: "/", method: "POST", sdkId: "Data Pipeline", sigV4ServiceName: "datapipeline", name: "DataPipeline.GetPipelineDefinition" }, GetPipelineDefinitionInput, GetPipelineDefinitionOutput, [InternalServiceErrorError, InvalidRequestExceptionError, PipelineDeletedExceptionError, PipelineNotFoundExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const removeTags = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-10-29", uri: "/", method: "POST", sdkId: "Data Pipeline", sigV4ServiceName: "datapipeline", name: "DataPipeline.RemoveTags" }, RemoveTagsInput, RemoveTagsOutput, [InternalServiceErrorError, InvalidRequestExceptionError, PipelineDeletedExceptionError, PipelineNotFoundExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const reportTaskRunnerHeartbeat = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-10-29", uri: "/", method: "POST", sdkId: "Data Pipeline", sigV4ServiceName: "datapipeline", name: "DataPipeline.ReportTaskRunnerHeartbeat" }, ReportTaskRunnerHeartbeatInput, ReportTaskRunnerHeartbeatOutput, [InternalServiceErrorError, InvalidRequestExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const setStatus = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-10-29", uri: "/", method: "POST", sdkId: "Data Pipeline", sigV4ServiceName: "datapipeline", name: "DataPipeline.SetStatus" }, SetStatusInput, S.Struct({}), [InternalServiceErrorError, InvalidRequestExceptionError, PipelineDeletedExceptionError, PipelineNotFoundExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const setTaskStatus = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-10-29", uri: "/", method: "POST", sdkId: "Data Pipeline", sigV4ServiceName: "datapipeline", name: "DataPipeline.SetTaskStatus" }, SetTaskStatusInput, SetTaskStatusOutput, [InternalServiceErrorError, InvalidRequestExceptionError, PipelineDeletedExceptionError, PipelineNotFoundExceptionError, TaskNotFoundExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const describePipelines = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-10-29", uri: "/", method: "POST", sdkId: "Data Pipeline", sigV4ServiceName: "datapipeline", name: "DataPipeline.DescribePipelines" }, DescribePipelinesInput, DescribePipelinesOutput, [InternalServiceErrorError, InvalidRequestExceptionError, PipelineDeletedExceptionError, PipelineNotFoundExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const listPipelines = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-10-29", uri: "/", method: "POST", sdkId: "Data Pipeline", sigV4ServiceName: "datapipeline", name: "DataPipeline.ListPipelines" }, ListPipelinesInput, ListPipelinesOutput, [InternalServiceErrorError, InvalidRequestExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const reportTaskProgress = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-10-29", uri: "/", method: "POST", sdkId: "Data Pipeline", sigV4ServiceName: "datapipeline", name: "DataPipeline.ReportTaskProgress" }, ReportTaskProgressInput, ReportTaskProgressOutput, [InternalServiceErrorError, InvalidRequestExceptionError, PipelineDeletedExceptionError, PipelineNotFoundExceptionError, TaskNotFoundExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const validatePipelineDefinition = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-10-29", uri: "/", method: "POST", sdkId: "Data Pipeline", sigV4ServiceName: "datapipeline", name: "DataPipeline.ValidatePipelineDefinition" }, ValidatePipelineDefinitionInput, ValidatePipelineDefinitionOutput, [InternalServiceErrorError, InvalidRequestExceptionError, PipelineDeletedExceptionError, PipelineNotFoundExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const putPipelineDefinition = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-10-29", uri: "/", method: "POST", sdkId: "Data Pipeline", sigV4ServiceName: "datapipeline", name: "DataPipeline.PutPipelineDefinition" }, PutPipelineDefinitionInput, PutPipelineDefinitionOutput, [InternalServiceErrorError, InvalidRequestExceptionError, PipelineDeletedExceptionError, PipelineNotFoundExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const pollForTask = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-10-29", uri: "/", method: "POST", sdkId: "Data Pipeline", sigV4ServiceName: "datapipeline", name: "DataPipeline.PollForTask" }, PollForTaskInput, PollForTaskOutput, [InternalServiceErrorError, InvalidRequestExceptionError, TaskNotFoundExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const queryObjects = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-10-29", uri: "/", method: "POST", sdkId: "Data Pipeline", sigV4ServiceName: "datapipeline", name: "DataPipeline.QueryObjects" }, QueryObjectsInput, QueryObjectsOutput, [InternalServiceErrorError, InvalidRequestExceptionError, PipelineDeletedExceptionError, PipelineNotFoundExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

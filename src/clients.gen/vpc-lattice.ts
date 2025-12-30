@@ -1,78 +1,78 @@
-import * as Schema from "effect/Schema"
+import * as S from "effect/Schema"
 import { FormatJSONRequest,FormatJSONResponse,FormatAwsRestJSONError, makeOperation } from "../client.ts";
-import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
+import * as H from "../schema-helpers.ts";
 
 //# Schemas
-export const TagKeys = Schema.Array(Schema.String);
-export class DeleteAuthPolicyRequest extends Schema.Class<DeleteAuthPolicyRequest>("DeleteAuthPolicyRequest")({resourceIdentifier: Schema.String}) {}
-export class DeleteAuthPolicyResponse extends Schema.Class<DeleteAuthPolicyResponse>("DeleteAuthPolicyResponse")({}) {}
-export class DeleteResourcePolicyRequest extends Schema.Class<DeleteResourcePolicyRequest>("DeleteResourcePolicyRequest")({resourceArn: Schema.String}) {}
-export class DeleteResourcePolicyResponse extends Schema.Class<DeleteResourcePolicyResponse>("DeleteResourcePolicyResponse")({}) {}
-export class GetAuthPolicyRequest extends Schema.Class<GetAuthPolicyRequest>("GetAuthPolicyRequest")({resourceIdentifier: Schema.String}) {}
-export class GetResourcePolicyRequest extends Schema.Class<GetResourcePolicyRequest>("GetResourcePolicyRequest")({resourceArn: Schema.String}) {}
-export class ListServiceNetworkVpcEndpointAssociationsRequest extends Schema.Class<ListServiceNetworkVpcEndpointAssociationsRequest>("ListServiceNetworkVpcEndpointAssociationsRequest")({serviceNetworkIdentifier: Schema.String, maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
-export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({resourceArn: Schema.String}) {}
-export class PutAuthPolicyRequest extends Schema.Class<PutAuthPolicyRequest>("PutAuthPolicyRequest")({resourceIdentifier: Schema.String, policy: Schema.String}) {}
-export class PutResourcePolicyRequest extends Schema.Class<PutResourcePolicyRequest>("PutResourcePolicyRequest")({resourceArn: Schema.String, policy: Schema.String}) {}
-export class PutResourcePolicyResponse extends Schema.Class<PutResourcePolicyResponse>("PutResourcePolicyResponse")({}) {}
-export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({resourceArn: Schema.String, tagKeys: TagKeys}) {}
-export class UntagResourceResponse extends Schema.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
-export const TagMap = Schema.Record({key: Schema.String, value: Schema.String});
-export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({message: Schema.String}) {}
-export class InternalServerException extends Schema.Class<InternalServerException>("InternalServerException")({message: Schema.String, retryAfterSeconds: Schema.optional(Header("Retry-After", Schema.Number))}) {}
-export class GetAuthPolicyResponse extends Schema.Class<GetAuthPolicyResponse>("GetAuthPolicyResponse")({policy: Schema.optional(Schema.String), state: Schema.optional(Schema.String), createdAt: Schema.optional(Schema.Date), lastUpdatedAt: Schema.optional(Schema.Date)}) {}
-export class GetResourcePolicyResponse extends Schema.Class<GetResourcePolicyResponse>("GetResourcePolicyResponse")({policy: Schema.optional(Schema.String)}) {}
-export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({tags: Schema.optional(TagMap)}) {}
-export class PutAuthPolicyResponse extends Schema.Class<PutAuthPolicyResponse>("PutAuthPolicyResponse")({policy: Schema.optional(Schema.String), state: Schema.optional(Schema.String)}) {}
-export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({message: Schema.String, resourceId: Schema.String, resourceType: Schema.String}) {}
-export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({resourceArn: Schema.String, tags: TagMap}) {}
-export class TagResourceResponse extends Schema.Class<TagResourceResponse>("TagResourceResponse")({}) {}
-export class ServiceNetworkEndpointAssociation extends Schema.Class<ServiceNetworkEndpointAssociation>("ServiceNetworkEndpointAssociation")({vpcEndpointId: Schema.optional(Schema.String), vpcId: Schema.optional(Schema.String), vpcEndpointOwnerId: Schema.optional(Schema.String), id: Schema.optional(Schema.String), state: Schema.optional(Schema.String), serviceNetworkArn: Schema.optional(Schema.String), createdAt: Schema.optional(Schema.Date)}) {}
-export const ServiceNetworkVpcEndpointAssociationList = Schema.Array(ServiceNetworkEndpointAssociation);
-export class ValidationExceptionField extends Schema.Class<ValidationExceptionField>("ValidationExceptionField")({name: Schema.String, message: Schema.String}) {}
-export const ValidationExceptionFieldList = Schema.Array(ValidationExceptionField);
-export class FixedResponseAction extends Schema.Class<FixedResponseAction>("FixedResponseAction")({statusCode: Schema.Number}) {}
-export class ThrottlingException extends Schema.Class<ThrottlingException>("ThrottlingException")({message: Schema.String, serviceCode: Schema.optional(Schema.String), quotaCode: Schema.optional(Schema.String), retryAfterSeconds: Schema.optional(Header("Retry-After", Schema.Number))}) {}
-export class ListServiceNetworkVpcEndpointAssociationsResponse extends Schema.Class<ListServiceNetworkVpcEndpointAssociationsResponse>("ListServiceNetworkVpcEndpointAssociationsResponse")({items: ServiceNetworkVpcEndpointAssociationList, nextToken: Schema.optional(Schema.String)}) {}
-export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({message: Schema.String, reason: Schema.String, fieldList: Schema.optional(ValidationExceptionFieldList)}) {}
-export class WeightedTargetGroup extends Schema.Class<WeightedTargetGroup>("WeightedTargetGroup")({targetGroupIdentifier: Schema.String, weight: Schema.optional(Schema.Number)}) {}
-export const WeightedTargetGroupList = Schema.Array(WeightedTargetGroup);
-export class ForwardAction extends Schema.Class<ForwardAction>("ForwardAction")({targetGroups: WeightedTargetGroupList}) {}
-export const PathMatchType = Schema.Union(Schema.String, Schema.String);
-export const HeaderMatchType = Schema.Union(Schema.String, Schema.String, Schema.String);
-export const RuleAction = Schema.Union(ForwardAction, FixedResponseAction);
-export class PathMatch extends Schema.Class<PathMatch>("PathMatch")({match: PathMatchType, caseSensitive: Schema.optional(Schema.Boolean)}) {}
-export class HeaderMatch extends Schema.Class<HeaderMatch>("HeaderMatch")({name: Schema.String, match: HeaderMatchType, caseSensitive: Schema.optional(Schema.Boolean)}) {}
-export const HeaderMatchList = Schema.Array(HeaderMatch);
-export class HttpMatch extends Schema.Class<HttpMatch>("HttpMatch")({method: Schema.optional(Schema.String), pathMatch: Schema.optional(PathMatch), headerMatches: Schema.optional(HeaderMatchList)}) {}
-export const RuleMatch = Schema.Union(HttpMatch);
-export class RuleUpdate extends Schema.Class<RuleUpdate>("RuleUpdate")({ruleIdentifier: Schema.String, match: Schema.optional(RuleMatch), priority: Schema.optional(Schema.Number), action: Schema.optional(RuleAction)}) {}
-export const RuleUpdateList = Schema.Array(RuleUpdate);
-export class BatchUpdateRuleRequest extends Schema.Class<BatchUpdateRuleRequest>("BatchUpdateRuleRequest")({serviceIdentifier: Schema.String, listenerIdentifier: Schema.String, rules: RuleUpdateList}) {}
-export class RuleUpdateSuccess extends Schema.Class<RuleUpdateSuccess>("RuleUpdateSuccess")({arn: Schema.optional(Schema.String), id: Schema.optional(Schema.String), name: Schema.optional(Schema.String), isDefault: Schema.optional(Schema.Boolean), match: Schema.optional(RuleMatch), priority: Schema.optional(Schema.Number), action: Schema.optional(RuleAction)}) {}
-export const RuleUpdateSuccessList = Schema.Array(RuleUpdateSuccess);
-export class RuleUpdateFailure extends Schema.Class<RuleUpdateFailure>("RuleUpdateFailure")({ruleIdentifier: Schema.optional(Schema.String), failureCode: Schema.optional(Schema.String), failureMessage: Schema.optional(Schema.String)}) {}
-export const RuleUpdateFailureList = Schema.Array(RuleUpdateFailure);
-export class BatchUpdateRuleResponse extends Schema.Class<BatchUpdateRuleResponse>("BatchUpdateRuleResponse")({successful: Schema.optional(RuleUpdateSuccessList), unsuccessful: Schema.optional(RuleUpdateFailureList)}) {}
-export class ConflictException extends Schema.Class<ConflictException>("ConflictException")({message: Schema.String, resourceId: Schema.String, resourceType: Schema.String}) {}
+export const TagKeys = S.Array(S.String);
+export class DeleteAuthPolicyRequest extends S.Class<DeleteAuthPolicyRequest>("DeleteAuthPolicyRequest")({resourceIdentifier: S.String}) {}
+export class DeleteAuthPolicyResponse extends S.Class<DeleteAuthPolicyResponse>("DeleteAuthPolicyResponse")({}) {}
+export class DeleteResourcePolicyRequest extends S.Class<DeleteResourcePolicyRequest>("DeleteResourcePolicyRequest")({resourceArn: S.String}) {}
+export class DeleteResourcePolicyResponse extends S.Class<DeleteResourcePolicyResponse>("DeleteResourcePolicyResponse")({}) {}
+export class GetAuthPolicyRequest extends S.Class<GetAuthPolicyRequest>("GetAuthPolicyRequest")({resourceIdentifier: S.String}) {}
+export class GetResourcePolicyRequest extends S.Class<GetResourcePolicyRequest>("GetResourcePolicyRequest")({resourceArn: S.String}) {}
+export class ListServiceNetworkVpcEndpointAssociationsRequest extends S.Class<ListServiceNetworkVpcEndpointAssociationsRequest>("ListServiceNetworkVpcEndpointAssociationsRequest")({serviceNetworkIdentifier: S.String, maxResults: S.optional(S.Number), nextToken: S.optional(S.String)}) {}
+export class ListTagsForResourceRequest extends S.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({resourceArn: S.String}) {}
+export class PutAuthPolicyRequest extends S.Class<PutAuthPolicyRequest>("PutAuthPolicyRequest")({resourceIdentifier: S.String, policy: S.String}) {}
+export class PutResourcePolicyRequest extends S.Class<PutResourcePolicyRequest>("PutResourcePolicyRequest")({resourceArn: S.String, policy: S.String}) {}
+export class PutResourcePolicyResponse extends S.Class<PutResourcePolicyResponse>("PutResourcePolicyResponse")({}) {}
+export class UntagResourceRequest extends S.Class<UntagResourceRequest>("UntagResourceRequest")({resourceArn: S.String, tagKeys: TagKeys}) {}
+export class UntagResourceResponse extends S.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
+export const TagMap = S.Record({key: S.String, value: S.String});
+export class AccessDeniedException extends S.Class<AccessDeniedException>("AccessDeniedException")({message: S.String}) {}
+export class InternalServerException extends S.Class<InternalServerException>("InternalServerException")({message: S.String, retryAfterSeconds: S.optional(H.Header("Retry-After", S.Number))}) {}
+export class GetAuthPolicyResponse extends S.Class<GetAuthPolicyResponse>("GetAuthPolicyResponse")({policy: S.optional(S.String), state: S.optional(S.String), createdAt: S.optional(S.Date), lastUpdatedAt: S.optional(S.Date)}) {}
+export class GetResourcePolicyResponse extends S.Class<GetResourcePolicyResponse>("GetResourcePolicyResponse")({policy: S.optional(S.String)}) {}
+export class ListTagsForResourceResponse extends S.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({tags: S.optional(TagMap)}) {}
+export class PutAuthPolicyResponse extends S.Class<PutAuthPolicyResponse>("PutAuthPolicyResponse")({policy: S.optional(S.String), state: S.optional(S.String)}) {}
+export class ResourceNotFoundException extends S.Class<ResourceNotFoundException>("ResourceNotFoundException")({message: S.String, resourceId: S.String, resourceType: S.String}) {}
+export class TagResourceRequest extends S.Class<TagResourceRequest>("TagResourceRequest")({resourceArn: S.String, tags: TagMap}) {}
+export class TagResourceResponse extends S.Class<TagResourceResponse>("TagResourceResponse")({}) {}
+export class ServiceNetworkEndpointAssociation extends S.Class<ServiceNetworkEndpointAssociation>("ServiceNetworkEndpointAssociation")({vpcEndpointId: S.optional(S.String), vpcId: S.optional(S.String), vpcEndpointOwnerId: S.optional(S.String), id: S.optional(S.String), state: S.optional(S.String), serviceNetworkArn: S.optional(S.String), createdAt: S.optional(S.Date)}) {}
+export const ServiceNetworkVpcEndpointAssociationList = S.Array(ServiceNetworkEndpointAssociation);
+export class ValidationExceptionField extends S.Class<ValidationExceptionField>("ValidationExceptionField")({name: S.String, message: S.String}) {}
+export const ValidationExceptionFieldList = S.Array(ValidationExceptionField);
+export class FixedResponseAction extends S.Class<FixedResponseAction>("FixedResponseAction")({statusCode: S.Number}) {}
+export class ThrottlingException extends S.Class<ThrottlingException>("ThrottlingException")({message: S.String, serviceCode: S.optional(S.String), quotaCode: S.optional(S.String), retryAfterSeconds: S.optional(H.Header("Retry-After", S.Number))}) {}
+export class ListServiceNetworkVpcEndpointAssociationsResponse extends S.Class<ListServiceNetworkVpcEndpointAssociationsResponse>("ListServiceNetworkVpcEndpointAssociationsResponse")({items: ServiceNetworkVpcEndpointAssociationList, nextToken: S.optional(S.String)}) {}
+export class ValidationException extends S.Class<ValidationException>("ValidationException")({message: S.String, reason: S.String, fieldList: S.optional(ValidationExceptionFieldList)}) {}
+export class WeightedTargetGroup extends S.Class<WeightedTargetGroup>("WeightedTargetGroup")({targetGroupIdentifier: S.String, weight: S.optional(S.Number)}) {}
+export const WeightedTargetGroupList = S.Array(WeightedTargetGroup);
+export class ForwardAction extends S.Class<ForwardAction>("ForwardAction")({targetGroups: WeightedTargetGroupList}) {}
+export const PathMatchType = S.Union(S.String, S.String);
+export const HeaderMatchType = S.Union(S.String, S.String, S.String);
+export const RuleAction = S.Union(ForwardAction, FixedResponseAction);
+export class PathMatch extends S.Class<PathMatch>("PathMatch")({match: PathMatchType, caseSensitive: S.optional(S.Boolean)}) {}
+export class HeaderMatch extends S.Class<HeaderMatch>("HeaderMatch")({name: S.String, match: HeaderMatchType, caseSensitive: S.optional(S.Boolean)}) {}
+export const HeaderMatchList = S.Array(HeaderMatch);
+export class HttpMatch extends S.Class<HttpMatch>("HttpMatch")({method: S.optional(S.String), pathMatch: S.optional(PathMatch), headerMatches: S.optional(HeaderMatchList)}) {}
+export const RuleMatch = S.Union(HttpMatch);
+export class RuleUpdate extends S.Class<RuleUpdate>("RuleUpdate")({ruleIdentifier: S.String, match: S.optional(RuleMatch), priority: S.optional(S.Number), action: S.optional(RuleAction)}) {}
+export const RuleUpdateList = S.Array(RuleUpdate);
+export class BatchUpdateRuleRequest extends S.Class<BatchUpdateRuleRequest>("BatchUpdateRuleRequest")({serviceIdentifier: S.String, listenerIdentifier: S.String, rules: RuleUpdateList}) {}
+export class RuleUpdateSuccess extends S.Class<RuleUpdateSuccess>("RuleUpdateSuccess")({arn: S.optional(S.String), id: S.optional(S.String), name: S.optional(S.String), isDefault: S.optional(S.Boolean), match: S.optional(RuleMatch), priority: S.optional(S.Number), action: S.optional(RuleAction)}) {}
+export const RuleUpdateSuccessList = S.Array(RuleUpdateSuccess);
+export class RuleUpdateFailure extends S.Class<RuleUpdateFailure>("RuleUpdateFailure")({ruleIdentifier: S.optional(S.String), failureCode: S.optional(S.String), failureMessage: S.optional(S.String)}) {}
+export const RuleUpdateFailureList = S.Array(RuleUpdateFailure);
+export class BatchUpdateRuleResponse extends S.Class<BatchUpdateRuleResponse>("BatchUpdateRuleResponse")({successful: S.optional(RuleUpdateSuccessList), unsuccessful: S.optional(RuleUpdateFailureList)}) {}
+export class ConflictException extends S.Class<ConflictException>("ConflictException")({message: S.String, resourceId: S.String, resourceType: S.String}) {}
 
 //# Errors
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
-export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException.fields) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
-export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
-export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
+export class AccessDeniedExceptionError extends S.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class InternalServerExceptionError extends S.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException.fields) {};
+export class ResourceNotFoundExceptionError extends S.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ThrottlingExceptionError extends S.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
+export class ValidationExceptionError extends S.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
+export class ConflictExceptionError extends S.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
 
 //# Operations
-export const deleteResourcePolicy = /*#__PURE__*/ makeOperation(() => Operation({ version: "2022-11-30", uri: "/resourcepolicy/{resourceArn}", method: "DELETE", sdkId: "VPC Lattice", sigV4ServiceName: "vpc-lattice", name: "MercuryControlPlane.DeleteResourcePolicy" }, DeleteResourcePolicyRequest, DeleteResourcePolicyResponse, [AccessDeniedExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getAuthPolicy = /*#__PURE__*/ makeOperation(() => Operation({ version: "2022-11-30", uri: "/authpolicy/{resourceIdentifier}", method: "GET", sdkId: "VPC Lattice", sigV4ServiceName: "vpc-lattice", name: "MercuryControlPlane.GetAuthPolicy" }, GetAuthPolicyRequest, GetAuthPolicyResponse, [AccessDeniedExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getResourcePolicy = /*#__PURE__*/ makeOperation(() => Operation({ version: "2022-11-30", uri: "/resourcepolicy/{resourceArn}", method: "GET", sdkId: "VPC Lattice", sigV4ServiceName: "vpc-lattice", name: "MercuryControlPlane.GetResourcePolicy" }, GetResourcePolicyRequest, GetResourcePolicyResponse, [AccessDeniedExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listTagsForResource = /*#__PURE__*/ makeOperation(() => Operation({ version: "2022-11-30", uri: "/tags/{resourceArn}", method: "GET", sdkId: "VPC Lattice", sigV4ServiceName: "vpc-lattice", name: "MercuryControlPlane.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [AccessDeniedExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const putAuthPolicy = /*#__PURE__*/ makeOperation(() => Operation({ version: "2022-11-30", uri: "/authpolicy/{resourceIdentifier}", method: "PUT", sdkId: "VPC Lattice", sigV4ServiceName: "vpc-lattice", name: "MercuryControlPlane.PutAuthPolicy" }, PutAuthPolicyRequest, PutAuthPolicyResponse, [AccessDeniedExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const putResourcePolicy = /*#__PURE__*/ makeOperation(() => Operation({ version: "2022-11-30", uri: "/resourcepolicy/{resourceArn}", method: "PUT", sdkId: "VPC Lattice", sigV4ServiceName: "vpc-lattice", name: "MercuryControlPlane.PutResourcePolicy" }, PutResourcePolicyRequest, PutResourcePolicyResponse, [AccessDeniedExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const tagResource = /*#__PURE__*/ makeOperation(() => Operation({ version: "2022-11-30", uri: "/tags/{resourceArn}", method: "POST", sdkId: "VPC Lattice", sigV4ServiceName: "vpc-lattice", name: "MercuryControlPlane.TagResource" }, TagResourceRequest, TagResourceResponse, [AccessDeniedExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteAuthPolicy = /*#__PURE__*/ makeOperation(() => Operation({ version: "2022-11-30", uri: "/authpolicy/{resourceIdentifier}", method: "DELETE", sdkId: "VPC Lattice", sigV4ServiceName: "vpc-lattice", name: "MercuryControlPlane.DeleteAuthPolicy" }, DeleteAuthPolicyRequest, DeleteAuthPolicyResponse, [AccessDeniedExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listServiceNetworkVpcEndpointAssociations = /*#__PURE__*/ makeOperation(() => Operation({ version: "2022-11-30", uri: "/servicenetworkvpcendpointassociations", method: "GET", sdkId: "VPC Lattice", sigV4ServiceName: "vpc-lattice", name: "MercuryControlPlane.ListServiceNetworkVpcEndpointAssociations" }, ListServiceNetworkVpcEndpointAssociationsRequest, ListServiceNetworkVpcEndpointAssociationsResponse, [AccessDeniedExceptionError, InternalServerExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const untagResource = /*#__PURE__*/ makeOperation(() => Operation({ version: "2022-11-30", uri: "/tags/{resourceArn}", method: "DELETE", sdkId: "VPC Lattice", sigV4ServiceName: "vpc-lattice", name: "MercuryControlPlane.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [AccessDeniedExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const batchUpdateRule = /*#__PURE__*/ makeOperation(() => Operation({ version: "2022-11-30", uri: "/services/{serviceIdentifier}/listeners/{listenerIdentifier}/rules", method: "PATCH", sdkId: "VPC Lattice", sigV4ServiceName: "vpc-lattice", name: "MercuryControlPlane.BatchUpdateRule" }, BatchUpdateRuleRequest, BatchUpdateRuleResponse, [AccessDeniedExceptionError, ConflictExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const deleteResourcePolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-11-30", uri: "/resourcepolicy/{resourceArn}", method: "DELETE", sdkId: "VPC Lattice", sigV4ServiceName: "vpc-lattice", name: "MercuryControlPlane.DeleteResourcePolicy" }, DeleteResourcePolicyRequest, DeleteResourcePolicyResponse, [AccessDeniedExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const getAuthPolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-11-30", uri: "/authpolicy/{resourceIdentifier}", method: "GET", sdkId: "VPC Lattice", sigV4ServiceName: "vpc-lattice", name: "MercuryControlPlane.GetAuthPolicy" }, GetAuthPolicyRequest, GetAuthPolicyResponse, [AccessDeniedExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const getResourcePolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-11-30", uri: "/resourcepolicy/{resourceArn}", method: "GET", sdkId: "VPC Lattice", sigV4ServiceName: "vpc-lattice", name: "MercuryControlPlane.GetResourcePolicy" }, GetResourcePolicyRequest, GetResourcePolicyResponse, [AccessDeniedExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const listTagsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-11-30", uri: "/tags/{resourceArn}", method: "GET", sdkId: "VPC Lattice", sigV4ServiceName: "vpc-lattice", name: "MercuryControlPlane.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [AccessDeniedExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const putAuthPolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-11-30", uri: "/authpolicy/{resourceIdentifier}", method: "PUT", sdkId: "VPC Lattice", sigV4ServiceName: "vpc-lattice", name: "MercuryControlPlane.PutAuthPolicy" }, PutAuthPolicyRequest, PutAuthPolicyResponse, [AccessDeniedExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const putResourcePolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-11-30", uri: "/resourcepolicy/{resourceArn}", method: "PUT", sdkId: "VPC Lattice", sigV4ServiceName: "vpc-lattice", name: "MercuryControlPlane.PutResourcePolicy" }, PutResourcePolicyRequest, PutResourcePolicyResponse, [AccessDeniedExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const tagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-11-30", uri: "/tags/{resourceArn}", method: "POST", sdkId: "VPC Lattice", sigV4ServiceName: "vpc-lattice", name: "MercuryControlPlane.TagResource" }, TagResourceRequest, TagResourceResponse, [AccessDeniedExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const deleteAuthPolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-11-30", uri: "/authpolicy/{resourceIdentifier}", method: "DELETE", sdkId: "VPC Lattice", sigV4ServiceName: "vpc-lattice", name: "MercuryControlPlane.DeleteAuthPolicy" }, DeleteAuthPolicyRequest, DeleteAuthPolicyResponse, [AccessDeniedExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const listServiceNetworkVpcEndpointAssociations = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-11-30", uri: "/servicenetworkvpcendpointassociations", method: "GET", sdkId: "VPC Lattice", sigV4ServiceName: "vpc-lattice", name: "MercuryControlPlane.ListServiceNetworkVpcEndpointAssociations" }, ListServiceNetworkVpcEndpointAssociationsRequest, ListServiceNetworkVpcEndpointAssociationsResponse, [AccessDeniedExceptionError, InternalServerExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const untagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-11-30", uri: "/tags/{resourceArn}", method: "DELETE", sdkId: "VPC Lattice", sigV4ServiceName: "vpc-lattice", name: "MercuryControlPlane.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [AccessDeniedExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const batchUpdateRule = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-11-30", uri: "/services/{serviceIdentifier}/listeners/{listenerIdentifier}/rules", method: "PATCH", sdkId: "VPC Lattice", sigV4ServiceName: "vpc-lattice", name: "MercuryControlPlane.BatchUpdateRule" }, BatchUpdateRuleRequest, BatchUpdateRuleResponse, [AccessDeniedExceptionError, ConflictExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

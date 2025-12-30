@@ -1,25 +1,25 @@
-import * as Schema from "effect/Schema"
+import * as S from "effect/Schema"
 import { FormatJSONRequest,FormatJSONResponse,FormatAwsRestJSONError, makeOperation } from "../client.ts";
-import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
+import * as H from "../schema-helpers.ts";
 
 //# Schemas
-export class StartSelector extends Schema.Class<StartSelector>("StartSelector")({StartSelectorType: Schema.String, AfterFragmentNumber: Schema.optional(Schema.String), StartTimestamp: Schema.optional(Schema.Date), ContinuationToken: Schema.optional(Schema.String)}) {}
-export class GetMediaInput extends Schema.Class<GetMediaInput>("GetMediaInput")({StreamName: Schema.optional(Schema.String), StreamARN: Schema.optional(Schema.String), StartSelector: StartSelector}) {}
-export class GetMediaOutput extends Schema.Class<GetMediaOutput>("GetMediaOutput")({ContentType: Schema.optional(Header("Content-Type")), Payload: Schema.optional(Body("undefined", StreamBody()))}) {}
-export class ClientLimitExceededException extends Schema.Class<ClientLimitExceededException>("ClientLimitExceededException")({Message: Schema.optional(Schema.String)}) {}
-export class ConnectionLimitExceededException extends Schema.Class<ConnectionLimitExceededException>("ConnectionLimitExceededException")({Message: Schema.optional(Schema.String)}) {}
-export class InvalidArgumentException extends Schema.Class<InvalidArgumentException>("InvalidArgumentException")({Message: Schema.optional(Schema.String)}) {}
-export class InvalidEndpointException extends Schema.Class<InvalidEndpointException>("InvalidEndpointException")({Message: Schema.optional(Schema.String)}) {}
-export class NotAuthorizedException extends Schema.Class<NotAuthorizedException>("NotAuthorizedException")({Message: Schema.optional(Schema.String)}) {}
-export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({Message: Schema.optional(Schema.String)}) {}
+export class StartSelector extends S.Class<StartSelector>("StartSelector")({StartSelectorType: S.String, AfterFragmentNumber: S.optional(S.String), StartTimestamp: S.optional(S.Date), ContinuationToken: S.optional(S.String)}) {}
+export class GetMediaInput extends S.Class<GetMediaInput>("GetMediaInput")({StreamName: S.optional(S.String), StreamARN: S.optional(S.String), StartSelector: StartSelector}) {}
+export class GetMediaOutput extends S.Class<GetMediaOutput>("GetMediaOutput")({ContentType: S.optional(H.Header("Content-Type")), Payload: S.optional(H.Body("undefined", H.StreamBody()))}) {}
+export class ClientLimitExceededException extends S.Class<ClientLimitExceededException>("ClientLimitExceededException")({Message: S.optional(S.String)}) {}
+export class ConnectionLimitExceededException extends S.Class<ConnectionLimitExceededException>("ConnectionLimitExceededException")({Message: S.optional(S.String)}) {}
+export class InvalidArgumentException extends S.Class<InvalidArgumentException>("InvalidArgumentException")({Message: S.optional(S.String)}) {}
+export class InvalidEndpointException extends S.Class<InvalidEndpointException>("InvalidEndpointException")({Message: S.optional(S.String)}) {}
+export class NotAuthorizedException extends S.Class<NotAuthorizedException>("NotAuthorizedException")({Message: S.optional(S.String)}) {}
+export class ResourceNotFoundException extends S.Class<ResourceNotFoundException>("ResourceNotFoundException")({Message: S.optional(S.String)}) {}
 
 //# Errors
-export class ClientLimitExceededExceptionError extends Schema.TaggedError<ClientLimitExceededExceptionError>()("ClientLimitExceededException", ClientLimitExceededException.fields) {};
-export class ConnectionLimitExceededExceptionError extends Schema.TaggedError<ConnectionLimitExceededExceptionError>()("ConnectionLimitExceededException", ConnectionLimitExceededException.fields) {};
-export class InvalidArgumentExceptionError extends Schema.TaggedError<InvalidArgumentExceptionError>()("InvalidArgumentException", InvalidArgumentException.fields) {};
-export class InvalidEndpointExceptionError extends Schema.TaggedError<InvalidEndpointExceptionError>()("InvalidEndpointException", InvalidEndpointException.fields) {};
-export class NotAuthorizedExceptionError extends Schema.TaggedError<NotAuthorizedExceptionError>()("NotAuthorizedException", NotAuthorizedException.fields) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ClientLimitExceededExceptionError extends S.TaggedError<ClientLimitExceededExceptionError>()("ClientLimitExceededException", ClientLimitExceededException.fields) {};
+export class ConnectionLimitExceededExceptionError extends S.TaggedError<ConnectionLimitExceededExceptionError>()("ConnectionLimitExceededException", ConnectionLimitExceededException.fields) {};
+export class InvalidArgumentExceptionError extends S.TaggedError<InvalidArgumentExceptionError>()("InvalidArgumentException", InvalidArgumentException.fields) {};
+export class InvalidEndpointExceptionError extends S.TaggedError<InvalidEndpointExceptionError>()("InvalidEndpointException", InvalidEndpointException.fields) {};
+export class NotAuthorizedExceptionError extends S.TaggedError<NotAuthorizedExceptionError>()("NotAuthorizedException", NotAuthorizedException.fields) {};
+export class ResourceNotFoundExceptionError extends S.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
 
 //# Operations
-export const getMedia = /*#__PURE__*/ makeOperation(() => Operation({ version: "2017-09-30", uri: "/getMedia", method: "POST", sdkId: "Kinesis Video Media", sigV4ServiceName: "kinesisvideo", name: "AWSAcuityInletService.GetMedia" }, GetMediaInput, GetMediaOutput, [ClientLimitExceededExceptionError, ConnectionLimitExceededExceptionError, InvalidArgumentExceptionError, InvalidEndpointExceptionError, NotAuthorizedExceptionError, ResourceNotFoundExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const getMedia = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-30", uri: "/getMedia", method: "POST", sdkId: "Kinesis Video Media", sigV4ServiceName: "kinesisvideo", name: "AWSAcuityInletService.GetMedia" }, GetMediaInput, GetMediaOutput, [ClientLimitExceededExceptionError, ConnectionLimitExceededExceptionError, InvalidArgumentExceptionError, InvalidEndpointExceptionError, NotAuthorizedExceptionError, ResourceNotFoundExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

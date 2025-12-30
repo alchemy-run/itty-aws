@@ -1,32 +1,32 @@
-import * as Schema from "effect/Schema"
+import * as S from "effect/Schema"
 import { FormatJSONRequest,FormatJSONResponse,FormatAwsRestJSONError, makeOperation } from "../client.ts";
-import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
+import * as H from "../schema-helpers.ts";
 
 //# Schemas
-export const TagKeys = Schema.Array(Schema.String);
-export class GetAgentTaskResponseUrlRequest extends Schema.Class<GetAgentTaskResponseUrlRequest>("GetAgentTaskResponseUrlRequest")({agentId: Schema.String, taskId: Schema.String}) {}
-export class GetMinuteUsageRequest extends Schema.Class<GetMinuteUsageRequest>("GetMinuteUsageRequest")({month: Schema.Number, year: Schema.Number}) {}
-export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({resourceArn: Schema.String}) {}
-export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({resourceArn: Schema.String, tagKeys: TagKeys}) {}
-export class UntagResourceResponse extends Schema.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
-export const TagsMap = Schema.Record({key: Schema.String, value: Schema.String});
-export class GetAgentTaskResponseUrlResponse extends Schema.Class<GetAgentTaskResponseUrlResponse>("GetAgentTaskResponseUrlResponse")({agentId: Schema.String, taskId: Schema.String, presignedLogUrl: Schema.String}) {}
-export class GetMinuteUsageResponse extends Schema.Class<GetMinuteUsageResponse>("GetMinuteUsageResponse")({isReservedMinutesCustomer: Schema.optional(Schema.Boolean), totalReservedMinuteAllocation: Schema.optional(Schema.Number), upcomingMinutesScheduled: Schema.optional(Schema.Number), totalScheduledMinutes: Schema.optional(Schema.Number), estimatedMinutesRemaining: Schema.optional(Schema.Number)}) {}
-export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({tags: Schema.optional(TagsMap)}) {}
-export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({resourceArn: Schema.String, tags: TagsMap}) {}
-export class TagResourceResponse extends Schema.Class<TagResourceResponse>("TagResourceResponse")({}) {}
-export class DependencyException extends Schema.Class<DependencyException>("DependencyException")({message: Schema.optional(Schema.String), parameterName: Schema.optional(Schema.String)}) {}
-export class InvalidParameterException extends Schema.Class<InvalidParameterException>("InvalidParameterException")({message: Schema.optional(Schema.String), parameterName: Schema.optional(Schema.String)}) {}
-export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({message: Schema.optional(Schema.String)}) {}
+export const TagKeys = S.Array(S.String);
+export class GetAgentTaskResponseUrlRequest extends S.Class<GetAgentTaskResponseUrlRequest>("GetAgentTaskResponseUrlRequest")({agentId: S.String, taskId: S.String}) {}
+export class GetMinuteUsageRequest extends S.Class<GetMinuteUsageRequest>("GetMinuteUsageRequest")({month: S.Number, year: S.Number}) {}
+export class ListTagsForResourceRequest extends S.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({resourceArn: S.String}) {}
+export class UntagResourceRequest extends S.Class<UntagResourceRequest>("UntagResourceRequest")({resourceArn: S.String, tagKeys: TagKeys}) {}
+export class UntagResourceResponse extends S.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
+export const TagsMap = S.Record({key: S.String, value: S.String});
+export class GetAgentTaskResponseUrlResponse extends S.Class<GetAgentTaskResponseUrlResponse>("GetAgentTaskResponseUrlResponse")({agentId: S.String, taskId: S.String, presignedLogUrl: S.String}) {}
+export class GetMinuteUsageResponse extends S.Class<GetMinuteUsageResponse>("GetMinuteUsageResponse")({isReservedMinutesCustomer: S.optional(S.Boolean), totalReservedMinuteAllocation: S.optional(S.Number), upcomingMinutesScheduled: S.optional(S.Number), totalScheduledMinutes: S.optional(S.Number), estimatedMinutesRemaining: S.optional(S.Number)}) {}
+export class ListTagsForResourceResponse extends S.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({tags: S.optional(TagsMap)}) {}
+export class TagResourceRequest extends S.Class<TagResourceRequest>("TagResourceRequest")({resourceArn: S.String, tags: TagsMap}) {}
+export class TagResourceResponse extends S.Class<TagResourceResponse>("TagResourceResponse")({}) {}
+export class DependencyException extends S.Class<DependencyException>("DependencyException")({message: S.optional(S.String), parameterName: S.optional(S.String)}) {}
+export class InvalidParameterException extends S.Class<InvalidParameterException>("InvalidParameterException")({message: S.optional(S.String), parameterName: S.optional(S.String)}) {}
+export class ResourceNotFoundException extends S.Class<ResourceNotFoundException>("ResourceNotFoundException")({message: S.optional(S.String)}) {}
 
 //# Errors
-export class DependencyExceptionError extends Schema.TaggedError<DependencyExceptionError>()("DependencyException", DependencyException.fields) {};
-export class InvalidParameterExceptionError extends Schema.TaggedError<InvalidParameterExceptionError>()("InvalidParameterException", InvalidParameterException.fields) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class DependencyExceptionError extends S.TaggedError<DependencyExceptionError>()("DependencyException", DependencyException.fields) {};
+export class InvalidParameterExceptionError extends S.TaggedError<InvalidParameterExceptionError>()("InvalidParameterException", InvalidParameterException.fields) {};
+export class ResourceNotFoundExceptionError extends S.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
 
 //# Operations
-export const listTagsForResource = /*#__PURE__*/ makeOperation(() => Operation({ version: "2019-05-23", uri: "/tags/{resourceArn}", method: "GET", sdkId: "GroundStation", sigV4ServiceName: "groundstation", name: "GroundStation.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [DependencyExceptionError, InvalidParameterExceptionError, ResourceNotFoundExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const tagResource = /*#__PURE__*/ makeOperation(() => Operation({ version: "2019-05-23", uri: "/tags/{resourceArn}", method: "POST", sdkId: "GroundStation", sigV4ServiceName: "groundstation", name: "GroundStation.TagResource" }, TagResourceRequest, TagResourceResponse, [DependencyExceptionError, InvalidParameterExceptionError, ResourceNotFoundExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const untagResource = /*#__PURE__*/ makeOperation(() => Operation({ version: "2019-05-23", uri: "/tags/{resourceArn}", method: "DELETE", sdkId: "GroundStation", sigV4ServiceName: "groundstation", name: "GroundStation.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [DependencyExceptionError, InvalidParameterExceptionError, ResourceNotFoundExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getAgentTaskResponseUrl = /*#__PURE__*/ makeOperation(() => Operation({ version: "2019-05-23", uri: "/agentResponseUrl/{agentId}/{taskId}", method: "GET", sdkId: "GroundStation", sigV4ServiceName: "groundstation", name: "GroundStation.GetAgentTaskResponseUrl" }, GetAgentTaskResponseUrlRequest, GetAgentTaskResponseUrlResponse, [DependencyExceptionError, InvalidParameterExceptionError, ResourceNotFoundExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getMinuteUsage = /*#__PURE__*/ makeOperation(() => Operation({ version: "2019-05-23", uri: "/minute-usage", method: "POST", sdkId: "GroundStation", sigV4ServiceName: "groundstation", name: "GroundStation.GetMinuteUsage" }, GetMinuteUsageRequest, GetMinuteUsageResponse, [DependencyExceptionError, InvalidParameterExceptionError, ResourceNotFoundExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const listTagsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-05-23", uri: "/tags/{resourceArn}", method: "GET", sdkId: "GroundStation", sigV4ServiceName: "groundstation", name: "GroundStation.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [DependencyExceptionError, InvalidParameterExceptionError, ResourceNotFoundExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const tagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-05-23", uri: "/tags/{resourceArn}", method: "POST", sdkId: "GroundStation", sigV4ServiceName: "groundstation", name: "GroundStation.TagResource" }, TagResourceRequest, TagResourceResponse, [DependencyExceptionError, InvalidParameterExceptionError, ResourceNotFoundExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const untagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-05-23", uri: "/tags/{resourceArn}", method: "DELETE", sdkId: "GroundStation", sigV4ServiceName: "groundstation", name: "GroundStation.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [DependencyExceptionError, InvalidParameterExceptionError, ResourceNotFoundExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const getAgentTaskResponseUrl = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-05-23", uri: "/agentResponseUrl/{agentId}/{taskId}", method: "GET", sdkId: "GroundStation", sigV4ServiceName: "groundstation", name: "GroundStation.GetAgentTaskResponseUrl" }, GetAgentTaskResponseUrlRequest, GetAgentTaskResponseUrlResponse, [DependencyExceptionError, InvalidParameterExceptionError, ResourceNotFoundExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const getMinuteUsage = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-05-23", uri: "/minute-usage", method: "POST", sdkId: "GroundStation", sigV4ServiceName: "groundstation", name: "GroundStation.GetMinuteUsage" }, GetMinuteUsageRequest, GetMinuteUsageResponse, [DependencyExceptionError, InvalidParameterExceptionError, ResourceNotFoundExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

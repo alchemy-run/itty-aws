@@ -1,34 +1,34 @@
-import * as Schema from "effect/Schema"
+import * as S from "effect/Schema"
 import { FormatJSONRequest,FormatJSONResponse,FormatAwsRestJSONError, makeOperation } from "../client.ts";
-import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
+import * as H from "../schema-helpers.ts";
 
 //# Schemas
-export const TagKeys = Schema.Array(Schema.String);
-export class ListSearchJobBackupsInput extends Schema.Class<ListSearchJobBackupsInput>("ListSearchJobBackupsInput")({SearchJobIdentifier: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
-export class ListSearchJobResultsInput extends Schema.Class<ListSearchJobResultsInput>("ListSearchJobResultsInput")({SearchJobIdentifier: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
-export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({ResourceArn: Schema.String}) {}
-export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({ResourceArn: Schema.String, TagKeys: TagKeys}) {}
-export class UntagResourceResponse extends Schema.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
-export const TagMap = Schema.Record({key: Schema.String, value: Schema.String});
-export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({Tags: Schema.optional(TagMap)}) {}
-export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({ResourceArn: Schema.String, Tags: TagMap}) {}
-export class TagResourceResponse extends Schema.Class<TagResourceResponse>("TagResourceResponse")({}) {}
-export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({message: Schema.String, resourceId: Schema.String, resourceType: Schema.String}) {}
-export class SearchJobBackupsResult extends Schema.Class<SearchJobBackupsResult>("SearchJobBackupsResult")({Status: Schema.optional(Schema.String), StatusMessage: Schema.optional(Schema.String), ResourceType: Schema.optional(Schema.String), BackupResourceArn: Schema.optional(Schema.String), SourceResourceArn: Schema.optional(Schema.String), IndexCreationTime: Schema.optional(Schema.Date), BackupCreationTime: Schema.optional(Schema.Date)}) {}
-export const SearchJobBackupsResults = Schema.Array(SearchJobBackupsResult);
-export class ListSearchJobBackupsOutput extends Schema.Class<ListSearchJobBackupsOutput>("ListSearchJobBackupsOutput")({Results: SearchJobBackupsResults, NextToken: Schema.optional(Schema.String)}) {}
-export class S3ResultItem extends Schema.Class<S3ResultItem>("S3ResultItem")({BackupResourceArn: Schema.optional(Schema.String), SourceResourceArn: Schema.optional(Schema.String), BackupVaultName: Schema.optional(Schema.String), ObjectKey: Schema.optional(Schema.String), ObjectSize: Schema.optional(Schema.Number), CreationTime: Schema.optional(Schema.Date), ETag: Schema.optional(Schema.String), VersionId: Schema.optional(Schema.String)}) {}
-export class EBSResultItem extends Schema.Class<EBSResultItem>("EBSResultItem")({BackupResourceArn: Schema.optional(Schema.String), SourceResourceArn: Schema.optional(Schema.String), BackupVaultName: Schema.optional(Schema.String), FileSystemIdentifier: Schema.optional(Schema.String), FilePath: Schema.optional(Schema.String), FileSize: Schema.optional(Schema.Number), CreationTime: Schema.optional(Schema.Date), LastModifiedTime: Schema.optional(Schema.Date)}) {}
-export const ResultItem = Schema.Union(S3ResultItem, EBSResultItem);
-export const Results = Schema.Array(ResultItem);
-export class ListSearchJobResultsOutput extends Schema.Class<ListSearchJobResultsOutput>("ListSearchJobResultsOutput")({Results: Results, NextToken: Schema.optional(Schema.String)}) {}
+export const TagKeys = S.Array(S.String);
+export class ListSearchJobBackupsInput extends S.Class<ListSearchJobBackupsInput>("ListSearchJobBackupsInput")({SearchJobIdentifier: S.String, NextToken: S.optional(S.String), MaxResults: S.optional(S.Number)}) {}
+export class ListSearchJobResultsInput extends S.Class<ListSearchJobResultsInput>("ListSearchJobResultsInput")({SearchJobIdentifier: S.String, NextToken: S.optional(S.String), MaxResults: S.optional(S.Number)}) {}
+export class ListTagsForResourceRequest extends S.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({ResourceArn: S.String}) {}
+export class UntagResourceRequest extends S.Class<UntagResourceRequest>("UntagResourceRequest")({ResourceArn: S.String, TagKeys: TagKeys}) {}
+export class UntagResourceResponse extends S.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
+export const TagMap = S.Record({key: S.String, value: S.String});
+export class ListTagsForResourceResponse extends S.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({Tags: S.optional(TagMap)}) {}
+export class TagResourceRequest extends S.Class<TagResourceRequest>("TagResourceRequest")({ResourceArn: S.String, Tags: TagMap}) {}
+export class TagResourceResponse extends S.Class<TagResourceResponse>("TagResourceResponse")({}) {}
+export class ResourceNotFoundException extends S.Class<ResourceNotFoundException>("ResourceNotFoundException")({message: S.String, resourceId: S.String, resourceType: S.String}) {}
+export class SearchJobBackupsResult extends S.Class<SearchJobBackupsResult>("SearchJobBackupsResult")({Status: S.optional(S.String), StatusMessage: S.optional(S.String), ResourceType: S.optional(S.String), BackupResourceArn: S.optional(S.String), SourceResourceArn: S.optional(S.String), IndexCreationTime: S.optional(S.Date), BackupCreationTime: S.optional(S.Date)}) {}
+export const SearchJobBackupsResults = S.Array(SearchJobBackupsResult);
+export class ListSearchJobBackupsOutput extends S.Class<ListSearchJobBackupsOutput>("ListSearchJobBackupsOutput")({Results: SearchJobBackupsResults, NextToken: S.optional(S.String)}) {}
+export class S3ResultItem extends S.Class<S3ResultItem>("S3ResultItem")({BackupResourceArn: S.optional(S.String), SourceResourceArn: S.optional(S.String), BackupVaultName: S.optional(S.String), ObjectKey: S.optional(S.String), ObjectSize: S.optional(S.Number), CreationTime: S.optional(S.Date), ETag: S.optional(S.String), VersionId: S.optional(S.String)}) {}
+export class EBSResultItem extends S.Class<EBSResultItem>("EBSResultItem")({BackupResourceArn: S.optional(S.String), SourceResourceArn: S.optional(S.String), BackupVaultName: S.optional(S.String), FileSystemIdentifier: S.optional(S.String), FilePath: S.optional(S.String), FileSize: S.optional(S.Number), CreationTime: S.optional(S.Date), LastModifiedTime: S.optional(S.Date)}) {}
+export const ResultItem = S.Union(S3ResultItem, EBSResultItem);
+export const Results = S.Array(ResultItem);
+export class ListSearchJobResultsOutput extends S.Class<ListSearchJobResultsOutput>("ListSearchJobResultsOutput")({Results: Results, NextToken: S.optional(S.String)}) {}
 
 //# Errors
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ResourceNotFoundExceptionError extends S.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
 
 //# Operations
-export const listTagsForResource = /*#__PURE__*/ makeOperation(() => Operation({ version: "2018-05-10", uri: "/tags/{ResourceArn}", method: "GET", sdkId: "BackupSearch", sigV4ServiceName: "backup-search", name: "CryoBackupSearchService.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [ResourceNotFoundExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const tagResource = /*#__PURE__*/ makeOperation(() => Operation({ version: "2018-05-10", uri: "/tags/{ResourceArn}", method: "POST", sdkId: "BackupSearch", sigV4ServiceName: "backup-search", name: "CryoBackupSearchService.TagResource" }, TagResourceRequest, TagResourceResponse, [ResourceNotFoundExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const untagResource = /*#__PURE__*/ makeOperation(() => Operation({ version: "2018-05-10", uri: "/tags/{ResourceArn}", method: "DELETE", sdkId: "BackupSearch", sigV4ServiceName: "backup-search", name: "CryoBackupSearchService.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [ResourceNotFoundExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listSearchJobBackups = /*#__PURE__*/ makeOperation(() => Operation({ version: "2018-05-10", uri: "/search-jobs/{SearchJobIdentifier}/backups", method: "GET", sdkId: "BackupSearch", sigV4ServiceName: "backup-search", name: "CryoBackupSearchService.ListSearchJobBackups" }, ListSearchJobBackupsInput, ListSearchJobBackupsOutput, [ResourceNotFoundExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listSearchJobResults = /*#__PURE__*/ makeOperation(() => Operation({ version: "2018-05-10", uri: "/search-jobs/{SearchJobIdentifier}/search-results", method: "GET", sdkId: "BackupSearch", sigV4ServiceName: "backup-search", name: "CryoBackupSearchService.ListSearchJobResults" }, ListSearchJobResultsInput, ListSearchJobResultsOutput, [ResourceNotFoundExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const listTagsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/tags/{ResourceArn}", method: "GET", sdkId: "BackupSearch", sigV4ServiceName: "backup-search", name: "CryoBackupSearchService.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [ResourceNotFoundExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const tagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/tags/{ResourceArn}", method: "POST", sdkId: "BackupSearch", sigV4ServiceName: "backup-search", name: "CryoBackupSearchService.TagResource" }, TagResourceRequest, TagResourceResponse, [ResourceNotFoundExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const untagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/tags/{ResourceArn}", method: "DELETE", sdkId: "BackupSearch", sigV4ServiceName: "backup-search", name: "CryoBackupSearchService.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [ResourceNotFoundExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const listSearchJobBackups = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/search-jobs/{SearchJobIdentifier}/backups", method: "GET", sdkId: "BackupSearch", sigV4ServiceName: "backup-search", name: "CryoBackupSearchService.ListSearchJobBackups" }, ListSearchJobBackupsInput, ListSearchJobBackupsOutput, [ResourceNotFoundExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const listSearchJobResults = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/search-jobs/{SearchJobIdentifier}/search-results", method: "GET", sdkId: "BackupSearch", sigV4ServiceName: "backup-search", name: "CryoBackupSearchService.ListSearchJobResults" }, ListSearchJobResultsInput, ListSearchJobResultsOutput, [ResourceNotFoundExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
