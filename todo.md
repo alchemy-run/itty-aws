@@ -1,6 +1,4 @@
 # todo
-- make errors not dynamic since we have schemas
-- move effect deps to peer deps
 - generate a report on kb per bundle (see effect 4 / effect-smol?) @sam
 - warning for people who don't know how to bundle
 - better error on credentials missing
@@ -13,7 +11,6 @@
     ```
 - make everything into thunks
 - memory impact
-- category with unknown error but still give you the tag and data?
 - apply categories based on prefixes of unknown errors
   - starts with `NoSuch` means its missing
 - whatever the hell this is

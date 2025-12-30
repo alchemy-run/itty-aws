@@ -121,6 +121,13 @@ export class ValidationException extends S.TaggedError<ValidationException>()(
   withCategory(ERROR_CATEGORIES.AWS_ERROR, ERROR_CATEGORIES.COMMON_ERROR),
 ) {}
 
+export class OperationAborted extends S.TaggedError<OperationAborted>()(
+  "OperationAborted",
+  {},
+).pipe(
+  withCategory(ERROR_CATEGORIES.AWS_ERROR, ERROR_CATEGORIES.COMMON_ERROR),
+) {}
+
 export class UnknownAwsError extends S.TaggedError<UnknownAwsError>()(
   "UnknownAwsError",
   {
@@ -147,6 +154,7 @@ export const COMMON_ERRORS = [
   UnknownOperationException,
   ValidationError,
   ValidationException,
+  OperationAborted,
 ] as const;
 
 export type CommonAwsError =
@@ -166,4 +174,5 @@ export type CommonAwsError =
   | UnrecognizedClientException
   | UnknownOperationException
   | ValidationError
-  | ValidationException;
+  | ValidationException
+  | OperationAborted;
