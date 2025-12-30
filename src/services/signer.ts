@@ -108,7 +108,7 @@ export class ThrottlingException extends S.TaggedError<ThrottlingException>()("T
  * identify and organize your AWS resources. Each tag consists of a key and an optional
  * value. To specify the signing profile, use its Amazon Resource Name (ARN). To specify
  * the tag, use a key-value pair.
- */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-25", uri: "/tags/{resourceArn}", method: "POST", sdkId: "signer", sigV4ServiceName: "signer", name: "WallabyService.TagResource" }, TagResourceRequest, TagResourceResponse, [BadRequestException, InternalServiceErrorException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-25", uri: "/tags/{resourceArn}", sdkId: "signer", sigV4ServiceName: "signer", name: "WallabyService.TagResource" }, TagResourceRequest, TagResourceResponse, [BadRequestException, InternalServiceErrorException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes one or more tags from a signing profile. To remove the tags, specify a list of
  * tag keys.
@@ -158,10 +158,10 @@ export class ThrottlingException extends S.TaggedError<ThrottlingException>()("T
  */export const listSigningProfiles = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-25", uri: "/signing-profiles", method: "GET", sdkId: "signer", sigV4ServiceName: "signer", name: "WallabyService.ListSigningProfiles" }, ListSigningProfilesRequest, ListSigningProfilesResponse, [AccessDeniedException, InternalServiceErrorException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Signs a binary payload and returns a signature envelope.
- */export const signPayload = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-25", uri: "/signing-jobs/with-payload", method: "POST", sdkId: "signer", sigV4ServiceName: "signer", name: "WallabyService.SignPayload" }, SignPayloadRequest, SignPayloadResponse, [AccessDeniedException, InternalServiceErrorException, ResourceNotFoundException, TooManyRequestsException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const signPayload = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-25", uri: "/signing-jobs/with-payload", sdkId: "signer", sigV4ServiceName: "signer", name: "WallabyService.SignPayload" }, SignPayloadRequest, SignPayloadResponse, [AccessDeniedException, InternalServiceErrorException, ResourceNotFoundException, TooManyRequestsException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Adds cross-account permissions to a signing profile.
- */export const addProfilePermission = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-25", uri: "/signing-profiles/{profileName}/permissions", method: "POST", sdkId: "signer", sigV4ServiceName: "signer", name: "WallabyService.AddProfilePermission" }, AddProfilePermissionRequest, AddProfilePermissionResponse, [AccessDeniedException, ConflictException, InternalServiceErrorException, ResourceNotFoundException, ServiceLimitExceededException, TooManyRequestsException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const addProfilePermission = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-25", uri: "/signing-profiles/{profileName}/permissions", sdkId: "signer", sigV4ServiceName: "signer", name: "WallabyService.AddProfilePermission" }, AddProfilePermissionRequest, AddProfilePermissionResponse, [AccessDeniedException, ConflictException, InternalServiceErrorException, ResourceNotFoundException, ServiceLimitExceededException, TooManyRequestsException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about a specific code signing job. You specify the job by using the
  * `jobId` value that is returned by the StartSigningJob
@@ -178,40 +178,23 @@ export class ThrottlingException extends S.TaggedError<ThrottlingException>()("T
  * Initiates a signing job to be performed on the code provided. Signing jobs are
  * viewable by the `ListSigningJobs` operation. Note the following requirements:
  * 
- * 
- * 
  * - You must create an Amazon S3 source bucket. For more information, see Creating a Bucket in the
  * *Amazon S3 Getting Started Guide*.
  * 
- * 
- * 
  * - Your S3 source bucket must be version enabled.
- * 
- * 
  * 
  * - You must create an S3 destination bucket. AWS Signer uses your S3 destination bucket to
  * write your signed code.
  * 
- * 
- * 
  * - You specify the name of the source and destination buckets when calling the
  * `StartSigningJob` operation.
  * 
- * 
- * 
  * - You must ensure the S3 buckets are from the same Region as the signing profile. Cross-Region signing isn't supported.
  * 
- * 
- * 
  * - You must also specify a request token that identifies your request to Signer.
- * 
- * 
- * 
- * 
  * 
  * You can call the DescribeSigningJob and the ListSigningJobs actions after you call
  * `StartSigningJob`.
  * 
- * 
  * For a Java example that shows how to use this action, see StartSigningJob.
- */export const startSigningJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-25", uri: "/signing-jobs", method: "POST", sdkId: "signer", sigV4ServiceName: "signer", name: "WallabyService.StartSigningJob" }, StartSigningJobRequest, StartSigningJobResponse, [AccessDeniedException, InternalServiceErrorException, ResourceNotFoundException, ThrottlingException, TooManyRequestsException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startSigningJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-25", uri: "/signing-jobs", sdkId: "signer", sigV4ServiceName: "signer", name: "WallabyService.StartSigningJob" }, StartSigningJobRequest, StartSigningJobResponse, [AccessDeniedException, InternalServiceErrorException, ResourceNotFoundException, ThrottlingException, TooManyRequestsException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

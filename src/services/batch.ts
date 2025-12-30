@@ -268,81 +268,71 @@ export class ServerException extends S.TaggedError<ServerException>()("ServerExc
 //# Operations
 /**
  * Deletes the specified consumable resource.
- */export const deleteConsumableResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-10", uri: "/v1/deleteconsumableresource", method: "POST", sdkId: "Batch", sigV4ServiceName: "batch", name: "AWSBatchV20160810.DeleteConsumableResource" }, DeleteConsumableResourceRequest, DeleteConsumableResourceResponse, [ClientException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteConsumableResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-10", uri: "/v1/deleteconsumableresource", sdkId: "Batch", sigV4ServiceName: "batch", name: "AWSBatchV20160810.DeleteConsumableResource" }, DeleteConsumableResourceRequest, DeleteConsumableResourceResponse, [ClientException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the specified job queue. You must first disable submissions for a queue with the
  * UpdateJobQueue operation. All jobs in the queue are eventually terminated
  * when you delete a job queue. The jobs are terminated at a rate of about 16 jobs each
  * second.
  * 
- * 
  * It's not necessary to disassociate compute environments from a queue before submitting a
  * `DeleteJobQueue` request.
- */export const deleteJobQueue = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-10", uri: "/v1/deletejobqueue", method: "POST", sdkId: "Batch", sigV4ServiceName: "batch", name: "AWSBatchV20160810.DeleteJobQueue" }, DeleteJobQueueRequest, DeleteJobQueueResponse, [ClientException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteJobQueue = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-10", uri: "/v1/deletejobqueue", sdkId: "Batch", sigV4ServiceName: "batch", name: "AWSBatchV20160810.DeleteJobQueue" }, DeleteJobQueueRequest, DeleteJobQueueResponse, [ClientException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the specified scheduling policy.
  * 
- * 
  * You can't delete a scheduling policy that's used in any job queues.
- */export const deleteSchedulingPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-10", uri: "/v1/deleteschedulingpolicy", method: "POST", sdkId: "Batch", sigV4ServiceName: "batch", name: "AWSBatchV20160810.DeleteSchedulingPolicy" }, DeleteSchedulingPolicyRequest, DeleteSchedulingPolicyResponse, [ClientException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteSchedulingPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-10", uri: "/v1/deleteschedulingpolicy", sdkId: "Batch", sigV4ServiceName: "batch", name: "AWSBatchV20160810.DeleteSchedulingPolicy" }, DeleteSchedulingPolicyRequest, DeleteSchedulingPolicyResponse, [ClientException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a Service environment. Before you can delete a service environment, you must first set its state to `DISABLED` with the `UpdateServiceEnvironment` API operation and disassociate it from any job queues with the `UpdateJobQueue` API operation.
- */export const deleteServiceEnvironment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-10", uri: "/v1/deleteserviceenvironment", method: "POST", sdkId: "Batch", sigV4ServiceName: "batch", name: "AWSBatchV20160810.DeleteServiceEnvironment" }, DeleteServiceEnvironmentRequest, DeleteServiceEnvironmentResponse, [ClientException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteServiceEnvironment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-10", uri: "/v1/deleteserviceenvironment", sdkId: "Batch", sigV4ServiceName: "batch", name: "AWSBatchV20160810.DeleteServiceEnvironment" }, DeleteServiceEnvironmentRequest, DeleteServiceEnvironmentResponse, [ClientException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deregisters an Batch job definition. Job definitions are permanently deleted after 180
  * days.
- */export const deregisterJobDefinition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-10", uri: "/v1/deregisterjobdefinition", method: "POST", sdkId: "Batch", sigV4ServiceName: "batch", name: "AWSBatchV20160810.DeregisterJobDefinition" }, DeregisterJobDefinitionRequest, DeregisterJobDefinitionResponse, [ClientException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deregisterJobDefinition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-10", uri: "/v1/deregisterjobdefinition", sdkId: "Batch", sigV4ServiceName: "batch", name: "AWSBatchV20160810.DeregisterJobDefinition" }, DeregisterJobDefinitionRequest, DeregisterJobDefinitionResponse, [ClientException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Associates the specified tags to a resource with the specified `resourceArn`.
  * If existing tags on a resource aren't specified in the request parameters, they aren't
  * changed. When a resource is deleted, the tags that are associated with that resource are
  * deleted as well. Batch resources that support tags are compute environments, jobs, job definitions, job queues,
  * and scheduling policies. ARNs for child jobs of array and multi-node parallel (MNP) jobs aren't supported.
- */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-10", uri: "/v1/tags/{resourceArn}", method: "POST", sdkId: "Batch", sigV4ServiceName: "batch", name: "AWSBatchV20160810.TagResource" }, TagResourceRequest, TagResourceResponse, [ClientException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-10", uri: "/v1/tags/{resourceArn}", sdkId: "Batch", sigV4ServiceName: "batch", name: "AWSBatchV20160810.TagResource" }, TagResourceRequest, TagResourceResponse, [ClientException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Terminates a job in a job queue. Jobs that are in the `STARTING` or
  * `RUNNING` state are terminated, which causes them to transition to
  * `FAILED`. Jobs that have not progressed to the `STARTING` state are
  * cancelled.
- */export const terminateJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-10", uri: "/v1/terminatejob", method: "POST", sdkId: "Batch", sigV4ServiceName: "batch", name: "AWSBatchV20160810.TerminateJob" }, TerminateJobRequest, TerminateJobResponse, [ClientException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const terminateJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-10", uri: "/v1/terminatejob", sdkId: "Batch", sigV4ServiceName: "batch", name: "AWSBatchV20160810.TerminateJob" }, TerminateJobRequest, TerminateJobResponse, [ClientException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Terminates a service job in a job queue.
- */export const terminateServiceJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-10", uri: "/v1/terminateservicejob", method: "POST", sdkId: "Batch", sigV4ServiceName: "batch", name: "AWSBatchV20160810.TerminateServiceJob" }, TerminateServiceJobRequest, TerminateServiceJobResponse, [ClientException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const terminateServiceJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-10", uri: "/v1/terminateservicejob", sdkId: "Batch", sigV4ServiceName: "batch", name: "AWSBatchV20160810.TerminateServiceJob" }, TerminateServiceJobRequest, TerminateServiceJobResponse, [ClientException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes specified tags from an Batch resource.
  */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-10", uri: "/v1/tags/{resourceArn}", method: "DELETE", sdkId: "Batch", sigV4ServiceName: "batch", name: "AWSBatchV20160810.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [ClientException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates a scheduling policy.
- */export const updateSchedulingPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-10", uri: "/v1/updateschedulingpolicy", method: "POST", sdkId: "Batch", sigV4ServiceName: "batch", name: "AWSBatchV20160810.UpdateSchedulingPolicy" }, UpdateSchedulingPolicyRequest, UpdateSchedulingPolicyResponse, [ClientException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateSchedulingPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-10", uri: "/v1/updateschedulingpolicy", sdkId: "Batch", sigV4ServiceName: "batch", name: "AWSBatchV20160810.UpdateSchedulingPolicy" }, UpdateSchedulingPolicyRequest, UpdateSchedulingPolicyResponse, [ClientException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Cancels a job in an Batch job queue. Jobs that are in a `SUBMITTED`, `PENDING`, or `RUNNABLE` state are cancelled and the job status is updated to `FAILED`.
- * 
- * 
- * 
  * 
  * A `PENDING` job is canceled after all dependency jobs are completed.
  * Therefore, it may take longer than expected to cancel a job in `PENDING`
  * status.
  * 
- * 
  * When you try to cancel an array parent job in `PENDING`, Batch attempts to
  * cancel all child jobs. The array parent job is canceled when all child jobs are
  * completed.
- * 
- * 
- * 
  * 
  * Jobs that progressed to the `STARTING` or
  * `RUNNING` state aren't canceled. However, the API operation still succeeds, even
  * if no job is canceled. These jobs must be terminated with the TerminateJob
  * operation.
- */export const cancelJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-10", uri: "/v1/canceljob", method: "POST", sdkId: "Batch", sigV4ServiceName: "batch", name: "AWSBatchV20160810.CancelJob" }, CancelJobRequest, CancelJobResponse, [ClientException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const cancelJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-10", uri: "/v1/canceljob", sdkId: "Batch", sigV4ServiceName: "batch", name: "AWSBatchV20160810.CancelJob" }, CancelJobRequest, CancelJobResponse, [ClientException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an Batch consumable resource.
- */export const createConsumableResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-10", uri: "/v1/createconsumableresource", method: "POST", sdkId: "Batch", sigV4ServiceName: "batch", name: "AWSBatchV20160810.CreateConsumableResource" }, CreateConsumableResourceRequest, CreateConsumableResourceResponse, [ClientException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createConsumableResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-10", uri: "/v1/createconsumableresource", sdkId: "Batch", sigV4ServiceName: "batch", name: "AWSBatchV20160810.CreateConsumableResource" }, CreateConsumableResourceRequest, CreateConsumableResourceResponse, [ClientException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes an Batch compute environment.
- * 
  * 
  * Before you can delete a compute environment, you must set its state to
  * `DISABLED` with the UpdateComputeEnvironment API operation and
@@ -350,116 +340,102 @@ export class ServerException extends S.TaggedError<ServerException>()("ServerExc
  * Compute environments that use Fargate resources must terminate all active jobs on that
  * compute environment before deleting the compute environment. If this isn't done, the compute
  * environment enters an invalid state.
- */export const deleteComputeEnvironment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-10", uri: "/v1/deletecomputeenvironment", method: "POST", sdkId: "Batch", sigV4ServiceName: "batch", name: "AWSBatchV20160810.DeleteComputeEnvironment" }, DeleteComputeEnvironmentRequest, DeleteComputeEnvironmentResponse, [ClientException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteComputeEnvironment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-10", uri: "/v1/deletecomputeenvironment", sdkId: "Batch", sigV4ServiceName: "batch", name: "AWSBatchV20160810.DeleteComputeEnvironment" }, DeleteComputeEnvironmentRequest, DeleteComputeEnvironmentResponse, [ClientException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a description of the specified consumable resource.
- */export const describeConsumableResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-10", uri: "/v1/describeconsumableresource", method: "POST", sdkId: "Batch", sigV4ServiceName: "batch", name: "AWSBatchV20160810.DescribeConsumableResource" }, DescribeConsumableResourceRequest, DescribeConsumableResourceResponse, [ClientException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeConsumableResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-10", uri: "/v1/describeconsumableresource", sdkId: "Batch", sigV4ServiceName: "batch", name: "AWSBatchV20160810.DescribeConsumableResource" }, DescribeConsumableResourceRequest, DescribeConsumableResourceResponse, [ClientException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the tags for an Batch resource. Batch resources that support tags are compute environments, jobs, job definitions, job queues,
  * and scheduling policies. ARNs for child jobs of array and multi-node parallel (MNP) jobs aren't supported.
  */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-10", uri: "/v1/tags/{resourceArn}", method: "GET", sdkId: "Batch", sigV4ServiceName: "batch", name: "AWSBatchV20160810.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [ClientException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates a consumable resource.
- */export const updateConsumableResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-10", uri: "/v1/updateconsumableresource", method: "POST", sdkId: "Batch", sigV4ServiceName: "batch", name: "AWSBatchV20160810.UpdateConsumableResource" }, UpdateConsumableResourceRequest, UpdateConsumableResourceResponse, [ClientException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateConsumableResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-10", uri: "/v1/updateconsumableresource", sdkId: "Batch", sigV4ServiceName: "batch", name: "AWSBatchV20160810.UpdateConsumableResource" }, UpdateConsumableResourceRequest, UpdateConsumableResourceResponse, [ClientException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates a job queue.
- */export const updateJobQueue = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-10", uri: "/v1/updatejobqueue", method: "POST", sdkId: "Batch", sigV4ServiceName: "batch", name: "AWSBatchV20160810.UpdateJobQueue" }, UpdateJobQueueRequest, UpdateJobQueueResponse, [ClientException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateJobQueue = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-10", uri: "/v1/updatejobqueue", sdkId: "Batch", sigV4ServiceName: "batch", name: "AWSBatchV20160810.UpdateJobQueue" }, UpdateJobQueueRequest, UpdateJobQueueResponse, [ClientException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates a service environment. You can update the state of a service environment from `ENABLED` to `DISABLED` to prevent new service jobs from being placed in the service environment.
- */export const updateServiceEnvironment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-10", uri: "/v1/updateserviceenvironment", method: "POST", sdkId: "Batch", sigV4ServiceName: "batch", name: "AWSBatchV20160810.UpdateServiceEnvironment" }, UpdateServiceEnvironmentRequest, UpdateServiceEnvironmentResponse, [ClientException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateServiceEnvironment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-10", uri: "/v1/updateserviceenvironment", sdkId: "Batch", sigV4ServiceName: "batch", name: "AWSBatchV20160810.UpdateServiceEnvironment" }, UpdateServiceEnvironmentRequest, UpdateServiceEnvironmentResponse, [ClientException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an Batch job queue. When you create a job queue, you associate one or more
  * compute environments to the queue and assign an order of preference for the compute
  * environments.
  * 
- * 
  * You also set a priority to the job queue that determines the order that the Batch
  * scheduler places jobs onto its associated compute environments. For example, if a compute
  * environment is associated with more than one job queue, the job queue with a higher priority
  * is given preference for scheduling jobs to that compute environment.
- */export const createJobQueue = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-10", uri: "/v1/createjobqueue", method: "POST", sdkId: "Batch", sigV4ServiceName: "batch", name: "AWSBatchV20160810.CreateJobQueue" }, CreateJobQueueRequest, CreateJobQueueResponse, [ClientException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createJobQueue = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-10", uri: "/v1/createjobqueue", sdkId: "Batch", sigV4ServiceName: "batch", name: "AWSBatchV20160810.CreateJobQueue" }, CreateJobQueueRequest, CreateJobQueueResponse, [ClientException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a service environment for running service jobs. Service environments define capacity limits for specific service types such as SageMaker Training jobs.
- */export const createServiceEnvironment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-10", uri: "/v1/createserviceenvironment", method: "POST", sdkId: "Batch", sigV4ServiceName: "batch", name: "AWSBatchV20160810.CreateServiceEnvironment" }, CreateServiceEnvironmentRequest, CreateServiceEnvironmentResponse, [ClientException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createServiceEnvironment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-10", uri: "/v1/createserviceenvironment", sdkId: "Batch", sigV4ServiceName: "batch", name: "AWSBatchV20160810.CreateServiceEnvironment" }, CreateServiceEnvironmentRequest, CreateServiceEnvironmentResponse, [ClientException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes one or more of your compute environments.
- * 
  * 
  * If you're using an unmanaged compute environment, you can use the
  * `DescribeComputeEnvironment` operation to determine the
  * `ecsClusterArn` that you launch your Amazon ECS container instances into.
- */export const describeComputeEnvironments = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-10", uri: "/v1/describecomputeenvironments", method: "POST", sdkId: "Batch", sigV4ServiceName: "batch", name: "AWSBatchV20160810.DescribeComputeEnvironments" }, DescribeComputeEnvironmentsRequest, DescribeComputeEnvironmentsResponse, [ClientException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeComputeEnvironments = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-10", uri: "/v1/describecomputeenvironments", sdkId: "Batch", sigV4ServiceName: "batch", name: "AWSBatchV20160810.DescribeComputeEnvironments" }, DescribeComputeEnvironmentsRequest, DescribeComputeEnvironmentsResponse, [ClientException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes a list of job definitions. You can specify a `status` (such as
  * `ACTIVE`) to only return job definitions that match that status.
- */export const describeJobDefinitions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-10", uri: "/v1/describejobdefinitions", method: "POST", sdkId: "Batch", sigV4ServiceName: "batch", name: "AWSBatchV20160810.DescribeJobDefinitions" }, DescribeJobDefinitionsRequest, DescribeJobDefinitionsResponse, [ClientException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeJobDefinitions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-10", uri: "/v1/describejobdefinitions", sdkId: "Batch", sigV4ServiceName: "batch", name: "AWSBatchV20160810.DescribeJobDefinitions" }, DescribeJobDefinitionsRequest, DescribeJobDefinitionsResponse, [ClientException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes one or more of your job queues.
- */export const describeJobQueues = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-10", uri: "/v1/describejobqueues", method: "POST", sdkId: "Batch", sigV4ServiceName: "batch", name: "AWSBatchV20160810.DescribeJobQueues" }, DescribeJobQueuesRequest, DescribeJobQueuesResponse, [ClientException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeJobQueues = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-10", uri: "/v1/describejobqueues", sdkId: "Batch", sigV4ServiceName: "batch", name: "AWSBatchV20160810.DescribeJobQueues" }, DescribeJobQueuesRequest, DescribeJobQueuesResponse, [ClientException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes one or more of your scheduling policies.
- */export const describeSchedulingPolicies = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-10", uri: "/v1/describeschedulingpolicies", method: "POST", sdkId: "Batch", sigV4ServiceName: "batch", name: "AWSBatchV20160810.DescribeSchedulingPolicies" }, DescribeSchedulingPoliciesRequest, DescribeSchedulingPoliciesResponse, [ClientException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeSchedulingPolicies = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-10", uri: "/v1/describeschedulingpolicies", sdkId: "Batch", sigV4ServiceName: "batch", name: "AWSBatchV20160810.DescribeSchedulingPolicies" }, DescribeSchedulingPoliciesRequest, DescribeSchedulingPoliciesResponse, [ClientException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes one or more of your service environments.
- */export const describeServiceEnvironments = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-10", uri: "/v1/describeserviceenvironments", method: "POST", sdkId: "Batch", sigV4ServiceName: "batch", name: "AWSBatchV20160810.DescribeServiceEnvironments" }, DescribeServiceEnvironmentsRequest, DescribeServiceEnvironmentsResponse, [ClientException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeServiceEnvironments = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-10", uri: "/v1/describeserviceenvironments", sdkId: "Batch", sigV4ServiceName: "batch", name: "AWSBatchV20160810.DescribeServiceEnvironments" }, DescribeServiceEnvironmentsRequest, DescribeServiceEnvironmentsResponse, [ClientException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of Batch jobs that require a specific consumable resource.
- */export const listJobsByConsumableResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-10", uri: "/v1/listjobsbyconsumableresource", method: "POST", sdkId: "Batch", sigV4ServiceName: "batch", name: "AWSBatchV20160810.ListJobsByConsumableResource" }, ListJobsByConsumableResourceRequest, ListJobsByConsumableResourceResponse, [ClientException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listJobsByConsumableResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-10", uri: "/v1/listjobsbyconsumableresource", sdkId: "Batch", sigV4ServiceName: "batch", name: "AWSBatchV20160810.ListJobsByConsumableResource" }, ListJobsByConsumableResourceRequest, ListJobsByConsumableResourceResponse, [ClientException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of Batch scheduling policies.
- */export const listSchedulingPolicies = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-10", uri: "/v1/listschedulingpolicies", method: "POST", sdkId: "Batch", sigV4ServiceName: "batch", name: "AWSBatchV20160810.ListSchedulingPolicies" }, ListSchedulingPoliciesRequest, ListSchedulingPoliciesResponse, [ClientException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listSchedulingPolicies = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-10", uri: "/v1/listschedulingpolicies", sdkId: "Batch", sigV4ServiceName: "batch", name: "AWSBatchV20160810.ListSchedulingPolicies" }, ListSchedulingPoliciesRequest, ListSchedulingPoliciesResponse, [ClientException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of service jobs for a specified job queue.
- */export const listServiceJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-10", uri: "/v1/listservicejobs", method: "POST", sdkId: "Batch", sigV4ServiceName: "batch", name: "AWSBatchV20160810.ListServiceJobs" }, ListServiceJobsRequest, ListServiceJobsResponse, [ClientException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listServiceJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-10", uri: "/v1/listservicejobs", sdkId: "Batch", sigV4ServiceName: "batch", name: "AWSBatchV20160810.ListServiceJobs" }, ListServiceJobsRequest, ListServiceJobsResponse, [ClientException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates an Batch compute environment.
- */export const updateComputeEnvironment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-10", uri: "/v1/updatecomputeenvironment", method: "POST", sdkId: "Batch", sigV4ServiceName: "batch", name: "AWSBatchV20160810.UpdateComputeEnvironment" }, UpdateComputeEnvironmentRequest, UpdateComputeEnvironmentResponse, [ClientException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateComputeEnvironment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-10", uri: "/v1/updatecomputeenvironment", sdkId: "Batch", sigV4ServiceName: "batch", name: "AWSBatchV20160810.UpdateComputeEnvironment" }, UpdateComputeEnvironmentRequest, UpdateComputeEnvironmentResponse, [ClientException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an Batch scheduling policy.
- */export const createSchedulingPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-10", uri: "/v1/createschedulingpolicy", method: "POST", sdkId: "Batch", sigV4ServiceName: "batch", name: "AWSBatchV20160810.CreateSchedulingPolicy" }, CreateSchedulingPolicyRequest, CreateSchedulingPolicyResponse, [ClientException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createSchedulingPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-10", uri: "/v1/createschedulingpolicy", sdkId: "Batch", sigV4ServiceName: "batch", name: "AWSBatchV20160810.CreateSchedulingPolicy" }, CreateSchedulingPolicyRequest, CreateSchedulingPolicyResponse, [ClientException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * The details of a service job.
- */export const describeServiceJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-10", uri: "/v1/describeservicejob", method: "POST", sdkId: "Batch", sigV4ServiceName: "batch", name: "AWSBatchV20160810.DescribeServiceJob" }, DescribeServiceJobRequest, DescribeServiceJobResponse, [ClientException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeServiceJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-10", uri: "/v1/describeservicejob", sdkId: "Batch", sigV4ServiceName: "batch", name: "AWSBatchV20160810.DescribeServiceJob" }, DescribeServiceJobRequest, DescribeServiceJobResponse, [ClientException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Provides a list of the first 100 `RUNNABLE` jobs associated to a single job queue.
- */export const getJobQueueSnapshot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-10", uri: "/v1/getjobqueuesnapshot", method: "POST", sdkId: "Batch", sigV4ServiceName: "batch", name: "AWSBatchV20160810.GetJobQueueSnapshot" }, GetJobQueueSnapshotRequest, GetJobQueueSnapshotResponse, [ClientException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getJobQueueSnapshot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-10", uri: "/v1/getjobqueuesnapshot", sdkId: "Batch", sigV4ServiceName: "batch", name: "AWSBatchV20160810.GetJobQueueSnapshot" }, GetJobQueueSnapshotRequest, GetJobQueueSnapshotResponse, [ClientException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of Batch consumable resources.
- */export const listConsumableResources = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-10", uri: "/v1/listconsumableresources", method: "POST", sdkId: "Batch", sigV4ServiceName: "batch", name: "AWSBatchV20160810.ListConsumableResources" }, ListConsumableResourcesRequest, ListConsumableResourcesResponse, [ClientException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listConsumableResources = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-10", uri: "/v1/listconsumableresources", sdkId: "Batch", sigV4ServiceName: "batch", name: "AWSBatchV20160810.ListConsumableResources" }, ListConsumableResourcesRequest, ListConsumableResourcesResponse, [ClientException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of Batch jobs.
  * 
- * 
  * You must specify only one of the following items:
- * 
- * 
  * 
  * - A job queue ID to return a list of jobs in that job queue
  * 
- * 
- * 
  * - A multi-node parallel job ID to return a list of nodes for that job
- * 
- * 
  * 
  * - An array job ID to return a list of the children for that job
  * 
- * 
- * 
- * 
- * 
  * You can filter the results by job status with the `jobStatus` parameter. If you
  * don't specify a status, only `RUNNING` jobs are returned.
- */export const listJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-10", uri: "/v1/listjobs", method: "POST", sdkId: "Batch", sigV4ServiceName: "batch", name: "AWSBatchV20160810.ListJobs" }, ListJobsRequest, ListJobsResponse, [ClientException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-10", uri: "/v1/listjobs", sdkId: "Batch", sigV4ServiceName: "batch", name: "AWSBatchV20160810.ListJobs" }, ListJobsRequest, ListJobsResponse, [ClientException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Submits a service job to a specified job queue to run on SageMaker AI. A service job is a unit of work that you submit to Batch for execution on SageMaker AI.
- */export const submitServiceJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-10", uri: "/v1/submitservicejob", method: "POST", sdkId: "Batch", sigV4ServiceName: "batch", name: "AWSBatchV20160810.SubmitServiceJob" }, SubmitServiceJobRequest, SubmitServiceJobResponse, [ClientException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const submitServiceJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-10", uri: "/v1/submitservicejob", sdkId: "Batch", sigV4ServiceName: "batch", name: "AWSBatchV20160810.SubmitServiceJob" }, SubmitServiceJobRequest, SubmitServiceJobResponse, [ClientException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an Batch compute environment. You can create `MANAGED` or
  * `UNMANAGED` compute environments. `MANAGED` compute environments can
  * use Amazon EC2 or Fargate resources. `UNMANAGED` compute environments can only use
  * EC2 resources.
- * 
  * 
  * In a managed compute environment, Batch manages the capacity and instance types of the
  * compute resources within the environment. This is based on the compute resource specification
@@ -469,7 +445,6 @@ export class ServerException extends S.TaggedError<ServerException>()("ServerExc
  * your managed compute environment. You can optionally set a maximum price so that Spot
  * Instances only launch when the Spot Instance price is less than a specified percentage of the
  * On-Demand price.
- * 
  * 
  * In an unmanaged compute environment, you can manage your own EC2 compute resources and
  * have flexibility with how you configure your compute resources. For example, you can use
@@ -481,12 +456,9 @@ export class ServerException extends S.TaggedError<ServerException>()("ServerExc
  * cluster. For more information, see Launching an Amazon ECS container
  * instance in the *Amazon Elastic Container Service Developer Guide*.
  * 
- * 
- * 
- * 
  * Batch doesn't automatically upgrade the AMIs in a compute environment after it's
  * created. For more information on how to update a compute environment's AMI, see Updating compute environments in the *Batch User Guide*.
- */export const createComputeEnvironment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-10", uri: "/v1/createcomputeenvironment", method: "POST", sdkId: "Batch", sigV4ServiceName: "batch", name: "AWSBatchV20160810.CreateComputeEnvironment" }, CreateComputeEnvironmentRequest, CreateComputeEnvironmentResponse, [ClientException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createComputeEnvironment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-10", uri: "/v1/createcomputeenvironment", sdkId: "Batch", sigV4ServiceName: "batch", name: "AWSBatchV20160810.CreateComputeEnvironment" }, CreateComputeEnvironmentRequest, CreateComputeEnvironmentResponse, [ClientException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Submits an Batch job from a job definition. Parameters that are specified during SubmitJob override parameters defined in the job definition. vCPU and memory
  * requirements that are specified in the `resourceRequirements` objects in the job
@@ -495,24 +467,16 @@ export class ServerException extends S.TaggedError<ServerException>()("ServerExc
  * parameters in a `resourceRequirements` object that's included in the
  * `containerOverrides` parameter.
  * 
- * 
- * 
- * 
  * Job queues with a scheduling policy are limited to 500 active share identifiers at
  * a time.
- * 
- * 
- * 
- * 
- * 
  * 
  * Jobs that run on Fargate resources can't be guaranteed to run for more than 14 days.
  * This is because, after 14 days, Fargate resources might become unavailable and job might be
  * terminated.
- */export const submitJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-10", uri: "/v1/submitjob", method: "POST", sdkId: "Batch", sigV4ServiceName: "batch", name: "AWSBatchV20160810.SubmitJob" }, SubmitJobRequest, SubmitJobResponse, [ClientException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const submitJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-10", uri: "/v1/submitjob", sdkId: "Batch", sigV4ServiceName: "batch", name: "AWSBatchV20160810.SubmitJob" }, SubmitJobRequest, SubmitJobResponse, [ClientException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes a list of Batch jobs.
- */export const describeJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-10", uri: "/v1/describejobs", method: "POST", sdkId: "Batch", sigV4ServiceName: "batch", name: "AWSBatchV20160810.DescribeJobs" }, DescribeJobsRequest, DescribeJobsResponse, [ClientException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-10", uri: "/v1/describejobs", sdkId: "Batch", sigV4ServiceName: "batch", name: "AWSBatchV20160810.DescribeJobs" }, DescribeJobsRequest, DescribeJobsResponse, [ClientException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Registers an Batch job definition.
- */export const registerJobDefinition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-10", uri: "/v1/registerjobdefinition", method: "POST", sdkId: "Batch", sigV4ServiceName: "batch", name: "AWSBatchV20160810.RegisterJobDefinition" }, RegisterJobDefinitionRequest, RegisterJobDefinitionResponse, [ClientException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const registerJobDefinition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-08-10", uri: "/v1/registerjobdefinition", sdkId: "Batch", sigV4ServiceName: "batch", name: "AWSBatchV20160810.RegisterJobDefinition" }, RegisterJobDefinitionRequest, RegisterJobDefinitionResponse, [ClientException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

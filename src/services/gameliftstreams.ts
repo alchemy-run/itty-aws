@@ -65,11 +65,9 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * 
  * - `application/`: The folder where your application or game is stored.
  * 
- * 
  * - `profile/`: The user profile folder.
  * 
  * - `temp/`: The system temp folder.
- * 
  * 
  * To verify the status of the exported files, use GetStreamSession.
  * 
@@ -103,13 +101,12 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * 
  * - StreamGroup
  * 
- * 
  * **Learn more**
  * 
  * Tagging Amazon Web Services Resources in the *Amazon Web Services General Reference*
  * 
  * Amazon Web Services Tagging Strategies
- */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/tags/{ResourceArn}", method: "POST", sdkId: "GameLiftStreams", sigV4ServiceName: "gameliftstreams", name: "GameLiftStreams.TagResource" }, TagResourceRequest, TagResourceResponse, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/tags/{ResourceArn}", sdkId: "GameLiftStreams", sigV4ServiceName: "gameliftstreams", name: "GameLiftStreams.TagResource" }, TagResourceRequest, TagResourceResponse, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Permanently terminates an active stream session. When called, the stream session status changes to `TERMINATING`. You can terminate a stream session in any status except `ACTIVATING`. If the stream session is in `ACTIVATING` status, an exception is thrown.
  */export const terminateStreamSession = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/streamgroups/{Identifier}/streamsessions/{StreamSessionIdentifier}", method: "DELETE", sdkId: "GameLiftStreams", sigV4ServiceName: "gameliftstreams", name: "GameLiftStreams.TerminateStreamSession" }, TerminateStreamSessionInput, S.Struct({}), [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -120,14 +117,13 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * When you associate, or link, an application with a stream group, then Amazon GameLift Streams can launch the application using the stream group's allocated compute resources. The stream group must be in `ACTIVE` status. You can reverse this action by using DisassociateApplications.
  * 
  * If a stream group does not already have a linked application, Amazon GameLift Streams will automatically assign the first application provided in `ApplicationIdentifiers` as the default.
- */export const associateApplications = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/streamgroups/{Identifier}/associations", method: "POST", sdkId: "GameLiftStreams", sigV4ServiceName: "gameliftstreams", name: "GameLiftStreams.AssociateApplications" }, AssociateApplicationsInput, AssociateApplicationsOutput, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const associateApplications = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/streamgroups/{Identifier}/associations", sdkId: "GameLiftStreams", sigV4ServiceName: "gameliftstreams", name: "GameLiftStreams.AssociateApplications" }, AssociateApplicationsInput, AssociateApplicationsOutput, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Enables clients to reconnect to a stream session while preserving all session state and data in the disconnected session. This reconnection process can be initiated when a stream session is in either `PENDING_CLIENT_RECONNECTION` or `ACTIVE` status. The process works as follows:
  * 
  * - Initial disconnect:
  * 
  * - When a client disconnects or loses connection, the stream session transitions from `CONNECTED` to `PENDING_CLIENT_RECONNECTION`
- * 
  * 
  * - Reconnection time window:
  * 
@@ -136,7 +132,6 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * - Your backend server must call **CreateStreamSessionConnection** to initiate reconnection
  * 
  * - Session transitions to `RECONNECTING` status
- * 
  * 
  * - Reconnection completion:
  * 
@@ -148,16 +143,15 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * 
  * - Session terminates automatically if client fails to connect in time
  * 
- * 
  * For more information about the stream session lifecycle, see Stream sessions in the *Amazon GameLift Streams Developer Guide*.
  * 
  * To begin re-connecting to an existing stream session, specify the stream group ID and stream session ID that you want to reconnect to, and the signal request to use with the stream.
- */export const createStreamSessionConnection = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/streamgroups/{Identifier}/streamsessions/{StreamSessionIdentifier}/connections", method: "POST", sdkId: "GameLiftStreams", sigV4ServiceName: "gameliftstreams", name: "GameLiftStreams.CreateStreamSessionConnection" }, CreateStreamSessionConnectionInput, CreateStreamSessionConnectionOutput, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createStreamSessionConnection = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/streamgroups/{Identifier}/streamsessions/{StreamSessionIdentifier}/connections", sdkId: "GameLiftStreams", sigV4ServiceName: "gameliftstreams", name: "GameLiftStreams.CreateStreamSessionConnection" }, CreateStreamSessionConnectionInput, CreateStreamSessionConnectionOutput, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * When you disassociate, or unlink, an application from a stream group, you can no longer stream this application by using that stream group's allocated compute resources. Any streams in process will continue until they terminate, which helps avoid interrupting an end-user's stream. Amazon GameLift Streams will not initiate new streams in the stream group using the disassociated application. The disassociate action does not affect the stream capacity of a stream group. To disassociate an application, the stream group must be in `ACTIVE` status.
  * 
  * If you disassociate the default application, Amazon GameLift Streams will automatically choose a new default application from the remaining associated applications. To change which application is the default application, call UpdateStreamGroup and specify a new `DefaultApplicationIdentifier`.
- */export const disassociateApplications = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/streamgroups/{Identifier}/disassociations", method: "POST", sdkId: "GameLiftStreams", sigV4ServiceName: "gameliftstreams", name: "GameLiftStreams.DisassociateApplications" }, DisassociateApplicationsInput, DisassociateApplicationsOutput, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const disassociateApplications = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/streamgroups/{Identifier}/disassociations", sdkId: "GameLiftStreams", sigV4ServiceName: "gameliftstreams", name: "GameLiftStreams.DisassociateApplications" }, DisassociateApplicationsInput, DisassociateApplicationsOutput, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves properties for a Amazon GameLift Streams stream session resource. Specify the Amazon Resource Name (ARN) of the stream session that you want to retrieve and its stream group ARN. If the operation is successful, it returns properties for the requested resource.
  */export const getStreamSession = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/streamgroups/{Identifier}/streamsessions/{StreamSessionIdentifier}", method: "GET", sdkId: "GameLiftStreams", sigV4ServiceName: "gameliftstreams", name: "GameLiftStreams.GetStreamSession" }, GetStreamSessionInput, GetStreamSessionOutput, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -179,7 +173,6 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * 
  * - You must have at least one application associated to the stream group (use AssociateApplications if needed)
  * 
- * 
  * - Start stream request:
  * 
  * - Your backend server calls **StartStreamSession** to initiate connection
@@ -188,13 +181,11 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * 
  * - Session transitions to `ACTIVATING` status
  * 
- * 
  * - Placement completion:
  * 
  * - If Amazon GameLift Streams is successful in finding capacity for the stream, the stream session status changes to `ACTIVE` status and **StartStreamSession** returns stream connection information
  * 
  * - If Amazon GameLift Streams was not successful in finding capacity within the placement timeout period (defined according to the capacity type and platform type), the stream session status changes to `ERROR` status and **StartStreamSession** returns a `StatusReason` of `placementTimeout`
- * 
  * 
  * - Connection completion:
  * 
@@ -203,7 +194,6 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * - Client must establish connection within `ConnectionTimeoutSeconds` (specified in **StartStreamSession** parameters)
  * 
  * - Session terminates automatically if client fails to connect in time
- * 
  * 
  * For more information about the stream session lifecycle, see Stream sessions in the *Amazon GameLift Streams Developer Guide*.
  * 
@@ -219,23 +209,20 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * 
  * - Windows runtime: 10 minutes
  * 
- * 
- * 
  * - **Connection timeout**: The amount of time that Amazon GameLift Streams waits for a client to connect to a stream session in `ACTIVE` status, or reconnect to a stream session in `PENDING_CLIENT_RECONNECTION` status, the latter of which occurs when a client disconnects or loses connection from a stream session. If no client connects before the timeout, Amazon GameLift Streams terminates the stream session. This value is specified by `ConnectionTimeoutSeconds` in the `StartStreamSession` parameters.
  * 
  * - **Idle timeout**: A stream session will be terminated if no user input has been received for 60 minutes.
  * 
  * - **Maximum session length**: A stream session will be terminated after this amount of time has elapsed since it started, regardless of any existing client connections. This value is specified by `SessionLengthSeconds` in the `StartStreamSession` parameters.
  * 
- * 
  * To start a new stream session, specify a stream group ID and application ID, along with the transport protocol and signal request to use with the stream session.
  * 
  * For stream groups that have multiple locations, provide a set of locations ordered by priority using a `Locations` parameter. Amazon GameLift Streams will start a single stream session in the next available location. An application must be finished replicating to a remote location before the remote location can host a stream.
  * 
  * To reconnect to a stream session after a client disconnects or loses connection, use CreateStreamSessionConnection.
- */export const startStreamSession = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/streamgroups/{Identifier}/streamsessions", method: "POST", sdkId: "GameLiftStreams", sigV4ServiceName: "gameliftstreams", name: "GameLiftStreams.StartStreamSession" }, StartStreamSessionInput, StartStreamSessionOutput, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startStreamSession = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/streamgroups/{Identifier}/streamsessions", sdkId: "GameLiftStreams", sigV4ServiceName: "gameliftstreams", name: "GameLiftStreams.StartStreamSession" }, StartStreamSessionInput, StartStreamSessionOutput, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Add locations that can host stream sessions. To add a location, the stream group must be in `ACTIVE` status. You configure locations and their corresponding capacity for each stream group. Creating a stream group in a location that's nearest to your end users can help minimize latency and improve quality.
  * 
  * This operation provisions stream capacity at the specified locations. By default, all locations have 1 or 2 capacity, depending on the stream class option: 2 for 'High' and 1 for 'Ultra' and 'Win2022'. This operation also copies the content files of all associated applications to an internal S3 bucket at each location. This allows Amazon GameLift Streams to host performant stream sessions.
- */export const addStreamGroupLocations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/streamgroups/{Identifier}/locations", method: "POST", sdkId: "GameLiftStreams", sigV4ServiceName: "gameliftstreams", name: "GameLiftStreams.AddStreamGroupLocations" }, AddStreamGroupLocationsInput, AddStreamGroupLocationsOutput, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const addStreamGroupLocations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/streamgroups/{Identifier}/locations", sdkId: "GameLiftStreams", sigV4ServiceName: "gameliftstreams", name: "GameLiftStreams.AddStreamGroupLocations" }, AddStreamGroupLocationsInput, AddStreamGroupLocationsOutput, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

@@ -237,26 +237,17 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Deletes an assessment report in Audit Manager.
  * 
- * 
  * When you run the `DeleteAssessmentReport` operation, Audit Manager
  * attempts to delete the following data:
  * 
- * 
- * 
  * - The specified assessment report that’s stored in your S3 bucket
  * 
- * 
- * 
  * - The associated metadata that’s stored in Audit Manager
- * 
- * 
- * 
  * 
  * If Audit Manager can’t access the assessment report in your S3 bucket, the report
  * isn’t deleted. In this event, the `DeleteAssessmentReport` operation doesn’t
  * fail. Instead, it proceeds to delete the associated metadata only. You must then delete the
  * assessment report from the S3 bucket yourself.
- * 
  * 
  * This scenario happens when Audit Manager receives a `403 (Forbidden)` or
  * `404 (Not Found)` error from Amazon S3. To avoid this, make sure that
@@ -269,9 +260,6 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Deletes a custom control in Audit Manager.
  * 
- * 
- * 
- * 
  * When you invoke this operation, the custom control is deleted from any frameworks or
  * assessments that it’s currently part of. As a result, Audit Manager will stop
  * collecting evidence for that custom control in all of your assessments. This includes
@@ -280,33 +268,24 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Deregisters an account in Audit Manager.
  * 
- * 
- * 
- * 
  * Before you deregister, you can use the UpdateSettings API operation to set your preferred data retention policy. By
  * default, Audit Manager retains your data. If you want to delete your data, you can
  * use the `DeregistrationPolicy` attribute to request the deletion of your
  * data.
  * 
- * 
  * For more information about data retention, see Data
  * Protection in the *Audit Manager User Guide*.
- */export const deregisterAccount = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/account/deregisterAccount", method: "POST", sdkId: "AuditManager", sigV4ServiceName: "auditmanager", name: "BedrockAssessmentManagerLambda.DeregisterAccount" }, DeregisterAccountRequest, DeregisterAccountResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deregisterAccount = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/account/deregisterAccount", sdkId: "AuditManager", sigV4ServiceName: "auditmanager", name: "BedrockAssessmentManagerLambda.DeregisterAccount" }, DeregisterAccountRequest, DeregisterAccountResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes the specified Amazon Web Services account as a delegated administrator for
  * Audit Manager.
- * 
  * 
  * When you remove a delegated administrator from your Audit Manager settings, you
  * continue to have access to the evidence that you previously collected under that account.
  * This is also the case when you deregister a delegated administrator from Organizations. However, Audit Manager stops collecting and attaching evidence to
  * that delegated administrator account moving forward.
  * 
- * 
- * 
- * 
  * Keep in mind the following cleanup task if you use evidence finder:
- * 
  * 
  * Before you use your management account to remove a delegated administrator, make sure
  * that the current delegated administrator account signs in to Audit Manager and
@@ -317,14 +296,10 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * and manually deletes the
  * event data store.
  * 
- * 
  * This cleanup task is necessary to ensure that you don't end up with multiple event
  * data stores. Audit Manager ignores an unused event data store after you remove or
  * change a delegated administrator account. However, the unused event data store continues
  * to incur storage costs from CloudTrail Lake if you don't delete it.
- * 
- * 
- * 
  * 
  * When you deregister a delegated administrator account for Audit Manager, the data
  * for that account isn’t deleted. If you want to delete resource data for a delegated
@@ -332,45 +307,30 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * account. Either, you can do this in the Audit Manager console. Or, you can use one of
  * the delete API operations that are provided by Audit Manager.
  * 
- * 
  * To delete your Audit Manager resource data, see the following instructions:
- * 
- * 
  * 
  * - DeleteAssessment (see also: Deleting an
  * assessment in the Audit Manager User
  * Guide)
  * 
- * 
- * 
  * - DeleteAssessmentFramework (see also: Deleting a
  * custom framework in the Audit Manager User
  * Guide)
  * 
- * 
- * 
  * - DeleteAssessmentFrameworkShare (see also: Deleting a share request in the Audit Manager User
  * Guide)
  * 
- * 
- * 
  * - DeleteAssessmentReport (see also: Deleting an assessment report in the Audit Manager User
  * Guide)
- * 
- * 
  * 
  * - DeleteControl (see also: Deleting a custom
  * control in the Audit Manager User
  * Guide)
  * 
- * 
- * 
- * 
- * 
  * At this time, Audit Manager doesn't provide an option to delete evidence for a
  * specific delegated administrator. Instead, when your management account deregisters Audit Manager, we perform a cleanup for the current delegated administrator account at the
  * time of deregistration.
- */export const deregisterOrganizationAdminAccount = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/account/deregisterOrganizationAdminAccount", method: "POST", sdkId: "AuditManager", sigV4ServiceName: "auditmanager", name: "BedrockAssessmentManagerLambda.DeregisterOrganizationAdminAccount" }, DeregisterOrganizationAdminAccountRequest, DeregisterOrganizationAdminAccountResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deregisterOrganizationAdminAccount = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/account/deregisterOrganizationAdminAccount", sdkId: "AuditManager", sigV4ServiceName: "auditmanager", name: "BedrockAssessmentManagerLambda.DeregisterOrganizationAdminAccount" }, DeregisterOrganizationAdminAccountRequest, DeregisterOrganizationAdminAccountResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Disassociates an evidence folder from the specified assessment report in Audit Manager.
  */export const disassociateAssessmentReportEvidenceFolder = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/assessments/{assessmentId}/disassociateFromAssessmentReport", method: "PUT", sdkId: "AuditManager", sigV4ServiceName: "auditmanager", name: "BedrockAssessmentManagerLambda.DisassociateAssessmentReportEvidenceFolder" }, DisassociateAssessmentReportEvidenceFolderRequest, DisassociateAssessmentReportEvidenceFolderResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -383,7 +343,7 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  */export const getOrganizationAdminAccount = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/account/organizationAdminAccount", method: "GET", sdkId: "AuditManager", sigV4ServiceName: "auditmanager", name: "BedrockAssessmentManagerLambda.GetOrganizationAdminAccount" }, GetOrganizationAdminAccountRequest, GetOrganizationAdminAccountResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Tags the specified resource in Audit Manager.
- */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/tags/{resourceArn}", method: "POST", sdkId: "AuditManager", sigV4ServiceName: "auditmanager", name: "BedrockAssessmentManagerLambda.TagResource" }, TagResourceRequest, TagResourceResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/tags/{resourceArn}", sdkId: "AuditManager", sigV4ServiceName: "auditmanager", name: "BedrockAssessmentManagerLambda.TagResource" }, TagResourceRequest, TagResourceResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes a tag from a resource in Audit Manager.
  */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/tags/{resourceArn}", method: "DELETE", sdkId: "AuditManager", sigV4ServiceName: "auditmanager", name: "BedrockAssessmentManagerLambda.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -417,14 +377,10 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * Gets a list of the Amazon Web Services services from which Audit Manager can collect
  * evidence.
  * 
- * 
  * Audit Manager defines which Amazon Web Services services are in scope for an
  * assessment. Audit Manager infers this scope by examining the assessment’s controls and
  * their data sources, and then mapping this information to one or more of the corresponding
  * Amazon Web Services services that are in this list.
- * 
- * 
- * 
  * 
  * For information about why it's no longer possible to specify services in scope manually, see
  * I can't edit the services in scope for my assessment in
@@ -434,16 +390,12 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Lists analytics data for control domains within a specified active assessment.
  * 
- * 
  * Audit Manager supports the control domains that are provided by Amazon Web Services
  * Control Catalog. For information about how to find a list of available control domains, see
  * 
  * `ListDomains`
  * in the Amazon Web Services Control
  * Catalog API Reference.
- * 
- * 
- * 
  * 
  * A control domain is listed only if at least one of the controls within that domain
  * collected evidence on the `lastUpdated` date of
@@ -459,58 +411,39 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/tags/{resourceArn}", method: "GET", sdkId: "AuditManager", sigV4ServiceName: "auditmanager", name: "BedrockAssessmentManagerLambda.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Enables Audit Manager for the specified Amazon Web Services account.
- */export const registerAccount = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/account/registerAccount", method: "POST", sdkId: "AuditManager", sigV4ServiceName: "auditmanager", name: "BedrockAssessmentManagerLambda.RegisterAccount" }, RegisterAccountRequest, RegisterAccountResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const registerAccount = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/account/registerAccount", sdkId: "AuditManager", sigV4ServiceName: "auditmanager", name: "BedrockAssessmentManagerLambda.RegisterAccount" }, RegisterAccountRequest, RegisterAccountResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Enables an Amazon Web Services account within the organization as the delegated
  * administrator for Audit Manager.
- */export const registerOrganizationAdminAccount = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/account/registerOrganizationAdminAccount", method: "POST", sdkId: "AuditManager", sigV4ServiceName: "auditmanager", name: "BedrockAssessmentManagerLambda.RegisterOrganizationAdminAccount" }, RegisterOrganizationAdminAccountRequest, RegisterOrganizationAdminAccountResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const registerOrganizationAdminAccount = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/account/registerOrganizationAdminAccount", sdkId: "AuditManager", sigV4ServiceName: "auditmanager", name: "BedrockAssessmentManagerLambda.RegisterOrganizationAdminAccount" }, RegisterOrganizationAdminAccountRequest, RegisterOrganizationAdminAccountResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a share request for a custom framework in Audit Manager.
- * 
  * 
  * The share request specifies a recipient and notifies them that a custom framework is
  * available. Recipients have 120 days to accept or decline the request. If no action is
  * taken, the share request expires.
  * 
- * 
  * When you create a share request, Audit Manager stores a snapshot of your custom
  * framework in the US East (N. Virginia) Amazon Web Services Region. Audit Manager also
  * stores a backup of the same snapshot in the US West (Oregon) Amazon Web Services Region.
  * 
- * 
  * Audit Manager deletes the snapshot and the backup snapshot when one of the following
  * events occurs:
  * 
- * 
- * 
  * - The sender revokes the share request.
  * 
- * 
- * 
  * - The recipient declines the share request.
- * 
- * 
  * 
  * - The recipient encounters an error and doesn't successfully accept the share
  * request.
  * 
- * 
- * 
  * - The share request expires before the recipient responds to the request.
- * 
- * 
- * 
- * 
  * 
  * When a sender resends a share request, the snapshot is replaced with an updated version that
  * corresponds with the latest version of the custom framework.
  * 
- * 
  * When a recipient accepts a share request, the snapshot is replicated into their Amazon Web Services account under the Amazon Web Services Region that was specified in the share
  * request.
- * 
- * 
- * 
  * 
  * When you invoke the `StartAssessmentFrameworkShare` API, you are about to
  * share a custom framework with another Amazon Web Services account. You may not share a
@@ -519,7 +452,7 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * permission to do so from the owner of the standard framework. To learn more about which
  * standard frameworks are eligible for sharing, see Framework sharing eligibility in the Audit Manager User
  * Guide.
- */export const startAssessmentFrameworkShare = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/assessmentFrameworks/{frameworkId}/shareRequests", method: "POST", sdkId: "AuditManager", sigV4ServiceName: "auditmanager", name: "BedrockAssessmentManagerLambda.StartAssessmentFrameworkShare" }, StartAssessmentFrameworkShareRequest, StartAssessmentFrameworkShareResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startAssessmentFrameworkShare = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/assessmentFrameworks/{frameworkId}/shareRequests", sdkId: "AuditManager", sigV4ServiceName: "auditmanager", name: "BedrockAssessmentManagerLambda.StartAssessmentFrameworkShare" }, StartAssessmentFrameworkShareRequest, StartAssessmentFrameworkShareResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates a share request for a custom framework in Audit Manager.
  */export const updateAssessmentFrameworkShare = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/assessmentFrameworkShareRequests/{requestId}", method: "PUT", sdkId: "AuditManager", sigV4ServiceName: "auditmanager", name: "BedrockAssessmentManagerLambda.UpdateAssessmentFrameworkShare" }, UpdateAssessmentFrameworkShareRequest, UpdateAssessmentFrameworkShareResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -528,7 +461,7 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  */export const updateAssessmentStatus = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/assessments/{assessmentId}/status", method: "PUT", sdkId: "AuditManager", sigV4ServiceName: "auditmanager", name: "BedrockAssessmentManagerLambda.UpdateAssessmentStatus" }, UpdateAssessmentStatusRequest, UpdateAssessmentStatusResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Validates the integrity of an assessment report in Audit Manager.
- */export const validateAssessmentReportIntegrity = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/assessmentReports/integrity", method: "POST", sdkId: "AuditManager", sigV4ServiceName: "auditmanager", name: "BedrockAssessmentManagerLambda.ValidateAssessmentReportIntegrity" }, ValidateAssessmentReportIntegrityRequest, ValidateAssessmentReportIntegrityResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const validateAssessmentReportIntegrity = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/assessmentReports/integrity", sdkId: "AuditManager", sigV4ServiceName: "auditmanager", name: "BedrockAssessmentManagerLambda.ValidateAssessmentReportIntegrity" }, ValidateAssessmentReportIntegrityRequest, ValidateAssessmentReportIntegrityResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Associates a list of evidence to an assessment report in an Audit Manager
  * assessment.
@@ -538,7 +471,7 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  */export const batchDeleteDelegationByAssessment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/assessments/{assessmentId}/delegations", method: "PUT", sdkId: "AuditManager", sigV4ServiceName: "auditmanager", name: "BedrockAssessmentManagerLambda.BatchDeleteDelegationByAssessment" }, BatchDeleteDelegationByAssessmentRequest, BatchDeleteDelegationByAssessmentResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an assessment report for the specified assessment.
- */export const createAssessmentReport = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/assessments/{assessmentId}/reports", method: "POST", sdkId: "AuditManager", sigV4ServiceName: "auditmanager", name: "BedrockAssessmentManagerLambda.CreateAssessmentReport" }, CreateAssessmentReportRequest, CreateAssessmentReportResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createAssessmentReport = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/assessments/{assessmentId}/reports", sdkId: "AuditManager", sigV4ServiceName: "auditmanager", name: "BedrockAssessmentManagerLambda.CreateAssessmentReport" }, CreateAssessmentReportRequest, CreateAssessmentReportResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a share request for a custom framework in Audit Manager.
  */export const deleteAssessmentFrameworkShare = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/assessmentFrameworkShareRequests/{requestId}", method: "DELETE", sdkId: "AuditManager", sigV4ServiceName: "auditmanager", name: "BedrockAssessmentManagerLambda.DeleteAssessmentFrameworkShare" }, DeleteAssessmentFrameworkShareRequest, DeleteAssessmentFrameworkShareResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -559,25 +492,13 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * evidence. For instructions on how to use this operation, see Upload a file from your browser in the Audit Manager User
  * Guide.
  * 
- * 
  * The following restrictions apply to this operation:
- * 
- * 
  * 
  * - Maximum size of an individual evidence file: 100 MB
  * 
- * 
- * 
  * - Number of daily manual evidence uploads per control: 100
  * 
- * 
- * 
  * - Supported file formats: See Supported file types for manual evidence in the *Audit Manager User Guide*
- * 
- * 
- * 
- * 
- * 
  * 
  * For more information about Audit Manager service restrictions, see Quotas and
  * restrictions for Audit Manager.
@@ -602,16 +523,12 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * Lists the latest analytics data for control domains across all of your active
  * assessments.
  * 
- * 
  * Audit Manager supports the control domains that are provided by Amazon Web Services
  * Control Catalog. For information about how to find a list of available control domains, see
  * 
  * `ListDomains`
  * in the Amazon Web Services Control
  * Catalog API Reference.
- * 
- * 
- * 
  * 
  * A control domain is listed only if at least one of the controls within that domain
  * collected evidence on the `lastUpdated` date of
@@ -621,9 +538,6 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Lists the latest analytics data for controls within a specific control domain across all
  * active assessments.
- * 
- * 
- * 
  * 
  * Control insights are listed only if the control belongs to the control domain that
  * was specified and the control collected evidence on the `lastUpdated` date of
@@ -653,54 +567,38 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  */export const updateSettings = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/settings", method: "PUT", sdkId: "AuditManager", sigV4ServiceName: "auditmanager", name: "BedrockAssessmentManagerLambda.UpdateSettings" }, UpdateSettingsRequest, UpdateSettingsResponse, [AccessDeniedException, InternalServerException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a batch of delegations for an assessment in Audit Manager.
- */export const batchCreateDelegationByAssessment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/assessments/{assessmentId}/delegations", method: "POST", sdkId: "AuditManager", sigV4ServiceName: "auditmanager", name: "BedrockAssessmentManagerLambda.BatchCreateDelegationByAssessment" }, BatchCreateDelegationByAssessmentRequest, BatchCreateDelegationByAssessmentResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const batchCreateDelegationByAssessment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/assessments/{assessmentId}/delegations", sdkId: "AuditManager", sigV4ServiceName: "auditmanager", name: "BedrockAssessmentManagerLambda.BatchCreateDelegationByAssessment" }, BatchCreateDelegationByAssessmentRequest, BatchCreateDelegationByAssessmentResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Adds one or more pieces of evidence to a control in an Audit Manager assessment.
- * 
  * 
  * You can import manual evidence from any S3 bucket by specifying the S3 URI of the
  * object. You can also upload a file from your browser, or enter plain text in response to a
  * risk assessment question.
  * 
- * 
  * The following restrictions apply to this action:
- * 
- * 
  * 
  * - `manualEvidence` can be only one of the following:
  * `evidenceFileName`, `s3ResourcePath`, or
  * `textResponse`
  * 
- * 
- * 
- * 
  * - Maximum size of an individual evidence file: 100 MB
- * 
- * 
  * 
  * - Number of daily manual evidence uploads per control: 100
  * 
- * 
- * 
  * - Supported file formats: See Supported file types for manual evidence in the *Audit Manager User Guide*
- * 
- * 
- * 
- * 
- * 
  * 
  * For more information about Audit Manager service restrictions, see Quotas and
  * restrictions for Audit Manager.
- */export const batchImportEvidenceToAssessmentControl = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/assessments/{assessmentId}/controlSets/{controlSetId}/controls/{controlId}/evidence", method: "POST", sdkId: "AuditManager", sigV4ServiceName: "auditmanager", name: "BedrockAssessmentManagerLambda.BatchImportEvidenceToAssessmentControl" }, BatchImportEvidenceToAssessmentControlRequest, BatchImportEvidenceToAssessmentControlResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const batchImportEvidenceToAssessmentControl = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/assessments/{assessmentId}/controlSets/{controlSetId}/controls/{controlId}/evidence", sdkId: "AuditManager", sigV4ServiceName: "auditmanager", name: "BedrockAssessmentManagerLambda.BatchImportEvidenceToAssessmentControl" }, BatchImportEvidenceToAssessmentControlRequest, BatchImportEvidenceToAssessmentControlResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an assessment in Audit Manager.
- */export const createAssessment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/assessments", method: "POST", sdkId: "AuditManager", sigV4ServiceName: "auditmanager", name: "BedrockAssessmentManagerLambda.CreateAssessment" }, CreateAssessmentRequest, CreateAssessmentResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createAssessment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/assessments", sdkId: "AuditManager", sigV4ServiceName: "auditmanager", name: "BedrockAssessmentManagerLambda.CreateAssessment" }, CreateAssessmentRequest, CreateAssessmentResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a custom framework in Audit Manager.
- */export const createAssessmentFramework = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/assessmentFrameworks", method: "POST", sdkId: "AuditManager", sigV4ServiceName: "auditmanager", name: "BedrockAssessmentManagerLambda.CreateAssessmentFramework" }, CreateAssessmentFrameworkRequest, CreateAssessmentFrameworkResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createAssessmentFramework = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/assessmentFrameworks", sdkId: "AuditManager", sigV4ServiceName: "auditmanager", name: "BedrockAssessmentManagerLambda.CreateAssessmentFramework" }, CreateAssessmentFrameworkRequest, CreateAssessmentFrameworkResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new custom control in Audit Manager.
- */export const createControl = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/controls", method: "POST", sdkId: "AuditManager", sigV4ServiceName: "auditmanager", name: "BedrockAssessmentManagerLambda.CreateControl" }, CreateControlRequest, CreateControlResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createControl = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/controls", sdkId: "AuditManager", sigV4ServiceName: "auditmanager", name: "BedrockAssessmentManagerLambda.CreateControl" }, CreateControlRequest, CreateControlResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets information about a specified framework.
  */export const getAssessmentFramework = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/assessmentFrameworks/{frameworkId}", method: "GET", sdkId: "AuditManager", sigV4ServiceName: "auditmanager", name: "BedrockAssessmentManagerLambda.GetAssessmentFramework" }, GetAssessmentFrameworkRequest, GetAssessmentFrameworkResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -713,9 +611,6 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Lists the latest analytics data for controls within a specific control domain and a
  * specific active assessment.
- * 
- * 
- * 
  * 
  * Control insights are listed only if the control belongs to the control domain and
  * assessment that was specified. Moreover, the control must have collected evidence on the

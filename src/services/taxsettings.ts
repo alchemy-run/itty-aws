@@ -109,629 +109,323 @@ export class CaseCreationLimitExceededException extends S.TaggedError<CaseCreati
 //# Operations
 /**
  * Deletes a supplemental tax registration for a single account.
- */export const deleteSupplementalTaxRegistration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/DeleteSupplementalTaxRegistration", method: "POST", sdkId: "TaxSettings", sigV4ServiceName: "tax", name: "TaxSettings.DeleteSupplementalTaxRegistration" }, DeleteSupplementalTaxRegistrationRequest, DeleteSupplementalTaxRegistrationResponse, [ConflictException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteSupplementalTaxRegistration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/DeleteSupplementalTaxRegistration", sdkId: "TaxSettings", sigV4ServiceName: "tax", name: "TaxSettings.DeleteSupplementalTaxRegistration" }, DeleteSupplementalTaxRegistrationRequest, DeleteSupplementalTaxRegistrationResponse, [ConflictException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes tax registration for a single account.
  * 
- * 
- * 
- * 
  * This API operation can't be used to delete your tax registration in Brazil. Use the Payment preferences page in the Billing and Cost Management console instead.
- */export const deleteTaxRegistration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/DeleteTaxRegistration", method: "POST", sdkId: "TaxSettings", sigV4ServiceName: "tax", name: "TaxSettings.DeleteTaxRegistration" }, DeleteTaxRegistrationRequest, DeleteTaxRegistrationResponse, [ConflictException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteTaxRegistration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/DeleteTaxRegistration", sdkId: "TaxSettings", sigV4ServiceName: "tax", name: "TaxSettings.DeleteTaxRegistration" }, DeleteTaxRegistrationRequest, DeleteTaxRegistrationResponse, [ConflictException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Get supported tax exemption types. The IAM action is `tax:GetExemptions`.
- */export const getTaxExemptionTypes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/GetTaxExemptionTypes", method: "POST", sdkId: "TaxSettings", sigV4ServiceName: "tax", name: "TaxSettings.GetTaxExemptionTypes" }, GetTaxExemptionTypesRequest, GetTaxExemptionTypesResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getTaxExemptionTypes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/GetTaxExemptionTypes", sdkId: "TaxSettings", sigV4ServiceName: "tax", name: "TaxSettings.GetTaxExemptionTypes" }, GetTaxExemptionTypesRequest, GetTaxExemptionTypesResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * The get account tax inheritance status.
- */export const getTaxInheritance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/GetTaxInheritance", method: "POST", sdkId: "TaxSettings", sigV4ServiceName: "tax", name: "TaxSettings.GetTaxInheritance" }, GetTaxInheritanceRequest, GetTaxInheritanceResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getTaxInheritance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/GetTaxInheritance", sdkId: "TaxSettings", sigV4ServiceName: "tax", name: "TaxSettings.GetTaxInheritance" }, GetTaxInheritanceRequest, GetTaxInheritanceResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the tax exemption of accounts listed in a consolidated billing family. The IAM action is `tax:GetExemptions`.
- */export const listTaxExemptions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/ListTaxExemptions", method: "POST", sdkId: "TaxSettings", sigV4ServiceName: "tax", name: "TaxSettings.ListTaxExemptions" }, ListTaxExemptionsRequest, ListTaxExemptionsResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listTaxExemptions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/ListTaxExemptions", sdkId: "TaxSettings", sigV4ServiceName: "tax", name: "TaxSettings.ListTaxExemptions" }, ListTaxExemptionsRequest, ListTaxExemptionsResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Adds or updates tax registration for a single account. You can't set a TRN if there's a pending TRN. You'll need to delete the pending TRN first.
- * 
  * 
  * To call this API operation for specific countries, see the following country-specific
  * requirements.
  * 
- * 
- * 
  * **Bangladesh**
- * 
- * 
- * 
  * 
  * - You must specify the tax registration certificate document in the
  * `taxRegistrationDocuments` field of the `VerificationDetails`
  * object.
  * 
- * 
- * 
- * 
- * 
- * 
  * **Brazil**
- * 
- * 
- * 
  * 
  * - You must complete the tax registration process in the Payment preferences page in the Billing and Cost Management console. After your TRN and billing address are verified, you can call this API operation.
  * 
- * 
- * 
  * - For Amazon Web Services accounts created through Organizations, you can call this API operation when you don't have a billing address.
- * 
- * 
- * 
- * 
- * 
  * 
  * **Georgia**
  * 
- * 
- * 
- * 
  * - The valid `personType` values are `Physical Person` and `Business`.
- * 
- * 
- * 
- * 
- * 
  * 
  * **Indonesia**
  * 
- * 
- * 
- * 
  * - `PutTaxRegistration`: The use of this operation to submit tax information is subject to the Amazon Web Services service terms. By submitting, you’re providing consent for Amazon Web Services to validate NIK, NPWP, and NITKU data, provided by you with the Directorate General of Taxes of Indonesia in accordance with the Minister of Finance Regulation (PMK) Number 112/PMK.03/2022.
- * 
- * 
  * 
  * - `BatchPutTaxRegistration`: The use of this operation to submit tax information is subject to the Amazon Web Services service terms. By submitting, you’re providing consent for Amazon Web Services to validate NIK, NPWP, and NITKU data, provided by you with the Directorate General of Taxes of Indonesia in accordance with the Minister of Finance Regulation (PMK) Number 112/PMK.03/2022, through our third-party partner PT Achilles Advanced Management (OnlinePajak).
  * 
- * 
- * 
  * - You must specify the `taxRegistrationNumberType` in the `indonesiaAdditionalInfo` field of the `additionalTaxInformation` object.
- * 
- * 
  * 
  * - If you specify `decisionNumber`, you must specify the `ppnExceptionDesignationCode` in the `indonesiaAdditionalInfo` field of the `additionalTaxInformation` object. If the `taxRegistrationNumberType` is set to NPWP or NITKU, valid values for `ppnExceptionDesignationCode` are either `01`, `02`, `03`, `07`, or `08`.
  * 
- * 
  * For other `taxRegistrationNumberType` values, `ppnExceptionDesignationCode` must be either `01`, `07`, or `08`.
- * 
- * 
  * 
  * - If `ppnExceptionDesignationCode` is `07`, you must specify the `decisionNumber` in the `indonesiaAdditionalInfo` field of the `additionalTaxInformation` object.
  * 
- * 
- * 
- * 
- * 
- * 
  * **Kenya**
- * 
- * 
- * 
  * 
  * - You must specify the `personType` in the `kenyaAdditionalInfo`
  * field of the `additionalTaxInformation` object.
- * 
- * 
  * 
  * - If the `personType` is `Physical Person`, you must specify the
  * tax registration certificate document in the `taxRegistrationDocuments` field
  * of the `VerificationDetails` object.
  * 
- * 
- * 
- * 
- * 
- * 
  * **Malaysia**
- * 
- * 
- * 
  * 
  * - The sector valid values are `Business` and `Individual`.
  * 
- * 
- * 
  * - `RegistrationType` valid values are `NRIC` for individual, and TIN and sales and service tax (SST) for Business.
- * 
- * 
  * 
  * - For individual, you can specify the `taxInformationNumber` in `MalaysiaAdditionalInfo` with NRIC type, and a valid `MyKad` or NRIC number.
  * 
- * 
- * 
  * - For business, you must specify a `businessRegistrationNumber` in `MalaysiaAdditionalInfo` with a TIN type and tax identification number.
- * 
- * 
  * 
  * - For business resellers, you must specify a `businessRegistrationNumber` and `taxInformationNumber` in `MalaysiaAdditionalInfo` with a sales and service tax (SST) type and a valid SST number.
  * 
- * 
- * 
  * - For business resellers with service codes, you must specify `businessRegistrationNumber`, `taxInformationNumber`, and distinct `serviceTaxCodes` in `MalaysiaAdditionalInfo` with a SST type and valid sales and service tax (SST) number. By using this API operation, Amazon Web Services registers your self-declaration that you’re an authorized business reseller registered with the Royal Malaysia Customs Department (RMCD), and have a valid SST number.
- * 
- * 
  * 
  * - Amazon Web Services reserves the right to seek additional information and/or take other actions to
  * support your self-declaration as appropriate.
- * 
- * 
  * 
  * - Amazon Web Services is currently registered under the following service tax codes. You must include
  * at least one of the service tax codes in the service tax code strings to declare yourself
  * as an authorized registered business reseller.
  * 
- * 
  * Taxable service and service tax codes:
- * 
  * 
  * Consultancy - 9907061674
  * 
- * 
  * Training or coaching service - 9907071685
- * 
  * 
  * IT service - 9907101676
  * 
- * 
  * Digital services and electronic medium - 9907121690
- * 
- * 
- * 
- * 
- * 
  * 
  * **Nepal**
  * 
- * 
- * 
- * 
  * - The sector valid values are `Business` and `Individual`.
- * 
- * 
- * 
- * 
- * 
  * 
  * **Saudi Arabia**
  * 
- * 
- * 
- * 
  * - For `address`, you must specify `addressLine3`.
  * 
- * 
- * 
- * 
- * 
- * 
  * **South Korea**
- * 
- * 
- * 
  * 
  * - You must specify the `certifiedEmailId` and `legalName` in the
  * `TaxRegistrationEntry` object. Use Korean characters for
  * `legalName`.
- * 
- * 
  * 
  * - You must specify the `businessRepresentativeName`,
  * `itemOfBusiness`, and `lineOfBusiness` in the
  * `southKoreaAdditionalInfo` field of the `additionalTaxInformation`
  * object. Use Korean characters for these fields.
  * 
- * 
- * 
  * - You must specify the tax registration certificate document in the
  * `taxRegistrationDocuments` field of the `VerificationDetails`
  * object.
  * 
- * 
- * 
  * - For the `address` object, use Korean characters for `addressLine1`, `addressLine2`
  * `city`, `postalCode`, and `stateOrRegion`.
  * 
- * 
- * 
- * 
- * 
- * 
  * **Spain**
- * 
- * 
- * 
  * 
  * - You must specify the `registrationType` in the
  * `spainAdditionalInfo` field of the `additionalTaxInformation`
  * object.
  * 
- * 
- * 
  * - If the `registrationType` is `Local`, you must specify the tax
  * registration certificate document in the `taxRegistrationDocuments` field of
  * the `VerificationDetails` object.
  * 
- * 
- * 
- * 
- * 
- * 
  * **Turkey**
  * 
- * 
- * 
- * 
  * - You must specify the `sector` in the `taxRegistrationEntry` object.
- * 
- * 
  * 
  * - If your `sector` is `Business`, `Individual`, or
  * `Government`:
  * 
- * 
- * 
  * - Specify the `taxOffice`. If your
  * `sector` is `Individual`, don't enter this value.
- * 
- * 
  * 
  * - (Optional) Specify the `kepEmailId`. If your
  * `sector` is `Individual`, don't enter this value.
  * 
- * 
- * 
  * - **Note:** In the **Tax Settings** page of the Billing console, `Government` appears as **Public institutions**
- * 
- * 
- * 
- * 
- * 
- * 
  * 
  * - If your `sector` is `Business` and you're subject to KDV tax,
  * you must specify your industry in the `industries` field.
  * 
- * 
- * 
  * - For `address`, you must specify `districtOrCounty`.
- * 
- * 
- * 
- * 
- * 
  * 
  * **Ukraine**
  * 
- * 
- * 
- * 
  * - The sector valid values are `Business` and `Individual`.
- */export const putTaxRegistration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/PutTaxRegistration", method: "POST", sdkId: "TaxSettings", sigV4ServiceName: "tax", name: "TaxSettings.PutTaxRegistration" }, PutTaxRegistrationRequest, PutTaxRegistrationResponse, [ConflictException, InternalServerException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putTaxRegistration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/PutTaxRegistration", sdkId: "TaxSettings", sigV4ServiceName: "tax", name: "TaxSettings.PutTaxRegistration" }, PutTaxRegistrationRequest, PutTaxRegistrationResponse, [ConflictException, InternalServerException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes tax registration for multiple accounts in batch. This can be used to delete tax
  * registrations for up to five accounts in one batch.
  * 
- * 
- * 
- * 
  * This API operation can't be used to delete your tax registration in Brazil. Use the Payment preferences page in the Billing and Cost Management console instead.
- */export const batchDeleteTaxRegistration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/BatchDeleteTaxRegistration", method: "POST", sdkId: "TaxSettings", sigV4ServiceName: "tax", name: "TaxSettings.BatchDeleteTaxRegistration" }, BatchDeleteTaxRegistrationRequest, BatchDeleteTaxRegistrationResponse, [ConflictException, InternalServerException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const batchDeleteTaxRegistration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/BatchDeleteTaxRegistration", sdkId: "TaxSettings", sigV4ServiceName: "tax", name: "TaxSettings.BatchDeleteTaxRegistration" }, BatchDeleteTaxRegistrationRequest, BatchDeleteTaxRegistrationResponse, [ConflictException, InternalServerException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Downloads your tax documents to the Amazon S3 bucket that you specify in your
  * request.
- */export const getTaxRegistrationDocument = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/GetTaxRegistrationDocument", method: "POST", sdkId: "TaxSettings", sigV4ServiceName: "tax", name: "TaxSettings.GetTaxRegistrationDocument" }, GetTaxRegistrationDocumentRequest, GetTaxRegistrationDocumentResponse, [InternalServerException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getTaxRegistrationDocument = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/GetTaxRegistrationDocument", sdkId: "TaxSettings", sigV4ServiceName: "tax", name: "TaxSettings.GetTaxRegistrationDocument" }, GetTaxRegistrationDocumentRequest, GetTaxRegistrationDocumentResponse, [InternalServerException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves supplemental tax registrations for a single account.
- */export const listSupplementalTaxRegistrations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/ListSupplementalTaxRegistrations", method: "POST", sdkId: "TaxSettings", sigV4ServiceName: "tax", name: "TaxSettings.ListSupplementalTaxRegistrations" }, ListSupplementalTaxRegistrationsRequest, ListSupplementalTaxRegistrationsResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listSupplementalTaxRegistrations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/ListSupplementalTaxRegistrations", sdkId: "TaxSettings", sigV4ServiceName: "tax", name: "TaxSettings.ListSupplementalTaxRegistrations" }, ListSupplementalTaxRegistrationsRequest, ListSupplementalTaxRegistrationsResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Stores supplemental tax registration for a single account.
- */export const putSupplementalTaxRegistration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/PutSupplementalTaxRegistration", method: "POST", sdkId: "TaxSettings", sigV4ServiceName: "tax", name: "TaxSettings.PutSupplementalTaxRegistration" }, PutSupplementalTaxRegistrationRequest, PutSupplementalTaxRegistrationResponse, [ConflictException, InternalServerException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putSupplementalTaxRegistration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/PutSupplementalTaxRegistration", sdkId: "TaxSettings", sigV4ServiceName: "tax", name: "TaxSettings.PutSupplementalTaxRegistration" }, PutSupplementalTaxRegistrationRequest, PutSupplementalTaxRegistrationResponse, [ConflictException, InternalServerException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * The updated tax inheritance status.
- */export const putTaxInheritance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/PutTaxInheritance", method: "POST", sdkId: "TaxSettings", sigV4ServiceName: "tax", name: "TaxSettings.PutTaxInheritance" }, PutTaxInheritanceRequest, PutTaxInheritanceResponse, [ConflictException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putTaxInheritance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/PutTaxInheritance", sdkId: "TaxSettings", sigV4ServiceName: "tax", name: "TaxSettings.PutTaxInheritance" }, PutTaxInheritanceRequest, PutTaxInheritanceResponse, [ConflictException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Get the active tax exemptions for a given list of accounts. The IAM action is `tax:GetExemptions`.
- */export const batchGetTaxExemptions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/BatchGetTaxExemptions", method: "POST", sdkId: "TaxSettings", sigV4ServiceName: "tax", name: "TaxSettings.BatchGetTaxExemptions" }, BatchGetTaxExemptionsRequest, BatchGetTaxExemptionsResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const batchGetTaxExemptions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/BatchGetTaxExemptions", sdkId: "TaxSettings", sigV4ServiceName: "tax", name: "TaxSettings.BatchGetTaxExemptions" }, BatchGetTaxExemptionsRequest, BatchGetTaxExemptionsResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves tax registration for a single account.
- */export const getTaxRegistration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/GetTaxRegistration", method: "POST", sdkId: "TaxSettings", sigV4ServiceName: "tax", name: "TaxSettings.GetTaxRegistration" }, GetTaxRegistrationRequest, GetTaxRegistrationResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getTaxRegistration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/GetTaxRegistration", sdkId: "TaxSettings", sigV4ServiceName: "tax", name: "TaxSettings.GetTaxRegistration" }, GetTaxRegistrationRequest, GetTaxRegistrationResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the tax registration of accounts listed in a consolidated billing family. This
  * can be used to retrieve up to 100 accounts' tax registrations in one call (default 50).
- */export const listTaxRegistrations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/ListTaxRegistrations", method: "POST", sdkId: "TaxSettings", sigV4ServiceName: "tax", name: "TaxSettings.ListTaxRegistrations" }, ListTaxRegistrationsRequest, ListTaxRegistrationsResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listTaxRegistrations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/ListTaxRegistrations", sdkId: "TaxSettings", sigV4ServiceName: "tax", name: "TaxSettings.ListTaxRegistrations" }, ListTaxRegistrationsRequest, ListTaxRegistrationsResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Adds the tax exemption for a single account or all accounts listed in a consolidated billing family. The IAM action is `tax:UpdateExemptions`.
- */export const putTaxExemption = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/PutTaxExemption", method: "POST", sdkId: "TaxSettings", sigV4ServiceName: "tax", name: "TaxSettings.PutTaxExemption" }, PutTaxExemptionRequest, PutTaxExemptionResponse, [AccessDeniedException, AttachmentUploadException, CaseCreationLimitExceededException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putTaxExemption = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/PutTaxExemption", sdkId: "TaxSettings", sigV4ServiceName: "tax", name: "TaxSettings.PutTaxExemption" }, PutTaxExemptionRequest, PutTaxExemptionResponse, [AccessDeniedException, AttachmentUploadException, CaseCreationLimitExceededException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Adds or updates tax registration for multiple accounts in batch. This can be used to add
  * or update tax registrations for up to five accounts in one batch. You can't set a TRN if there's a pending TRN. You'll need to delete the pending TRN first.
  * 
- * 
  * To call this API operation for specific countries, see the following country-specific
  * requirements.
  * 
- * 
- * 
  * **Bangladesh**
- * 
- * 
- * 
  * 
  * - You must specify the tax registration certificate document in the
  * `taxRegistrationDocuments` field of the `VerificationDetails`
  * object.
  * 
- * 
- * 
- * 
- * 
- * 
  * **Brazil**
- * 
- * 
- * 
  * 
  * - You must complete the tax registration process in the Payment preferences page in the Billing and Cost Management console. After your TRN and billing address are verified, you can call this API operation.
  * 
- * 
- * 
  * - For Amazon Web Services accounts created through Organizations, you can call this API operation when you don't have a billing address.
- * 
- * 
- * 
- * 
- * 
  * 
  * **Georgia**
  * 
- * 
- * 
- * 
  * - The valid `personType` values are `Physical Person` and `Business`.
- * 
- * 
- * 
- * 
- * 
  * 
  * **Indonesia**
  * 
- * 
- * 
- * 
  * - `PutTaxRegistration`: The use of this operation to submit tax information is subject to the Amazon Web Services service terms. By submitting, you’re providing consent for Amazon Web Services to validate NIK, NPWP, and NITKU data, provided by you with the Directorate General of Taxes of Indonesia in accordance with the Minister of Finance Regulation (PMK) Number 112/PMK.03/2022.
- * 
- * 
  * 
  * - `BatchPutTaxRegistration`: The use of this operation to submit tax information is subject to the Amazon Web Services service terms. By submitting, you’re providing consent for Amazon Web Services to validate NIK, NPWP, and NITKU data, provided by you with the Directorate General of Taxes of Indonesia in accordance with the Minister of Finance Regulation (PMK) Number 112/PMK.03/2022, through our third-party partner PT Achilles Advanced Management (OnlinePajak).
  * 
- * 
- * 
  * - You must specify the `taxRegistrationNumberType` in the `indonesiaAdditionalInfo` field of the `additionalTaxInformation` object.
- * 
- * 
  * 
  * - If you specify `decisionNumber`, you must specify the `ppnExceptionDesignationCode` in the `indonesiaAdditionalInfo` field of the `additionalTaxInformation` object. If the `taxRegistrationNumberType` is set to NPWP or NITKU, valid values for `ppnExceptionDesignationCode` are either `01`, `02`, `03`, `07`, or `08`.
  * 
- * 
  * For other `taxRegistrationNumberType` values, `ppnExceptionDesignationCode` must be either `01`, `07`, or `08`.
- * 
- * 
  * 
  * - If `ppnExceptionDesignationCode` is `07`, you must specify the `decisionNumber` in the `indonesiaAdditionalInfo` field of the `additionalTaxInformation` object.
  * 
- * 
- * 
- * 
- * 
- * 
  * **Kenya**
- * 
- * 
- * 
  * 
  * - You must specify the `personType` in the `kenyaAdditionalInfo`
  * field of the `additionalTaxInformation` object.
- * 
- * 
  * 
  * - If the `personType` is `Physical Person`, you must specify the
  * tax registration certificate document in the `taxRegistrationDocuments` field
  * of the `VerificationDetails` object.
  * 
- * 
- * 
- * 
- * 
- * 
  * **Malaysia**
- * 
- * 
- * 
  * 
  * - The sector valid values are `Business` and `Individual`.
  * 
- * 
- * 
  * - `RegistrationType` valid values are `NRIC` for individual, and TIN and sales and service tax (SST) for Business.
- * 
- * 
  * 
  * - For individual, you can specify the `taxInformationNumber` in `MalaysiaAdditionalInfo` with NRIC type, and a valid `MyKad` or NRIC number.
  * 
- * 
- * 
  * - For business, you must specify a `businessRegistrationNumber` in `MalaysiaAdditionalInfo` with a TIN type and tax identification number.
- * 
- * 
  * 
  * - For business resellers, you must specify a `businessRegistrationNumber` and `taxInformationNumber` in `MalaysiaAdditionalInfo` with a sales and service tax (SST) type and a valid SST number.
  * 
- * 
- * 
  * - For business resellers with service codes, you must specify `businessRegistrationNumber`, `taxInformationNumber`, and distinct `serviceTaxCodes` in `MalaysiaAdditionalInfo` with a SST type and valid sales and service tax (SST) number. By using this API operation, Amazon Web Services registers your self-declaration that you’re an authorized business reseller registered with the Royal Malaysia Customs Department (RMCD), and have a valid SST number.
- * 
- * 
  * 
  * - Amazon Web Services reserves the right to seek additional information and/or take other actions to
  * support your self-declaration as appropriate.
- * 
- * 
  * 
  * - Amazon Web Services is currently registered under the following service tax codes. You must include
  * at least one of the service tax codes in the service tax code strings to declare yourself
  * as an authorized registered business reseller.
  * 
- * 
  * Taxable service and service tax codes:
- * 
  * 
  * Consultancy - 9907061674
  * 
- * 
  * Training or coaching service - 9907071685
- * 
  * 
  * IT service - 9907101676
  * 
- * 
  * Digital services and electronic medium - 9907121690
- * 
- * 
- * 
- * 
- * 
  * 
  * **Nepal**
  * 
- * 
- * 
- * 
  * - The sector valid values are `Business` and `Individual`.
- * 
- * 
- * 
- * 
- * 
  * 
  * **Saudi Arabia**
  * 
- * 
- * 
- * 
  * - For `address`, you must specify `addressLine3`.
  * 
- * 
- * 
- * 
- * 
- * 
  * **South Korea**
- * 
- * 
- * 
  * 
  * - You must specify the `certifiedEmailId` and `legalName` in the
  * `TaxRegistrationEntry` object. Use Korean characters for
  * `legalName`.
- * 
- * 
  * 
  * - You must specify the `businessRepresentativeName`,
  * `itemOfBusiness`, and `lineOfBusiness` in the
  * `southKoreaAdditionalInfo` field of the `additionalTaxInformation`
  * object. Use Korean characters for these fields.
  * 
- * 
- * 
  * - You must specify the tax registration certificate document in the
  * `taxRegistrationDocuments` field of the `VerificationDetails`
  * object.
  * 
- * 
- * 
  * - For the `address` object, use Korean characters for `addressLine1`, `addressLine2`
  * `city`, `postalCode`, and `stateOrRegion`.
  * 
- * 
- * 
- * 
- * 
- * 
  * **Spain**
- * 
- * 
- * 
  * 
  * - You must specify the `registrationType` in the
  * `spainAdditionalInfo` field of the `additionalTaxInformation`
  * object.
  * 
- * 
- * 
  * - If the `registrationType` is `Local`, you must specify the tax
  * registration certificate document in the `taxRegistrationDocuments` field of
  * the `VerificationDetails` object.
  * 
- * 
- * 
- * 
- * 
- * 
  * **Turkey**
  * 
- * 
- * 
- * 
  * - You must specify the `sector` in the `taxRegistrationEntry` object.
- * 
- * 
  * 
  * - If your `sector` is `Business`, `Individual`, or
  * `Government`:
  * 
- * 
- * 
  * - Specify the `taxOffice`. If your
  * `sector` is `Individual`, don't enter this value.
- * 
- * 
  * 
  * - (Optional) Specify the `kepEmailId`. If your
  * `sector` is `Individual`, don't enter this value.
  * 
- * 
- * 
  * - **Note:** In the **Tax Settings** page of the Billing console, `Government` appears as **Public institutions**
- * 
- * 
- * 
- * 
- * 
- * 
  * 
  * - If your `sector` is `Business` and you're subject to KDV tax,
  * you must specify your industry in the `industries` field.
  * 
- * 
- * 
  * - For `address`, you must specify `districtOrCounty`.
- * 
- * 
- * 
- * 
- * 
  * 
  * **Ukraine**
  * 
- * 
- * 
- * 
  * - The sector valid values are `Business` and `Individual`.
- */export const batchPutTaxRegistration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/BatchPutTaxRegistration", method: "POST", sdkId: "TaxSettings", sigV4ServiceName: "tax", name: "TaxSettings.BatchPutTaxRegistration" }, BatchPutTaxRegistrationRequest, BatchPutTaxRegistrationResponse, [ConflictException, InternalServerException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const batchPutTaxRegistration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/BatchPutTaxRegistration", sdkId: "TaxSettings", sigV4ServiceName: "tax", name: "TaxSettings.BatchPutTaxRegistration" }, BatchPutTaxRegistrationRequest, BatchPutTaxRegistrationResponse, [ConflictException, InternalServerException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

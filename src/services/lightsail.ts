@@ -558,58 +558,51 @@ export class UnauthenticatedException extends S.TaggedError<UnauthenticatedExcep
 /**
  * Attaches one or more Lightsail instances to a load balancer.
  * 
- * 
  * After some time, the instances are attached to the load balancer and the health check
  * status is available.
- * 
  * 
  * The `attach instances to load balancer` operation supports tag-based access
  * control via resource tags applied to the resource identified by load balancer
  * name. For more information, see the Lightsail Developer Guide.
- */export const attachInstancesToLoadBalancer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/AttachInstancesToLoadBalancer", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.AttachInstancesToLoadBalancer" }, AttachInstancesToLoadBalancerRequest, AttachInstancesToLoadBalancerResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const attachInstancesToLoadBalancer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/AttachInstancesToLoadBalancer", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.AttachInstancesToLoadBalancer" }, AttachInstancesToLoadBalancerRequest, AttachInstancesToLoadBalancerResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Attaches a Transport Layer Security (TLS) certificate to your load balancer. TLS is just
  * an updated, more secure version of Secure Socket Layer (SSL).
- * 
  * 
  * Once you create and validate your certificate, you can attach it to your load balancer.
  * You can also use this API to rotate the certificates on your account. Use the
  * `AttachLoadBalancerTlsCertificate` action with the non-attached certificate, and
  * it will replace the existing one and become the attached certificate.
  * 
- * 
  * The `AttachLoadBalancerTlsCertificate` operation supports tag-based access
  * control via resource tags applied to the resource identified by load balancer
  * name. For more information, see the Amazon Lightsail Developer Guide.
- */export const attachLoadBalancerTlsCertificate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/AttachLoadBalancerTlsCertificate", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.AttachLoadBalancerTlsCertificate" }, AttachLoadBalancerTlsCertificateRequest, AttachLoadBalancerTlsCertificateResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const attachLoadBalancerTlsCertificate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/AttachLoadBalancerTlsCertificate", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.AttachLoadBalancerTlsCertificate" }, AttachLoadBalancerTlsCertificateRequest, AttachLoadBalancerTlsCertificateResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Attaches a static IP address to a specific Amazon Lightsail instance.
- */export const attachStaticIp = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/AttachStaticIp", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.AttachStaticIp" }, AttachStaticIpRequest, AttachStaticIpResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const attachStaticIp = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/AttachStaticIp", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.AttachStaticIp" }, AttachStaticIpRequest, AttachStaticIpResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Copies a manual snapshot of an instance or disk as another manual snapshot, or copies an
  * automatic snapshot of an instance or disk as a manual snapshot. This operation can also be
  * used to copy a manual or automatic snapshot of an instance or a disk from one Amazon Web Services Region to another in Amazon Lightsail.
  * 
- * 
  * When copying a *manual snapshot*, be sure to define the source
  * region, `source snapshot name`, and `target snapshot name`
  * parameters.
- * 
  * 
  * When copying an *automatic snapshot*, be sure to define the
  * `source region`, `source resource name`, target snapshot
  * name, and either the `restore date` or the use latest restorable
  * auto snapshot parameters.
- */export const copySnapshot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/CopySnapshot", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.CopySnapshot" }, CopySnapshotRequest, CopySnapshotResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const copySnapshot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/CopySnapshot", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.CopySnapshot" }, CopySnapshotRequest, CopySnapshotResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an email or SMS text message contact method.
- * 
  * 
  * A contact method is used to send you notifications about your Amazon Lightsail resources.
  * You can add one email address and one mobile phone number contact method in each Amazon Web Services Region. However, SMS text messaging is not supported in some Amazon Web Services
  * Regions, and SMS text messages cannot be sent to some countries/regions. For more information,
  * see Notifications in Amazon Lightsail.
- */export const createContactMethod = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/CreateContactMethod", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.CreateContactMethod" }, CreateContactMethodRequest, CreateContactMethodResult, [AccessDeniedException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createContactMethod = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/CreateContactMethod", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.CreateContactMethod" }, CreateContactMethodRequest, CreateContactMethodResult, [AccessDeniedException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a temporary set of log in credentials that you can use to log in to the Docker
  * process on your local machine. After you're logged in, you can use the native Docker commands
@@ -618,42 +611,31 @@ export class UnauthenticatedException extends S.TaggedError<UnauthenticatedExcep
  * credentials expire 12 hours after they are created, at which point you will need to create a
  * new set of log in credentials.
  * 
- * 
- * 
- * 
  * You can only push container images to the container service registry of your Lightsail
  * account. You cannot pull container images or perform any other container image management
  * actions on the container service registry.
- * 
- * 
- * 
  * 
  * After you push your container images to the container image registry of your Lightsail
  * account, use the `RegisterContainerImage` action to register the pushed images to a
  * specific Lightsail container service.
  * 
- * 
- * 
- * 
  * This action is not required if you install and use the Lightsail Control
  * (lightsailctl) plugin to push container images to your Lightsail container service. For
  * more information, see Pushing and managing container images on your Amazon Lightsail container services
  * in the *Amazon Lightsail Developer Guide*.
- */export const createContainerServiceRegistryLogin = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/container-registry-login", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.CreateContainerServiceRegistryLogin" }, CreateContainerServiceRegistryLoginRequest, CreateContainerServiceRegistryLoginResult, [AccessDeniedException, InvalidInputException, NotFoundException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createContainerServiceRegistryLogin = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/container-registry-login", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.CreateContainerServiceRegistryLogin" }, CreateContainerServiceRegistryLoginRequest, CreateContainerServiceRegistryLoginResult, [AccessDeniedException, InvalidInputException, NotFoundException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a block storage disk from a manual or automatic snapshot of a disk. The resulting
  * disk can be attached to an Amazon Lightsail instance in the same Availability Zone
  * (`us-east-2a`).
  * 
- * 
  * The `create disk from snapshot` operation supports tag-based access control via
  * request tags and resource tags applied to the resource identified by disk snapshot
  * name. For more information, see the Amazon Lightsail Developer Guide.
- */export const createDiskFromSnapshot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/CreateDiskFromSnapshot", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.CreateDiskFromSnapshot" }, CreateDiskFromSnapshotRequest, CreateDiskFromSnapshotResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createDiskFromSnapshot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/CreateDiskFromSnapshot", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.CreateDiskFromSnapshot" }, CreateDiskFromSnapshotRequest, CreateDiskFromSnapshotResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a snapshot of a block storage disk. You can use snapshots for backups, to make
  * copies of disks, and to save data before shutting down a Lightsail instance.
- * 
  * 
  * You can take a snapshot of an attached disk that is in use; however, snapshots only
  * capture data that has been written to your disk at the time the snapshot command is issued.
@@ -664,7 +646,6 @@ export class UnauthenticatedException extends S.TaggedError<UnauthenticatedExcep
  * and then remount the disk to ensure a consistent and complete snapshot. You may remount and
  * use your disk while the snapshot status is pending.
  * 
- * 
  * You can also use this operation to create a snapshot of an instance's system volume. You
  * might want to do this, for example, to recover data from the system volume of a botched
  * instance or to create a backup of the system volume like you would for a block storage disk.
@@ -673,88 +654,75 @@ export class UnauthenticatedException extends S.TaggedError<UnauthenticatedExcep
  * be created. After the snapshot is available, you can create a block storage disk from the
  * snapshot and attach it to a running instance to access the data on the disk.
  * 
- * 
  * The `create disk snapshot` operation supports tag-based access control via
  * request tags. For more information, see the Amazon Lightsail Developer Guide.
- */export const createDiskSnapshot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/CreateDiskSnapshot", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.CreateDiskSnapshot" }, CreateDiskSnapshotRequest, CreateDiskSnapshotResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createDiskSnapshot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/CreateDiskSnapshot", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.CreateDiskSnapshot" }, CreateDiskSnapshotRequest, CreateDiskSnapshotResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a domain resource for the specified domain (example.com).
  * 
- * 
  * The `create domain` operation supports tag-based access control via request
  * tags. For more information, see the Amazon Lightsail Developer Guide.
- */export const createDomain = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/CreateDomain", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.CreateDomain" }, CreateDomainRequest, CreateDomainResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createDomain = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/CreateDomain", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.CreateDomain" }, CreateDomainRequest, CreateDomainResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates one or more Amazon Lightsail instances.
  * 
- * 
  * The `create instances` operation supports tag-based access control via request
  * tags. For more information, see the Lightsail Developer Guide.
- */export const createInstances = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/CreateInstances", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.CreateInstances" }, CreateInstancesRequest, CreateInstancesResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createInstances = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/CreateInstances", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.CreateInstances" }, CreateInstancesRequest, CreateInstancesResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a snapshot of a specific virtual private server, or *instance*.
  * You can use a snapshot to create a new instance that is based on that snapshot.
  * 
- * 
  * The `create instance snapshot` operation supports tag-based access control via
  * request tags. For more information, see the Amazon Lightsail Developer Guide.
- */export const createInstanceSnapshot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/CreateInstanceSnapshot", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.CreateInstanceSnapshot" }, CreateInstanceSnapshotRequest, CreateInstanceSnapshotResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createInstanceSnapshot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/CreateInstanceSnapshot", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.CreateInstanceSnapshot" }, CreateInstanceSnapshotRequest, CreateInstanceSnapshotResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a Lightsail load balancer. To learn more about deciding whether to load balance
  * your application, see Configure your Lightsail instances for load balancing. You can create up to 10
  * load balancers per AWS Region in your account.
  * 
- * 
  * When you create a load balancer, you can specify a unique name and port settings. To
  * change additional load balancer settings, use the `UpdateLoadBalancerAttribute`
  * operation.
  * 
- * 
  * The `create load balancer` operation supports tag-based access control via
  * request tags. For more information, see the Amazon Lightsail Developer Guide.
- */export const createLoadBalancer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/CreateLoadBalancer", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.CreateLoadBalancer" }, CreateLoadBalancerRequest, CreateLoadBalancerResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createLoadBalancer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/CreateLoadBalancer", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.CreateLoadBalancer" }, CreateLoadBalancerRequest, CreateLoadBalancerResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an SSL/TLS certificate for an Amazon Lightsail load balancer.
  * 
- * 
  * TLS is just an updated, more secure version of Secure Socket Layer (SSL).
- * 
  * 
  * The `CreateLoadBalancerTlsCertificate` operation supports tag-based access
  * control via resource tags applied to the resource identified by load balancer
  * name. For more information, see the Amazon Lightsail Developer Guide.
- */export const createLoadBalancerTlsCertificate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/CreateLoadBalancerTlsCertificate", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.CreateLoadBalancerTlsCertificate" }, CreateLoadBalancerTlsCertificateRequest, CreateLoadBalancerTlsCertificateResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createLoadBalancerTlsCertificate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/CreateLoadBalancerTlsCertificate", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.CreateLoadBalancerTlsCertificate" }, CreateLoadBalancerTlsCertificateRequest, CreateLoadBalancerTlsCertificateResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new database in Amazon Lightsail.
  * 
- * 
  * The `create relational database` operation supports tag-based access control
  * via request tags. For more information, see the Amazon Lightsail Developer Guide.
- */export const createRelationalDatabase = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/CreateRelationalDatabase", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.CreateRelationalDatabase" }, CreateRelationalDatabaseRequest, CreateRelationalDatabaseResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createRelationalDatabase = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/CreateRelationalDatabase", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.CreateRelationalDatabase" }, CreateRelationalDatabaseRequest, CreateRelationalDatabaseResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new database from an existing database snapshot in Amazon Lightsail.
- * 
  * 
  * You can create a new database from a snapshot in if something goes wrong with your
  * original database, or to change it to a different plan, such as a high availability or
  * standard plan.
  * 
- * 
  * The `create relational database from snapshot` operation supports tag-based
  * access control via request tags and resource tags applied to the resource identified by
  * relationalDatabaseSnapshotName. For more information, see the Amazon Lightsail Developer Guide.
- */export const createRelationalDatabaseFromSnapshot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/CreateRelationalDatabaseFromSnapshot", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.CreateRelationalDatabaseFromSnapshot" }, CreateRelationalDatabaseFromSnapshotRequest, CreateRelationalDatabaseFromSnapshotResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createRelationalDatabaseFromSnapshot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/CreateRelationalDatabaseFromSnapshot", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.CreateRelationalDatabaseFromSnapshot" }, CreateRelationalDatabaseFromSnapshotRequest, CreateRelationalDatabaseFromSnapshotResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a snapshot of your database in Amazon Lightsail. You can use snapshots for backups,
  * to make copies of a database, and to save data before deleting a database.
  * 
- * 
  * The `create relational database snapshot` operation supports tag-based access
  * control via request tags. For more information, see the Amazon Lightsail Developer Guide.
- */export const createRelationalDatabaseSnapshot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/CreateRelationalDatabaseSnapshot", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.CreateRelationalDatabaseSnapshot" }, CreateRelationalDatabaseSnapshotRequest, CreateRelationalDatabaseSnapshotResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createRelationalDatabaseSnapshot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/CreateRelationalDatabaseSnapshot", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.CreateRelationalDatabaseSnapshot" }, CreateRelationalDatabaseSnapshotRequest, CreateRelationalDatabaseSnapshotResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes an alarm.
- * 
  * 
  * An alarm is used to monitor a single metric for one of your resources. When a metric
  * condition is met, the alarm can notify you by email, SMS text message, and a banner displayed
@@ -763,44 +731,37 @@ export class UnauthenticatedException extends S.TaggedError<UnauthenticatedExcep
  */export const deleteAlarm = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/DeleteAlarm/{alarmName}", method: "DELETE", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.DeleteAlarm" }, DeleteAlarmRequest, DeleteAlarmResult, [AccessDeniedException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes an automatic snapshot of an instance or disk. For more information, see the Amazon Lightsail Developer Guide.
- */export const deleteAutoSnapshot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/DeleteAutoSnapshot", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.DeleteAutoSnapshot" }, DeleteAutoSnapshotRequest, DeleteAutoSnapshotResult, [AccessDeniedException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteAutoSnapshot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/DeleteAutoSnapshot", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.DeleteAutoSnapshot" }, DeleteAutoSnapshotRequest, DeleteAutoSnapshotResult, [AccessDeniedException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a Amazon Lightsail bucket.
  * 
- * 
- * 
- * 
  * When you delete your bucket, the bucket name is released and can be reused for a new
  * bucket in your account or another Amazon Web Services account.
- */export const deleteBucket = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/DeleteBucket", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.DeleteBucket" }, DeleteBucketRequest, DeleteBucketResult, [AccessDeniedException, InvalidInputException, NotFoundException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteBucket = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/DeleteBucket", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.DeleteBucket" }, DeleteBucketRequest, DeleteBucketResult, [AccessDeniedException, InvalidInputException, NotFoundException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes an access key for the specified Amazon Lightsail bucket.
  * 
- * 
  * We recommend that you delete an access key if the secret access key is compromised.
- * 
  * 
  * For more information about access keys, see Creating access keys for a bucket in Amazon Lightsail in the
  * *Amazon Lightsail Developer Guide*.
- */export const deleteBucketAccessKey = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/DeleteBucketAccessKey", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.DeleteBucketAccessKey" }, DeleteBucketAccessKeyRequest, DeleteBucketAccessKeyResult, [AccessDeniedException, InvalidInputException, NotFoundException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteBucketAccessKey = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/DeleteBucketAccessKey", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.DeleteBucketAccessKey" }, DeleteBucketAccessKeyRequest, DeleteBucketAccessKeyResult, [AccessDeniedException, InvalidInputException, NotFoundException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes an SSL/TLS certificate for your Amazon Lightsail content delivery network (CDN)
  * distribution.
  * 
- * 
  * Certificates that are currently attached to a distribution cannot be deleted. Use the
  * `DetachCertificateFromDistribution` action to detach a certificate from a
  * distribution.
- */export const deleteCertificate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/DeleteCertificate", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.DeleteCertificate" }, DeleteCertificateRequest, DeleteCertificateResult, [AccessDeniedException, InvalidInputException, NotFoundException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteCertificate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/DeleteCertificate", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.DeleteCertificate" }, DeleteCertificateRequest, DeleteCertificateResult, [AccessDeniedException, InvalidInputException, NotFoundException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a contact method.
- * 
  * 
  * A contact method is used to send you notifications about your Amazon Lightsail resources.
  * You can add one email address and one mobile phone number contact method in each Amazon Web Services Region. However, SMS text messaging is not supported in some Amazon Web Services
  * Regions, and SMS text messages cannot be sent to some countries/regions. For more information,
  * see Notifications in Amazon Lightsail.
- */export const deleteContactMethod = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/DeleteContactMethod", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.DeleteContactMethod" }, DeleteContactMethodRequest, DeleteContactMethodResult, [AccessDeniedException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteContactMethod = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/DeleteContactMethod", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.DeleteContactMethod" }, DeleteContactMethodRequest, DeleteContactMethodResult, [AccessDeniedException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a container image that is registered to your Amazon Lightsail container
  * service.
@@ -812,21 +773,14 @@ export class UnauthenticatedException extends S.TaggedError<UnauthenticatedExcep
  * Deletes the specified block storage disk. The disk must be in the `available`
  * state (not attached to a Lightsail instance).
  * 
- * 
- * 
- * 
  * The disk may remain in the `deleting` state for several minutes.
- * 
- * 
- * 
  * 
  * The `delete disk` operation supports tag-based access control via resource tags
  * applied to the resource identified by `disk name`. For more information, see the
  * Amazon Lightsail Developer Guide.
- */export const deleteDisk = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/DeleteDisk", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.DeleteDisk" }, DeleteDiskRequest, DeleteDiskResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteDisk = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/DeleteDisk", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.DeleteDisk" }, DeleteDiskRequest, DeleteDiskResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the specified disk snapshot.
- * 
  * 
  * When you make periodic snapshots of a disk, the snapshots are incremental, and only the
  * blocks on the device that have changed since your last snapshot are saved in the new snapshot.
@@ -834,202 +788,170 @@ export class UnauthenticatedException extends S.TaggedError<UnauthenticatedExcep
  * regardless of which prior snapshots have been deleted, all active snapshots will have access
  * to all the information needed to restore the disk.
  * 
- * 
  * The `delete disk snapshot` operation supports tag-based access control via
  * resource tags applied to the resource identified by `disk snapshot name`. For more
  * information, see the Amazon Lightsail Developer Guide.
- */export const deleteDiskSnapshot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/DeleteDiskSnapshot", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.DeleteDiskSnapshot" }, DeleteDiskSnapshotRequest, DeleteDiskSnapshotResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteDiskSnapshot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/DeleteDiskSnapshot", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.DeleteDiskSnapshot" }, DeleteDiskSnapshotRequest, DeleteDiskSnapshotResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes your Amazon Lightsail content delivery network (CDN) distribution.
- */export const deleteDistribution = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/DeleteDistribution", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.DeleteDistribution" }, DeleteDistributionRequest, DeleteDistributionResult, [AccessDeniedException, InvalidInputException, NotFoundException, OperationFailureException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteDistribution = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/DeleteDistribution", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.DeleteDistribution" }, DeleteDistributionRequest, DeleteDistributionResult, [AccessDeniedException, InvalidInputException, NotFoundException, OperationFailureException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the specified domain recordset and all of its domain records.
- * 
  * 
  * The `delete domain` operation supports tag-based access control via resource
  * tags applied to the resource identified by `domain name`. For more information, see
  * the Amazon Lightsail Developer Guide.
- */export const deleteDomain = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/DeleteDomain", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.DeleteDomain" }, DeleteDomainRequest, DeleteDomainResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteDomain = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/DeleteDomain", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.DeleteDomain" }, DeleteDomainRequest, DeleteDomainResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a specific domain entry.
- * 
  * 
  * The `delete domain entry` operation supports tag-based access control via
  * resource tags applied to the resource identified by `domain name`. For more
  * information, see the Amazon Lightsail Developer Guide.
- */export const deleteDomainEntry = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/DeleteDomainEntry", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.DeleteDomainEntry" }, DeleteDomainEntryRequest, DeleteDomainEntryResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteDomainEntry = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/DeleteDomainEntry", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.DeleteDomainEntry" }, DeleteDomainEntryRequest, DeleteDomainEntryResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes an Amazon Lightsail instance.
- * 
  * 
  * The `delete instance` operation supports tag-based access control via resource
  * tags applied to the resource identified by `instance name`. For more information,
  * see the Amazon Lightsail Developer Guide.
- */export const deleteInstance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/DeleteInstance", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.DeleteInstance" }, DeleteInstanceRequest, DeleteInstanceResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteInstance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/DeleteInstance", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.DeleteInstance" }, DeleteInstanceRequest, DeleteInstanceResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a specific snapshot of a virtual private server (or
  * *instance*).
  * 
- * 
  * The `delete instance snapshot` operation supports tag-based access control via
  * resource tags applied to the resource identified by `instance snapshot name`. For
  * more information, see the Amazon Lightsail Developer Guide.
- */export const deleteInstanceSnapshot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/DeleteInstanceSnapshot", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.DeleteInstanceSnapshot" }, DeleteInstanceSnapshotRequest, DeleteInstanceSnapshotResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteInstanceSnapshot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/DeleteInstanceSnapshot", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.DeleteInstanceSnapshot" }, DeleteInstanceSnapshotRequest, DeleteInstanceSnapshotResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the specified key pair by removing the public key from Amazon Lightsail.
- * 
  * 
  * You can delete key pairs that were created using the ImportKeyPair and
  * CreateKeyPair actions, as well as the Lightsail default key pair. A new default
  * key pair will not be created unless you launch an instance without specifying a custom key
  * pair, or you call the DownloadDefaultKeyPair API.
  * 
- * 
  * The `delete key pair` operation supports tag-based access control via resource
  * tags applied to the resource identified by `key pair name`. For more information,
  * see the Amazon Lightsail Developer Guide.
- */export const deleteKeyPair = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/DeleteKeyPair", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.DeleteKeyPair" }, DeleteKeyPairRequest, DeleteKeyPairResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteKeyPair = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/DeleteKeyPair", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.DeleteKeyPair" }, DeleteKeyPairRequest, DeleteKeyPairResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the known host key or certificate used by the Amazon Lightsail browser-based SSH or
  * RDP clients to authenticate an instance. This operation enables the Lightsail browser-based
  * SSH or RDP clients to connect to the instance after a host key mismatch.
  * 
- * 
- * 
- * 
  * Perform this operation only if you were expecting the host key or certificate mismatch
  * or if you are familiar with the new host key or certificate on the instance. For more
  * information, see Troubleshooting connection issues when using the Amazon Lightsail browser-based SSH or RDP
  * client.
- */export const deleteKnownHostKeys = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/DeleteKnownHostKeys", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.DeleteKnownHostKeys" }, DeleteKnownHostKeysRequest, DeleteKnownHostKeysResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteKnownHostKeys = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/DeleteKnownHostKeys", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.DeleteKnownHostKeys" }, DeleteKnownHostKeysRequest, DeleteKnownHostKeysResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a Lightsail load balancer and all its associated SSL/TLS certificates. Once the
  * load balancer is deleted, you will need to create a new load balancer, create a new
  * certificate, and verify domain ownership again.
  * 
- * 
  * The `delete load balancer` operation supports tag-based access control via
  * resource tags applied to the resource identified by `load balancer name`. For more
  * information, see the Amazon Lightsail Developer Guide.
- */export const deleteLoadBalancer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/DeleteLoadBalancer", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.DeleteLoadBalancer" }, DeleteLoadBalancerRequest, DeleteLoadBalancerResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteLoadBalancer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/DeleteLoadBalancer", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.DeleteLoadBalancer" }, DeleteLoadBalancerRequest, DeleteLoadBalancerResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes an SSL/TLS certificate associated with a Lightsail load balancer.
- * 
  * 
  * The `DeleteLoadBalancerTlsCertificate` operation supports tag-based access
  * control via resource tags applied to the resource identified by load balancer
  * name. For more information, see the Amazon Lightsail Developer Guide.
- */export const deleteLoadBalancerTlsCertificate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/DeleteLoadBalancerTlsCertificate", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.DeleteLoadBalancerTlsCertificate" }, DeleteLoadBalancerTlsCertificateRequest, DeleteLoadBalancerTlsCertificateResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteLoadBalancerTlsCertificate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/DeleteLoadBalancerTlsCertificate", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.DeleteLoadBalancerTlsCertificate" }, DeleteLoadBalancerTlsCertificateRequest, DeleteLoadBalancerTlsCertificateResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a database in Amazon Lightsail.
- * 
  * 
  * The `delete relational database` operation supports tag-based access control
  * via resource tags applied to the resource identified by relationalDatabaseName. For more
  * information, see the Amazon Lightsail Developer Guide.
- */export const deleteRelationalDatabase = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/DeleteRelationalDatabase", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.DeleteRelationalDatabase" }, DeleteRelationalDatabaseRequest, DeleteRelationalDatabaseResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteRelationalDatabase = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/DeleteRelationalDatabase", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.DeleteRelationalDatabase" }, DeleteRelationalDatabaseRequest, DeleteRelationalDatabaseResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a database snapshot in Amazon Lightsail.
- * 
  * 
  * The `delete relational database snapshot` operation supports tag-based access
  * control via resource tags applied to the resource identified by relationalDatabaseName. For
  * more information, see the Amazon Lightsail Developer Guide.
- */export const deleteRelationalDatabaseSnapshot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/DeleteRelationalDatabaseSnapshot", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.DeleteRelationalDatabaseSnapshot" }, DeleteRelationalDatabaseSnapshotRequest, DeleteRelationalDatabaseSnapshotResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteRelationalDatabaseSnapshot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/DeleteRelationalDatabaseSnapshot", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.DeleteRelationalDatabaseSnapshot" }, DeleteRelationalDatabaseSnapshotRequest, DeleteRelationalDatabaseSnapshotResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Detaches an SSL/TLS certificate from your Amazon Lightsail content delivery network (CDN)
  * distribution.
  * 
- * 
  * After the certificate is detached, your distribution stops accepting traffic for all of
  * the domains that are associated with the certificate.
- */export const detachCertificateFromDistribution = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/DetachCertificateFromDistribution", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.DetachCertificateFromDistribution" }, DetachCertificateFromDistributionRequest, DetachCertificateFromDistributionResult, [AccessDeniedException, InvalidInputException, NotFoundException, OperationFailureException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const detachCertificateFromDistribution = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/DetachCertificateFromDistribution", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.DetachCertificateFromDistribution" }, DetachCertificateFromDistributionRequest, DetachCertificateFromDistributionResult, [AccessDeniedException, InvalidInputException, NotFoundException, OperationFailureException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Detaches a stopped block storage disk from a Lightsail instance. Make sure to unmount
  * any file systems on the device within your operating system before stopping the instance and
  * detaching the disk.
  * 
- * 
  * The `detach disk` operation supports tag-based access control via resource tags
  * applied to the resource identified by `disk name`. For more information, see the
  * Amazon Lightsail Developer Guide.
- */export const detachDisk = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/DetachDisk", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.DetachDisk" }, DetachDiskRequest, DetachDiskResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const detachDisk = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/DetachDisk", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.DetachDisk" }, DetachDiskRequest, DetachDiskResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Detaches the specified instances from a Lightsail load balancer.
- * 
  * 
  * This operation waits until the instances are no longer needed before they are detached
  * from the load balancer.
  * 
- * 
  * The `detach instances from load balancer` operation supports tag-based access
  * control via resource tags applied to the resource identified by load balancer
  * name. For more information, see the Amazon Lightsail Developer Guide.
- */export const detachInstancesFromLoadBalancer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/DetachInstancesFromLoadBalancer", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.DetachInstancesFromLoadBalancer" }, DetachInstancesFromLoadBalancerRequest, DetachInstancesFromLoadBalancerResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const detachInstancesFromLoadBalancer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/DetachInstancesFromLoadBalancer", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.DetachInstancesFromLoadBalancer" }, DetachInstancesFromLoadBalancerRequest, DetachInstancesFromLoadBalancerResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Detaches a static IP from the Amazon Lightsail instance to which it is attached.
- */export const detachStaticIp = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/DetachStaticIp", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.DetachStaticIp" }, DetachStaticIpRequest, DetachStaticIpResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const detachStaticIp = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/DetachStaticIp", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.DetachStaticIp" }, DetachStaticIpRequest, DetachStaticIpResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Disables an add-on for an Amazon Lightsail resource. For more information, see the Amazon Lightsail Developer Guide.
- */export const disableAddOn = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/DisableAddOn", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.DisableAddOn" }, DisableAddOnRequest, DisableAddOnResult, [AccessDeniedException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const disableAddOn = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/DisableAddOn", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.DisableAddOn" }, DisableAddOnRequest, DisableAddOnResult, [AccessDeniedException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Downloads the regional Amazon Lightsail default key pair.
  * 
- * 
  * This action also creates a Lightsail default key pair if a default key pair
  * does not currently exist in the Amazon Web Services Region.
- */export const downloadDefaultKeyPair = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/DownloadDefaultKeyPair", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.DownloadDefaultKeyPair" }, DownloadDefaultKeyPairRequest, DownloadDefaultKeyPairResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const downloadDefaultKeyPair = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/DownloadDefaultKeyPair", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.DownloadDefaultKeyPair" }, DownloadDefaultKeyPairRequest, DownloadDefaultKeyPairResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Enables or modifies an add-on for an Amazon Lightsail resource. For more information, see
  * the Amazon Lightsail Developer Guide.
- */export const enableAddOn = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/EnableAddOn", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.EnableAddOn" }, EnableAddOnRequest, EnableAddOnResult, [AccessDeniedException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const enableAddOn = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/EnableAddOn", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.EnableAddOn" }, EnableAddOnRequest, EnableAddOnResult, [AccessDeniedException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Exports an Amazon Lightsail instance or block storage disk snapshot to Amazon Elastic Compute Cloud (Amazon EC2).
  * This operation results in an export snapshot record that can be used with the create
  * cloud formation stack operation to create new Amazon EC2 instances.
- * 
  * 
  * Exported instance snapshots appear in Amazon EC2 as Amazon Machine Images (AMIs), and the
  * instance system disk appears as an Amazon Elastic Block Store (Amazon EBS) volume. Exported disk snapshots appear in
  * Amazon EC2 as Amazon EBS volumes. Snapshots are exported to the same Amazon Web Services Region in
  * Amazon EC2 as the source Lightsail snapshot.
  * 
- * 
- * 
- * 
  * The `export snapshot` operation supports tag-based access control via resource
  * tags applied to the resource identified by `source snapshot name`. For more
  * information, see the Amazon Lightsail Developer Guide.
  * 
- * 
- * 
- * 
  * Use the `get instance snapshots` or `get disk snapshots`
  * operations to get a list of snapshots that you can export to Amazon EC2.
- */export const exportSnapshot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/ExportSnapshot", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.ExportSnapshot" }, ExportSnapshotRequest, ExportSnapshotResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const exportSnapshot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/ExportSnapshot", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.ExportSnapshot" }, ExportSnapshotRequest, ExportSnapshotResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the names of all active (not deleted) resources.
- */export const getActiveNames = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetActiveNames", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetActiveNames" }, GetActiveNamesRequest, GetActiveNamesResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getActiveNames = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetActiveNames", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetActiveNames" }, GetActiveNamesRequest, GetActiveNamesResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the existing access key IDs for the specified Amazon Lightsail bucket.
- * 
- * 
- * 
  * 
  * This action does not return the secret access key value of an access key. You can get a
  * secret access key only when you create it from the response of the CreateBucketAccessKey action. If you lose the secret access key, you must create
  * a new access key.
- */export const getBucketAccessKeys = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetBucketAccessKeys", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetBucketAccessKeys" }, GetBucketAccessKeysRequest, GetBucketAccessKeysResult, [AccessDeniedException, InvalidInputException, NotFoundException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getBucketAccessKeys = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetBucketAccessKeys", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetBucketAccessKeys" }, GetBucketAccessKeysRequest, GetBucketAccessKeysResult, [AccessDeniedException, InvalidInputException, NotFoundException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about one or more Amazon Lightsail SSL/TLS certificates.
- * 
- * 
- * 
  * 
  * To get a summary of a certificate, omit `includeCertificateDetails` from your
  * request. The response will include only the certificate Amazon Resource Name (ARN),
  * certificate name, domain name, and tags.
- */export const getCertificates = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetCertificates", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetCertificates" }, GetCertificatesRequest, GetCertificatesResult, [AccessDeniedException, InvalidInputException, NotFoundException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getCertificates = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetCertificates", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetCertificates" }, GetCertificatesRequest, GetCertificatesResult, [AccessDeniedException, InvalidInputException, NotFoundException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about Amazon Lightsail containers, such as the current version of the
  * Lightsail Control (lightsailctl) plugin.
@@ -1038,7 +960,6 @@ export class UnauthenticatedException extends S.TaggedError<UnauthenticatedExcep
  * Returns the data points of a specific metric of your Amazon Lightsail container
  * service.
  * 
- * 
  * Metrics report the utilization of your resources. Monitor and collect metric data
  * regularly to maintain the reliability, availability, and performance of your resources.
  */export const getContainerServiceMetricData = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/container-services/{serviceName}/metrics", method: "GET", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetContainerServiceMetricData" }, GetContainerServiceMetricDataRequest, GetContainerServiceMetricDataResult, [AccessDeniedException, InvalidInputException, NotFoundException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1046,161 +967,148 @@ export class UnauthenticatedException extends S.TaggedError<UnauthenticatedExcep
  * Returns the list of powers that can be specified for your Amazon Lightsail container
  * services.
  * 
- * 
  * The power specifies the amount of memory, the number of vCPUs, and the base price of the
  * container service.
  */export const getContainerServicePowers = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/container-service-powers", method: "GET", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetContainerServicePowers" }, GetContainerServicePowersRequest, GetContainerServicePowersResult, [AccessDeniedException, InvalidInputException, NotFoundException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about all block storage disks in your AWS account and region.
- */export const getDisks = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetDisks", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetDisks" }, GetDisksRequest, GetDisksResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getDisks = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetDisks", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetDisks" }, GetDisksRequest, GetDisksResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about all block storage disk snapshots in your AWS account and
  * region.
- */export const getDiskSnapshots = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetDiskSnapshots", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetDiskSnapshots" }, GetDiskSnapshotsRequest, GetDiskSnapshotsResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getDiskSnapshots = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetDiskSnapshots", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetDiskSnapshots" }, GetDiskSnapshotsRequest, GetDiskSnapshotsResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the bundles that can be applied to your Amazon Lightsail content delivery network
  * (CDN) distributions.
  * 
- * 
  * A distribution bundle specifies the monthly network transfer quota and monthly cost of
  * your distribution.
- */export const getDistributionBundles = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetDistributionBundles", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetDistributionBundles" }, GetDistributionBundlesRequest, GetDistributionBundlesResult, [AccessDeniedException, InvalidInputException, NotFoundException, OperationFailureException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getDistributionBundles = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetDistributionBundles", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetDistributionBundles" }, GetDistributionBundlesRequest, GetDistributionBundlesResult, [AccessDeniedException, InvalidInputException, NotFoundException, OperationFailureException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the timestamp and status of the last cache reset of a specific Amazon Lightsail
  * content delivery network (CDN) distribution.
- */export const getDistributionLatestCacheReset = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetDistributionLatestCacheReset", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetDistributionLatestCacheReset" }, GetDistributionLatestCacheResetRequest, GetDistributionLatestCacheResetResult, [AccessDeniedException, InvalidInputException, NotFoundException, OperationFailureException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getDistributionLatestCacheReset = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetDistributionLatestCacheReset", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetDistributionLatestCacheReset" }, GetDistributionLatestCacheResetRequest, GetDistributionLatestCacheResetResult, [AccessDeniedException, InvalidInputException, NotFoundException, OperationFailureException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the data points of a specific metric for an Amazon Lightsail content delivery
  * network (CDN) distribution.
  * 
- * 
  * Metrics report the utilization of your resources, and the error counts generated by them.
  * Monitor and collect metric data regularly to maintain the reliability, availability, and
  * performance of your resources.
- */export const getDistributionMetricData = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetDistributionMetricData", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetDistributionMetricData" }, GetDistributionMetricDataRequest, GetDistributionMetricDataResult, [AccessDeniedException, InvalidInputException, NotFoundException, OperationFailureException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getDistributionMetricData = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetDistributionMetricData", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetDistributionMetricData" }, GetDistributionMetricDataRequest, GetDistributionMetricDataResult, [AccessDeniedException, InvalidInputException, NotFoundException, OperationFailureException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of all domains in the user's account.
- */export const getDomains = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetDomains", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetDomains" }, GetDomainsRequest, GetDomainsResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getDomains = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetDomains", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetDomains" }, GetDomainsRequest, GetDomainsResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the data points for the specified Amazon Lightsail instance metric, given an
  * instance name.
  * 
- * 
  * Metrics report the utilization of your resources, and the error counts generated by them.
  * Monitor and collect metric data regularly to maintain the reliability, availability, and
  * performance of your resources.
- */export const getInstanceMetricData = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetInstanceMetricData", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetInstanceMetricData" }, GetInstanceMetricDataRequest, GetInstanceMetricDataResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getInstanceMetricData = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetInstanceMetricData", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetInstanceMetricData" }, GetInstanceMetricDataRequest, GetInstanceMetricDataResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about all Amazon Lightsail virtual private servers, or
  * *instances*.
- */export const getInstances = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetInstances", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetInstances" }, GetInstancesRequest, GetInstancesResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getInstances = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetInstances", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetInstances" }, GetInstancesRequest, GetInstancesResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns all instance snapshots for the user's account.
- */export const getInstanceSnapshots = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetInstanceSnapshots", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetInstanceSnapshots" }, GetInstanceSnapshotsRequest, GetInstanceSnapshotsResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getInstanceSnapshots = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetInstanceSnapshots", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetInstanceSnapshots" }, GetInstanceSnapshotsRequest, GetInstanceSnapshotsResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about a specific key pair.
- */export const getKeyPair = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetKeyPair", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetKeyPair" }, GetKeyPairRequest, GetKeyPairResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getKeyPair = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetKeyPair", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetKeyPair" }, GetKeyPairRequest, GetKeyPairResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about all key pairs in the user's account.
- */export const getKeyPairs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetKeyPairs", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetKeyPairs" }, GetKeyPairsRequest, GetKeyPairsResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getKeyPairs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetKeyPairs", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetKeyPairs" }, GetKeyPairsRequest, GetKeyPairsResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about health metrics for your Lightsail load balancer.
- * 
  * 
  * Metrics report the utilization of your resources, and the error counts generated by them.
  * Monitor and collect metric data regularly to maintain the reliability, availability, and
  * performance of your resources.
- */export const getLoadBalancerMetricData = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetLoadBalancerMetricData", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetLoadBalancerMetricData" }, GetLoadBalancerMetricDataRequest, GetLoadBalancerMetricDataResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getLoadBalancerMetricData = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetLoadBalancerMetricData", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetLoadBalancerMetricData" }, GetLoadBalancerMetricDataRequest, GetLoadBalancerMetricDataResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about all load balancers in an account.
- */export const getLoadBalancers = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetLoadBalancers", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetLoadBalancers" }, GetLoadBalancersRequest, GetLoadBalancersResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getLoadBalancers = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetLoadBalancers", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetLoadBalancers" }, GetLoadBalancersRequest, GetLoadBalancersResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about a specific operation. Operations include events such as when you
  * create an instance, allocate a static IP, attach a static IP, and so on.
- */export const getOperation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetOperation", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetOperation" }, GetOperationRequest, GetOperationResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getOperation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetOperation", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetOperation" }, GetOperationRequest, GetOperationResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about all operations.
- * 
  * 
  * Results are returned from oldest to newest, up to a maximum of 200. Results can be paged
  * by making each subsequent call to `GetOperations` use the maximum (last)
  * `statusChangedAt` value from the previous request.
- */export const getOperations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetOperations", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetOperations" }, GetOperationsRequest, GetOperationsResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getOperations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetOperations", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetOperations" }, GetOperationsRequest, GetOperationsResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets operations for a specific resource (an instance or a static IP).
- */export const getOperationsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetOperationsForResource", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetOperationsForResource" }, GetOperationsForResourceRequest, GetOperationsForResourceResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getOperationsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetOperationsForResource", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetOperationsForResource" }, GetOperationsForResourceRequest, GetOperationsForResourceResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of available log streams for a specific database in Amazon Lightsail.
- */export const getRelationalDatabaseLogStreams = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetRelationalDatabaseLogStreams", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetRelationalDatabaseLogStreams" }, GetRelationalDatabaseLogStreamsRequest, GetRelationalDatabaseLogStreamsResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getRelationalDatabaseLogStreams = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetRelationalDatabaseLogStreams", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetRelationalDatabaseLogStreams" }, GetRelationalDatabaseLogStreamsRequest, GetRelationalDatabaseLogStreamsResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the current, previous, or pending versions of the master user password for a
  * Lightsail database.
  * 
- * 
  * The `GetRelationalDatabaseMasterUserPassword` operation supports tag-based
  * access control via resource tags applied to the resource identified by
  * relationalDatabaseName.
- */export const getRelationalDatabaseMasterUserPassword = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetRelationalDatabaseMasterUserPassword", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetRelationalDatabaseMasterUserPassword" }, GetRelationalDatabaseMasterUserPasswordRequest, GetRelationalDatabaseMasterUserPasswordResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getRelationalDatabaseMasterUserPassword = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetRelationalDatabaseMasterUserPassword", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetRelationalDatabaseMasterUserPassword" }, GetRelationalDatabaseMasterUserPasswordRequest, GetRelationalDatabaseMasterUserPasswordResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the data points of the specified metric for a database in Amazon Lightsail.
- * 
  * 
  * Metrics report the utilization of your resources, and the error counts generated by them.
  * Monitor and collect metric data regularly to maintain the reliability, availability, and
  * performance of your resources.
- */export const getRelationalDatabaseMetricData = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetRelationalDatabaseMetricData", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetRelationalDatabaseMetricData" }, GetRelationalDatabaseMetricDataRequest, GetRelationalDatabaseMetricDataResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getRelationalDatabaseMetricData = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetRelationalDatabaseMetricData", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetRelationalDatabaseMetricData" }, GetRelationalDatabaseMetricDataRequest, GetRelationalDatabaseMetricDataResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns all of the runtime parameters offered by the underlying database software, or
  * engine, for a specific database in Amazon Lightsail.
  * 
- * 
  * In addition to the parameter names and values, this operation returns other information
  * about each parameter. This information includes whether changes require a reboot, whether the
  * parameter is modifiable, the allowed values, and the data types.
- */export const getRelationalDatabaseParameters = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetRelationalDatabaseParameters", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetRelationalDatabaseParameters" }, GetRelationalDatabaseParametersRequest, GetRelationalDatabaseParametersResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getRelationalDatabaseParameters = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetRelationalDatabaseParameters", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetRelationalDatabaseParameters" }, GetRelationalDatabaseParametersRequest, GetRelationalDatabaseParametersResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about all of your databases in Amazon Lightsail.
- */export const getRelationalDatabases = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetRelationalDatabases", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetRelationalDatabases" }, GetRelationalDatabasesRequest, GetRelationalDatabasesResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getRelationalDatabases = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetRelationalDatabases", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetRelationalDatabases" }, GetRelationalDatabasesRequest, GetRelationalDatabasesResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about all of your database snapshots in Amazon Lightsail.
- */export const getRelationalDatabaseSnapshots = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetRelationalDatabaseSnapshots", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetRelationalDatabaseSnapshots" }, GetRelationalDatabaseSnapshotsRequest, GetRelationalDatabaseSnapshotsResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getRelationalDatabaseSnapshots = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetRelationalDatabaseSnapshots", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetRelationalDatabaseSnapshots" }, GetRelationalDatabaseSnapshotsRequest, GetRelationalDatabaseSnapshotsResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about all static IPs in the user's account.
- */export const getStaticIps = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetStaticIps", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetStaticIps" }, GetStaticIpsRequest, GetStaticIpsResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getStaticIps = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetStaticIps", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetStaticIps" }, GetStaticIpsRequest, GetStaticIpsResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Imports a public SSH key from a specific key pair.
- */export const importKeyPair = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/ImportKeyPair", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.ImportKeyPair" }, ImportKeyPairRequest, ImportKeyPairResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const importKeyPair = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/ImportKeyPair", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.ImportKeyPair" }, ImportKeyPairRequest, ImportKeyPairResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a Boolean value indicating whether your Lightsail VPC is peered.
- */export const isVpcPeered = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/IsVpcPeered", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.IsVpcPeered" }, IsVpcPeeredRequest, IsVpcPeeredResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const isVpcPeered = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/IsVpcPeered", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.IsVpcPeered" }, IsVpcPeeredRequest, IsVpcPeeredResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Opens ports for a specific Amazon Lightsail instance, and specifies the IP addresses
  * allowed to connect to the instance through the ports, and the protocol.
  * 
- * 
  * The `OpenInstancePublicPorts` action supports tag-based access control via
  * resource tags applied to the resource identified by `instanceName`. For more
  * information, see the Amazon Lightsail Developer Guide.
- */export const openInstancePublicPorts = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/OpenInstancePublicPorts", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.OpenInstancePublicPorts" }, OpenInstancePublicPortsRequest, OpenInstancePublicPortsResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const openInstancePublicPorts = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/OpenInstancePublicPorts", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.OpenInstancePublicPorts" }, OpenInstancePublicPortsRequest, OpenInstancePublicPortsResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates or updates an alarm, and associates it with the specified metric.
- * 
  * 
  * An alarm is used to monitor a single metric for one of your resources. When a metric
  * condition is met, the alarm can notify you by email, SMS text message, and a banner displayed
  * on the Amazon Lightsail console. For more information, see Alarms
  * in Amazon Lightsail.
  * 
- * 
  * When this action creates an alarm, the alarm state is immediately set to
  * `INSUFFICIENT_DATA`. The alarm is then evaluated and its state is set
  * appropriately. Any actions associated with the new state are then executed.
  * 
- * 
  * When you update an existing alarm, its state is left unchanged, but the update completely
  * overwrites the previous configuration of the alarm. The alarm is then evaluated with the
  * updated configuration.
- */export const putAlarm = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/PutAlarm", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.PutAlarm" }, PutAlarmRequest, PutAlarmResult, [AccessDeniedException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putAlarm = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/PutAlarm", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.PutAlarm" }, PutAlarmRequest, PutAlarmResult, [AccessDeniedException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Opens ports for a specific Amazon Lightsail instance, and specifies the IP addresses
  * allowed to connect to the instance through the ports, and the protocol. This action also
@@ -1209,181 +1117,145 @@ export class UnauthenticatedException extends S.TaggedError<UnauthenticatedExcep
  * the `OpenInstancePublicPorts` action to open ports without closing currently open
  * ports.
  * 
- * 
  * The `PutInstancePublicPorts` action supports tag-based access control via
  * resource tags applied to the resource identified by `instanceName`. For more
  * information, see the Amazon Lightsail Developer Guide.
- */export const putInstancePublicPorts = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/PutInstancePublicPorts", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.PutInstancePublicPorts" }, PutInstancePublicPortsRequest, PutInstancePublicPortsResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putInstancePublicPorts = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/PutInstancePublicPorts", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.PutInstancePublicPorts" }, PutInstancePublicPortsRequest, PutInstancePublicPortsResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Restarts a specific instance.
- * 
  * 
  * The `reboot instance` operation supports tag-based access control via resource
  * tags applied to the resource identified by `instance name`. For more information,
  * see the Amazon Lightsail Developer Guide.
- */export const rebootInstance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/RebootInstance", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.RebootInstance" }, RebootInstanceRequest, RebootInstanceResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const rebootInstance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/RebootInstance", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.RebootInstance" }, RebootInstanceRequest, RebootInstanceResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Restarts a specific database in Amazon Lightsail.
- * 
  * 
  * The `reboot relational database` operation supports tag-based access control
  * via resource tags applied to the resource identified by relationalDatabaseName. For more
  * information, see the Amazon Lightsail Developer Guide.
- */export const rebootRelationalDatabase = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/RebootRelationalDatabase", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.RebootRelationalDatabase" }, RebootRelationalDatabaseRequest, RebootRelationalDatabaseResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const rebootRelationalDatabase = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/RebootRelationalDatabase", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.RebootRelationalDatabase" }, RebootRelationalDatabaseRequest, RebootRelationalDatabaseResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Registers a container image to your Amazon Lightsail container service.
- * 
- * 
- * 
  * 
  * This action is not required if you install and use the Lightsail Control
  * (lightsailctl) plugin to push container images to your Lightsail container service. For
  * more information, see Pushing and managing container images on your Amazon Lightsail container services
  * in the *Amazon Lightsail Developer Guide*.
- */export const registerContainerImage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/container-services/{serviceName}/images", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.RegisterContainerImage" }, RegisterContainerImageRequest, RegisterContainerImageResult, [AccessDeniedException, InvalidInputException, NotFoundException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const registerContainerImage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/container-services/{serviceName}/images", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.RegisterContainerImage" }, RegisterContainerImageRequest, RegisterContainerImageResult, [AccessDeniedException, InvalidInputException, NotFoundException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a specific static IP from your account.
- */export const releaseStaticIp = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/ReleaseStaticIp", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.ReleaseStaticIp" }, ReleaseStaticIpRequest, ReleaseStaticIpResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const releaseStaticIp = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/ReleaseStaticIp", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.ReleaseStaticIp" }, ReleaseStaticIpRequest, ReleaseStaticIpResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes currently cached content from your Amazon Lightsail content delivery network (CDN)
  * distribution.
  * 
- * 
  * After resetting the cache, the next time a content request is made, your distribution
  * pulls, serves, and caches it from the origin.
- */export const resetDistributionCache = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/ResetDistributionCache", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.ResetDistributionCache" }, ResetDistributionCacheRequest, ResetDistributionCacheResult, [AccessDeniedException, InvalidInputException, NotFoundException, OperationFailureException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const resetDistributionCache = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/ResetDistributionCache", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.ResetDistributionCache" }, ResetDistributionCacheRequest, ResetDistributionCacheResult, [AccessDeniedException, InvalidInputException, NotFoundException, OperationFailureException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Sends a verification request to an email contact method to ensure it's owned by the
  * requester. SMS contact methods don't need to be verified.
- * 
  * 
  * A contact method is used to send you notifications about your Amazon Lightsail resources.
  * You can add one email address and one mobile phone number contact method in each Amazon Web Services Region. However, SMS text messaging is not supported in some Amazon Web Services
  * Regions, and SMS text messages cannot be sent to some countries/regions. For more information,
  * see Notifications in Amazon Lightsail.
  * 
- * 
  * A verification request is sent to the contact method when you initially create it. Use
  * this action to send another verification request if a previous verification request was
  * deleted, or has expired.
  * 
- * 
- * 
- * 
  * Notifications are not sent to an email contact method until after it is verified, and
  * confirmed as valid.
- */export const sendContactMethodVerification = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/SendContactMethodVerification", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.SendContactMethodVerification" }, SendContactMethodVerificationRequest, SendContactMethodVerificationResult, [AccessDeniedException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const sendContactMethodVerification = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/SendContactMethodVerification", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.SendContactMethodVerification" }, SendContactMethodVerificationRequest, SendContactMethodVerificationResult, [AccessDeniedException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Sets the IP address type for an Amazon Lightsail resource.
- * 
  * 
  * Use this action to enable dual-stack for a resource, which enables IPv4 and IPv6 for the
  * specified resource. Alternately, you can use this action to disable dual-stack, and enable
  * IPv4 only.
- */export const setIpAddressType = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/SetIpAddressType", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.SetIpAddressType" }, SetIpAddressTypeRequest, SetIpAddressTypeResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const setIpAddressType = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/SetIpAddressType", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.SetIpAddressType" }, SetIpAddressTypeRequest, SetIpAddressTypeResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Sets the Amazon Lightsail resources that can access the specified Lightsail
  * bucket.
  * 
- * 
  * Lightsail buckets currently support setting access for Lightsail instances in the same
  * Amazon Web Services Region.
- */export const setResourceAccessForBucket = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/SetResourceAccessForBucket", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.SetResourceAccessForBucket" }, SetResourceAccessForBucketRequest, SetResourceAccessForBucketResult, [AccessDeniedException, InvalidInputException, NotFoundException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const setResourceAccessForBucket = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/SetResourceAccessForBucket", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.SetResourceAccessForBucket" }, SetResourceAccessForBucketRequest, SetResourceAccessForBucketResult, [AccessDeniedException, InvalidInputException, NotFoundException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an SSL/TLS certificate that secures traffic for your website. After the
  * certificate is created, it is installed on the specified Lightsail instance.
  * 
- * 
  * If you provide more than one domain name in the request, at least one name must be less
  * than or equal to 63 characters in length.
- */export const setupInstanceHttps = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/setup-instance-https", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.SetupInstanceHttps" }, SetupInstanceHttpsRequest, SetupInstanceHttpsResult, [AccessDeniedException, InvalidInputException, NotFoundException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const setupInstanceHttps = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/setup-instance-https", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.SetupInstanceHttps" }, SetupInstanceHttpsRequest, SetupInstanceHttpsResult, [AccessDeniedException, InvalidInputException, NotFoundException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Initiates a graphical user interface (GUI) session that’s used to access a virtual
  * computer’s operating system and application. The session will be active for 1 hour. Use this
  * action to resume the session after it expires.
- */export const startGUISession = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/start-gui-session", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.StartGUISession" }, StartGUISessionRequest, StartGUISessionResult, [AccessDeniedException, InvalidInputException, NotFoundException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startGUISession = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/start-gui-session", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.StartGUISession" }, StartGUISessionRequest, StartGUISessionResult, [AccessDeniedException, InvalidInputException, NotFoundException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts a specific Amazon Lightsail instance from a stopped state. To restart an instance,
  * use the `reboot instance` operation.
  * 
- * 
- * 
- * 
  * When you start a stopped instance, Lightsail assigns a new public IP address to the
  * instance. To use the same IP address after stopping and starting an instance, create a
  * static IP address and attach it to the instance. For more information, see the Amazon Lightsail Developer Guide.
- * 
- * 
- * 
  * 
  * The `start instance` operation supports tag-based access control via resource
  * tags applied to the resource identified by `instance name`. For more information,
  * see the Amazon Lightsail Developer Guide.
- */export const startInstance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/StartInstance", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.StartInstance" }, StartInstanceRequest, StartInstanceResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startInstance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/StartInstance", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.StartInstance" }, StartInstanceRequest, StartInstanceResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts a specific database from a stopped state in Amazon Lightsail. To restart a database,
  * use the `reboot relational database` operation.
  * 
- * 
  * The `start relational database` operation supports tag-based access control via
  * resource tags applied to the resource identified by relationalDatabaseName. For more
  * information, see the Amazon Lightsail Developer Guide.
- */export const startRelationalDatabase = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/StartRelationalDatabase", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.StartRelationalDatabase" }, StartRelationalDatabaseRequest, StartRelationalDatabaseResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startRelationalDatabase = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/StartRelationalDatabase", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.StartRelationalDatabase" }, StartRelationalDatabaseRequest, StartRelationalDatabaseResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Terminates a web-based Amazon DCV session that’s used to access a virtual computer’s
  * operating system or application. The session will close and any unsaved data will be
  * lost.
- */export const stopGUISession = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/stop-gui-session", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.StopGUISession" }, StopGUISessionRequest, StopGUISessionResult, [AccessDeniedException, InvalidInputException, NotFoundException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const stopGUISession = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/stop-gui-session", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.StopGUISession" }, StopGUISessionRequest, StopGUISessionResult, [AccessDeniedException, InvalidInputException, NotFoundException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Stops a specific Amazon Lightsail instance that is currently running.
- * 
- * 
- * 
  * 
  * When you start a stopped instance, Lightsail assigns a new public IP address to the
  * instance. To use the same IP address after stopping and starting an instance, create a
  * static IP address and attach it to the instance. For more information, see the Amazon Lightsail Developer Guide.
  * 
- * 
- * 
- * 
  * The `stop instance` operation supports tag-based access control via resource
  * tags applied to the resource identified by `instance name`. For more information,
  * see the Amazon Lightsail Developer Guide.
- */export const stopInstance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/StopInstance", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.StopInstance" }, StopInstanceRequest, StopInstanceResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const stopInstance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/StopInstance", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.StopInstance" }, StopInstanceRequest, StopInstanceResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Stops a specific database that is currently running in Amazon Lightsail.
- * 
- * 
- * 
  * 
  * If you don't manually start your database instance after it has been stopped for seven
  * consecutive days, Amazon Lightsail automatically starts it for you. This action helps ensure
  * that your database instance doesn't fall behind on any required maintenance updates.
  * 
- * 
- * 
- * 
  * The `stop relational database` operation supports tag-based access control via
  * resource tags applied to the resource identified by relationalDatabaseName. For more
  * information, see the Amazon Lightsail Developer Guide.
- */export const stopRelationalDatabase = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/StopRelationalDatabase", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.StopRelationalDatabase" }, StopRelationalDatabaseRequest, StopRelationalDatabaseResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const stopRelationalDatabase = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/StopRelationalDatabase", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.StopRelationalDatabase" }, StopRelationalDatabaseRequest, StopRelationalDatabaseResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Adds one or more tags to the specified Amazon Lightsail resource. Each resource can have a
  * maximum of 50 tags. Each tag consists of a key and an optional value. Tag keys must be unique
  * per resource. For more information about tags, see the Amazon Lightsail Developer Guide.
  * 
- * 
  * The `tag resource` operation supports tag-based access control via request tags
  * and resource tags applied to the resource identified by `resource name`. For more
  * information, see the Amazon Lightsail Developer Guide.
- */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/TagResource", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.TagResource" }, TagResourceRequest, TagResourceResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/TagResource", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.TagResource" }, TagResourceRequest, TagResourceResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Tests an alarm by displaying a banner on the Amazon Lightsail console. If a notification
  * trigger is configured for the specified alarm, the test also sends a notification to the
  * notification protocol (`Email` and/or `SMS`) configured for the
  * alarm.
- * 
  * 
  * An alarm is used to monitor a single metric for one of your resources. When a metric
  * condition is met, the alarm can notify you by email, SMS text message, and a banner displayed
@@ -1392,26 +1264,23 @@ export class UnauthenticatedException extends S.TaggedError<UnauthenticatedExcep
  */export const testAlarm = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/TestAlarm/{alarmName}", method: "GET", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.TestAlarm" }, TestAlarmRequest, TestAlarmResult, [AccessDeniedException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Unpeers the Lightsail VPC from the user's default VPC.
- */export const unpeerVpc = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/UnpeerVpc", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.UnpeerVpc" }, UnpeerVpcRequest, UnpeerVpcResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const unpeerVpc = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/UnpeerVpc", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.UnpeerVpc" }, UnpeerVpcRequest, UnpeerVpcResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the specified set of tag keys and their values from the specified Amazon Lightsail
  * resource.
  * 
- * 
  * The `untag resource` operation supports tag-based access control via request
  * tags and resource tags applied to the resource identified by `resource name`. For
  * more information, see the Amazon Lightsail Developer Guide.
- */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/UntagResource", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.UntagResource" }, UntagResourceRequest, UntagResourceResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/UntagResource", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.UntagResource" }, UntagResourceRequest, UntagResourceResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the bundle, or storage plan, of an existing Amazon Lightsail bucket.
- * 
  * 
  * A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a
  * bucket. You can update a bucket's bundle only one time within a monthly Amazon Web Services
  * billing cycle. To determine if you can update a bucket's bundle, use the GetBuckets action. The
  * `ableToUpdateBundle` parameter in the response will indicate whether you can
  * currently update a bucket's bundle.
- * 
  * 
  * Update a bucket's bundle if it's consistently going over its storage space or data
  * transfer quota, or if a bucket's usage is consistently in the lower range of its storage space
@@ -1420,7 +1289,7 @@ export class UnauthenticatedException extends S.TaggedError<UnauthenticatedExcep
  * strategy, instead of as a short-term, monthly cost-cutting measure. Choose a bucket bundle
  * that will provide the bucket with ample storage space and data transfer for a long time to
  * come.
- */export const updateBucketBundle = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/UpdateBucketBundle", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.UpdateBucketBundle" }, UpdateBucketBundleRequest, UpdateBucketBundleResult, [AccessDeniedException, InvalidInputException, NotFoundException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateBucketBundle = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/UpdateBucketBundle", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.UpdateBucketBundle" }, UpdateBucketBundleRequest, UpdateBucketBundleResult, [AccessDeniedException, InvalidInputException, NotFoundException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the configuration of your Amazon Lightsail container service, such as its power,
  * scale, and public domain names.
@@ -1428,34 +1297,29 @@ export class UnauthenticatedException extends S.TaggedError<UnauthenticatedExcep
 /**
  * Updates an existing Amazon Lightsail content delivery network (CDN) distribution.
  * 
- * 
  * Use this action to update the configuration of your existing distribution.
- */export const updateDistribution = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/UpdateDistribution", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.UpdateDistribution" }, UpdateDistributionRequest, UpdateDistributionResult, [AccessDeniedException, InvalidInputException, NotFoundException, OperationFailureException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateDistribution = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/UpdateDistribution", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.UpdateDistribution" }, UpdateDistributionRequest, UpdateDistributionResult, [AccessDeniedException, InvalidInputException, NotFoundException, OperationFailureException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the bundle of your Amazon Lightsail content delivery network (CDN)
  * distribution.
  * 
- * 
  * A distribution bundle specifies the monthly network transfer quota and monthly cost of
  * your distribution.
- * 
  * 
  * Update your distribution's bundle if your distribution is going over its monthly network
  * transfer quota and is incurring an overage fee.
  * 
- * 
  * You can update your distribution's bundle only one time within your monthly Amazon Web Services billing cycle. To determine if you can update your distribution's bundle, use the
  * `GetDistributions` action. The `ableToUpdateBundle` parameter in the
  * result will indicate whether you can currently update your distribution's bundle.
- */export const updateDistributionBundle = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/UpdateDistributionBundle", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.UpdateDistributionBundle" }, UpdateDistributionBundleRequest, UpdateDistributionBundleResult, [AccessDeniedException, InvalidInputException, NotFoundException, OperationFailureException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateDistributionBundle = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/UpdateDistributionBundle", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.UpdateDistributionBundle" }, UpdateDistributionBundleRequest, UpdateDistributionBundleResult, [AccessDeniedException, InvalidInputException, NotFoundException, OperationFailureException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates a domain recordset after it is created.
- * 
  * 
  * The `update domain entry` operation supports tag-based access control via
  * resource tags applied to the resource identified by `domain name`. For more
  * information, see the Amazon Lightsail Developer Guide.
- */export const updateDomainEntry = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/UpdateDomainEntry", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.UpdateDomainEntry" }, UpdateDomainEntryRequest, UpdateDomainEntryResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateDomainEntry = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/UpdateDomainEntry", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.UpdateDomainEntry" }, UpdateDomainEntryRequest, UpdateDomainEntryResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Modifies the Amazon Lightsail instance metadata parameters on a running or stopped
  * instance. When you modify the parameters on a running instance, the `GetInstance`
@@ -1463,168 +1327,136 @@ export class UnauthenticatedException extends S.TaggedError<UnauthenticatedExcep
  * `pending`. After the parameter modifications are successfully applied, the state
  * changes to `applied` in subsequent `GetInstance` or
  * `GetInstances` API calls. For more information, see Use IMDSv2 with an Amazon Lightsail instance in the *Amazon Lightsail Developer Guide*.
- */export const updateInstanceMetadataOptions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/UpdateInstanceMetadataOptions", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.UpdateInstanceMetadataOptions" }, UpdateInstanceMetadataOptionsRequest, UpdateInstanceMetadataOptionsResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateInstanceMetadataOptions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/UpdateInstanceMetadataOptions", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.UpdateInstanceMetadataOptions" }, UpdateInstanceMetadataOptionsRequest, UpdateInstanceMetadataOptionsResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the specified attribute for a load balancer. You can only update one attribute at
  * a time.
  * 
- * 
  * The `update load balancer attribute` operation supports tag-based access
  * control via resource tags applied to the resource identified by load balancer
  * name. For more information, see the Amazon Lightsail Developer Guide.
- */export const updateLoadBalancerAttribute = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/UpdateLoadBalancerAttribute", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.UpdateLoadBalancerAttribute" }, UpdateLoadBalancerAttributeRequest, UpdateLoadBalancerAttributeResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateLoadBalancerAttribute = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/UpdateLoadBalancerAttribute", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.UpdateLoadBalancerAttribute" }, UpdateLoadBalancerAttributeRequest, UpdateLoadBalancerAttributeResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Allows the update of one or more attributes of a database in Amazon Lightsail.
- * 
  * 
  * Updates are applied immediately, or in cases where the updates could result in an outage,
  * are applied during the database's predefined maintenance window.
  * 
- * 
  * The `update relational database` operation supports tag-based access control
  * via resource tags applied to the resource identified by relationalDatabaseName. For more
  * information, see the Amazon Lightsail Developer Guide.
- */export const updateRelationalDatabase = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/UpdateRelationalDatabase", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.UpdateRelationalDatabase" }, UpdateRelationalDatabaseRequest, UpdateRelationalDatabaseResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateRelationalDatabase = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/UpdateRelationalDatabase", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.UpdateRelationalDatabase" }, UpdateRelationalDatabaseRequest, UpdateRelationalDatabaseResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Allocates a static IP address.
- */export const allocateStaticIp = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/AllocateStaticIp", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.AllocateStaticIp" }, AllocateStaticIpRequest, AllocateStaticIpResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const allocateStaticIp = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/AllocateStaticIp", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.AllocateStaticIp" }, AllocateStaticIpRequest, AllocateStaticIpResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Attaches an SSL/TLS certificate to your Amazon Lightsail content delivery network (CDN)
  * distribution.
  * 
- * 
  * After the certificate is attached, your distribution accepts HTTPS traffic for all of the
  * domains that are associated with the certificate.
  * 
- * 
  * Use the `CreateCertificate` action to create a certificate that you can attach
  * to your distribution.
- * 
- * 
- * 
  * 
  * Only certificates created in the `us-east-1`
  * Amazon Web Services Region can be attached to Lightsail distributions. Lightsail
  * distributions are global resources that can reference an origin in any Amazon Web Services
  * Region, and distribute its content globally. However, all distributions are located in the
  * `us-east-1` Region.
- */export const attachCertificateToDistribution = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/AttachCertificateToDistribution", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.AttachCertificateToDistribution" }, AttachCertificateToDistributionRequest, AttachCertificateToDistributionResult, [AccessDeniedException, InvalidInputException, NotFoundException, OperationFailureException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const attachCertificateToDistribution = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/AttachCertificateToDistribution", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.AttachCertificateToDistribution" }, AttachCertificateToDistributionRequest, AttachCertificateToDistributionResult, [AccessDeniedException, InvalidInputException, NotFoundException, OperationFailureException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Attaches a block storage disk to a running or stopped Lightsail instance and exposes it
  * to the instance with the specified disk name.
  * 
- * 
  * The `attach disk` operation supports tag-based access control via resource tags
  * applied to the resource identified by `disk name`. For more information, see the
  * Amazon Lightsail Developer Guide.
- */export const attachDisk = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/AttachDisk", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.AttachDisk" }, AttachDiskRequest, AttachDiskResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const attachDisk = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/AttachDisk", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.AttachDisk" }, AttachDiskRequest, AttachDiskResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Closes ports for a specific Amazon Lightsail instance.
- * 
  * 
  * The `CloseInstancePublicPorts` action supports tag-based access control via
  * resource tags applied to the resource identified by `instanceName`. For more
  * information, see the Amazon Lightsail Developer Guide.
- */export const closeInstancePublicPorts = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/CloseInstancePublicPorts", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.CloseInstancePublicPorts" }, CloseInstancePublicPortsRequest, CloseInstancePublicPortsResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const closeInstancePublicPorts = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/CloseInstancePublicPorts", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.CloseInstancePublicPorts" }, CloseInstancePublicPortsRequest, CloseInstancePublicPortsResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an Amazon Lightsail bucket.
- * 
  * 
  * A bucket is a cloud storage resource available in the Lightsail object storage service.
  * Use buckets to store objects such as data and its descriptive metadata. For more information
  * about buckets, see Buckets in Amazon Lightsail in the Amazon Lightsail Developer
  * Guide.
- */export const createBucket = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/CreateBucket", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.CreateBucket" }, CreateBucketRequest, CreateBucketResult, [AccessDeniedException, InvalidInputException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createBucket = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/CreateBucket", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.CreateBucket" }, CreateBucketRequest, CreateBucketResult, [AccessDeniedException, InvalidInputException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an AWS CloudFormation stack, which creates a new Amazon EC2 instance from an exported
  * Amazon Lightsail snapshot. This operation results in a CloudFormation stack record that can be
  * used to track the AWS CloudFormation stack created. Use the get cloud formation stack
  * records operation to get a list of the CloudFormation stacks created.
  * 
- * 
- * 
- * 
  * Wait until after your new Amazon EC2 instance is created before running the create
  * cloud formation stack operation again with the same export snapshot record.
- */export const createCloudFormationStack = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/CreateCloudFormationStack", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.CreateCloudFormationStack" }, CreateCloudFormationStackRequest, CreateCloudFormationStackResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createCloudFormationStack = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/CreateCloudFormationStack", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.CreateCloudFormationStack" }, CreateCloudFormationStackRequest, CreateCloudFormationStackResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates two URLs that are used to access a virtual computer’s graphical user interface
  * (GUI) session. The primary URL initiates a web-based Amazon DCV session to the virtual
  * computer's application. The secondary URL initiates a web-based Amazon DCV session to the
  * virtual computer's operating session.
  * 
- * 
  * Use `StartGUISession` to open the session.
- */export const createGUISessionAccessDetails = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/create-gui-session-access-details", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.CreateGUISessionAccessDetails" }, CreateGUISessionAccessDetailsRequest, CreateGUISessionAccessDetailsResult, [AccessDeniedException, InvalidInputException, NotFoundException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createGUISessionAccessDetails = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/create-gui-session-access-details", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.CreateGUISessionAccessDetails" }, CreateGUISessionAccessDetailsRequest, CreateGUISessionAccessDetailsResult, [AccessDeniedException, InvalidInputException, NotFoundException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a custom SSH key pair that you can use with an Amazon Lightsail
  * instance.
- * 
- * 
- * 
  * 
  * Use the DownloadDefaultKeyPair action to create a Lightsail default key
  * pair in an Amazon Web Services Region where a default key pair does not currently
  * exist.
  * 
- * 
- * 
- * 
  * The `create key pair` operation supports tag-based access control via request
  * tags. For more information, see the Amazon Lightsail Developer Guide.
- */export const createKeyPair = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/CreateKeyPair", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.CreateKeyPair" }, CreateKeyPairRequest, CreateKeyPairResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createKeyPair = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/CreateKeyPair", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.CreateKeyPair" }, CreateKeyPairRequest, CreateKeyPairResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the list of available instance images, or *blueprints*. You can
  * use a blueprint to create a new instance already running a specific operating system, as well
  * as a preinstalled app or development stack. The software each instance is running depends on
  * the blueprint image you choose.
  * 
- * 
- * 
- * 
  * Use active blueprints when creating new instances. Inactive blueprints are listed to
  * support customers with existing instances and are not necessarily available to create new
  * instances. Blueprints are marked inactive when they become outdated due to operating system
  * updates or new application releases.
- */export const getBlueprints = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetBlueprints", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetBlueprints" }, GetBlueprintsRequest, GetBlueprintsResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getBlueprints = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetBlueprints", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetBlueprints" }, GetBlueprintsRequest, GetBlueprintsResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the bundles that you can apply to a Amazon Lightsail bucket.
- * 
  * 
  * The bucket bundle specifies the monthly cost, storage quota, and data transfer quota for a
  * bucket.
  * 
- * 
  * Use the UpdateBucketBundle action to update the
  * bundle for a bucket.
- */export const getBucketBundles = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetBucketBundles", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetBucketBundles" }, GetBucketBundlesRequest, GetBucketBundlesResult, [AccessDeniedException, InvalidInputException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getBucketBundles = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetBucketBundles", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetBucketBundles" }, GetBucketBundlesRequest, GetBucketBundlesResult, [AccessDeniedException, InvalidInputException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the data points of a specific metric for an Amazon Lightsail bucket.
- * 
  * 
  * Metrics report the utilization of a bucket. View and collect metric data regularly to
  * monitor the number of objects stored in a bucket (including object versions) and the storage
  * space used by those objects.
- */export const getBucketMetricData = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetBucketMetricData", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetBucketMetricData" }, GetBucketMetricDataRequest, GetBucketMetricDataResult, [AccessDeniedException, InvalidInputException, NotFoundException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getBucketMetricData = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetBucketMetricData", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetBucketMetricData" }, GetBucketMetricDataRequest, GetBucketMetricDataResult, [AccessDeniedException, InvalidInputException, NotFoundException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the bundles that you can apply to an Amazon Lightsail instance when you create
  * it.
- * 
  * 
  * A bundle describes the specifications of an instance, such as the monthly cost, amount of
  * memory, the number of vCPUs, amount of storage space, and monthly network data transfer
  * quota.
  * 
- * 
- * 
- * 
  * Bundles are referred to as *instance plans* in the Lightsail
  * console.
- */export const getBundles = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetBundles", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetBundles" }, GetBundlesRequest, GetBundlesResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getBundles = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetBundles", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetBundles" }, GetBundlesRequest, GetBundlesResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about the configured contact methods. Specify a protocol in your
  * request to return information about a specific contact method.
- * 
  * 
  * A contact method is used to send you notifications about your Amazon Lightsail resources.
  * You can add one email address and one mobile phone number contact method in each Amazon Web Services Region. However, SMS text messaging is not supported in some Amazon Web Services
@@ -1635,9 +1467,6 @@ export class UnauthenticatedException extends S.TaggedError<UnauthenticatedExcep
  * Returns the container images that are registered to your Amazon Lightsail container
  * service.
  * 
- * 
- * 
- * 
  * If you created a deployment on your Lightsail container service that uses container
  * images from a public registry like Docker Hub, those images are not returned as part of this
  * action. Those images are not registered to your Lightsail container service.
@@ -1645,13 +1474,9 @@ export class UnauthenticatedException extends S.TaggedError<UnauthenticatedExcep
 /**
  * Returns the log events of a container of your Amazon Lightsail container service.
  * 
- * 
  * If your container service has more than one node (i.e., a scale greater than 1), then the
  * log events that are returned for the specified container are merged from all nodes on your
  * container service.
- * 
- * 
- * 
  * 
  * Container logs are retained for a certain amount of time. For more information, see
  * Amazon Lightsail
@@ -1660,59 +1485,55 @@ export class UnauthenticatedException extends S.TaggedError<UnauthenticatedExcep
  */export const getContainerLog = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/container-services/{serviceName}/containers/{containerName}/log", method: "GET", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetContainerLog" }, GetContainerLogRequest, GetContainerLogResult, [AccessDeniedException, InvalidInputException, NotFoundException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about a specific block storage disk snapshot.
- */export const getDiskSnapshot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetDiskSnapshot", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetDiskSnapshot" }, GetDiskSnapshotRequest, GetDiskSnapshotResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getDiskSnapshot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetDiskSnapshot", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetDiskSnapshot" }, GetDiskSnapshotRequest, GetDiskSnapshotResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the firewall port states for a specific Amazon Lightsail instance, the IP addresses
  * allowed to connect to the instance through the ports, and the protocol.
- */export const getInstancePortStates = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetInstancePortStates", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetInstancePortStates" }, GetInstancePortStatesRequest, GetInstancePortStatesResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getInstancePortStates = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetInstancePortStates", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetInstancePortStates" }, GetInstancePortStatesRequest, GetInstancePortStatesResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about a specific instance snapshot.
- */export const getInstanceSnapshot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetInstanceSnapshot", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetInstanceSnapshot" }, GetInstanceSnapshotRequest, GetInstanceSnapshotResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getInstanceSnapshot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetInstanceSnapshot", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetInstanceSnapshot" }, GetInstanceSnapshotRequest, GetInstanceSnapshotResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the state of a specific instance. Works on one instance at a time.
- */export const getInstanceState = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetInstanceState", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetInstanceState" }, GetInstanceStateRequest, GetInstanceStateResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getInstanceState = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetInstanceState", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetInstanceState" }, GetInstanceStateRequest, GetInstanceStateResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of TLS security policies that you can apply to Lightsail load
  * balancers.
  * 
- * 
  * For more information about load balancer TLS security policies, see Configuring TLS security policies on your Amazon Lightsail load
  * balancers in the *Amazon Lightsail Developer Guide*.
- */export const getLoadBalancerTlsPolicies = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetLoadBalancerTlsPolicies", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetLoadBalancerTlsPolicies" }, GetLoadBalancerTlsPoliciesRequest, GetLoadBalancerTlsPoliciesResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getLoadBalancerTlsPolicies = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetLoadBalancerTlsPolicies", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetLoadBalancerTlsPolicies" }, GetLoadBalancerTlsPoliciesRequest, GetLoadBalancerTlsPoliciesResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of available database blueprints in Amazon Lightsail. A blueprint describes
  * the major engine version of a database.
  * 
- * 
  * You can use a blueprint ID to create a new database that runs a specific database
  * engine.
- */export const getRelationalDatabaseBlueprints = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetRelationalDatabaseBlueprints", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetRelationalDatabaseBlueprints" }, GetRelationalDatabaseBlueprintsRequest, GetRelationalDatabaseBlueprintsResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getRelationalDatabaseBlueprints = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetRelationalDatabaseBlueprints", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetRelationalDatabaseBlueprints" }, GetRelationalDatabaseBlueprintsRequest, GetRelationalDatabaseBlueprintsResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the list of bundles that are available in Amazon Lightsail. A bundle describes the
  * performance specifications for a database.
  * 
- * 
  * You can use a bundle ID to create a new database with explicit performance
  * specifications.
- */export const getRelationalDatabaseBundles = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetRelationalDatabaseBundles", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetRelationalDatabaseBundles" }, GetRelationalDatabaseBundlesRequest, GetRelationalDatabaseBundlesResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getRelationalDatabaseBundles = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetRelationalDatabaseBundles", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetRelationalDatabaseBundles" }, GetRelationalDatabaseBundlesRequest, GetRelationalDatabaseBundlesResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of events for a specific database in Amazon Lightsail.
- */export const getRelationalDatabaseEvents = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetRelationalDatabaseEvents", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetRelationalDatabaseEvents" }, GetRelationalDatabaseEventsRequest, GetRelationalDatabaseEventsResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getRelationalDatabaseEvents = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetRelationalDatabaseEvents", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetRelationalDatabaseEvents" }, GetRelationalDatabaseEventsRequest, GetRelationalDatabaseEventsResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of log events for a database in Amazon Lightsail.
- */export const getRelationalDatabaseLogEvents = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetRelationalDatabaseLogEvents", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetRelationalDatabaseLogEvents" }, GetRelationalDatabaseLogEventsRequest, GetRelationalDatabaseLogEventsResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getRelationalDatabaseLogEvents = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetRelationalDatabaseLogEvents", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetRelationalDatabaseLogEvents" }, GetRelationalDatabaseLogEventsRequest, GetRelationalDatabaseLogEventsResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about a specific database snapshot in Amazon Lightsail.
- */export const getRelationalDatabaseSnapshot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetRelationalDatabaseSnapshot", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetRelationalDatabaseSnapshot" }, GetRelationalDatabaseSnapshotRequest, GetRelationalDatabaseSnapshotResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getRelationalDatabaseSnapshot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetRelationalDatabaseSnapshot", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetRelationalDatabaseSnapshot" }, GetRelationalDatabaseSnapshotRequest, GetRelationalDatabaseSnapshotResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about an Amazon Lightsail static IP.
- */export const getStaticIp = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetStaticIp", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetStaticIp" }, GetStaticIpRequest, GetStaticIpResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getStaticIp = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetStaticIp", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetStaticIp" }, GetStaticIpRequest, GetStaticIpResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Peers the Lightsail VPC with the user's default VPC.
- */export const peerVpc = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/PeerVpc", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.PeerVpc" }, PeerVpcRequest, PeerVpcResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const peerVpc = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/PeerVpc", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.PeerVpc" }, PeerVpcRequest, PeerVpcResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Allows the update of one or more parameters of a database in Amazon Lightsail.
- * 
  * 
  * Parameter updates don't cause outages; therefore, their application is not subject to the
  * preferred maintenance window. However, there are two ways in which parameter updates are
@@ -1721,77 +1542,66 @@ export class UnauthenticatedException extends S.TaggedError<UnauthenticatedExcep
  * `pending-reboot` apply type are applied only after the database is rebooted using
  * the `reboot relational database` operation.
  * 
- * 
  * The `update relational database parameters` operation supports tag-based access
  * control via resource tags applied to the resource identified by relationalDatabaseName. For
  * more information, see the Amazon Lightsail Developer Guide.
- */export const updateRelationalDatabaseParameters = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/UpdateRelationalDatabaseParameters", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.UpdateRelationalDatabaseParameters" }, UpdateRelationalDatabaseParametersRequest, UpdateRelationalDatabaseParametersResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateRelationalDatabaseParameters = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/UpdateRelationalDatabaseParameters", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.UpdateRelationalDatabaseParameters" }, UpdateRelationalDatabaseParametersRequest, UpdateRelationalDatabaseParametersResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new access key for the specified Amazon Lightsail bucket. Access keys consist of
  * an access key ID and corresponding secret access key.
- * 
  * 
  * Access keys grant full programmatic access to the specified bucket and its objects. You
  * can have a maximum of two access keys per bucket. Use the GetBucketAccessKeys action to get a list of current access keys for a specific bucket. For more
  * information about access keys, see Creating access keys for a bucket in Amazon Lightsail in the
  * *Amazon Lightsail Developer Guide*.
  * 
- * 
- * 
- * 
  * The `secretAccessKey` value is returned only in response to the
  * `CreateBucketAccessKey` action. You can get a secret access key only when you
  * first create an access key; you cannot get the secret access key later. If you lose the
  * secret access key, you must create a new access key.
- */export const createBucketAccessKey = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/CreateBucketAccessKey", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.CreateBucketAccessKey" }, CreateBucketAccessKeyRequest, CreateBucketAccessKeyResult, [AccessDeniedException, InvalidInputException, NotFoundException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createBucketAccessKey = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/CreateBucketAccessKey", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.CreateBucketAccessKey" }, CreateBucketAccessKeyRequest, CreateBucketAccessKeyResult, [AccessDeniedException, InvalidInputException, NotFoundException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an Amazon Lightsail container service.
- * 
  * 
  * A Lightsail container service is a compute resource to which you can deploy containers.
  * For more information, see Container services in Amazon Lightsail in the Lightsail Dev
  * Guide.
- */export const createContainerService = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/container-services", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.CreateContainerService" }, CreateContainerServiceRequest, CreateContainerServiceResult, [AccessDeniedException, InvalidInputException, NotFoundException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createContainerService = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/container-services", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.CreateContainerService" }, CreateContainerServiceRequest, CreateContainerServiceResult, [AccessDeniedException, InvalidInputException, NotFoundException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a block storage disk that can be attached to an Amazon Lightsail instance in the
  * same Availability Zone (`us-east-2a`).
  * 
- * 
  * The `create disk` operation supports tag-based access control via request tags.
  * For more information, see the Amazon Lightsail Developer Guide.
- */export const createDisk = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/CreateDisk", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.CreateDisk" }, CreateDiskRequest, CreateDiskResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createDisk = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/CreateDisk", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.CreateDisk" }, CreateDiskRequest, CreateDiskResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an Amazon Lightsail content delivery network (CDN) distribution.
- * 
  * 
  * A distribution is a globally distributed network of caching servers that improve the
  * performance of your website or web application hosted on a Lightsail instance. For more
  * information, see Content delivery networks in Amazon Lightsail.
- */export const createDistribution = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/CreateDistribution", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.CreateDistribution" }, CreateDistributionRequest, CreateDistributionResult, [AccessDeniedException, InvalidInputException, NotFoundException, OperationFailureException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createDistribution = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/CreateDistribution", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.CreateDistribution" }, CreateDistributionRequest, CreateDistributionResult, [AccessDeniedException, InvalidInputException, NotFoundException, OperationFailureException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates one of the following domain name system (DNS) records in a domain DNS zone:
  * Address (A), canonical name (CNAME), mail exchanger (MX), name server (NS), start of authority
  * (SOA), service locator (SRV), or text (TXT).
  * 
- * 
  * The `create domain entry` operation supports tag-based access control via
  * resource tags applied to the resource identified by `domain name`. For more
  * information, see the Amazon Lightsail Developer Guide.
- */export const createDomainEntry = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/CreateDomainEntry", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.CreateDomainEntry" }, CreateDomainEntryRequest, CreateDomainEntryResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createDomainEntry = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/CreateDomainEntry", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.CreateDomainEntry" }, CreateDomainEntryRequest, CreateDomainEntryResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates one or more new instances from a manual or automatic snapshot of an
  * instance.
  * 
- * 
  * The `create instances from snapshot` operation supports tag-based access
  * control via request tags and resource tags applied to the resource identified by
  * `instance snapshot name`. For more information, see the Amazon Lightsail Developer Guide.
- */export const createInstancesFromSnapshot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/CreateInstancesFromSnapshot", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.CreateInstancesFromSnapshot" }, CreateInstancesFromSnapshotRequest, CreateInstancesFromSnapshotResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createInstancesFromSnapshot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/CreateInstancesFromSnapshot", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.CreateInstancesFromSnapshot" }, CreateInstancesFromSnapshotRequest, CreateInstancesFromSnapshotResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about the configured alarms. Specify an alarm name in your request to
  * return information about a specific alarm, or specify a monitored resource name to return
  * information about all alarms for a specific resource.
- * 
  * 
  * An alarm is used to monitor a single metric for one of your resources. When a metric
  * condition is met, the alarm can notify you by email, SMS text message, and a banner displayed
@@ -1801,37 +1611,30 @@ export class UnauthenticatedException extends S.TaggedError<UnauthenticatedExcep
 /**
  * Returns the available automatic snapshots for an instance or disk. For more information,
  * see the Amazon Lightsail Developer Guide.
- */export const getAutoSnapshots = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetAutoSnapshots", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetAutoSnapshots" }, GetAutoSnapshotsRequest, GetAutoSnapshotsResult, [AccessDeniedException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getAutoSnapshots = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetAutoSnapshots", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetAutoSnapshots" }, GetAutoSnapshotsRequest, GetAutoSnapshotsResult, [AccessDeniedException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about one or more Amazon Lightsail buckets. The information returned
  * includes the synchronization status of the Amazon Simple Storage Service (Amazon S3)
  * account-level block public access feature for your Lightsail buckets.
  * 
- * 
  * For more information about buckets, see Buckets in Amazon Lightsail in the Amazon Lightsail Developer
  * Guide.
- */export const getBuckets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetBuckets", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetBuckets" }, GetBucketsRequest, GetBucketsResult, [AccessDeniedException, InvalidInputException, NotFoundException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getBuckets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetBuckets", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetBuckets" }, GetBucketsRequest, GetBucketsResult, [AccessDeniedException, InvalidInputException, NotFoundException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the CloudFormation stack record created as a result of the create cloud
  * formation stack operation.
  * 
- * 
  * An AWS CloudFormation stack is used to create a new Amazon EC2 instance from an exported Lightsail
  * snapshot.
- */export const getCloudFormationStackRecords = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetCloudFormationStackRecords", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetCloudFormationStackRecords" }, GetCloudFormationStackRecordsRequest, GetCloudFormationStackRecordsResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getCloudFormationStackRecords = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetCloudFormationStackRecords", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetCloudFormationStackRecords" }, GetCloudFormationStackRecordsRequest, GetCloudFormationStackRecordsResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the deployments for your Amazon Lightsail container service
- * 
  * 
  * A deployment specifies the settings, such as the ports and launch command, of containers
  * that are deployed to your container service.
  * 
- * 
  * The deployments are ordered by version in ascending order. The newest version is listed at
  * the top of the response.
- * 
- * 
- * 
  * 
  * A set number of deployments are kept before the oldest one is replaced with the newest
  * one. For more information, see Amazon Lightsail
@@ -1840,45 +1643,42 @@ export class UnauthenticatedException extends S.TaggedError<UnauthenticatedExcep
  */export const getContainerServiceDeployments = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/container-services/{serviceName}/deployments", method: "GET", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetContainerServiceDeployments" }, GetContainerServiceDeploymentsRequest, GetContainerServiceDeploymentsResult, [AccessDeniedException, InvalidInputException, NotFoundException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about a specific block storage disk.
- */export const getDisk = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetDisk", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetDisk" }, GetDiskRequest, GetDiskResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getDisk = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetDisk", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetDisk" }, GetDiskRequest, GetDiskResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about one or more of your Amazon Lightsail content delivery network
  * (CDN) distributions.
- */export const getDistributions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetDistributions", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetDistributions" }, GetDistributionsRequest, GetDistributionsResult, [AccessDeniedException, InvalidInputException, NotFoundException, OperationFailureException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getDistributions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetDistributions", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetDistributions" }, GetDistributionsRequest, GetDistributionsResult, [AccessDeniedException, InvalidInputException, NotFoundException, OperationFailureException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns temporary SSH keys you can use to connect to a specific virtual private server, or
  * *instance*.
  * 
- * 
  * The `get instance access details` operation supports tag-based access control
  * via resource tags applied to the resource identified by `instance name`. For more
  * information, see the Amazon Lightsail Developer Guide.
- */export const getInstanceAccessDetails = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetInstanceAccessDetails", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetInstanceAccessDetails" }, GetInstanceAccessDetailsRequest, GetInstanceAccessDetailsResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getInstanceAccessDetails = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetInstanceAccessDetails", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetInstanceAccessDetails" }, GetInstanceAccessDetailsRequest, GetInstanceAccessDetailsResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about the specified Lightsail load balancer.
- */export const getLoadBalancer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetLoadBalancer", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetLoadBalancer" }, GetLoadBalancerRequest, GetLoadBalancerResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getLoadBalancer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetLoadBalancer", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetLoadBalancer" }, GetLoadBalancerRequest, GetLoadBalancerResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of all valid regions for Amazon Lightsail. Use the include
  * availability zones parameter to also return the Availability Zones in a
  * region.
- */export const getRegions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetRegions", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetRegions" }, GetRegionsRequest, GetRegionsResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getRegions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetRegions", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetRegions" }, GetRegionsRequest, GetRegionsResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about a specific database in Amazon Lightsail.
- */export const getRelationalDatabase = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetRelationalDatabase", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetRelationalDatabase" }, GetRelationalDatabaseRequest, GetRelationalDatabaseResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getRelationalDatabase = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetRelationalDatabase", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetRelationalDatabase" }, GetRelationalDatabaseRequest, GetRelationalDatabaseResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns detailed information for five of the most recent `SetupInstanceHttps`
  * requests that were ran on the target instance.
- */export const getSetupHistory = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/get-setup-history", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetSetupHistory" }, GetSetupHistoryRequest, GetSetupHistoryResult, [AccessDeniedException, InvalidInputException, NotFoundException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getSetupHistory = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/get-setup-history", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetSetupHistory" }, GetSetupHistoryRequest, GetSetupHistoryResult, [AccessDeniedException, InvalidInputException, NotFoundException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates an existing Amazon Lightsail bucket.
  * 
- * 
  * Use this action to update the configuration of an existing bucket, such as versioning,
  * public accessibility, and the Amazon Web Services accounts that can access the bucket.
- */export const updateBucket = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/UpdateBucket", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.UpdateBucket" }, UpdateBucketRequest, UpdateBucketResult, [AccessDeniedException, InvalidInputException, NotFoundException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateBucket = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/UpdateBucket", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.UpdateBucket" }, UpdateBucketRequest, UpdateBucketResult, [AccessDeniedException, InvalidInputException, NotFoundException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a deployment for your Amazon Lightsail container service.
- * 
  * 
  * A deployment specifies the containers that will be launched on the container service and
  * their settings, such as the ports to open, the environment variables to apply, and the launch
@@ -1886,62 +1686,54 @@ export class UnauthenticatedException extends S.TaggedError<UnauthenticatedExcep
  * deployment and its settings, such as the HTTP or HTTPS port to use, and the health check
  * configuration.
  * 
- * 
  * You can deploy containers to your container service using container images from a public
  * registry such as Amazon ECR Public, or from your local machine. For more information, see
  * Creating container images for your Amazon Lightsail container services in the
  * *Amazon Lightsail Developer Guide*.
- */export const createContainerServiceDeployment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/container-services/{serviceName}/deployments", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.CreateContainerServiceDeployment" }, CreateContainerServiceDeploymentRequest, CreateContainerServiceDeploymentResult, [AccessDeniedException, InvalidInputException, NotFoundException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createContainerServiceDeployment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/container-services/{serviceName}/deployments", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.CreateContainerServiceDeployment" }, CreateContainerServiceDeploymentRequest, CreateContainerServiceDeploymentResult, [AccessDeniedException, InvalidInputException, NotFoundException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about one or more of your Amazon Lightsail container services.
  */export const getContainerServices = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/container-services", method: "GET", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetContainerServices" }, GetContainerServicesRequest, ContainerServicesListResult, [AccessDeniedException, InvalidInputException, NotFoundException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about a specific domain recordset.
- */export const getDomain = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetDomain", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetDomain" }, GetDomainRequest, GetDomainResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getDomain = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetDomain", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetDomain" }, GetDomainRequest, GetDomainResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about a specific Amazon Lightsail instance, which is a virtual private
  * server.
- */export const getInstance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetInstance", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetInstance" }, GetInstanceRequest, GetInstanceResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getInstance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetInstance", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetInstance" }, GetInstanceRequest, GetInstanceResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about the TLS certificates that are associated with the specified
  * Lightsail load balancer.
  * 
- * 
  * TLS is just an updated, more secure version of Secure Socket Layer (SSL).
- * 
  * 
  * You can have a maximum of 2 certificates associated with a Lightsail load balancer. One
  * is active and the other is inactive.
- */export const getLoadBalancerTlsCertificates = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetLoadBalancerTlsCertificates", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetLoadBalancerTlsCertificates" }, GetLoadBalancerTlsCertificatesRequest, GetLoadBalancerTlsCertificatesResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getLoadBalancerTlsCertificates = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetLoadBalancerTlsCertificates", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetLoadBalancerTlsCertificates" }, GetLoadBalancerTlsCertificatesRequest, GetLoadBalancerTlsCertificatesResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an SSL/TLS certificate for an Amazon Lightsail content delivery network (CDN)
  * distribution and a container service.
- * 
  * 
  * After the certificate is valid, use the `AttachCertificateToDistribution`
  * action to use the certificate and its domains with your distribution. Or use the
  * `UpdateContainerService` action to use the certificate and its domains with your
  * container service.
  * 
- * 
- * 
- * 
  * Only certificates created in the `us-east-1`
  * Amazon Web Services Region can be attached to Lightsail distributions. Lightsail
  * distributions are global resources that can reference an origin in any Amazon Web Services
  * Region, and distribute its content globally. However, all distributions are located in the
  * `us-east-1` Region.
- */export const createCertificate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/CreateCertificate", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.CreateCertificate" }, CreateCertificateRequest, CreateCertificateResult, [AccessDeniedException, InvalidInputException, NotFoundException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createCertificate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/CreateCertificate", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.CreateCertificate" }, CreateCertificateRequest, CreateCertificateResult, [AccessDeniedException, InvalidInputException, NotFoundException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves information about the cost estimate for a specified resource. A cost estimate
  * will not generate for a resource that has been deleted.
- */export const getCostEstimate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/budgettracker/getCostEstimate", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetCostEstimate" }, GetCostEstimateRequest, GetCostEstimateResult, [AccessDeniedException, InvalidInputException, NotFoundException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getCostEstimate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/budgettracker/getCostEstimate", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetCostEstimate" }, GetCostEstimateRequest, GetCostEstimateResult, [AccessDeniedException, InvalidInputException, NotFoundException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns all export snapshot records created as a result of the export
  * snapshot operation.
  * 
- * 
  * An export snapshot record can be used to create a new Amazon EC2 instance and its related
  * resources with the CreateCloudFormationStack
  * action.
- */export const getExportSnapshotRecords = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetExportSnapshotRecords", method: "POST", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetExportSnapshotRecords" }, GetExportSnapshotRecordsRequest, GetExportSnapshotRecordsResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getExportSnapshotRecords = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/ls/api/2016-11-28/GetExportSnapshotRecords", sdkId: "Lightsail", sigV4ServiceName: "lightsail", name: "Lightsail_20161128.GetExportSnapshotRecords" }, GetExportSnapshotRecordsRequest, GetExportSnapshotRecordsResult, [AccessDeniedException, AccountSetupInProgressException, InvalidInputException, NotFoundException, OperationFailureException, RegionSetupInProgressException, ServiceException, UnauthenticatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

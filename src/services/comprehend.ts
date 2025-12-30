@@ -363,415 +363,384 @@ export class InvalidFilterException extends S.TaggedError<InvalidFilterException
 //# Operations
 /**
  * Deletes a resource-based policy that is attached to a custom model.
- */export const deleteResourcePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/", method: "POST", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.DeleteResourcePolicy" }, DeleteResourcePolicyRequest, DeleteResourcePolicyResponse, [InternalServerException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteResourcePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.DeleteResourcePolicy" }, DeleteResourcePolicyRequest, DeleteResourcePolicyResponse, [InternalServerException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Stops an entity recognizer training job while in progress.
- * 
  * 
  * If the training job state is `TRAINING`, the job is marked for termination and
  * put into the `STOP_REQUESTED` state. If the training job completes before it can be
  * stopped, it is put into the `TRAINED`; otherwise the training job is stopped and
  * putted into the `STOPPED` state and the service sends back an HTTP 200 response
  * with an empty HTTP body.
- */export const stopTrainingEntityRecognizer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/", method: "POST", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.StopTrainingEntityRecognizer" }, StopTrainingEntityRecognizerRequest, StopTrainingEntityRecognizerResponse, [InternalServerException, InvalidRequestException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const stopTrainingEntityRecognizer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.StopTrainingEntityRecognizer" }, StopTrainingEntityRecognizerRequest, StopTrainingEntityRecognizerResponse, [InternalServerException, InvalidRequestException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes an entity recognizer.
- * 
  * 
  * Only those recognizers that are in terminated states (IN_ERROR, TRAINED) will be deleted.
  * If an active inference job is using the model, a `ResourceInUseException` will be
  * returned.
  * 
- * 
  * This is an asynchronous action that puts the recognizer into a DELETING state, and it is
  * then removed by a background job. Once removed, the recognizer disappears from your account
  * and is no longer available for use.
- */export const deleteEntityRecognizer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/", method: "POST", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.DeleteEntityRecognizer" }, DeleteEntityRecognizerRequest, DeleteEntityRecognizerResponse, [InternalServerException, InvalidRequestException, ResourceInUseException, ResourceNotFoundException, ResourceUnavailableException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteEntityRecognizer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.DeleteEntityRecognizer" }, DeleteEntityRecognizerRequest, DeleteEntityRecognizerResponse, [InternalServerException, InvalidRequestException, ResourceInUseException, ResourceNotFoundException, ResourceUnavailableException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a flywheel. When you delete the flywheel, Amazon Comprehend
  * does not delete the data lake or the model associated with the flywheel.
  * 
- * 
  * For more information about flywheels, see
  * Flywheel overview in the *Amazon Comprehend Developer Guide*.
- */export const deleteFlywheel = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/", method: "POST", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.DeleteFlywheel" }, DeleteFlywheelRequest, DeleteFlywheelResponse, [InternalServerException, InvalidRequestException, ResourceInUseException, ResourceNotFoundException, ResourceUnavailableException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteFlywheel = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.DeleteFlywheel" }, DeleteFlywheelRequest, DeleteFlywheelResponse, [InternalServerException, InvalidRequestException, ResourceInUseException, ResourceNotFoundException, ResourceUnavailableException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets the details of a resource-based policy that is attached to a custom model, including
  * the JSON body of the policy.
- */export const describeResourcePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/", method: "POST", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.DescribeResourcePolicy" }, DescribeResourcePolicyRequest, DescribeResourcePolicyResponse, [InternalServerException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeResourcePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.DescribeResourcePolicy" }, DescribeResourcePolicyRequest, DescribeResourcePolicyResponse, [InternalServerException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists all tags associated with a given Amazon Comprehend resource.
- */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/", method: "POST", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [InternalServerException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [InternalServerException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Attaches a resource-based policy to a custom model. You can use this policy to authorize
  * an entity in another Amazon Web Services account to import the custom model, which replicates it in Amazon
  * Comprehend in their account.
- */export const putResourcePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/", method: "POST", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.PutResourcePolicy" }, PutResourcePolicyRequest, PutResourcePolicyResponse, [InternalServerException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putResourcePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.PutResourcePolicy" }, PutResourcePolicyRequest, PutResourcePolicyResponse, [InternalServerException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts an asynchronous entity detection job for a collection of documents. Use the operation to track the status of a job.
- * 
  * 
  * This API can be used for either standard entity detection or custom entity recognition. In
  * order to be used for custom entity recognition, the optional `EntityRecognizerArn`
  * must be used in order to provide access to the recognizer being used to detect the custom
  * entity.
- */export const startEntitiesDetectionJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/", method: "POST", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.StartEntitiesDetectionJob" }, StartEntitiesDetectionJobRequest, StartEntitiesDetectionJobResponse, [InternalServerException, InvalidRequestException, KmsKeyValidationException, ResourceInUseException, ResourceNotFoundException, ResourceUnavailableException, TooManyRequestsException, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startEntitiesDetectionJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.StartEntitiesDetectionJob" }, StartEntitiesDetectionJobRequest, StartEntitiesDetectionJobResponse, [InternalServerException, InvalidRequestException, KmsKeyValidationException, ResourceInUseException, ResourceNotFoundException, ResourceUnavailableException, TooManyRequestsException, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts an asynchronous event detection job for a collection of documents.
- */export const startEventsDetectionJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/", method: "POST", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.StartEventsDetectionJob" }, StartEventsDetectionJobRequest, StartEventsDetectionJobResponse, [InternalServerException, InvalidRequestException, KmsKeyValidationException, ResourceInUseException, TooManyRequestsException, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startEventsDetectionJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.StartEventsDetectionJob" }, StartEventsDetectionJobRequest, StartEventsDetectionJobResponse, [InternalServerException, InvalidRequestException, KmsKeyValidationException, ResourceInUseException, TooManyRequestsException, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Start the flywheel iteration.This operation uses any new datasets to train a new model version.
  * For more information about flywheels, see
  * Flywheel overview in the *Amazon Comprehend Developer Guide*.
- */export const startFlywheelIteration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/", method: "POST", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.StartFlywheelIteration" }, StartFlywheelIterationRequest, StartFlywheelIterationResponse, [InternalServerException, InvalidRequestException, ResourceInUseException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startFlywheelIteration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.StartFlywheelIteration" }, StartFlywheelIterationRequest, StartFlywheelIterationResponse, [InternalServerException, InvalidRequestException, ResourceInUseException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts an asynchronous key phrase detection job for a collection of documents. Use the
  * operation to track the status of a
  * job.
- */export const startKeyPhrasesDetectionJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/", method: "POST", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.StartKeyPhrasesDetectionJob" }, StartKeyPhrasesDetectionJobRequest, StartKeyPhrasesDetectionJobResponse, [InternalServerException, InvalidRequestException, KmsKeyValidationException, ResourceInUseException, TooManyRequestsException, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startKeyPhrasesDetectionJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.StartKeyPhrasesDetectionJob" }, StartKeyPhrasesDetectionJobRequest, StartKeyPhrasesDetectionJobResponse, [InternalServerException, InvalidRequestException, KmsKeyValidationException, ResourceInUseException, TooManyRequestsException, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts an asynchronous sentiment detection job for a collection of documents. Use the
  * operation to track the status of a
  * job.
- */export const startSentimentDetectionJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/", method: "POST", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.StartSentimentDetectionJob" }, StartSentimentDetectionJobRequest, StartSentimentDetectionJobResponse, [InternalServerException, InvalidRequestException, KmsKeyValidationException, ResourceInUseException, TooManyRequestsException, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startSentimentDetectionJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.StartSentimentDetectionJob" }, StartSentimentDetectionJobRequest, StartSentimentDetectionJobResponse, [InternalServerException, InvalidRequestException, KmsKeyValidationException, ResourceInUseException, TooManyRequestsException, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts an asynchronous targeted sentiment detection job for a collection of documents. Use the
  * `DescribeTargetedSentimentDetectionJob` operation to track the status of a
  * job.
- */export const startTargetedSentimentDetectionJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/", method: "POST", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.StartTargetedSentimentDetectionJob" }, StartTargetedSentimentDetectionJobRequest, StartTargetedSentimentDetectionJobResponse, [InternalServerException, InvalidRequestException, KmsKeyValidationException, ResourceInUseException, TooManyRequestsException, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startTargetedSentimentDetectionJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.StartTargetedSentimentDetectionJob" }, StartTargetedSentimentDetectionJobRequest, StartTargetedSentimentDetectionJobResponse, [InternalServerException, InvalidRequestException, KmsKeyValidationException, ResourceInUseException, TooManyRequestsException, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts an asynchronous topic detection job. Use the
  * `DescribeTopicDetectionJob` operation to track the status of a job.
- */export const startTopicsDetectionJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/", method: "POST", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.StartTopicsDetectionJob" }, StartTopicsDetectionJobRequest, StartTopicsDetectionJobResponse, [InternalServerException, InvalidRequestException, KmsKeyValidationException, ResourceInUseException, TooManyRequestsException, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startTopicsDetectionJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.StartTopicsDetectionJob" }, StartTopicsDetectionJobRequest, StartTopicsDetectionJobResponse, [InternalServerException, InvalidRequestException, KmsKeyValidationException, ResourceInUseException, TooManyRequestsException, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Stops an entities detection job in progress.
  * 
- * 
  * If the job state is `IN_PROGRESS` the job is marked for termination and put
  * into the `STOP_REQUESTED` state. If the job completes before it can be stopped, it
  * is put into the `COMPLETED` state; otherwise the job is stopped and put into the
  * `STOPPED` state.
  * 
- * 
  * If the job is in the `COMPLETED` or `FAILED` state when you call the
  * `StopDominantLanguageDetectionJob` operation, the operation returns a 400
  * Internal Request Exception.
  * 
- * 
  * When a job is stopped, any documents already processed are written to the output
  * location.
- */export const stopEntitiesDetectionJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/", method: "POST", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.StopEntitiesDetectionJob" }, StopEntitiesDetectionJobRequest, StopEntitiesDetectionJobResponse, [InternalServerException, InvalidRequestException, JobNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const stopEntitiesDetectionJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.StopEntitiesDetectionJob" }, StopEntitiesDetectionJobRequest, StopEntitiesDetectionJobResponse, [InternalServerException, InvalidRequestException, JobNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Stops an events detection job in progress.
- */export const stopEventsDetectionJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/", method: "POST", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.StopEventsDetectionJob" }, StopEventsDetectionJobRequest, StopEventsDetectionJobResponse, [InternalServerException, InvalidRequestException, JobNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const stopEventsDetectionJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.StopEventsDetectionJob" }, StopEventsDetectionJobRequest, StopEventsDetectionJobResponse, [InternalServerException, InvalidRequestException, JobNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Stops a key phrases detection job in progress.
  * 
- * 
  * If the job state is `IN_PROGRESS` the job is marked for termination and put
  * into the `STOP_REQUESTED` state. If the job completes before it can be stopped, it
  * is put into the `COMPLETED` state; otherwise the job is stopped and put into the
  * `STOPPED` state.
  * 
- * 
  * If the job is in the `COMPLETED` or `FAILED` state when you call the
  * `StopDominantLanguageDetectionJob` operation, the operation returns a 400
  * Internal Request Exception.
  * 
- * 
  * When a job is stopped, any documents already processed are written to the output
  * location.
- */export const stopKeyPhrasesDetectionJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/", method: "POST", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.StopKeyPhrasesDetectionJob" }, StopKeyPhrasesDetectionJobRequest, StopKeyPhrasesDetectionJobResponse, [InternalServerException, InvalidRequestException, JobNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const stopKeyPhrasesDetectionJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.StopKeyPhrasesDetectionJob" }, StopKeyPhrasesDetectionJobRequest, StopKeyPhrasesDetectionJobResponse, [InternalServerException, InvalidRequestException, JobNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Stops a PII entities detection job in progress.
- */export const stopPiiEntitiesDetectionJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/", method: "POST", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.StopPiiEntitiesDetectionJob" }, StopPiiEntitiesDetectionJobRequest, StopPiiEntitiesDetectionJobResponse, [InternalServerException, InvalidRequestException, JobNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const stopPiiEntitiesDetectionJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.StopPiiEntitiesDetectionJob" }, StopPiiEntitiesDetectionJobRequest, StopPiiEntitiesDetectionJobResponse, [InternalServerException, InvalidRequestException, JobNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Stops a sentiment detection job in progress.
  * 
- * 
  * If the job state is `IN_PROGRESS`, the job is marked for termination and put
  * into the `STOP_REQUESTED` state. If the job completes before it can be stopped, it
  * is put into the `COMPLETED` state; otherwise the job is be stopped and put into the
  * `STOPPED` state.
  * 
- * 
  * If the job is in the `COMPLETED` or `FAILED` state when you call the
  * `StopDominantLanguageDetectionJob` operation, the operation returns a 400
  * Internal Request Exception.
  * 
- * 
  * When a job is stopped, any documents already processed are written to the output
  * location.
- */export const stopSentimentDetectionJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/", method: "POST", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.StopSentimentDetectionJob" }, StopSentimentDetectionJobRequest, StopSentimentDetectionJobResponse, [InternalServerException, InvalidRequestException, JobNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const stopSentimentDetectionJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.StopSentimentDetectionJob" }, StopSentimentDetectionJobRequest, StopSentimentDetectionJobResponse, [InternalServerException, InvalidRequestException, JobNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Stops a targeted sentiment detection job in progress.
  * 
- * 
  * If the job state is `IN_PROGRESS`, the job is marked for termination and put
  * into the `STOP_REQUESTED` state. If the job completes before it can be stopped, it
  * is put into the `COMPLETED` state; otherwise the job is be stopped and put into the
  * `STOPPED` state.
  * 
- * 
  * If the job is in the `COMPLETED` or `FAILED` state when you call the
  * `StopDominantLanguageDetectionJob` operation, the operation returns a 400
  * Internal Request Exception.
  * 
- * 
  * When a job is stopped, any documents already processed are written to the output
  * location.
- */export const stopTargetedSentimentDetectionJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/", method: "POST", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.StopTargetedSentimentDetectionJob" }, StopTargetedSentimentDetectionJobRequest, StopTargetedSentimentDetectionJobResponse, [InternalServerException, InvalidRequestException, JobNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const stopTargetedSentimentDetectionJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.StopTargetedSentimentDetectionJob" }, StopTargetedSentimentDetectionJobRequest, StopTargetedSentimentDetectionJobResponse, [InternalServerException, InvalidRequestException, JobNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Stops a document classifier training job while in progress.
- * 
  * 
  * If the training job state is `TRAINING`, the job is marked for termination and
  * put into the `STOP_REQUESTED` state. If the training job completes before it can be
  * stopped, it is put into the `TRAINED`; otherwise the training job is stopped and
  * put into the `STOPPED` state and the service sends back an HTTP 200 response with
  * an empty HTTP body.
- */export const stopTrainingDocumentClassifier = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/", method: "POST", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.StopTrainingDocumentClassifier" }, StopTrainingDocumentClassifierRequest, StopTrainingDocumentClassifierResponse, [InternalServerException, InvalidRequestException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const stopTrainingDocumentClassifier = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.StopTrainingDocumentClassifier" }, StopTrainingDocumentClassifierRequest, StopTrainingDocumentClassifierResponse, [InternalServerException, InvalidRequestException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Associates a specific tag with an Amazon Comprehend resource. A tag is a key-value pair
  * that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with
  * "Sales" as the key might be added to a resource to indicate its use by the sales department.
- */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/", method: "POST", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.TagResource" }, TagResourceRequest, TagResourceResponse, [ConcurrentModificationException, InternalServerException, InvalidRequestException, ResourceNotFoundException, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.TagResource" }, TagResourceRequest, TagResourceResponse, [ConcurrentModificationException, InternalServerException, InvalidRequestException, ResourceNotFoundException, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes a specific tag associated with an Amazon Comprehend resource.
- */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/", method: "POST", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [ConcurrentModificationException, InternalServerException, InvalidRequestException, ResourceNotFoundException, TooManyTagKeysException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [ConcurrentModificationException, InternalServerException, InvalidRequestException, ResourceNotFoundException, TooManyTagKeysException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates information about the specified endpoint.
  * For information about endpoints, see Managing endpoints.
- */export const updateEndpoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/", method: "POST", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.UpdateEndpoint" }, UpdateEndpointRequest, UpdateEndpointResponse, [InternalServerException, InvalidRequestException, ResourceInUseException, ResourceLimitExceededException, ResourceNotFoundException, ResourceUnavailableException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateEndpoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.UpdateEndpoint" }, UpdateEndpointRequest, UpdateEndpointResponse, [InternalServerException, InvalidRequestException, ResourceInUseException, ResourceLimitExceededException, ResourceNotFoundException, ResourceUnavailableException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Inspects a batch of documents and returns an inference of the prevailing sentiment,
  * `POSITIVE`, `NEUTRAL`, `MIXED`, or `NEGATIVE`,
  * in each one.
- */export const batchDetectSentiment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/", method: "POST", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.BatchDetectSentiment" }, BatchDetectSentimentRequest, BatchDetectSentimentResponse, [BatchSizeLimitExceededException, InternalServerException, InvalidRequestException, TextSizeLimitExceededException, UnsupportedLanguageException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const batchDetectSentiment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.BatchDetectSentiment" }, BatchDetectSentimentRequest, BatchDetectSentimentResponse, [BatchSizeLimitExceededException, InternalServerException, InvalidRequestException, TextSizeLimitExceededException, UnsupportedLanguageException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Inspects the text of a batch of documents for the syntax and part of speech of the words
  * in the document and returns information about them. For more information, see
  * Syntax in the Comprehend Developer Guide.
- */export const batchDetectSyntax = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/", method: "POST", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.BatchDetectSyntax" }, BatchDetectSyntaxRequest, BatchDetectSyntaxResponse, [BatchSizeLimitExceededException, InternalServerException, InvalidRequestException, TextSizeLimitExceededException, UnsupportedLanguageException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const batchDetectSyntax = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.BatchDetectSyntax" }, BatchDetectSyntaxRequest, BatchDetectSyntaxResponse, [BatchSizeLimitExceededException, InternalServerException, InvalidRequestException, TextSizeLimitExceededException, UnsupportedLanguageException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Inspects a batch of documents and returns a sentiment analysis
  * for each entity identified in the documents.
  * 
- * 
  * For more information about targeted sentiment, see Targeted sentiment in the *Amazon Comprehend Developer Guide*.
- */export const batchDetectTargetedSentiment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/", method: "POST", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.BatchDetectTargetedSentiment" }, BatchDetectTargetedSentimentRequest, BatchDetectTargetedSentimentResponse, [BatchSizeLimitExceededException, InternalServerException, InvalidRequestException, TextSizeLimitExceededException, UnsupportedLanguageException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const batchDetectTargetedSentiment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.BatchDetectTargetedSentiment" }, BatchDetectTargetedSentimentRequest, BatchDetectTargetedSentimentResponse, [BatchSizeLimitExceededException, InternalServerException, InvalidRequestException, TextSizeLimitExceededException, UnsupportedLanguageException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Analyzes input text for the presence of personally identifiable information (PII) and
  * returns the labels of identified PII entity types such as name, address, bank account number,
  * or phone number.
- */export const containsPiiEntities = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/", method: "POST", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.ContainsPiiEntities" }, ContainsPiiEntitiesRequest, ContainsPiiEntitiesResponse, [InternalServerException, InvalidRequestException, TextSizeLimitExceededException, UnsupportedLanguageException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const containsPiiEntities = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.ContainsPiiEntities" }, ContainsPiiEntitiesRequest, ContainsPiiEntitiesResponse, [InternalServerException, InvalidRequestException, TextSizeLimitExceededException, UnsupportedLanguageException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a model-specific endpoint for synchronous inference for a previously trained
  * custom model
  * For information about endpoints, see Managing endpoints.
- */export const createEndpoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/", method: "POST", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.CreateEndpoint" }, CreateEndpointRequest, CreateEndpointResponse, [InternalServerException, InvalidRequestException, ResourceInUseException, ResourceLimitExceededException, ResourceNotFoundException, ResourceUnavailableException, TooManyRequestsException, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createEndpoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.CreateEndpoint" }, CreateEndpointRequest, CreateEndpointResponse, [InternalServerException, InvalidRequestException, ResourceInUseException, ResourceLimitExceededException, ResourceNotFoundException, ResourceUnavailableException, TooManyRequestsException, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a previously created document classifier
- * 
  * 
  * Only those classifiers that are in terminated states (IN_ERROR, TRAINED) will be deleted.
  * If an active inference job is using the model, a `ResourceInUseException` will be
  * returned.
  * 
- * 
  * This is an asynchronous action that puts the classifier into a DELETING state, and it is
  * then removed by a background job. Once removed, the classifier disappears from your account
  * and is no longer available for use.
- */export const deleteDocumentClassifier = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/", method: "POST", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.DeleteDocumentClassifier" }, DeleteDocumentClassifierRequest, DeleteDocumentClassifierResponse, [InternalServerException, InvalidRequestException, ResourceInUseException, ResourceNotFoundException, ResourceUnavailableException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteDocumentClassifier = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.DeleteDocumentClassifier" }, DeleteDocumentClassifierRequest, DeleteDocumentClassifierResponse, [InternalServerException, InvalidRequestException, ResourceInUseException, ResourceNotFoundException, ResourceUnavailableException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a model-specific endpoint for a previously-trained custom model. All endpoints
  * must be deleted in order for the model to be deleted.
  * For information about endpoints, see Managing endpoints.
- */export const deleteEndpoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/", method: "POST", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.DeleteEndpoint" }, DeleteEndpointRequest, DeleteEndpointResponse, [InternalServerException, InvalidRequestException, ResourceInUseException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteEndpoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.DeleteEndpoint" }, DeleteEndpointRequest, DeleteEndpointResponse, [InternalServerException, InvalidRequestException, ResourceInUseException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about the dataset that you specify.
  * For more information about datasets, see
  * Flywheel overview in the *Amazon Comprehend Developer Guide*.
- */export const describeDataset = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/", method: "POST", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.DescribeDataset" }, DescribeDatasetRequest, DescribeDatasetResponse, [InternalServerException, InvalidRequestException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeDataset = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.DescribeDataset" }, DescribeDatasetRequest, DescribeDatasetResponse, [InternalServerException, InvalidRequestException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets the properties associated with a document classification job. Use this operation to
  * get the status of a classification job.
- */export const describeDocumentClassificationJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/", method: "POST", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.DescribeDocumentClassificationJob" }, DescribeDocumentClassificationJobRequest, DescribeDocumentClassificationJobResponse, [InternalServerException, InvalidRequestException, JobNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeDocumentClassificationJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.DescribeDocumentClassificationJob" }, DescribeDocumentClassificationJobRequest, DescribeDocumentClassificationJobResponse, [InternalServerException, InvalidRequestException, JobNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets the properties associated with a dominant language detection job. Use this operation
  * to get the status of a detection job.
- */export const describeDominantLanguageDetectionJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/", method: "POST", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.DescribeDominantLanguageDetectionJob" }, DescribeDominantLanguageDetectionJobRequest, DescribeDominantLanguageDetectionJobResponse, [InternalServerException, InvalidRequestException, JobNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeDominantLanguageDetectionJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.DescribeDominantLanguageDetectionJob" }, DescribeDominantLanguageDetectionJobRequest, DescribeDominantLanguageDetectionJobResponse, [InternalServerException, InvalidRequestException, JobNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets the properties associated with a specific endpoint. Use this operation to get the
  * status of an endpoint.
  * For information about endpoints, see Managing endpoints.
- */export const describeEndpoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/", method: "POST", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.DescribeEndpoint" }, DescribeEndpointRequest, DescribeEndpointResponse, [InternalServerException, InvalidRequestException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeEndpoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.DescribeEndpoint" }, DescribeEndpointRequest, DescribeEndpointResponse, [InternalServerException, InvalidRequestException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets the properties associated with an entities detection job. Use this operation to get
  * the status of a detection job.
- */export const describeEntitiesDetectionJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/", method: "POST", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.DescribeEntitiesDetectionJob" }, DescribeEntitiesDetectionJobRequest, DescribeEntitiesDetectionJobResponse, [InternalServerException, InvalidRequestException, JobNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeEntitiesDetectionJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.DescribeEntitiesDetectionJob" }, DescribeEntitiesDetectionJobRequest, DescribeEntitiesDetectionJobResponse, [InternalServerException, InvalidRequestException, JobNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets the status and details of an events detection job.
- */export const describeEventsDetectionJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/", method: "POST", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.DescribeEventsDetectionJob" }, DescribeEventsDetectionJobRequest, DescribeEventsDetectionJobResponse, [InternalServerException, InvalidRequestException, JobNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeEventsDetectionJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.DescribeEventsDetectionJob" }, DescribeEventsDetectionJobRequest, DescribeEventsDetectionJobResponse, [InternalServerException, InvalidRequestException, JobNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Provides configuration information about the flywheel. For more information about flywheels, see
  * Flywheel overview in the *Amazon Comprehend Developer Guide*.
- */export const describeFlywheel = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/", method: "POST", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.DescribeFlywheel" }, DescribeFlywheelRequest, DescribeFlywheelResponse, [InternalServerException, InvalidRequestException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeFlywheel = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.DescribeFlywheel" }, DescribeFlywheelRequest, DescribeFlywheelResponse, [InternalServerException, InvalidRequestException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets the properties associated with a key phrases detection job. Use this operation to get
  * the status of a detection job.
- */export const describeKeyPhrasesDetectionJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/", method: "POST", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.DescribeKeyPhrasesDetectionJob" }, DescribeKeyPhrasesDetectionJobRequest, DescribeKeyPhrasesDetectionJobResponse, [InternalServerException, InvalidRequestException, JobNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeKeyPhrasesDetectionJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.DescribeKeyPhrasesDetectionJob" }, DescribeKeyPhrasesDetectionJobRequest, DescribeKeyPhrasesDetectionJobResponse, [InternalServerException, InvalidRequestException, JobNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets the properties associated with a sentiment detection job. Use this operation to get
  * the status of a detection job.
- */export const describeSentimentDetectionJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/", method: "POST", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.DescribeSentimentDetectionJob" }, DescribeSentimentDetectionJobRequest, DescribeSentimentDetectionJobResponse, [InternalServerException, InvalidRequestException, JobNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeSentimentDetectionJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.DescribeSentimentDetectionJob" }, DescribeSentimentDetectionJobRequest, DescribeSentimentDetectionJobResponse, [InternalServerException, InvalidRequestException, JobNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets the properties associated with a targeted sentiment detection job. Use this operation
  * to get the status of the job.
- */export const describeTargetedSentimentDetectionJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/", method: "POST", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.DescribeTargetedSentimentDetectionJob" }, DescribeTargetedSentimentDetectionJobRequest, DescribeTargetedSentimentDetectionJobResponse, [InternalServerException, InvalidRequestException, JobNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeTargetedSentimentDetectionJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.DescribeTargetedSentimentDetectionJob" }, DescribeTargetedSentimentDetectionJobRequest, DescribeTargetedSentimentDetectionJobResponse, [InternalServerException, InvalidRequestException, JobNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets the properties associated with a topic detection job. Use this operation to get
  * the status of a detection job.
- */export const describeTopicsDetectionJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/", method: "POST", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.DescribeTopicsDetectionJob" }, DescribeTopicsDetectionJobRequest, DescribeTopicsDetectionJobResponse, [InternalServerException, InvalidRequestException, JobNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeTopicsDetectionJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.DescribeTopicsDetectionJob" }, DescribeTopicsDetectionJobRequest, DescribeTopicsDetectionJobResponse, [InternalServerException, InvalidRequestException, JobNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Determines the dominant language of the input text. For a list of languages that Amazon
  * Comprehend can detect, see Amazon Comprehend Supported Languages.
- */export const detectDominantLanguage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/", method: "POST", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.DetectDominantLanguage" }, DetectDominantLanguageRequest, DetectDominantLanguageResponse, [InternalServerException, InvalidRequestException, TextSizeLimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const detectDominantLanguage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.DetectDominantLanguage" }, DetectDominantLanguageRequest, DetectDominantLanguageResponse, [InternalServerException, InvalidRequestException, TextSizeLimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Detects the key noun phrases found in the text.
- */export const detectKeyPhrases = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/", method: "POST", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.DetectKeyPhrases" }, DetectKeyPhrasesRequest, DetectKeyPhrasesResponse, [InternalServerException, InvalidRequestException, TextSizeLimitExceededException, UnsupportedLanguageException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const detectKeyPhrases = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.DetectKeyPhrases" }, DetectKeyPhrasesRequest, DetectKeyPhrasesResponse, [InternalServerException, InvalidRequestException, TextSizeLimitExceededException, UnsupportedLanguageException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Inspects the input text for entities that contain personally identifiable information
  * (PII) and returns information about them.
- */export const detectPiiEntities = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/", method: "POST", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.DetectPiiEntities" }, DetectPiiEntitiesRequest, DetectPiiEntitiesResponse, [InternalServerException, InvalidRequestException, TextSizeLimitExceededException, UnsupportedLanguageException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const detectPiiEntities = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.DetectPiiEntities" }, DetectPiiEntitiesRequest, DetectPiiEntitiesResponse, [InternalServerException, InvalidRequestException, TextSizeLimitExceededException, UnsupportedLanguageException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Inspects text and returns an inference of the prevailing sentiment
  * (`POSITIVE`, `NEUTRAL`, `MIXED`, or `NEGATIVE`).
- */export const detectSentiment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/", method: "POST", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.DetectSentiment" }, DetectSentimentRequest, DetectSentimentResponse, [InternalServerException, InvalidRequestException, TextSizeLimitExceededException, UnsupportedLanguageException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const detectSentiment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.DetectSentiment" }, DetectSentimentRequest, DetectSentimentResponse, [InternalServerException, InvalidRequestException, TextSizeLimitExceededException, UnsupportedLanguageException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new custom model that replicates a source custom model that you import. The
  * source model can be in your Amazon Web Services account or another one.
  * 
- * 
  * If the source model is in another Amazon Web Services account, then it must have a resource-based policy
  * that authorizes you to import it.
  * 
- * 
  * The source model must be in the same Amazon Web Services Region that you're using when you import. You
  * can't import a model that's in a different Region.
- */export const importModel = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/", method: "POST", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.ImportModel" }, ImportModelRequest, ImportModelResponse, [InternalServerException, InvalidRequestException, KmsKeyValidationException, ResourceInUseException, ResourceLimitExceededException, ResourceNotFoundException, ResourceUnavailableException, TooManyRequestsException, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const importModel = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.ImportModel" }, ImportModelRequest, ImportModelResponse, [InternalServerException, InvalidRequestException, KmsKeyValidationException, ResourceInUseException, ResourceLimitExceededException, ResourceNotFoundException, ResourceUnavailableException, TooManyRequestsException, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets a list of the documentation classification jobs that you have submitted.
- */export const listDocumentClassificationJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/", method: "POST", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.ListDocumentClassificationJobs" }, ListDocumentClassificationJobsRequest, ListDocumentClassificationJobsResponse, [InternalServerException, InvalidFilterException, InvalidRequestException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listDocumentClassificationJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.ListDocumentClassificationJobs" }, ListDocumentClassificationJobsRequest, ListDocumentClassificationJobsResponse, [InternalServerException, InvalidFilterException, InvalidRequestException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets a list of the document classifiers that you have created.
- */export const listDocumentClassifiers = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/", method: "POST", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.ListDocumentClassifiers" }, ListDocumentClassifiersRequest, ListDocumentClassifiersResponse, [InternalServerException, InvalidFilterException, InvalidRequestException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listDocumentClassifiers = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.ListDocumentClassifiers" }, ListDocumentClassifiersRequest, ListDocumentClassifiersResponse, [InternalServerException, InvalidFilterException, InvalidRequestException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets a list of summaries of the document classifiers that you have created
- */export const listDocumentClassifierSummaries = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/", method: "POST", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.ListDocumentClassifierSummaries" }, ListDocumentClassifierSummariesRequest, ListDocumentClassifierSummariesResponse, [InternalServerException, InvalidRequestException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listDocumentClassifierSummaries = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.ListDocumentClassifierSummaries" }, ListDocumentClassifierSummariesRequest, ListDocumentClassifierSummariesResponse, [InternalServerException, InvalidRequestException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets a list of the dominant language detection jobs that you have submitted.
- */export const listDominantLanguageDetectionJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/", method: "POST", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.ListDominantLanguageDetectionJobs" }, ListDominantLanguageDetectionJobsRequest, ListDominantLanguageDetectionJobsResponse, [InternalServerException, InvalidFilterException, InvalidRequestException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listDominantLanguageDetectionJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.ListDominantLanguageDetectionJobs" }, ListDominantLanguageDetectionJobsRequest, ListDominantLanguageDetectionJobsResponse, [InternalServerException, InvalidFilterException, InvalidRequestException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets a list of all existing endpoints that you've created.
  * For information about endpoints, see Managing endpoints.
- */export const listEndpoints = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/", method: "POST", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.ListEndpoints" }, ListEndpointsRequest, ListEndpointsResponse, [InternalServerException, InvalidRequestException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listEndpoints = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.ListEndpoints" }, ListEndpointsRequest, ListEndpointsResponse, [InternalServerException, InvalidRequestException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets a list of the entity detection jobs that you have submitted.
- */export const listEntitiesDetectionJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/", method: "POST", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.ListEntitiesDetectionJobs" }, ListEntitiesDetectionJobsRequest, ListEntitiesDetectionJobsResponse, [InternalServerException, InvalidFilterException, InvalidRequestException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listEntitiesDetectionJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.ListEntitiesDetectionJobs" }, ListEntitiesDetectionJobsRequest, ListEntitiesDetectionJobsResponse, [InternalServerException, InvalidFilterException, InvalidRequestException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets a list of the properties of all entity recognizers that you created, including
  * recognizers currently in training. Allows you to filter the list of recognizers based on
  * criteria such as status and submission time. This call returns up to 500 entity recognizers in
  * the list, with a default number of 100 recognizers in the list.
  * 
- * 
  * The results of this list are not in any particular order. Please get the list and sort
  * locally if needed.
- */export const listEntityRecognizers = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/", method: "POST", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.ListEntityRecognizers" }, ListEntityRecognizersRequest, ListEntityRecognizersResponse, [InternalServerException, InvalidFilterException, InvalidRequestException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listEntityRecognizers = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.ListEntityRecognizers" }, ListEntityRecognizersRequest, ListEntityRecognizersResponse, [InternalServerException, InvalidFilterException, InvalidRequestException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets a list of summaries for the entity recognizers that you have created.
- */export const listEntityRecognizerSummaries = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/", method: "POST", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.ListEntityRecognizerSummaries" }, ListEntityRecognizerSummariesRequest, ListEntityRecognizerSummariesResponse, [InternalServerException, InvalidRequestException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listEntityRecognizerSummaries = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.ListEntityRecognizerSummaries" }, ListEntityRecognizerSummariesRequest, ListEntityRecognizerSummariesResponse, [InternalServerException, InvalidRequestException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets a list of the events detection jobs that you have submitted.
- */export const listEventsDetectionJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/", method: "POST", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.ListEventsDetectionJobs" }, ListEventsDetectionJobsRequest, ListEventsDetectionJobsResponse, [InternalServerException, InvalidFilterException, InvalidRequestException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listEventsDetectionJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.ListEventsDetectionJobs" }, ListEventsDetectionJobsRequest, ListEventsDetectionJobsResponse, [InternalServerException, InvalidFilterException, InvalidRequestException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Information about the history of a flywheel iteration.
  * For more information about flywheels, see
  * Flywheel overview in the *Amazon Comprehend Developer Guide*.
- */export const listFlywheelIterationHistory = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/", method: "POST", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.ListFlywheelIterationHistory" }, ListFlywheelIterationHistoryRequest, ListFlywheelIterationHistoryResponse, [InternalServerException, InvalidFilterException, InvalidRequestException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listFlywheelIterationHistory = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.ListFlywheelIterationHistory" }, ListFlywheelIterationHistoryRequest, ListFlywheelIterationHistoryResponse, [InternalServerException, InvalidFilterException, InvalidRequestException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Get a list of key phrase detection jobs that you have submitted.
- */export const listKeyPhrasesDetectionJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/", method: "POST", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.ListKeyPhrasesDetectionJobs" }, ListKeyPhrasesDetectionJobsRequest, ListKeyPhrasesDetectionJobsResponse, [InternalServerException, InvalidFilterException, InvalidRequestException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listKeyPhrasesDetectionJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.ListKeyPhrasesDetectionJobs" }, ListKeyPhrasesDetectionJobsRequest, ListKeyPhrasesDetectionJobsResponse, [InternalServerException, InvalidFilterException, InvalidRequestException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets a list of the PII entity detection jobs that you have submitted.
- */export const listPiiEntitiesDetectionJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/", method: "POST", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.ListPiiEntitiesDetectionJobs" }, ListPiiEntitiesDetectionJobsRequest, ListPiiEntitiesDetectionJobsResponse, [InternalServerException, InvalidFilterException, InvalidRequestException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listPiiEntitiesDetectionJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.ListPiiEntitiesDetectionJobs" }, ListPiiEntitiesDetectionJobsRequest, ListPiiEntitiesDetectionJobsResponse, [InternalServerException, InvalidFilterException, InvalidRequestException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets a list of sentiment detection jobs that you have submitted.
- */export const listSentimentDetectionJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/", method: "POST", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.ListSentimentDetectionJobs" }, ListSentimentDetectionJobsRequest, ListSentimentDetectionJobsResponse, [InternalServerException, InvalidFilterException, InvalidRequestException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listSentimentDetectionJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.ListSentimentDetectionJobs" }, ListSentimentDetectionJobsRequest, ListSentimentDetectionJobsResponse, [InternalServerException, InvalidFilterException, InvalidRequestException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets a list of targeted sentiment detection jobs that you have submitted.
- */export const listTargetedSentimentDetectionJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/", method: "POST", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.ListTargetedSentimentDetectionJobs" }, ListTargetedSentimentDetectionJobsRequest, ListTargetedSentimentDetectionJobsResponse, [InternalServerException, InvalidFilterException, InvalidRequestException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listTargetedSentimentDetectionJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.ListTargetedSentimentDetectionJobs" }, ListTargetedSentimentDetectionJobsRequest, ListTargetedSentimentDetectionJobsResponse, [InternalServerException, InvalidFilterException, InvalidRequestException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets a list of the topic detection jobs that you have submitted.
- */export const listTopicsDetectionJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/", method: "POST", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.ListTopicsDetectionJobs" }, ListTopicsDetectionJobsRequest, ListTopicsDetectionJobsResponse, [InternalServerException, InvalidFilterException, InvalidRequestException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listTopicsDetectionJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.ListTopicsDetectionJobs" }, ListTopicsDetectionJobsRequest, ListTopicsDetectionJobsResponse, [InternalServerException, InvalidFilterException, InvalidRequestException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts an asynchronous document classification job using a custom classification model. Use the
  * `DescribeDocumentClassificationJob`
  * operation to track the progress of the job.
- */export const startDocumentClassificationJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/", method: "POST", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.StartDocumentClassificationJob" }, StartDocumentClassificationJobRequest, StartDocumentClassificationJobResponse, [InternalServerException, InvalidRequestException, KmsKeyValidationException, ResourceInUseException, ResourceNotFoundException, ResourceUnavailableException, TooManyRequestsException, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startDocumentClassificationJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.StartDocumentClassificationJob" }, StartDocumentClassificationJobRequest, StartDocumentClassificationJobResponse, [InternalServerException, InvalidRequestException, KmsKeyValidationException, ResourceInUseException, ResourceNotFoundException, ResourceUnavailableException, TooManyRequestsException, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts an asynchronous dominant language detection job for a collection of documents. Use
  * the operation to track the status
  * of a job.
- */export const startDominantLanguageDetectionJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/", method: "POST", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.StartDominantLanguageDetectionJob" }, StartDominantLanguageDetectionJobRequest, StartDominantLanguageDetectionJobResponse, [InternalServerException, InvalidRequestException, KmsKeyValidationException, ResourceInUseException, TooManyRequestsException, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startDominantLanguageDetectionJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.StartDominantLanguageDetectionJob" }, StartDominantLanguageDetectionJobRequest, StartDominantLanguageDetectionJobResponse, [InternalServerException, InvalidRequestException, KmsKeyValidationException, ResourceInUseException, TooManyRequestsException, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts an asynchronous PII entity detection job for a collection of documents.
- */export const startPiiEntitiesDetectionJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/", method: "POST", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.StartPiiEntitiesDetectionJob" }, StartPiiEntitiesDetectionJobRequest, StartPiiEntitiesDetectionJobResponse, [InternalServerException, InvalidRequestException, KmsKeyValidationException, ResourceInUseException, TooManyRequestsException, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startPiiEntitiesDetectionJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.StartPiiEntitiesDetectionJob" }, StartPiiEntitiesDetectionJobRequest, StartPiiEntitiesDetectionJobResponse, [InternalServerException, InvalidRequestException, KmsKeyValidationException, ResourceInUseException, TooManyRequestsException, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Stops a dominant language detection job in progress.
- * 
  * 
  * If the job state is `IN_PROGRESS` the job is marked for termination and put
  * into the `STOP_REQUESTED` state. If the job completes before it can be stopped, it
  * is put into the `COMPLETED` state; otherwise the job is stopped and put into the
  * `STOPPED` state.
  * 
- * 
  * If the job is in the `COMPLETED` or `FAILED` state when you call the
  * `StopDominantLanguageDetectionJob` operation, the operation returns a 400
  * Internal Request Exception.
  * 
- * 
  * When a job is stopped, any documents already processed are written to the output
  * location.
- */export const stopDominantLanguageDetectionJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/", method: "POST", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.StopDominantLanguageDetectionJob" }, StopDominantLanguageDetectionJobRequest, StopDominantLanguageDetectionJobResponse, [InternalServerException, InvalidRequestException, JobNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const stopDominantLanguageDetectionJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.StopDominantLanguageDetectionJob" }, StopDominantLanguageDetectionJobRequest, StopDominantLanguageDetectionJobResponse, [InternalServerException, InvalidRequestException, JobNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Update the configuration information for an existing flywheel.
- */export const updateFlywheel = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/", method: "POST", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.UpdateFlywheel" }, UpdateFlywheelRequest, UpdateFlywheelResponse, [InternalServerException, InvalidRequestException, KmsKeyValidationException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateFlywheel = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.UpdateFlywheel" }, UpdateFlywheelRequest, UpdateFlywheelResponse, [InternalServerException, InvalidRequestException, KmsKeyValidationException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Determines the dominant language of the input text for a batch of documents. For a list
  * of languages that Amazon Comprehend can detect, see Amazon Comprehend Supported Languages.
- */export const batchDetectDominantLanguage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/", method: "POST", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.BatchDetectDominantLanguage" }, BatchDetectDominantLanguageRequest, BatchDetectDominantLanguageResponse, [BatchSizeLimitExceededException, InternalServerException, InvalidRequestException, TextSizeLimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const batchDetectDominantLanguage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.BatchDetectDominantLanguage" }, BatchDetectDominantLanguageRequest, BatchDetectDominantLanguageResponse, [BatchSizeLimitExceededException, InternalServerException, InvalidRequestException, TextSizeLimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Inspects the text of a batch of documents for named entities and returns information
  * about them. For more information about named entities, see
  * Entities in the Comprehend Developer Guide.
- */export const batchDetectEntities = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/", method: "POST", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.BatchDetectEntities" }, BatchDetectEntitiesRequest, BatchDetectEntitiesResponse, [BatchSizeLimitExceededException, InternalServerException, InvalidRequestException, TextSizeLimitExceededException, UnsupportedLanguageException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const batchDetectEntities = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.BatchDetectEntities" }, BatchDetectEntitiesRequest, BatchDetectEntitiesResponse, [BatchSizeLimitExceededException, InternalServerException, InvalidRequestException, TextSizeLimitExceededException, UnsupportedLanguageException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Detects the key noun phrases found in a batch of documents.
- */export const batchDetectKeyPhrases = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/", method: "POST", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.BatchDetectKeyPhrases" }, BatchDetectKeyPhrasesRequest, BatchDetectKeyPhrasesResponse, [BatchSizeLimitExceededException, InternalServerException, InvalidRequestException, TextSizeLimitExceededException, UnsupportedLanguageException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const batchDetectKeyPhrases = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.BatchDetectKeyPhrases" }, BatchDetectKeyPhrasesRequest, BatchDetectKeyPhrasesResponse, [BatchSizeLimitExceededException, InternalServerException, InvalidRequestException, TextSizeLimitExceededException, UnsupportedLanguageException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a classification request to analyze a single document in real-time. `ClassifyDocument`
  * supports the following model types:
  * 
- * 
- * 
  * - Custom classifier - a custom model that you have created and trained.
  * For input, you can provide plain text, a single-page document (PDF, Word, or image), or
  * Amazon Textract API output. For more information, see Custom classification in the *Amazon Comprehend Developer Guide*.
- * 
- * 
  * 
  * - Prompt safety classifier - Amazon Comprehend provides a pre-trained model for classifying
  * input prompts for generative AI applications.
@@ -779,119 +748,104 @@ export class InvalidFilterException extends S.TaggedError<InvalidFilterException
  * For prompt safety classification, the response includes only the `Classes` field.
  * For more information about prompt safety classifiers, see Prompt safety classification in the *Amazon Comprehend Developer Guide*.
  * 
- * 
- * 
- * 
- * 
  * If the system detects errors while processing a page in the input document,
  * the API response includes an `Errors` field that describes the errors.
- * 
  * 
  * If the system detects a document-level error in your input document, the API returns an
  * `InvalidRequestException` error response.
  * For details about this exception, see
  * 
  * Errors in semi-structured documents in the Comprehend Developer Guide.
- */export const classifyDocument = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/", method: "POST", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.ClassifyDocument" }, ClassifyDocumentRequest, ClassifyDocumentResponse, [InternalServerException, InvalidRequestException, ResourceUnavailableException, TextSizeLimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const classifyDocument = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.ClassifyDocument" }, ClassifyDocumentRequest, ClassifyDocumentResponse, [InternalServerException, InvalidRequestException, ResourceUnavailableException, TextSizeLimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new document classifier that you can use to categorize documents. To create a
  * classifier, you provide a set of training documents that are labeled with the categories that you
  * want to use. For more information, see
  * Training classifier models
  * in the Comprehend Developer Guide.
- */export const createDocumentClassifier = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/", method: "POST", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.CreateDocumentClassifier" }, CreateDocumentClassifierRequest, CreateDocumentClassifierResponse, [InternalServerException, InvalidRequestException, KmsKeyValidationException, ResourceInUseException, ResourceLimitExceededException, TooManyRequestsException, TooManyTagsException, UnsupportedLanguageException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createDocumentClassifier = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.CreateDocumentClassifier" }, CreateDocumentClassifierRequest, CreateDocumentClassifierResponse, [InternalServerException, InvalidRequestException, KmsKeyValidationException, ResourceInUseException, ResourceLimitExceededException, TooManyRequestsException, TooManyTagsException, UnsupportedLanguageException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an entity recognizer using submitted files. After your
  * `CreateEntityRecognizer` request is submitted, you can check job status using the
  * `DescribeEntityRecognizer` API.
- */export const createEntityRecognizer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/", method: "POST", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.CreateEntityRecognizer" }, CreateEntityRecognizerRequest, CreateEntityRecognizerResponse, [InternalServerException, InvalidRequestException, KmsKeyValidationException, ResourceInUseException, ResourceLimitExceededException, TooManyRequestsException, TooManyTagsException, UnsupportedLanguageException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createEntityRecognizer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.CreateEntityRecognizer" }, CreateEntityRecognizerRequest, CreateEntityRecognizerResponse, [InternalServerException, InvalidRequestException, KmsKeyValidationException, ResourceInUseException, ResourceLimitExceededException, TooManyRequestsException, TooManyTagsException, UnsupportedLanguageException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * A flywheel is an Amazon Web Services resource that orchestrates the ongoing training of a model for custom classification
  * or custom entity recognition. You can create a flywheel to start with an existing trained model, or
  * Comprehend can create and train a new model.
  * 
- * 
  * When you create the flywheel, Comprehend creates a data lake in your account. The data lake holds the training
  * data and test data for all versions of the model.
- * 
  * 
  * To use a flywheel with an existing trained model, you specify the active model version. Comprehend copies the model's
  * training data and test data into the flywheel's data lake.
  * 
- * 
  * To use the flywheel with a new model, you need to provide a dataset for training data (and optional test data)
  * when you create the flywheel.
  * 
- * 
  * For more information about flywheels, see
  * Flywheel overview in the *Amazon Comprehend Developer Guide*.
- */export const createFlywheel = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/", method: "POST", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.CreateFlywheel" }, CreateFlywheelRequest, CreateFlywheelResponse, [InternalServerException, InvalidRequestException, KmsKeyValidationException, ResourceInUseException, ResourceLimitExceededException, ResourceNotFoundException, ResourceUnavailableException, TooManyRequestsException, TooManyTagsException, UnsupportedLanguageException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createFlywheel = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.CreateFlywheel" }, CreateFlywheelRequest, CreateFlywheelResponse, [InternalServerException, InvalidRequestException, KmsKeyValidationException, ResourceInUseException, ResourceLimitExceededException, ResourceNotFoundException, ResourceUnavailableException, TooManyRequestsException, TooManyTagsException, UnsupportedLanguageException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieve the configuration properties of a flywheel iteration.
  * For more information about flywheels, see
  * Flywheel overview in the *Amazon Comprehend Developer Guide*.
- */export const describeFlywheelIteration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/", method: "POST", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.DescribeFlywheelIteration" }, DescribeFlywheelIterationRequest, DescribeFlywheelIterationResponse, [InternalServerException, InvalidRequestException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeFlywheelIteration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.DescribeFlywheelIteration" }, DescribeFlywheelIterationRequest, DescribeFlywheelIterationResponse, [InternalServerException, InvalidRequestException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets the properties associated with a PII entities detection job. For example, you can use
  * this operation to get the job status.
- */export const describePiiEntitiesDetectionJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/", method: "POST", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.DescribePiiEntitiesDetectionJob" }, DescribePiiEntitiesDetectionJobRequest, DescribePiiEntitiesDetectionJobResponse, [InternalServerException, InvalidRequestException, JobNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describePiiEntitiesDetectionJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.DescribePiiEntitiesDetectionJob" }, DescribePiiEntitiesDetectionJobRequest, DescribePiiEntitiesDetectionJobResponse, [InternalServerException, InvalidRequestException, JobNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Inspects text for syntax and the part of speech of words in the document. For more
  * information, see
  * Syntax in the Comprehend Developer Guide.
- */export const detectSyntax = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/", method: "POST", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.DetectSyntax" }, DetectSyntaxRequest, DetectSyntaxResponse, [InternalServerException, InvalidRequestException, TextSizeLimitExceededException, UnsupportedLanguageException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const detectSyntax = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.DetectSyntax" }, DetectSyntaxRequest, DetectSyntaxResponse, [InternalServerException, InvalidRequestException, TextSizeLimitExceededException, UnsupportedLanguageException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * List the datasets that you have configured in this Region. For more information about datasets, see
  * Flywheel overview in the *Amazon Comprehend Developer Guide*.
- */export const listDatasets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/", method: "POST", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.ListDatasets" }, ListDatasetsRequest, ListDatasetsResponse, [InternalServerException, InvalidFilterException, InvalidRequestException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listDatasets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.ListDatasets" }, ListDatasetsRequest, ListDatasetsResponse, [InternalServerException, InvalidFilterException, InvalidRequestException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets a list of the flywheels that you have created.
- */export const listFlywheels = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/", method: "POST", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.ListFlywheels" }, ListFlywheelsRequest, ListFlywheelsResponse, [InternalServerException, InvalidFilterException, InvalidRequestException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listFlywheels = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.ListFlywheels" }, ListFlywheelsRequest, ListFlywheelsResponse, [InternalServerException, InvalidFilterException, InvalidRequestException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a dataset to upload training or test data for a model associated with a flywheel.
  * For more information about datasets, see
  * Flywheel overview in the *Amazon Comprehend Developer Guide*.
- */export const createDataset = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/", method: "POST", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.CreateDataset" }, CreateDatasetRequest, CreateDatasetResponse, [InternalServerException, InvalidRequestException, ResourceInUseException, ResourceLimitExceededException, ResourceNotFoundException, TooManyRequestsException, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createDataset = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.CreateDataset" }, CreateDatasetRequest, CreateDatasetResponse, [InternalServerException, InvalidRequestException, ResourceInUseException, ResourceLimitExceededException, ResourceNotFoundException, TooManyRequestsException, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets the properties associated with a document classifier.
- */export const describeDocumentClassifier = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/", method: "POST", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.DescribeDocumentClassifier" }, DescribeDocumentClassifierRequest, DescribeDocumentClassifierResponse, [InternalServerException, InvalidRequestException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeDocumentClassifier = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.DescribeDocumentClassifier" }, DescribeDocumentClassifierRequest, DescribeDocumentClassifierResponse, [InternalServerException, InvalidRequestException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Detects named entities in input text when you use the pre-trained model.
  * Detects custom entities if you have a custom entity recognition model.
- * 
- * 
  * 
  * When detecting named entities using the pre-trained model, use plain text as the input.
  * For more information about named entities, see
  * Entities in the Comprehend Developer Guide.
  * 
- * 
  * When you use a custom entity recognition model,
  * you can input plain text or you can upload a single-page input document (text, PDF, Word, or image).
  * 
- * 
  * If the system detects errors while processing a page in the input document, the API response
  * includes an entry in `Errors` for each error.
- * 
  * 
  * If the system detects a document-level error in your input document, the API returns an
  * `InvalidRequestException` error response.
  * For details about this exception, see
  * 
  * Errors in semi-structured documents in the Comprehend Developer Guide.
- */export const detectEntities = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/", method: "POST", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.DetectEntities" }, DetectEntitiesRequest, DetectEntitiesResponse, [InternalServerException, InvalidRequestException, ResourceUnavailableException, TextSizeLimitExceededException, UnsupportedLanguageException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const detectEntities = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.DetectEntities" }, DetectEntitiesRequest, DetectEntitiesResponse, [InternalServerException, InvalidRequestException, ResourceUnavailableException, TextSizeLimitExceededException, UnsupportedLanguageException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Inspects the input text and returns a sentiment analysis for each entity identified in the text.
  * 
- * 
  * For more information about targeted sentiment, see Targeted sentiment in the *Amazon Comprehend Developer Guide*.
- */export const detectTargetedSentiment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/", method: "POST", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.DetectTargetedSentiment" }, DetectTargetedSentimentRequest, DetectTargetedSentimentResponse, [InternalServerException, InvalidRequestException, TextSizeLimitExceededException, UnsupportedLanguageException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const detectTargetedSentiment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.DetectTargetedSentiment" }, DetectTargetedSentimentRequest, DetectTargetedSentimentResponse, [InternalServerException, InvalidRequestException, TextSizeLimitExceededException, UnsupportedLanguageException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Performs toxicity analysis on the list of text strings that you provide as input.
  * The API response contains a results list that matches the size of the input list.
  * For more information about toxicity detection, see Toxicity detection in the *Amazon Comprehend Developer Guide*.
- */export const detectToxicContent = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/", method: "POST", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.DetectToxicContent" }, DetectToxicContentRequest, DetectToxicContentResponse, [InternalServerException, InvalidRequestException, TextSizeLimitExceededException, UnsupportedLanguageException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const detectToxicContent = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.DetectToxicContent" }, DetectToxicContentRequest, DetectToxicContentResponse, [InternalServerException, InvalidRequestException, TextSizeLimitExceededException, UnsupportedLanguageException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Provides details about an entity recognizer including status, S3 buckets containing
  * training data, recognizer metadata, metrics, and so on.
- */export const describeEntityRecognizer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/", method: "POST", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.DescribeEntityRecognizer" }, DescribeEntityRecognizerRequest, DescribeEntityRecognizerResponse, [InternalServerException, InvalidRequestException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeEntityRecognizer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", sdkId: "Comprehend", sigV4ServiceName: "comprehend", name: "Comprehend_20171127.DescribeEntityRecognizer" }, DescribeEntityRecognizerRequest, DescribeEntityRecognizerResponse, [InternalServerException, InvalidRequestException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

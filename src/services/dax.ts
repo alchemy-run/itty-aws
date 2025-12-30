@@ -115,128 +115,113 @@ export class SubnetQuotaExceededFault extends S.TaggedError<SubnetQuotaExceededF
 //# Operations
 /**
  * Returns the detailed parameter list for a particular parameter group.
- */export const describeParameters = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/", method: "POST", sdkId: "DAX", sigV4ServiceName: "dax", name: "AmazonDAXV3.DescribeParameters" }, DescribeParametersRequest, DescribeParametersResponse, [InvalidParameterCombinationException, InvalidParameterValueException, ParameterGroupNotFoundFault, ServiceLinkedRoleNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeParameters = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", sdkId: "DAX", sigV4ServiceName: "dax", name: "AmazonDAXV3.DescribeParameters" }, DescribeParametersRequest, DescribeParametersResponse, [InvalidParameterCombinationException, InvalidParameterValueException, ParameterGroupNotFoundFault, ServiceLinkedRoleNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a previously provisioned DAX cluster.
  * *DeleteCluster* deletes all associated nodes, node endpoints and
  * the DAX cluster itself. When you receive a successful response from this
  * action, DAX immediately begins deleting the cluster; you cannot cancel or
  * revert this action.
- */export const deleteCluster = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/", method: "POST", sdkId: "DAX", sigV4ServiceName: "dax", name: "AmazonDAXV3.DeleteCluster" }, DeleteClusterRequest, DeleteClusterResponse, [ClusterNotFoundFault, InvalidClusterStateFault, InvalidParameterCombinationException, InvalidParameterValueException, ServiceLinkedRoleNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteCluster = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", sdkId: "DAX", sigV4ServiceName: "dax", name: "AmazonDAXV3.DeleteCluster" }, DeleteClusterRequest, DeleteClusterResponse, [ClusterNotFoundFault, InvalidClusterStateFault, InvalidParameterCombinationException, InvalidParameterValueException, ServiceLinkedRoleNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the specified parameter group. You cannot delete a parameter group if it is
  * associated with any DAX clusters.
- */export const deleteParameterGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/", method: "POST", sdkId: "DAX", sigV4ServiceName: "dax", name: "AmazonDAXV3.DeleteParameterGroup" }, DeleteParameterGroupRequest, DeleteParameterGroupResponse, [InvalidParameterCombinationException, InvalidParameterGroupStateFault, InvalidParameterValueException, ParameterGroupNotFoundFault, ServiceLinkedRoleNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteParameterGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", sdkId: "DAX", sigV4ServiceName: "dax", name: "AmazonDAXV3.DeleteParameterGroup" }, DeleteParameterGroupRequest, DeleteParameterGroupResponse, [InvalidParameterCombinationException, InvalidParameterGroupStateFault, InvalidParameterValueException, ParameterGroupNotFoundFault, ServiceLinkedRoleNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about all provisioned DAX clusters if no cluster identifier is
  * specified, or about a specific DAX cluster if a cluster identifier is
  * supplied.
  * 
- * 
  * If the cluster is in the CREATING state, only cluster level information will be
  * displayed until all of the nodes are successfully provisioned.
  * 
- * 
  * If the cluster is in the DELETING state, only cluster level information will be
  * displayed.
- * 
  * 
  * If nodes are currently being added to the DAX cluster, node endpoint information
  * and creation time for the additional nodes will not be displayed until they are
  * completely provisioned. When the DAX cluster state is
  * *available*, the cluster is ready for use.
  * 
- * 
  * If nodes are currently being removed from the DAX cluster, no
  * endpoint information for the removed nodes is displayed.
- */export const describeClusters = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/", method: "POST", sdkId: "DAX", sigV4ServiceName: "dax", name: "AmazonDAXV3.DescribeClusters" }, DescribeClustersRequest, DescribeClustersResponse, [ClusterNotFoundFault, InvalidParameterCombinationException, InvalidParameterValueException, ServiceLinkedRoleNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeClusters = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", sdkId: "DAX", sigV4ServiceName: "dax", name: "AmazonDAXV3.DescribeClusters" }, DescribeClustersRequest, DescribeClustersResponse, [ClusterNotFoundFault, InvalidParameterCombinationException, InvalidParameterValueException, ServiceLinkedRoleNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns events related to DAX clusters and parameter groups. You can
  * obtain events specific to a particular DAX cluster or parameter group by
  * providing the name as a parameter.
  * 
- * 
  * By default, only the events occurring within the last 24 hours are returned;
  * however, you can retrieve up to 14 days' worth of events if necessary.
- */export const describeEvents = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/", method: "POST", sdkId: "DAX", sigV4ServiceName: "dax", name: "AmazonDAXV3.DescribeEvents" }, DescribeEventsRequest, DescribeEventsResponse, [InvalidParameterCombinationException, InvalidParameterValueException, ServiceLinkedRoleNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeEvents = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", sdkId: "DAX", sigV4ServiceName: "dax", name: "AmazonDAXV3.DescribeEvents" }, DescribeEventsRequest, DescribeEventsResponse, [InvalidParameterCombinationException, InvalidParameterValueException, ServiceLinkedRoleNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of parameter group descriptions. If a parameter group name is
  * specified, the list will contain only the descriptions for that group.
- */export const describeParameterGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/", method: "POST", sdkId: "DAX", sigV4ServiceName: "dax", name: "AmazonDAXV3.DescribeParameterGroups" }, DescribeParameterGroupsRequest, DescribeParameterGroupsResponse, [InvalidParameterCombinationException, InvalidParameterValueException, ParameterGroupNotFoundFault, ServiceLinkedRoleNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeParameterGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", sdkId: "DAX", sigV4ServiceName: "dax", name: "AmazonDAXV3.DescribeParameterGroups" }, DescribeParameterGroupsRequest, DescribeParameterGroupsResponse, [InvalidParameterCombinationException, InvalidParameterValueException, ParameterGroupNotFoundFault, ServiceLinkedRoleNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of subnet group descriptions. If a subnet group name is specified,
  * the list will contain only the description of that group.
- */export const describeSubnetGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/", method: "POST", sdkId: "DAX", sigV4ServiceName: "dax", name: "AmazonDAXV3.DescribeSubnetGroups" }, DescribeSubnetGroupsRequest, DescribeSubnetGroupsResponse, [ServiceLinkedRoleNotFoundFault, SubnetGroupNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeSubnetGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", sdkId: "DAX", sigV4ServiceName: "dax", name: "AmazonDAXV3.DescribeSubnetGroups" }, DescribeSubnetGroupsRequest, DescribeSubnetGroupsResponse, [ServiceLinkedRoleNotFoundFault, SubnetGroupNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * List all of the tags for a DAX cluster. You can call
  * `ListTags` up to 10 times per second, per account.
- */export const listTags = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/", method: "POST", sdkId: "DAX", sigV4ServiceName: "dax", name: "AmazonDAXV3.ListTags" }, ListTagsRequest, ListTagsResponse, [ClusterNotFoundFault, InvalidARNFault, InvalidClusterStateFault, InvalidParameterCombinationException, InvalidParameterValueException, ServiceLinkedRoleNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listTags = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", sdkId: "DAX", sigV4ServiceName: "dax", name: "AmazonDAXV3.ListTags" }, ListTagsRequest, ListTagsResponse, [ClusterNotFoundFault, InvalidARNFault, InvalidClusterStateFault, InvalidParameterCombinationException, InvalidParameterValueException, ServiceLinkedRoleNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Associates a set of tags with a DAX resource.
  * You can call `TagResource` up to
  * 5 times per second, per account.
- */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/", method: "POST", sdkId: "DAX", sigV4ServiceName: "dax", name: "AmazonDAXV3.TagResource" }, TagResourceRequest, TagResourceResponse, [ClusterNotFoundFault, InvalidARNFault, InvalidClusterStateFault, InvalidParameterCombinationException, InvalidParameterValueException, ServiceLinkedRoleNotFoundFault, TagQuotaPerResourceExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", sdkId: "DAX", sigV4ServiceName: "dax", name: "AmazonDAXV3.TagResource" }, TagResourceRequest, TagResourceResponse, [ClusterNotFoundFault, InvalidARNFault, InvalidClusterStateFault, InvalidParameterCombinationException, InvalidParameterValueException, ServiceLinkedRoleNotFoundFault, TagQuotaPerResourceExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes the association of tags from a DAX resource. You can call
  * `UntagResource` up to 5 times per second, per account.
- */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/", method: "POST", sdkId: "DAX", sigV4ServiceName: "dax", name: "AmazonDAXV3.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [ClusterNotFoundFault, InvalidARNFault, InvalidClusterStateFault, InvalidParameterCombinationException, InvalidParameterValueException, ServiceLinkedRoleNotFoundFault, TagNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", sdkId: "DAX", sigV4ServiceName: "dax", name: "AmazonDAXV3.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [ClusterNotFoundFault, InvalidARNFault, InvalidClusterStateFault, InvalidParameterCombinationException, InvalidParameterValueException, ServiceLinkedRoleNotFoundFault, TagNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Modifies the settings for a DAX cluster. You can use this action to
  * change one or more cluster configuration parameters by specifying the parameters and the
  * new values.
- */export const updateCluster = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/", method: "POST", sdkId: "DAX", sigV4ServiceName: "dax", name: "AmazonDAXV3.UpdateCluster" }, UpdateClusterRequest, UpdateClusterResponse, [ClusterNotFoundFault, InvalidClusterStateFault, InvalidParameterCombinationException, InvalidParameterGroupStateFault, InvalidParameterValueException, ParameterGroupNotFoundFault, ServiceLinkedRoleNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateCluster = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", sdkId: "DAX", sigV4ServiceName: "dax", name: "AmazonDAXV3.UpdateCluster" }, UpdateClusterRequest, UpdateClusterResponse, [ClusterNotFoundFault, InvalidClusterStateFault, InvalidParameterCombinationException, InvalidParameterGroupStateFault, InvalidParameterValueException, ParameterGroupNotFoundFault, ServiceLinkedRoleNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Modifies the parameters of a parameter group. You can modify up to 20 parameters in
  * a single request by submitting a list parameter name and value pairs.
- */export const updateParameterGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/", method: "POST", sdkId: "DAX", sigV4ServiceName: "dax", name: "AmazonDAXV3.UpdateParameterGroup" }, UpdateParameterGroupRequest, UpdateParameterGroupResponse, [InvalidParameterCombinationException, InvalidParameterGroupStateFault, InvalidParameterValueException, ParameterGroupNotFoundFault, ServiceLinkedRoleNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateParameterGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", sdkId: "DAX", sigV4ServiceName: "dax", name: "AmazonDAXV3.UpdateParameterGroup" }, UpdateParameterGroupRequest, UpdateParameterGroupResponse, [InvalidParameterCombinationException, InvalidParameterGroupStateFault, InvalidParameterValueException, ParameterGroupNotFoundFault, ServiceLinkedRoleNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes one or more nodes from a DAX cluster.
- * 
- * 
- * 
  * 
  * You cannot use `DecreaseReplicationFactor` to remove the last node
  * in a DAX cluster. If you need to do this, use
  * `DeleteCluster` instead.
- */export const decreaseReplicationFactor = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/", method: "POST", sdkId: "DAX", sigV4ServiceName: "dax", name: "AmazonDAXV3.DecreaseReplicationFactor" }, DecreaseReplicationFactorRequest, DecreaseReplicationFactorResponse, [ClusterNotFoundFault, InvalidClusterStateFault, InvalidParameterCombinationException, InvalidParameterValueException, NodeNotFoundFault, ServiceLinkedRoleNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const decreaseReplicationFactor = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", sdkId: "DAX", sigV4ServiceName: "dax", name: "AmazonDAXV3.DecreaseReplicationFactor" }, DecreaseReplicationFactorRequest, DecreaseReplicationFactorResponse, [ClusterNotFoundFault, InvalidClusterStateFault, InvalidParameterCombinationException, InvalidParameterValueException, NodeNotFoundFault, ServiceLinkedRoleNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a subnet group.
  * 
- * 
- * 
- * 
  * You cannot delete a subnet group if it is associated with any DAX
  * clusters.
- */export const deleteSubnetGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/", method: "POST", sdkId: "DAX", sigV4ServiceName: "dax", name: "AmazonDAXV3.DeleteSubnetGroup" }, DeleteSubnetGroupRequest, DeleteSubnetGroupResponse, [ServiceLinkedRoleNotFoundFault, SubnetGroupInUseFault, SubnetGroupNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteSubnetGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", sdkId: "DAX", sigV4ServiceName: "dax", name: "AmazonDAXV3.DeleteSubnetGroup" }, DeleteSubnetGroupRequest, DeleteSubnetGroupResponse, [ServiceLinkedRoleNotFoundFault, SubnetGroupInUseFault, SubnetGroupNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the default system parameter information for the DAX caching
  * software.
- */export const describeDefaultParameters = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/", method: "POST", sdkId: "DAX", sigV4ServiceName: "dax", name: "AmazonDAXV3.DescribeDefaultParameters" }, DescribeDefaultParametersRequest, DescribeDefaultParametersResponse, [InvalidParameterCombinationException, InvalidParameterValueException, ServiceLinkedRoleNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeDefaultParameters = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", sdkId: "DAX", sigV4ServiceName: "dax", name: "AmazonDAXV3.DescribeDefaultParameters" }, DescribeDefaultParametersRequest, DescribeDefaultParametersResponse, [InvalidParameterCombinationException, InvalidParameterValueException, ServiceLinkedRoleNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Reboots a single node of a DAX cluster. The reboot action takes
  * place as soon as possible. During the reboot, the node status is set to
  * REBOOTING.
  * 
- * 
- * 
- * 
- * 
  * `RebootNode` restarts the DAX engine process and does not remove the
  * contents of the cache.
- */export const rebootNode = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/", method: "POST", sdkId: "DAX", sigV4ServiceName: "dax", name: "AmazonDAXV3.RebootNode" }, RebootNodeRequest, RebootNodeResponse, [ClusterNotFoundFault, InvalidClusterStateFault, InvalidParameterCombinationException, InvalidParameterValueException, NodeNotFoundFault, ServiceLinkedRoleNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const rebootNode = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", sdkId: "DAX", sigV4ServiceName: "dax", name: "AmazonDAXV3.RebootNode" }, RebootNodeRequest, RebootNodeResponse, [ClusterNotFoundFault, InvalidClusterStateFault, InvalidParameterCombinationException, InvalidParameterValueException, NodeNotFoundFault, ServiceLinkedRoleNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new parameter group. A parameter group is a collection of parameters that
  * you apply to all of the nodes in a DAX cluster.
- */export const createParameterGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/", method: "POST", sdkId: "DAX", sigV4ServiceName: "dax", name: "AmazonDAXV3.CreateParameterGroup" }, CreateParameterGroupRequest, CreateParameterGroupResponse, [InvalidParameterCombinationException, InvalidParameterGroupStateFault, InvalidParameterValueException, ParameterGroupAlreadyExistsFault, ParameterGroupQuotaExceededFault, ServiceLinkedRoleNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createParameterGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", sdkId: "DAX", sigV4ServiceName: "dax", name: "AmazonDAXV3.CreateParameterGroup" }, CreateParameterGroupRequest, CreateParameterGroupResponse, [InvalidParameterCombinationException, InvalidParameterGroupStateFault, InvalidParameterValueException, ParameterGroupAlreadyExistsFault, ParameterGroupQuotaExceededFault, ServiceLinkedRoleNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Adds one or more nodes to a DAX cluster.
- */export const increaseReplicationFactor = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/", method: "POST", sdkId: "DAX", sigV4ServiceName: "dax", name: "AmazonDAXV3.IncreaseReplicationFactor" }, IncreaseReplicationFactorRequest, IncreaseReplicationFactorResponse, [ClusterNotFoundFault, InsufficientClusterCapacityFault, InvalidClusterStateFault, InvalidParameterCombinationException, InvalidParameterValueException, InvalidVPCNetworkStateFault, NodeQuotaForClusterExceededFault, NodeQuotaForCustomerExceededFault, ServiceLinkedRoleNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const increaseReplicationFactor = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", sdkId: "DAX", sigV4ServiceName: "dax", name: "AmazonDAXV3.IncreaseReplicationFactor" }, IncreaseReplicationFactorRequest, IncreaseReplicationFactorResponse, [ClusterNotFoundFault, InsufficientClusterCapacityFault, InvalidClusterStateFault, InvalidParameterCombinationException, InvalidParameterValueException, InvalidVPCNetworkStateFault, NodeQuotaForClusterExceededFault, NodeQuotaForCustomerExceededFault, ServiceLinkedRoleNotFoundFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a DAX cluster. All nodes in the cluster run the same DAX caching software.
- */export const createCluster = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/", method: "POST", sdkId: "DAX", sigV4ServiceName: "dax", name: "AmazonDAXV3.CreateCluster" }, CreateClusterRequest, CreateClusterResponse, [ClusterAlreadyExistsFault, ClusterQuotaForCustomerExceededFault, InsufficientClusterCapacityFault, InvalidClusterStateFault, InvalidParameterCombinationException, InvalidParameterGroupStateFault, InvalidParameterValueException, InvalidVPCNetworkStateFault, NodeQuotaForClusterExceededFault, NodeQuotaForCustomerExceededFault, ParameterGroupNotFoundFault, ServiceLinkedRoleNotFoundFault, ServiceQuotaExceededException, SubnetGroupNotFoundFault, TagQuotaPerResourceExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createCluster = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", sdkId: "DAX", sigV4ServiceName: "dax", name: "AmazonDAXV3.CreateCluster" }, CreateClusterRequest, CreateClusterResponse, [ClusterAlreadyExistsFault, ClusterQuotaForCustomerExceededFault, InsufficientClusterCapacityFault, InvalidClusterStateFault, InvalidParameterCombinationException, InvalidParameterGroupStateFault, InvalidParameterValueException, InvalidVPCNetworkStateFault, NodeQuotaForClusterExceededFault, NodeQuotaForCustomerExceededFault, ParameterGroupNotFoundFault, ServiceLinkedRoleNotFoundFault, ServiceQuotaExceededException, SubnetGroupNotFoundFault, TagQuotaPerResourceExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new subnet group.
- */export const createSubnetGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/", method: "POST", sdkId: "DAX", sigV4ServiceName: "dax", name: "AmazonDAXV3.CreateSubnetGroup" }, CreateSubnetGroupRequest, CreateSubnetGroupResponse, [InvalidSubnet, ServiceLinkedRoleNotFoundFault, SubnetGroupAlreadyExistsFault, SubnetGroupQuotaExceededFault, SubnetNotAllowedFault, SubnetQuotaExceededFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createSubnetGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", sdkId: "DAX", sigV4ServiceName: "dax", name: "AmazonDAXV3.CreateSubnetGroup" }, CreateSubnetGroupRequest, CreateSubnetGroupResponse, [InvalidSubnet, ServiceLinkedRoleNotFoundFault, SubnetGroupAlreadyExistsFault, SubnetGroupQuotaExceededFault, SubnetNotAllowedFault, SubnetQuotaExceededFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Modifies an existing subnet group.
- */export const updateSubnetGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", uri: "/", method: "POST", sdkId: "DAX", sigV4ServiceName: "dax", name: "AmazonDAXV3.UpdateSubnetGroup" }, UpdateSubnetGroupRequest, UpdateSubnetGroupResponse, [InvalidSubnet, ServiceLinkedRoleNotFoundFault, SubnetGroupNotFoundFault, SubnetInUse, SubnetNotAllowedFault, SubnetQuotaExceededFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateSubnetGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-04-19", sdkId: "DAX", sigV4ServiceName: "dax", name: "AmazonDAXV3.UpdateSubnetGroup" }, UpdateSubnetGroupRequest, UpdateSubnetGroupResponse, [InvalidSubnet, ServiceLinkedRoleNotFoundFault, SubnetGroupNotFoundFault, SubnetInUse, SubnetNotAllowedFault, SubnetQuotaExceededFault]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

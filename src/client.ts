@@ -378,6 +378,16 @@ export const NoopResponse = Schema.asSchema(
   }),
 );
 
+function getSafeMetadata(
+  partialMeta: Schema.Schema.Type<typeof OperationMeta>,
+): Required<Schema.Schema.Type<typeof OperationMeta>> {
+  return {
+    ...partialMeta,
+    uri: partialMeta.uri ?? "/",
+    method: partialMeta.method ?? "POST",
+  };
+}
+
 export const makeFormatRequestSchema = <A extends Schema.Schema.AnyNoContext>(
   operationSchema: Schema.Struct<{
     input: A;
@@ -401,9 +411,11 @@ export const makeFormatRequestSchema = <A extends Schema.Schema.AnyNoContext>(
         Effect.gen(function* () {
           const structAst = AST.isTransformation(inputAst) ? inputAst.from : inputAst;
           const props = AST.isTypeLiteral(structAst) ? structAst.propertySignatures : [];
-          const meta = yield* AST.getAnnotation<Schema.Schema.Type<typeof OperationMeta>>(
-            operationSchema.ast,
-            requestMetaSymbol,
+          const meta = getSafeMetadata(
+            yield* AST.getAnnotation<Schema.Schema.Type<typeof OperationMeta>>(
+              operationSchema.ast,
+              requestMetaSymbol,
+            ),
           );
 
           const headers: Record<string, string> = {

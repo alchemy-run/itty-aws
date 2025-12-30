@@ -26,8 +26,7 @@ export class ThrottlingException extends S.TaggedError<ThrottlingException>()("T
  * The Amazon EKS Auth API and the `AssumeRoleForPodIdentity` action are only used
  * by the EKS Pod Identity Agent.
  * 
- * 
  * We recommend that applications use the Amazon Web Services SDKs to connect to Amazon Web Services services; if
  * credentials from an EKS Pod Identity association are available in the pod, the latest versions of the
  * SDKs use them automatically.
- */export const assumeRoleForPodIdentity = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-11-26", uri: "/clusters/{clusterName}/assume-role-for-pod-identity", method: "POST", sdkId: "EKS Auth", sigV4ServiceName: "eks-auth", name: "EKSAuthFrontend.AssumeRoleForPodIdentity" }, AssumeRoleForPodIdentityRequest, AssumeRoleForPodIdentityResponse, [AccessDeniedException, ExpiredTokenException, InternalServerException, InvalidParameterException, InvalidRequestException, InvalidTokenException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const assumeRoleForPodIdentity = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-11-26", uri: "/clusters/{clusterName}/assume-role-for-pod-identity", sdkId: "EKS Auth", sigV4ServiceName: "eks-auth", name: "EKSAuthFrontend.AssumeRoleForPodIdentity" }, AssumeRoleForPodIdentityRequest, AssumeRoleForPodIdentityResponse, [AccessDeniedException, ExpiredTokenException, InternalServerException, InvalidParameterException, InvalidRequestException, InvalidTokenException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

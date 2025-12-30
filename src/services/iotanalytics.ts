@@ -182,7 +182,6 @@ export class ResourceAlreadyExistsException extends S.TaggedError<ResourceAlread
 /**
  * Sets or updates the IoT Analytics logging options.
  * 
- * 
  * If you update the value of any `loggingOptions` field, it takes up to one
  * minute for the change to take effect. Also, if you change the policy attached to the role you
  * specified in the `roleArn` field (for example, to correct an invalid policy), it
@@ -211,13 +210,12 @@ export class ResourceAlreadyExistsException extends S.TaggedError<ResourceAlread
 /**
  * Creates the content of a dataset by applying a `queryAction` (a SQL query) or a
  * `containerAction` (executing a containerized application).
- */export const createDatasetContent = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/datasets/{datasetName}/content", method: "POST", sdkId: "IoTAnalytics", sigV4ServiceName: "iotanalytics", name: "AWSIoTAnalytics.CreateDatasetContent" }, CreateDatasetContentRequest, CreateDatasetContentResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createDatasetContent = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/datasets/{datasetName}/content", sdkId: "IoTAnalytics", sigV4ServiceName: "iotanalytics", name: "AWSIoTAnalytics.CreateDatasetContent" }, CreateDatasetContentRequest, CreateDatasetContentResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the specified channel.
  */export const deleteChannel = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/channels/{channelName}", method: "DELETE", sdkId: "IoTAnalytics", sigV4ServiceName: "iotanalytics", name: "AWSIoTAnalytics.DeleteChannel" }, DeleteChannelRequest, S.Struct({}), [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the specified dataset.
- * 
  * 
  * You do not have to delete the content of the dataset before you perform this
  * operation.
@@ -236,7 +234,7 @@ export class ResourceAlreadyExistsException extends S.TaggedError<ResourceAlread
  */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/tags", method: "GET", sdkId: "IoTAnalytics", sigV4ServiceName: "iotanalytics", name: "AWSIoTAnalytics.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [InternalFailureException, InvalidRequestException, LimitExceededException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Simulates the results of running a pipeline activity on a message payload.
- */export const runPipelineActivity = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/pipelineactivities/run", method: "POST", sdkId: "IoTAnalytics", sigV4ServiceName: "iotanalytics", name: "AWSIoTAnalytics.RunPipelineActivity" }, RunPipelineActivityRequest, RunPipelineActivityResponse, [InternalFailureException, InvalidRequestException, ServiceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const runPipelineActivity = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/pipelineactivities/run", sdkId: "IoTAnalytics", sigV4ServiceName: "iotanalytics", name: "AWSIoTAnalytics.RunPipelineActivity" }, RunPipelineActivityRequest, RunPipelineActivityResponse, [InternalFailureException, InvalidRequestException, ServiceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves a sample of messages from the specified channel ingested during the specified
  * timeframe. Up to 10 messages can be retrieved.
@@ -244,7 +242,7 @@ export class ResourceAlreadyExistsException extends S.TaggedError<ResourceAlread
 /**
  * Adds to or modifies the tags of the given resource. Tags are metadata that can be used to
  * manage a resource.
- */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/tags", method: "POST", sdkId: "IoTAnalytics", sigV4ServiceName: "iotanalytics", name: "AWSIoTAnalytics.TagResource" }, TagResourceRequest, TagResourceResponse, [InternalFailureException, InvalidRequestException, LimitExceededException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/tags", sdkId: "IoTAnalytics", sigV4ServiceName: "iotanalytics", name: "AWSIoTAnalytics.TagResource" }, TagResourceRequest, TagResourceResponse, [InternalFailureException, InvalidRequestException, LimitExceededException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves information about a dataset.
  */export const describeDataset = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/datasets/{datasetName}", method: "GET", sdkId: "IoTAnalytics", sigV4ServiceName: "iotanalytics", name: "AWSIoTAnalytics.DescribeDataset" }, DescribeDatasetRequest, DescribeDatasetResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -262,11 +260,11 @@ export class ResourceAlreadyExistsException extends S.TaggedError<ResourceAlread
  */export const listPipelines = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/pipelines", method: "GET", sdkId: "IoTAnalytics", sigV4ServiceName: "iotanalytics", name: "AWSIoTAnalytics.ListPipelines" }, ListPipelinesRequest, ListPipelinesResponse, [InternalFailureException, InvalidRequestException, ServiceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Sends messages to a channel.
- */export const batchPutMessage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/messages/batch", method: "POST", sdkId: "IoTAnalytics", sigV4ServiceName: "iotanalytics", name: "AWSIoTAnalytics.BatchPutMessage" }, BatchPutMessageRequest, BatchPutMessageResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const batchPutMessage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/messages/batch", sdkId: "IoTAnalytics", sigV4ServiceName: "iotanalytics", name: "AWSIoTAnalytics.BatchPutMessage" }, BatchPutMessageRequest, BatchPutMessageResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Used to create a channel. A channel collects data from an MQTT topic and archives the raw,
  * unprocessed messages before publishing the data to a pipeline.
- */export const createChannel = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/channels", method: "POST", sdkId: "IoTAnalytics", sigV4ServiceName: "iotanalytics", name: "AWSIoTAnalytics.CreateChannel" }, CreateChannelRequest, CreateChannelResponse, [InternalFailureException, InvalidRequestException, LimitExceededException, ResourceAlreadyExistsException, ServiceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createChannel = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/channels", sdkId: "IoTAnalytics", sigV4ServiceName: "iotanalytics", name: "AWSIoTAnalytics.CreateChannel" }, CreateChannelRequest, CreateChannelResponse, [InternalFailureException, InvalidRequestException, LimitExceededException, ResourceAlreadyExistsException, ServiceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves information about a channel.
  */export const describeChannel = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/channels/{channelName}", method: "GET", sdkId: "IoTAnalytics", sigV4ServiceName: "iotanalytics", name: "AWSIoTAnalytics.DescribeChannel" }, DescribeChannelRequest, DescribeChannelResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -278,13 +276,13 @@ export class ResourceAlreadyExistsException extends S.TaggedError<ResourceAlread
  */export const listDatasets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/datasets", method: "GET", sdkId: "IoTAnalytics", sigV4ServiceName: "iotanalytics", name: "AWSIoTAnalytics.ListDatasets" }, ListDatasetsRequest, ListDatasetsResponse, [InternalFailureException, InvalidRequestException, ServiceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts the reprocessing of raw message data through the pipeline.
- */export const startPipelineReprocessing = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/pipelines/{pipelineName}/reprocessing", method: "POST", sdkId: "IoTAnalytics", sigV4ServiceName: "iotanalytics", name: "AWSIoTAnalytics.StartPipelineReprocessing" }, StartPipelineReprocessingRequest, StartPipelineReprocessingResponse, [InternalFailureException, InvalidRequestException, ResourceAlreadyExistsException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startPipelineReprocessing = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/pipelines/{pipelineName}/reprocessing", sdkId: "IoTAnalytics", sigV4ServiceName: "iotanalytics", name: "AWSIoTAnalytics.StartPipelineReprocessing" }, StartPipelineReprocessingRequest, StartPipelineReprocessingResponse, [InternalFailureException, InvalidRequestException, ResourceAlreadyExistsException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a pipeline. A pipeline consumes messages from a channel and allows you to process
  * the messages before storing them in a data store. You must specify both a `channel`
  * and a `datastore` activity and, optionally, as many as 23 additional activities in
  * the `pipelineActivities` array.
- */export const createPipeline = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/pipelines", method: "POST", sdkId: "IoTAnalytics", sigV4ServiceName: "iotanalytics", name: "AWSIoTAnalytics.CreatePipeline" }, CreatePipelineRequest, CreatePipelineResponse, [InternalFailureException, InvalidRequestException, LimitExceededException, ResourceAlreadyExistsException, ServiceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createPipeline = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/pipelines", sdkId: "IoTAnalytics", sigV4ServiceName: "iotanalytics", name: "AWSIoTAnalytics.CreatePipeline" }, CreatePipelineRequest, CreatePipelineResponse, [InternalFailureException, InvalidRequestException, LimitExceededException, ResourceAlreadyExistsException, ServiceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves a list of channels.
  */export const listChannels = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/channels", method: "GET", sdkId: "IoTAnalytics", sigV4ServiceName: "iotanalytics", name: "AWSIoTAnalytics.ListChannels" }, ListChannelsRequest, ListChannelsResponse, [InternalFailureException, InvalidRequestException, ServiceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -294,10 +292,10 @@ export class ResourceAlreadyExistsException extends S.TaggedError<ResourceAlread
  * containerized application). This operation creates the skeleton of a dataset. The dataset can
  * be populated manually by calling `CreateDatasetContent` or automatically according
  * to a trigger you specify.
- */export const createDataset = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/datasets", method: "POST", sdkId: "IoTAnalytics", sigV4ServiceName: "iotanalytics", name: "AWSIoTAnalytics.CreateDataset" }, CreateDatasetRequest, CreateDatasetResponse, [InternalFailureException, InvalidRequestException, LimitExceededException, ResourceAlreadyExistsException, ServiceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createDataset = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/datasets", sdkId: "IoTAnalytics", sigV4ServiceName: "iotanalytics", name: "AWSIoTAnalytics.CreateDataset" }, CreateDatasetRequest, CreateDatasetResponse, [InternalFailureException, InvalidRequestException, LimitExceededException, ResourceAlreadyExistsException, ServiceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a data store, which is a repository for messages.
- */export const createDatastore = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/datastores", method: "POST", sdkId: "IoTAnalytics", sigV4ServiceName: "iotanalytics", name: "AWSIoTAnalytics.CreateDatastore" }, CreateDatastoreRequest, CreateDatastoreResponse, [InternalFailureException, InvalidRequestException, LimitExceededException, ResourceAlreadyExistsException, ServiceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createDatastore = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/datastores", sdkId: "IoTAnalytics", sigV4ServiceName: "iotanalytics", name: "AWSIoTAnalytics.CreateDatastore" }, CreateDatastoreRequest, CreateDatastoreResponse, [InternalFailureException, InvalidRequestException, LimitExceededException, ResourceAlreadyExistsException, ServiceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves a list of data stores.
  */export const listDatastores = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/datastores", method: "GET", sdkId: "IoTAnalytics", sigV4ServiceName: "iotanalytics", name: "AWSIoTAnalytics.ListDatastores" }, ListDatastoresRequest, ListDatastoresResponse, [InternalFailureException, InvalidRequestException, ServiceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

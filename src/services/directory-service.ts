@@ -304,211 +304,198 @@ export class ShareLimitExceededException extends S.TaggedError<ShareLimitExceede
 /**
  * Disables multi-factor authentication (MFA) with the Remote Authentication Dial In User
  * Service (RADIUS) server for an AD Connector or Microsoft AD directory.
- */export const disableRadius = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", uri: "/", method: "POST", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.DisableRadius" }, DisableRadiusRequest, DisableRadiusResult, [ClientException, EntityDoesNotExistException, ServiceException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const disableRadius = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.DisableRadius" }, DisableRadiusRequest, DisableRadiusResult, [ClientException, EntityDoesNotExistException, ServiceException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Associates a directory with an Amazon SNS topic. This establishes the directory as a
  * publisher to the specified Amazon SNS topic. You can then receive email or text (SMS) messages when
  * the status of your directory changes. You get notified if your directory goes from an Active
  * status to an Impaired or Inoperable status. You also receive a notification when the directory
  * returns to an Active status.
- */export const registerEventTopic = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", uri: "/", method: "POST", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.RegisterEventTopic" }, RegisterEventTopicRequest, RegisterEventTopicResult, [ClientException, EntityDoesNotExistException, InvalidParameterException, ServiceException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const registerEventTopic = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.RegisterEventTopic" }, RegisterEventTopicRequest, RegisterEventTopicResult, [ClientException, EntityDoesNotExistException, InvalidParameterException, ServiceException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes IP address blocks from a directory.
- */export const removeIpRoutes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", uri: "/", method: "POST", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.RemoveIpRoutes" }, RemoveIpRoutesRequest, RemoveIpRoutesResult, [ClientException, DirectoryUnavailableException, EntityDoesNotExistException, InvalidParameterException, ServiceException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const removeIpRoutes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.RemoveIpRoutes" }, RemoveIpRoutesRequest, RemoveIpRoutesResult, [ClientException, DirectoryUnavailableException, EntityDoesNotExistException, InvalidParameterException, ServiceException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Stops all replication and removes the domain controllers from the specified Region. You
  * cannot remove the primary Region with this operation. Instead, use the
  * `DeleteDirectory` API.
- */export const removeRegion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", uri: "/", method: "POST", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.RemoveRegion" }, RemoveRegionRequest, RemoveRegionResult, [AccessDeniedException, ClientException, DirectoryDoesNotExistException, DirectoryUnavailableException, ServiceException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const removeRegion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.RemoveRegion" }, RemoveRegionRequest, RemoveRegionResult, [AccessDeniedException, ClientException, DirectoryDoesNotExistException, DirectoryUnavailableException, ServiceException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes tags from a directory.
- */export const removeTagsFromResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", uri: "/", method: "POST", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.RemoveTagsFromResource" }, RemoveTagsFromResourceRequest, RemoveTagsFromResourceResult, [ClientException, EntityDoesNotExistException, InvalidParameterException, ServiceException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const removeTagsFromResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.RemoveTagsFromResource" }, RemoveTagsFromResourceRequest, RemoveTagsFromResourceResult, [ClientException, EntityDoesNotExistException, InvalidParameterException, ServiceException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Restores a directory using an existing directory snapshot.
  * 
- * 
  * When you restore a directory from a snapshot, any changes made to the directory after the snapshot date are overwritten.
- * 
  * 
  * This action returns as soon as the restore operation is initiated. You can monitor the
  * progress of the restore operation by calling the DescribeDirectories operation with
  * the directory identifier. When the **DirectoryDescription.Stage** value changes to
  * `Active`, the restore operation is complete.
- */export const restoreFromSnapshot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", uri: "/", method: "POST", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.RestoreFromSnapshot" }, RestoreFromSnapshotRequest, RestoreFromSnapshotResult, [ClientException, EntityDoesNotExistException, InvalidParameterException, ServiceException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const restoreFromSnapshot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.RestoreFromSnapshot" }, RestoreFromSnapshotRequest, RestoreFromSnapshotResult, [ClientException, EntityDoesNotExistException, InvalidParameterException, ServiceException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates a conditional forwarder that has been set up for your Amazon Web Services
  * directory.
- */export const updateConditionalForwarder = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", uri: "/", method: "POST", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.UpdateConditionalForwarder" }, UpdateConditionalForwarderRequest, UpdateConditionalForwarderResult, [ClientException, DirectoryUnavailableException, EntityDoesNotExistException, InvalidParameterException, ServiceException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateConditionalForwarder = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.UpdateConditionalForwarder" }, UpdateConditionalForwarderRequest, UpdateConditionalForwarderResult, [ClientException, DirectoryUnavailableException, EntityDoesNotExistException, InvalidParameterException, ServiceException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the Remote Authentication Dial In User Service (RADIUS) server information for
  * an AD Connector or Microsoft AD directory.
- */export const updateRadius = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", uri: "/", method: "POST", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.UpdateRadius" }, UpdateRadiusRequest, UpdateRadiusResult, [ClientException, EntityDoesNotExistException, InvalidParameterException, ServiceException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateRadius = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.UpdateRadius" }, UpdateRadiusRequest, UpdateRadiusResult, [ClientException, EntityDoesNotExistException, InvalidParameterException, ServiceException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Cancels an in-progress schema extension to a Microsoft AD directory. Once a schema
  * extension has started replicating to all domain controllers, the task can no longer be
  * canceled. A schema extension can be canceled during any of the following states;
  * `Initializing`, `CreatingSnapshot`, and
  * `UpdatingSchema`.
- */export const cancelSchemaExtension = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", uri: "/", method: "POST", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.CancelSchemaExtension" }, CancelSchemaExtensionRequest, CancelSchemaExtensionResult, [ClientException, EntityDoesNotExistException, ServiceException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const cancelSchemaExtension = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.CancelSchemaExtension" }, CancelSchemaExtensionRequest, CancelSchemaExtensionResult, [ClientException, EntityDoesNotExistException, ServiceException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an alias for a directory and assigns the alias to the directory. The alias is used
  * to construct the access URL for the directory, such as
  * `http://.awsapps.com`.
  * 
- * 
- * 
- * 
  * After an alias has been created, it cannot be deleted or reused, so this operation should only be used when absolutely necessary.
- */export const createAlias = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", uri: "/", method: "POST", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.CreateAlias" }, CreateAliasRequest, CreateAliasResult, [ClientException, EntityAlreadyExistsException, EntityDoesNotExistException, InvalidParameterException, ServiceException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createAlias = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.CreateAlias" }, CreateAliasRequest, CreateAliasResult, [ClientException, EntityAlreadyExistsException, EntityDoesNotExistException, InvalidParameterException, ServiceException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a conditional forwarder associated with your Amazon Web Services directory. Conditional
  * forwarders are required in order to set up a trust relationship with another domain. The
  * conditional forwarder points to the trusted domain.
- */export const createConditionalForwarder = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", uri: "/", method: "POST", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.CreateConditionalForwarder" }, CreateConditionalForwarderRequest, CreateConditionalForwarderResult, [ClientException, DirectoryUnavailableException, EntityAlreadyExistsException, EntityDoesNotExistException, InvalidParameterException, ServiceException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createConditionalForwarder = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.CreateConditionalForwarder" }, CreateConditionalForwarderRequest, CreateConditionalForwarderResult, [ClientException, DirectoryUnavailableException, EntityAlreadyExistsException, EntityDoesNotExistException, InvalidParameterException, ServiceException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a subscription to forward real-time Directory Service domain controller security
  * logs to the specified Amazon CloudWatch log group in your Amazon Web Services account.
- */export const createLogSubscription = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", uri: "/", method: "POST", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.CreateLogSubscription" }, CreateLogSubscriptionRequest, CreateLogSubscriptionResult, [ClientException, EntityAlreadyExistsException, EntityDoesNotExistException, InsufficientPermissionsException, ServiceException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createLogSubscription = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.CreateLogSubscription" }, CreateLogSubscriptionRequest, CreateLogSubscriptionResult, [ClientException, EntityAlreadyExistsException, EntityDoesNotExistException, InsufficientPermissionsException, ServiceException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a Microsoft AD directory in the Amazon Web Services Cloud. For more information, see Managed Microsoft AD in the *Directory Service Admin Guide*.
- * 
  * 
  * Before you call *CreateMicrosoftAD*, ensure that all of the required
  * permissions have been explicitly granted through a policy. For details about what permissions
  * are required to run the *CreateMicrosoftAD* operation, see Directory Service API Permissions: Actions, Resources, and Conditions Reference.
- */export const createMicrosoftAD = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", uri: "/", method: "POST", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.CreateMicrosoftAD" }, CreateMicrosoftADRequest, CreateMicrosoftADResult, [ClientException, DirectoryLimitExceededException, InvalidParameterException, ServiceException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createMicrosoftAD = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.CreateMicrosoftAD" }, CreateMicrosoftADRequest, CreateMicrosoftADResult, [ClientException, DirectoryLimitExceededException, InvalidParameterException, ServiceException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Directory Service for Microsoft Active Directory allows you to configure trust relationships. For
  * example, you can establish a trust between your Managed Microsoft AD directory, and your existing
  * self-managed Microsoft Active Directory. This would allow you to provide users and groups
  * access to resources in either domain, with a single set of credentials.
  * 
- * 
  * This action initiates the creation of the Amazon Web Services side of a trust relationship between an
  * Managed Microsoft AD directory and an external domain. You can create either a forest trust or an
  * external trust.
- */export const createTrust = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", uri: "/", method: "POST", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.CreateTrust" }, CreateTrustRequest, CreateTrustResult, [ClientException, EntityAlreadyExistsException, EntityDoesNotExistException, InvalidParameterException, ServiceException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createTrust = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.CreateTrust" }, CreateTrustRequest, CreateTrustResult, [ClientException, EntityAlreadyExistsException, EntityDoesNotExistException, InvalidParameterException, ServiceException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a directory assessment and all associated data. This operation permanently
  * removes the assessment results, validation reports, and configuration
  * information.
  * 
- * 
  * You cannot delete system-initiated assessments. You can delete customer-created
  * assessments even if they are in progress.
- */export const deleteADAssessment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", uri: "/", method: "POST", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.DeleteADAssessment" }, DeleteADAssessmentRequest, DeleteADAssessmentResult, [ClientException, EntityDoesNotExistException, InvalidParameterException, ServiceException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteADAssessment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.DeleteADAssessment" }, DeleteADAssessmentRequest, DeleteADAssessmentResult, [ClientException, EntityDoesNotExistException, InvalidParameterException, ServiceException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a conditional forwarder that has been set up for your Amazon Web Services
  * directory.
- */export const deleteConditionalForwarder = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", uri: "/", method: "POST", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.DeleteConditionalForwarder" }, DeleteConditionalForwarderRequest, DeleteConditionalForwarderResult, [ClientException, DirectoryUnavailableException, EntityDoesNotExistException, InvalidParameterException, ServiceException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteConditionalForwarder = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.DeleteConditionalForwarder" }, DeleteConditionalForwarderRequest, DeleteConditionalForwarderResult, [ClientException, DirectoryUnavailableException, EntityDoesNotExistException, InvalidParameterException, ServiceException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes an Directory Service directory.
- * 
  * 
  * Before you call `DeleteDirectory`, ensure that all of the required permissions
  * have been explicitly granted through a policy. For details about what permissions are required
  * to run the `DeleteDirectory` operation, see Directory Service API Permissions: Actions, Resources, and Conditions Reference.
- */export const deleteDirectory = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", uri: "/", method: "POST", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.DeleteDirectory" }, DeleteDirectoryRequest, DeleteDirectoryResult, [ClientException, EntityDoesNotExistException, ServiceException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteDirectory = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.DeleteDirectory" }, DeleteDirectoryRequest, DeleteDirectoryResult, [ClientException, EntityDoesNotExistException, ServiceException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the specified log subscription.
- */export const deleteLogSubscription = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", uri: "/", method: "POST", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.DeleteLogSubscription" }, DeleteLogSubscriptionRequest, DeleteLogSubscriptionResult, [ClientException, EntityDoesNotExistException, ServiceException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteLogSubscription = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.DeleteLogSubscription" }, DeleteLogSubscriptionRequest, DeleteLogSubscriptionResult, [ClientException, EntityDoesNotExistException, ServiceException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a directory snapshot.
- */export const deleteSnapshot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", uri: "/", method: "POST", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.DeleteSnapshot" }, DeleteSnapshotRequest, DeleteSnapshotResult, [ClientException, EntityDoesNotExistException, InvalidParameterException, ServiceException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteSnapshot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.DeleteSnapshot" }, DeleteSnapshotRequest, DeleteSnapshotResult, [ClientException, EntityDoesNotExistException, InvalidParameterException, ServiceException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes an existing trust relationship between your Managed Microsoft AD directory and an external
  * domain.
- */export const deleteTrust = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", uri: "/", method: "POST", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.DeleteTrust" }, DeleteTrustRequest, DeleteTrustResult, [ClientException, EntityDoesNotExistException, InvalidParameterException, ServiceException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteTrust = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.DeleteTrust" }, DeleteTrustRequest, DeleteTrustResult, [ClientException, EntityDoesNotExistException, InvalidParameterException, ServiceException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes the specified directory as a publisher to the specified Amazon SNS topic.
- */export const deregisterEventTopic = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", uri: "/", method: "POST", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.DeregisterEventTopic" }, DeregisterEventTopicRequest, DeregisterEventTopicResult, [ClientException, EntityDoesNotExistException, InvalidParameterException, ServiceException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deregisterEventTopic = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.DeregisterEventTopic" }, DeregisterEventTopicRequest, DeregisterEventTopicResult, [ClientException, EntityDoesNotExistException, InvalidParameterException, ServiceException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves detailed information about the certificate authority (CA) enrollment policy for
  * the specified directory. This policy determines how client certificates are automatically enrolled and
  * managed through Amazon Web Services Private Certificate Authority.
- */export const describeCAEnrollmentPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", uri: "/", method: "POST", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.DescribeCAEnrollmentPolicy" }, DescribeCAEnrollmentPolicyRequest, DescribeCAEnrollmentPolicyResult, [ClientException, DirectoryDoesNotExistException, ServiceException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeCAEnrollmentPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.DescribeCAEnrollmentPolicy" }, DescribeCAEnrollmentPolicyRequest, DescribeCAEnrollmentPolicyResult, [ClientException, DirectoryDoesNotExistException, ServiceException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Obtains status of directory data access enablement through the Directory Service Data API for the
  * specified directory.
- */export const describeDirectoryDataAccess = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", uri: "/", method: "POST", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.DescribeDirectoryDataAccess" }, DescribeDirectoryDataAccessRequest, DescribeDirectoryDataAccessResult, [AccessDeniedException, ClientException, DirectoryDoesNotExistException, ServiceException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeDirectoryDataAccess = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.DescribeDirectoryDataAccess" }, DescribeDirectoryDataAccessRequest, DescribeDirectoryDataAccessResult, [AccessDeniedException, ClientException, DirectoryDoesNotExistException, ServiceException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Disables alternative client authentication methods for the specified directory.
- */export const disableClientAuthentication = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", uri: "/", method: "POST", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.DisableClientAuthentication" }, DisableClientAuthenticationRequest, DisableClientAuthenticationResult, [AccessDeniedException, ClientException, DirectoryDoesNotExistException, InvalidClientAuthStatusException, ServiceException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const disableClientAuthentication = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.DisableClientAuthentication" }, DisableClientAuthenticationRequest, DisableClientAuthenticationResult, [AccessDeniedException, ClientException, DirectoryDoesNotExistException, InvalidClientAuthStatusException, ServiceException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deactivates access to directory data via the Directory Service Data API for the specified directory. For
  * more information, see Directory Service Data API Reference.
- */export const disableDirectoryDataAccess = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", uri: "/", method: "POST", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.DisableDirectoryDataAccess" }, DisableDirectoryDataAccessRequest, DisableDirectoryDataAccessResult, [AccessDeniedException, ClientException, DirectoryDoesNotExistException, DirectoryInDesiredStateException, DirectoryUnavailableException, ServiceException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const disableDirectoryDataAccess = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.DisableDirectoryDataAccess" }, DisableDirectoryDataAccessRequest, DisableDirectoryDataAccessResult, [AccessDeniedException, ClientException, DirectoryDoesNotExistException, DirectoryInDesiredStateException, DirectoryUnavailableException, ServiceException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deactivates LDAP secure calls for the specified directory.
- */export const disableLDAPS = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", uri: "/", method: "POST", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.DisableLDAPS" }, DisableLDAPSRequest, DisableLDAPSResult, [ClientException, DirectoryDoesNotExistException, DirectoryUnavailableException, InvalidLDAPSStatusException, InvalidParameterException, ServiceException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const disableLDAPS = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.DisableLDAPS" }, DisableLDAPSRequest, DisableLDAPSResult, [ClientException, DirectoryDoesNotExistException, DirectoryUnavailableException, InvalidLDAPSStatusException, InvalidParameterException, ServiceException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Disables single-sign on for a directory.
- */export const disableSso = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", uri: "/", method: "POST", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.DisableSso" }, DisableSsoRequest, DisableSsoResult, [AuthenticationFailedException, ClientException, EntityDoesNotExistException, InsufficientPermissionsException, ServiceException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const disableSso = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.DisableSso" }, DisableSsoRequest, DisableSsoResult, [AuthenticationFailedException, ClientException, EntityDoesNotExistException, InsufficientPermissionsException, ServiceException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Enables certificate authority (CA) enrollment policy for the specified directory. This allows
  * domain-joined clients to automatically request and receive certificates from the specified
  * Amazon Web Services Private Certificate Authority.
  * 
- * 
- * 
- * 
  * Before enabling CA enrollment, ensure that the PCA connector is properly configured and
  * accessible from the directory. The connector must be in an active state and have the
  * necessary permissions.
- */export const enableCAEnrollmentPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", uri: "/", method: "POST", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.EnableCAEnrollmentPolicy" }, EnableCAEnrollmentPolicyRequest, EnableCAEnrollmentPolicyResult, [AccessDeniedException, ClientException, DirectoryDoesNotExistException, DirectoryUnavailableException, EnableAlreadyInProgressException, EntityAlreadyExistsException, EntityDoesNotExistException, InvalidParameterException, ServiceException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const enableCAEnrollmentPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.EnableCAEnrollmentPolicy" }, EnableCAEnrollmentPolicyRequest, EnableCAEnrollmentPolicyResult, [AccessDeniedException, ClientException, DirectoryDoesNotExistException, DirectoryUnavailableException, EnableAlreadyInProgressException, EntityAlreadyExistsException, EntityDoesNotExistException, InvalidParameterException, ServiceException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Enables alternative client authentication methods for the specified directory.
- */export const enableClientAuthentication = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", uri: "/", method: "POST", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.EnableClientAuthentication" }, EnableClientAuthenticationRequest, EnableClientAuthenticationResult, [AccessDeniedException, ClientException, DirectoryDoesNotExistException, InvalidClientAuthStatusException, NoAvailableCertificateException, ServiceException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const enableClientAuthentication = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.EnableClientAuthentication" }, EnableClientAuthenticationRequest, EnableClientAuthenticationResult, [AccessDeniedException, ClientException, DirectoryDoesNotExistException, InvalidClientAuthStatusException, NoAvailableCertificateException, ServiceException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Enables access to directory data via the Directory Service Data API for the specified directory. For
  * more information, see Directory Service Data API Reference.
- */export const enableDirectoryDataAccess = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", uri: "/", method: "POST", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.EnableDirectoryDataAccess" }, EnableDirectoryDataAccessRequest, EnableDirectoryDataAccessResult, [AccessDeniedException, ClientException, DirectoryDoesNotExistException, DirectoryInDesiredStateException, DirectoryUnavailableException, ServiceException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const enableDirectoryDataAccess = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.EnableDirectoryDataAccess" }, EnableDirectoryDataAccessRequest, EnableDirectoryDataAccessResult, [AccessDeniedException, ClientException, DirectoryDoesNotExistException, DirectoryInDesiredStateException, DirectoryUnavailableException, ServiceException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Activates the switch for the specific directory to always use LDAP secure calls.
- */export const enableLDAPS = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", uri: "/", method: "POST", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.EnableLDAPS" }, EnableLDAPSRequest, EnableLDAPSResult, [ClientException, DirectoryDoesNotExistException, DirectoryUnavailableException, InvalidLDAPSStatusException, InvalidParameterException, NoAvailableCertificateException, ServiceException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const enableLDAPS = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.EnableLDAPS" }, EnableLDAPSRequest, EnableLDAPSResult, [ClientException, DirectoryDoesNotExistException, DirectoryUnavailableException, InvalidLDAPSStatusException, InvalidParameterException, NoAvailableCertificateException, ServiceException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Enables multi-factor authentication (MFA) with the Remote Authentication Dial In User
  * Service (RADIUS) server for an AD Connector or Microsoft AD directory.
- */export const enableRadius = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", uri: "/", method: "POST", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.EnableRadius" }, EnableRadiusRequest, EnableRadiusResult, [ClientException, EntityAlreadyExistsException, EntityDoesNotExistException, InvalidParameterException, ServiceException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const enableRadius = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.EnableRadius" }, EnableRadiusRequest, EnableRadiusResult, [ClientException, EntityAlreadyExistsException, EntityDoesNotExistException, InvalidParameterException, ServiceException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Enables single sign-on for a directory. Single sign-on allows users in your directory to
  * access certain Amazon Web Services services from a computer joined to the directory without having to enter
  * their credentials separately.
- */export const enableSso = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", uri: "/", method: "POST", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.EnableSso" }, EnableSsoRequest, EnableSsoResult, [AuthenticationFailedException, ClientException, EntityDoesNotExistException, InsufficientPermissionsException, ServiceException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const enableSso = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.EnableSso" }, EnableSsoRequest, EnableSsoResult, [AuthenticationFailedException, ClientException, EntityDoesNotExistException, InsufficientPermissionsException, ServiceException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Obtains directory limit information for the current Region.
- */export const getDirectoryLimits = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", uri: "/", method: "POST", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.GetDirectoryLimits" }, GetDirectoryLimitsRequest, GetDirectoryLimitsResult, [ClientException, EntityDoesNotExistException, ServiceException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getDirectoryLimits = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.GetDirectoryLimits" }, GetDirectoryLimitsRequest, GetDirectoryLimitsResult, [ClientException, EntityDoesNotExistException, ServiceException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists all tags on a directory.
- */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", uri: "/", method: "POST", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResult, [ClientException, EntityDoesNotExistException, InvalidNextTokenException, InvalidParameterException, ServiceException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResult, [ClientException, EntityDoesNotExistException, InvalidNextTokenException, InvalidParameterException, ServiceException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Applies a schema extension to a Microsoft AD directory.
- */export const startSchemaExtension = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", uri: "/", method: "POST", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.StartSchemaExtension" }, StartSchemaExtensionRequest, StartSchemaExtensionResult, [ClientException, DirectoryUnavailableException, EntityDoesNotExistException, InvalidParameterException, ServiceException, SnapshotLimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startSchemaExtension = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.StartSchemaExtension" }, StartSchemaExtensionRequest, StartSchemaExtensionResult, [ClientException, DirectoryUnavailableException, EntityDoesNotExistException, InvalidParameterException, ServiceException, SnapshotLimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates directory configuration for the specified update type.
- */export const updateDirectorySetup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", uri: "/", method: "POST", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.UpdateDirectorySetup" }, UpdateDirectorySetupRequest, UpdateDirectorySetupResult, [AccessDeniedException, ClientException, DirectoryDoesNotExistException, DirectoryInDesiredStateException, DirectoryUnavailableException, InvalidParameterException, ServiceException, SnapshotLimitExceededException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateDirectorySetup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.UpdateDirectorySetup" }, UpdateDirectorySetupRequest, UpdateDirectorySetupResult, [AccessDeniedException, ClientException, DirectoryDoesNotExistException, DirectoryInDesiredStateException, DirectoryUnavailableException, InvalidParameterException, ServiceException, SnapshotLimitExceededException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Adds or removes domain controllers to or from the directory. Based on the difference
  * between current value and new value (provided through this API call), domain controllers will
  * be added or removed. It may take up to 45 minutes for any new domain controllers to become
  * fully active once the requested number of domain controllers is updated. During this time, you
  * cannot make another update request.
- */export const updateNumberOfDomainControllers = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", uri: "/", method: "POST", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.UpdateNumberOfDomainControllers" }, UpdateNumberOfDomainControllersRequest, UpdateNumberOfDomainControllersResult, [ClientException, DirectoryUnavailableException, DomainControllerLimitExceededException, EntityDoesNotExistException, InvalidParameterException, ServiceException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateNumberOfDomainControllers = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.UpdateNumberOfDomainControllers" }, UpdateNumberOfDomainControllersRequest, UpdateNumberOfDomainControllersResult, [ClientException, DirectoryUnavailableException, DomainControllerLimitExceededException, EntityDoesNotExistException, InvalidParameterException, ServiceException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the trust that has been set up between your Managed Microsoft AD directory and an
  * self-managed Active Directory.
- */export const updateTrust = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", uri: "/", method: "POST", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.UpdateTrust" }, UpdateTrustRequest, UpdateTrustResult, [ClientException, EntityDoesNotExistException, InvalidParameterException, ServiceException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateTrust = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.UpdateTrust" }, UpdateTrustRequest, UpdateTrustResult, [ClientException, EntityDoesNotExistException, InvalidParameterException, ServiceException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Directory Service for Microsoft Active Directory allows you to configure and verify trust
  * relationships.
  * 
- * 
  * This action verifies a trust relationship between your Managed Microsoft AD directory and an
  * external domain.
- */export const verifyTrust = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", uri: "/", method: "POST", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.VerifyTrust" }, VerifyTrustRequest, VerifyTrustResult, [ClientException, EntityDoesNotExistException, InvalidParameterException, ServiceException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const verifyTrust = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.VerifyTrust" }, VerifyTrustRequest, VerifyTrustResult, [ClientException, EntityDoesNotExistException, InvalidParameterException, ServiceException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Accepts a directory sharing request that was sent from the directory owner account.
- */export const acceptSharedDirectory = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", uri: "/", method: "POST", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.AcceptSharedDirectory" }, AcceptSharedDirectoryRequest, AcceptSharedDirectoryResult, [ClientException, DirectoryAlreadySharedException, EntityDoesNotExistException, InvalidParameterException, ServiceException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const acceptSharedDirectory = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.AcceptSharedDirectory" }, AcceptSharedDirectoryRequest, AcceptSharedDirectoryResult, [ClientException, DirectoryAlreadySharedException, EntityDoesNotExistException, InvalidParameterException, ServiceException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * If the DNS server for your self-managed domain uses a publicly addressable IP address,
  * you must add a CIDR address block to correctly route traffic to and from your Microsoft AD
@@ -516,164 +503,143 @@ export class ShareLimitExceededException extends S.TaggedError<ShareLimitExceede
  * also use *AddIpRoutes* to facilitate routing traffic that uses public IP
  * ranges from your Microsoft AD on Amazon Web Services to a peer VPC.
  * 
- * 
  * Before you call *AddIpRoutes*, ensure that all of the required
  * permissions have been explicitly granted through a policy. For details about what
  * permissions are required to run the *AddIpRoutes* operation, see Directory Service API Permissions: Actions, Resources, and Conditions Reference.
- */export const addIpRoutes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", uri: "/", method: "POST", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.AddIpRoutes" }, AddIpRoutesRequest, AddIpRoutesResult, [ClientException, DirectoryUnavailableException, EntityAlreadyExistsException, EntityDoesNotExistException, InvalidParameterException, IpRouteLimitExceededException, ServiceException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const addIpRoutes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.AddIpRoutes" }, AddIpRoutesRequest, AddIpRoutesResult, [ClientException, DirectoryUnavailableException, EntityAlreadyExistsException, EntityDoesNotExistException, InvalidParameterException, IpRouteLimitExceededException, ServiceException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Adds or overwrites one or more tags for the specified directory. Each directory can
  * have a maximum of 50 tags. Each tag consists of a key and optional value. Tag keys must be
  * unique to each resource.
- */export const addTagsToResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", uri: "/", method: "POST", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.AddTagsToResource" }, AddTagsToResourceRequest, AddTagsToResourceResult, [ClientException, EntityDoesNotExistException, InvalidParameterException, ServiceException, TagLimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const addTagsToResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.AddTagsToResource" }, AddTagsToResourceRequest, AddTagsToResourceResult, [ClientException, EntityDoesNotExistException, InvalidParameterException, ServiceException, TagLimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an AD Connector to connect to a self-managed directory.
- * 
  * 
  * Before you call `ConnectDirectory`, ensure that all of the required permissions
  * have been explicitly granted through a policy. For details about what permissions are required
  * to run the `ConnectDirectory` operation, see Directory Service API Permissions: Actions, Resources, and Conditions Reference.
- */export const connectDirectory = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", uri: "/", method: "POST", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.ConnectDirectory" }, ConnectDirectoryRequest, ConnectDirectoryResult, [ClientException, DirectoryLimitExceededException, InvalidParameterException, ServiceException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const connectDirectory = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.ConnectDirectory" }, ConnectDirectoryRequest, ConnectDirectoryResult, [ClientException, DirectoryLimitExceededException, InvalidParameterException, ServiceException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a Simple AD directory. For more information, see Simple Active Directory in the *Directory Service Admin Guide*.
- * 
  * 
  * Before you call `CreateDirectory`, ensure that all of the required permissions
  * have been explicitly granted through a policy. For details about what permissions are required
  * to run the `CreateDirectory` operation, see Directory Service API Permissions: Actions, Resources, and Conditions Reference.
- */export const createDirectory = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", uri: "/", method: "POST", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.CreateDirectory" }, CreateDirectoryRequest, CreateDirectoryResult, [ClientException, DirectoryLimitExceededException, InvalidParameterException, ServiceException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createDirectory = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.CreateDirectory" }, CreateDirectoryRequest, CreateDirectoryResult, [ClientException, DirectoryLimitExceededException, InvalidParameterException, ServiceException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a hybrid directory that connects your self-managed Active Directory (AD)
  * infrastructure and Amazon Web Services.
  * 
- * 
  * You must have a successful directory assessment using StartADAssessment to validate your environment compatibility before you
  * use this operation.
  * 
- * 
  * Updates are applied asynchronously. Use DescribeDirectories to
  * monitor the progress of directory creation.
- */export const createHybridAD = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", uri: "/", method: "POST", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.CreateHybridAD" }, CreateHybridADRequest, CreateHybridADResult, [ADAssessmentLimitExceededException, ClientException, DirectoryLimitExceededException, EntityDoesNotExistException, InvalidParameterException, ServiceException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createHybridAD = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.CreateHybridAD" }, CreateHybridADRequest, CreateHybridADResult, [ADAssessmentLimitExceededException, ClientException, DirectoryLimitExceededException, EntityDoesNotExistException, InvalidParameterException, ServiceException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a snapshot of a Simple AD or Microsoft AD directory in the Amazon Web Services cloud.
  * 
- * 
- * 
- * 
  * You cannot take snapshots of AD Connector directories.
- */export const createSnapshot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", uri: "/", method: "POST", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.CreateSnapshot" }, CreateSnapshotRequest, CreateSnapshotResult, [ClientException, EntityDoesNotExistException, InvalidParameterException, ServiceException, SnapshotLimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createSnapshot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.CreateSnapshot" }, CreateSnapshotRequest, CreateSnapshotResult, [ClientException, EntityDoesNotExistException, InvalidParameterException, ServiceException, SnapshotLimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes from the system the certificate that was registered for secure LDAP or client
  * certificate authentication.
- */export const deregisterCertificate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", uri: "/", method: "POST", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.DeregisterCertificate" }, DeregisterCertificateRequest, DeregisterCertificateResult, [CertificateDoesNotExistException, CertificateInUseException, ClientException, DirectoryDoesNotExistException, DirectoryUnavailableException, InvalidParameterException, ServiceException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deregisterCertificate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.DeregisterCertificate" }, DeregisterCertificateRequest, DeregisterCertificateResult, [CertificateDoesNotExistException, CertificateInUseException, ClientException, DirectoryDoesNotExistException, DirectoryUnavailableException, InvalidParameterException, ServiceException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Displays information about the certificate registered for secure LDAP or client
  * certificate authentication.
- */export const describeCertificate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", uri: "/", method: "POST", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.DescribeCertificate" }, DescribeCertificateRequest, DescribeCertificateResult, [CertificateDoesNotExistException, ClientException, DirectoryDoesNotExistException, InvalidParameterException, ServiceException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeCertificate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.DescribeCertificate" }, DescribeCertificateRequest, DescribeCertificateResult, [CertificateDoesNotExistException, ClientException, DirectoryDoesNotExistException, InvalidParameterException, ServiceException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves information about the type of client authentication for the specified directory,
  * if the type is specified. If no type is specified, information about all client authentication
  * types that are supported for the specified directory is retrieved. Currently, only
  * `SmartCard` is supported.
- */export const describeClientAuthenticationSettings = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", uri: "/", method: "POST", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.DescribeClientAuthenticationSettings" }, DescribeClientAuthenticationSettingsRequest, DescribeClientAuthenticationSettingsResult, [AccessDeniedException, ClientException, DirectoryDoesNotExistException, InvalidParameterException, ServiceException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeClientAuthenticationSettings = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.DescribeClientAuthenticationSettings" }, DescribeClientAuthenticationSettingsRequest, DescribeClientAuthenticationSettingsResult, [AccessDeniedException, ClientException, DirectoryDoesNotExistException, InvalidParameterException, ServiceException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Obtains information about the conditional forwarders for this account.
  * 
- * 
  * If no input parameters are provided for RemoteDomainNames, this request describes all
  * conditional forwarders for the specified directory ID.
- */export const describeConditionalForwarders = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", uri: "/", method: "POST", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.DescribeConditionalForwarders" }, DescribeConditionalForwardersRequest, DescribeConditionalForwardersResult, [ClientException, DirectoryUnavailableException, EntityDoesNotExistException, InvalidParameterException, ServiceException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeConditionalForwarders = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.DescribeConditionalForwarders" }, DescribeConditionalForwardersRequest, DescribeConditionalForwardersResult, [ClientException, DirectoryUnavailableException, EntityDoesNotExistException, InvalidParameterException, ServiceException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Provides information about any domain controllers in your directory.
- */export const describeDomainControllers = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", uri: "/", method: "POST", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.DescribeDomainControllers" }, DescribeDomainControllersRequest, DescribeDomainControllersResult, [ClientException, EntityDoesNotExistException, InvalidNextTokenException, InvalidParameterException, ServiceException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeDomainControllers = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.DescribeDomainControllers" }, DescribeDomainControllersRequest, DescribeDomainControllersResult, [ClientException, EntityDoesNotExistException, InvalidNextTokenException, InvalidParameterException, ServiceException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Obtains information about which Amazon SNS topics receive status messages from the specified
  * directory.
  * 
- * 
  * If no input parameters are provided, such as DirectoryId or TopicName, this request
  * describes all of the associations in the account.
- */export const describeEventTopics = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", uri: "/", method: "POST", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.DescribeEventTopics" }, DescribeEventTopicsRequest, DescribeEventTopicsResult, [ClientException, EntityDoesNotExistException, InvalidParameterException, ServiceException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeEventTopics = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.DescribeEventTopics" }, DescribeEventTopicsRequest, DescribeEventTopicsResult, [ClientException, EntityDoesNotExistException, InvalidParameterException, ServiceException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes the status of LDAP security for the specified directory.
- */export const describeLDAPSSettings = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", uri: "/", method: "POST", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.DescribeLDAPSSettings" }, DescribeLDAPSSettingsRequest, DescribeLDAPSSettingsResult, [ClientException, DirectoryDoesNotExistException, InvalidNextTokenException, InvalidParameterException, ServiceException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeLDAPSSettings = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.DescribeLDAPSSettings" }, DescribeLDAPSSettingsRequest, DescribeLDAPSSettingsResult, [ClientException, DirectoryDoesNotExistException, InvalidNextTokenException, InvalidParameterException, ServiceException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Provides information about the Regions that are configured for multi-Region
  * replication.
- */export const describeRegions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", uri: "/", method: "POST", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.DescribeRegions" }, DescribeRegionsRequest, DescribeRegionsResult, [AccessDeniedException, ClientException, DirectoryDoesNotExistException, InvalidNextTokenException, InvalidParameterException, ServiceException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeRegions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.DescribeRegions" }, DescribeRegionsRequest, DescribeRegionsResult, [AccessDeniedException, ClientException, DirectoryDoesNotExistException, InvalidNextTokenException, InvalidParameterException, ServiceException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the shared directories in your account.
- */export const describeSharedDirectories = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", uri: "/", method: "POST", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.DescribeSharedDirectories" }, DescribeSharedDirectoriesRequest, DescribeSharedDirectoriesResult, [ClientException, EntityDoesNotExistException, InvalidNextTokenException, InvalidParameterException, ServiceException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeSharedDirectories = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.DescribeSharedDirectories" }, DescribeSharedDirectoriesRequest, DescribeSharedDirectoriesResult, [ClientException, EntityDoesNotExistException, InvalidNextTokenException, InvalidParameterException, ServiceException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Obtains information about the directory snapshots that belong to this account.
- * 
  * 
  * This operation supports pagination with the use of the *NextToken* request and
  * response parameters. If more results are available, the *DescribeSnapshots.NextToken*
  * member contains a token that you pass in the next call to DescribeSnapshots to
  * retrieve the next set of items.
  * 
- * 
  * You can also specify a maximum number of return results with the *Limit*
  * parameter.
- */export const describeSnapshots = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", uri: "/", method: "POST", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.DescribeSnapshots" }, DescribeSnapshotsRequest, DescribeSnapshotsResult, [ClientException, EntityDoesNotExistException, InvalidNextTokenException, InvalidParameterException, ServiceException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeSnapshots = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.DescribeSnapshots" }, DescribeSnapshotsRequest, DescribeSnapshotsResult, [ClientException, EntityDoesNotExistException, InvalidNextTokenException, InvalidParameterException, ServiceException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Obtains information about the trust relationships for this account.
  * 
- * 
  * If no input parameters are provided, such as DirectoryId or TrustIds, this request
  * describes all the trust relationships belonging to the account.
- */export const describeTrusts = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", uri: "/", method: "POST", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.DescribeTrusts" }, DescribeTrustsRequest, DescribeTrustsResult, [ClientException, EntityDoesNotExistException, InvalidNextTokenException, InvalidParameterException, ServiceException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeTrusts = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.DescribeTrusts" }, DescribeTrustsRequest, DescribeTrustsResult, [ClientException, EntityDoesNotExistException, InvalidNextTokenException, InvalidParameterException, ServiceException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Disables the certificate authority (CA) enrollment policy for the specified directory. This stops
  * automatic certificate enrollment and management for domain-joined clients, but does not affect
  * existing certificates.
  * 
- * 
- * 
- * 
  * Disabling the CA enrollment policy prevents new certificates from being automatically
  * enrolled, but existing certificates remain valid and functional until they expire.
- */export const disableCAEnrollmentPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", uri: "/", method: "POST", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.DisableCAEnrollmentPolicy" }, DisableCAEnrollmentPolicyRequest, DisableCAEnrollmentPolicyResult, [AccessDeniedException, ClientException, DirectoryDoesNotExistException, DirectoryUnavailableException, DisableAlreadyInProgressException, EntityDoesNotExistException, InvalidParameterException, ServiceException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const disableCAEnrollmentPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.DisableCAEnrollmentPolicy" }, DisableCAEnrollmentPolicyRequest, DisableCAEnrollmentPolicyResult, [AccessDeniedException, ClientException, DirectoryDoesNotExistException, DirectoryUnavailableException, DisableAlreadyInProgressException, EntityDoesNotExistException, InvalidParameterException, ServiceException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Obtains the manual snapshot limits for a directory.
- */export const getSnapshotLimits = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", uri: "/", method: "POST", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.GetSnapshotLimits" }, GetSnapshotLimitsRequest, GetSnapshotLimitsResult, [ClientException, EntityDoesNotExistException, ServiceException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getSnapshotLimits = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.GetSnapshotLimits" }, GetSnapshotLimitsRequest, GetSnapshotLimitsResult, [ClientException, EntityDoesNotExistException, ServiceException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves a list of directory assessments for the specified directory or all
  * assessments in your account. Use this operation to monitor assessment status and manage
  * multiple assessments.
- */export const listADAssessments = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", uri: "/", method: "POST", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.ListADAssessments" }, ListADAssessmentsRequest, ListADAssessmentsResult, [ClientException, DirectoryDoesNotExistException, InvalidParameterException, ServiceException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listADAssessments = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.ListADAssessments" }, ListADAssessmentsRequest, ListADAssessmentsResult, [ClientException, DirectoryDoesNotExistException, InvalidParameterException, ServiceException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * For the specified directory, lists all the certificates registered for a secure LDAP or
  * client certificate authentication.
- */export const listCertificates = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", uri: "/", method: "POST", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.ListCertificates" }, ListCertificatesRequest, ListCertificatesResult, [ClientException, DirectoryDoesNotExistException, InvalidNextTokenException, InvalidParameterException, ServiceException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listCertificates = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.ListCertificates" }, ListCertificatesRequest, ListCertificatesResult, [ClientException, DirectoryDoesNotExistException, InvalidNextTokenException, InvalidParameterException, ServiceException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the address blocks that you have added to a directory.
- */export const listIpRoutes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", uri: "/", method: "POST", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.ListIpRoutes" }, ListIpRoutesRequest, ListIpRoutesResult, [ClientException, EntityDoesNotExistException, InvalidNextTokenException, InvalidParameterException, ServiceException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listIpRoutes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.ListIpRoutes" }, ListIpRoutesRequest, ListIpRoutesResult, [ClientException, EntityDoesNotExistException, InvalidNextTokenException, InvalidParameterException, ServiceException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the active log subscriptions for the Amazon Web Services account.
- */export const listLogSubscriptions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", uri: "/", method: "POST", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.ListLogSubscriptions" }, ListLogSubscriptionsRequest, ListLogSubscriptionsResult, [ClientException, EntityDoesNotExistException, InvalidNextTokenException, ServiceException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listLogSubscriptions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.ListLogSubscriptions" }, ListLogSubscriptionsRequest, ListLogSubscriptionsResult, [ClientException, EntityDoesNotExistException, InvalidNextTokenException, ServiceException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists all schema extensions applied to a Microsoft AD Directory.
- */export const listSchemaExtensions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", uri: "/", method: "POST", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.ListSchemaExtensions" }, ListSchemaExtensionsRequest, ListSchemaExtensionsResult, [ClientException, EntityDoesNotExistException, InvalidNextTokenException, ServiceException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listSchemaExtensions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.ListSchemaExtensions" }, ListSchemaExtensionsRequest, ListSchemaExtensionsResult, [ClientException, EntityDoesNotExistException, InvalidNextTokenException, ServiceException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Rejects a directory sharing request that was sent from the directory owner account.
- */export const rejectSharedDirectory = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", uri: "/", method: "POST", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.RejectSharedDirectory" }, RejectSharedDirectoryRequest, RejectSharedDirectoryResult, [ClientException, DirectoryAlreadySharedException, EntityDoesNotExistException, InvalidParameterException, ServiceException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const rejectSharedDirectory = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.RejectSharedDirectory" }, RejectSharedDirectoryRequest, RejectSharedDirectoryResult, [ClientException, DirectoryAlreadySharedException, EntityDoesNotExistException, InvalidParameterException, ServiceException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Resets the password for any user in your Managed Microsoft AD or Simple AD directory. Disabled
  * users will become enabled and can be authenticated following the API call.
  * 
- * 
  * You can reset the password for any user in your directory with the following
  * exceptions:
- * 
- * 
  * 
  * - For Simple AD, you cannot reset the password for any user that is a member of either
  * the **Domain Admins** or Enterprise
  * Admins group except for the administrator user.
- * 
- * 
  * 
  * - For Managed Microsoft AD, you can only reset the password for a user that is in an OU based
  * off of the NetBIOS name that you typed when you created your directory. For example, you
@@ -681,23 +647,20 @@ export class ShareLimitExceededException extends S.TaggedError<ShareLimitExceede
  * Reserved OU. For more information about the OU structure for an Managed Microsoft AD
  * directory, see What Gets Created in the Directory Service Administration
  * Guide.
- */export const resetUserPassword = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", uri: "/", method: "POST", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.ResetUserPassword" }, ResetUserPasswordRequest, ResetUserPasswordResult, [ClientException, DirectoryUnavailableException, EntityDoesNotExistException, InvalidPasswordException, ServiceException, UnsupportedOperationException, UserDoesNotExistException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const resetUserPassword = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.ResetUserPassword" }, ResetUserPasswordRequest, ResetUserPasswordResult, [ClientException, DirectoryUnavailableException, EntityDoesNotExistException, InvalidPasswordException, ServiceException, UnsupportedOperationException, UserDoesNotExistException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Initiates a directory assessment to validate your self-managed AD environment for
  * hybrid domain join. The assessment checks compatibility and connectivity of the
  * self-managed AD environment.
  * 
- * 
  * A directory assessment is automatically created when you create a hybrid directory.
  * There are two types of assessments: `CUSTOMER` and `SYSTEM`. Your
  * Amazon Web Services account has a limit of 100 `CUSTOMER` directory assessments.
- * 
  * 
  * The assessment process typically takes 30 minutes or more to complete. The assessment
  * process is asynchronous and you can monitor it with
  * `DescribeADAssessment`.
  * 
- * 
  * The `InstanceIds` must have a one-to-one correspondence with
  * `CustomerDnsIps`, meaning that if the IP address for instance i-10243410
  * is 10.24.34.100 and the IP address for instance i-10243420 is 10.24.34.200, then the
@@ -705,18 +668,15 @@ export class ShareLimitExceededException extends S.TaggedError<ShareLimitExceede
  * 10.24.34.200] paired with [i-10243410, i-10243420] or [10.24.34.200, 10.24.34.100]
  * paired with [i-10243420, i-10243410].
  * 
- * 
  * Note: You must provide exactly one `DirectoryId` or
  * `AssessmentConfiguration`.
- */export const startADAssessment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", uri: "/", method: "POST", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.StartADAssessment" }, StartADAssessmentRequest, StartADAssessmentResult, [ADAssessmentLimitExceededException, ClientException, DirectoryDoesNotExistException, InvalidParameterException, ServiceException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startADAssessment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.StartADAssessment" }, StartADAssessmentRequest, StartADAssessmentResult, [ADAssessmentLimitExceededException, ClientException, DirectoryDoesNotExistException, InvalidParameterException, ServiceException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the configuration of an existing hybrid directory. You can recover hybrid
  * directory administrator account or modify self-managed instance settings.
  * 
- * 
  * Updates are applied asynchronously. Use DescribeHybridADUpdate to
  * monitor the progress of configuration changes.
- * 
  * 
  * The `InstanceIds` must have a one-to-one correspondence with
  * `CustomerDnsIps`, meaning that if the IP address for instance i-10243410
@@ -725,30 +685,25 @@ export class ShareLimitExceededException extends S.TaggedError<ShareLimitExceede
  * 10.24.34.200] paired with [i-10243410, i-10243420] or [10.24.34.200, 10.24.34.100]
  * paired with [i-10243420, i-10243410].
  * 
- * 
- * 
- * 
  * You must provide at least one update to UpdateHybridADRequest$HybridAdministratorAccountUpdate or UpdateHybridADRequest$SelfManagedInstancesSettings.
- */export const updateHybridAD = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", uri: "/", method: "POST", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.UpdateHybridAD" }, UpdateHybridADRequest, UpdateHybridADResult, [ADAssessmentLimitExceededException, ClientException, DirectoryDoesNotExistException, InvalidParameterException, ServiceException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateHybridAD = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.UpdateHybridAD" }, UpdateHybridADRequest, UpdateHybridADResult, [ADAssessmentLimitExceededException, ClientException, DirectoryDoesNotExistException, InvalidParameterException, ServiceException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Adds two domain controllers in the specified Region for the specified directory.
- */export const addRegion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", uri: "/", method: "POST", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.AddRegion" }, AddRegionRequest, AddRegionResult, [AccessDeniedException, ClientException, DirectoryAlreadyInRegionException, DirectoryDoesNotExistException, DirectoryUnavailableException, EntityDoesNotExistException, InvalidParameterException, RegionLimitExceededException, ServiceException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const addRegion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.AddRegion" }, AddRegionRequest, AddRegionResult, [AccessDeniedException, ClientException, DirectoryAlreadyInRegionException, DirectoryDoesNotExistException, DirectoryUnavailableException, EntityDoesNotExistException, InvalidParameterException, RegionLimitExceededException, ServiceException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an Active Directory computer object in the specified directory.
- */export const createComputer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", uri: "/", method: "POST", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.CreateComputer" }, CreateComputerRequest, CreateComputerResult, [AuthenticationFailedException, ClientException, DirectoryUnavailableException, EntityAlreadyExistsException, EntityDoesNotExistException, InvalidParameterException, ServiceException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createComputer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.CreateComputer" }, CreateComputerRequest, CreateComputerResult, [AuthenticationFailedException, ClientException, DirectoryUnavailableException, EntityAlreadyExistsException, EntityDoesNotExistException, InvalidParameterException, ServiceException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves detailed information about a directory assessment, including its current
  * status, validation results, and configuration details. Use this operation to monitor
  * assessment progress and review results.
- */export const describeADAssessment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", uri: "/", method: "POST", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.DescribeADAssessment" }, DescribeADAssessmentRequest, DescribeADAssessmentResult, [ClientException, EntityDoesNotExistException, InvalidParameterException, ServiceException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeADAssessment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.DescribeADAssessment" }, DescribeADAssessmentRequest, DescribeADAssessmentResult, [ClientException, EntityDoesNotExistException, InvalidParameterException, ServiceException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Obtains information about the directories that belong to this account.
- * 
  * 
  * You can retrieve information about specific directories by passing the directory
  * identifiers in the `DirectoryIds` parameter. Otherwise, all directories that belong
  * to the current account are returned.
- * 
  * 
  * This operation supports pagination with the use of the `NextToken` request and
  * response parameters. If more results are available, the
@@ -756,48 +711,44 @@ export class ShareLimitExceededException extends S.TaggedError<ShareLimitExceede
  * the next call to DescribeDirectories to retrieve the next set of
  * items.
  * 
- * 
  * You can also specify a maximum number of return results with the `Limit`
  * parameter.
- */export const describeDirectories = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", uri: "/", method: "POST", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.DescribeDirectories" }, DescribeDirectoriesRequest, DescribeDirectoriesResult, [ClientException, EntityDoesNotExistException, InvalidNextTokenException, InvalidParameterException, ServiceException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeDirectories = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.DescribeDirectories" }, DescribeDirectoriesRequest, DescribeDirectoriesResult, [ClientException, EntityDoesNotExistException, InvalidNextTokenException, InvalidParameterException, ServiceException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves information about the configurable settings for the specified directory.
- */export const describeSettings = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", uri: "/", method: "POST", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.DescribeSettings" }, DescribeSettingsRequest, DescribeSettingsResult, [ClientException, DirectoryDoesNotExistException, InvalidNextTokenException, InvalidParameterException, ServiceException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeSettings = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.DescribeSettings" }, DescribeSettingsRequest, DescribeSettingsResult, [ClientException, DirectoryDoesNotExistException, InvalidNextTokenException, InvalidParameterException, ServiceException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes the updates of a directory for a particular update type.
- */export const describeUpdateDirectory = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", uri: "/", method: "POST", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.DescribeUpdateDirectory" }, DescribeUpdateDirectoryRequest, DescribeUpdateDirectoryResult, [AccessDeniedException, ClientException, DirectoryDoesNotExistException, InvalidNextTokenException, InvalidParameterException, ServiceException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeUpdateDirectory = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.DescribeUpdateDirectory" }, DescribeUpdateDirectoryRequest, DescribeUpdateDirectoryResult, [AccessDeniedException, ClientException, DirectoryDoesNotExistException, InvalidNextTokenException, InvalidParameterException, ServiceException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Stops the directory sharing between the directory owner and consumer accounts.
- */export const unshareDirectory = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", uri: "/", method: "POST", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.UnshareDirectory" }, UnshareDirectoryRequest, UnshareDirectoryResult, [ClientException, DirectoryNotSharedException, EntityDoesNotExistException, InvalidTargetException, ServiceException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const unshareDirectory = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.UnshareDirectory" }, UnshareDirectoryRequest, UnshareDirectoryResult, [ClientException, DirectoryNotSharedException, EntityDoesNotExistException, InvalidTargetException, ServiceException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves information about update activities for a hybrid directory. This operation
  * provides details about configuration changes, administrator account updates, and
  * self-managed instance settings (IDs and DNS IPs).
- */export const describeHybridADUpdate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", uri: "/", method: "POST", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.DescribeHybridADUpdate" }, DescribeHybridADUpdateRequest, DescribeHybridADUpdateResult, [ClientException, DirectoryDoesNotExistException, InvalidNextTokenException, InvalidParameterException, ServiceException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeHybridADUpdate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.DescribeHybridADUpdate" }, DescribeHybridADUpdateRequest, DescribeHybridADUpdateResult, [ClientException, DirectoryDoesNotExistException, InvalidNextTokenException, InvalidParameterException, ServiceException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the configurable settings for the specified directory.
- */export const updateSettings = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", uri: "/", method: "POST", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.UpdateSettings" }, UpdateSettingsRequest, UpdateSettingsResult, [ClientException, DirectoryDoesNotExistException, DirectoryUnavailableException, IncompatibleSettingsException, InvalidParameterException, ServiceException, UnsupportedOperationException, UnsupportedSettingsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateSettings = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.UpdateSettings" }, UpdateSettingsRequest, UpdateSettingsResult, [ClientException, DirectoryDoesNotExistException, DirectoryUnavailableException, IncompatibleSettingsException, InvalidParameterException, ServiceException, UnsupportedOperationException, UnsupportedSettingsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Registers a certificate for a secure LDAP or client certificate authentication.
- */export const registerCertificate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", uri: "/", method: "POST", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.RegisterCertificate" }, RegisterCertificateRequest, RegisterCertificateResult, [CertificateAlreadyExistsException, CertificateLimitExceededException, ClientException, DirectoryDoesNotExistException, DirectoryUnavailableException, InvalidCertificateException, InvalidParameterException, ServiceException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const registerCertificate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.RegisterCertificate" }, RegisterCertificateRequest, RegisterCertificateResult, [CertificateAlreadyExistsException, CertificateLimitExceededException, ClientException, DirectoryDoesNotExistException, DirectoryUnavailableException, InvalidCertificateException, InvalidParameterException, ServiceException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Shares a specified directory (`DirectoryId`) in your Amazon Web Services account (directory
  * owner) with another Amazon Web Services account (directory consumer). With this operation you can use your
  * directory from any Amazon Web Services account and from any Amazon VPC within an Amazon Web Services Region.
- * 
  * 
  * When you share your Managed Microsoft AD directory, Directory Service creates a shared directory in the
  * directory consumer account. This shared directory contains the metadata to provide access to
  * the directory within the directory owner account. The shared directory is visible in all VPCs
  * in the directory consumer account.
  * 
- * 
  * The `ShareMethod` parameter determines whether the specified directory can be
  * shared between Amazon Web Services accounts inside the same Amazon Web Services organization (`ORGANIZATIONS`).
  * It also determines whether you can share the directory with any other Amazon Web Services account either
  * inside or outside of the organization (`HANDSHAKE`).
  * 
- * 
  * The `ShareNotes` parameter is only used when `HANDSHAKE` is called,
  * which sends a directory sharing request to the directory consumer.
- */export const shareDirectory = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", uri: "/", method: "POST", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.ShareDirectory" }, ShareDirectoryRequest, ShareDirectoryResult, [AccessDeniedException, ClientException, DirectoryAlreadySharedException, EntityDoesNotExistException, InvalidParameterException, InvalidTargetException, OrganizationsException, ServiceException, ShareLimitExceededException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const shareDirectory = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-16", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.ShareDirectory" }, ShareDirectoryRequest, ShareDirectoryResult, [AccessDeniedException, ClientException, DirectoryAlreadySharedException, EntityDoesNotExistException, InvalidParameterException, InvalidTargetException, OrganizationsException, ServiceException, ShareLimitExceededException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

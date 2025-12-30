@@ -78,14 +78,14 @@ export class LimitExceededException extends S.TaggedError<LimitExceededException
  * resources using an Amazon Web Services managed key. Or, you can use a KMS key that you own and
  * manage. For more information, see Data
  * encryption in the *Amazon Web Services IoT FleetWise Developer Guide*.
- */export const putEncryptionConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-06-17", uri: "/encryptionConfiguration", method: "POST", sdkId: "IoTFleetWise", sigV4ServiceName: "iotfleetwise", name: "IoTAutobahnControlPlane.PutEncryptionConfiguration" }, PutEncryptionConfigurationRequest, PutEncryptionConfigurationResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putEncryptionConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-06-17", uri: "/encryptionConfiguration", sdkId: "IoTFleetWise", sigV4ServiceName: "iotfleetwise", name: "IoTAutobahnControlPlane.PutEncryptionConfiguration" }, PutEncryptionConfigurationRequest, PutEncryptionConfigurationResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates or updates the logging option.
  */export const putLoggingOptions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-06-17", uri: "/loggingOptions", method: "PUT", sdkId: "IoTFleetWise", sigV4ServiceName: "iotfleetwise", name: "IoTAutobahnControlPlane.PutLoggingOptions" }, PutLoggingOptionsRequest, PutLoggingOptionsResponse, [AccessDeniedException, ConflictException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Adds to or modifies the tags of the given resource. Tags are metadata which can be
  * used to manage a resource.
- */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-06-17", uri: "/tags", method: "POST", sdkId: "IoTFleetWise", sigV4ServiceName: "iotfleetwise", name: "IoTAutobahnControlPlane.TagResource" }, TagResourceRequest, TagResourceResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-06-17", uri: "/tags", sdkId: "IoTFleetWise", sigV4ServiceName: "iotfleetwise", name: "IoTAutobahnControlPlane.TagResource" }, TagResourceRequest, TagResourceResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes the given tags (metadata) from the resource.
  */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-06-17", uri: "/tags", method: "DELETE", sdkId: "IoTFleetWise", sigV4ServiceName: "iotfleetwise", name: "IoTAutobahnControlPlane.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -104,10 +104,8 @@ export class LimitExceededException extends S.TaggedError<LimitExceededException
  * without the Timestream resources parameter so that Amazon Web Services IoT FleetWise can remove the Timestream
  * metadata stored. You should then pass the data destination into the CreateCampaign API operation.
  * 
- * 
  * You must delete any existing campaigns that include an empty data destination
  * before you register your account again. For more information, see the DeleteCampaign API operation.
- * 
  * 
  * If you want to delete the Timestream inline policy from the service-linked role, such
  * as to mitigate an overly permissive policy, you must first delete any existing
@@ -115,47 +113,31 @@ export class LimitExceededException extends S.TaggedError<LimitExceededException
  * enable CloudWatch metrics. For more information, see DeleteServiceLinkedRole in the Identity and Access Management API
  * Reference.
  * 
- * 
- * 
- * 
  * Registers your Amazon Web Services account, IAM, and Amazon Timestream resources so Amazon Web Services IoT FleetWise can
  * transfer your vehicle data to the Amazon Web Services Cloud. For more information, including
  * step-by-step procedures, see Setting up
  * Amazon Web Services IoT FleetWise.
- * 
- * 
- * 
  * 
  * An Amazon Web Services account is **not** the same thing as a
  * "user." An Amazon Web Services user is an identity that you create using Identity and Access Management (IAM) and
  * takes the form of either an IAM user or an IAM role, both
  * with credentials. A single Amazon Web Services account can, and typically does,
  * contain many users and roles.
- */export const registerAccount = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-06-17", uri: "/account/registration", method: "POST", sdkId: "IoTFleetWise", sigV4ServiceName: "iotfleetwise", name: "IoTAutobahnControlPlane.RegisterAccount" }, RegisterAccountRequest, RegisterAccountResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const registerAccount = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-06-17", uri: "/account/registration", sdkId: "IoTFleetWise", sigV4ServiceName: "iotfleetwise", name: "IoTAutobahnControlPlane.RegisterAccount" }, RegisterAccountRequest, RegisterAccountResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves information about the status of registering your Amazon Web Services account, IAM, and
  * Amazon Timestream resources so that Amazon Web Services IoT FleetWise can transfer your vehicle data to the Amazon Web Services
  * Cloud.
  * 
- * 
  * For more information, including step-by-step procedures, see Setting up Amazon Web Services IoT FleetWise.
- * 
- * 
- * 
  * 
  * This API operation doesn't require input parameters.
  */export const getRegisterAccountStatus = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-06-17", uri: "/account/registration_status", method: "GET", sdkId: "IoTFleetWise", sigV4ServiceName: "iotfleetwise", name: "IoTAutobahnControlPlane.GetRegisterAccountStatus" }, GetRegisterAccountStatusRequest, GetRegisterAccountStatusResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates a group, or batch, of vehicles.
  * 
- * 
- * 
- * 
  * You must specify a decoder manifest and a vehicle model (model manifest) for each
  * vehicle.
- * 
- * 
- * 
  * 
  * For more information, see Update multiple
  * vehicles (AWS CLI) in the *Amazon Web Services IoT FleetWise Developer Guide*.
@@ -163,15 +145,9 @@ export class LimitExceededException extends S.TaggedError<LimitExceededException
 /**
  * Creates a group, or batch, of vehicles.
  * 
- * 
- * 
- * 
  * You must specify a decoder manifest and a vehicle model (model manifest) for each
  * vehicle.
  * 
- * 
- * 
- * 
  * For more information, see Create multiple
  * vehicles (AWS CLI) in the *Amazon Web Services IoT FleetWise Developer Guide*.
- */export const batchCreateVehicle = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-06-17", uri: "/vehicles", method: "POST", sdkId: "IoTFleetWise", sigV4ServiceName: "iotfleetwise", name: "IoTAutobahnControlPlane.BatchCreateVehicle" }, BatchCreateVehicleRequest, BatchCreateVehicleResponse, [AccessDeniedException, InternalServerException, LimitExceededException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const batchCreateVehicle = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-06-17", uri: "/vehicles", sdkId: "IoTFleetWise", sigV4ServiceName: "iotfleetwise", name: "IoTAutobahnControlPlane.BatchCreateVehicle" }, BatchCreateVehicleRequest, BatchCreateVehicleResponse, [AccessDeniedException, InternalServerException, LimitExceededException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);

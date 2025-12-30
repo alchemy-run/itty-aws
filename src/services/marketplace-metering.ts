@@ -48,33 +48,21 @@ export class PlatformNotSupportedException extends S.TaggedError<PlatformNotSupp
  * through this API to obtain a `CustomerIdentifier` along with the
  * `CustomerAWSAccountId` and `ProductCode`.
  * 
- * 
- * 
- * 
  * To successfully resolve the token, the API must be called from the account that was used to publish the SaaS
  * application. For an example of using `ResolveCustomer`, see ResolveCustomer code example in the Amazon Web Services Marketplace Seller
  * Guide.
- * 
- * 
- * 
  * 
  * Permission is required for this operation. Your IAM role or user performing this
  * operation requires a policy to allow the `aws-marketplace:ResolveCustomer`
  * action. For more information, see Actions, resources, and condition keys for Amazon Web Services Marketplace Metering Service in
  * the *Service Authorization Reference*.
  * 
- * 
  * For Amazon Web Services Regions that support `ResolveCustomer`, see ResolveCustomer Region support.
- */export const resolveCustomer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-14", uri: "/", method: "POST", sdkId: "Marketplace Metering", sigV4ServiceName: "aws-marketplace", name: "AWSMPMeteringService.ResolveCustomer" }, ResolveCustomerRequest, ResolveCustomerResult, [DisabledApiException, ExpiredTokenException, InternalServiceErrorException, InvalidTokenException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const resolveCustomer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-14", sdkId: "Marketplace Metering", sigV4ServiceName: "aws-marketplace", name: "AWSMPMeteringService.ResolveCustomer" }, ResolveCustomerRequest, ResolveCustomerResult, [DisabledApiException, ExpiredTokenException, InternalServiceErrorException, InvalidTokenException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * The `CustomerIdentifier` parameter is scheduled for deprecation on March 31, 2026. Use `CustomerAWSAccountID` instead.
  * 
- * 
  * These parameters are mutually exclusive. You can't specify both `CustomerIdentifier` and `CustomerAWSAccountID` in the same request.
- * 
- * 
- * 
- * 
  * 
  * To post metering records for customers, SaaS applications call
  * `BatchMeterUsage`, which is used for metering SaaS flexible
@@ -84,19 +72,14 @@ export class PlatformNotSupportedException extends S.TaggedError<PlatformNotSupp
  * want to meter usage for multiple products, you must make multiple
  * `BatchMeterUsage` calls.
  * 
- * 
  * Usage records should be submitted in quick succession following a
  * recorded event. Usage records aren't accepted 6 hours or more after an
  * event.
- * 
- * 
  * 
  * `BatchMeterUsage` can process up to 25
  * `UsageRecords` at a time, and each request must be less than
  * 1 MB in size. Optionally, you can have multiple usage allocations for
  * usage data that's split into buckets according to predefined tags.
- * 
- * 
  * 
  * `BatchMeterUsage` returns a list of
  * `UsageRecordResult` objects, which have each
@@ -104,33 +87,23 @@ export class PlatformNotSupportedException extends S.TaggedError<PlatformNotSupp
  * `UnprocessedRecords`, which indicate errors on the service
  * side that should be retried.
  * 
- * 
  * For Amazon Web Services Regions that support `BatchMeterUsage`, see BatchMeterUsage Region support.
- * 
- * 
- * 
- * 
  * 
  * For an example of `BatchMeterUsage`, see BatchMeterUsage code example in the Amazon Web Services Marketplace Seller
  * Guide.
- */export const batchMeterUsage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-14", uri: "/", method: "POST", sdkId: "Marketplace Metering", sigV4ServiceName: "aws-marketplace", name: "AWSMPMeteringService.BatchMeterUsage" }, BatchMeterUsageRequest, BatchMeterUsageResult, [DisabledApiException, InternalServiceErrorException, InvalidCustomerIdentifierException, InvalidProductCodeException, InvalidTagException, InvalidUsageAllocationsException, InvalidUsageDimensionException, ThrottlingException, TimestampOutOfBoundsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const batchMeterUsage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-14", sdkId: "Marketplace Metering", sigV4ServiceName: "aws-marketplace", name: "AWSMPMeteringService.BatchMeterUsage" }, BatchMeterUsageRequest, BatchMeterUsageResult, [DisabledApiException, InternalServiceErrorException, InvalidCustomerIdentifierException, InvalidProductCodeException, InvalidTagException, InvalidUsageAllocationsException, InvalidUsageDimensionException, ThrottlingException, TimestampOutOfBoundsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * API to emit metering records. For identical requests, the API is
  * idempotent and returns the metering record ID. This is used for metering
  * flexible consumption pricing (FCP) Amazon Machine Images (AMI) and
  * container products.
  * 
- * 
- * 
  * `MeterUsage` is authenticated on the buyer's Amazon Web Services account using
  * credentials from the Amazon EC2 instance, Amazon ECS task, or Amazon EKS pod.
- * 
- * 
  * 
  * `MeterUsage` can optionally include multiple usage allocations, to provide
  * customers with usage data split into buckets by tags that you define (or allow the
  * customer to define).
- * 
  * 
  * Submit usage records to report events from the previous hour. If you submit records that
  * are greater than six hours after events occur, the records won’t be accepted. The timestamp
@@ -140,9 +113,8 @@ export class PlatformNotSupportedException extends S.TaggedError<PlatformNotSupp
  * after they’re recorded. If you report usage before the current hour ends, you will be unable to
  * report additional usage until the next hour begins.
  * 
- * 
  * For Amazon Web Services Regions that support `MeterUsage`, see MeterUsage Region support for Amazon EC2 and MeterUsage Region support for Amazon ECS and Amazon EKS.
- */export const meterUsage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-14", uri: "/", method: "POST", sdkId: "Marketplace Metering", sigV4ServiceName: "aws-marketplace", name: "AWSMPMeteringService.MeterUsage" }, MeterUsageRequest, MeterUsageResult, [CustomerNotEntitledException, DuplicateRequestException, IdempotencyConflictException, InternalServiceErrorException, InvalidEndpointRegionException, InvalidProductCodeException, InvalidTagException, InvalidUsageAllocationsException, InvalidUsageDimensionException, ThrottlingException, TimestampOutOfBoundsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const meterUsage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-14", sdkId: "Marketplace Metering", sigV4ServiceName: "aws-marketplace", name: "AWSMPMeteringService.MeterUsage" }, MeterUsageRequest, MeterUsageResult, [CustomerNotEntitledException, DuplicateRequestException, IdempotencyConflictException, InternalServiceErrorException, InvalidEndpointRegionException, InvalidProductCodeException, InvalidTagException, InvalidUsageAllocationsException, InvalidUsageDimensionException, ThrottlingException, TimestampOutOfBoundsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Paid container software products sold through Amazon Web Services Marketplace must integrate with the Amazon Web Services Marketplace
  * Metering Service and call the `RegisterUsage` operation for software
@@ -150,8 +122,6 @@ export class PlatformNotSupportedException extends S.TaggedError<PlatformNotSupp
  * do so if you would like to receive usage data in your seller reports. The sections below
  * explain the behavior of `RegisterUsage`. `RegisterUsage` performs
  * two primary functions: metering and entitlement.
- * 
- * 
  * 
  * - *Entitlement*: `RegisterUsage` allows you to
  * verify that the customer running your paid software is subscribed to your
@@ -165,8 +135,6 @@ export class PlatformNotSupportedException extends S.TaggedError<PlatformNotSupp
  * will not throw a `CustomerNotSubscribedException`, even if the
  * customer unsubscribes while the Amazon ECS task or Amazon EKS
  * pod is still running.
- * 
- * 
  * 
  * - *Metering*: `RegisterUsage` meters software use
  * per ECS task, per hour, or per pod for Amazon EKS with usage prorated to
@@ -186,6 +154,5 @@ export class PlatformNotSupportedException extends S.TaggedError<PlatformNotSupp
  * current month forward until the container ends. `RegisterUsage` is
  * for metering paid hourly container products.
  * 
- * 
  * For Amazon Web Services Regions that support `RegisterUsage`, see RegisterUsage Region support.
- */export const registerUsage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-14", uri: "/", method: "POST", sdkId: "Marketplace Metering", sigV4ServiceName: "aws-marketplace", name: "AWSMPMeteringService.RegisterUsage" }, RegisterUsageRequest, RegisterUsageResult, [CustomerNotEntitledException, DisabledApiException, InternalServiceErrorException, InvalidProductCodeException, InvalidPublicKeyVersionException, InvalidRegionException, PlatformNotSupportedException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const registerUsage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-14", sdkId: "Marketplace Metering", sigV4ServiceName: "aws-marketplace", name: "AWSMPMeteringService.RegisterUsage" }, RegisterUsageRequest, RegisterUsageResult, [CustomerNotEntitledException, DisabledApiException, InternalServiceErrorException, InvalidProductCodeException, InvalidPublicKeyVersionException, InvalidRegionException, PlatformNotSupportedException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

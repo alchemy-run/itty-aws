@@ -137,142 +137,110 @@ export class OperationNotFound extends S.TaggedError<OperationNotFound>()("Opera
 //# Operations
 /**
  * Removes one or more tags from the specified resource.
- */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-14", uri: "/", method: "POST", sdkId: "ServiceDiscovery", sigV4ServiceName: "servicediscovery", name: "Route53AutoNaming_v20170314.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [InvalidInput, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-14", sdkId: "ServiceDiscovery", sigV4ServiceName: "servicediscovery", name: "Route53AutoNaming_v20170314.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [InvalidInput, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes specific attributes associated with a service.
- */export const deleteServiceAttributes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-14", uri: "/", method: "POST", sdkId: "ServiceDiscovery", sigV4ServiceName: "servicediscovery", name: "Route53AutoNaming_v20170314.DeleteServiceAttributes" }, DeleteServiceAttributesRequest, DeleteServiceAttributesResponse, [InvalidInput, ServiceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteServiceAttributes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-14", sdkId: "ServiceDiscovery", sigV4ServiceName: "servicediscovery", name: "Route53AutoNaming_v20170314.DeleteServiceAttributes" }, DeleteServiceAttributesRequest, DeleteServiceAttributesResponse, [InvalidInput, ServiceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists tags for the specified resource.
- */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-14", uri: "/", method: "POST", sdkId: "ServiceDiscovery", sigV4ServiceName: "servicediscovery", name: "Route53AutoNaming_v20170314.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [InvalidInput, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-14", sdkId: "ServiceDiscovery", sigV4ServiceName: "servicediscovery", name: "Route53AutoNaming_v20170314.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [InvalidInput, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Submits a request to change the health status of a custom health check to healthy or
  * unhealthy.
- * 
  * 
  * You can use `UpdateInstanceCustomHealthStatus` to change the status only for
  * custom health checks, which you define using `HealthCheckCustomConfig` when you create
  * a service. You can't use it to change the status for Route 53 health checks, which you define using
  * `HealthCheckConfig`.
  * 
- * 
  * For more information, see HealthCheckCustomConfig.
- */export const updateInstanceCustomHealthStatus = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-14", uri: "/", method: "POST", sdkId: "ServiceDiscovery", sigV4ServiceName: "servicediscovery", name: "Route53AutoNaming_v20170314.UpdateInstanceCustomHealthStatus" }, UpdateInstanceCustomHealthStatusRequest, S.Struct({}), [CustomHealthNotFound, InstanceNotFound, InvalidInput, ServiceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateInstanceCustomHealthStatus = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-14", sdkId: "ServiceDiscovery", sigV4ServiceName: "servicediscovery", name: "Route53AutoNaming_v20170314.UpdateInstanceCustomHealthStatus" }, UpdateInstanceCustomHealthStatusRequest, S.Struct({}), [CustomHealthNotFound, InstanceNotFound, InvalidInput, ServiceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a namespace from the current account. If the namespace still contains one or more
  * services, the request fails.
- */export const deleteNamespace = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-14", uri: "/", method: "POST", sdkId: "ServiceDiscovery", sigV4ServiceName: "servicediscovery", name: "Route53AutoNaming_v20170314.DeleteNamespace" }, DeleteNamespaceRequest, DeleteNamespaceResponse, [DuplicateRequest, InvalidInput, NamespaceNotFound, ResourceInUse]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteNamespace = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-14", sdkId: "ServiceDiscovery", sigV4ServiceName: "servicediscovery", name: "Route53AutoNaming_v20170314.DeleteNamespace" }, DeleteNamespaceRequest, DeleteNamespaceResponse, [DuplicateRequest, InvalidInput, NamespaceNotFound, ResourceInUse]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a specified service and all associated service attributes. If the service still
  * contains one or more registered instances, the request fails.
- */export const deleteService = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-14", uri: "/", method: "POST", sdkId: "ServiceDiscovery", sigV4ServiceName: "servicediscovery", name: "Route53AutoNaming_v20170314.DeleteService" }, DeleteServiceRequest, DeleteServiceResponse, [InvalidInput, ResourceInUse, ServiceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteService = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-14", sdkId: "ServiceDiscovery", sigV4ServiceName: "servicediscovery", name: "Route53AutoNaming_v20170314.DeleteService" }, DeleteServiceRequest, DeleteServiceResponse, [InvalidInput, ResourceInUse, ServiceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the Amazon Route 53 DNS records and health check, if any, that Cloud Map created for the
  * specified instance.
- */export const deregisterInstance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-14", uri: "/", method: "POST", sdkId: "ServiceDiscovery", sigV4ServiceName: "servicediscovery", name: "Route53AutoNaming_v20170314.DeregisterInstance" }, DeregisterInstanceRequest, DeregisterInstanceResponse, [DuplicateRequest, InstanceNotFound, InvalidInput, ResourceInUse, ServiceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deregisterInstance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-14", sdkId: "ServiceDiscovery", sigV4ServiceName: "servicediscovery", name: "Route53AutoNaming_v20170314.DeregisterInstance" }, DeregisterInstanceRequest, DeregisterInstanceResponse, [DuplicateRequest, InstanceNotFound, InvalidInput, ResourceInUse, ServiceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets information about a specified instance.
- */export const getInstance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-14", uri: "/", method: "POST", sdkId: "ServiceDiscovery", sigV4ServiceName: "servicediscovery", name: "Route53AutoNaming_v20170314.GetInstance" }, GetInstanceRequest, GetInstanceResponse, [InstanceNotFound, InvalidInput, ServiceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getInstance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-14", sdkId: "ServiceDiscovery", sigV4ServiceName: "servicediscovery", name: "Route53AutoNaming_v20170314.GetInstance" }, GetInstanceRequest, GetInstanceResponse, [InstanceNotFound, InvalidInput, ServiceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets the current health status (`Healthy`, `Unhealthy`, or
  * `Unknown`) of one or more instances that are associated with a specified
  * service.
  * 
- * 
- * 
- * 
  * There's a brief delay between when you register an instance and when the health status for
  * the instance is available.
- */export const getInstancesHealthStatus = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-14", uri: "/", method: "POST", sdkId: "ServiceDiscovery", sigV4ServiceName: "servicediscovery", name: "Route53AutoNaming_v20170314.GetInstancesHealthStatus" }, GetInstancesHealthStatusRequest, GetInstancesHealthStatusResponse, [InstanceNotFound, InvalidInput, ServiceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getInstancesHealthStatus = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-14", sdkId: "ServiceDiscovery", sigV4ServiceName: "servicediscovery", name: "Route53AutoNaming_v20170314.GetInstancesHealthStatus" }, GetInstancesHealthStatusRequest, GetInstancesHealthStatusResponse, [InstanceNotFound, InvalidInput, ServiceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets the settings for a specified service.
- */export const getService = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-14", uri: "/", method: "POST", sdkId: "ServiceDiscovery", sigV4ServiceName: "servicediscovery", name: "Route53AutoNaming_v20170314.GetService" }, GetServiceRequest, GetServiceResponse, [InvalidInput, ServiceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getService = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-14", sdkId: "ServiceDiscovery", sigV4ServiceName: "servicediscovery", name: "Route53AutoNaming_v20170314.GetService" }, GetServiceRequest, GetServiceResponse, [InvalidInput, ServiceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the attributes associated with a specified service.
- */export const getServiceAttributes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-14", uri: "/", method: "POST", sdkId: "ServiceDiscovery", sigV4ServiceName: "servicediscovery", name: "Route53AutoNaming_v20170314.GetServiceAttributes" }, GetServiceAttributesRequest, GetServiceAttributesResponse, [InvalidInput, ServiceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getServiceAttributes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-14", sdkId: "ServiceDiscovery", sigV4ServiceName: "servicediscovery", name: "Route53AutoNaming_v20170314.GetServiceAttributes" }, GetServiceAttributesRequest, GetServiceAttributesResponse, [InvalidInput, ServiceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists summary information about the instances that you registered by using a specified
  * service.
- */export const listInstances = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-14", uri: "/", method: "POST", sdkId: "ServiceDiscovery", sigV4ServiceName: "servicediscovery", name: "Route53AutoNaming_v20170314.ListInstances" }, ListInstancesRequest, ListInstancesResponse, [InvalidInput, ServiceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listInstances = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-14", sdkId: "ServiceDiscovery", sigV4ServiceName: "servicediscovery", name: "Route53AutoNaming_v20170314.ListInstances" }, ListInstancesRequest, ListInstancesResponse, [InvalidInput, ServiceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates or updates one or more records and, optionally, creates a health check based on the
  * settings in a specified service. When you submit a `RegisterInstance` request, the
  * following occurs:
  * 
- * 
- * 
  * - For each DNS record that you define in the service that's specified by
  * `ServiceId`, a record is created or updated in the hosted zone that's associated
  * with the corresponding namespace.
  * 
- * 
- * 
  * - If the service includes `HealthCheckConfig`, a health check is created based on
  * the settings in the health check configuration.
  * 
- * 
- * 
  * - The health check, if any, is associated with each of the new or updated records.
- * 
- * 
- * 
- * 
- * 
- * 
  * 
  * One `RegisterInstance` request must complete before you can submit another
  * request and specify the same service ID and instance ID.
  * 
- * 
- * 
- * 
  * For more information, see CreateService.
- * 
  * 
  * When Cloud Map receives a DNS query for the specified DNS name, it returns the applicable
  * value:
  * 
- * 
- * 
  * - **If the health check is healthy**: returns all the
  * records
- * 
- * 
  * 
  * - **If the health check is unhealthy**: returns the applicable
  * value for the last healthy instance
  * 
- * 
- * 
  * - **If you didn't specify a health check configuration**:
  * returns all the records
- * 
- * 
- * 
- * 
  * 
  * For the current quota on the number of instances that you can register using the same
  * namespace and using the same service, see Cloud Map quotas in the
  * *Cloud Map Developer Guide*.
- */export const registerInstance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-14", uri: "/", method: "POST", sdkId: "ServiceDiscovery", sigV4ServiceName: "servicediscovery", name: "Route53AutoNaming_v20170314.RegisterInstance" }, RegisterInstanceRequest, RegisterInstanceResponse, [DuplicateRequest, InvalidInput, ResourceInUse, ResourceLimitExceeded, ServiceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const registerInstance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-14", sdkId: "ServiceDiscovery", sigV4ServiceName: "servicediscovery", name: "Route53AutoNaming_v20170314.RegisterInstance" }, RegisterInstanceRequest, RegisterInstanceResponse, [DuplicateRequest, InvalidInput, ResourceInUse, ResourceLimitExceeded, ServiceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Adds one or more tags to the specified resource.
- */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-14", uri: "/", method: "POST", sdkId: "ServiceDiscovery", sigV4ServiceName: "servicediscovery", name: "Route53AutoNaming_v20170314.TagResource" }, TagResourceRequest, TagResourceResponse, [InvalidInput, ResourceNotFoundException, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-14", sdkId: "ServiceDiscovery", sigV4ServiceName: "servicediscovery", name: "Route53AutoNaming_v20170314.TagResource" }, TagResourceRequest, TagResourceResponse, [InvalidInput, ResourceNotFoundException, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates an HTTP
  * namespace.
- */export const updateHttpNamespace = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-14", uri: "/", method: "POST", sdkId: "ServiceDiscovery", sigV4ServiceName: "servicediscovery", name: "Route53AutoNaming_v20170314.UpdateHttpNamespace" }, UpdateHttpNamespaceRequest, UpdateHttpNamespaceResponse, [DuplicateRequest, InvalidInput, NamespaceNotFound, ResourceInUse]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateHttpNamespace = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-14", sdkId: "ServiceDiscovery", sigV4ServiceName: "servicediscovery", name: "Route53AutoNaming_v20170314.UpdateHttpNamespace" }, UpdateHttpNamespaceRequest, UpdateHttpNamespaceResponse, [DuplicateRequest, InvalidInput, NamespaceNotFound, ResourceInUse]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Submits a request to update a specified service to add service-level attributes.
- */export const updateServiceAttributes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-14", uri: "/", method: "POST", sdkId: "ServiceDiscovery", sigV4ServiceName: "servicediscovery", name: "Route53AutoNaming_v20170314.UpdateServiceAttributes" }, UpdateServiceAttributesRequest, UpdateServiceAttributesResponse, [InvalidInput, ServiceAttributesLimitExceededException, ServiceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateServiceAttributes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-14", sdkId: "ServiceDiscovery", sigV4ServiceName: "servicediscovery", name: "Route53AutoNaming_v20170314.UpdateServiceAttributes" }, UpdateServiceAttributesRequest, UpdateServiceAttributesResponse, [InvalidInput, ServiceAttributesLimitExceededException, ServiceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an HTTP namespace. Service instances registered using an HTTP namespace can be
  * discovered using a `DiscoverInstances` request but can't be discovered using
  * DNS.
  * 
- * 
  * For the current quota on the number of namespaces that you can create using the same Amazon Web Services account, see Cloud Map quotas in the
  * *Cloud Map Developer Guide*.
- */export const createHttpNamespace = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-14", uri: "/", method: "POST", sdkId: "ServiceDiscovery", sigV4ServiceName: "servicediscovery", name: "Route53AutoNaming_v20170314.CreateHttpNamespace" }, CreateHttpNamespaceRequest, CreateHttpNamespaceResponse, [DuplicateRequest, InvalidInput, NamespaceAlreadyExists, ResourceLimitExceeded, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createHttpNamespace = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-14", sdkId: "ServiceDiscovery", sigV4ServiceName: "servicediscovery", name: "Route53AutoNaming_v20170314.CreateHttpNamespace" }, CreateHttpNamespaceRequest, CreateHttpNamespaceResponse, [DuplicateRequest, InvalidInput, NamespaceAlreadyExists, ResourceLimitExceeded, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a public namespace based on DNS, which is visible on the internet. The namespace
  * defines your service naming scheme. For example, if you name your namespace
@@ -282,95 +250,59 @@ export class OperationNotFound extends S.TaggedError<OperationNotFound>()("Opera
  * DNS. For the current quota on the number of namespaces that you can create using the same Amazon Web Services account, see Cloud Map quotas in the
  * *Cloud Map Developer Guide*.
  * 
- * 
- * 
- * 
  * The `CreatePublicDnsNamespace` API operation is not supported in the Amazon Web Services GovCloud (US) Regions.
- */export const createPublicDnsNamespace = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-14", uri: "/", method: "POST", sdkId: "ServiceDiscovery", sigV4ServiceName: "servicediscovery", name: "Route53AutoNaming_v20170314.CreatePublicDnsNamespace" }, CreatePublicDnsNamespaceRequest, CreatePublicDnsNamespaceResponse, [DuplicateRequest, InvalidInput, NamespaceAlreadyExists, ResourceLimitExceeded, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createPublicDnsNamespace = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-14", sdkId: "ServiceDiscovery", sigV4ServiceName: "servicediscovery", name: "Route53AutoNaming_v20170314.CreatePublicDnsNamespace" }, CreatePublicDnsNamespaceRequest, CreatePublicDnsNamespaceResponse, [DuplicateRequest, InvalidInput, NamespaceAlreadyExists, ResourceLimitExceeded, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Discovers registered instances for a specified namespace and service. You can use
  * `DiscoverInstances` to discover instances for any type of namespace.
  * `DiscoverInstances` returns a randomized list of instances allowing customers to
  * distribute traffic evenly across instances. For public and private DNS namespaces, you can also
  * use DNS queries to discover instances.
- */export const discoverInstances = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-14", uri: "/", method: "POST", sdkId: "ServiceDiscovery", sigV4ServiceName: "servicediscovery", name: "Route53AutoNaming_v20170314.DiscoverInstances" }, DiscoverInstancesRequest, DiscoverInstancesResponse, [InvalidInput, NamespaceNotFound, RequestLimitExceeded, ServiceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const discoverInstances = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-14", sdkId: "ServiceDiscovery", sigV4ServiceName: "servicediscovery", name: "Route53AutoNaming_v20170314.DiscoverInstances" }, DiscoverInstancesRequest, DiscoverInstancesResponse, [InvalidInput, NamespaceNotFound, RequestLimitExceeded, ServiceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Discovers the increasing revision associated with an instance.
- */export const discoverInstancesRevision = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-14", uri: "/", method: "POST", sdkId: "ServiceDiscovery", sigV4ServiceName: "servicediscovery", name: "Route53AutoNaming_v20170314.DiscoverInstancesRevision" }, DiscoverInstancesRevisionRequest, DiscoverInstancesRevisionResponse, [InvalidInput, NamespaceNotFound, RequestLimitExceeded, ServiceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const discoverInstancesRevision = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-14", sdkId: "ServiceDiscovery", sigV4ServiceName: "servicediscovery", name: "Route53AutoNaming_v20170314.DiscoverInstancesRevision" }, DiscoverInstancesRevisionRequest, DiscoverInstancesRevisionResponse, [InvalidInput, NamespaceNotFound, RequestLimitExceeded, ServiceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists summary information about the namespaces that were created by the current Amazon Web Services account and shared with the current Amazon Web Services account.
- */export const listNamespaces = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-14", uri: "/", method: "POST", sdkId: "ServiceDiscovery", sigV4ServiceName: "servicediscovery", name: "Route53AutoNaming_v20170314.ListNamespaces" }, ListNamespacesRequest, ListNamespacesResponse, [InvalidInput]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listNamespaces = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-14", sdkId: "ServiceDiscovery", sigV4ServiceName: "servicediscovery", name: "Route53AutoNaming_v20170314.ListNamespaces" }, ListNamespacesRequest, ListNamespacesResponse, [InvalidInput]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists operations that match the criteria that you specify.
- */export const listOperations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-14", uri: "/", method: "POST", sdkId: "ServiceDiscovery", sigV4ServiceName: "servicediscovery", name: "Route53AutoNaming_v20170314.ListOperations" }, ListOperationsRequest, ListOperationsResponse, [InvalidInput]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listOperations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-14", sdkId: "ServiceDiscovery", sigV4ServiceName: "servicediscovery", name: "Route53AutoNaming_v20170314.ListOperations" }, ListOperationsRequest, ListOperationsResponse, [InvalidInput]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists summary information for all the services that are associated with one or more
  * namespaces.
- */export const listServices = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-14", uri: "/", method: "POST", sdkId: "ServiceDiscovery", sigV4ServiceName: "servicediscovery", name: "Route53AutoNaming_v20170314.ListServices" }, ListServicesRequest, ListServicesResponse, [InvalidInput]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listServices = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-14", sdkId: "ServiceDiscovery", sigV4ServiceName: "servicediscovery", name: "Route53AutoNaming_v20170314.ListServices" }, ListServicesRequest, ListServicesResponse, [InvalidInput]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Submits a request to perform the following operations:
  * 
- * 
- * 
  * - Update the TTL setting for existing `DnsRecords` configurations
  * 
- * 
- * 
  * - Add, update, or delete `HealthCheckConfig` for a specified service
- * 
- * 
- * 
  * 
  * You can't add, update, or delete a `HealthCheckCustomConfig`
  * configuration.
  * 
- * 
- * 
- * 
- * 
- * 
- * 
  * For public and private DNS namespaces, note the following:
- * 
- * 
  * 
  * - If you omit any existing `DnsRecords` or `HealthCheckConfig`
  * configurations from an `UpdateService` request, the configurations are deleted from
  * the service.
  * 
- * 
- * 
  * - If you omit an existing `HealthCheckCustomConfig` configuration from an
  * `UpdateService` request, the configuration isn't deleted from the service.
- * 
- * 
- * 
- * 
- * 
- * 
  * 
  * You can't call `UpdateService` and update settings in the following
  * scenarios:
  * 
- * 
- * 
  * - When the service is associated with an HTTP namespace
- * 
- * 
  * 
  * - When the service is associated with a shared namespace and contains instances that were
  * registered by Amazon Web Services accounts other than the account making the `UpdateService`
  * call
  * 
- * 
- * 
- * 
- * 
- * 
- * 
  * When you update settings for a service, Cloud Map also updates the corresponding settings
  * in all the records and health checks that were created by using the specified service.
- */export const updateService = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-14", uri: "/", method: "POST", sdkId: "ServiceDiscovery", sigV4ServiceName: "servicediscovery", name: "Route53AutoNaming_v20170314.UpdateService" }, UpdateServiceRequest, UpdateServiceResponse, [DuplicateRequest, InvalidInput, ServiceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateService = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-14", sdkId: "ServiceDiscovery", sigV4ServiceName: "servicediscovery", name: "Route53AutoNaming_v20170314.UpdateService" }, UpdateServiceRequest, UpdateServiceResponse, [DuplicateRequest, InvalidInput, ServiceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a private namespace based on DNS, which is visible only inside a specified Amazon
  * VPC. The namespace defines your service naming scheme. For example, if you name your namespace
@@ -380,75 +312,45 @@ export class OperationNotFound extends S.TaggedError<OperationNotFound>()("Opera
  * using DNS. For the current quota on the number of namespaces that you can create using the same
  * Amazon Web Services account, see Cloud Map quotas in the
  * *Cloud Map Developer Guide*.
- */export const createPrivateDnsNamespace = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-14", uri: "/", method: "POST", sdkId: "ServiceDiscovery", sigV4ServiceName: "servicediscovery", name: "Route53AutoNaming_v20170314.CreatePrivateDnsNamespace" }, CreatePrivateDnsNamespaceRequest, CreatePrivateDnsNamespaceResponse, [DuplicateRequest, InvalidInput, NamespaceAlreadyExists, ResourceLimitExceeded, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createPrivateDnsNamespace = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-14", sdkId: "ServiceDiscovery", sigV4ServiceName: "servicediscovery", name: "Route53AutoNaming_v20170314.CreatePrivateDnsNamespace" }, CreatePrivateDnsNamespaceRequest, CreatePrivateDnsNamespaceResponse, [DuplicateRequest, InvalidInput, NamespaceAlreadyExists, ResourceLimitExceeded, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a service. This action defines the configuration for the following entities:
- * 
- * 
  * 
  * - For public and private DNS namespaces, one of the following combinations of DNS records in
  * Amazon Route 53:
  * 
- * 
- * 
  * - `A`
- * 
- * 
- * 
  * 
  * - `AAAA`
  * 
- * 
- * 
- * 
  * - `A` and `AAAA`
- * 
- * 
- * 
  * 
  * - `SRV`
  * 
- * 
- * 
- * 
  * - `CNAME`
  * 
- * 
- * 
- * 
- * 
- * 
- * 
  * - Optionally, a health check
- * 
- * 
- * 
- * 
  * 
  * After you create the service, you can submit a RegisterInstance request, and
  * Cloud Map uses the values in the configuration to create the specified entities.
  * 
- * 
  * For the current quota on the number of instances that you can register using the same
  * namespace and using the same service, see Cloud Map quotas in the
  * *Cloud Map Developer Guide*.
- */export const createService = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-14", uri: "/", method: "POST", sdkId: "ServiceDiscovery", sigV4ServiceName: "servicediscovery", name: "Route53AutoNaming_v20170314.CreateService" }, CreateServiceRequest, CreateServiceResponse, [InvalidInput, NamespaceNotFound, ResourceLimitExceeded, ServiceAlreadyExists, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createService = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-14", sdkId: "ServiceDiscovery", sigV4ServiceName: "servicediscovery", name: "Route53AutoNaming_v20170314.CreateService" }, CreateServiceRequest, CreateServiceResponse, [InvalidInput, NamespaceNotFound, ResourceLimitExceeded, ServiceAlreadyExists, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets information about a namespace.
- */export const getNamespace = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-14", uri: "/", method: "POST", sdkId: "ServiceDiscovery", sigV4ServiceName: "servicediscovery", name: "Route53AutoNaming_v20170314.GetNamespace" }, GetNamespaceRequest, GetNamespaceResponse, [InvalidInput, NamespaceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getNamespace = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-14", sdkId: "ServiceDiscovery", sigV4ServiceName: "servicediscovery", name: "Route53AutoNaming_v20170314.GetNamespace" }, GetNamespaceRequest, GetNamespaceResponse, [InvalidInput, NamespaceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets information about any operation that returns an operation ID in the response, such as a
  * `CreateHttpNamespace` request.
  * 
- * 
- * 
- * 
  * To get a list of operations that match specified criteria, see ListOperations.
- */export const getOperation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-14", uri: "/", method: "POST", sdkId: "ServiceDiscovery", sigV4ServiceName: "servicediscovery", name: "Route53AutoNaming_v20170314.GetOperation" }, GetOperationRequest, GetOperationResponse, [InvalidInput, OperationNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getOperation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-14", sdkId: "ServiceDiscovery", sigV4ServiceName: "servicediscovery", name: "Route53AutoNaming_v20170314.GetOperation" }, GetOperationRequest, GetOperationResponse, [InvalidInput, OperationNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates a public DNS namespace.
- */export const updatePublicDnsNamespace = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-14", uri: "/", method: "POST", sdkId: "ServiceDiscovery", sigV4ServiceName: "servicediscovery", name: "Route53AutoNaming_v20170314.UpdatePublicDnsNamespace" }, UpdatePublicDnsNamespaceRequest, UpdatePublicDnsNamespaceResponse, [DuplicateRequest, InvalidInput, NamespaceNotFound, ResourceInUse]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updatePublicDnsNamespace = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-14", sdkId: "ServiceDiscovery", sigV4ServiceName: "servicediscovery", name: "Route53AutoNaming_v20170314.UpdatePublicDnsNamespace" }, UpdatePublicDnsNamespaceRequest, UpdatePublicDnsNamespaceResponse, [DuplicateRequest, InvalidInput, NamespaceNotFound, ResourceInUse]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates a private DNS
  * namespace.
- */export const updatePrivateDnsNamespace = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-14", uri: "/", method: "POST", sdkId: "ServiceDiscovery", sigV4ServiceName: "servicediscovery", name: "Route53AutoNaming_v20170314.UpdatePrivateDnsNamespace" }, UpdatePrivateDnsNamespaceRequest, UpdatePrivateDnsNamespaceResponse, [DuplicateRequest, InvalidInput, NamespaceNotFound, ResourceInUse]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updatePrivateDnsNamespace = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-03-14", sdkId: "ServiceDiscovery", sigV4ServiceName: "servicediscovery", name: "Route53AutoNaming_v20170314.UpdatePrivateDnsNamespace" }, UpdatePrivateDnsNamespaceRequest, UpdatePrivateDnsNamespaceResponse, [DuplicateRequest, InvalidInput, NamespaceNotFound, ResourceInUse]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

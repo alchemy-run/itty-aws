@@ -186,14 +186,8 @@ export class SendingPausedException extends S.TaggedError<SendingPausedException
 /**
  * Move a dedicated IP address to an existing dedicated IP pool.
  * 
- * 
- * 
- * 
  * The dedicated IP address that you specify must already exist, and must be
  * associated with your Amazon Pinpoint account.
- * 
- * 
- * 
  * 
  * The dedicated IP pool you specify must already exist. You can create a new pool by
  * using the `CreateDedicatedIpPool` operation.
@@ -209,11 +203,9 @@ export class SendingPausedException extends S.TaggedError<SendingPausedException
  * what happens when an identity is used to send an email that results in a bounce or
  * complaint event.
  * 
- * 
  * When you enable feedback forwarding, Amazon Pinpoint sends you email notifications when bounce
  * or complaint events occur. Amazon Pinpoint sends this notification to the address that you
  * specified in the Return-Path header of the original email.
- * 
  * 
  * When you disable feedback forwarding, Amazon Pinpoint sends notifications through other
  * mechanisms, such as by notifying an Amazon SNS topic. You're required to have a method of
@@ -232,18 +224,16 @@ export class SendingPausedException extends S.TaggedError<SendingPausedException
  * such as by purpose, owner, environment, or other criteria. A resource can have as many
  * as 50 tags.
  * 
- * 
  * Each tag consists of a required *tag key* and an
  * associated *tag value*, both of which you define. A tag key is a
  * general label that acts as a category for more specific tag values. A tag value acts as
  * a descriptor within a tag key.
- */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-07-26", uri: "/v1/email/tags", method: "POST", sdkId: "Pinpoint Email", sigV4ServiceName: "ses", name: "AmazonPinpointEmailService.TagResource" }, TagResourceRequest, TagResourceResponse, [BadRequestException, ConcurrentModificationException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-07-26", uri: "/v1/email/tags", sdkId: "Pinpoint Email", sigV4ServiceName: "ses", name: "AmazonPinpointEmailService.TagResource" }, TagResourceRequest, TagResourceResponse, [BadRequestException, ConcurrentModificationException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Remove one or more tags (keys and values) from a specified resource.
  */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-07-26", uri: "/v1/email/tags", method: "DELETE", sdkId: "Pinpoint Email", sigV4ServiceName: "ses", name: "AmazonPinpointEmailService.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [BadRequestException, ConcurrentModificationException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Update the configuration of an event destination for a configuration set.
- * 
  * 
  * In Amazon Pinpoint, *events* include message sends, deliveries, opens,
  * clicks, bounces, and complaints. *Event destinations* are places that
@@ -257,16 +247,15 @@ export class SendingPausedException extends S.TaggedError<SendingPausedException
  * set to an email by including a reference to the configuration set in the headers of the
  * email. When you apply a configuration set to an email, all of the rules in that
  * configuration set are applied to the email.
- */export const createConfigurationSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-07-26", uri: "/v1/email/configuration-sets", method: "POST", sdkId: "Pinpoint Email", sigV4ServiceName: "ses", name: "AmazonPinpointEmailService.CreateConfigurationSet" }, CreateConfigurationSetRequest, CreateConfigurationSetResponse, [AlreadyExistsException, BadRequestException, ConcurrentModificationException, LimitExceededException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createConfigurationSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-07-26", uri: "/v1/email/configuration-sets", sdkId: "Pinpoint Email", sigV4ServiceName: "ses", name: "AmazonPinpointEmailService.CreateConfigurationSet" }, CreateConfigurationSetRequest, CreateConfigurationSetResponse, [AlreadyExistsException, BadRequestException, ConcurrentModificationException, LimitExceededException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Create a new pool of dedicated IP addresses. A pool can include one or more dedicated
  * IP addresses that are associated with your Amazon Pinpoint account. You can associate a pool with
  * a configuration set. When you send an email that uses that configuration set, Amazon Pinpoint
  * sends it using only the IP addresses in the associated pool.
- */export const createDedicatedIpPool = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-07-26", uri: "/v1/email/dedicated-ip-pools", method: "POST", sdkId: "Pinpoint Email", sigV4ServiceName: "ses", name: "AmazonPinpointEmailService.CreateDedicatedIpPool" }, CreateDedicatedIpPoolRequest, CreateDedicatedIpPoolResponse, [AlreadyExistsException, BadRequestException, ConcurrentModificationException, LimitExceededException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createDedicatedIpPool = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-07-26", uri: "/v1/email/dedicated-ip-pools", sdkId: "Pinpoint Email", sigV4ServiceName: "ses", name: "AmazonPinpointEmailService.CreateDedicatedIpPool" }, CreateDedicatedIpPoolRequest, CreateDedicatedIpPoolResponse, [AlreadyExistsException, BadRequestException, ConcurrentModificationException, LimitExceededException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Delete an existing configuration set.
- * 
  * 
  * In Amazon Pinpoint, *configuration sets* are groups of rules that you can
  * apply to the emails you send. You apply a configuration set to an email by including a
@@ -276,7 +265,6 @@ export class SendingPausedException extends S.TaggedError<SendingPausedException
  */export const deleteConfigurationSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-07-26", uri: "/v1/email/configuration-sets/{ConfigurationSetName}", method: "DELETE", sdkId: "Pinpoint Email", sigV4ServiceName: "ses", name: "AmazonPinpointEmailService.DeleteConfigurationSet" }, DeleteConfigurationSetRequest, DeleteConfigurationSetResponse, [BadRequestException, ConcurrentModificationException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Delete an event destination.
- * 
  * 
  * In Amazon Pinpoint, *events* include message sends, deliveries, opens,
  * clicks, bounces, and complaints. *Event destinations* are places that
@@ -300,7 +288,6 @@ export class SendingPausedException extends S.TaggedError<SendingPausedException
  * that it's associated with, whether or not it's enabled for sending email, and
  * more.
  * 
- * 
  * In Amazon Pinpoint, *configuration sets* are groups of rules that you can
  * apply to the emails you send. You apply a configuration set to an email by including a
  * reference to the configuration set in the headers of the email. When you apply a
@@ -314,7 +301,6 @@ export class SendingPausedException extends S.TaggedError<SendingPausedException
 /**
  * List all of the configuration sets associated with your Amazon Pinpoint account in the current
  * region.
- * 
  * 
  * In Amazon Pinpoint, *configuration sets* are groups of rules that you can
  * apply to the emails you send. You apply a configuration set to an email by including a
@@ -351,7 +337,6 @@ export class SendingPausedException extends S.TaggedError<SendingPausedException
  * the domains that you use to send email using Amazon Pinpoint. You also gain the ability to perform
  * predictive inbox placement tests.
  * 
- * 
  * When you use the Deliverability dashboard, you pay a monthly subscription charge, in addition
  * to any other fees that you accrue by using Amazon Pinpoint. For more information about the
  * features and cost of a Deliverability dashboard subscription, see Amazon Pinpoint Pricing.
@@ -363,23 +348,18 @@ export class SendingPausedException extends S.TaggedError<SendingPausedException
  * demonstrate that you're the owner of the address, and that you've given Amazon Pinpoint permission
  * to send email from the address.
  * 
- * 
  * When you verify an email address, Amazon Pinpoint sends an email to the address. Your email
  * address is verified as soon as you follow the link in the verification email.
- * 
- * 
- * 
  * 
  * When you verify a domain, this operation provides a set of DKIM tokens, which you can
  * convert into CNAME tokens. You add these CNAME tokens to the DNS configuration for your
  * domain. Your domain is verified when Amazon Pinpoint detects these records in the DNS
  * configuration for your domain. It usually takes around 72 hours to complete the domain
  * verification process.
- */export const createEmailIdentity = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-07-26", uri: "/v1/email/identities", method: "POST", sdkId: "Pinpoint Email", sigV4ServiceName: "ses", name: "AmazonPinpointEmailService.CreateEmailIdentity" }, CreateEmailIdentityRequest, CreateEmailIdentityResponse, [BadRequestException, ConcurrentModificationException, LimitExceededException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createEmailIdentity = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-07-26", uri: "/v1/email/identities", sdkId: "Pinpoint Email", sigV4ServiceName: "ses", name: "AmazonPinpointEmailService.CreateEmailIdentity" }, CreateEmailIdentityRequest, CreateEmailIdentityResponse, [BadRequestException, ConcurrentModificationException, LimitExceededException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieve a list of event destinations that are associated with a configuration
  * set.
- * 
  * 
  * In Amazon Pinpoint, *events* include message sends, deliveries, opens,
  * clicks, bounces, and complaints. *Event destinations* are places that
@@ -397,7 +377,6 @@ export class SendingPausedException extends S.TaggedError<SendingPausedException
  * When the Deliverability dashboard is enabled, you gain access to reputation, deliverability, and
  * other metrics for the domains that you use to send email using Amazon Pinpoint. You also gain the
  * ability to perform predictive inbox placement tests.
- * 
  * 
  * When you use the Deliverability dashboard, you pay a monthly subscription charge, in addition
  * to any other fees that you accrue by using Amazon Pinpoint. For more information about the
@@ -430,9 +409,8 @@ export class SendingPausedException extends S.TaggedError<SendingPausedException
  * receive bounces or complaints, or you can use Amazon Kinesis Data Firehose to stream data to Amazon S3 for long-term
  * storage.
  * 
- * 
  * A single configuration set can include more than one event destination.
- */export const createConfigurationSetEventDestination = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-07-26", uri: "/v1/email/configuration-sets/{ConfigurationSetName}/event-destinations", method: "POST", sdkId: "Pinpoint Email", sigV4ServiceName: "ses", name: "AmazonPinpointEmailService.CreateConfigurationSetEventDestination" }, CreateConfigurationSetEventDestinationRequest, CreateConfigurationSetEventDestinationResponse, [AlreadyExistsException, BadRequestException, LimitExceededException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createConfigurationSetEventDestination = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-07-26", uri: "/v1/email/configuration-sets/{ConfigurationSetName}/event-destinations", sdkId: "Pinpoint Email", sigV4ServiceName: "ses", name: "AmazonPinpointEmailService.CreateConfigurationSetEventDestination" }, CreateConfigurationSetEventDestinationRequest, CreateConfigurationSetEventDestinationResponse, [AlreadyExistsException, BadRequestException, LimitExceededException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieve a list of the blacklists that your dedicated IP addresses appear on.
  */export const getBlacklistReports = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-07-26", uri: "/v1/email/deliverability-dashboard/blacklist-report", method: "GET", sdkId: "Pinpoint Email", sigV4ServiceName: "ses", name: "AmazonPinpointEmailService.GetBlacklistReports" }, GetBlacklistReportsRequest, GetBlacklistReportsResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -448,22 +426,18 @@ export class SendingPausedException extends S.TaggedError<SendingPausedException
  * providers. After about 24 hours, the test is complete, and you can use the
  * `GetDeliverabilityTestReport` operation to view the results of the
  * test.
- */export const createDeliverabilityTestReport = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-07-26", uri: "/v1/email/deliverability-dashboard/test", method: "POST", sdkId: "Pinpoint Email", sigV4ServiceName: "ses", name: "AmazonPinpointEmailService.CreateDeliverabilityTestReport" }, CreateDeliverabilityTestReportRequest, CreateDeliverabilityTestReportResponse, [AccountSuspendedException, BadRequestException, ConcurrentModificationException, LimitExceededException, MailFromDomainNotVerifiedException, MessageRejected, NotFoundException, SendingPausedException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createDeliverabilityTestReport = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-07-26", uri: "/v1/email/deliverability-dashboard/test", sdkId: "Pinpoint Email", sigV4ServiceName: "ses", name: "AmazonPinpointEmailService.CreateDeliverabilityTestReport" }, CreateDeliverabilityTestReportRequest, CreateDeliverabilityTestReportResponse, [AccountSuspendedException, BadRequestException, ConcurrentModificationException, LimitExceededException, MailFromDomainNotVerifiedException, MessageRejected, NotFoundException, SendingPausedException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Sends an email message. You can use the Amazon Pinpoint Email API to send two types of
  * messages:
  * 
- * 
- * 
  * - **Simple** – A standard email message. When
  * you create this type of message, you specify the sender, the recipient, and the
  * message body, and Amazon Pinpoint assembles the message for you.
- * 
- * 
  * 
  * - **Raw** – A raw, MIME-formatted email
  * message. When you send this type of email, you have to specify all of the
  * message headers, as well as the message body. You can use this message type to
  * send messages that contain attachments. The message that you specify has to be a
  * valid MIME message.
- */export const sendEmail = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-07-26", uri: "/v1/email/outbound-emails", method: "POST", sdkId: "Pinpoint Email", sigV4ServiceName: "ses", name: "AmazonPinpointEmailService.SendEmail" }, SendEmailRequest, SendEmailResponse, [AccountSuspendedException, BadRequestException, LimitExceededException, MailFromDomainNotVerifiedException, MessageRejected, NotFoundException, SendingPausedException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const sendEmail = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-07-26", uri: "/v1/email/outbound-emails", sdkId: "Pinpoint Email", sigV4ServiceName: "ses", name: "AmazonPinpointEmailService.SendEmail" }, SendEmailRequest, SendEmailResponse, [AccountSuspendedException, BadRequestException, LimitExceededException, MailFromDomainNotVerifiedException, MessageRejected, NotFoundException, SendingPausedException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

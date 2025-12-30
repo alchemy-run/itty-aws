@@ -129,4 +129,4 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
 //# Operations
 /**
  * Validates the definition of a flow.
- */export const validateFlowDefinition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-06-05", uri: "/flows/validate-definition", method: "POST", sdkId: "Bedrock Agent", sigV4ServiceName: "bedrock", name: "AmazonBedrockAgentBuildTimeLambda.ValidateFlowDefinition" }, ValidateFlowDefinitionRequest, ValidateFlowDefinitionResponse, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const validateFlowDefinition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-06-05", uri: "/flows/validate-definition", sdkId: "Bedrock Agent", sigV4ServiceName: "bedrock", name: "AmazonBedrockAgentBuildTimeLambda.ValidateFlowDefinition" }, ValidateFlowDefinitionRequest, ValidateFlowDefinitionResponse, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

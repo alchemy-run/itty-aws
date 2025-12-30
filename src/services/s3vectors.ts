@@ -21,9 +21,7 @@ export class ServiceUnavailableException extends S.TaggedError<ServiceUnavailabl
 /**
  * Removes the specified user-defined tags from an Amazon S3 Vectors resource. You can pass one or more tag keys.
  * 
- * 
  * For a list of S3 resources that support tagging, see Managing tags for Amazon S3 resources.
- * 
  * 
  * ### Permissions
  * 
@@ -32,9 +30,7 @@ export class ServiceUnavailableException extends S.TaggedError<ServiceUnavailabl
 /**
  * Lists all of the tags applied to a specified Amazon S3 Vectors resource. Each tag is a label consisting of a key and value pair. Tags can help you organize, track costs for, and control access to resources.
  * 
- * 
  * For a list of S3 resources that support tagging, see Managing tags for Amazon S3 resources.
- * 
  * 
  * ### Permissions
  * 
@@ -43,11 +39,9 @@ export class ServiceUnavailableException extends S.TaggedError<ServiceUnavailabl
 /**
  * Applies one or more user-defined tags to an Amazon S3 Vectors resource or updates existing tags. Each tag is a label consisting of a key and value pair. Tags can help you organize, track costs for, and control access to your resources. You can add up to 50 tags for each resource.
  * 
- * 
  * For a list of S3 resources that support tagging, see Managing tags for Amazon S3 resources.
- * 
  * 
  * ### Permissions
  * 
  * For vector buckets and vector indexes, you must have the `s3vectors:TagResource` permission to use this operation.
- */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2025-07-15", uri: "/tags/{resourceArn}", method: "POST", sdkId: "S3Vectors", sigV4ServiceName: "s3vectors", name: "S3Vectors.TagResource" }, TagResourceInput, TagResourceOutput, [ConflictException, NotFoundException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2025-07-15", uri: "/tags/{resourceArn}", sdkId: "S3Vectors", sigV4ServiceName: "s3vectors", name: "S3Vectors.TagResource" }, TagResourceInput, TagResourceOutput, [ConflictException, NotFoundException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

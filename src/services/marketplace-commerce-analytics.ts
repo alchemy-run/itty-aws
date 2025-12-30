@@ -22,7 +22,7 @@ export class MarketplaceCommerceAnalyticsException extends S.TaggedError<Marketp
  * be overwritten by the new file.
  * Requires a Role with an attached permissions policy providing Allow permissions for the following actions:
  * s3:PutObject, s3:GetBucketLocation, sns:GetTopicAttributes, sns:Publish, iam:GetRolePolicy.
- */export const generateDataSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-01", uri: "/", method: "POST", sdkId: "Marketplace Commerce Analytics", sigV4ServiceName: "marketplacecommerceanalytics", name: "MarketplaceCommerceAnalytics20150701.GenerateDataSet" }, GenerateDataSetRequest, GenerateDataSetResult, [MarketplaceCommerceAnalyticsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const generateDataSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-01", sdkId: "Marketplace Commerce Analytics", sigV4ServiceName: "marketplacecommerceanalytics", name: "MarketplaceCommerceAnalytics20150701.GenerateDataSet" }, GenerateDataSetRequest, GenerateDataSetResult, [MarketplaceCommerceAnalyticsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * *This target has been deprecated.* Given a data set type and a from date, asynchronously publishes the requested customer support data
  * to the specified S3 bucket and notifies the specified SNS topic once the data is available. Returns a unique request
@@ -32,4 +32,4 @@ export class MarketplaceCommerceAnalyticsException extends S.TaggedError<Marketp
  * be overwritten by the new file.
  * Requires a Role with an attached permissions policy providing Allow permissions for the following actions:
  * s3:PutObject, s3:GetBucketLocation, sns:GetTopicAttributes, sns:Publish, iam:GetRolePolicy.
- */export const startSupportDataExport = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-01", uri: "/", method: "POST", sdkId: "Marketplace Commerce Analytics", sigV4ServiceName: "marketplacecommerceanalytics", name: "MarketplaceCommerceAnalytics20150701.StartSupportDataExport" }, StartSupportDataExportRequest, StartSupportDataExportResult, [MarketplaceCommerceAnalyticsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startSupportDataExport = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-01", sdkId: "Marketplace Commerce Analytics", sigV4ServiceName: "marketplacecommerceanalytics", name: "MarketplaceCommerceAnalytics20150701.StartSupportDataExport" }, StartSupportDataExportRequest, StartSupportDataExportResult, [MarketplaceCommerceAnalyticsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

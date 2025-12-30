@@ -234,217 +234,189 @@ export class InvalidTypeException extends S.TaggedError<InvalidTypeException>()(
 /**
  * Deletes an Firewall Manager association with the IAM role and the Amazon Simple
  * Notification Service (SNS) topic that is used to record Firewall Manager SNS logs.
- */export const deleteNotificationChannel = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", uri: "/", method: "POST", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.DeleteNotificationChannel" }, DeleteNotificationChannelRequest, S.Struct({}), [InternalErrorException, InvalidOperationException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteNotificationChannel = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.DeleteNotificationChannel" }, DeleteNotificationChannelRequest, S.Struct({}), [InternalErrorException, InvalidOperationException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Permanently deletes an Firewall Manager protocols list.
- */export const deleteProtocolsList = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", uri: "/", method: "POST", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.DeleteProtocolsList" }, DeleteProtocolsListRequest, S.Struct({}), [InternalErrorException, InvalidOperationException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteProtocolsList = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.DeleteProtocolsList" }, DeleteProtocolsListRequest, S.Struct({}), [InternalErrorException, InvalidOperationException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the specified ResourceSet.
- */export const deleteResourceSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", uri: "/", method: "POST", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.DeleteResourceSet" }, DeleteResourceSetRequest, S.Struct({}), [InternalErrorException, InvalidInputException, InvalidOperationException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteResourceSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.DeleteResourceSet" }, DeleteResourceSetRequest, S.Struct({}), [InternalErrorException, InvalidInputException, InvalidOperationException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Disassociates an Firewall Manager administrator account. To set a different account as an Firewall Manager administrator, submit a PutAdminAccount request. To set an account as a default administrator account, you must submit an AssociateAdminAccount request.
  * 
- * 
  * Disassociation of the default administrator account follows the first in, last out principle. If you are the default administrator, all Firewall Manager administrators within the organization must first disassociate their accounts before you can disassociate your account.
- */export const disassociateAdminAccount = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", uri: "/", method: "POST", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.DisassociateAdminAccount" }, DisassociateAdminAccountRequest, S.Struct({}), [InternalErrorException, InvalidOperationException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const disassociateAdminAccount = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.DisassociateAdminAccount" }, DisassociateAdminAccountRequest, S.Struct({}), [InternalErrorException, InvalidOperationException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the Organizations account that is associated with Firewall Manager
  * as the Firewall Manager default administrator.
- */export const getAdminAccount = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", uri: "/", method: "POST", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.GetAdminAccount" }, GetAdminAccountRequest, GetAdminAccountResponse, [InternalErrorException, InvalidOperationException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getAdminAccount = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.GetAdminAccount" }, GetAdminAccountRequest, GetAdminAccountResponse, [InternalErrorException, InvalidOperationException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Information
  * about the Amazon Simple Notification Service (SNS) topic that is used to
  * record Firewall Manager SNS logs.
- */export const getNotificationChannel = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", uri: "/", method: "POST", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.GetNotificationChannel" }, GetNotificationChannelRequest, GetNotificationChannelResponse, [InternalErrorException, InvalidOperationException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getNotificationChannel = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.GetNotificationChannel" }, GetNotificationChannelRequest, GetNotificationChannelResponse, [InternalErrorException, InvalidOperationException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Designates the IAM role and Amazon Simple Notification Service (SNS) topic that
  * Firewall Manager uses to record SNS logs.
  * 
- * 
  * To perform this action outside of the console, you must first configure the SNS topic's access policy to allow the `SnsRoleName` to publish SNS logs. If the `SnsRoleName` provided is a role other than the `AWSServiceRoleForFMS` service-linked role, this role must have a trust relationship configured to allow the Firewall Manager service principal `fms.amazonaws.com` to assume this role. For information about configuring an SNS access policy, see
  * Service roles for Firewall Manager in the *Firewall Manager Developer Guide*.
- */export const putNotificationChannel = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", uri: "/", method: "POST", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.PutNotificationChannel" }, PutNotificationChannelRequest, S.Struct({}), [InternalErrorException, InvalidOperationException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putNotificationChannel = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.PutNotificationChannel" }, PutNotificationChannelRequest, S.Struct({}), [InternalErrorException, InvalidOperationException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Adds one or more tags to an Amazon Web Services resource.
- */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", uri: "/", method: "POST", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.TagResource" }, TagResourceRequest, TagResourceResponse, [InternalErrorException, InvalidInputException, InvalidOperationException, LimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.TagResource" }, TagResourceRequest, TagResourceResponse, [InternalErrorException, InvalidInputException, InvalidOperationException, LimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes one or more tags from an Amazon Web Services resource.
- */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", uri: "/", method: "POST", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [InternalErrorException, InvalidInputException, InvalidOperationException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [InternalErrorException, InvalidInputException, InvalidOperationException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Sets a Firewall Manager default administrator account. The Firewall Manager default administrator account can manage third-party firewalls and has full administrative scope that allows administration of all policy types, accounts, organizational units, and Regions. This account must be a member account of the organization in Organizations whose resources you want to protect.
  * 
- * 
  * For information about working with Firewall Manager administrator accounts, see Managing Firewall Manager administrators in the *Firewall Manager Developer Guide*.
- */export const associateAdminAccount = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", uri: "/", method: "POST", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.AssociateAdminAccount" }, AssociateAdminAccountRequest, S.Struct({}), [InternalErrorException, InvalidInputException, InvalidOperationException, LimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const associateAdminAccount = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.AssociateAdminAccount" }, AssociateAdminAccountRequest, S.Struct({}), [InternalErrorException, InvalidInputException, InvalidOperationException, LimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Sets the Firewall Manager policy administrator as a tenant administrator of a third-party firewall service. A tenant is an instance of the third-party firewall service that's associated with your Amazon Web Services customer account.
- */export const associateThirdPartyFirewall = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", uri: "/", method: "POST", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.AssociateThirdPartyFirewall" }, AssociateThirdPartyFirewallRequest, AssociateThirdPartyFirewallResponse, [InternalErrorException, InvalidInputException, InvalidOperationException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const associateThirdPartyFirewall = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.AssociateThirdPartyFirewall" }, AssociateThirdPartyFirewallRequest, AssociateThirdPartyFirewallResponse, [InternalErrorException, InvalidInputException, InvalidOperationException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Disassociates resources from a Firewall Manager resource set.
- */export const batchDisassociateResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", uri: "/", method: "POST", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.BatchDisassociateResource" }, BatchDisassociateResourceRequest, BatchDisassociateResourceResponse, [InternalErrorException, InvalidInputException, InvalidOperationException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const batchDisassociateResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.BatchDisassociateResource" }, BatchDisassociateResourceRequest, BatchDisassociateResourceResponse, [InternalErrorException, InvalidInputException, InvalidOperationException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Permanently deletes an Firewall Manager applications list.
- */export const deleteAppsList = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", uri: "/", method: "POST", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.DeleteAppsList" }, DeleteAppsListRequest, S.Struct({}), [InternalErrorException, InvalidOperationException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteAppsList = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.DeleteAppsList" }, DeleteAppsListRequest, S.Struct({}), [InternalErrorException, InvalidOperationException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Permanently deletes an Firewall Manager policy.
- */export const deletePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", uri: "/", method: "POST", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.DeletePolicy" }, DeletePolicyRequest, S.Struct({}), [InternalErrorException, InvalidInputException, InvalidOperationException, LimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deletePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.DeletePolicy" }, DeletePolicyRequest, S.Struct({}), [InternalErrorException, InvalidInputException, InvalidOperationException, LimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Disassociates a Firewall Manager policy administrator from a third-party firewall tenant. When you call `DisassociateThirdPartyFirewall`, the third-party firewall vendor deletes all of the firewalls that are associated with the account.
- */export const disassociateThirdPartyFirewall = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", uri: "/", method: "POST", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.DisassociateThirdPartyFirewall" }, DisassociateThirdPartyFirewallRequest, DisassociateThirdPartyFirewallResponse, [InternalErrorException, InvalidInputException, InvalidOperationException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const disassociateThirdPartyFirewall = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.DisassociateThirdPartyFirewall" }, DisassociateThirdPartyFirewallRequest, DisassociateThirdPartyFirewallResponse, [InternalErrorException, InvalidInputException, InvalidOperationException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about the specified account's administrative scope. The administrative scope defines the resources that an Firewall Manager administrator can manage.
- */export const getAdminScope = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", uri: "/", method: "POST", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.GetAdminScope" }, GetAdminScopeRequest, GetAdminScopeResponse, [InternalErrorException, InvalidInputException, InvalidOperationException, LimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getAdminScope = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.GetAdminScope" }, GetAdminScopeRequest, GetAdminScopeResponse, [InternalErrorException, InvalidInputException, InvalidOperationException, LimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about the specified Firewall Manager applications list.
- */export const getAppsList = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", uri: "/", method: "POST", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.GetAppsList" }, GetAppsListRequest, GetAppsListResponse, [InternalErrorException, InvalidOperationException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getAppsList = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.GetAppsList" }, GetAppsListRequest, GetAppsListResponse, [InternalErrorException, InvalidOperationException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * If you created a Shield Advanced policy, returns policy-level attack summary information
  * in the event of a potential DDoS attack. Other policy types are currently unsupported.
- */export const getProtectionStatus = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", uri: "/", method: "POST", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.GetProtectionStatus" }, GetProtectionStatusRequest, GetProtectionStatusResponse, [InternalErrorException, InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getProtectionStatus = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.GetProtectionStatus" }, GetProtectionStatusRequest, GetProtectionStatusResponse, [InternalErrorException, InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about the specified Firewall Manager protocols list.
- */export const getProtocolsList = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", uri: "/", method: "POST", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.GetProtocolsList" }, GetProtocolsListRequest, GetProtocolsListResponse, [InternalErrorException, InvalidOperationException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getProtocolsList = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.GetProtocolsList" }, GetProtocolsListRequest, GetProtocolsListResponse, [InternalErrorException, InvalidOperationException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets information about a specific resource set.
- */export const getResourceSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", uri: "/", method: "POST", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.GetResourceSet" }, GetResourceSetRequest, GetResourceSetResponse, [InternalErrorException, InvalidInputException, InvalidOperationException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getResourceSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.GetResourceSet" }, GetResourceSetRequest, GetResourceSetResponse, [InternalErrorException, InvalidInputException, InvalidOperationException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * The onboarding status of a Firewall Manager admin account to third-party firewall vendor tenant.
- */export const getThirdPartyFirewallAssociationStatus = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", uri: "/", method: "POST", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.GetThirdPartyFirewallAssociationStatus" }, GetThirdPartyFirewallAssociationStatusRequest, GetThirdPartyFirewallAssociationStatusResponse, [InternalErrorException, InvalidInputException, InvalidOperationException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getThirdPartyFirewallAssociationStatus = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.GetThirdPartyFirewallAssociationStatus" }, GetThirdPartyFirewallAssociationStatusRequest, GetThirdPartyFirewallAssociationStatusResponse, [InternalErrorException, InvalidInputException, InvalidOperationException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the accounts that are managing the specified Organizations member account. This is useful for any member account so that they can view the accounts who are managing their account. This operation only returns the managing administrators that have the requested account within their AdminScope.
- */export const listAdminsManagingAccount = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", uri: "/", method: "POST", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.ListAdminsManagingAccount" }, ListAdminsManagingAccountRequest, ListAdminsManagingAccountResponse, [InternalErrorException, InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listAdminsManagingAccount = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.ListAdminsManagingAccount" }, ListAdminsManagingAccountRequest, ListAdminsManagingAccountResponse, [InternalErrorException, InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a `MemberAccounts` object that lists the member accounts in the
  * administrator's Amazon Web Services organization.
  * 
- * 
  * Either an Firewall Manager administrator or the organization's management account can make this request.
- */export const listMemberAccounts = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", uri: "/", method: "POST", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.ListMemberAccounts" }, ListMemberAccountsRequest, ListMemberAccountsResponse, [InternalErrorException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listMemberAccounts = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.ListMemberAccounts" }, ListMemberAccountsRequest, ListMemberAccountsResponse, [InternalErrorException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the list of tags for the specified Amazon Web Services resource.
- */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", uri: "/", method: "POST", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [InternalErrorException, InvalidInputException, InvalidOperationException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [InternalErrorException, InvalidInputException, InvalidOperationException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Associate resources to a Firewall Manager resource set.
- */export const batchAssociateResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", uri: "/", method: "POST", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.BatchAssociateResource" }, BatchAssociateResourceRequest, BatchAssociateResourceResponse, [InternalErrorException, InvalidInputException, InvalidOperationException, LimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const batchAssociateResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.BatchAssociateResource" }, BatchAssociateResourceRequest, BatchAssociateResourceResponse, [InternalErrorException, InvalidInputException, InvalidOperationException, LimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about the specified Firewall Manager policy.
- */export const getPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", uri: "/", method: "POST", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.GetPolicy" }, GetPolicyRequest, GetPolicyResponse, [InternalErrorException, InvalidOperationException, InvalidTypeException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.GetPolicy" }, GetPolicyRequest, GetPolicyResponse, [InternalErrorException, InvalidOperationException, InvalidTypeException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a `AdminAccounts` object that lists the Firewall Manager administrators within the organization that are onboarded to Firewall Manager by AssociateAdminAccount.
  * 
- * 
  * This operation can be called only from the organization's management account.
- */export const listAdminAccountsForOrganization = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", uri: "/", method: "POST", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.ListAdminAccountsForOrganization" }, ListAdminAccountsForOrganizationRequest, ListAdminAccountsForOrganizationResponse, [InternalErrorException, InvalidOperationException, LimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listAdminAccountsForOrganization = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.ListAdminAccountsForOrganization" }, ListAdminAccountsForOrganizationRequest, ListAdminAccountsForOrganizationResponse, [InternalErrorException, InvalidOperationException, LimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns an array of `AppsListDataSummary` objects.
- */export const listAppsLists = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", uri: "/", method: "POST", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.ListAppsLists" }, ListAppsListsRequest, ListAppsListsResponse, [InternalErrorException, InvalidOperationException, LimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listAppsLists = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.ListAppsLists" }, ListAppsListsRequest, ListAppsListsResponse, [InternalErrorException, InvalidOperationException, LimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns an array of resources in the organization's accounts that are available to be associated with a resource set.
- */export const listDiscoveredResources = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", uri: "/", method: "POST", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.ListDiscoveredResources" }, ListDiscoveredResourcesRequest, ListDiscoveredResourcesResponse, [InternalErrorException, InvalidInputException, InvalidOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listDiscoveredResources = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.ListDiscoveredResources" }, ListDiscoveredResourcesRequest, ListDiscoveredResourcesResponse, [InternalErrorException, InvalidInputException, InvalidOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns an array of `PolicySummary` objects.
- */export const listPolicies = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", uri: "/", method: "POST", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.ListPolicies" }, ListPoliciesRequest, ListPoliciesResponse, [InternalErrorException, InvalidOperationException, LimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listPolicies = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.ListPolicies" }, ListPoliciesRequest, ListPoliciesResponse, [InternalErrorException, InvalidOperationException, LimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns an array of `ProtocolsListDataSummary` objects.
- */export const listProtocolsLists = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", uri: "/", method: "POST", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.ListProtocolsLists" }, ListProtocolsListsRequest, ListProtocolsListsResponse, [InternalErrorException, InvalidOperationException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listProtocolsLists = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.ListProtocolsLists" }, ListProtocolsListsRequest, ListProtocolsListsResponse, [InternalErrorException, InvalidOperationException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns an array of resources that are currently associated to a resource set.
- */export const listResourceSetResources = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", uri: "/", method: "POST", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.ListResourceSetResources" }, ListResourceSetResourcesRequest, ListResourceSetResourcesResponse, [InternalErrorException, InvalidInputException, InvalidOperationException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listResourceSetResources = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.ListResourceSetResources" }, ListResourceSetResourcesRequest, ListResourceSetResourcesResponse, [InternalErrorException, InvalidInputException, InvalidOperationException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns an array of `ResourceSetSummary` objects.
- */export const listResourceSets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", uri: "/", method: "POST", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.ListResourceSets" }, ListResourceSetsRequest, ListResourceSetsResponse, [InternalErrorException, InvalidInputException, InvalidOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listResourceSets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.ListResourceSets" }, ListResourceSetsRequest, ListResourceSetsResponse, [InternalErrorException, InvalidInputException, InvalidOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves a list of all of the third-party firewall policies that are associated with the third-party firewall administrator's account.
- */export const listThirdPartyFirewallFirewallPolicies = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", uri: "/", method: "POST", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.ListThirdPartyFirewallFirewallPolicies" }, ListThirdPartyFirewallFirewallPoliciesRequest, ListThirdPartyFirewallFirewallPoliciesResponse, [InternalErrorException, InvalidInputException, InvalidOperationException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listThirdPartyFirewallFirewallPolicies = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.ListThirdPartyFirewallFirewallPolicies" }, ListThirdPartyFirewallFirewallPoliciesRequest, ListThirdPartyFirewallFirewallPoliciesResponse, [InternalErrorException, InvalidInputException, InvalidOperationException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates or updates an Firewall Manager administrator account. The account must be a member of the organization that was onboarded to Firewall Manager by AssociateAdminAccount. Only the organization's management account can create an Firewall Manager administrator account. When you create an Firewall Manager administrator account, the service checks to see if the account is already a delegated administrator within Organizations. If the account isn't a delegated administrator, Firewall Manager calls Organizations to delegate the account within Organizations. For more information about administrator accounts within Organizations, see
  * Managing the Amazon Web Services Accounts in Your Organization.
- */export const putAdminAccount = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", uri: "/", method: "POST", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.PutAdminAccount" }, PutAdminAccountRequest, S.Struct({}), [InternalErrorException, InvalidInputException, InvalidOperationException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putAdminAccount = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.PutAdminAccount" }, PutAdminAccountRequest, S.Struct({}), [InternalErrorException, InvalidInputException, InvalidOperationException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates the resource set.
  * 
- * 
  * An Firewall Manager resource set defines the resources to import into an Firewall Manager policy from another Amazon Web Services service.
- */export const putResourceSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", uri: "/", method: "POST", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.PutResourceSet" }, PutResourceSetRequest, PutResourceSetResponse, [InternalErrorException, InvalidInputException, InvalidOperationException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putResourceSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.PutResourceSet" }, PutResourceSetRequest, PutResourceSetResponse, [InternalErrorException, InvalidInputException, InvalidOperationException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns an array of `PolicyComplianceStatus` objects. Use
  * `PolicyComplianceStatus` to get a summary of which member accounts are protected
  * by the specified policy.
- */export const listComplianceStatus = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", uri: "/", method: "POST", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.ListComplianceStatus" }, ListComplianceStatusRequest, ListComplianceStatusResponse, [InternalErrorException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listComplianceStatus = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.ListComplianceStatus" }, ListComplianceStatusRequest, ListComplianceStatusResponse, [InternalErrorException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an Firewall Manager applications list.
- */export const putAppsList = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", uri: "/", method: "POST", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.PutAppsList" }, PutAppsListRequest, PutAppsListResponse, [InternalErrorException, InvalidInputException, InvalidOperationException, LimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putAppsList = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.PutAppsList" }, PutAppsListRequest, PutAppsListResponse, [InternalErrorException, InvalidInputException, InvalidOperationException, LimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an Firewall Manager protocols list.
- */export const putProtocolsList = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", uri: "/", method: "POST", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.PutProtocolsList" }, PutProtocolsListRequest, PutProtocolsListResponse, [InternalErrorException, InvalidInputException, InvalidOperationException, LimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putProtocolsList = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.PutProtocolsList" }, PutProtocolsListRequest, PutProtocolsListResponse, [InternalErrorException, InvalidInputException, InvalidOperationException, LimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns detailed compliance information about the specified member account. Details
  * include resources that are in and out of compliance with the specified policy.
  * 
- * 
  * The reasons for resources being considered compliant depend on the Firewall Manager policy type.
- */export const getComplianceDetail = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", uri: "/", method: "POST", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.GetComplianceDetail" }, GetComplianceDetailRequest, GetComplianceDetailResponse, [InternalErrorException, InvalidInputException, InvalidOperationException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getComplianceDetail = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.GetComplianceDetail" }, GetComplianceDetailRequest, GetComplianceDetailResponse, [InternalErrorException, InvalidInputException, InvalidOperationException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an Firewall Manager policy.
- * 
  * 
  * A Firewall Manager policy is specific to the individual policy type. If you want to enforce multiple
  * policy types across accounts, you can create multiple policies. You can create more than one
  * policy for each type.
  * 
- * 
  * If you add a new account to an organization that you created with Organizations, Firewall Manager
  * automatically applies the policy to the resources in that account that are within scope of
  * the policy.
  * 
- * 
  * Firewall Manager provides the following types of policies:
- * 
- * 
  * 
  * - **WAF policy** - This policy applies WAF web ACL
  * protections to specified accounts and resources.
  * 
- * 
- * 
  * - **Shield Advanced policy** - This policy applies Shield Advanced
  * protection to specified accounts and resources.
- * 
- * 
  * 
  * - **Security Groups policy** - This type of policy gives you
  * control over security groups that are in use throughout your organization in
  * Organizations and lets you enforce a baseline set of rules across your organization.
  * 
- * 
- * 
  * - **Network ACL policy** - This type of policy gives you
  * control over the network ACLs that are in use throughout your organization in
  * Organizations and lets you enforce a baseline set of first and last network ACL rules across your organization.
  * 
- * 
- * 
  * - **Network Firewall policy** - This policy applies
  * Network Firewall protection to your organization's VPCs.
- * 
- * 
  * 
  * - **DNS Firewall policy** - This policy applies
  * Amazon Route 53 Resolver DNS Firewall protections to your organization's VPCs.
  * 
- * 
- * 
  * - **Third-party firewall policy** - This policy applies third-party firewall protections. Third-party firewalls are available by subscription through the Amazon Web Services Marketplace console at Amazon Web Services Marketplace.
- * 
- * 
  * 
  * - **Palo Alto Networks Cloud NGFW policy** - This policy applies Palo Alto Networks Cloud Next Generation Firewall (NGFW) protections and Palo Alto Networks Cloud NGFW rulestacks to your organization's VPCs.
  * 
- * 
- * 
  * - **Fortigate CNF policy** - This policy applies
  * Fortigate Cloud Native Firewall (CNF) protections. Fortigate CNF is a cloud-centered solution that blocks Zero-Day threats and secures cloud infrastructures with industry-leading advanced threat prevention, smart web application firewalls (WAF), and API protection.
- */export const putPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", uri: "/", method: "POST", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.PutPolicy" }, PutPolicyRequest, PutPolicyResponse, [InternalErrorException, InvalidInputException, InvalidOperationException, InvalidTypeException, LimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.PutPolicy" }, PutPolicyRequest, PutPolicyResponse, [InternalErrorException, InvalidInputException, InvalidOperationException, InvalidTypeException, LimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves violations for a resource based on the specified Firewall Manager policy and Amazon Web Services account.
- */export const getViolationDetails = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", uri: "/", method: "POST", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.GetViolationDetails" }, GetViolationDetailsRequest, GetViolationDetailsResponse, [InternalErrorException, InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getViolationDetails = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-01", sdkId: "FMS", sigV4ServiceName: "fms", name: "AWSFMS_20180101.GetViolationDetails" }, GetViolationDetailsRequest, GetViolationDetailsResponse, [InternalErrorException, InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

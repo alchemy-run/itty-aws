@@ -147,7 +147,7 @@ export class PayloadTooLargeException extends S.TaggedError<PayloadTooLargeExcep
  * Assigns metadata to an AppConfig resource. Tags help organize and categorize
  * your AppConfig resources. Each tag consists of a key and an optional value, both
  * of which you define. You can specify a maximum of 50 tags for a resource.
- */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/tags/{ResourceArn}", method: "POST", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.TagResource" }, TagResourceRequest, S.Struct({}), [BadRequestException, InternalServerException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/tags/{ResourceArn}", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.TagResource" }, TagResourceRequest, S.Struct({}), [BadRequestException, InternalServerException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a tag key and value from an AppConfig resource.
  */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/tags/{ResourceArn}", method: "DELETE", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.UntagResource" }, UntagResourceRequest, S.Struct({}), [BadRequestException, InternalServerException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -178,70 +178,44 @@ export class PayloadTooLargeException extends S.TaggedError<PayloadTooLargeExcep
  */export const updateExtensionAssociation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/extensionassociations/{ExtensionAssociationId}", method: "PATCH", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.UpdateExtensionAssociation" }, UpdateExtensionAssociationRequest, ExtensionAssociation, [BadRequestException, InternalServerException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Uses the validators in a configuration profile to validate a configuration.
- */export const validateConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}/validators", method: "POST", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.ValidateConfiguration" }, ValidateConfigurationRequest, S.Struct({}), [BadRequestException, InternalServerException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const validateConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}/validators", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.ValidateConfiguration" }, ValidateConfigurationRequest, S.Struct({}), [BadRequestException, InternalServerException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a configuration profile, which is information that enables AppConfig
  * to access the configuration source. Valid configuration sources include the
  * following:
  * 
- * 
- * 
  * - Configuration data in YAML, JSON, and other formats stored in the AppConfig hosted configuration store
- * 
- * 
  * 
  * - Configuration data stored as objects in an Amazon Simple Storage Service (Amazon S3)
  * bucket
  * 
- * 
- * 
  * - Pipelines stored in CodePipeline
- * 
- * 
  * 
  * - Secrets stored in Secrets Manager
  * 
- * 
- * 
  * - Standard and secure string parameters stored in Amazon Web Services Systems Manager Parameter Store
- * 
- * 
  * 
  * - Configuration data in SSM documents stored in the Systems Manager document store
  * 
- * 
- * 
- * 
- * 
  * A configuration profile includes the following information:
- * 
- * 
  * 
  * - The URI location of the configuration data.
  * 
- * 
- * 
  * - The Identity and Access Management (IAM) role that provides access to the configuration data.
- * 
- * 
  * 
  * - A validator for the configuration data. Available validators include either a JSON
  * Schema or an Amazon Web Services Lambda function.
  * 
- * 
- * 
- * 
- * 
  * For more information, see Create a
  * Configuration and a Configuration Profile in the AppConfig
  * User Guide.
- */export const createConfigurationProfile = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/applications/{ApplicationId}/configurationprofiles", method: "POST", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.CreateConfigurationProfile" }, CreateConfigurationProfileRequest, ConfigurationProfile, [BadRequestException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createConfigurationProfile = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/applications/{ApplicationId}/configurationprofiles", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.CreateConfigurationProfile" }, CreateConfigurationProfileRequest, ConfigurationProfile, [BadRequestException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a deployment strategy that defines important criteria for rolling out your
  * configuration to the designated targets. A deployment strategy includes the overall
  * duration required, a percentage of targets to receive the deployment during each interval,
  * an algorithm that defines how percentage grows, and bake time.
- */export const createDeploymentStrategy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/deploymentstrategies", method: "POST", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.CreateDeploymentStrategy" }, CreateDeploymentStrategyRequest, DeploymentStrategy, [BadRequestException, InternalServerException, ServiceQuotaExceededException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createDeploymentStrategy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/deploymentstrategies", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.CreateDeploymentStrategy" }, CreateDeploymentStrategyRequest, DeploymentStrategy, [BadRequestException, InternalServerException, ServiceQuotaExceededException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an environment. For each application, you define one or more environments. An
  * environment is a deployment group of AppConfig targets, such as applications in a
@@ -251,7 +225,7 @@ export class PayloadTooLargeException extends S.TaggedError<PayloadTooLargeExcep
  * configure Amazon CloudWatch alarms for each environment. The system monitors alarms during a
  * configuration deployment. If an alarm is triggered, the system rolls back the
  * configuration.
- */export const createEnvironment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/applications/{ApplicationId}/environments", method: "POST", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.CreateEnvironment" }, CreateEnvironmentRequest, Environment, [BadRequestException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createEnvironment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/applications/{ApplicationId}/environments", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.CreateEnvironment" }, CreateEnvironmentRequest, Environment, [BadRequestException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * When you create an extension or configure an Amazon Web Services authored extension, you
  * associate the extension with an AppConfig application, environment, or
@@ -265,10 +239,9 @@ export class PayloadTooLargeException extends S.TaggedError<PayloadTooLargeExcep
  * application or a configuration profile. For more information about extensions and
  * associations, see Extending
  * workflows in the *AppConfig User Guide*.
- */export const createExtensionAssociation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/extensionassociations", method: "POST", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.CreateExtensionAssociation" }, CreateExtensionAssociationRequest, ExtensionAssociation, [BadRequestException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createExtensionAssociation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/extensionassociations", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.CreateExtensionAssociation" }, CreateExtensionAssociationRequest, ExtensionAssociation, [BadRequestException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a configuration profile.
- * 
  * 
  * To prevent users from unintentionally deleting actively-used configuration profiles,
  * enable deletion
@@ -279,7 +252,6 @@ export class PayloadTooLargeException extends S.TaggedError<PayloadTooLargeExcep
  */export const deleteDeploymentStrategy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/deployementstrategies/{DeploymentStrategyId}", method: "DELETE", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.DeleteDeploymentStrategy" }, DeleteDeploymentStrategyRequest, S.Struct({}), [BadRequestException, InternalServerException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes an environment.
- * 
  * 
  * To prevent users from unintentionally deleting actively-used environments, enable deletion
  * protection.
@@ -294,17 +266,10 @@ export class PayloadTooLargeException extends S.TaggedError<PayloadTooLargeExcep
 /**
  * (Deprecated) Retrieves the latest deployed configuration.
  * 
- * 
- * 
- * 
  * Note the following important information.
- * 
- * 
  * 
  * - This API action is deprecated. Calls to receive configuration data should use
  * the StartConfigurationSession and GetLatestConfiguration APIs instead.
- * 
- * 
  * 
  * - GetConfiguration is a priced call. For more information, see
  * Pricing.
@@ -342,19 +307,18 @@ export class PayloadTooLargeException extends S.TaggedError<PayloadTooLargeExcep
  */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/tags/{ResourceArn}", method: "GET", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.ListTagsForResource" }, ListTagsForResourceRequest, ResourceTags, [BadRequestException, InternalServerException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts a deployment.
- */export const startDeployment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/applications/{ApplicationId}/environments/{EnvironmentId}/deployments", method: "POST", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.StartDeployment" }, StartDeploymentRequest, Deployment, [BadRequestException, ConflictException, InternalServerException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startDeployment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/applications/{ApplicationId}/environments/{EnvironmentId}/deployments", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.StartDeployment" }, StartDeploymentRequest, Deployment, [BadRequestException, ConflictException, InternalServerException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an application. In AppConfig, an application is simply an
  * organizational construct like a folder. This organizational construct has a relationship
  * with some unit of executable code. For example, you could create an application called
  * MyMobileApp to organize and manage configuration data for a mobile application installed by
  * your users.
- */export const createApplication = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/applications", method: "POST", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.CreateApplication" }, CreateApplicationRequest, Application, [BadRequestException, InternalServerException, ServiceQuotaExceededException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createApplication = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/applications", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.CreateApplication" }, CreateApplicationRequest, Application, [BadRequestException, InternalServerException, ServiceQuotaExceededException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an AppConfig extension. An extension augments your ability to inject
  * logic or behavior at different points during the AppConfig workflow of creating
  * or deploying a configuration.
- * 
  * 
  * You can create your own extensions or use the Amazon Web Services authored extensions provided by
  * AppConfig. For an AppConfig extension that uses Lambda, you must create a Lambda function to perform any computation and processing
@@ -362,34 +326,24 @@ export class PayloadTooLargeException extends S.TaggedError<PayloadTooLargeExcep
  * authored notification extensions, you only need to specify an Amazon Resource Name (ARN) in
  * the `Uri` field for the new extension version.
  * 
- * 
- * 
  * - For a custom EventBridge notification extension, enter the ARN of the EventBridge
  * default events in the `Uri` field.
- * 
- * 
  * 
  * - For a custom Amazon SNS notification extension, enter the ARN of an Amazon SNS
  * topic in the `Uri` field.
  * 
- * 
- * 
  * - For a custom Amazon SQS notification extension, enter the ARN of an Amazon SQS
  * message queue in the `Uri` field.
  * 
- * 
- * 
- * 
- * 
  * For more information about extensions, see Extending
  * workflows in the *AppConfig User Guide*.
- */export const createExtension = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/extensions", method: "POST", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.CreateExtension" }, CreateExtensionRequest, Extension, [BadRequestException, ConflictException, InternalServerException, ServiceQuotaExceededException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createExtension = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/extensions", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.CreateExtension" }, CreateExtensionRequest, Extension, [BadRequestException, ConflictException, InternalServerException, ServiceQuotaExceededException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new configuration in the AppConfig hosted configuration store. If
  * you're creating a feature flag, we recommend you familiarize yourself with the JSON schema
  * for feature flag data. For more information, see Type reference for AWS.AppConfig.FeatureFlags in the
  * *AppConfig User Guide*.
- */export const createHostedConfigurationVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}/hostedconfigurationversions", method: "POST", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.CreateHostedConfigurationVersion" }, CreateHostedConfigurationVersionRequest, HostedConfigurationVersion, [BadRequestException, ConflictException, InternalServerException, PayloadTooLargeException, ResourceNotFoundException, ServiceQuotaExceededException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createHostedConfigurationVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}/hostedconfigurationversions", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.CreateHostedConfigurationVersion" }, CreateHostedConfigurationVersionRequest, HostedConfigurationVersion, [BadRequestException, ConflictException, InternalServerException, PayloadTooLargeException, ResourceNotFoundException, ServiceQuotaExceededException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the configuration profiles for an application.
  */export const listConfigurationProfiles = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-10-09", uri: "/applications/{ApplicationId}/configurationprofiles", method: "GET", sdkId: "AppConfig", sigV4ServiceName: "appconfig", name: "AmazonAppConfig.ListConfigurationProfiles" }, ListConfigurationProfilesRequest, ConfigurationProfiles, [BadRequestException, InternalServerException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

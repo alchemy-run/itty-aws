@@ -98,48 +98,39 @@ export class PublicPolicyException extends S.TaggedError<PublicPolicyException>(
  * secret that specifies the end of the recovery window. At the end of the recovery window,
  * Secrets Manager deletes the secret permanently.
  * 
- * 
  * You can't delete a primary secret that is replicated to other Regions. You must first
  * delete the replicas using RemoveRegionsFromReplication, and then
  * delete the primary secret. When you delete a replica, it is deleted immediately.
- * 
  * 
  * You can't directly delete a version of a secret. Instead, you remove all staging
  * labels from the version using UpdateSecretVersionStage. This marks the
  * version as deprecated, and then Secrets Manager can automatically delete the version in the
  * background.
  * 
- * 
  * To determine whether an application still uses a secret, you can create an Amazon CloudWatch alarm
  * to alert you to any attempts to access a secret during the recovery window. For more
  * information, see
  * Monitor secrets scheduled for deletion.
  * 
- * 
  * Secrets Manager performs the permanent secret deletion at the end of the waiting period as a
  * background task with low priority. There is no guarantee of a specific time after the
  * recovery window for the permanent delete to occur.
  * 
- * 
  * At any time before recovery window ends, you can use RestoreSecret
  * to remove the `DeletionDate` and cancel the deletion of the secret.
- * 
  * 
  * When a secret is scheduled for deletion, you cannot retrieve the secret value. You
  * must first cancel the deletion with RestoreSecret and then you can
  * retrieve the secret.
  * 
- * 
  * Secrets Manager generates a CloudTrail log entry when you call this action. Do not include sensitive information in request parameters because it might be logged. For more information, see Logging Secrets Manager events with CloudTrail.
- * 
- * 
  * 
  * Required permissions:
  * 
  * `secretsmanager:DeleteSecret`. For more information, see
  * IAM policy actions for Secrets Manager and Authentication
  * and access control in Secrets Manager.
- */export const deleteSecret = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", uri: "/", method: "POST", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.DeleteSecret" }, DeleteSecretRequest, DeleteSecretResponse, [InternalServiceError, InvalidParameterException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteSecret = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.DeleteSecret" }, DeleteSecretRequest, DeleteSecretResponse, [InternalServiceError, InvalidParameterException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Generates a random password. We recommend that you specify the maximum length and
  * include every character type that the system you are generating a password for can
@@ -147,42 +138,32 @@ export class PublicPolicyException extends S.TaggedError<PublicPolicyException>(
  * following characters in passwords:
  * `!\"#$%&'()*+,-./:;?@[\\]^_`{|}~`
  * 
- * 
- * 
  * Secrets Manager generates a CloudTrail log entry when you call this
  * action.
- * 
- * 
  * 
  * Required permissions:
  * 
  * `secretsmanager:GetRandomPassword`. For more information, see
  * IAM policy actions for Secrets Manager and Authentication
  * and access control in Secrets Manager.
- */export const getRandomPassword = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", uri: "/", method: "POST", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.GetRandomPassword" }, GetRandomPasswordRequest, GetRandomPasswordResponse, [InternalServiceError, InvalidParameterException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getRandomPassword = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.GetRandomPassword" }, GetRandomPasswordRequest, GetRandomPasswordResponse, [InternalServiceError, InvalidParameterException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the JSON text of the resource-based policy document attached to the secret.
  * For more information about permissions policies attached to a secret, see Permissions policies attached to a secret.
  * 
- * 
  * Secrets Manager generates a CloudTrail log entry when you call this action. Do not include sensitive information in request parameters because it might be logged. For more information, see Logging Secrets Manager events with CloudTrail.
- * 
- * 
  * 
  * Required permissions:
  * 
  * `secretsmanager:GetResourcePolicy`. For more information, see
  * IAM policy actions for Secrets Manager and Authentication
  * and access control in Secrets Manager.
- */export const getResourcePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", uri: "/", method: "POST", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.GetResourcePolicy" }, GetResourcePolicyRequest, GetResourcePolicyResponse, [InternalServiceError, InvalidParameterException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getResourcePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.GetResourcePolicy" }, GetResourcePolicyRequest, GetResourcePolicyResponse, [InternalServiceError, InvalidParameterException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * For a secret that is replicated to other Regions, deletes the secret replicas from the
  * Regions you specify.
  * 
- * 
  * Secrets Manager generates a CloudTrail log entry when you call this action. Do not include sensitive information in request parameters because it might be logged. For more information, see Logging Secrets Manager events with CloudTrail.
- * 
- * 
  * 
  * Required permissions:
  * 
@@ -190,14 +171,11 @@ export class PublicPolicyException extends S.TaggedError<PublicPolicyException>(
  * For more information, see
  * IAM policy actions for Secrets Manager and Authentication
  * and access control in Secrets Manager.
- */export const removeRegionsFromReplication = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", uri: "/", method: "POST", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.RemoveRegionsFromReplication" }, RemoveRegionsFromReplicationRequest, RemoveRegionsFromReplicationResponse, [InternalServiceError, InvalidParameterException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const removeRegionsFromReplication = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.RemoveRegionsFromReplication" }, RemoveRegionsFromReplicationRequest, RemoveRegionsFromReplicationResponse, [InternalServiceError, InvalidParameterException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Replicates the secret to a new Regions. See Multi-Region secrets.
  * 
- * 
  * Secrets Manager generates a CloudTrail log entry when you call this action. Do not include sensitive information in request parameters because it might be logged. For more information, see Logging Secrets Manager events with CloudTrail.
- * 
- * 
  * 
  * Required permissions:
  * 
@@ -209,99 +187,74 @@ export class PublicPolicyException extends S.TaggedError<PublicPolicyException>(
  * For more information, see
  * IAM policy actions for Secrets Manager and Authentication
  * and access control in Secrets Manager.
- */export const replicateSecretToRegions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", uri: "/", method: "POST", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.ReplicateSecretToRegions" }, ReplicateSecretToRegionsRequest, ReplicateSecretToRegionsResponse, [InternalServiceError, InvalidParameterException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const replicateSecretToRegions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.ReplicateSecretToRegions" }, ReplicateSecretToRegionsRequest, ReplicateSecretToRegionsResponse, [InternalServiceError, InvalidParameterException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Cancels the scheduled deletion of a secret by removing the `DeletedDate`
  * time stamp. You can access a secret again after it has been restored.
  * 
- * 
  * Secrets Manager generates a CloudTrail log entry when you call this action. Do not include sensitive information in request parameters because it might be logged. For more information, see Logging Secrets Manager events with CloudTrail.
- * 
- * 
  * 
  * Required permissions:
  * 
  * `secretsmanager:RestoreSecret`. For more information, see
  * IAM policy actions for Secrets Manager and Authentication
  * and access control in Secrets Manager.
- */export const restoreSecret = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", uri: "/", method: "POST", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.RestoreSecret" }, RestoreSecretRequest, RestoreSecretResponse, [InternalServiceError, InvalidParameterException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const restoreSecret = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.RestoreSecret" }, RestoreSecretRequest, RestoreSecretResponse, [InternalServiceError, InvalidParameterException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes the link between the replica secret and the primary secret and promotes the
  * replica to a primary secret in the replica Region.
  * 
- * 
  * You must call this operation from the Region in which you want to promote the replica
  * to a primary secret.
  * 
- * 
  * Secrets Manager generates a CloudTrail log entry when you call this action. Do not include sensitive information in request parameters because it might be logged. For more information, see Logging Secrets Manager events with CloudTrail.
- * 
- * 
  * 
  * Required permissions:
  * 
  * `secretsmanager:StopReplicationToReplica`. For more information, see
  * IAM policy actions for Secrets Manager and Authentication
  * and access control in Secrets Manager.
- */export const stopReplicationToReplica = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", uri: "/", method: "POST", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.StopReplicationToReplica" }, StopReplicationToReplicaRequest, StopReplicationToReplicaResponse, [InternalServiceError, InvalidParameterException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const stopReplicationToReplica = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.StopReplicationToReplica" }, StopReplicationToReplicaRequest, StopReplicationToReplicaResponse, [InternalServiceError, InvalidParameterException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Attaches tags to a secret. Tags consist of a key name and a value. Tags are part of
  * the secret's metadata. They are not associated with specific versions of the secret.
  * This operation appends tags to the existing list of tags.
  * 
- * 
  * For tag quotas and naming restrictions, see Service quotas for
  * Tagging in the *Amazon Web Services General Reference guide*.
- * 
- * 
- * 
  * 
  * If you use tags as part of your security strategy, then adding or removing a tag
  * can change permissions. If successfully completing this operation would result in
  * you losing your permissions for this secret, then the operation is blocked and
  * returns an Access Denied error.
  * 
- * 
- * 
- * 
  * Secrets Manager generates a CloudTrail log entry when you call this action. Do not include sensitive information in request parameters because it might be logged. For more information, see Logging Secrets Manager events with CloudTrail.
- * 
- * 
  * 
  * Required permissions:
  * 
  * `secretsmanager:TagResource`. For more information, see
  * IAM policy actions for Secrets Manager and Authentication
  * and access control in Secrets Manager.
- */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", uri: "/", method: "POST", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.TagResource" }, TagResourceRequest, S.Struct({}), [InternalServiceError, InvalidParameterException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.TagResource" }, TagResourceRequest, S.Struct({}), [InternalServiceError, InvalidParameterException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes specific tags from a secret.
  * 
- * 
  * This operation is idempotent. If a requested tag is not attached to the secret, no
  * error is returned and the secret metadata is unchanged.
- * 
- * 
- * 
  * 
  * If you use tags as part of your security strategy, then removing a tag can change
  * permissions. If successfully completing this operation would result in you losing
  * your permissions for this secret, then the operation is blocked and returns an
  * Access Denied error.
  * 
- * 
- * 
- * 
  * Secrets Manager generates a CloudTrail log entry when you call this action. Do not include sensitive information in request parameters because it might be logged. For more information, see Logging Secrets Manager events with CloudTrail.
- * 
- * 
  * 
  * Required permissions:
  * 
  * `secretsmanager:UntagResource`. For more information, see
  * IAM policy actions for Secrets Manager and Authentication
  * and access control in Secrets Manager.
- */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", uri: "/", method: "POST", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.UntagResource" }, UntagResourceRequest, S.Struct({}), [InternalServiceError, InvalidParameterException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.UntagResource" }, UntagResourceRequest, S.Struct({}), [InternalServiceError, InvalidParameterException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Modifies the staging labels attached to a version of a secret. Secrets Manager uses staging
  * labels to track a version as it progresses through the secret rotation process. Each
@@ -311,42 +264,30 @@ export class PublicPolicyException extends S.TaggedError<PublicPolicyException>(
  * versions and staging labels, see Concepts:
  * Version.
  * 
- * 
  * The staging labels that you specify in the `VersionStage` parameter are
  * added to the existing list of staging labels for the version.
  * 
- * 
  * You can move the `AWSCURRENT` staging label to this version by including it
  * in this call.
- * 
- * 
- * 
  * 
  * Whenever you move `AWSCURRENT`, Secrets Manager automatically moves the label
  * `AWSPREVIOUS` to the version that `AWSCURRENT` was removed
  * from.
  * 
- * 
- * 
- * 
  * If this action results in the last label being removed from a version, then the
  * version is considered to be 'deprecated' and can be deleted by Secrets Manager.
  * 
- * 
  * Secrets Manager generates a CloudTrail log entry when you call this action. Do not include sensitive information in request parameters because it might be logged. For more information, see Logging Secrets Manager events with CloudTrail.
- * 
- * 
  * 
  * Required permissions:
  * 
  * `secretsmanager:UpdateSecretVersionStage`. For more information, see
  * IAM policy actions for Secrets Manager and Authentication
  * and access control in Secrets Manager.
- */export const updateSecretVersionStage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", uri: "/", method: "POST", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.UpdateSecretVersionStage" }, UpdateSecretVersionStageRequest, UpdateSecretVersionStageResponse, [InternalServiceError, InvalidParameterException, InvalidRequestException, LimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateSecretVersionStage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.UpdateSecretVersionStage" }, UpdateSecretVersionStageRequest, UpdateSecretVersionStageResponse, [InternalServiceError, InvalidParameterException, InvalidRequestException, LimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Turns off automatic rotation, and if a rotation is currently in progress, cancels the
  * rotation.
- * 
  * 
  * If you cancel a rotation in progress, it can leave the `VersionStage`
  * labels in an unexpected state. You might need to remove the staging label
@@ -356,70 +297,54 @@ export class PublicPolicyException extends S.TaggedError<PublicPolicyException>(
  * To determine which version has a specific staging label, call ListSecretVersionIds. Then use UpdateSecretVersionStage to change staging labels. For more information, see How rotation
  * works.
  * 
- * 
  * To turn on automatic rotation again, call RotateSecret.
  * 
- * 
  * Secrets Manager generates a CloudTrail log entry when you call this action. Do not include sensitive information in request parameters because it might be logged. For more information, see Logging Secrets Manager events with CloudTrail.
- * 
- * 
  * 
  * Required permissions:
  * 
  * `secretsmanager:CancelRotateSecret`. For more information, see
  * IAM policy actions for Secrets Manager and Authentication
  * and access control in Secrets Manager.
- */export const cancelRotateSecret = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", uri: "/", method: "POST", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.CancelRotateSecret" }, CancelRotateSecretRequest, CancelRotateSecretResponse, [InternalServiceError, InvalidParameterException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const cancelRotateSecret = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.CancelRotateSecret" }, CancelRotateSecretRequest, CancelRotateSecretResponse, [InternalServiceError, InvalidParameterException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the resource-based permission policy attached to the secret. To attach a
  * policy to a secret, use PutResourcePolicy.
  * 
- * 
  * Secrets Manager generates a CloudTrail log entry when you call this action. Do not include sensitive information in request parameters because it might be logged. For more information, see Logging Secrets Manager events with CloudTrail.
- * 
- * 
  * 
  * Required permissions:
  * 
  * `secretsmanager:DeleteResourcePolicy`. For more information, see
  * IAM policy actions for Secrets Manager and Authentication
  * and access control in Secrets Manager.
- */export const deleteResourcePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", uri: "/", method: "POST", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.DeleteResourcePolicy" }, DeleteResourcePolicyRequest, DeleteResourcePolicyResponse, [InternalServiceError, InvalidParameterException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteResourcePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.DeleteResourcePolicy" }, DeleteResourcePolicyRequest, DeleteResourcePolicyResponse, [InternalServiceError, InvalidParameterException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the details of a secret. It does not include the encrypted secret value.
  * Secrets Manager only returns fields that have a value in the response.
  * 
- * 
  * Secrets Manager generates a CloudTrail log entry when you call this action. Do not include sensitive information in request parameters because it might be logged. For more information, see Logging Secrets Manager events with CloudTrail.
- * 
- * 
  * 
  * Required permissions:
  * 
  * `secretsmanager:DescribeSecret`. For more information, see
  * IAM policy actions for Secrets Manager and Authentication
  * and access control in Secrets Manager.
- */export const describeSecret = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", uri: "/", method: "POST", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.DescribeSecret" }, DescribeSecretRequest, DescribeSecretResponse, [InternalServiceError, InvalidParameterException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeSecret = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.DescribeSecret" }, DescribeSecretRequest, DescribeSecretResponse, [InternalServiceError, InvalidParameterException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the contents of the encrypted fields `SecretString` or
  * `SecretBinary` from the specified version of a secret, whichever contains
  * content.
  * 
- * 
  * To retrieve the values for a group of secrets, call BatchGetSecretValue.
- * 
  * 
  * We recommend that you cache your secret values by using client-side caching. Caching
  * secrets improves speed and reduces your costs. For more information, see Cache secrets for your applications.
  * 
- * 
  * To retrieve the previous version of a secret, use `VersionStage` and
  * specify AWSPREVIOUS. To revert to the previous version of a secret, call UpdateSecretVersionStage.
  * 
- * 
  * Secrets Manager generates a CloudTrail log entry when you call this action. Do not include sensitive information in request parameters because it might be logged. For more information, see Logging Secrets Manager events with CloudTrail.
- * 
- * 
  * 
  * Required permissions:
  * 
@@ -429,26 +354,22 @@ export class PublicPolicyException extends S.TaggedError<PublicPolicyException>(
  * permissions for that key. For more information, see
  * IAM policy actions for Secrets Manager and Authentication
  * and access control in Secrets Manager.
- */export const getSecretValue = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", uri: "/", method: "POST", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.GetSecretValue" }, GetSecretValueRequest, GetSecretValueResponse, [DecryptionFailure, InternalServiceError, InvalidParameterException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getSecretValue = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.GetSecretValue" }, GetSecretValueRequest, GetSecretValueResponse, [DecryptionFailure, InternalServiceError, InvalidParameterException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the versions of a secret. Secrets Manager uses staging labels to indicate the different
  * versions of a secret. For more information, see Secrets Manager
  * concepts: Versions.
  * 
- * 
  * To list the secrets in the account, use ListSecrets.
  * 
- * 
  * Secrets Manager generates a CloudTrail log entry when you call this action. Do not include sensitive information in request parameters because it might be logged. For more information, see Logging Secrets Manager events with CloudTrail.
- * 
- * 
  * 
  * Required permissions:
  * 
  * `secretsmanager:ListSecretVersionIds`. For more information, see
  * IAM policy actions for Secrets Manager and Authentication
  * and access control in Secrets Manager.
- */export const listSecretVersionIds = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", uri: "/", method: "POST", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.ListSecretVersionIds" }, ListSecretVersionIdsRequest, ListSecretVersionIdsResponse, [InternalServiceError, InvalidNextTokenException, InvalidParameterException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listSecretVersionIds = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.ListSecretVersionIds" }, ListSecretVersionIdsRequest, ListSecretVersionIdsResponse, [InternalServiceError, InvalidNextTokenException, InvalidParameterException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Configures and starts the asynchronous process of rotating the secret. For information
  * about rotation, see Rotate secrets
@@ -456,7 +377,6 @@ export class PublicPolicyException extends S.TaggedError<PublicPolicyException>(
  * parameters, the operation sets the values for the secret and then immediately starts a
  * rotation. If you don't include the configuration parameters, the operation starts a
  * rotation with the values already stored in the secret.
- * 
  * 
  * When rotation is successful, the `AWSPENDING` staging label might be
  * attached to the same version as the `AWSCURRENT` version, or it might not be
@@ -468,10 +388,7 @@ export class PublicPolicyException extends S.TaggedError<PublicPolicyException>(
  * For more information, see Troubleshoot
  * rotation in the *Secrets Manager User Guide*.
  * 
- * 
  * Secrets Manager generates a CloudTrail log entry when you call this action. Do not include sensitive information in request parameters because it might be logged. For more information, see Logging Secrets Manager events with CloudTrail.
- * 
- * 
  * 
  * Required permissions:
  * 
@@ -480,20 +397,17 @@ export class PublicPolicyException extends S.TaggedError<PublicPolicyException>(
  * and access control in Secrets Manager. You also
  * need `lambda:InvokeFunction` permissions on the rotation function. For more
  * information, see Permissions for rotation.
- */export const rotateSecret = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", uri: "/", method: "POST", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.RotateSecret" }, RotateSecretRequest, RotateSecretResponse, [InternalServiceError, InvalidParameterException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const rotateSecret = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.RotateSecret" }, RotateSecretRequest, RotateSecretResponse, [InternalServiceError, InvalidParameterException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Modifies the details of a secret, including metadata and the secret value. To change
  * the secret value, you can also use PutSecretValue.
  * 
- * 
  * To change the rotation configuration of a secret, use RotateSecret
  * instead.
- * 
  * 
  * To change a secret so that it is managed by another service, you need to recreate the
  * secret in that service. See Secrets Manager secrets
  * managed by other Amazon Web Services services.
- * 
  * 
  * We recommend you avoid calling `UpdateSecret` at a sustained rate of more
  * than once every 10 minutes. When you call `UpdateSecret` to update the secret
@@ -502,25 +416,20 @@ export class PublicPolicyException extends S.TaggedError<PublicPolicyException>(
  * If you update the secret value more than once every 10 minutes, you create more versions
  * than Secrets Manager removes, and you will reach the quota for secret versions.
  * 
- * 
  * If you include `SecretString` or `SecretBinary` to create a new
  * secret version, Secrets Manager automatically moves the staging label `AWSCURRENT` to
  * the new version. Then it attaches the label `AWSPREVIOUS` to the version that
  * `AWSCURRENT` was removed from.
- * 
  * 
  * If you call this operation with a `ClientRequestToken` that matches an
  * existing version's `VersionId`, the operation results in an error. You can't
  * modify an existing version, you can only create a new version. To remove a version,
  * remove all staging labels from it. See UpdateSecretVersionStage.
  * 
- * 
  * Secrets Manager generates a CloudTrail log entry when you call this action.
  * Do not include sensitive information in request parameters except
  * `SecretBinary` or `SecretString` because it might be logged.
  * For more information, see Logging Secrets Manager events with CloudTrail.
- * 
- * 
  * 
  * Required permissions:
  * 
@@ -534,39 +443,23 @@ export class PublicPolicyException extends S.TaggedError<PublicPolicyException>(
  * information, see Secret encryption
  * and decryption.
  * 
- * 
- * 
- * 
  * When you enter commands in a command shell, there is a risk of the command history being accessed or utilities having access to your command parameters. This is a concern if the command includes the value of a secret. Learn how to Mitigate the risks of using command-line tools to store Secrets Manager secrets.
- */export const updateSecret = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", uri: "/", method: "POST", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.UpdateSecret" }, UpdateSecretRequest, UpdateSecretResponse, [DecryptionFailure, EncryptionFailure, InternalServiceError, InvalidParameterException, InvalidRequestException, LimitExceededException, MalformedPolicyDocumentException, PreconditionNotMetException, ResourceExistsException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateSecret = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.UpdateSecret" }, UpdateSecretRequest, UpdateSecretResponse, [DecryptionFailure, EncryptionFailure, InternalServiceError, InvalidParameterException, InvalidRequestException, LimitExceededException, MalformedPolicyDocumentException, PreconditionNotMetException, ResourceExistsException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Validates that a resource policy does not grant a wide range of principals access to
  * your secret. A resource-based policy is optional for secrets.
  * 
- * 
  * The API performs three checks when validating the policy:
- * 
- * 
  * 
  * - Sends a call to Zelkova, an automated reasoning engine, to ensure your resource
  * policy does not allow broad access to your secret, for example policies that use
  * a wildcard for the principal.
  * 
- * 
- * 
  * - Checks for correct syntax in a policy.
- * 
- * 
  * 
  * - Verifies the policy does not lock out a caller.
  * 
- * 
- * 
- * 
- * 
  * Secrets Manager generates a CloudTrail log entry when you call this action. Do not include sensitive information in request parameters because it might be logged. For more information, see Logging Secrets Manager events with CloudTrail.
- * 
- * 
  * 
  * Required permissions:
  * 
@@ -574,25 +467,21 @@ export class PublicPolicyException extends S.TaggedError<PublicPolicyException>(
  * `secretsmanager:PutResourcePolicy`. For more information, see
  * IAM policy actions for Secrets Manager and Authentication
  * and access control in Secrets Manager.
- */export const validateResourcePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", uri: "/", method: "POST", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.ValidateResourcePolicy" }, ValidateResourcePolicyRequest, ValidateResourcePolicyResponse, [InternalServiceError, InvalidParameterException, InvalidRequestException, MalformedPolicyDocumentException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const validateResourcePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.ValidateResourcePolicy" }, ValidateResourcePolicyRequest, ValidateResourcePolicyResponse, [InternalServiceError, InvalidParameterException, InvalidRequestException, MalformedPolicyDocumentException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the contents of the encrypted fields `SecretString` or
  * `SecretBinary` for up to 20 secrets. To retrieve a single secret, call
  * GetSecretValue.
- * 
  * 
  * To choose which secrets to retrieve, you can specify a list of secrets by name or ARN,
  * or you can use filters. If Secrets Manager encounters errors such as
  * `AccessDeniedException` while attempting to retrieve any of the secrets,
  * you can see the errors in `Errors` in the response.
  * 
- * 
  * Secrets Manager generates CloudTrail
  * `GetSecretValue` log entries for each secret you request when you call this
  * action. Do not include sensitive information in request parameters because it might be
  * logged. For more information, see Logging Secrets Manager events with CloudTrail.
- * 
- * 
  * 
  * **Required permissions: **
  * `secretsmanager:BatchGetSecretValue`, and you must have
@@ -603,7 +492,7 @@ export class PublicPolicyException extends S.TaggedError<PublicPolicyException>(
  * permissions for the keys. For more information, see
  * IAM policy actions for Secrets Manager and Authentication
  * and access control in Secrets Manager.
- */export const batchGetSecretValue = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", uri: "/", method: "POST", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.BatchGetSecretValue" }, BatchGetSecretValueRequest, BatchGetSecretValueResponse, [DecryptionFailure, InternalServiceError, InvalidNextTokenException, InvalidParameterException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const batchGetSecretValue = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.BatchGetSecretValue" }, BatchGetSecretValueRequest, BatchGetSecretValueResponse, [DecryptionFailure, InternalServiceError, InvalidNextTokenException, InvalidParameterException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new secret. A *secret* can be a password, a set of
  * credentials such as a user name and password, an OAuth token, or other secret
@@ -612,15 +501,12 @@ export class PublicPolicyException extends S.TaggedError<PublicPolicyException>(
  * encrypt. A secret in Secrets Manager consists of both the protected secret data and the important
  * information needed to manage the secret.
  * 
- * 
  * For secrets that use *managed rotation*, you need to create the
  * secret through the managing service. For more information, see Secrets Manager secrets
  * managed by other Amazon Web Services services.
  * 
- * 
  * For information about creating a secret in the console, see Create a
  * secret.
- * 
  * 
  * To create a secret, you can provide the secret value to be encrypted in either the
  * `SecretString` parameter or the `SecretBinary` parameter, but
@@ -628,12 +514,10 @@ export class PublicPolicyException extends S.TaggedError<PublicPolicyException>(
  * Secrets Manager creates an initial secret version and automatically attaches the staging label
  * `AWSCURRENT` to it.
  * 
- * 
  * For database credentials you want to rotate, for Secrets Manager to be able to rotate the
  * secret, you must make sure the JSON you store in the `SecretString` matches
  * the JSON
  * structure of a database secret.
- * 
  * 
  * If you don't specify an KMS encryption key, Secrets Manager uses the Amazon Web Services managed key
  * `aws/secretsmanager`. If this key doesn't already exist in your account,
@@ -642,18 +526,14 @@ export class PublicPolicyException extends S.TaggedError<PublicPolicyException>(
  * `aws/secretsmanager` can result in a one-time significant delay in
  * returning the result.
  * 
- * 
  * If the secret is in a different Amazon Web Services account from the credentials calling the API,
  * then you can't use `aws/secretsmanager` to encrypt the secret, and you must
  * create and use a customer managed KMS key.
- * 
  * 
  * Secrets Manager generates a CloudTrail log entry when you call this action.
  * Do not include sensitive information in request parameters except
  * `SecretBinary` or `SecretString` because it might be logged.
  * For more information, see Logging Secrets Manager events with CloudTrail.
- * 
- * 
  * 
  * Required permissions:
  * 
@@ -664,72 +544,55 @@ export class PublicPolicyException extends S.TaggedError<PublicPolicyException>(
  * IAM policy actions for Secrets Manager and Authentication
  * and access control in Secrets Manager.
  * 
- * 
  * To encrypt the secret with a KMS key other than `aws/secretsmanager`, you
  * need `kms:GenerateDataKey` and `kms:Decrypt` permission to the
  * key.
  * 
- * 
- * 
- * 
  * When you enter commands in a command shell, there is a risk of the command history being accessed or utilities having access to your command parameters. This is a concern if the command includes the value of a secret. Learn how to Mitigate the risks of using command-line tools to store Secrets Manager secrets.
- */export const createSecret = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", uri: "/", method: "POST", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.CreateSecret" }, CreateSecretRequest, CreateSecretResponse, [DecryptionFailure, EncryptionFailure, InternalServiceError, InvalidParameterException, InvalidRequestException, LimitExceededException, MalformedPolicyDocumentException, PreconditionNotMetException, ResourceExistsException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createSecret = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.CreateSecret" }, CreateSecretRequest, CreateSecretResponse, [DecryptionFailure, EncryptionFailure, InternalServiceError, InvalidParameterException, InvalidRequestException, LimitExceededException, MalformedPolicyDocumentException, PreconditionNotMetException, ResourceExistsException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the secrets that are stored by Secrets Manager in the Amazon Web Services account, not including secrets
  * that are marked for deletion. To see secrets marked for deletion, use the Secrets Manager
  * console.
  * 
- * 
  * All Secrets Manager operations are eventually consistent. ListSecrets might not
  * reflect changes from the last five minutes. You can get more recent information for a
  * specific secret by calling DescribeSecret.
  * 
- * 
  * To list the versions of a secret, use ListSecretVersionIds.
- * 
  * 
  * To retrieve the values for the secrets, call BatchGetSecretValue or
  * GetSecretValue.
  * 
- * 
  * For information about finding secrets in the console, see Find secrets in
  * Secrets Manager.
  * 
- * 
  * Secrets Manager generates a CloudTrail log entry when you call this action. Do not include sensitive information in request parameters because it might be logged. For more information, see Logging Secrets Manager events with CloudTrail.
- * 
- * 
  * 
  * Required permissions:
  * 
  * `secretsmanager:ListSecrets`. For more information, see
  * IAM policy actions for Secrets Manager and Authentication
  * and access control in Secrets Manager.
- */export const listSecrets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", uri: "/", method: "POST", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.ListSecrets" }, ListSecretsRequest, ListSecretsResponse, [InternalServiceError, InvalidNextTokenException, InvalidParameterException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listSecrets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.ListSecrets" }, ListSecretsRequest, ListSecretsResponse, [InternalServiceError, InvalidNextTokenException, InvalidParameterException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Attaches a resource-based permission policy to a secret. A resource-based policy is
  * optional. For more information, see Authentication and access control for Secrets Manager
  * 
- * 
- * 
  * For information about attaching a policy in the console, see Attach a permissions policy to a secret.
  * 
- * 
  * Secrets Manager generates a CloudTrail log entry when you call this action. Do not include sensitive information in request parameters because it might be logged. For more information, see Logging Secrets Manager events with CloudTrail.
- * 
- * 
  * 
  * Required permissions:
  * 
  * `secretsmanager:PutResourcePolicy`. For more information, see
  * IAM policy actions for Secrets Manager and Authentication
  * and access control in Secrets Manager.
- */export const putResourcePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", uri: "/", method: "POST", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.PutResourcePolicy" }, PutResourcePolicyRequest, PutResourcePolicyResponse, [InternalServiceError, InvalidParameterException, InvalidRequestException, MalformedPolicyDocumentException, PublicPolicyException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putResourcePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.PutResourcePolicy" }, PutResourcePolicyRequest, PutResourcePolicyResponse, [InternalServiceError, InvalidParameterException, InvalidRequestException, MalformedPolicyDocumentException, PublicPolicyException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new version of your secret by creating a new encrypted value and attaching
  * it to the secret. version can contain a new `SecretString` value or a new
  * `SecretBinary` value.
- * 
  * 
  * Do not call `PutSecretValue` at a sustained rate of more than once every 10
  * minutes. When you update the secret value, Secrets Manager creates a new version of the secret.
@@ -737,7 +600,6 @@ export class PublicPolicyException extends S.TaggedError<PublicPolicyException>(
  * secret versions created in the last 24 hours. If you call `PutSecretValue`
  * more than once every 10 minutes, you will create more versions than Secrets Manager removes, and
  * you will reach the quota for secret versions.
- * 
  * 
  * You can specify the staging labels to attach to the new version in
  * `VersionStages`. If you don't include `VersionStages`, then
@@ -748,20 +610,16 @@ export class PublicPolicyException extends S.TaggedError<PublicPolicyException>(
  * also automatically moves the staging label `AWSPREVIOUS` to the version that
  * `AWSCURRENT` was removed from.
  * 
- * 
  * This operation is idempotent. If you call this operation with a
  * `ClientRequestToken` that matches an existing version's VersionId, and
  * you specify the same secret data, the operation succeeds but does nothing. However, if
  * the secret data is different, then the operation fails because you can't modify an
  * existing version; you can only create new ones.
  * 
- * 
  * Secrets Manager generates a CloudTrail log entry when you call this action.
  * Do not include sensitive information in request parameters except
  * `SecretBinary`, `SecretString`, or `RotationToken`
  * because it might be logged. For more information, see Logging Secrets Manager events with CloudTrail.
- * 
- * 
  * 
  * Required permissions:
  * 
@@ -769,8 +627,5 @@ export class PublicPolicyException extends S.TaggedError<PublicPolicyException>(
  * IAM policy actions for Secrets Manager and Authentication
  * and access control in Secrets Manager.
  * 
- * 
- * 
- * 
  * When you enter commands in a command shell, there is a risk of the command history being accessed or utilities having access to your command parameters. This is a concern if the command includes the value of a secret. Learn how to Mitigate the risks of using command-line tools to store Secrets Manager secrets.
- */export const putSecretValue = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", uri: "/", method: "POST", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.PutSecretValue" }, PutSecretValueRequest, PutSecretValueResponse, [DecryptionFailure, EncryptionFailure, InternalServiceError, InvalidParameterException, InvalidRequestException, LimitExceededException, ResourceExistsException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putSecretValue = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-17", sdkId: "Secrets Manager", sigV4ServiceName: "secretsmanager", name: "secretsmanager.PutSecretValue" }, PutSecretValueRequest, PutSecretValueResponse, [DecryptionFailure, EncryptionFailure, InternalServiceError, InvalidParameterException, InvalidRequestException, LimitExceededException, ResourceExistsException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

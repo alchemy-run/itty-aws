@@ -34,14 +34,12 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Ingests application usage data from Amazon Simple Storage Service (Amazon S3).
  * 
- * 
  * The data must already exist in the S3 location. As part of the action, AWS Application Cost Profiler
  * copies the object from your S3 bucket to an S3 bucket owned by Amazon for processing
  * asynchronously.
- */export const importApplicationUsage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-09-10", uri: "/importApplicationUsage", method: "POST", sdkId: "ApplicationCostProfiler", sigV4ServiceName: "application-cost-profiler", name: "AWSApplicationCostProfiler.ImportApplicationUsage" }, ImportApplicationUsageRequest, ImportApplicationUsageResult, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const importApplicationUsage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-09-10", uri: "/importApplicationUsage", sdkId: "ApplicationCostProfiler", sigV4ServiceName: "application-cost-profiler", name: "AWSApplicationCostProfiler.ImportApplicationUsage" }, ImportApplicationUsageRequest, ImportApplicationUsageResult, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves a list of all reports and their configurations for your AWS account.
- * 
  * 
  * The maximum number of reports is one.
  */export const listReportDefinitions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-09-10", uri: "/reportDefinition", method: "GET", sdkId: "ApplicationCostProfiler", sigV4ServiceName: "application-cost-profiler", name: "AWSApplicationCostProfiler.ListReportDefinitions" }, ListReportDefinitionsRequest, ListReportDefinitionsResult, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -54,4 +52,4 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  */export const deleteReportDefinition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-09-10", uri: "/reportDefinition/{reportId}", method: "DELETE", sdkId: "ApplicationCostProfiler", sigV4ServiceName: "application-cost-profiler", name: "AWSApplicationCostProfiler.DeleteReportDefinition" }, DeleteReportDefinitionRequest, DeleteReportDefinitionResult, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates the report definition for a report in Application Cost Profiler.
- */export const putReportDefinition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-09-10", uri: "/reportDefinition", method: "POST", sdkId: "ApplicationCostProfiler", sigV4ServiceName: "application-cost-profiler", name: "AWSApplicationCostProfiler.PutReportDefinition" }, PutReportDefinitionRequest, PutReportDefinitionResult, [AccessDeniedException, InternalServerException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putReportDefinition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-09-10", uri: "/reportDefinition", sdkId: "ApplicationCostProfiler", sigV4ServiceName: "application-cost-profiler", name: "AWSApplicationCostProfiler.PutReportDefinition" }, PutReportDefinitionRequest, PutReportDefinitionResult, [AccessDeniedException, InternalServerException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

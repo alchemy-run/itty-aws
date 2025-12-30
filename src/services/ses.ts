@@ -244,184 +244,137 @@ export class ProductionAccessNotGrantedException extends S.TaggedError<Productio
 /**
  * Deletes an existing custom verification email template.
  * 
- * 
  * For more information about custom verification email templates, see Using
  * Custom Verification Email Templates in the Amazon SES Developer
  * Guide.
  * 
- * 
  * You can execute this operation no more than once per second.
- */export const deleteCustomVerificationEmailTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.DeleteCustomVerificationEmailTemplate" }, DeleteCustomVerificationEmailTemplateRequest, S.Struct({}), []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deleteCustomVerificationEmailTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.DeleteCustomVerificationEmailTemplate" }, DeleteCustomVerificationEmailTemplateRequest, S.Struct({}), []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes the specified identity (an email address or a domain) from the list of
  * verified identities.
  * 
- * 
  * You can execute this operation no more than once per second.
- */export const deleteIdentity = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.DeleteIdentity" }, DeleteIdentityRequest, DeleteIdentityResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deleteIdentity = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.DeleteIdentity" }, DeleteIdentityRequest, DeleteIdentityResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes the specified sending authorization policy for the given identity (an email
  * address or a domain). This operation returns successfully even if a policy with the
  * specified name does not exist.
  * 
- * 
- * 
- * 
  * This operation is for the identity owner only. If you have not verified the
  * identity, it returns an error.
- * 
- * 
- * 
  * 
  * Sending authorization is a feature that enables an identity owner to authorize other
  * senders to use its identities. For information about using sending authorization, see
  * the Amazon SES
  * Developer Guide.
  * 
- * 
  * You can execute this operation no more than once per second.
- */export const deleteIdentityPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.DeleteIdentityPolicy" }, DeleteIdentityPolicyRequest, DeleteIdentityPolicyResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deleteIdentityPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.DeleteIdentityPolicy" }, DeleteIdentityPolicyRequest, DeleteIdentityPolicyResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes the specified IP address filter.
- * 
  * 
  * For information about managing IP address filters, see the Amazon SES
  * Developer Guide.
  * 
- * 
  * You can execute this operation no more than once per second.
- */export const deleteReceiptFilter = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.DeleteReceiptFilter" }, DeleteReceiptFilterRequest, DeleteReceiptFilterResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deleteReceiptFilter = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.DeleteReceiptFilter" }, DeleteReceiptFilterRequest, DeleteReceiptFilterResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes an email template.
  * 
- * 
  * You can execute this operation no more than once per second.
- */export const deleteTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.DeleteTemplate" }, DeleteTemplateRequest, DeleteTemplateResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deleteTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.DeleteTemplate" }, DeleteTemplateRequest, DeleteTemplateResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deprecated. Use the `DeleteIdentity` operation to delete email addresses
  * and domains.
- */export const deleteVerifiedEmailAddress = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.DeleteVerifiedEmailAddress" }, DeleteVerifiedEmailAddressRequest, S.Struct({}), []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deleteVerifiedEmailAddress = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.DeleteVerifiedEmailAddress" }, DeleteVerifiedEmailAddressRequest, S.Struct({}), []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns the email sending status of the Amazon SES account for the current Region.
  * 
- * 
  * You can execute this operation no more than once per second.
- */export const getAccountSendingEnabled = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.GetAccountSendingEnabled" }, S.Struct({}), GetAccountSendingEnabledResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const getAccountSendingEnabled = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.GetAccountSendingEnabled" }, S.Struct({}), GetAccountSendingEnabledResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Provides the sending limits for the Amazon SES account.
  * 
- * 
  * You can execute this operation no more than once per second.
- */export const getSendQuota = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.GetSendQuota" }, S.Struct({}), GetSendQuotaResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const getSendQuota = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.GetSendQuota" }, S.Struct({}), GetSendQuotaResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Lists the IP address filters associated with your Amazon Web Services account in the current
  * Amazon Web Services Region.
  * 
- * 
  * For information about managing IP address filters, see the Amazon SES
  * Developer Guide.
  * 
- * 
  * You can execute this operation no more than once per second.
- */export const listReceiptFilters = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.ListReceiptFilters" }, ListReceiptFiltersRequest, ListReceiptFiltersResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const listReceiptFilters = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.ListReceiptFilters" }, ListReceiptFiltersRequest, ListReceiptFiltersResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deprecated. Use the `ListIdentities` operation to list the email addresses
  * and domains associated with your account.
- */export const listVerifiedEmailAddresses = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.ListVerifiedEmailAddresses" }, S.Struct({}), ListVerifiedEmailAddressesResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const listVerifiedEmailAddresses = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.ListVerifiedEmailAddresses" }, S.Struct({}), ListVerifiedEmailAddressesResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Sets the specified receipt rule set as the active receipt rule set.
- * 
- * 
- * 
  * 
  * To disable your email-receiving through Amazon SES completely, you can call this
  * operation with `RuleSetName` set to null.
  * 
- * 
- * 
- * 
  * For information about managing receipt rule sets, see the Amazon SES
  * Developer Guide.
  * 
- * 
  * You can execute this operation no more than once per second.
- */export const setActiveReceiptRuleSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.SetActiveReceiptRuleSet" }, SetActiveReceiptRuleSetRequest, SetActiveReceiptRuleSetResponse, [RuleSetDoesNotExistException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const setActiveReceiptRuleSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.SetActiveReceiptRuleSet" }, SetActiveReceiptRuleSetRequest, SetActiveReceiptRuleSetResponse, [RuleSetDoesNotExistException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Enables or disables Easy DKIM signing of email sent from an identity. If Easy DKIM
  * signing is enabled for a domain, then Amazon SES uses DKIM to sign all email that it sends
  * from addresses on that domain. If Easy DKIM signing is enabled for an email address,
  * then Amazon SES uses DKIM to sign all email it sends from that address.
  * 
- * 
- * 
- * 
  * For email addresses (for example, `user@example.com`), you can only
  * enable DKIM signing if the corresponding domain (in this case,
  * `example.com`) has been set up to use Easy DKIM.
  * 
- * 
- * 
- * 
  * You can enable DKIM signing for an identity at any time after you start the
  * verification process for the identity, even if the verification process isn't complete.
  * 
- * 
  * You can execute this operation no more than once per second.
- * 
  * 
  * For more information about Easy DKIM signing, go to the Amazon SES Developer
  * Guide.
- */export const setIdentityDkimEnabled = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.SetIdentityDkimEnabled" }, SetIdentityDkimEnabledRequest, SetIdentityDkimEnabledResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const setIdentityDkimEnabled = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.SetIdentityDkimEnabled" }, SetIdentityDkimEnabledRequest, SetIdentityDkimEnabledResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Given an identity (an email address or a domain), enables or disables whether Amazon SES
  * forwards bounce and complaint notifications as email. Feedback forwarding can only be
  * disabled when Amazon Simple Notification Service (Amazon SNS) topics are specified for both bounces and
  * complaints.
  * 
- * 
- * 
- * 
  * Feedback forwarding does not apply to delivery notifications. Delivery
  * notifications are only available through Amazon SNS.
  * 
- * 
- * 
- * 
  * You can execute this operation no more than once per second.
- * 
  * 
  * For more information about using notifications with Amazon SES, see the Amazon SES
  * Developer Guide.
- */export const setIdentityFeedbackForwardingEnabled = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.SetIdentityFeedbackForwardingEnabled" }, SetIdentityFeedbackForwardingEnabledRequest, SetIdentityFeedbackForwardingEnabledResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const setIdentityFeedbackForwardingEnabled = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.SetIdentityFeedbackForwardingEnabled" }, SetIdentityFeedbackForwardingEnabledRequest, SetIdentityFeedbackForwardingEnabledResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Given an identity (an email address or a domain), sets whether Amazon SES includes the
  * original email headers in the Amazon Simple Notification Service (Amazon SNS) notifications of a specified
  * type.
  * 
- * 
  * You can execute this operation no more than once per second.
- * 
  * 
  * For more information about using notifications with Amazon SES, see the Amazon SES
  * Developer Guide.
- */export const setIdentityHeadersInNotificationsEnabled = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.SetIdentityHeadersInNotificationsEnabled" }, SetIdentityHeadersInNotificationsEnabledRequest, SetIdentityHeadersInNotificationsEnabledResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const setIdentityHeadersInNotificationsEnabled = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.SetIdentityHeadersInNotificationsEnabled" }, SetIdentityHeadersInNotificationsEnabledRequest, SetIdentityHeadersInNotificationsEnabledResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Enables or disables the custom MAIL FROM domain setup for a verified identity (an
  * email address or a domain).
- * 
- * 
- * 
  * 
  * To send emails using the specified MAIL FROM domain, you must add an MX record to
  * your MAIL FROM domain's DNS settings. To ensure that your emails pass Sender Policy
  * Framework (SPF) checks, you must also add or update an SPF record. For more
  * information, see the Amazon SES Developer Guide.
  * 
- * 
- * 
- * 
  * You can execute this operation no more than once per second.
- */export const setIdentityMailFromDomain = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.SetIdentityMailFromDomain" }, SetIdentityMailFromDomainRequest, SetIdentityMailFromDomainResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const setIdentityMailFromDomain = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.SetIdentityMailFromDomain" }, SetIdentityMailFromDomainRequest, SetIdentityMailFromDomainResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Sets an Amazon Simple Notification Service (Amazon SNS) topic to use when delivering notifications. When you use
  * this operation, you specify a verified identity, such as an email address or domain.
@@ -430,23 +383,19 @@ export class ProductionAccessNotGrantedException extends S.TaggedError<Productio
  * notifications (or any combination of the three) to the Amazon SNS topic that you
  * specify.
  * 
- * 
  * You can execute this operation no more than once per second.
- * 
  * 
  * For more information about feedback notification, see the Amazon SES
  * Developer Guide.
- */export const setIdentityNotificationTopic = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.SetIdentityNotificationTopic" }, SetIdentityNotificationTopicRequest, SetIdentityNotificationTopicResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const setIdentityNotificationTopic = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.SetIdentityNotificationTopic" }, SetIdentityNotificationTopicRequest, SetIdentityNotificationTopicResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Sets the position of the specified receipt rule in the receipt rule set.
- * 
  * 
  * For information about managing receipt rules, see the Amazon SES
  * Developer Guide.
  * 
- * 
  * You can execute this operation no more than once per second.
- */export const setReceiptRulePosition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.SetReceiptRulePosition" }, SetReceiptRulePositionRequest, SetReceiptRulePositionResponse, [RuleDoesNotExistException, RuleSetDoesNotExistException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const setReceiptRulePosition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.SetReceiptRulePosition" }, SetReceiptRulePositionRequest, SetReceiptRulePositionResponse, [RuleDoesNotExistException, RuleSetDoesNotExistException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Enables or disables email sending across your entire Amazon SES account in the current
  * Amazon Web Services Region. You can use this operation in conjunction with Amazon CloudWatch alarms to
@@ -454,18 +403,16 @@ export class ProductionAccessNotGrantedException extends S.TaggedError<Productio
  * reputation metrics (such as your bounce or complaint rates) reach certain
  * thresholds.
  * 
- * 
  * You can execute this operation no more than once per second.
- */export const updateAccountSendingEnabled = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.UpdateAccountSendingEnabled" }, UpdateAccountSendingEnabledRequest, S.Struct({}), []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const updateAccountSendingEnabled = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.UpdateAccountSendingEnabled" }, UpdateAccountSendingEnabledRequest, S.Struct({}), []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Enables or disables the publishing of reputation metrics for emails sent using a
  * specific configuration set in a given Amazon Web Services Region. Reputation metrics include bounce
  * and complaint rates. These metrics are published to Amazon CloudWatch. By using CloudWatch, you can
  * create alarms when bounce or complaint rates exceed certain thresholds.
  * 
- * 
  * You can execute this operation no more than once per second.
- */export const updateConfigurationSetReputationMetricsEnabled = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.UpdateConfigurationSetReputationMetricsEnabled" }, UpdateConfigurationSetReputationMetricsEnabledRequest, S.Struct({}), [ConfigurationSetDoesNotExistException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const updateConfigurationSetReputationMetricsEnabled = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.UpdateConfigurationSetReputationMetricsEnabled" }, UpdateConfigurationSetReputationMetricsEnabledRequest, S.Struct({}), [ConfigurationSetDoesNotExistException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Enables or disables email sending for messages sent using a specific configuration set
  * in a given Amazon Web Services Region. You can use this operation in conjunction with Amazon CloudWatch alarms
@@ -473,167 +420,134 @@ export class ProductionAccessNotGrantedException extends S.TaggedError<Productio
  * for that configuration set (such as your bounce on complaint rate) exceed certain
  * thresholds.
  * 
- * 
  * You can execute this operation no more than once per second.
- */export const updateConfigurationSetSendingEnabled = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.UpdateConfigurationSetSendingEnabled" }, UpdateConfigurationSetSendingEnabledRequest, S.Struct({}), [ConfigurationSetDoesNotExistException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const updateConfigurationSetSendingEnabled = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.UpdateConfigurationSetSendingEnabled" }, UpdateConfigurationSetSendingEnabledRequest, S.Struct({}), [ConfigurationSetDoesNotExistException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deprecated. Use the `VerifyEmailIdentity` operation to verify a new email
  * address.
- */export const verifyEmailAddress = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.VerifyEmailAddress" }, VerifyEmailAddressRequest, S.Struct({}), []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const verifyEmailAddress = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.VerifyEmailAddress" }, VerifyEmailAddressRequest, S.Struct({}), []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Adds an email address to the list of identities for your Amazon SES account in the current
  * Amazon Web Services Region and attempts to verify it. As a result of executing this operation, a
  * verification email is sent to the specified address.
  * 
- * 
  * You can execute this operation no more than once per second.
- */export const verifyEmailIdentity = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.VerifyEmailIdentity" }, VerifyEmailIdentityRequest, VerifyEmailIdentityResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const verifyEmailIdentity = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.VerifyEmailIdentity" }, VerifyEmailIdentityRequest, VerifyEmailIdentityResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Creates a receipt rule set by cloning an existing one. All receipt rules and
  * configurations are copied to the new receipt rule set and are completely independent of
  * the source rule set.
  * 
- * 
  * For information about setting up rule sets, see the Amazon SES Developer Guide.
  * 
- * 
  * You can execute this operation no more than once per second.
- */export const cloneReceiptRuleSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.CloneReceiptRuleSet" }, CloneReceiptRuleSetRequest, CloneReceiptRuleSetResponse, [AlreadyExistsException, LimitExceededException, RuleSetDoesNotExistException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const cloneReceiptRuleSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.CloneReceiptRuleSet" }, CloneReceiptRuleSetRequest, CloneReceiptRuleSetResponse, [AlreadyExistsException, LimitExceededException, RuleSetDoesNotExistException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Creates an empty receipt rule set.
  * 
- * 
  * For information about setting up receipt rule sets, see the Amazon SES Developer Guide.
  * 
- * 
  * You can execute this operation no more than once per second.
- */export const createReceiptRuleSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.CreateReceiptRuleSet" }, CreateReceiptRuleSetRequest, CreateReceiptRuleSetResponse, [AlreadyExistsException, LimitExceededException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const createReceiptRuleSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.CreateReceiptRuleSet" }, CreateReceiptRuleSetRequest, CreateReceiptRuleSetResponse, [AlreadyExistsException, LimitExceededException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Creates an email template. Email templates enable you to send personalized email to
  * one or more destinations in a single operation. For more information, see the Amazon SES
  * Developer Guide.
  * 
- * 
  * You can execute this operation no more than once per second.
- */export const createTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.CreateTemplate" }, CreateTemplateRequest, CreateTemplateResponse, [AlreadyExistsException, InvalidTemplateException, LimitExceededException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const createTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.CreateTemplate" }, CreateTemplateRequest, CreateTemplateResponse, [AlreadyExistsException, InvalidTemplateException, LimitExceededException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes a configuration set. Configuration sets enable you to publish email sending
  * events. For information about using configuration sets, see the Amazon SES
  * Developer Guide.
  * 
- * 
  * You can execute this operation no more than once per second.
- */export const deleteConfigurationSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.DeleteConfigurationSet" }, DeleteConfigurationSetRequest, DeleteConfigurationSetResponse, [ConfigurationSetDoesNotExistException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deleteConfigurationSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.DeleteConfigurationSet" }, DeleteConfigurationSetRequest, DeleteConfigurationSetResponse, [ConfigurationSetDoesNotExistException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes a configuration set event destination. Configuration set event destinations
  * are associated with configuration sets, which enable you to publish email sending
  * events. For information about using configuration sets, see the Amazon SES
  * Developer Guide.
  * 
- * 
  * You can execute this operation no more than once per second.
- */export const deleteConfigurationSetEventDestination = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.DeleteConfigurationSetEventDestination" }, DeleteConfigurationSetEventDestinationRequest, DeleteConfigurationSetEventDestinationResponse, [ConfigurationSetDoesNotExistException, EventDestinationDoesNotExistException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deleteConfigurationSetEventDestination = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.DeleteConfigurationSetEventDestination" }, DeleteConfigurationSetEventDestinationRequest, DeleteConfigurationSetEventDestinationResponse, [ConfigurationSetDoesNotExistException, EventDestinationDoesNotExistException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes an association between a configuration set and a custom domain for open and
  * click event tracking.
- * 
  * 
  * By default, images and links used for tracking open and click events are hosted on
  * domains operated by Amazon SES. You can configure a subdomain of your own to handle these
  * events. For information about using custom domains, see the Amazon SES Developer Guide.
  * 
- * 
- * 
- * 
  * Deleting this kind of association results in emails sent using the specified
  * configuration set to capture open and click events using the standard,
  * Amazon SES-operated domains.
- */export const deleteConfigurationSetTrackingOptions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.DeleteConfigurationSetTrackingOptions" }, DeleteConfigurationSetTrackingOptionsRequest, DeleteConfigurationSetTrackingOptionsResponse, [ConfigurationSetDoesNotExistException, TrackingOptionsDoesNotExistException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deleteConfigurationSetTrackingOptions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.DeleteConfigurationSetTrackingOptions" }, DeleteConfigurationSetTrackingOptionsRequest, DeleteConfigurationSetTrackingOptionsResponse, [ConfigurationSetDoesNotExistException, TrackingOptionsDoesNotExistException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes the specified receipt rule.
- * 
  * 
  * For information about managing receipt rules, see the Amazon SES
  * Developer Guide.
  * 
- * 
  * You can execute this operation no more than once per second.
- */export const deleteReceiptRule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.DeleteReceiptRule" }, DeleteReceiptRuleRequest, DeleteReceiptRuleResponse, [RuleSetDoesNotExistException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deleteReceiptRule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.DeleteReceiptRule" }, DeleteReceiptRuleRequest, DeleteReceiptRuleResponse, [RuleSetDoesNotExistException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes the specified receipt rule set and all of the receipt rules it
  * contains.
  * 
- * 
- * 
- * 
  * The currently active rule set cannot be deleted.
- * 
- * 
- * 
  * 
  * For information about managing receipt rule sets, see the Amazon SES
  * Developer Guide.
  * 
- * 
  * You can execute this operation no more than once per second.
- */export const deleteReceiptRuleSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.DeleteReceiptRuleSet" }, DeleteReceiptRuleSetRequest, DeleteReceiptRuleSetResponse, [CannotDeleteException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deleteReceiptRuleSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.DeleteReceiptRuleSet" }, DeleteReceiptRuleSetRequest, DeleteReceiptRuleSetResponse, [CannotDeleteException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns the metadata and receipt rules for the receipt rule set that is currently
  * active.
  * 
- * 
  * For information about setting up receipt rule sets, see the Amazon SES Developer Guide.
  * 
- * 
  * You can execute this operation no more than once per second.
- */export const describeActiveReceiptRuleSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.DescribeActiveReceiptRuleSet" }, DescribeActiveReceiptRuleSetRequest, DescribeActiveReceiptRuleSetResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeActiveReceiptRuleSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.DescribeActiveReceiptRuleSet" }, DescribeActiveReceiptRuleSetRequest, DescribeActiveReceiptRuleSetResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns the details of the specified receipt rule.
- * 
  * 
  * For information about setting up receipt rules, see the Amazon SES
  * Developer Guide.
  * 
- * 
  * You can execute this operation no more than once per second.
- */export const describeReceiptRule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.DescribeReceiptRule" }, DescribeReceiptRuleRequest, DescribeReceiptRuleResponse, [RuleDoesNotExistException, RuleSetDoesNotExistException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeReceiptRule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.DescribeReceiptRule" }, DescribeReceiptRuleRequest, DescribeReceiptRuleResponse, [RuleDoesNotExistException, RuleSetDoesNotExistException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns the details of the specified receipt rule set.
- * 
  * 
  * For information about managing receipt rule sets, see the Amazon SES
  * Developer Guide.
  * 
- * 
  * You can execute this operation no more than once per second.
- */export const describeReceiptRuleSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.DescribeReceiptRuleSet" }, DescribeReceiptRuleSetRequest, DescribeReceiptRuleSetResponse, [RuleSetDoesNotExistException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeReceiptRuleSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.DescribeReceiptRuleSet" }, DescribeReceiptRuleSetRequest, DescribeReceiptRuleSetResponse, [RuleSetDoesNotExistException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns the custom email verification template for the template name you
  * specify.
- * 
  * 
  * For more information about custom verification email templates, see Using
  * Custom Verification Email Templates in the Amazon SES Developer
  * Guide.
  * 
- * 
  * You can execute this operation no more than once per second.
- */export const getCustomVerificationEmailTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.GetCustomVerificationEmailTemplate" }, GetCustomVerificationEmailTemplateRequest, GetCustomVerificationEmailTemplateResponse, [CustomVerificationEmailTemplateDoesNotExistException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const getCustomVerificationEmailTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.GetCustomVerificationEmailTemplate" }, GetCustomVerificationEmailTemplateRequest, GetCustomVerificationEmailTemplateResponse, [CustomVerificationEmailTemplateDoesNotExistException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Provides sending statistics for the current Amazon Web Services Region. The result is a list of data
  * points, representing the last two weeks of sending activity. Each data point in the list
  * contains statistics for a 15-minute period of time.
  * 
- * 
  * You can execute this operation no more than once per second.
- */export const getSendStatistics = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.GetSendStatistics" }, S.Struct({}), GetSendStatisticsResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const getSendStatistics = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.GetSendStatistics" }, S.Struct({}), GetSendStatisticsResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Provides a list of the configuration sets associated with your Amazon SES account in the
  * current Amazon Web Services Region. For information about using configuration sets, see Monitoring
  * Your Amazon SES Sending Activity in the Amazon SES Developer
  * Guide.
- * 
- * 
  * 
  * You can execute this operation no more than once per second. This operation returns up
  * to 1,000 configuration sets each time it is run. If your Amazon SES account has more than
@@ -641,16 +555,12 @@ export class ProductionAccessNotGrantedException extends S.TaggedError<Productio
  * then execute the `ListConfigurationSets` operation again, passing the
  * `NextToken` parameter and the value of the NextToken element to retrieve
  * additional results.
- */export const listConfigurationSets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.ListConfigurationSets" }, ListConfigurationSetsRequest, ListConfigurationSetsResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const listConfigurationSets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.ListConfigurationSets" }, ListConfigurationSetsRequest, ListConfigurationSetsResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns a list containing all of the identities (email addresses and domains) for your
  * Amazon Web Services account in the current Amazon Web Services Region, regardless of verification status.
  * 
- * 
  * You can execute this operation no more than once per second.
- * 
- * 
- * 
  * 
  * It's recommended that for successive pagination calls of this API, you continue to
  * the use the same parameter/value pairs as used in the original call, e.g., if you
@@ -660,114 +570,84 @@ export class ProductionAccessNotGrantedException extends S.TaggedError<Productio
  * calls; however, if you didn't provide the `IdentityType` parameter in the
  * original call, then continue to not provide it for successive pagination calls.
  * Using this protocol will ensure consistent results.
- */export const listIdentities = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.ListIdentities" }, ListIdentitiesRequest, ListIdentitiesResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const listIdentities = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.ListIdentities" }, ListIdentitiesRequest, ListIdentitiesResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns a list of sending authorization policies that are attached to the given
  * identity (an email address or a domain). This operation returns only a list. To get the
  * actual policy content, use `GetIdentityPolicies`.
  * 
- * 
- * 
- * 
  * This operation is for the identity owner only. If you have not verified the
  * identity, it returns an error.
- * 
- * 
- * 
  * 
  * Sending authorization is a feature that enables an identity owner to authorize other
  * senders to use its identities. For information about using sending authorization, see
  * the Amazon SES
  * Developer Guide.
  * 
- * 
  * You can execute this operation no more than once per second.
- */export const listIdentityPolicies = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.ListIdentityPolicies" }, ListIdentityPoliciesRequest, ListIdentityPoliciesResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const listIdentityPolicies = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.ListIdentityPolicies" }, ListIdentityPoliciesRequest, ListIdentityPoliciesResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Lists the receipt rule sets that exist under your Amazon Web Services account in the current
  * Amazon Web Services Region. If there are additional receipt rule sets to be retrieved, you receive a
  * `NextToken` that you can provide to the next call to
  * `ListReceiptRuleSets` to retrieve the additional entries.
  * 
- * 
  * For information about managing receipt rule sets, see the Amazon SES
  * Developer Guide.
  * 
- * 
  * You can execute this operation no more than once per second.
- */export const listReceiptRuleSets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.ListReceiptRuleSets" }, ListReceiptRuleSetsRequest, ListReceiptRuleSetsResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const listReceiptRuleSets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.ListReceiptRuleSets" }, ListReceiptRuleSetsRequest, ListReceiptRuleSetsResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Adds or updates a sending authorization policy for the specified identity (an email
  * address or a domain).
  * 
- * 
- * 
- * 
  * This operation is for the identity owner only. If you have not verified the
  * identity, it returns an error.
- * 
- * 
- * 
  * 
  * Sending authorization is a feature that enables an identity owner to authorize other
  * senders to use its identities. For information about using sending authorization, see
  * the Amazon SES
  * Developer Guide.
  * 
- * 
  * You can execute this operation no more than once per second.
- */export const putIdentityPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.PutIdentityPolicy" }, PutIdentityPolicyRequest, PutIdentityPolicyResponse, [InvalidPolicyException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const putIdentityPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.PutIdentityPolicy" }, PutIdentityPolicyRequest, PutIdentityPolicyResponse, [InvalidPolicyException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Reorders the receipt rules within a receipt rule set.
- * 
- * 
- * 
  * 
  * All of the rules in the rule set must be represented in this request. That is, it
  * is error if the reorder request doesn't explicitly position all of the rules.
  * 
- * 
- * 
- * 
  * For information about managing receipt rule sets, see the Amazon SES
  * Developer Guide.
  * 
- * 
  * You can execute this operation no more than once per second.
- */export const reorderReceiptRuleSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.ReorderReceiptRuleSet" }, ReorderReceiptRuleSetRequest, ReorderReceiptRuleSetResponse, [RuleDoesNotExistException, RuleSetDoesNotExistException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const reorderReceiptRuleSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.ReorderReceiptRuleSet" }, ReorderReceiptRuleSetRequest, ReorderReceiptRuleSetResponse, [RuleDoesNotExistException, RuleSetDoesNotExistException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Modifies an association between a configuration set and a custom domain for open and
  * click event tracking.
  * 
- * 
  * By default, images and links used for tracking open and click events are hosted on
  * domains operated by Amazon SES. You can configure a subdomain of your own to handle these
  * events. For information about using custom domains, see the Amazon SES Developer Guide.
- */export const updateConfigurationSetTrackingOptions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.UpdateConfigurationSetTrackingOptions" }, UpdateConfigurationSetTrackingOptionsRequest, UpdateConfigurationSetTrackingOptionsResponse, [ConfigurationSetDoesNotExistException, InvalidTrackingOptionsException, TrackingOptionsDoesNotExistException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const updateConfigurationSetTrackingOptions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.UpdateConfigurationSetTrackingOptions" }, UpdateConfigurationSetTrackingOptionsRequest, UpdateConfigurationSetTrackingOptionsResponse, [ConfigurationSetDoesNotExistException, InvalidTrackingOptionsException, TrackingOptionsDoesNotExistException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Updates an existing custom verification email template.
- * 
  * 
  * For more information about custom verification email templates, see Using
  * Custom Verification Email Templates in the Amazon SES Developer
  * Guide.
  * 
- * 
  * You can execute this operation no more than once per second.
- */export const updateCustomVerificationEmailTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.UpdateCustomVerificationEmailTemplate" }, UpdateCustomVerificationEmailTemplateRequest, S.Struct({}), [CustomVerificationEmailInvalidContentException, CustomVerificationEmailTemplateDoesNotExistException, FromEmailAddressNotVerifiedException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const updateCustomVerificationEmailTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.UpdateCustomVerificationEmailTemplate" }, UpdateCustomVerificationEmailTemplateRequest, S.Struct({}), [CustomVerificationEmailInvalidContentException, CustomVerificationEmailTemplateDoesNotExistException, FromEmailAddressNotVerifiedException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Updates an email template. Email templates enable you to send personalized email to
  * one or more destinations in a single operation. For more information, see the Amazon SES
  * Developer Guide.
  * 
- * 
  * You can execute this operation no more than once per second.
- */export const updateTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.UpdateTemplate" }, UpdateTemplateRequest, UpdateTemplateResponse, [InvalidTemplateException, TemplateDoesNotExistException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const updateTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.UpdateTemplate" }, UpdateTemplateRequest, UpdateTemplateResponse, [InvalidTemplateException, TemplateDoesNotExistException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns a set of DKIM tokens for a domain identity.
- * 
- * 
- * 
  * 
  * When you execute the `VerifyDomainDkim` operation, the domain that you
  * specify is added to the list of identities that are associated with your account.
@@ -777,9 +657,6 @@ export class ProductionAccessNotGrantedException extends S.TaggedError<Productio
  * it or you successfully set up DKIM for
  * it.
  * 
- * 
- * 
- * 
  * You use the tokens that are generated by this operation to create CNAME records. When
  * Amazon SES detects that you've added these records to the DNS configuration for a domain, you
  * can start sending email from that domain. You can start sending email even if you
@@ -787,216 +664,164 @@ export class ProductionAccessNotGrantedException extends S.TaggedError<Productio
  * configuration for your domain. All email that you send from the domain is authenticated
  * using DKIM.
  * 
- * 
  * To create the CNAME records for DKIM authentication, use the following values:
- * 
- * 
  * 
  * - **Name**:
  * *token*._domainkey.*example.com*
  * 
- * 
- * 
- * 
  * - **Type**: CNAME
- * 
- * 
  * 
  * - **Value**:
  * *token*.dkim.amazonses.com
- * 
- * 
- * 
- * 
  * 
  * In the preceding example, replace *token* with one of the tokens
  * that are generated when you execute this operation. Replace
  * *example.com* with your domain. Repeat this process for each
  * token that's generated by this operation.
  * 
- * 
  * You can execute this operation no more than once per second.
- */export const verifyDomainDkim = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.VerifyDomainDkim" }, VerifyDomainDkimRequest, VerifyDomainDkimResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const verifyDomainDkim = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.VerifyDomainDkim" }, VerifyDomainDkimRequest, VerifyDomainDkimResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Adds a domain to the list of identities for your Amazon SES account in the current
  * Amazon Web Services Region and attempts to verify it. For more information about verifying domains,
  * see Verifying Email Addresses and Domains in the Amazon SES Developer
  * Guide.
  * 
- * 
- * 
  * You can execute this operation no more than once per second.
- */export const verifyDomainIdentity = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.VerifyDomainIdentity" }, VerifyDomainIdentityRequest, VerifyDomainIdentityResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const verifyDomainIdentity = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.VerifyDomainIdentity" }, VerifyDomainIdentityRequest, VerifyDomainIdentityResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Creates an association between a configuration set and a custom domain for open and
  * click event tracking.
  * 
- * 
  * By default, images and links used for tracking open and click events are hosted on
  * domains operated by Amazon SES. You can configure a subdomain of your own to handle these
  * events. For information about using custom domains, see the Amazon SES Developer Guide.
- */export const createConfigurationSetTrackingOptions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.CreateConfigurationSetTrackingOptions" }, CreateConfigurationSetTrackingOptionsRequest, CreateConfigurationSetTrackingOptionsResponse, [ConfigurationSetDoesNotExistException, InvalidTrackingOptionsException, TrackingOptionsAlreadyExistsException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const createConfigurationSetTrackingOptions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.CreateConfigurationSetTrackingOptions" }, CreateConfigurationSetTrackingOptionsRequest, CreateConfigurationSetTrackingOptionsResponse, [ConfigurationSetDoesNotExistException, InvalidTrackingOptionsException, TrackingOptionsAlreadyExistsException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Creates a new custom verification email template.
- * 
  * 
  * For more information about custom verification email templates, see Using
  * Custom Verification Email Templates in the Amazon SES Developer
  * Guide.
  * 
- * 
  * You can execute this operation no more than once per second.
- */export const createCustomVerificationEmailTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.CreateCustomVerificationEmailTemplate" }, CreateCustomVerificationEmailTemplateRequest, S.Struct({}), [CustomVerificationEmailInvalidContentException, CustomVerificationEmailTemplateAlreadyExistsException, FromEmailAddressNotVerifiedException, LimitExceededException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const createCustomVerificationEmailTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.CreateCustomVerificationEmailTemplate" }, CreateCustomVerificationEmailTemplateRequest, S.Struct({}), [CustomVerificationEmailInvalidContentException, CustomVerificationEmailTemplateAlreadyExistsException, FromEmailAddressNotVerifiedException, LimitExceededException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Creates a new IP address filter.
- * 
  * 
  * For information about setting up IP address filters, see the Amazon SES
  * Developer Guide.
  * 
- * 
  * You can execute this operation no more than once per second.
- */export const createReceiptFilter = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.CreateReceiptFilter" }, CreateReceiptFilterRequest, CreateReceiptFilterResponse, [AlreadyExistsException, LimitExceededException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const createReceiptFilter = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.CreateReceiptFilter" }, CreateReceiptFilterRequest, CreateReceiptFilterResponse, [AlreadyExistsException, LimitExceededException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns the details of the specified configuration set. For information about using
  * configuration sets, see the Amazon SES Developer
  * Guide.
  * 
- * 
  * You can execute this operation no more than once per second.
- */export const describeConfigurationSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.DescribeConfigurationSet" }, DescribeConfigurationSetRequest, DescribeConfigurationSetResponse, [ConfigurationSetDoesNotExistException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeConfigurationSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.DescribeConfigurationSet" }, DescribeConfigurationSetRequest, DescribeConfigurationSetResponse, [ConfigurationSetDoesNotExistException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns the requested sending authorization policies for the given identity (an email
  * address or a domain). The policies are returned as a map of policy names to policy
  * contents. You can retrieve a maximum of 20 policies at a time.
  * 
- * 
- * 
- * 
  * This operation is for the identity owner only. If you have not verified the
  * identity, it returns an error.
- * 
- * 
- * 
  * 
  * Sending authorization is a feature that enables an identity owner to authorize other
  * senders to use its identities. For information about using sending authorization, see
  * the Amazon SES
  * Developer Guide.
  * 
- * 
  * You can execute this operation no more than once per second.
- */export const getIdentityPolicies = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.GetIdentityPolicies" }, GetIdentityPoliciesRequest, GetIdentityPoliciesResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const getIdentityPolicies = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.GetIdentityPolicies" }, GetIdentityPoliciesRequest, GetIdentityPoliciesResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Displays the template object (which includes the Subject line, HTML part and text
  * part) for the template you specify.
  * 
- * 
  * You can execute this operation no more than once per second.
- */export const getTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.GetTemplate" }, GetTemplateRequest, GetTemplateResponse, [TemplateDoesNotExistException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const getTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.GetTemplate" }, GetTemplateRequest, GetTemplateResponse, [TemplateDoesNotExistException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Lists the existing custom verification email templates for your account in the current
  * Amazon Web Services Region.
- * 
  * 
  * For more information about custom verification email templates, see Using
  * Custom Verification Email Templates in the Amazon SES Developer
  * Guide.
  * 
- * 
  * You can execute this operation no more than once per second.
- */export const listCustomVerificationEmailTemplates = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.ListCustomVerificationEmailTemplates" }, ListCustomVerificationEmailTemplatesRequest, ListCustomVerificationEmailTemplatesResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const listCustomVerificationEmailTemplates = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.ListCustomVerificationEmailTemplates" }, ListCustomVerificationEmailTemplatesRequest, ListCustomVerificationEmailTemplatesResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Lists the email templates present in your Amazon SES account in the current
  * Amazon Web Services Region.
  * 
- * 
  * You can execute this operation no more than once per second.
- */export const listTemplates = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.ListTemplates" }, ListTemplatesRequest, ListTemplatesResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const listTemplates = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.ListTemplates" }, ListTemplatesRequest, ListTemplatesResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Adds or updates the delivery options for a configuration set.
- */export const putConfigurationSetDeliveryOptions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.PutConfigurationSetDeliveryOptions" }, PutConfigurationSetDeliveryOptionsRequest, PutConfigurationSetDeliveryOptionsResponse, [ConfigurationSetDoesNotExistException, InvalidDeliveryOptionsException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const putConfigurationSetDeliveryOptions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.PutConfigurationSetDeliveryOptions" }, PutConfigurationSetDeliveryOptionsRequest, PutConfigurationSetDeliveryOptionsResponse, [ConfigurationSetDoesNotExistException, InvalidDeliveryOptionsException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Creates a configuration set.
- * 
  * 
  * Configuration sets enable you to publish email sending events. For information about
  * using configuration sets, see the Amazon SES Developer
  * Guide.
  * 
- * 
  * You can execute this operation no more than once per second.
- */export const createConfigurationSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.CreateConfigurationSet" }, CreateConfigurationSetRequest, CreateConfigurationSetResponse, [ConfigurationSetAlreadyExistsException, InvalidConfigurationSetException, LimitExceededException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const createConfigurationSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.CreateConfigurationSet" }, CreateConfigurationSetRequest, CreateConfigurationSetResponse, [ConfigurationSetAlreadyExistsException, InvalidConfigurationSetException, LimitExceededException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Creates a receipt rule.
- * 
  * 
  * For information about setting up receipt rules, see the Amazon SES
  * Developer Guide.
  * 
- * 
  * You can execute this operation no more than once per second.
- */export const createReceiptRule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.CreateReceiptRule" }, CreateReceiptRuleRequest, CreateReceiptRuleResponse, [AlreadyExistsException, InvalidLambdaFunctionException, InvalidS3ConfigurationException, InvalidSnsTopicException, LimitExceededException, RuleDoesNotExistException, RuleSetDoesNotExistException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const createReceiptRule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.CreateReceiptRule" }, CreateReceiptRuleRequest, CreateReceiptRuleResponse, [AlreadyExistsException, InvalidLambdaFunctionException, InvalidS3ConfigurationException, InvalidSnsTopicException, LimitExceededException, RuleDoesNotExistException, RuleSetDoesNotExistException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns the current status of Easy DKIM signing for an entity. For domain name
  * identities, this operation also returns the DKIM tokens that are required for Easy DKIM
  * signing, and whether Amazon SES has successfully verified that these tokens have been
  * published.
  * 
- * 
  * This operation takes a list of identities as input and returns the following
  * information for each:
  * 
- * 
- * 
  * - Whether Easy DKIM signing is enabled or disabled.
- * 
- * 
  * 
  * - A set of DKIM tokens that represent the identity. If the identity is an email
  * address, the tokens represent the domain of that address.
- * 
- * 
  * 
  * - Whether Amazon SES has successfully verified the DKIM tokens published in the
  * domain's DNS. This information is only returned for domain name identities, not
  * for email addresses.
  * 
- * 
- * 
- * 
- * 
  * This operation is throttled at one request per second and can only get DKIM attributes
  * for up to 100 identities at a time.
  * 
- * 
  * For more information about creating DNS records using DKIM tokens, go to the Amazon SES
  * Developer Guide.
- */export const getIdentityDkimAttributes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.GetIdentityDkimAttributes" }, GetIdentityDkimAttributesRequest, GetIdentityDkimAttributesResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const getIdentityDkimAttributes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.GetIdentityDkimAttributes" }, GetIdentityDkimAttributesRequest, GetIdentityDkimAttributesResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns the custom MAIL FROM attributes for a list of identities (email addresses :
  * domains).
  * 
- * 
  * This operation is throttled at one request per second and can only get custom MAIL
  * FROM attributes for up to 100 identities at a time.
- */export const getIdentityMailFromDomainAttributes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.GetIdentityMailFromDomainAttributes" }, GetIdentityMailFromDomainAttributesRequest, GetIdentityMailFromDomainAttributesResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const getIdentityMailFromDomainAttributes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.GetIdentityMailFromDomainAttributes" }, GetIdentityMailFromDomainAttributesRequest, GetIdentityMailFromDomainAttributesResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Given a list of verified identities (email addresses and/or domains), returns a
  * structure describing identity notification attributes.
  * 
- * 
  * This operation is throttled at one request per second and can only get notification
  * attributes for up to 100 identities at a time.
  * 
- * 
  * For more information about using notifications with Amazon SES, see the Amazon SES
  * Developer Guide.
- */export const getIdentityNotificationAttributes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.GetIdentityNotificationAttributes" }, GetIdentityNotificationAttributesRequest, GetIdentityNotificationAttributesResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const getIdentityNotificationAttributes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.GetIdentityNotificationAttributes" }, GetIdentityNotificationAttributesRequest, GetIdentityNotificationAttributesResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Given a list of identities (email addresses and/or domains), returns the verification
  * status and (for domain identities) the verification token for each identity.
- * 
  * 
  * The verification status of an email address is "Pending" until the email address owner
  * clicks the link within the verification email that Amazon SES sent to that address. If the
@@ -1005,7 +830,6 @@ export class ProductionAccessNotGrantedException extends S.TaggedError<Productio
  * verification status changes to "Failed." In that case, to verify the email address, you
  * must restart the verification process from the beginning.
  * 
- * 
  * For domain identities, the domain's verification status is "Pending" as Amazon SES searches
  * for the required TXT record in the DNS settings of the domain. When Amazon SES detects the
  * record, the domain's verification status changes to "Success". If Amazon SES is unable to
@@ -1013,48 +837,33 @@ export class ProductionAccessNotGrantedException extends S.TaggedError<Productio
  * In that case, to verify the domain, you must restart the verification process from the
  * beginning.
  * 
- * 
  * This operation is throttled at one request per second and can only get verification
  * attributes for up to 100 identities at a time.
- */export const getIdentityVerificationAttributes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.GetIdentityVerificationAttributes" }, GetIdentityVerificationAttributesRequest, GetIdentityVerificationAttributesResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const getIdentityVerificationAttributes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.GetIdentityVerificationAttributes" }, GetIdentityVerificationAttributesRequest, GetIdentityVerificationAttributesResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Generates and sends a bounce message to the sender of an email you received through
  * Amazon SES. You can only use this operation on an email up to 24 hours after you receive
  * it.
  * 
- * 
- * 
- * 
  * You cannot use this operation to send generic bounces for mail that was not
  * received by Amazon SES.
- * 
- * 
- * 
  * 
  * For information about receiving email through Amazon SES, see the Amazon SES Developer
  * Guide.
  * 
- * 
  * You can execute this operation no more than once per second.
- */export const sendBounce = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.SendBounce" }, SendBounceRequest, SendBounceResponse, [MessageRejected]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const sendBounce = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.SendBounce" }, SendBounceRequest, SendBounceResponse, [MessageRejected]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Composes an email message to multiple destinations. The message body is created using
  * an email template.
  * 
- * 
  * To send email using this operation, your call must meet the following
  * requirements:
- * 
- * 
  * 
  * - The call must refer to an existing email template. You can create email
  * templates using CreateTemplate.
  * 
- * 
- * 
  * - The message must be sent from a verified email address or domain.
- * 
- * 
  * 
  * - If your account is still in the Amazon SES sandbox, you may send only to verified
  * addresses or domains, or to email addresses associated with the Amazon SES Mailbox
@@ -1062,12 +871,7 @@ export class ProductionAccessNotGrantedException extends S.TaggedError<Productio
  * Addresses and Domains in the Amazon SES Developer
  * Guide.
  * 
- * 
- * 
- * 
  * - The maximum message size is 10 MB.
- * 
- * 
  * 
  * - Each `Destination` parameter must include at least one recipient
  * email address. The recipient address can be a To: address, a CC: address, or a
@@ -1076,30 +880,22 @@ export class ProductionAccessNotGrantedException extends S.TaggedError<Productio
  * entire message is rejected, even if the message contains other recipients that
  * are valid.
  * 
- * 
- * 
  * - The message may not include more than 50 recipients, across the To:, CC: and
  * BCC: fields. If you need to send an email message to a larger audience, you can
  * divide your recipient list into groups of 50 or fewer, and then call the
  * `SendBulkTemplatedEmail` operation several times to send the
  * message to each group.
  * 
- * 
- * 
  * - The number of destinations you can contact in a single call can be limited by
  * your account's maximum sending rate.
- */export const sendBulkTemplatedEmail = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.SendBulkTemplatedEmail" }, SendBulkTemplatedEmailRequest, SendBulkTemplatedEmailResponse, [AccountSendingPausedException, ConfigurationSetDoesNotExistException, ConfigurationSetSendingPausedException, MailFromDomainNotVerifiedException, MessageRejected, TemplateDoesNotExistException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const sendBulkTemplatedEmail = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.SendBulkTemplatedEmail" }, SendBulkTemplatedEmailRequest, SendBulkTemplatedEmailResponse, [AccountSendingPausedException, ConfigurationSetDoesNotExistException, ConfigurationSetSendingPausedException, MailFromDomainNotVerifiedException, MessageRejected, TemplateDoesNotExistException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Composes an email message and immediately queues it for sending. To send email using
  * this operation, your message must meet the following requirements:
  * 
- * 
- * 
  * - The message must be sent from a verified email address or domain. If you
  * attempt to send email using a non-verified address or domain, the operation
  * results in an "Email address not verified" error.
- * 
- * 
  * 
  * - If your account is still in the Amazon SES sandbox, you may only send to verified
  * addresses or domains, or to email addresses associated with the Amazon SES Mailbox
@@ -1107,12 +903,7 @@ export class ProductionAccessNotGrantedException extends S.TaggedError<Productio
  * Addresses and Domains in the Amazon SES Developer
  * Guide.
  * 
- * 
- * 
- * 
  * - The maximum message size is 10 MB.
- * 
- * 
  * 
  * - The message must include at least one recipient email address. The recipient
  * address can be a To: address, a CC: address, or a BCC: address. If a recipient
@@ -1121,29 +912,20 @@ export class ProductionAccessNotGrantedException extends S.TaggedError<Productio
  * message is rejected, even if the message contains other recipients that are
  * valid.
  * 
- * 
- * 
  * - The message may not include more than 50 recipients, across the To:, CC: and
  * BCC: fields. If you need to send an email message to a larger audience, you can
  * divide your recipient list into groups of 50 or fewer, and then call the
  * `SendEmail` operation several times to send the message to each
  * group.
  * 
- * 
- * 
- * 
- * 
- * 
- * 
  * For every message that you send, the total number of recipients (including each
  * recipient in the To:, CC: and BCC: fields) is counted against the maximum number of
  * emails you can send in a 24-hour period (your *sending quota*).
  * For more information about sending quotas in Amazon SES, see Managing Your Amazon SES Sending
  * Limits in the *Amazon SES Developer Guide.*
- */export const sendEmail = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.SendEmail" }, SendEmailRequest, SendEmailResponse, [AccountSendingPausedException, ConfigurationSetDoesNotExistException, ConfigurationSetSendingPausedException, MailFromDomainNotVerifiedException, MessageRejected]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const sendEmail = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.SendEmail" }, SendEmailRequest, SendEmailResponse, [AccountSendingPausedException, ConfigurationSetDoesNotExistException, ConfigurationSetSendingPausedException, MailFromDomainNotVerifiedException, MessageRejected]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Composes an email message and immediately queues it for sending.
- * 
  * 
  * This operation is more flexible than the `SendEmail` operation. When you
  * use the `SendRawEmail` operation, you can specify the headers of the message
@@ -1151,44 +933,29 @@ export class ProductionAccessNotGrantedException extends S.TaggedError<Productio
  * multipart MIME email (such a message that contains both a text and an HTML version). You
  * can also use this operation to send messages that include attachments.
  * 
- * 
  * The `SendRawEmail` operation has the following requirements:
- * 
- * 
  * 
  * - You can only send email from verified email addresses or domains. If you try to send email from
  * an address that isn't verified, the operation results in an "Email address not
  * verified" error.
  * 
- * 
- * 
  * - If your account is still in the Amazon SES sandbox, you can only send email to other verified addresses
  * in your account, or to addresses that are associated with the Amazon SES mailbox simulator.
  * 
- * 
- * 
  * - The maximum message size, including attachments, is 10 MB.
- * 
- * 
  * 
  * - Each message has to include at least one recipient address. A recipient
  * address includes any address on the To:, CC:, or BCC: lines.
- * 
- * 
  * 
  * - If you send a single message to more than one recipient address, and one of
  * the recipient addresses isn't in a valid format (that is, it's not in the format
  * *UserName@[SubDomain.]Domain.TopLevelDomain*), Amazon SES
  * rejects the entire message, even if the other addresses are valid.
  * 
- * 
- * 
  * - Each message can include up to 50 recipient addresses across the To:, CC:, or
  * BCC: lines. If you need to send a single message to more than 50 recipients, you
  * have to split the list of recipient addresses into groups of less than 50
  * recipients, and send separate messages to each group.
- * 
- * 
  * 
  * - Amazon SES allows you to specify 8-bit Content-Transfer-Encoding for MIME message
  * parts. However, if Amazon SES has to modify the contents of your message (for
@@ -1197,22 +964,14 @@ export class ProductionAccessNotGrantedException extends S.TaggedError<Productio
  * ASCII. For more information, see MIME Encoding in the Amazon SES Developer
  * Guide.
  * 
- * 
- * 
- * 
- * 
  * Additionally, keep the following considerations in mind when using the
  * `SendRawEmail` operation:
- * 
- * 
  * 
  * - Although you can customize the message headers when using the
  * `SendRawEmail` operation, Amazon SES automatically applies its own
  * `Message-ID` and `Date` headers; if you passed these
  * headers when creating the message, they are overwritten by the values that Amazon SES
  * provides.
- * 
- * 
  * 
  * - If you are using sending authorization to send on behalf of another user,
  * `SendRawEmail` enables you to specify the cross-account identity
@@ -1221,44 +980,22 @@ export class ProductionAccessNotGrantedException extends S.TaggedError<Productio
  * and/or `ReturnPathArn`, or you can include the following X-headers in
  * the header of your raw email:
  * 
- * 
- * 
  * - `X-SES-SOURCE-ARN`
- * 
- * 
- * 
  * 
  * - `X-SES-FROM-ARN`
  * 
- * 
- * 
- * 
  * - `X-SES-RETURN-PATH-ARN`
- * 
- * 
- * 
- * 
- * 
- * 
- * 
  * 
  * Don't include these X-headers in the DKIM signature. Amazon SES removes these
  * before it sends the email.
- * 
- * 
- * 
  * 
  * If you only specify the `SourceIdentityArn` parameter, Amazon SES sets
  * the From and Return-Path addresses to the same identity that you
  * specified.
  * 
- * 
  * For more information about sending authorization, see the Using
  * Sending Authorization with Amazon SES in the Amazon SES Developer
  * Guide.
- * 
- * 
- * 
  * 
  * - For every message that you send, the total number of recipients (including
  * each recipient in the To:, CC: and BCC: fields) is counted against the maximum
@@ -1266,25 +1003,18 @@ export class ProductionAccessNotGrantedException extends S.TaggedError<Productio
  * quota). For more information about sending quotas in Amazon SES, see
  * Managing Your Amazon SES Sending Limits in the Amazon SES Developer
  * Guide.
- */export const sendRawEmail = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.SendRawEmail" }, SendRawEmailRequest, SendRawEmailResponse, [AccountSendingPausedException, ConfigurationSetDoesNotExistException, ConfigurationSetSendingPausedException, MailFromDomainNotVerifiedException, MessageRejected]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const sendRawEmail = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.SendRawEmail" }, SendRawEmailRequest, SendRawEmailResponse, [AccountSendingPausedException, ConfigurationSetDoesNotExistException, ConfigurationSetSendingPausedException, MailFromDomainNotVerifiedException, MessageRejected]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Composes an email message using an email template and immediately queues it for
  * sending.
  * 
- * 
  * To send email using this operation, your call must meet the following
  * requirements:
- * 
- * 
  * 
  * - The call must refer to an existing email template. You can create email
  * templates using the CreateTemplate operation.
  * 
- * 
- * 
  * - The message must be sent from a verified email address or domain.
- * 
- * 
  * 
  * - If your account is still in the Amazon SES sandbox, you may only send to verified
  * addresses or domains, or to email addresses associated with the Amazon SES Mailbox
@@ -1292,20 +1022,13 @@ export class ProductionAccessNotGrantedException extends S.TaggedError<Productio
  * Addresses and Domains in the Amazon SES Developer
  * Guide.
  * 
- * 
- * 
- * 
  * - The maximum message size is 10 MB.
- * 
- * 
  * 
  * - Calls to the `SendTemplatedEmail` operation may only include one
  * `Destination` parameter. A destination is a set of recipients
  * that receives the same version of the email. The `Destination`
  * parameter can include up to 50 recipients, across the To:, CC: and BCC:
  * fields.
- * 
- * 
  * 
  * - The `Destination` parameter must include at least one recipient
  * email address. The recipient address can be a To: address, a CC: address, or a
@@ -1314,30 +1037,22 @@ export class ProductionAccessNotGrantedException extends S.TaggedError<Productio
  * entire message is rejected, even if the message contains other recipients that
  * are valid.
  * 
- * 
- * 
- * 
- * 
- * 
- * 
  * If your call to the `SendTemplatedEmail` operation includes all of the
  * required parameters, Amazon SES accepts it and returns a Message ID. However, if Amazon SES
  * can't render the email because the template contains errors, it doesn't send the
  * email. Additionally, because it already accepted the message, Amazon SES doesn't return a
  * message stating that it was unable to send the email.
  * 
- * 
  * For these reasons, we highly recommend that you set up Amazon SES to send you
  * notifications when Rendering Failure events occur. For more information, see Sending Personalized Email Using the Amazon SES API in the
  * *Amazon Simple Email Service Developer Guide*.
- */export const sendTemplatedEmail = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.SendTemplatedEmail" }, SendTemplatedEmailRequest, SendTemplatedEmailResponse, [AccountSendingPausedException, ConfigurationSetDoesNotExistException, ConfigurationSetSendingPausedException, MailFromDomainNotVerifiedException, MessageRejected, TemplateDoesNotExistException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const sendTemplatedEmail = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.SendTemplatedEmail" }, SendTemplatedEmailRequest, SendTemplatedEmailResponse, [AccountSendingPausedException, ConfigurationSetDoesNotExistException, ConfigurationSetSendingPausedException, MailFromDomainNotVerifiedException, MessageRejected, TemplateDoesNotExistException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Creates a preview of the MIME content of an email when provided with a template and a
  * set of replacement data.
  * 
- * 
  * You can execute this operation no more than once per second.
- */export const testRenderTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.TestRenderTemplate" }, TestRenderTemplateRequest, TestRenderTemplateResponse, [InvalidRenderingParameterException, MissingRenderingAttributeException, TemplateDoesNotExistException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const testRenderTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.TestRenderTemplate" }, TestRenderTemplateRequest, TestRenderTemplateResponse, [InvalidRenderingParameterException, MissingRenderingAttributeException, TemplateDoesNotExistException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Updates the event destination of a configuration set. Event destinations are
  * associated with configuration sets, which enable you to publish email sending events to
@@ -1345,54 +1060,37 @@ export class ProductionAccessNotGrantedException extends S.TaggedError<Productio
  * see Monitoring Your Amazon SES Sending Activity in the Amazon SES Developer
  * Guide.
  * 
- * 
- * 
- * 
- * 
  * When you create or update an event destination, you must provide one, and only
  * one, destination. The destination can be Amazon CloudWatch, Amazon Kinesis Firehose, or Amazon Simple Notification Service
  * (Amazon SNS).
  * 
- * 
- * 
- * 
  * You can execute this operation no more than once per second.
- */export const updateConfigurationSetEventDestination = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.UpdateConfigurationSetEventDestination" }, UpdateConfigurationSetEventDestinationRequest, UpdateConfigurationSetEventDestinationResponse, [ConfigurationSetDoesNotExistException, EventDestinationDoesNotExistException, InvalidCloudWatchDestinationException, InvalidFirehoseDestinationException, InvalidSNSDestinationException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const updateConfigurationSetEventDestination = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.UpdateConfigurationSetEventDestination" }, UpdateConfigurationSetEventDestinationRequest, UpdateConfigurationSetEventDestinationResponse, [ConfigurationSetDoesNotExistException, EventDestinationDoesNotExistException, InvalidCloudWatchDestinationException, InvalidFirehoseDestinationException, InvalidSNSDestinationException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Updates a receipt rule.
- * 
  * 
  * For information about managing receipt rules, see the Amazon SES
  * Developer Guide.
  * 
- * 
  * You can execute this operation no more than once per second.
- */export const updateReceiptRule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.UpdateReceiptRule" }, UpdateReceiptRuleRequest, UpdateReceiptRuleResponse, [InvalidLambdaFunctionException, InvalidS3ConfigurationException, InvalidSnsTopicException, LimitExceededException, RuleDoesNotExistException, RuleSetDoesNotExistException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const updateReceiptRule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.UpdateReceiptRule" }, UpdateReceiptRuleRequest, UpdateReceiptRuleResponse, [InvalidLambdaFunctionException, InvalidS3ConfigurationException, InvalidSnsTopicException, LimitExceededException, RuleDoesNotExistException, RuleSetDoesNotExistException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Creates a configuration set event destination.
  * 
- * 
- * 
- * 
  * When you create or update an event destination, you must provide one, and only
  * one, destination. The destination can be CloudWatch, Amazon Kinesis Firehose, or Amazon Simple Notification Service (Amazon SNS).
- * 
- * 
- * 
  * 
  * An event destination is the Amazon Web Services service to which Amazon SES publishes the email sending
  * events associated with a configuration set. For information about using configuration
  * sets, see the Amazon SES Developer
  * Guide.
  * 
- * 
  * You can execute this operation no more than once per second.
- */export const createConfigurationSetEventDestination = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.CreateConfigurationSetEventDestination" }, CreateConfigurationSetEventDestinationRequest, CreateConfigurationSetEventDestinationResponse, [ConfigurationSetDoesNotExistException, EventDestinationAlreadyExistsException, InvalidCloudWatchDestinationException, InvalidFirehoseDestinationException, InvalidSNSDestinationException, LimitExceededException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const createConfigurationSetEventDestination = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.CreateConfigurationSetEventDestination" }, CreateConfigurationSetEventDestinationRequest, CreateConfigurationSetEventDestinationResponse, [ConfigurationSetDoesNotExistException, EventDestinationAlreadyExistsException, InvalidCloudWatchDestinationException, InvalidFirehoseDestinationException, InvalidSNSDestinationException, LimitExceededException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Adds an email address to the list of identities for your Amazon SES account in the current
  * Amazon Web Services Region and attempts to verify it. As a result of executing this operation, a
  * customized verification email is sent to the specified address.
- * 
  * 
  * To use this operation, you must first create a custom verification email template. For
  * more information about creating and using custom verification email templates, see
@@ -1400,6 +1098,5 @@ export class ProductionAccessNotGrantedException extends S.TaggedError<Productio
  * Custom Verification Email Templates in the Amazon SES Developer
  * Guide.
  * 
- * 
  * You can execute this operation no more than once per second.
- */export const sendCustomVerificationEmail = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.SendCustomVerificationEmail" }, SendCustomVerificationEmailRequest, SendCustomVerificationEmailResponse, [ConfigurationSetDoesNotExistException, CustomVerificationEmailTemplateDoesNotExistException, FromEmailAddressNotVerifiedException, MessageRejected, ProductionAccessNotGrantedException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const sendCustomVerificationEmail = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-12-01", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.SendCustomVerificationEmail" }, SendCustomVerificationEmailRequest, SendCustomVerificationEmailResponse, [ConfigurationSetDoesNotExistException, CustomVerificationEmailTemplateDoesNotExistException, FromEmailAddressNotVerifiedException, MessageRejected, ProductionAccessNotGrantedException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);

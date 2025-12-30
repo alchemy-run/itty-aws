@@ -166,26 +166,25 @@ export class HumanLoopQuotaExceededException extends S.TaggedError<HumanLoopQuot
 //# Operations
 /**
  * Removes any tags with the specified keys from the specified resource.
- */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-27", uri: "/", method: "POST", sdkId: "Textract", sigV4ServiceName: "textract", name: "Textract.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [AccessDeniedException, InternalServerError, InvalidParameterException, ProvisionedThroughputExceededException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-27", sdkId: "Textract", sigV4ServiceName: "textract", name: "Textract.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [AccessDeniedException, InternalServerError, InvalidParameterException, ProvisionedThroughputExceededException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Update the configuration for an adapter. FeatureTypes configurations cannot be updated.
  * At least one new parameter must be specified as an argument.
- */export const updateAdapter = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-27", uri: "/", method: "POST", sdkId: "Textract", sigV4ServiceName: "textract", name: "Textract.UpdateAdapter" }, UpdateAdapterRequest, UpdateAdapterResponse, [AccessDeniedException, ConflictException, InternalServerError, InvalidParameterException, ProvisionedThroughputExceededException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateAdapter = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-27", sdkId: "Textract", sigV4ServiceName: "textract", name: "Textract.UpdateAdapter" }, UpdateAdapterRequest, UpdateAdapterResponse, [AccessDeniedException, ConflictException, InternalServerError, InvalidParameterException, ProvisionedThroughputExceededException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes an Amazon Textract adapter. Takes an AdapterId and deletes the adapter specified by the ID.
- */export const deleteAdapter = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-27", uri: "/", method: "POST", sdkId: "Textract", sigV4ServiceName: "textract", name: "Textract.DeleteAdapter" }, DeleteAdapterRequest, DeleteAdapterResponse, [AccessDeniedException, ConflictException, InternalServerError, InvalidParameterException, ProvisionedThroughputExceededException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteAdapter = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-27", sdkId: "Textract", sigV4ServiceName: "textract", name: "Textract.DeleteAdapter" }, DeleteAdapterRequest, DeleteAdapterResponse, [AccessDeniedException, ConflictException, InternalServerError, InvalidParameterException, ProvisionedThroughputExceededException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes an Amazon Textract adapter version. Requires that you specify both an AdapterId and a
  * AdapterVersion. Deletes the adapter version specified by the AdapterId and the AdapterVersion.
- */export const deleteAdapterVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-27", uri: "/", method: "POST", sdkId: "Textract", sigV4ServiceName: "textract", name: "Textract.DeleteAdapterVersion" }, DeleteAdapterVersionRequest, DeleteAdapterVersionResponse, [AccessDeniedException, ConflictException, InternalServerError, InvalidParameterException, ProvisionedThroughputExceededException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteAdapterVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-27", sdkId: "Textract", sigV4ServiceName: "textract", name: "Textract.DeleteAdapterVersion" }, DeleteAdapterVersionRequest, DeleteAdapterVersionResponse, [AccessDeniedException, ConflictException, InternalServerError, InvalidParameterException, ProvisionedThroughputExceededException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets configuration information for an adapter specified by an AdapterId, returning information on AdapterName, Description,
  * CreationTime, AutoUpdate status, and FeatureTypes.
- */export const getAdapter = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-27", uri: "/", method: "POST", sdkId: "Textract", sigV4ServiceName: "textract", name: "Textract.GetAdapter" }, GetAdapterRequest, GetAdapterResponse, [AccessDeniedException, InternalServerError, InvalidParameterException, ProvisionedThroughputExceededException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getAdapter = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-27", sdkId: "Textract", sigV4ServiceName: "textract", name: "Textract.GetAdapter" }, GetAdapterRequest, GetAdapterResponse, [AccessDeniedException, InternalServerError, InvalidParameterException, ProvisionedThroughputExceededException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets the results for an Amazon Textract asynchronous operation that analyzes text in a
  * document.
- * 
  * 
  * You start asynchronous text analysis by calling StartDocumentAnalysis,
  * which returns a job identifier (`JobId`). When the text analysis operation
@@ -196,12 +195,8 @@ export class HumanLoopQuotaExceededException extends S.TaggedError<HumanLoopQuot
  * pass the job identifier (`JobId`) from the initial call to
  * `StartDocumentAnalysis`.
  * 
- * 
- * 
  * `GetDocumentAnalysis` returns an array of Block objects.
  * The following types of information are returned:
- * 
- * 
  * 
  * - Form data (key-value pairs). The related information is returned in two Block objects, each of type `KEY_VALUE_SET`: a KEY
  * `Block` object and a VALUE `Block` object. For example,
@@ -209,13 +204,9 @@ export class HumanLoopQuotaExceededException extends S.TaggedError<HumanLoopQuot
  * *Name:* is the key. *Ana Silva Carolina* is
  * the value.
  * 
- * 
- * 
  * - Table and table cell data. A TABLE `Block` object contains information
  * about a detected table. A CELL `Block` object is returned for each cell in
  * a table.
- * 
- * 
  * 
  * - Lines and words of text. A LINE `Block` object contains one or more
  * WORD `Block` objects. All lines and words that are detected in the
@@ -223,35 +214,21 @@ export class HumanLoopQuotaExceededException extends S.TaggedError<HumanLoopQuot
  * of the `StartDocumentAnalysis`
  * `FeatureTypes` input parameter).
  * 
- * 
- * 
  * - Query. A QUERY Block object contains the query text, alias and link to the
  * associated Query results block object.
- * 
- * 
  * 
  * - Query Results. A QUERY_RESULT Block object contains the answer to the query and an
  * ID that connects it to the query asked. This Block also contains a confidence
  * score.
- * 
- * 
- * 
- * 
- * 
- * 
  * 
  * While processing a document with queries, look out for
  * `INVALID_REQUEST_PARAMETERS` output. This indicates that either the per
  * page query limit has been exceeded or that the operation is trying to query a page in
  * the document which doesn’t exist.
  * 
- * 
- * 
- * 
  * Selection elements such as check boxes and option buttons (radio buttons) can be
  * detected in form data and in tables. A SELECTION_ELEMENT `Block` object contains
  * information about a selection element, including the selection status.
- * 
  * 
  * Use the `MaxResults` parameter to limit the number of blocks that are
  * returned. If there are more results than specified in `MaxResults`, the value of
@@ -261,14 +238,12 @@ export class HumanLoopQuotaExceededException extends S.TaggedError<HumanLoopQuot
  * parameter with the token value that's returned from the previous call to
  * `GetDocumentAnalysis`.
  * 
- * 
  * For more information, see Document Text
  * Analysis.
- */export const getDocumentAnalysis = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-27", uri: "/", method: "POST", sdkId: "Textract", sigV4ServiceName: "textract", name: "Textract.GetDocumentAnalysis" }, GetDocumentAnalysisRequest, GetDocumentAnalysisResponse, [AccessDeniedException, InternalServerError, InvalidJobIdException, InvalidKMSKeyException, InvalidParameterException, InvalidS3ObjectException, ProvisionedThroughputExceededException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getDocumentAnalysis = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-27", sdkId: "Textract", sigV4ServiceName: "textract", name: "Textract.GetDocumentAnalysis" }, GetDocumentAnalysisRequest, GetDocumentAnalysisResponse, [AccessDeniedException, InternalServerError, InvalidJobIdException, InvalidKMSKeyException, InvalidParameterException, InvalidS3ObjectException, ProvisionedThroughputExceededException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets the results for an Amazon Textract asynchronous operation that detects text in a document.
  * Amazon Textract can detect lines of text and the words that make up a line of text.
- * 
  * 
  * You start asynchronous text detection by calling StartDocumentTextDetection, which returns a job identifier
  * (`JobId`). When the text detection operation finishes, Amazon Textract publishes a
@@ -279,16 +254,12 @@ export class HumanLoopQuotaExceededException extends S.TaggedError<HumanLoopQuot
  * job identifier (`JobId`) from the initial call to
  * `StartDocumentTextDetection`.
  * 
- * 
- * 
  * `GetDocumentTextDetection` returns an array of Block
  * objects.
- * 
  * 
  * Each document page has as an associated `Block` of type PAGE. Each PAGE `Block` object
  * is the parent of LINE `Block` objects that represent the lines of detected text on a page. A LINE `Block` object is
  * a parent for each word that makes up the line. Words are represented by `Block` objects of type WORD.
- * 
  * 
  * Use the MaxResults parameter to limit the number of blocks that are returned. If there
  * are more results than specified in `MaxResults`, the value of
@@ -298,14 +269,12 @@ export class HumanLoopQuotaExceededException extends S.TaggedError<HumanLoopQuot
  * parameter with the token value that's returned from the previous call to
  * `GetDocumentTextDetection`.
  * 
- * 
  * For more information, see Document Text Detection.
- */export const getDocumentTextDetection = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-27", uri: "/", method: "POST", sdkId: "Textract", sigV4ServiceName: "textract", name: "Textract.GetDocumentTextDetection" }, GetDocumentTextDetectionRequest, GetDocumentTextDetectionResponse, [AccessDeniedException, InternalServerError, InvalidJobIdException, InvalidKMSKeyException, InvalidParameterException, InvalidS3ObjectException, ProvisionedThroughputExceededException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getDocumentTextDetection = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-27", sdkId: "Textract", sigV4ServiceName: "textract", name: "Textract.GetDocumentTextDetection" }, GetDocumentTextDetectionRequest, GetDocumentTextDetectionResponse, [AccessDeniedException, InternalServerError, InvalidJobIdException, InvalidKMSKeyException, InvalidParameterException, InvalidS3ObjectException, ProvisionedThroughputExceededException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets the results for an Amazon Textract asynchronous operation that analyzes invoices and
  * receipts. Amazon Textract finds contact information, items purchased, and vendor name, from input
  * invoices and receipts.
- * 
  * 
  * You start asynchronous invoice/receipt analysis by calling StartExpenseAnalysis, which returns a job identifier (`JobId`). Upon
  * completion of the invoice/receipt analysis, Amazon Textract publishes the completion status to the
@@ -315,7 +284,6 @@ export class HumanLoopQuotaExceededException extends S.TaggedError<HumanLoopQuot
  * call `GetExpenseAnalysis`, and pass the job identifier (`JobId`) from the
  * initial call to `StartExpenseAnalysis`.
  * 
- * 
  * Use the MaxResults parameter to limit the number of blocks that are returned. If there are
  * more results than specified in `MaxResults`, the value of `NextToken` in
  * the operation response contains a pagination token for getting the next set of results. To get
@@ -323,30 +291,24 @@ export class HumanLoopQuotaExceededException extends S.TaggedError<HumanLoopQuot
  * `NextToken` request parameter with the token value that's returned from the previous
  * call to `GetExpenseAnalysis`.
  * 
- * 
  * For more information, see Analyzing Invoices and Receipts.
- */export const getExpenseAnalysis = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-27", uri: "/", method: "POST", sdkId: "Textract", sigV4ServiceName: "textract", name: "Textract.GetExpenseAnalysis" }, GetExpenseAnalysisRequest, GetExpenseAnalysisResponse, [AccessDeniedException, InternalServerError, InvalidJobIdException, InvalidKMSKeyException, InvalidParameterException, InvalidS3ObjectException, ProvisionedThroughputExceededException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getExpenseAnalysis = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-27", sdkId: "Textract", sigV4ServiceName: "textract", name: "Textract.GetExpenseAnalysis" }, GetExpenseAnalysisRequest, GetExpenseAnalysisResponse, [AccessDeniedException, InternalServerError, InvalidJobIdException, InvalidKMSKeyException, InvalidParameterException, InvalidS3ObjectException, ProvisionedThroughputExceededException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists all adapters that match the specified filtration criteria.
- */export const listAdapters = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-27", uri: "/", method: "POST", sdkId: "Textract", sigV4ServiceName: "textract", name: "Textract.ListAdapters" }, ListAdaptersRequest, ListAdaptersResponse, [AccessDeniedException, InternalServerError, InvalidParameterException, ProvisionedThroughputExceededException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listAdapters = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-27", sdkId: "Textract", sigV4ServiceName: "textract", name: "Textract.ListAdapters" }, ListAdaptersRequest, ListAdaptersResponse, [AccessDeniedException, InternalServerError, InvalidParameterException, ProvisionedThroughputExceededException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * List all version of an adapter that meet the specified filtration criteria.
- */export const listAdapterVersions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-27", uri: "/", method: "POST", sdkId: "Textract", sigV4ServiceName: "textract", name: "Textract.ListAdapterVersions" }, ListAdapterVersionsRequest, ListAdapterVersionsResponse, [AccessDeniedException, InternalServerError, InvalidParameterException, ProvisionedThroughputExceededException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listAdapterVersions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-27", sdkId: "Textract", sigV4ServiceName: "textract", name: "Textract.ListAdapterVersions" }, ListAdapterVersionsRequest, ListAdapterVersionsResponse, [AccessDeniedException, InternalServerError, InvalidParameterException, ProvisionedThroughputExceededException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists all tags for an Amazon Textract resource.
- */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-27", uri: "/", method: "POST", sdkId: "Textract", sigV4ServiceName: "textract", name: "Textract.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [AccessDeniedException, InternalServerError, InvalidParameterException, ProvisionedThroughputExceededException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-27", sdkId: "Textract", sigV4ServiceName: "textract", name: "Textract.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [AccessDeniedException, InternalServerError, InvalidParameterException, ProvisionedThroughputExceededException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts the asynchronous detection of text in a document. Amazon Textract can detect lines of
  * text and the words that make up a line of text.
  * 
- * 
- * 
  * `StartDocumentTextDetection` can analyze text in documents that are in JPEG, PNG, TIFF, and PDF format. The
  * documents are stored in an Amazon S3 bucket. Use DocumentLocation to specify the bucket name and file name
  * of the document.
- * 
- * 
- * 
  * 
  * `StartDocumentTextDetection` returns a job identifier
  * (`JobId`) that you use to get the results of the operation. When text
@@ -357,20 +319,15 @@ export class HumanLoopQuotaExceededException extends S.TaggedError<HumanLoopQuot
  * pass the job identifier (`JobId`) from the initial call to
  * `StartDocumentTextDetection`.
  * 
- * 
  * For more information, see Document Text Detection.
- */export const startDocumentTextDetection = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-27", uri: "/", method: "POST", sdkId: "Textract", sigV4ServiceName: "textract", name: "Textract.StartDocumentTextDetection" }, StartDocumentTextDetectionRequest, StartDocumentTextDetectionResponse, [AccessDeniedException, BadDocumentException, DocumentTooLargeException, IdempotentParameterMismatchException, InternalServerError, InvalidKMSKeyException, InvalidParameterException, InvalidS3ObjectException, LimitExceededException, ProvisionedThroughputExceededException, ThrottlingException, UnsupportedDocumentException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startDocumentTextDetection = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-27", sdkId: "Textract", sigV4ServiceName: "textract", name: "Textract.StartDocumentTextDetection" }, StartDocumentTextDetectionRequest, StartDocumentTextDetectionResponse, [AccessDeniedException, BadDocumentException, DocumentTooLargeException, IdempotentParameterMismatchException, InternalServerError, InvalidKMSKeyException, InvalidParameterException, InvalidS3ObjectException, LimitExceededException, ProvisionedThroughputExceededException, ThrottlingException, UnsupportedDocumentException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts the asynchronous analysis of invoices or receipts for data like contact information,
  * items purchased, and vendor names.
  * 
- * 
- * 
  * `StartExpenseAnalysis` can analyze text in documents that are in JPEG, PNG, and
  * PDF format. The documents must be stored in an Amazon S3 bucket. Use the DocumentLocation parameter to specify the name of your S3 bucket and the name of the
  * document in that bucket.
- * 
- * 
  * 
  * `StartExpenseAnalysis` returns a job identifier (`JobId`) that you
  * will provide to `GetExpenseAnalysis` to retrieve the results of the operation. When
@@ -380,22 +337,17 @@ export class HumanLoopQuotaExceededException extends S.TaggedError<HumanLoopQuot
  * published to the Amazon SNS topic is `SUCCEEDED`. If so, call GetExpenseAnalysis, and pass the job identifier (`JobId`) that was
  * returned by your call to `StartExpenseAnalysis`.
  * 
- * 
  * For more information, see Analyzing Invoices and Receipts.
- */export const startExpenseAnalysis = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-27", uri: "/", method: "POST", sdkId: "Textract", sigV4ServiceName: "textract", name: "Textract.StartExpenseAnalysis" }, StartExpenseAnalysisRequest, StartExpenseAnalysisResponse, [AccessDeniedException, BadDocumentException, DocumentTooLargeException, IdempotentParameterMismatchException, InternalServerError, InvalidKMSKeyException, InvalidParameterException, InvalidS3ObjectException, LimitExceededException, ProvisionedThroughputExceededException, ThrottlingException, UnsupportedDocumentException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startExpenseAnalysis = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-27", sdkId: "Textract", sigV4ServiceName: "textract", name: "Textract.StartExpenseAnalysis" }, StartExpenseAnalysisRequest, StartExpenseAnalysisResponse, [AccessDeniedException, BadDocumentException, DocumentTooLargeException, IdempotentParameterMismatchException, InternalServerError, InvalidKMSKeyException, InvalidParameterException, InvalidS3ObjectException, LimitExceededException, ProvisionedThroughputExceededException, ThrottlingException, UnsupportedDocumentException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts the classification and analysis of an input document.
  * `StartLendingAnalysis` initiates the classification and analysis of a packet of
  * lending documents. `StartLendingAnalysis` operates on a document file located in an
  * Amazon S3 bucket.
  * 
- * 
- * 
  * `StartLendingAnalysis` can analyze text in documents that are in one of the
  * following formats: JPEG, PNG, TIFF, PDF. Use `DocumentLocation` to specify the bucket
  * name and the file name of the document.
- * 
- * 
  * 
  * `StartLendingAnalysis` returns a job identifier (`JobId`) that you use
  * to get the results of the operation. When the text analysis is finished, Amazon Textract
@@ -406,56 +358,44 @@ export class HumanLoopQuotaExceededException extends S.TaggedError<HumanLoopQuot
  * `GetLendingAnalysisSummary` and provide the `JobId` to obtain the results
  * of the analysis.
  * 
- * 
  * If using `OutputConfig` to specify an Amazon S3 bucket, the output will be contained
  * within the specified prefix in a directory labeled with the job-id. In the directory there are 3
  * sub-directories:
  * 
- * 
- * 
  * - detailedResponse (contains the GetLendingAnalysis response)
- * 
- * 
  * 
  * - summaryResponse (for the GetLendingAnalysisSummary response)
  * 
- * 
- * 
  * - splitDocuments (documents split across logical boundaries)
- */export const startLendingAnalysis = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-27", uri: "/", method: "POST", sdkId: "Textract", sigV4ServiceName: "textract", name: "Textract.StartLendingAnalysis" }, StartLendingAnalysisRequest, StartLendingAnalysisResponse, [AccessDeniedException, BadDocumentException, DocumentTooLargeException, IdempotentParameterMismatchException, InternalServerError, InvalidKMSKeyException, InvalidParameterException, InvalidS3ObjectException, LimitExceededException, ProvisionedThroughputExceededException, ThrottlingException, UnsupportedDocumentException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startLendingAnalysis = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-27", sdkId: "Textract", sigV4ServiceName: "textract", name: "Textract.StartLendingAnalysis" }, StartLendingAnalysisRequest, StartLendingAnalysisResponse, [AccessDeniedException, BadDocumentException, DocumentTooLargeException, IdempotentParameterMismatchException, InternalServerError, InvalidKMSKeyException, InvalidParameterException, InvalidS3ObjectException, LimitExceededException, ProvisionedThroughputExceededException, ThrottlingException, UnsupportedDocumentException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Adds one or more tags to the specified resource.
- */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-27", uri: "/", method: "POST", sdkId: "Textract", sigV4ServiceName: "textract", name: "Textract.TagResource" }, TagResourceRequest, TagResourceResponse, [AccessDeniedException, InternalServerError, InvalidParameterException, ProvisionedThroughputExceededException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-27", sdkId: "Textract", sigV4ServiceName: "textract", name: "Textract.TagResource" }, TagResourceRequest, TagResourceResponse, [AccessDeniedException, InternalServerError, InvalidParameterException, ProvisionedThroughputExceededException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an adapter, which can be fine-tuned for enhanced performance on user provided
  * documents. Takes an AdapterName and FeatureType. Currently the only supported feature type
  * is `QUERIES`. You can also provide a Description, Tags, and a
  * ClientRequestToken. You can choose whether or not the adapter should be AutoUpdated with
  * the AutoUpdate argument. By default, AutoUpdate is set to DISABLED.
- */export const createAdapter = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-27", uri: "/", method: "POST", sdkId: "Textract", sigV4ServiceName: "textract", name: "Textract.CreateAdapter" }, CreateAdapterRequest, CreateAdapterResponse, [AccessDeniedException, ConflictException, IdempotentParameterMismatchException, InternalServerError, InvalidParameterException, LimitExceededException, ProvisionedThroughputExceededException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createAdapter = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-27", sdkId: "Textract", sigV4ServiceName: "textract", name: "Textract.CreateAdapter" }, CreateAdapterRequest, CreateAdapterResponse, [AccessDeniedException, ConflictException, IdempotentParameterMismatchException, InternalServerError, InvalidParameterException, LimitExceededException, ProvisionedThroughputExceededException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new version of an adapter. Operates on a provided AdapterId and a specified
  * dataset provided via the DatasetConfig argument. Requires that you
  * specify an Amazon S3 bucket with the OutputConfig argument. You can provide an optional KMSKeyId,
  * an optional ClientRequestToken, and optional tags.
- */export const createAdapterVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-27", uri: "/", method: "POST", sdkId: "Textract", sigV4ServiceName: "textract", name: "Textract.CreateAdapterVersion" }, CreateAdapterVersionRequest, CreateAdapterVersionResponse, [AccessDeniedException, ConflictException, IdempotentParameterMismatchException, InternalServerError, InvalidKMSKeyException, InvalidParameterException, InvalidS3ObjectException, LimitExceededException, ProvisionedThroughputExceededException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createAdapterVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-27", sdkId: "Textract", sigV4ServiceName: "textract", name: "Textract.CreateAdapterVersion" }, CreateAdapterVersionRequest, CreateAdapterVersionResponse, [AccessDeniedException, ConflictException, IdempotentParameterMismatchException, InternalServerError, InvalidKMSKeyException, InvalidParameterException, InvalidS3ObjectException, LimitExceededException, ProvisionedThroughputExceededException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets configuration information for the specified adapter version, including:
  * AdapterId, AdapterVersion, FeatureTypes, Status, StatusMessage, DatasetConfig,
  * KMSKeyId, OutputConfig, Tags and EvaluationMetrics.
- */export const getAdapterVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-27", uri: "/", method: "POST", sdkId: "Textract", sigV4ServiceName: "textract", name: "Textract.GetAdapterVersion" }, GetAdapterVersionRequest, GetAdapterVersionResponse, [AccessDeniedException, InternalServerError, InvalidParameterException, ProvisionedThroughputExceededException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getAdapterVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-27", sdkId: "Textract", sigV4ServiceName: "textract", name: "Textract.GetAdapterVersion" }, GetAdapterVersionRequest, GetAdapterVersionResponse, [AccessDeniedException, InternalServerError, InvalidParameterException, ProvisionedThroughputExceededException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts the asynchronous analysis of an input document for relationships between detected
  * items such as key-value pairs, tables, and selection elements.
  * 
- * 
- * 
  * `StartDocumentAnalysis` can analyze text in documents that are in JPEG, PNG, TIFF, and PDF format. The
  * documents are stored in an Amazon S3 bucket. Use DocumentLocation to specify the bucket name and file name
  * of the document.
- * 
- * 
- * 
  * 
  * `StartDocumentAnalysis` returns a job identifier
  * (`JobId`) that you use to get the results of the operation. When text
@@ -466,72 +406,57 @@ export class HumanLoopQuotaExceededException extends S.TaggedError<HumanLoopQuot
  * the job identifier (`JobId`) from the initial call to
  * `StartDocumentAnalysis`.
  * 
- * 
  * For more information, see Document Text Analysis.
- */export const startDocumentAnalysis = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-27", uri: "/", method: "POST", sdkId: "Textract", sigV4ServiceName: "textract", name: "Textract.StartDocumentAnalysis" }, StartDocumentAnalysisRequest, StartDocumentAnalysisResponse, [AccessDeniedException, BadDocumentException, DocumentTooLargeException, IdempotentParameterMismatchException, InternalServerError, InvalidKMSKeyException, InvalidParameterException, InvalidS3ObjectException, LimitExceededException, ProvisionedThroughputExceededException, ThrottlingException, UnsupportedDocumentException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startDocumentAnalysis = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-27", sdkId: "Textract", sigV4ServiceName: "textract", name: "Textract.StartDocumentAnalysis" }, StartDocumentAnalysisRequest, StartDocumentAnalysisResponse, [AccessDeniedException, BadDocumentException, DocumentTooLargeException, IdempotentParameterMismatchException, InternalServerError, InvalidKMSKeyException, InvalidParameterException, InvalidS3ObjectException, LimitExceededException, ProvisionedThroughputExceededException, ThrottlingException, UnsupportedDocumentException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * `AnalyzeExpense` synchronously analyzes an input document for financially
  * related relationships between text.
  * 
- * 
  * Information is returned as `ExpenseDocuments` and seperated as
  * follows:
- * 
- * 
  * 
  * - `LineItemGroups`- A data set containing `LineItems` which
  * store information about the lines of text, such as an item purchased and its price on
  * a receipt.
  * 
- * 
- * 
  * - `SummaryFields`- Contains all other information a receipt, such as
  * header information or the vendors name.
- */export const analyzeExpense = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-27", uri: "/", method: "POST", sdkId: "Textract", sigV4ServiceName: "textract", name: "Textract.AnalyzeExpense" }, AnalyzeExpenseRequest, AnalyzeExpenseResponse, [AccessDeniedException, BadDocumentException, DocumentTooLargeException, InternalServerError, InvalidParameterException, InvalidS3ObjectException, ProvisionedThroughputExceededException, ThrottlingException, UnsupportedDocumentException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const analyzeExpense = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-27", sdkId: "Textract", sigV4ServiceName: "textract", name: "Textract.AnalyzeExpense" }, AnalyzeExpenseRequest, AnalyzeExpenseResponse, [AccessDeniedException, BadDocumentException, DocumentTooLargeException, InternalServerError, InvalidParameterException, InvalidS3ObjectException, ProvisionedThroughputExceededException, ThrottlingException, UnsupportedDocumentException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Detects text in the input document. Amazon Textract can detect lines of text and the
  * words that make up a line of text. The input document must be in one of the following image
  * formats: JPEG, PNG, PDF, or TIFF. `DetectDocumentText` returns the detected
  * text in an array of Block objects.
  * 
- * 
  * Each document page has as an associated `Block` of type PAGE. Each PAGE `Block` object
  * is the parent of LINE `Block` objects that represent the lines of detected text on a page. A LINE `Block` object is
  * a parent for each word that makes up the line. Words are represented by `Block` objects of type WORD.
  * 
- * 
- * 
  * `DetectDocumentText` is a synchronous operation. To analyze documents
  * asynchronously, use StartDocumentTextDetection.
  * 
- * 
  * For more information, see Document Text Detection.
- */export const detectDocumentText = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-27", uri: "/", method: "POST", sdkId: "Textract", sigV4ServiceName: "textract", name: "Textract.DetectDocumentText" }, DetectDocumentTextRequest, DetectDocumentTextResponse, [AccessDeniedException, BadDocumentException, DocumentTooLargeException, InternalServerError, InvalidParameterException, InvalidS3ObjectException, ProvisionedThroughputExceededException, ThrottlingException, UnsupportedDocumentException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const detectDocumentText = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-27", sdkId: "Textract", sigV4ServiceName: "textract", name: "Textract.DetectDocumentText" }, DetectDocumentTextRequest, DetectDocumentTextResponse, [AccessDeniedException, BadDocumentException, DocumentTooLargeException, InternalServerError, InvalidParameterException, InvalidS3ObjectException, ProvisionedThroughputExceededException, ThrottlingException, UnsupportedDocumentException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets summarized results for the `StartLendingAnalysis` operation, which analyzes
  * text in a lending document. The returned summary consists of information about documents grouped
  * together by a common document type. Information like detected signatures, page numbers, and split
  * documents is returned with respect to the type of grouped document.
  * 
- * 
  * You start asynchronous text analysis by calling `StartLendingAnalysis`, which
  * returns a job identifier (`JobId`). When the text analysis operation finishes, Amazon
  * Textract publishes a completion status to the Amazon Simple Notification Service (Amazon SNS)
  * topic that's registered in the initial call to `StartLendingAnalysis`.
  * 
- * 
  * To get the results of the text analysis operation, first check that the status value
  * published to the Amazon SNS topic is SUCCEEDED. If so, call
  * `GetLendingAnalysisSummary`, and pass the job identifier (`JobId`) from
  * the initial call to `StartLendingAnalysis`.
- */export const getLendingAnalysisSummary = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-27", uri: "/", method: "POST", sdkId: "Textract", sigV4ServiceName: "textract", name: "Textract.GetLendingAnalysisSummary" }, GetLendingAnalysisSummaryRequest, GetLendingAnalysisSummaryResponse, [AccessDeniedException, InternalServerError, InvalidJobIdException, InvalidKMSKeyException, InvalidParameterException, InvalidS3ObjectException, ProvisionedThroughputExceededException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getLendingAnalysisSummary = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-27", sdkId: "Textract", sigV4ServiceName: "textract", name: "Textract.GetLendingAnalysisSummary" }, GetLendingAnalysisSummaryRequest, GetLendingAnalysisSummaryResponse, [AccessDeniedException, InternalServerError, InvalidJobIdException, InvalidKMSKeyException, InvalidParameterException, InvalidS3ObjectException, ProvisionedThroughputExceededException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Analyzes an input document for relationships between detected items.
  * 
- * 
  * The types of information returned are as follows:
- * 
- * 
  * 
  * - Form data (key-value pairs). The related information is returned in two Block objects, each of type `KEY_VALUE_SET`: a KEY
  * `Block` object and a VALUE `Block` object. For example,
@@ -539,70 +464,50 @@ export class HumanLoopQuotaExceededException extends S.TaggedError<HumanLoopQuot
  * *Name:* is the key. *Ana Silva Carolina* is
  * the value.
  * 
- * 
- * 
  * - Table and table cell data. A TABLE `Block` object contains information
  * about a detected table. A CELL `Block` object is returned for each cell in
  * a table.
- * 
- * 
  * 
  * - Lines and words of text. A LINE `Block` object contains one or more
  * WORD `Block` objects. All lines and words that are detected in the
  * document are returned (including text that doesn't have a relationship with the value
  * of `FeatureTypes`).
  * 
- * 
- * 
  * - Signatures. A SIGNATURE `Block` object contains the location information
  * of a signature in a document. If used in conjunction with forms or tables, a signature
  * can be given a Key-Value pairing or be detected in the cell of a table.
  * 
- * 
- * 
  * - Query. A QUERY Block object contains the query text, alias and link to the
  * associated Query results block object.
- * 
- * 
  * 
  * - Query Result. A QUERY_RESULT Block object contains the answer to the query and an
  * ID that connects it to the query asked. This Block also contains a confidence
  * score.
  * 
- * 
- * 
- * 
- * 
  * Selection elements such as check boxes and option buttons (radio buttons) can be
  * detected in form data and in tables. A SELECTION_ELEMENT `Block` object contains
  * information about a selection element, including the selection status.
  * 
- * 
  * You can choose which type of analysis to perform by specifying the
  * `FeatureTypes` list.
  * 
- * 
  * The output is returned in a list of `Block` objects.
- * 
- * 
  * 
  * `AnalyzeDocument` is a synchronous operation. To analyze documents
  * asynchronously, use StartDocumentAnalysis.
  * 
- * 
  * For more information, see Document Text
  * Analysis.
- */export const analyzeDocument = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-27", uri: "/", method: "POST", sdkId: "Textract", sigV4ServiceName: "textract", name: "Textract.AnalyzeDocument" }, AnalyzeDocumentRequest, AnalyzeDocumentResponse, [AccessDeniedException, BadDocumentException, DocumentTooLargeException, HumanLoopQuotaExceededException, InternalServerError, InvalidParameterException, InvalidS3ObjectException, ProvisionedThroughputExceededException, ThrottlingException, UnsupportedDocumentException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const analyzeDocument = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-27", sdkId: "Textract", sigV4ServiceName: "textract", name: "Textract.AnalyzeDocument" }, AnalyzeDocumentRequest, AnalyzeDocumentResponse, [AccessDeniedException, BadDocumentException, DocumentTooLargeException, HumanLoopQuotaExceededException, InternalServerError, InvalidParameterException, InvalidS3ObjectException, ProvisionedThroughputExceededException, ThrottlingException, UnsupportedDocumentException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Analyzes identity documents for relevant information. This information is extracted and
  * returned as `IdentityDocumentFields`, which records both the normalized field
  * and value of the extracted text. Unlike other Amazon Textract operations,
  * `AnalyzeID` doesn't return any Geometry data.
- */export const analyzeID = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-27", uri: "/", method: "POST", sdkId: "Textract", sigV4ServiceName: "textract", name: "Textract.AnalyzeID" }, AnalyzeIDRequest, AnalyzeIDResponse, [AccessDeniedException, BadDocumentException, DocumentTooLargeException, InternalServerError, InvalidParameterException, InvalidS3ObjectException, ProvisionedThroughputExceededException, ThrottlingException, UnsupportedDocumentException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const analyzeID = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-27", sdkId: "Textract", sigV4ServiceName: "textract", name: "Textract.AnalyzeID" }, AnalyzeIDRequest, AnalyzeIDResponse, [AccessDeniedException, BadDocumentException, DocumentTooLargeException, InternalServerError, InvalidParameterException, InvalidS3ObjectException, ProvisionedThroughputExceededException, ThrottlingException, UnsupportedDocumentException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets the results for an Amazon Textract asynchronous operation that analyzes text in a
  * lending document.
- * 
  * 
  * You start asynchronous text analysis by calling `StartLendingAnalysis`,
  * which returns a job identifier (`JobId`). When the text analysis operation
@@ -610,9 +515,8 @@ export class HumanLoopQuotaExceededException extends S.TaggedError<HumanLoopQuot
  * Notification Service (Amazon SNS) topic that's registered in the initial call to
  * `StartLendingAnalysis`.
  * 
- * 
  * To get the results of the text analysis operation, first check that the status value
  * published to the Amazon SNS topic is SUCCEEDED. If so, call GetLendingAnalysis, and pass
  * the job identifier (`JobId`) from the initial call to
  * `StartLendingAnalysis`.
- */export const getLendingAnalysis = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-27", uri: "/", method: "POST", sdkId: "Textract", sigV4ServiceName: "textract", name: "Textract.GetLendingAnalysis" }, GetLendingAnalysisRequest, GetLendingAnalysisResponse, [AccessDeniedException, InternalServerError, InvalidJobIdException, InvalidKMSKeyException, InvalidParameterException, InvalidS3ObjectException, ProvisionedThroughputExceededException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getLendingAnalysis = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-27", sdkId: "Textract", sigV4ServiceName: "textract", name: "Textract.GetLendingAnalysis" }, GetLendingAnalysisRequest, GetLendingAnalysisResponse, [AccessDeniedException, InternalServerError, InvalidJobIdException, InvalidKMSKeyException, InvalidParameterException, InvalidS3ObjectException, ProvisionedThroughputExceededException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

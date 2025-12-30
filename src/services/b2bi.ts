@@ -58,16 +58,14 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
 //# Operations
 /**
  * Maps the input file according to the provided template file. The API call downloads the file contents from the Amazon S3 location, and passes the contents in as a string, to the `inputFileContent` parameter.
- */export const testMapping = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-06-23", uri: "/testmapping", method: "POST", sdkId: "b2bi", sigV4ServiceName: "b2bi", name: "B2BI.TestMapping" }, TestMappingRequest, TestMappingResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const testMapping = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-06-23", uri: "/testmapping", sdkId: "b2bi", sigV4ServiceName: "b2bi", name: "B2BI.TestMapping" }, TestMappingRequest, TestMappingResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Detaches a key-value pair from the specified resource, as identified by its Amazon Resource Name (ARN). Resources are capability, partnership, profile, transformers and other entities.
  */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-06-23", uri: "/tags/{ResourceARN}", method: "DELETE", sdkId: "b2bi", sigV4ServiceName: "b2bi", name: "B2BI.UntagResource" }, UntagResourceRequest, S.Struct({}), [InternalServerException, ResourceNotFoundException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Takes sample input and output documents and uses Amazon Bedrock to generate a mapping automatically. Depending on the accuracy and other factors, you can then edit the mapping for your needs.
  * 
- * 
  * Before you can use the AI-assisted feature for Amazon Web Services B2B Data Interchange you must enable models in Amazon Bedrock. For details, see AI-assisted template mapping prerequisites in the *Amazon Web Services B2B Data Interchange User guide*.
- * 
  * 
  * To generate a mapping, perform the following steps:
  * 
@@ -76,10 +74,9 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * - Call `TestMapping` using your EDI document.
  * 
  * - Use the output from the `TestMapping` operation as either input or output for your GenerateMapping call, along with your sample file.
- */export const generateMapping = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-06-23", uri: "/generate-mapping", method: "POST", sdkId: "b2bi", sigV4ServiceName: "b2bi", name: "B2BI.GenerateMapping" }, GenerateMappingRequest, GenerateMappingResponse, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const generateMapping = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-06-23", uri: "/generate-mapping", sdkId: "b2bi", sigV4ServiceName: "b2bi", name: "B2BI.GenerateMapping" }, GenerateMappingRequest, GenerateMappingResponse, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the details of the transformer run, based on the Transformer job ID.
- * 
  * 
  * If 30 days have elapsed since your transformer job was started, the system deletes it. So, if you run `GetTransformerJob` and supply a `transformerId` and `transformerJobId` for a job that was started more than 30 days previously, you receive a 404 response.
  */export const getTransformerJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-06-23", uri: "/transformer-jobs/{transformerJobId}", method: "GET", sdkId: "b2bi", sigV4ServiceName: "b2bi", name: "B2BI.GetTransformerJob" }, GetTransformerJobRequest, GetTransformerJobResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -91,14 +88,13 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * 
  * If you only want to transform EDI (electronic data interchange) documents, you don't need to create profiles, partnerships or capabilities. Just create and configure a transformer, and then run the `StartTransformerJob` API to process your files.
  * 
- * 
  * The system stores transformer jobs for 30 days. During that period, you can run GetTransformerJob and supply its `transformerId` and `transformerJobId` to return details of the job.
- */export const startTransformerJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-06-23", uri: "/transformer-jobs", method: "POST", sdkId: "b2bi", sigV4ServiceName: "b2bi", name: "B2BI.StartTransformerJob" }, StartTransformerJobRequest, StartTransformerJobResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startTransformerJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-06-23", uri: "/transformer-jobs", sdkId: "b2bi", sigV4ServiceName: "b2bi", name: "B2BI.StartTransformerJob" }, StartTransformerJobRequest, StartTransformerJobResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Attaches a key-value pair to a resource, as identified by its Amazon Resource Name (ARN). Resources are capability, partnership, profile, transformers and other entities.
  * 
  * There is no response returned from this call.
- */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-06-23", uri: "/tags/{ResourceARN}", method: "POST", sdkId: "b2bi", sigV4ServiceName: "b2bi", name: "B2BI.TagResource" }, TagResourceRequest, S.Struct({}), [InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-06-23", uri: "/tags/{ResourceARN}", sdkId: "b2bi", sigV4ServiceName: "b2bi", name: "B2BI.TagResource" }, TagResourceRequest, S.Struct({}), [InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Amazon Web Services B2B Data Interchange uses a mapping template in JSONata or XSLT format to transform a customer input file into a JSON or XML file that can be converted to EDI.
  * 
@@ -107,10 +103,10 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * If you do not provide a sample EDI file, then the service can generate a mapping template based on the EDI settings in the `templateDetails` parameter.
  * 
  * Currently, we only support generating a template that can generate the input to produce an Outbound X12 EDI file.
- */export const createStarterMappingTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-06-23", uri: "/createmappingstarttemplate", method: "POST", sdkId: "b2bi", sigV4ServiceName: "b2bi", name: "B2BI.CreateStarterMappingTemplate" }, CreateStarterMappingTemplateRequest, CreateStarterMappingTemplateResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createStarterMappingTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-06-23", uri: "/createmappingstarttemplate", sdkId: "b2bi", sigV4ServiceName: "b2bi", name: "B2BI.CreateStarterMappingTemplate" }, CreateStarterMappingTemplateRequest, CreateStarterMappingTemplateResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This operation mimics the latter half of a typical Outbound EDI request. It takes an input JSON/XML in the B2Bi shape as input, converts it to an X12 EDI string, and return that string.
- */export const testConversion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-06-23", uri: "/testconversion", method: "POST", sdkId: "b2bi", sigV4ServiceName: "b2bi", name: "B2BI.TestConversion" }, TestConversionRequest, TestConversionResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const testConversion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-06-23", uri: "/testconversion", sdkId: "b2bi", sigV4ServiceName: "b2bi", name: "B2BI.TestConversion" }, TestConversionRequest, TestConversionResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Parses the input EDI (electronic data interchange) file. The input file has a file size limit of 250 KB.
- */export const testParsing = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-06-23", uri: "/testparsing", method: "POST", sdkId: "b2bi", sigV4ServiceName: "b2bi", name: "B2BI.TestParsing" }, TestParsingRequest, TestParsingResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const testParsing = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-06-23", uri: "/testparsing", sdkId: "b2bi", sigV4ServiceName: "b2bi", name: "B2BI.TestParsing" }, TestParsingRequest, TestParsingResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);

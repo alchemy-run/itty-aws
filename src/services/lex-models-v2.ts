@@ -614,28 +614,26 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
  * Builds a bot, its intents, and its slot types into a specific
  * locale. A bot can be built into multiple locales. At runtime the locale
  * is used to choose a specific build of the bot.
- */export const buildBotLocale = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}", method: "POST", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.BuildBotLocale" }, BuildBotLocaleRequest, BuildBotLocaleResponse, [ConflictException, InternalServerException, PreconditionFailedException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const buildBotLocale = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.BuildBotLocale" }, BuildBotLocaleRequest, BuildBotLocaleResponse, [ConflictException, InternalServerException, PreconditionFailedException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Action to create a replication of the source bot in the secondary region.
  */export const createBotReplica = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/bots/{botId}/replicas", method: "PUT", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.CreateBotReplica" }, CreateBotReplicaRequest, CreateBotReplicaResponse, [ConflictException, InternalServerException, PreconditionFailedException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new resource policy with the specified policy
  * statements.
- */export const createResourcePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/policy/{resourceArn}", method: "POST", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.CreateResourcePolicy" }, CreateResourcePolicyRequest, CreateResourcePolicyResponse, [InternalServerException, PreconditionFailedException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createResourcePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/policy/{resourceArn}", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.CreateResourcePolicy" }, CreateResourcePolicyRequest, CreateResourcePolicyResponse, [InternalServerException, PreconditionFailedException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets a pre-signed S3 write URL that you use to upload the zip
  * archive when importing a bot or a bot locale.
- */export const createUploadUrl = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/createuploadurl", method: "POST", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.CreateUploadUrl" }, CreateUploadUrlRequest, CreateUploadUrlResponse, [ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createUploadUrl = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/createuploadurl", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.CreateUploadUrl" }, CreateUploadUrlRequest, CreateUploadUrlResponse, [ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes all versions of a bot, including the `Draft`
  * version. To delete a specific version, use the
  * `DeleteBotVersion` operation.
  * 
- * 
  * When you delete a bot, all of the resources contained in the bot are
  * also deleted. Deleting a bot removes all locales, intents, slot, and
  * slot types defined for the bot.
- * 
  * 
  * If a bot has an alias, the `DeleteBot` operation returns
  * a `ResourceInUseException` exception. If you want to delete
@@ -647,7 +645,6 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
  */export const deleteBotAlias = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/bots/{botId}/botaliases/{botAliasId}", method: "DELETE", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.DeleteBotAlias" }, DeleteBotAliasRequest, DeleteBotAliasResponse, [ConflictException, InternalServerException, PreconditionFailedException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes a locale from a bot.
- * 
  * 
  * When you delete a locale, all intents, slots, and slot types defined
  * for the locale are also deleted.
@@ -674,7 +671,6 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
 /**
  * Removes the specified intent.
  * 
- * 
  * Deleting an intent also deletes the slots associated with the
  * intent.
  */export const deleteIntent = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/intents/{intentId}", method: "DELETE", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.DeleteIntent" }, DeleteIntentRequest, S.Struct({}), [ConflictException, InternalServerException, PreconditionFailedException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -689,7 +685,6 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
  * alias doesn't have a policy attached, Amazon Lex returns an
  * exception.
  * 
- * 
  * You need to add the `DeleteResourcePolicy` or `UpdateResourcePolicy`
  * action to the bot role in order to call the API.
  */export const deleteResourcePolicyStatement = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/policy/{resourceArn}/statements/{statementId}", method: "DELETE", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.DeleteResourcePolicyStatement" }, DeleteResourcePolicyStatementRequest, DeleteResourcePolicyStatementResponse, [InternalServerException, PreconditionFailedException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -698,7 +693,6 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
  */export const deleteSlot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/intents/{intentId}/slots/{slotId}", method: "DELETE", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.DeleteSlot" }, DeleteSlotRequest, S.Struct({}), [ConflictException, InternalServerException, PreconditionFailedException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a slot type from a bot locale.
- * 
  * 
  * If a slot is using the slot type, Amazon Lex throws a
  * `ResourceInUseException` exception. To avoid the
@@ -711,12 +705,10 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
 /**
  * Deletes stored utterances.
  * 
- * 
  * Amazon Lex stores the utterances that users send to your bot. Utterances
  * are stored for 15 days for use with the ListAggregatedUtterances operation, and
  * then stored indefinitely for use in improving the ability of your bot
  * to respond to user input..
- * 
  * 
  * Use the `DeleteUtterances` operation to manually delete
  * utterances for a specific session. When you use the
@@ -774,14 +766,14 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
  */export const describeTestSetGeneration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/testsetgenerations/{testSetGenerationId}", method: "GET", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.DescribeTestSetGeneration" }, DescribeTestSetGenerationRequest, DescribeTestSetGenerationResponse, [InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Generates sample utterances for an intent.
- */export const generateBotElement = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/generate", method: "POST", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.GenerateBotElement" }, GenerateBotElementRequest, GenerateBotElementResponse, [ConflictException, InternalServerException, PreconditionFailedException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const generateBotElement = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/generate", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.GenerateBotElement" }, GenerateBotElementRequest, GenerateBotElementResponse, [ConflictException, InternalServerException, PreconditionFailedException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * The pre-signed Amazon S3 URL to download the test execution result artifacts.
  */export const getTestExecutionArtifactsUrl = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/testexecutions/{testExecutionId}/artifacturl", method: "GET", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.GetTestExecutionArtifactsUrl" }, GetTestExecutionArtifactsUrlRequest, GetTestExecutionArtifactsUrlResponse, [InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Paginated list of custom vocabulary items for a given bot locale's
  * custom vocabulary.
- */export const listCustomVocabularyItems = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/customvocabulary/DEFAULT/list", method: "POST", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.ListCustomVocabularyItems" }, ListCustomVocabularyItemsRequest, ListCustomVocabularyItemsResponse, [InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listCustomVocabularyItems = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/customvocabulary/DEFAULT/list", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.ListCustomVocabularyItems" }, ListCustomVocabularyItemsRequest, ListCustomVocabularyItemsResponse, [InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets a list of tags associated with a resource. Only bots, bot
  * aliases, and bot channels can have tags associated with them.
@@ -800,7 +792,7 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
  * Adds the specified tags to the specified resource. If a tag key
  * already exists, the existing value is replaced with the new
  * value.
- */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/tags/{resourceARN}", method: "POST", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.TagResource" }, TagResourceRequest, TagResourceResponse, [InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/tags/{resourceARN}", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.TagResource" }, TagResourceRequest, TagResourceResponse, [InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the configuration of an existing bot.
  */export const updateBot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/bots/{botId}", method: "PUT", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.UpdateBot" }, UpdateBotRequest, UpdateBotResponse, [ConflictException, InternalServerException, PreconditionFailedException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -815,7 +807,6 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
  */export const updateBotRecommendation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/botrecommendations/{botRecommendationId}", method: "PUT", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.UpdateBotRecommendation" }, UpdateBotRecommendationRequest, UpdateBotRecommendationResponse, [ConflictException, InternalServerException, PreconditionFailedException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the password used to protect an export zip archive.
- * 
  * 
  * The password is not required. If you don't supply a password, Amazon Lex
  * generates a zip file that is not protected by a password. This is the
@@ -839,7 +830,7 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
 /**
  * Delete a batch of custom vocabulary items for a given bot locale's
  * custom vocabulary.
- */export const batchDeleteCustomVocabularyItem = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/customvocabulary/DEFAULT/batchdelete", method: "POST", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.BatchDeleteCustomVocabularyItem" }, BatchDeleteCustomVocabularyItemRequest, BatchDeleteCustomVocabularyItemResponse, [InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const batchDeleteCustomVocabularyItem = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/customvocabulary/DEFAULT/batchdelete", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.BatchDeleteCustomVocabularyItem" }, BatchDeleteCustomVocabularyItemRequest, BatchDeleteCustomVocabularyItemResponse, [InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Update a batch of custom vocabulary items for a given bot locale's custom
  * vocabulary.
@@ -855,22 +846,22 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
  */export const describeBotLocale = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}", method: "GET", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.DescribeBotLocale" }, DescribeBotLocaleRequest, DescribeBotLocaleResponse, [InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets a list of aliases for the specified bot.
- */export const listBotAliases = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/bots/{botId}/botaliases", method: "POST", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.ListBotAliases" }, ListBotAliasesRequest, ListBotAliasesResponse, [InternalServerException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listBotAliases = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/bots/{botId}/botaliases", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.ListBotAliases" }, ListBotAliasesRequest, ListBotAliasesResponse, [InternalServerException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * The action to list the replicated bots created from the source bot alias.
- */export const listBotAliasReplicas = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/bots/{botId}/replicas/{replicaRegion}/botaliases", method: "POST", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.ListBotAliasReplicas" }, ListBotAliasReplicasRequest, ListBotAliasReplicasResponse, [InternalServerException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listBotAliasReplicas = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/bots/{botId}/replicas/{replicaRegion}/botaliases", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.ListBotAliasReplicas" }, ListBotAliasReplicasRequest, ListBotAliasReplicasResponse, [InternalServerException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Get a list of bot recommendations that meet the specified
  * criteria.
- */export const listBotRecommendations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/botrecommendations", method: "POST", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.ListBotRecommendations" }, ListBotRecommendationsRequest, ListBotRecommendationsResponse, [InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listBotRecommendations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/botrecommendations", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.ListBotRecommendations" }, ListBotRecommendationsRequest, ListBotRecommendationsResponse, [InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * The action to list the replicated bots.
- */export const listBotReplicas = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/bots/{botId}/replicas", method: "POST", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.ListBotReplicas" }, ListBotReplicasRequest, ListBotReplicasResponse, [InternalServerException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listBotReplicas = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/bots/{botId}/replicas", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.ListBotReplicas" }, ListBotReplicasRequest, ListBotReplicasResponse, [InternalServerException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets a list of recommended intents provided by the bot
  * recommendation that you can use in your bot. Intents in the
  * response are ordered by relevance.
- */export const listRecommendedIntents = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/botrecommendations/{botRecommendationId}/intents", method: "POST", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.ListRecommendedIntents" }, ListRecommendedIntentsRequest, ListRecommendedIntentsResponse, [InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listRecommendedIntents = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/botrecommendations/{botRecommendationId}/intents", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.ListRecommendedIntents" }, ListRecommendedIntentsRequest, ListRecommendedIntentsResponse, [InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the settings for an intent.
  */export const updateIntent = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/intents/{intentId}", method: "PUT", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.UpdateIntent" }, UpdateIntentRequest, UpdateIntentResponse, [ConflictException, InternalServerException, PreconditionFailedException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -890,11 +881,9 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
  * locale. The archive contains a directory structure that contains JSON
  * files that define the bot.
  * 
- * 
  * You can create an archive that contains the complete definition of a
  * bot, or you can specify that the archive contain only the definition of
  * a single bot locale.
- * 
  * 
  * For more information about exporting bots, and about the structure
  * of the export archive, see Importing and
@@ -905,35 +894,32 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
  * resource policy exists, the statement is added to the current resource
  * policy. If a policy doesn't exist, a new policy is created.
  * 
- * 
  * You can't create a resource policy statement that allows
  * cross-account access.
  * 
- * 
  * You need to add the `CreateResourcePolicy` or `UpdateResourcePolicy`
  * action to the bot role in order to call the API.
- */export const createResourcePolicyStatement = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/policy/{resourceArn}/statements", method: "POST", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.CreateResourcePolicyStatement" }, CreateResourcePolicyStatementRequest, CreateResourcePolicyStatementResponse, [ConflictException, InternalServerException, PreconditionFailedException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createResourcePolicyStatement = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/policy/{resourceArn}/statements", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.CreateResourcePolicyStatement" }, CreateResourcePolicyStatementRequest, CreateResourcePolicyStatementResponse, [ConflictException, InternalServerException, PreconditionFailedException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Create a report that describes the differences between the bot and the test set.
- */export const createTestSetDiscrepancyReport = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/testsets/{testSetId}/testsetdiscrepancy", method: "POST", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.CreateTestSetDiscrepancyReport" }, CreateTestSetDiscrepancyReportRequest, CreateTestSetDiscrepancyReportResponse, [ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createTestSetDiscrepancyReport = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/testsets/{testSetId}/testsetdiscrepancy", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.CreateTestSetDiscrepancyReport" }, CreateTestSetDiscrepancyReportRequest, CreateTestSetDiscrepancyReportResponse, [ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets metadata information about the test set discrepancy report.
  */export const describeTestSetDiscrepancyReport = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/testsetdiscrepancy/{testSetDiscrepancyReportId}", method: "GET", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.DescribeTestSetDiscrepancyReport" }, DescribeTestSetDiscrepancyReportRequest, DescribeTestSetDiscrepancyReportResponse, [InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets a list of locales for the specified bot.
- */export const listBotLocales = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/bots/{botId}/botversions/{botVersion}/botlocales", method: "POST", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.ListBotLocales" }, ListBotLocalesRequest, ListBotLocalesResponse, [InternalServerException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listBotLocales = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/bots/{botId}/botversions/{botVersion}/botlocales", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.ListBotLocales" }, ListBotLocalesRequest, ListBotLocalesResponse, [InternalServerException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the generation requests made for a bot locale.
- */export const listBotResourceGenerations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/generations", method: "POST", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.ListBotResourceGenerations" }, ListBotResourceGenerationsRequest, ListBotResourceGenerationsResponse, [InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listBotResourceGenerations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/generations", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.ListBotResourceGenerations" }, ListBotResourceGenerationsRequest, ListBotResourceGenerationsResponse, [InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets a list of available bots.
- */export const listBots = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/bots", method: "POST", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.ListBots" }, ListBotsRequest, ListBotsResponse, [InternalServerException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listBots = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/bots", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.ListBots" }, ListBotsRequest, ListBotsResponse, [InternalServerException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Contains information about all the versions replication statuses applicable for Global Resiliency.
- */export const listBotVersionReplicas = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/bots/{botId}/replicas/{replicaRegion}/botversions", method: "POST", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.ListBotVersionReplicas" }, ListBotVersionReplicasRequest, ListBotVersionReplicasResponse, [InternalServerException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listBotVersionReplicas = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/bots/{botId}/replicas/{replicaRegion}/botversions", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.ListBotVersionReplicas" }, ListBotVersionReplicasRequest, ListBotVersionReplicasResponse, [InternalServerException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets information about all of the versions of a bot.
- * 
  * 
  * The `ListBotVersions` operation returns a summary of each
  * version of a bot. For example, if a bot has three numbered versions,
@@ -941,74 +927,63 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
  * for each numbered version and one for the `DRAFT`
  * version.
  * 
- * 
  * The `ListBotVersions` operation always returns at least
  * one version, the `DRAFT` version.
- */export const listBotVersions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/bots/{botId}/botversions", method: "POST", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.ListBotVersions" }, ListBotVersionsRequest, ListBotVersionsResponse, [InternalServerException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listBotVersions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/bots/{botId}/botversions", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.ListBotVersions" }, ListBotVersionsRequest, ListBotVersionsResponse, [InternalServerException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets a list of built-in intents provided by Amazon Lex that you can use
  * in your bot.
- * 
  * 
  * To use a built-in intent as a the base for your own intent, include
  * the built-in intent signature in the `parentIntentSignature`
  * parameter when you call the `CreateIntent` operation. For
  * more information, see CreateIntent.
- */export const listBuiltInIntents = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/builtins/locales/{localeId}/intents", method: "POST", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.ListBuiltInIntents" }, ListBuiltInIntentsRequest, ListBuiltInIntentsResponse, [InternalServerException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listBuiltInIntents = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/builtins/locales/{localeId}/intents", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.ListBuiltInIntents" }, ListBuiltInIntentsRequest, ListBuiltInIntentsResponse, [InternalServerException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets a list of built-in slot types that meet the specified
  * criteria.
- */export const listBuiltInSlotTypes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/builtins/locales/{localeId}/slottypes", method: "POST", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.ListBuiltInSlotTypes" }, ListBuiltInSlotTypesRequest, ListBuiltInSlotTypesResponse, [InternalServerException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listBuiltInSlotTypes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/builtins/locales/{localeId}/slottypes", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.ListBuiltInSlotTypes" }, ListBuiltInSlotTypesRequest, ListBuiltInSlotTypesResponse, [InternalServerException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the exports for a bot, bot locale, or custom vocabulary.
  * Exports are kept in the list for 7 days.
- */export const listExports = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/exports", method: "POST", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.ListExports" }, ListExportsRequest, ListExportsResponse, [InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listExports = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/exports", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.ListExports" }, ListExportsRequest, ListExportsResponse, [InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the imports for a bot, bot locale, or custom vocabulary.
  * Imports are kept in the list for 7 days.
- */export const listImports = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/imports", method: "POST", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.ListImports" }, ListImportsRequest, ListImportsResponse, [InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listImports = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/imports", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.ListImports" }, ListImportsRequest, ListImportsResponse, [InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves summary statistics for a path of intents that users take over sessions with your bot. The following fields are required:
  * 
- * 
- * 
  * - `startDateTime` and `endDateTime` – Define a time range for which you want to retrieve results.
- * 
- * 
  * 
  * - `intentPath` – Define an order of intents for which you want to retrieve metrics. Separate intents in the path with a forward slash. For example, populate the `intentPath` field with `/BookCar/BookHotel` to see details about how many times users invoked the `BookCar` and `BookHotel` intents in that order.
  * 
- * 
- * 
- * 
- * 
  * Use the optional `filters` field to filter the results.
- */export const listIntentPaths = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/bots/{botId}/analytics/intentpaths", method: "POST", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.ListIntentPaths" }, ListIntentPathsRequest, ListIntentPathsResponse, [InternalServerException, PreconditionFailedException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listIntentPaths = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/bots/{botId}/analytics/intentpaths", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.ListIntentPaths" }, ListIntentPathsRequest, ListIntentPathsResponse, [InternalServerException, PreconditionFailedException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Get a list of intents that meet the specified criteria.
- */export const listIntents = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/intents", method: "POST", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.ListIntents" }, ListIntentsRequest, ListIntentsResponse, [InternalServerException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listIntents = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/intents", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.ListIntents" }, ListIntentsRequest, ListIntentsResponse, [InternalServerException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets a list of slots that match the specified criteria.
- */export const listSlots = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/intents/{intentId}/slots", method: "POST", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.ListSlots" }, ListSlotsRequest, ListSlotsResponse, [InternalServerException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listSlots = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/intents/{intentId}/slots", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.ListSlots" }, ListSlotsRequest, ListSlotsResponse, [InternalServerException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets a list of slot types that match the specified criteria.
- */export const listSlotTypes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/slottypes", method: "POST", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.ListSlotTypes" }, ListSlotTypesRequest, ListSlotTypesResponse, [InternalServerException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listSlotTypes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/slottypes", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.ListSlotTypes" }, ListSlotTypesRequest, ListSlotTypesResponse, [InternalServerException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * The list of test set executions.
- */export const listTestExecutions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/testexecutions", method: "POST", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.ListTestExecutions" }, ListTestExecutionsRequest, ListTestExecutionsResponse, [InternalServerException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listTestExecutions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/testexecutions", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.ListTestExecutions" }, ListTestExecutionsRequest, ListTestExecutionsResponse, [InternalServerException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * The list of the test sets
- */export const listTestSets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/testsets", method: "POST", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.ListTestSets" }, ListTestSetsRequest, ListTestSetsResponse, [InternalServerException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listTestSets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/testsets", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.ListTestSets" }, ListTestSetsRequest, ListTestSetsResponse, [InternalServerException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Search for associated transcripts that meet the specified
  * criteria.
- */export const searchAssociatedTranscripts = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/botrecommendations/{botRecommendationId}/associatedtranscripts", method: "POST", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.SearchAssociatedTranscripts" }, SearchAssociatedTranscriptsRequest, SearchAssociatedTranscriptsResponse, [InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const searchAssociatedTranscripts = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/botrecommendations/{botRecommendationId}/associatedtranscripts", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.SearchAssociatedTranscripts" }, SearchAssociatedTranscriptsRequest, SearchAssociatedTranscriptsResponse, [InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * The action to start test set execution.
- */export const startTestExecution = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/testsets/{testSetId}/testexecutions", method: "POST", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.StartTestExecution" }, StartTestExecutionRequest, StartTestExecutionResponse, [ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startTestExecution = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/testsets/{testSetId}/testexecutions", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.StartTestExecution" }, StartTestExecutionRequest, StartTestExecutionResponse, [ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a custom slot type
- * 
  * 
  * To create a custom slot type, specify a name for the slot type and
  * a set of enumeration values, the values that a slot of this type can
@@ -1025,210 +1000,116 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
  * Provides a list of utterances that users have sent to the
  * bot.
  * 
- * 
  * Utterances are aggregated by the text of the utterance. For example,
  * all instances where customers used the phrase "I want to order pizza"
  * are aggregated into the same line in the response.
- * 
  * 
  * You can see both detected utterances and missed utterances. A
  * detected utterance is where the bot properly recognized the utterance
  * and activated the associated intent. A missed utterance was not
  * recognized by the bot and didn't activate an intent.
  * 
- * 
  * Utterances can be aggregated for a bot alias or for a bot version,
  * but not both at the same time.
- * 
  * 
  * Utterances statistics are not generated under the following
  * conditions:
  * 
- * 
- * 
  * - The `childDirected` field was set to true when the
  * bot was created.
  * 
- * 
- * 
  * - You are using slot obfuscation with one or more slots.
  * 
- * 
- * 
  * - You opted out of participating in improving Amazon Lex.
- */export const listAggregatedUtterances = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/bots/{botId}/aggregatedutterances", method: "POST", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.ListAggregatedUtterances" }, ListAggregatedUtterancesRequest, ListAggregatedUtterancesResponse, [InternalServerException, PreconditionFailedException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listAggregatedUtterances = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/bots/{botId}/aggregatedutterances", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.ListAggregatedUtterances" }, ListAggregatedUtterancesRequest, ListAggregatedUtterancesResponse, [InternalServerException, PreconditionFailedException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves summary metrics for the intents in your bot. The following fields are required:
  * 
- * 
- * 
  * - `metrics` – A list of AnalyticsIntentMetric objects. In each object, use the `name` field to specify the metric to calculate, the `statistic` field to specify whether to calculate the `Sum`, `Average`, or `Max` number, and the `order` field to specify whether to sort the results in `Ascending` or `Descending` order.
- * 
- * 
  * 
  * - `startDateTime` and `endDateTime` – Define a time range for which you want to retrieve results.
  * 
- * 
- * 
- * 
- * 
  * Of the optional fields, you can organize the results in the following ways:
- * 
- * 
  * 
  * - Use the `filters` field to filter the results, the `groupBy` field to specify categories by which to group the results, and the `binBy` field to specify time intervals by which to group the results.
  * 
- * 
- * 
  * - Use the `maxResults` field to limit the number of results to return in a single response and the `nextToken` field to return the next batch of results if the response does not return the full set of results.
  * 
- * 
- * 
- * 
- * 
  * Note that an `order` field exists in both `binBy` and `metrics`. You can specify only one `order` in a given request.
- */export const listIntentMetrics = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/bots/{botId}/analytics/intentmetrics", method: "POST", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.ListIntentMetrics" }, ListIntentMetricsRequest, ListIntentMetricsResponse, [InternalServerException, PreconditionFailedException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listIntentMetrics = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/bots/{botId}/analytics/intentmetrics", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.ListIntentMetrics" }, ListIntentMetricsRequest, ListIntentMetricsResponse, [InternalServerException, PreconditionFailedException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves summary metrics for the stages within intents in your bot. The following fields are required:
  * 
- * 
- * 
  * - `metrics` – A list of AnalyticsIntentStageMetric objects. In each object, use the `name` field to specify the metric to calculate, the `statistic` field to specify whether to calculate the `Sum`, `Average`, or `Max` number, and the `order` field to specify whether to sort the results in `Ascending` or `Descending` order.
- * 
- * 
  * 
  * - `startDateTime` and `endDateTime` – Define a time range for which you want to retrieve results.
  * 
- * 
- * 
- * 
- * 
  * Of the optional fields, you can organize the results in the following ways:
- * 
- * 
  * 
  * - Use the `filters` field to filter the results, the `groupBy` field to specify categories by which to group the results, and the `binBy` field to specify time intervals by which to group the results.
  * 
- * 
- * 
  * - Use the `maxResults` field to limit the number of results to return in a single response and the `nextToken` field to return the next batch of results if the response does not return the full set of results.
  * 
- * 
- * 
- * 
- * 
  * Note that an `order` field exists in both `binBy` and `metrics`. You can only specify one `order` in a given request.
- */export const listIntentStageMetrics = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/bots/{botId}/analytics/intentstagemetrics", method: "POST", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.ListIntentStageMetrics" }, ListIntentStageMetricsRequest, ListIntentStageMetricsResponse, [InternalServerException, PreconditionFailedException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listIntentStageMetrics = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/bots/{botId}/analytics/intentstagemetrics", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.ListIntentStageMetrics" }, ListIntentStageMetricsRequest, ListIntentStageMetricsResponse, [InternalServerException, PreconditionFailedException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves a list of metadata for individual user sessions with your bot. The `startDateTime` and `endDateTime` fields are required. These fields define a time range for which you want to retrieve results. Of the optional fields, you can organize the results in the following ways:
  * 
- * 
- * 
  * - Use the `filters` field to filter the results and the `sortBy` field to specify the values by which to sort the results.
  * 
- * 
- * 
  * - Use the `maxResults` field to limit the number of results to return in a single response and the `nextToken` field to return the next batch of results if the response does not return the full set of results.
- */export const listSessionAnalyticsData = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/bots/{botId}/analytics/sessions", method: "POST", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.ListSessionAnalyticsData" }, ListSessionAnalyticsDataRequest, ListSessionAnalyticsDataResponse, [InternalServerException, PreconditionFailedException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listSessionAnalyticsData = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/bots/{botId}/analytics/sessions", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.ListSessionAnalyticsData" }, ListSessionAnalyticsDataRequest, ListSessionAnalyticsDataResponse, [InternalServerException, PreconditionFailedException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves summary metrics for the user sessions with your bot. The following fields are required:
  * 
- * 
- * 
  * - `metrics` – A list of AnalyticsSessionMetric objects. In each object, use the `name` field to specify the metric to calculate, the `statistic` field to specify whether to calculate the `Sum`, `Average`, or `Max` number, and the `order` field to specify whether to sort the results in `Ascending` or `Descending` order.
- * 
- * 
  * 
  * - `startDateTime` and `endDateTime` – Define a time range for which you want to retrieve results.
  * 
- * 
- * 
- * 
- * 
  * Of the optional fields, you can organize the results in the following ways:
- * 
- * 
  * 
  * - Use the `filters` field to filter the results, the `groupBy` field to specify categories by which to group the results, and the `binBy` field to specify time intervals by which to group the results.
  * 
- * 
- * 
  * - Use the `maxResults` field to limit the number of results to return in a single response and the `nextToken` field to return the next batch of results if the response does not return the full set of results.
  * 
- * 
- * 
- * 
- * 
  * Note that an `order` field exists in both `binBy` and `metrics`. Currently, you can specify it in either field, but not in both.
- */export const listSessionMetrics = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/bots/{botId}/analytics/sessionmetrics", method: "POST", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.ListSessionMetrics" }, ListSessionMetricsRequest, ListSessionMetricsResponse, [InternalServerException, PreconditionFailedException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listSessionMetrics = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/bots/{botId}/analytics/sessionmetrics", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.ListSessionMetrics" }, ListSessionMetricsRequest, ListSessionMetricsResponse, [InternalServerException, PreconditionFailedException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * To use this API operation, your IAM role must have permissions to
  * perform the ListAggregatedUtterances operation, which provides access to
  * utterance-related analytics. See Viewing utterance
  * statistics for the IAM policy to apply to the IAM role.
- * 
- * 
- * 
  * 
  * Retrieves a list of metadata for individual user utterances to your bot. The following fields are required:
  * 
- * 
- * 
  * - `startDateTime` and `endDateTime` – Define a time range for which you want to retrieve results.
- * 
- * 
- * 
- * 
  * 
  * Of the optional fields, you can organize the results in the following ways:
  * 
- * 
- * 
  * - Use the `filters` field to filter the results and the `sortBy` field to specify the values by which to sort the results.
  * 
- * 
- * 
  * - Use the `maxResults` field to limit the number of results to return in a single response and the `nextToken` field to return the next batch of results if the response does not return the full set of results.
- */export const listUtteranceAnalyticsData = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/bots/{botId}/analytics/utterances", method: "POST", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.ListUtteranceAnalyticsData" }, ListUtteranceAnalyticsDataRequest, ListUtteranceAnalyticsDataResponse, [InternalServerException, PreconditionFailedException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listUtteranceAnalyticsData = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/bots/{botId}/analytics/utterances", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.ListUtteranceAnalyticsData" }, ListUtteranceAnalyticsDataRequest, ListUtteranceAnalyticsDataResponse, [InternalServerException, PreconditionFailedException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * To use this API operation, your IAM role must have permissions to
  * perform the ListAggregatedUtterances operation, which provides access to
  * utterance-related analytics. See Viewing utterance
  * statistics for the IAM policy to apply to the IAM role.
  * 
- * 
- * 
- * 
  * Retrieves summary metrics for the utterances in your bot. The following fields are required:
- * 
- * 
  * 
  * - `metrics` – A list of AnalyticsUtteranceMetric objects. In each object, use the `name` field to specify the metric to calculate, the `statistic` field to specify whether to calculate the `Sum`, `Average`, or `Max` number, and the `order` field to specify whether to sort the results in `Ascending` or `Descending` order.
  * 
- * 
- * 
  * - `startDateTime` and `endDateTime` – Define a time range for which you want to retrieve results.
- * 
- * 
- * 
- * 
  * 
  * Of the optional fields, you can organize the results in the following ways:
  * 
- * 
- * 
  * - Use the `filters` field to filter the results, the `groupBy` field to specify categories by which to group the results, and the `binBy` field to specify time intervals by which to group the results.
- * 
- * 
  * 
  * - Use the `maxResults` field to limit the number of results to return in a single response and the `nextToken` field to return the next batch of results if the response does not return the full set of results.
  * 
- * 
- * 
- * 
- * 
  * Note that an `order` field exists in both `binBy` and `metrics`. Currently, you can specify it in either field, but not in both.
- */export const listUtteranceMetrics = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/bots/{botId}/analytics/utterancemetrics", method: "POST", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.ListUtteranceMetrics" }, ListUtteranceMetricsRequest, ListUtteranceMetricsResponse, [InternalServerException, PreconditionFailedException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listUtteranceMetrics = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/bots/{botId}/analytics/utterancemetrics", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.ListUtteranceMetrics" }, ListUtteranceMetricsRequest, ListUtteranceMetricsResponse, [InternalServerException, PreconditionFailedException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts importing a bot, bot locale, or custom vocabulary from a zip
  * archive that you uploaded to an S3 bucket.
@@ -1240,7 +1121,6 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
  * Creates an alias for the specified version of a bot. Use an alias to
  * enable you to change the version of a bot without updating applications
  * that use the bot.
- * 
  * 
  * For example, you can create an alias called "PROD" that your
  * applications use to call the Amazon Lex bot.
@@ -1265,29 +1145,21 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
 /**
  * Creates an intent.
  * 
- * 
  * To define the interaction between the user and your bot, you define
  * one or more intents. For example, for a pizza ordering bot you would
  * create an `OrderPizza` intent.
  * 
- * 
  * When you create an intent, you must provide a name. You can
  * optionally provide the following:
- * 
- * 
  * 
  * - Sample utterances. For example, "I want to order a pizza" and
  * "Can I order a pizza." You can't provide utterances for built-in
  * intents.
  * 
- * 
- * 
  * - Information to be gathered. You specify slots for the
  * information that you bot requests from the user. You can specify
  * standard slot types, such as date and time, or custom slot types
  * for your application.
- * 
- * 
  * 
  * - How the intent is fulfilled. You can provide a Lambda function
  * or configure the intent to return the intent information to your
@@ -1295,24 +1167,18 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
  * the function when all of the intent information is
  * available.
  * 
- * 
- * 
  * - A confirmation prompt to send to the user to confirm an
  * intent. For example, "Shall I order your pizza?"
  * 
- * 
- * 
  * - A conclusion statement to send to the user after the intent is
  * fulfilled. For example, "I ordered your pizza."
- * 
- * 
  * 
  * - A follow-up prompt that asks the user for additional activity.
  * For example, "Do you want a drink with your pizza?"
  */export const createIntent = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/intents", method: "PUT", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.CreateIntent" }, CreateIntentRequest, CreateIntentResponse, [ConflictException, InternalServerException, PreconditionFailedException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets a list of test execution result items.
- */export const listTestExecutionResultItems = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/testexecutions/{testExecutionId}/results", method: "POST", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.ListTestExecutionResultItems" }, ListTestExecutionResultItemsRequest, ListTestExecutionResultItemsResponse, [InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listTestExecutionResultItems = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/testexecutions/{testExecutionId}/results", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.ListTestExecutionResultItems" }, ListTestExecutionResultItemsRequest, ListTestExecutionResultItemsResponse, [InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * The list of test set records.
- */export const listTestSetRecords = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/testsets/{testSetId}/records", method: "POST", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.ListTestSetRecords" }, ListTestSetRecordsRequest, ListTestSetRecordsResponse, [InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listTestSetRecords = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-07", uri: "/testsets/{testSetId}/records", sdkId: "Lex Models V2", sigV4ServiceName: "lex", name: "LexModelBuildingServiceV2.ListTestSetRecords" }, ListTestSetRecordsRequest, ListTestSetRecordsResponse, [InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

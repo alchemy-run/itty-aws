@@ -272,9 +272,7 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Delete a review template.
  * 
- * 
  * Only the owner of a review template can delete it.
- * 
  * 
  * After the review template is deleted, Amazon Web Services accounts, users,
  * organizations, and organizational units (OUs) that you shared the review template with
@@ -282,7 +280,6 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  */export const deleteReviewTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-03-31", uri: "/reviewTemplates/{TemplateArn}", method: "DELETE", sdkId: "WellArchitected", sigV4ServiceName: "wellarchitected", name: "WellArchitectedApiServiceLambda.DeleteReviewTemplate" }, DeleteReviewTemplateInput, S.Struct({}), [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Delete a review template share.
- * 
  * 
  * After the review template share is deleted, Amazon Web Services accounts, users,
  * organizations, and organizational units (OUs) that you shared the review template with
@@ -297,11 +294,7 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Disassociate a lens from a workload.
  * 
- * 
  * Up to 10 lenses can be disassociated from a workload in a single API operation.
- * 
- * 
- * 
  * 
  * The Amazon Web Services Well-Architected Framework lens (`wellarchitected`) cannot be
  * removed from a workload.
@@ -312,31 +305,20 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Adds one or more tags to the specified resource.
  * 
- * 
- * 
- * 
  * The WorkloadArn parameter can be a workload ARN, a custom lens ARN, a profile ARN, or review template ARN.
- */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-03-31", uri: "/tags/{WorkloadArn}", method: "POST", sdkId: "WellArchitected", sigV4ServiceName: "wellarchitected", name: "WellArchitectedApiServiceLambda.TagResource" }, TagResourceInput, TagResourceOutput, [InternalServerException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-03-31", uri: "/tags/{WorkloadArn}", sdkId: "WellArchitected", sigV4ServiceName: "wellarchitected", name: "WellArchitectedApiServiceLambda.TagResource" }, TagResourceInput, TagResourceOutput, [InternalServerException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes specified tags from a resource.
  * 
- * 
- * 
- * 
  * The WorkloadArn parameter can be a workload ARN, a custom lens ARN, a profile ARN, or review template ARN.
  * 
- * 
- * 
- * 
  * To specify multiple tags, use separate **tagKeys** parameters, for example:
- * 
- * 
  * 
  * `DELETE /tags/WorkloadArn?tagKeys=key1&tagKeys=key2`
  */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-03-31", uri: "/tags/{WorkloadArn}", method: "DELETE", sdkId: "WellArchitected", sigV4ServiceName: "wellarchitected", name: "WellArchitectedApiServiceLambda.UntagResource" }, UntagResourceInput, UntagResourceOutput, [InternalServerException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Update integration features.
- */export const updateIntegration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-03-31", uri: "/workloads/{WorkloadId}/updateIntegration", method: "POST", sdkId: "WellArchitected", sigV4ServiceName: "wellarchitected", name: "WellArchitectedApiServiceLambda.UpdateIntegration" }, UpdateIntegrationInput, S.Struct({}), [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateIntegration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-03-31", uri: "/workloads/{WorkloadId}/updateIntegration", sdkId: "WellArchitected", sigV4ServiceName: "wellarchitected", name: "WellArchitectedApiServiceLambda.UpdateIntegration" }, UpdateIntegrationInput, S.Struct({}), [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Upgrade a profile.
  */export const upgradeProfileVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-03-31", uri: "/workloads/{WorkloadId}/profiles/{ProfileArn}/upgrade", method: "PUT", sdkId: "WellArchitected", sigV4ServiceName: "wellarchitected", name: "WellArchitectedApiServiceLambda.UpgradeProfileVersion" }, UpgradeProfileVersionInput, S.Struct({}), [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -346,17 +328,10 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Associate a lens to a workload.
  * 
- * 
  * Up to 10 lenses can be associated with a workload in a single API operation. A
  * maximum of 20 lenses can be associated with a workload.
  * 
- * 
- * 
- * 
- * 
  * **Disclaimer**
- * 
- * 
  * 
  * By accessing and/or applying custom lenses created by another Amazon Web Services user or account,
  * you acknowledge that custom lenses created by other users and shared with you are
@@ -368,30 +343,19 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Create a lens share.
  * 
- * 
  * The owner of a lens can share it with other Amazon Web Services accounts, users, an organization,
  * and organizational units (OUs) in the same Amazon Web Services Region.
  * Lenses provided by Amazon Web Services (Amazon Web Services Official Content) cannot be shared.
  * 
- * 
- * 
  * Shared access to a lens is not removed until the lens invitation is deleted.
- * 
  * 
  * If you share a lens with an organization or OU, all accounts in the organization or OU
  * are granted access to the lens.
  * 
- * 
  * For more information, see Sharing a custom lens in the
  * *Well-Architected Tool User Guide*.
  * 
- * 
- * 
- * 
- * 
  * **Disclaimer**
- * 
- * 
  * 
  * By sharing your custom lenses with other Amazon Web Services accounts,
  * you acknowledge that Amazon Web Services will make your custom lenses available to those
@@ -399,35 +363,27 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * shared custom lenses even if you delete the custom lenses
  * from your own Amazon Web Services account or terminate
  * your Amazon Web Services account.
- */export const createLensShare = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-03-31", uri: "/lenses/{LensAlias}/shares", method: "POST", sdkId: "WellArchitected", sigV4ServiceName: "wellarchitected", name: "WellArchitectedApiServiceLambda.CreateLensShare" }, CreateLensShareInput, CreateLensShareOutput, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createLensShare = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-03-31", uri: "/lenses/{LensAlias}/shares", sdkId: "WellArchitected", sigV4ServiceName: "wellarchitected", name: "WellArchitectedApiServiceLambda.CreateLensShare" }, CreateLensShareInput, CreateLensShareOutput, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Create a new lens version.
  * 
- * 
  * A lens can have up to 100 versions.
- * 
  * 
  * Use this operation to publish a new lens version after you have imported a lens. The `LensAlias`
  * is used to identify the lens to be published.
  * The owner of a lens can share the lens with other
  * Amazon Web Services accounts and users in the same Amazon Web Services Region. Only the owner of a lens can delete it.
- */export const createLensVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-03-31", uri: "/lenses/{LensAlias}/versions", method: "POST", sdkId: "WellArchitected", sigV4ServiceName: "wellarchitected", name: "WellArchitectedApiServiceLambda.CreateLensVersion" }, CreateLensVersionInput, CreateLensVersionOutput, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createLensVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-03-31", uri: "/lenses/{LensAlias}/versions", sdkId: "WellArchitected", sigV4ServiceName: "wellarchitected", name: "WellArchitectedApiServiceLambda.CreateLensVersion" }, CreateLensVersionInput, CreateLensVersionOutput, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Create a milestone for an existing workload.
- */export const createMilestone = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-03-31", uri: "/workloads/{WorkloadId}/milestones", method: "POST", sdkId: "WellArchitected", sigV4ServiceName: "wellarchitected", name: "WellArchitectedApiServiceLambda.CreateMilestone" }, CreateMilestoneInput, CreateMilestoneOutput, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createMilestone = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-03-31", uri: "/workloads/{WorkloadId}/milestones", sdkId: "WellArchitected", sigV4ServiceName: "wellarchitected", name: "WellArchitectedApiServiceLambda.CreateMilestone" }, CreateMilestoneInput, CreateMilestoneOutput, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Create a profile share.
- */export const createProfileShare = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-03-31", uri: "/profiles/{ProfileArn}/shares", method: "POST", sdkId: "WellArchitected", sigV4ServiceName: "wellarchitected", name: "WellArchitectedApiServiceLambda.CreateProfileShare" }, CreateProfileShareInput, CreateProfileShareOutput, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createProfileShare = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-03-31", uri: "/profiles/{ProfileArn}/shares", sdkId: "WellArchitected", sigV4ServiceName: "wellarchitected", name: "WellArchitectedApiServiceLambda.CreateProfileShare" }, CreateProfileShareInput, CreateProfileShareOutput, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Create a review template.
  * 
- * 
- * 
- * 
- * 
  * **Disclaimer**
- * 
- * 
  * 
  * Do not include or gather personal identifiable information (PII) of end users or
  * other identifiable individuals in or via your review templates. If your review
@@ -435,65 +391,45 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * you are responsible for: ensuring that the included PII is processed in accordance
  * with applicable law, providing adequate privacy notices, and obtaining necessary
  * consents for processing such data.
- */export const createReviewTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-03-31", uri: "/reviewTemplates", method: "POST", sdkId: "WellArchitected", sigV4ServiceName: "wellarchitected", name: "WellArchitectedApiServiceLambda.CreateReviewTemplate" }, CreateReviewTemplateInput, CreateReviewTemplateOutput, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createReviewTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-03-31", uri: "/reviewTemplates", sdkId: "WellArchitected", sigV4ServiceName: "wellarchitected", name: "WellArchitectedApiServiceLambda.CreateReviewTemplate" }, CreateReviewTemplateInput, CreateReviewTemplateOutput, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Create a review template share.
- * 
  * 
  * The owner of a review template can share it with other Amazon Web Services accounts,
  * users, an organization, and organizational units (OUs) in the same Amazon Web Services Region.
  * 
- * 
  * Shared access to a review template is not removed until the review template share
  * invitation is deleted.
- * 
  * 
  * If you share a review template with an organization or OU, all accounts in the
  * organization or OU are granted access to the review template.
  * 
- * 
- * 
- * 
- * 
  * **Disclaimer**
- * 
- * 
  * 
  * By sharing your review template with other Amazon Web Services accounts, you
  * acknowledge that Amazon Web Services will make your review template available to
  * those other accounts.
- */export const createTemplateShare = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-03-31", uri: "/templates/shares/{TemplateArn}", method: "POST", sdkId: "WellArchitected", sigV4ServiceName: "wellarchitected", name: "WellArchitectedApiServiceLambda.CreateTemplateShare" }, CreateTemplateShareInput, CreateTemplateShareOutput, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createTemplateShare = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-03-31", uri: "/templates/shares/{TemplateArn}", sdkId: "WellArchitected", sigV4ServiceName: "wellarchitected", name: "WellArchitectedApiServiceLambda.CreateTemplateShare" }, CreateTemplateShareInput, CreateTemplateShareOutput, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Create a workload share.
- * 
  * 
  * The owner of a workload can share it with other Amazon Web Services accounts and users in the same
  * Amazon Web Services Region. Shared access to a workload is not removed until the workload invitation is
  * deleted.
  * 
- * 
  * If you share a workload with an organization or OU, all accounts in the organization or OU
  * are granted access to the workload.
  * 
- * 
  * For more information, see Sharing a workload in the
  * *Well-Architected Tool User Guide*.
- */export const createWorkloadShare = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-03-31", uri: "/workloads/{WorkloadId}/shares", method: "POST", sdkId: "WellArchitected", sigV4ServiceName: "wellarchitected", name: "WellArchitectedApiServiceLambda.CreateWorkloadShare" }, CreateWorkloadShareInput, CreateWorkloadShareOutput, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createWorkloadShare = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-03-31", uri: "/workloads/{WorkloadId}/shares", sdkId: "WellArchitected", sigV4ServiceName: "wellarchitected", name: "WellArchitectedApiServiceLambda.CreateWorkloadShare" }, CreateWorkloadShareInput, CreateWorkloadShareOutput, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Delete an existing lens.
- * 
  * 
  * Only the owner of a lens can delete it. After the lens is deleted, Amazon Web Services accounts and users
  * that you shared the lens with can continue to use it, but they will no longer be able to apply it to new workloads.
  * 
- * 
- * 
- * 
- * 
- * 
  * **Disclaimer**
- * 
- * 
  * 
  * By sharing your custom lenses with other Amazon Web Services accounts,
  * you acknowledge that Amazon Web Services will make your custom lenses available to those
@@ -505,18 +441,11 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Delete a lens share.
  * 
- * 
  * After the lens share is deleted, Amazon Web Services accounts, users, organizations,
  * and organizational units (OUs)
  * that you shared the lens with can continue to use it, but they will no longer be able to apply it to new workloads.
  * 
- * 
- * 
- * 
- * 
  * **Disclaimer**
- * 
- * 
  * 
  * By sharing your custom lenses with other Amazon Web Services accounts,
  * you acknowledge that Amazon Web Services will make your custom lenses available to those
@@ -528,13 +457,7 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Delete a profile.
  * 
- * 
- * 
- * 
- * 
  * **Disclaimer**
- * 
- * 
  * 
  * By sharing your profile with other Amazon Web Services accounts,
  * you acknowledge that Amazon Web Services will make your profile available to those
@@ -546,21 +469,13 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Export an existing lens.
  * 
- * 
  * Only the owner of a lens can export it. Lenses provided by Amazon Web Services (Amazon Web Services Official Content)
  * cannot be exported.
- * 
  * 
  * Lenses are defined in JSON. For more information, see JSON format specification
  * in the *Well-Architected Tool User Guide*.
  * 
- * 
- * 
- * 
- * 
  * **Disclaimer**
- * 
- * 
  * 
  * Do not include or gather personal identifiable information (PII) of end users or
  * other identifiable individuals in or via your custom lenses. If your custom
@@ -575,29 +490,19 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Import a new custom lens or update an existing custom lens.
  * 
- * 
  * To update an existing custom lens, specify its ARN as the `LensAlias`. If
  * no ARN is specified, a new custom lens is created.
- * 
  * 
  * The new or updated lens will have a status of `DRAFT`. The lens cannot be
  * applied to workloads or shared with other Amazon Web Services accounts until it's
  * published with CreateLensVersion.
  * 
- * 
  * Lenses are defined in JSON. For more information, see JSON format specification
  * in the *Well-Architected Tool User Guide*.
  * 
- * 
  * A custom lens cannot exceed 500 KB in size.
  * 
- * 
- * 
- * 
- * 
  * **Disclaimer**
- * 
- * 
  * 
  * Do not include or gather personal identifiable information (PII) of end users or
  * other identifiable individuals in or via your custom lenses. If your custom
@@ -608,9 +513,6 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  */export const importLens = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-03-31", uri: "/importLens", method: "PUT", sdkId: "WellArchitected", sigV4ServiceName: "wellarchitected", name: "WellArchitectedApiServiceLambda.ImportLens" }, ImportLensInput, ImportLensOutput, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * List the tags for a resource.
- * 
- * 
- * 
  * 
  * The WorkloadArn parameter can be a workload ARN, a custom lens ARN, a profile ARN, or review template ARN.
  */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-03-31", uri: "/tags/{WorkloadArn}", method: "GET", sdkId: "WellArchitected", sigV4ServiceName: "wellarchitected", name: "WellArchitectedApiServiceLambda.ListTagsForResource" }, ListTagsForResourceInput, ListTagsForResourceOutput, [InternalServerException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -637,54 +539,33 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  */export const upgradeLensReview = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-03-31", uri: "/workloads/{WorkloadId}/lensReviews/{LensAlias}/upgrade", method: "PUT", sdkId: "WellArchitected", sigV4ServiceName: "wellarchitected", name: "WellArchitectedApiServiceLambda.UpgradeLensReview" }, UpgradeLensReviewInput, S.Struct({}), [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Create a profile.
- */export const createProfile = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-03-31", uri: "/profiles", method: "POST", sdkId: "WellArchitected", sigV4ServiceName: "wellarchitected", name: "WellArchitectedApiServiceLambda.CreateProfile" }, CreateProfileInput, CreateProfileOutput, [AccessDeniedException, ConflictException, InternalServerException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createProfile = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-03-31", uri: "/profiles", sdkId: "WellArchitected", sigV4ServiceName: "wellarchitected", name: "WellArchitectedApiServiceLambda.CreateProfile" }, CreateProfileInput, CreateProfileOutput, [AccessDeniedException, ConflictException, InternalServerException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Create a new workload.
- * 
  * 
  * The owner of a workload can share the workload with other Amazon Web Services accounts, users,
  * an organization, and organizational units (OUs)
  * in the same Amazon Web Services Region. Only the owner of a workload can delete it.
  * 
- * 
  * For more information, see Defining a Workload in the
  * *Well-Architected Tool User Guide*.
- * 
- * 
- * 
  * 
  * Either `AwsRegions`, `NonAwsRegions`, or both must be specified when
  * creating a workload.
  * 
- * 
  * You also must specify `ReviewOwner`, even though the
  * parameter is listed as not being required in the following section.
  * 
- * 
- * 
- * 
- * 
  * When creating a workload using a review template, you must have the following IAM permissions:
- * 
- * 
  * 
  * - `wellarchitected:GetReviewTemplate`
  * 
- * 
- * 
- * 
  * - `wellarchitected:GetReviewTemplateAnswer`
- * 
- * 
- * 
  * 
  * - `wellarchitected:ListReviewTemplateAnswers`
  * 
- * 
- * 
- * 
  * - `wellarchitected:GetReviewTemplateLensReview`
- */export const createWorkload = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-03-31", uri: "/workloads", method: "POST", sdkId: "WellArchitected", sigV4ServiceName: "wellarchitected", name: "WellArchitectedApiServiceLambda.CreateWorkload" }, CreateWorkloadInput, CreateWorkloadOutput, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createWorkload = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-03-31", uri: "/workloads", sdkId: "WellArchitected", sigV4ServiceName: "wellarchitected", name: "WellArchitectedApiServiceLambda.CreateWorkload" }, CreateWorkloadInput, CreateWorkloadOutput, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Delete a profile share.
  */export const deleteProfileShare = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-03-31", uri: "/profiles/{ProfileArn}/shares/{ShareId}", method: "DELETE", sdkId: "WellArchitected", sigV4ServiceName: "wellarchitected", name: "WellArchitectedApiServiceLambda.DeleteProfileShare" }, DeleteProfileShareInput, S.Struct({}), [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -702,7 +583,7 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  */export const getReviewTemplateAnswer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-03-31", uri: "/reviewTemplates/{TemplateArn}/lensReviews/{LensAlias}/answers/{QuestionId}", method: "GET", sdkId: "WellArchitected", sigV4ServiceName: "wellarchitected", name: "WellArchitectedApiServiceLambda.GetReviewTemplateAnswer" }, GetReviewTemplateAnswerInput, GetReviewTemplateAnswerOutput, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * List of Trusted Advisor check details by account related to the workload.
- */export const listCheckDetails = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-03-31", uri: "/workloads/{WorkloadId}/checks", method: "POST", sdkId: "WellArchitected", sigV4ServiceName: "wellarchitected", name: "WellArchitectedApiServiceLambda.ListCheckDetails" }, ListCheckDetailsInput, ListCheckDetailsOutput, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listCheckDetails = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-03-31", uri: "/workloads/{WorkloadId}/checks", sdkId: "WellArchitected", sigV4ServiceName: "wellarchitected", name: "WellArchitectedApiServiceLambda.ListCheckDetails" }, ListCheckDetailsInput, ListCheckDetailsOutput, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * List the available lenses.
  */export const listLenses = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-03-31", uri: "/lenses", method: "GET", sdkId: "WellArchitected", sigV4ServiceName: "wellarchitected", name: "WellArchitectedApiServiceLambda.ListLenses" }, ListLensesInput, ListLensesOutput, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -714,7 +595,7 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  */export const listLensShares = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-03-31", uri: "/lenses/{LensAlias}/shares", method: "GET", sdkId: "WellArchitected", sigV4ServiceName: "wellarchitected", name: "WellArchitectedApiServiceLambda.ListLensShares" }, ListLensSharesInput, ListLensSharesOutput, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * List all milestones for an existing workload.
- */export const listMilestones = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-03-31", uri: "/workloads/{WorkloadId}/milestonesSummaries", method: "POST", sdkId: "WellArchitected", sigV4ServiceName: "wellarchitected", name: "WellArchitectedApiServiceLambda.ListMilestones" }, ListMilestonesInput, ListMilestonesOutput, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listMilestones = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-03-31", uri: "/workloads/{WorkloadId}/milestonesSummaries", sdkId: "WellArchitected", sigV4ServiceName: "wellarchitected", name: "WellArchitectedApiServiceLambda.ListMilestones" }, ListMilestonesInput, ListMilestonesOutput, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * List profile notifications.
  */export const listProfileNotifications = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-03-31", uri: "/profileNotifications", method: "GET", sdkId: "WellArchitected", sigV4ServiceName: "wellarchitected", name: "WellArchitectedApiServiceLambda.ListProfileNotifications" }, ListProfileNotificationsInput, ListProfileNotificationsOutput, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -733,8 +614,6 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * List the share invitations.
  * 
- * 
- * 
  * `WorkloadNamePrefix`, `LensNamePrefix`,
  * `ProfileNamePrefix`, and `TemplateNamePrefix` are mutually
  * exclusive. Use the parameter that matches your `ShareResourceType`.
@@ -744,15 +623,12 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  */export const listTemplateShares = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-03-31", uri: "/templates/shares/{TemplateArn}", method: "GET", sdkId: "WellArchitected", sigV4ServiceName: "wellarchitected", name: "WellArchitectedApiServiceLambda.ListTemplateShares" }, ListTemplateSharesInput, ListTemplateSharesOutput, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Paginated list of workloads.
- */export const listWorkloads = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-03-31", uri: "/workloadsSummaries", method: "POST", sdkId: "WellArchitected", sigV4ServiceName: "wellarchitected", name: "WellArchitectedApiServiceLambda.ListWorkloads" }, ListWorkloadsInput, ListWorkloadsOutput, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listWorkloads = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-03-31", uri: "/workloadsSummaries", sdkId: "WellArchitected", sigV4ServiceName: "wellarchitected", name: "WellArchitectedApiServiceLambda.ListWorkloads" }, ListWorkloadsInput, ListWorkloadsOutput, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * List the workload shares associated with the workload.
  */export const listWorkloadShares = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-03-31", uri: "/workloads/{WorkloadId}/shares", method: "GET", sdkId: "WellArchitected", sigV4ServiceName: "wellarchitected", name: "WellArchitectedApiServiceLambda.ListWorkloadShares" }, ListWorkloadSharesInput, ListWorkloadSharesOutput, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Update a workload or custom lens share invitation.
- * 
- * 
- * 
  * 
  * This API operation can be called independently of any resource. Previous documentation implied that a workload ARN must be specified.
  */export const updateShareInvitation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-03-31", uri: "/shareInvitations/{ShareInvitationId}", method: "PATCH", sdkId: "WellArchitected", sigV4ServiceName: "wellarchitected", name: "WellArchitectedApiServiceLambda.UpdateShareInvitation" }, UpdateShareInvitationInput, UpdateShareInvitationOutput, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -779,13 +655,13 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  */export const listAnswers = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-03-31", uri: "/workloads/{WorkloadId}/lensReviews/{LensAlias}/answers", method: "GET", sdkId: "WellArchitected", sigV4ServiceName: "wellarchitected", name: "WellArchitectedApiServiceLambda.ListAnswers" }, ListAnswersInput, ListAnswersOutput, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * List of Trusted Advisor checks summarized for all accounts related to the workload.
- */export const listCheckSummaries = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-03-31", uri: "/workloads/{WorkloadId}/checkSummaries", method: "POST", sdkId: "WellArchitected", sigV4ServiceName: "wellarchitected", name: "WellArchitectedApiServiceLambda.ListCheckSummaries" }, ListCheckSummariesInput, ListCheckSummariesOutput, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listCheckSummaries = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-03-31", uri: "/workloads/{WorkloadId}/checkSummaries", sdkId: "WellArchitected", sigV4ServiceName: "wellarchitected", name: "WellArchitectedApiServiceLambda.ListCheckSummaries" }, ListCheckSummariesInput, ListCheckSummariesOutput, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * List the improvements of a particular lens review.
  */export const listLensReviewImprovements = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-03-31", uri: "/workloads/{WorkloadId}/lensReviews/{LensAlias}/improvements", method: "GET", sdkId: "WellArchitected", sigV4ServiceName: "wellarchitected", name: "WellArchitectedApiServiceLambda.ListLensReviewImprovements" }, ListLensReviewImprovementsInput, ListLensReviewImprovementsOutput, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * List lens notifications.
- */export const listNotifications = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-03-31", uri: "/notifications", method: "POST", sdkId: "WellArchitected", sigV4ServiceName: "wellarchitected", name: "WellArchitectedApiServiceLambda.ListNotifications" }, ListNotificationsInput, ListNotificationsOutput, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listNotifications = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-03-31", uri: "/notifications", sdkId: "WellArchitected", sigV4ServiceName: "wellarchitected", name: "WellArchitectedApiServiceLambda.ListNotifications" }, ListNotificationsInput, ListNotificationsOutput, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Update the answer to a specific question in a workload review.
  */export const updateAnswer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-03-31", uri: "/workloads/{WorkloadId}/lensReviews/{LensAlias}/answers/{QuestionId}", method: "PATCH", sdkId: "WellArchitected", sigV4ServiceName: "wellarchitected", name: "WellArchitectedApiServiceLambda.UpdateAnswer" }, UpdateAnswerInput, UpdateAnswerOutput, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -803,7 +679,6 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  */export const getProfile = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-03-31", uri: "/profiles/{ProfileArn}", method: "GET", sdkId: "WellArchitected", sigV4ServiceName: "wellarchitected", name: "WellArchitectedApiServiceLambda.GetProfile" }, GetProfileInput, GetProfileOutput, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Get a consolidated report of your workloads.
- * 
  * 
  * You can optionally choose to include workloads that have been shared with you.
  */export const getConsolidatedReport = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-03-31", uri: "/consolidatedReport", method: "GET", sdkId: "WellArchitected", sigV4ServiceName: "wellarchitected", name: "WellArchitectedApiServiceLambda.GetConsolidatedReport" }, GetConsolidatedReportInput, GetConsolidatedReportOutput, [AccessDeniedException, ConflictException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

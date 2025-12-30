@@ -348,39 +348,27 @@ export class LogDestinationPermissionException extends S.TaggedError<LogDestinat
 /**
  * Accepts a transit gateway attachment request for Network Firewall. When you accept the attachment request, Network Firewall creates the necessary routing components to enable traffic flow between the transit gateway and firewall endpoints.
  * 
- * 
  * You must accept a transit gateway attachment to complete the creation of a transit gateway-attached firewall, unless auto-accept is enabled on the transit gateway. After acceptance, use DescribeFirewall to verify the firewall status.
- * 
  * 
  * To reject an attachment instead of accepting it, use RejectNetworkFirewallTransitGatewayAttachment.
  * 
- * 
- * 
- * 
  * It can take several minutes for the attachment acceptance to complete and the firewall to become available.
- */export const acceptNetworkFirewallTransitGatewayAttachment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", uri: "/", method: "POST", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.AcceptNetworkFirewallTransitGatewayAttachment" }, AcceptNetworkFirewallTransitGatewayAttachmentRequest, AcceptNetworkFirewallTransitGatewayAttachmentResponse, [InternalServerError, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const acceptNetworkFirewallTransitGatewayAttachment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.AcceptNetworkFirewallTransitGatewayAttachment" }, AcceptNetworkFirewallTransitGatewayAttachmentRequest, AcceptNetworkFirewallTransitGatewayAttachmentResponse, [InternalServerError, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a transit gateway attachment from a Network Firewall. Either the firewall owner or the transit gateway owner can delete the attachment.
  * 
- * 
- * 
- * 
  * After you delete a transit gateway attachment, traffic will no longer flow through the firewall endpoints.
  * 
- * 
- * 
- * 
  * After you initiate the delete operation, use DescribeFirewall to monitor the deletion status.
- */export const deleteNetworkFirewallTransitGatewayAttachment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", uri: "/", method: "POST", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.DeleteNetworkFirewallTransitGatewayAttachment" }, DeleteNetworkFirewallTransitGatewayAttachmentRequest, DeleteNetworkFirewallTransitGatewayAttachmentResponse, [InternalServerError, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteNetworkFirewallTransitGatewayAttachment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.DeleteNetworkFirewallTransitGatewayAttachment" }, DeleteNetworkFirewallTransitGatewayAttachmentRequest, DeleteNetworkFirewallTransitGatewayAttachmentResponse, [InternalServerError, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the specified ProxyConfiguration.
- */export const deleteProxyConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", uri: "/", method: "POST", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.DeleteProxyConfiguration" }, DeleteProxyConfigurationRequest, DeleteProxyConfigurationResponse, [InternalServerError, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteProxyConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.DeleteProxyConfiguration" }, DeleteProxyConfigurationRequest, DeleteProxyConfigurationResponse, [InternalServerError, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the specified ProxyRuleGroup.
- */export const deleteProxyRuleGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", uri: "/", method: "POST", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.DeleteProxyRuleGroup" }, DeleteProxyRuleGroupRequest, DeleteProxyRuleGroupResponse, [InternalServerError, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteProxyRuleGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.DeleteProxyRuleGroup" }, DeleteProxyRuleGroupRequest, DeleteProxyRuleGroupResponse, [InternalServerError, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the specified VpcEndpointAssociation.
- * 
  * 
  * You can check whether an endpoint association is
  * in use by reviewing the route tables for the Availability Zones where you have the endpoint subnet mapping.
@@ -388,51 +376,49 @@ export class LogDestinationPermissionException extends S.TaggedError<LogDestinat
  * You define and update the route tables through Amazon VPC. As needed, update the route tables for the
  * Availability Zone to remove the firewall endpoint for the association. When the route tables no longer use the firewall endpoint,
  * you can remove the endpoint association safely.
- */export const deleteVpcEndpointAssociation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", uri: "/", method: "POST", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.DeleteVpcEndpointAssociation" }, DeleteVpcEndpointAssociationRequest, DeleteVpcEndpointAssociationResponse, [InternalServerError, InvalidOperationException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteVpcEndpointAssociation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.DeleteVpcEndpointAssociation" }, DeleteVpcEndpointAssociationRequest, DeleteVpcEndpointAssociationResponse, [InternalServerError, InvalidOperationException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the data objects for the specified firewall.
- */export const describeFirewall = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", uri: "/", method: "POST", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.DescribeFirewall" }, DescribeFirewallRequest, DescribeFirewallResponse, [InternalServerError, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeFirewall = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.DescribeFirewall" }, DescribeFirewallRequest, DescribeFirewallResponse, [InternalServerError, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the data objects for the specified firewall policy.
- */export const describeFirewallPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", uri: "/", method: "POST", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.DescribeFirewallPolicy" }, DescribeFirewallPolicyRequest, DescribeFirewallPolicyResponse, [InternalServerError, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeFirewallPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.DescribeFirewallPolicy" }, DescribeFirewallPolicyRequest, DescribeFirewallPolicyResponse, [InternalServerError, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the logging configuration for the specified firewall.
- */export const describeLoggingConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", uri: "/", method: "POST", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.DescribeLoggingConfiguration" }, DescribeLoggingConfigurationRequest, DescribeLoggingConfigurationResponse, [InternalServerError, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeLoggingConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.DescribeLoggingConfiguration" }, DescribeLoggingConfigurationRequest, DescribeLoggingConfigurationResponse, [InternalServerError, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the data objects for the specified proxy configuration for the specified proxy rule group.
- */export const describeProxyRule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", uri: "/", method: "POST", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.DescribeProxyRule" }, DescribeProxyRuleRequest, DescribeProxyRuleResponse, [InternalServerError, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeProxyRule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.DescribeProxyRule" }, DescribeProxyRuleRequest, DescribeProxyRuleResponse, [InternalServerError, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the data objects for the specified proxy rule group.
- */export const describeProxyRuleGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", uri: "/", method: "POST", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.DescribeProxyRuleGroup" }, DescribeProxyRuleGroupRequest, DescribeProxyRuleGroupResponse, [InternalServerError, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeProxyRuleGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.DescribeProxyRuleGroup" }, DescribeProxyRuleGroupRequest, DescribeProxyRuleGroupResponse, [InternalServerError, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves a resource policy that you created in a PutResourcePolicy request.
- */export const describeResourcePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", uri: "/", method: "POST", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.DescribeResourcePolicy" }, DescribeResourcePolicyRequest, DescribeResourcePolicyResponse, [InternalServerError, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeResourcePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.DescribeResourcePolicy" }, DescribeResourcePolicyRequest, DescribeResourcePolicyResponse, [InternalServerError, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the data objects for the specified rule group.
- */export const describeRuleGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", uri: "/", method: "POST", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.DescribeRuleGroup" }, DescribeRuleGroupRequest, DescribeRuleGroupResponse, [InternalServerError, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeRuleGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.DescribeRuleGroup" }, DescribeRuleGroupRequest, DescribeRuleGroupResponse, [InternalServerError, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * High-level information about a rule group, returned by operations like create and describe.
  * You can use the information provided in the metadata to retrieve and manage a rule group.
  * You can retrieve all objects for a rule group by calling DescribeRuleGroup.
- */export const describeRuleGroupMetadata = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", uri: "/", method: "POST", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.DescribeRuleGroupMetadata" }, DescribeRuleGroupMetadataRequest, DescribeRuleGroupMetadataResponse, [InternalServerError, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeRuleGroupMetadata = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.DescribeRuleGroupMetadata" }, DescribeRuleGroupMetadataRequest, DescribeRuleGroupMetadataResponse, [InternalServerError, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the data objects for the specified TLS inspection configuration.
- */export const describeTLSInspectionConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", uri: "/", method: "POST", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.DescribeTLSInspectionConfiguration" }, DescribeTLSInspectionConfigurationRequest, DescribeTLSInspectionConfigurationResponse, [InternalServerError, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeTLSInspectionConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.DescribeTLSInspectionConfiguration" }, DescribeTLSInspectionConfigurationRequest, DescribeTLSInspectionConfigurationResponse, [InternalServerError, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the data object for the specified VPC endpoint association.
- */export const describeVpcEndpointAssociation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", uri: "/", method: "POST", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.DescribeVpcEndpointAssociation" }, DescribeVpcEndpointAssociationRequest, DescribeVpcEndpointAssociationResponse, [InternalServerError, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeVpcEndpointAssociation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.DescribeVpcEndpointAssociation" }, DescribeVpcEndpointAssociationRequest, DescribeVpcEndpointAssociationResponse, [InternalServerError, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Detaches ProxyRuleGroup resources from a ProxyConfiguration
  * 
- * 
- * 
  * A Proxy Configuration defines the monitoring and protection behavior for a Proxy. The details of the behavior are defined in the rule groups that you add to your configuration.
- */export const detachRuleGroupsFromProxyConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", uri: "/", method: "POST", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.DetachRuleGroupsFromProxyConfiguration" }, DetachRuleGroupsFromProxyConfigurationRequest, DetachRuleGroupsFromProxyConfigurationResponse, [InternalServerError, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const detachRuleGroupsFromProxyConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.DetachRuleGroupsFromProxyConfiguration" }, DetachRuleGroupsFromProxyConfigurationRequest, DetachRuleGroupsFromProxyConfigurationResponse, [InternalServerError, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes the specified subnet associations from the firewall. This removes the
  * firewall endpoints from the subnets and removes any network filtering protections that the endpoints
  * were providing.
- */export const disassociateSubnets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", uri: "/", method: "POST", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.DisassociateSubnets" }, DisassociateSubnetsRequest, DisassociateSubnetsResponse, [InternalServerError, InvalidOperationException, InvalidRequestException, InvalidTokenException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const disassociateSubnets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.DisassociateSubnets" }, DisassociateSubnetsRequest, DisassociateSubnetsResponse, [InternalServerError, InvalidOperationException, InvalidRequestException, InvalidTokenException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the tags associated with the specified resource. Tags are key:value pairs that
  * you can use to categorize and manage your resources, for purposes like billing. For
@@ -440,79 +426,57 @@ export class LogDestinationPermissionException extends S.TaggedError<LogDestinat
  * You can specify one or more tags to add to each Amazon Web Services resource, up to 50 tags for a
  * resource.
  * 
- * 
  * You can tag the Amazon Web Services resources that you manage through Network Firewall: firewalls, firewall
  * policies, and rule groups.
- */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", uri: "/", method: "POST", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [InternalServerError, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [InternalServerError, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates or updates an IAM policy for your rule group, firewall policy, or firewall. Use this to share these resources between accounts. This operation works in conjunction with the Amazon Web Services Resource Access Manager (RAM) service to manage resource sharing for Network Firewall.
- * 
  * 
  * For information about using sharing with Network Firewall resources, see
  * Sharing Network Firewall resources in the *Network Firewall Developer Guide*.
  * 
- * 
  * Use this operation to create or update a resource policy for your Network Firewall rule group, firewall policy, or firewall. In the resource policy, you specify the accounts that you want to share the Network Firewall resource with and the operations that you want the accounts to be able to perform.
- * 
  * 
  * When you add an account in the resource policy, you then run the following Resource Access Manager (RAM) operations to access and accept the shared resource.
  * 
- * 
- * 
  * - GetResourceShareInvitations - Returns the Amazon Resource Names (ARNs) of the resource share invitations.
- * 
- * 
  * 
  * - AcceptResourceShareInvitation - Accepts the share invitation for a specified resource share.
  * 
- * 
- * 
- * 
- * 
  * For additional information about resource sharing using RAM, see Resource Access Manager User Guide.
- */export const putResourcePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", uri: "/", method: "POST", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.PutResourcePolicy" }, PutResourcePolicyRequest, PutResourcePolicyResponse, [InternalServerError, InvalidRequestException, InvalidResourcePolicyException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putResourcePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.PutResourcePolicy" }, PutResourcePolicyRequest, PutResourcePolicyResponse, [InternalServerError, InvalidRequestException, InvalidResourcePolicyException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Rejects a transit gateway attachment request for Network Firewall. When you reject the attachment request, Network Firewall cancels the creation of routing components between the transit gateway and firewall endpoints.
  * 
- * 
  * Only the transit gateway owner can reject the attachment. After rejection, no traffic will flow through the firewall endpoints for this attachment.
- * 
  * 
  * Use DescribeFirewall to monitor the rejection status. To accept the attachment instead of rejecting it, use AcceptNetworkFirewallTransitGatewayAttachment.
  * 
- * 
- * 
- * 
  * Once rejected, you cannot reverse this action. To establish connectivity, you must create a new transit gateway-attached firewall.
- */export const rejectNetworkFirewallTransitGatewayAttachment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", uri: "/", method: "POST", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.RejectNetworkFirewallTransitGatewayAttachment" }, RejectNetworkFirewallTransitGatewayAttachmentRequest, RejectNetworkFirewallTransitGatewayAttachmentResponse, [InternalServerError, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const rejectNetworkFirewallTransitGatewayAttachment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.RejectNetworkFirewallTransitGatewayAttachment" }, RejectNetworkFirewallTransitGatewayAttachmentRequest, RejectNetworkFirewallTransitGatewayAttachmentResponse, [InternalServerError, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Generates a traffic analysis report for the timeframe and traffic type you specify.
  * 
- * 
  * For information on the contents of a traffic analysis report, see AnalysisReport.
- */export const startAnalysisReport = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", uri: "/", method: "POST", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.StartAnalysisReport" }, StartAnalysisReportRequest, StartAnalysisReportResponse, [InternalServerError, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startAnalysisReport = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.StartAnalysisReport" }, StartAnalysisReportRequest, StartAnalysisReportResponse, [InternalServerError, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Begins the flushing of traffic from the firewall, according to the filters you define.
  * When the operation starts, impacted flows are temporarily marked as timed out before the Suricata engine prunes,
  * or flushes, the flows from the firewall table.
  * 
- * 
- * 
- * 
  * While the flush completes, impacted flows are processed as midstream traffic. This may result in a
  * temporary increase in midstream traffic metrics. We recommend that you double check your stream exception policy
  * before you perform a flush operation.
- */export const startFlowFlush = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", uri: "/", method: "POST", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.StartFlowFlush" }, StartFlowFlushRequest, StartFlowFlushResponse, [InternalServerError, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startFlowFlush = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.StartFlowFlush" }, StartFlowFlushRequest, StartFlowFlushResponse, [InternalServerError, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Adds the specified tags to the specified resource. Tags are key:value pairs that you can
  * use to categorize and manage your resources, for purposes like billing. For example, you
  * might set the tag key to "customer" and the value to the customer name or ID. You can
  * specify one or more tags to add to each Amazon Web Services resource, up to 50 tags for a resource.
  * 
- * 
  * You can tag the Amazon Web Services resources that you manage through Network Firewall: firewalls, firewall
  * policies, and rule groups.
- */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", uri: "/", method: "POST", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.TagResource" }, TagResourceRequest, TagResourceResponse, [InternalServerError, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.TagResource" }, TagResourceRequest, TagResourceResponse, [InternalServerError, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes the tags with the specified keys from the specified resource. Tags are key:value
  * pairs that you can use to categorize and manage your resources, for purposes like billing.
@@ -520,399 +484,330 @@ export class LogDestinationPermissionException extends S.TaggedError<LogDestinat
  * ID. You can specify one or more tags to add to each Amazon Web Services resource, up to 50 tags for a
  * resource.
  * 
- * 
  * You can manage tags for the Amazon Web Services resources that you manage through Network Firewall:
  * firewalls, firewall policies, and rule groups.
- */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", uri: "/", method: "POST", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [InternalServerError, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [InternalServerError, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Enables specific types of firewall analysis on a specific firewall you define.
- */export const updateFirewallAnalysisSettings = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", uri: "/", method: "POST", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.UpdateFirewallAnalysisSettings" }, UpdateFirewallAnalysisSettingsRequest, UpdateFirewallAnalysisSettingsResponse, [InternalServerError, InvalidRequestException, InvalidTokenException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateFirewallAnalysisSettings = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.UpdateFirewallAnalysisSettings" }, UpdateFirewallAnalysisSettingsRequest, UpdateFirewallAnalysisSettingsResponse, [InternalServerError, InvalidRequestException, InvalidTokenException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Modifies the flag, `DeleteProtection`, which indicates whether it is possible
  * to delete the firewall. If the flag is set to `TRUE`, the firewall is protected
  * against deletion. This setting helps protect against accidentally deleting a firewall
  * that's in use.
- */export const updateFirewallDeleteProtection = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", uri: "/", method: "POST", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.UpdateFirewallDeleteProtection" }, UpdateFirewallDeleteProtectionRequest, UpdateFirewallDeleteProtectionResponse, [InternalServerError, InvalidRequestException, InvalidTokenException, ResourceNotFoundException, ResourceOwnerCheckException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateFirewallDeleteProtection = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.UpdateFirewallDeleteProtection" }, UpdateFirewallDeleteProtectionRequest, UpdateFirewallDeleteProtectionResponse, [InternalServerError, InvalidRequestException, InvalidTokenException, ResourceNotFoundException, ResourceOwnerCheckException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Modifies the description for the specified firewall. Use the description to help you
  * identify the firewall when you're working with it.
- */export const updateFirewallDescription = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", uri: "/", method: "POST", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.UpdateFirewallDescription" }, UpdateFirewallDescriptionRequest, UpdateFirewallDescriptionResponse, [InternalServerError, InvalidRequestException, InvalidTokenException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateFirewallDescription = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.UpdateFirewallDescription" }, UpdateFirewallDescriptionRequest, UpdateFirewallDescriptionResponse, [InternalServerError, InvalidRequestException, InvalidTokenException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * A complex type that contains settings for encryption of your firewall resources.
- */export const updateFirewallEncryptionConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", uri: "/", method: "POST", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.UpdateFirewallEncryptionConfiguration" }, UpdateFirewallEncryptionConfigurationRequest, UpdateFirewallEncryptionConfigurationResponse, [InternalServerError, InvalidRequestException, InvalidTokenException, ResourceNotFoundException, ResourceOwnerCheckException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateFirewallEncryptionConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.UpdateFirewallEncryptionConfiguration" }, UpdateFirewallEncryptionConfigurationRequest, UpdateFirewallEncryptionConfigurationResponse, [InternalServerError, InvalidRequestException, InvalidTokenException, ResourceNotFoundException, ResourceOwnerCheckException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the properties of the specified firewall policy.
- */export const updateFirewallPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", uri: "/", method: "POST", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.UpdateFirewallPolicy" }, UpdateFirewallPolicyRequest, UpdateFirewallPolicyResponse, [InternalServerError, InvalidRequestException, InvalidTokenException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateFirewallPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.UpdateFirewallPolicy" }, UpdateFirewallPolicyRequest, UpdateFirewallPolicyResponse, [InternalServerError, InvalidRequestException, InvalidTokenException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Modifies the flag, `ChangeProtection`, which indicates whether it
  * is possible to change the firewall. If the flag is set to `TRUE`, the firewall is protected
  * from changes. This setting helps protect against accidentally changing a firewall that's in use.
- */export const updateFirewallPolicyChangeProtection = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", uri: "/", method: "POST", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.UpdateFirewallPolicyChangeProtection" }, UpdateFirewallPolicyChangeProtectionRequest, UpdateFirewallPolicyChangeProtectionResponse, [InternalServerError, InvalidRequestException, InvalidTokenException, ResourceNotFoundException, ResourceOwnerCheckException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateFirewallPolicyChangeProtection = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.UpdateFirewallPolicyChangeProtection" }, UpdateFirewallPolicyChangeProtectionRequest, UpdateFirewallPolicyChangeProtectionResponse, [InternalServerError, InvalidRequestException, InvalidTokenException, ResourceNotFoundException, ResourceOwnerCheckException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the properties of the specified proxy configuration.
- */export const updateProxyConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", uri: "/", method: "POST", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.UpdateProxyConfiguration" }, UpdateProxyConfigurationRequest, UpdateProxyConfigurationResponse, [InternalServerError, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateProxyConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.UpdateProxyConfiguration" }, UpdateProxyConfigurationRequest, UpdateProxyConfigurationResponse, [InternalServerError, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the rule settings for the specified rule group. You use a rule group by
  * reference in one or more firewall policies. When you modify a rule group, you modify all
  * firewall policies that use the rule group.
  * 
- * 
  * To update a rule group, first call DescribeRuleGroup to retrieve the
  * current RuleGroup object, update the object as needed, and then provide
  * the updated object to this call.
- */export const updateRuleGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", uri: "/", method: "POST", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.UpdateRuleGroup" }, UpdateRuleGroupRequest, UpdateRuleGroupResponse, [InternalServerError, InvalidRequestException, InvalidTokenException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateRuleGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.UpdateRuleGroup" }, UpdateRuleGroupRequest, UpdateRuleGroupResponse, [InternalServerError, InvalidRequestException, InvalidTokenException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * 
- */export const updateSubnetChangeProtection = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", uri: "/", method: "POST", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.UpdateSubnetChangeProtection" }, UpdateSubnetChangeProtectionRequest, UpdateSubnetChangeProtectionResponse, [InternalServerError, InvalidRequestException, InvalidTokenException, ResourceNotFoundException, ResourceOwnerCheckException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateSubnetChangeProtection = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.UpdateSubnetChangeProtection" }, UpdateSubnetChangeProtectionRequest, UpdateSubnetChangeProtectionResponse, [InternalServerError, InvalidRequestException, InvalidTokenException, ResourceNotFoundException, ResourceOwnerCheckException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the TLS inspection configuration settings for the specified TLS inspection configuration. You use a TLS inspection configuration by
  * referencing it in one or more firewall policies. When you modify a TLS inspection configuration, you modify all
  * firewall policies that use the TLS inspection configuration.
  * 
- * 
  * To update a TLS inspection configuration, first call DescribeTLSInspectionConfiguration to retrieve the
  * current TLSInspectionConfiguration object, update the object as needed, and then provide
  * the updated object to this call.
- */export const updateTLSInspectionConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", uri: "/", method: "POST", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.UpdateTLSInspectionConfiguration" }, UpdateTLSInspectionConfigurationRequest, UpdateTLSInspectionConfigurationResponse, [InternalServerError, InvalidRequestException, InvalidTokenException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateTLSInspectionConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.UpdateTLSInspectionConfiguration" }, UpdateTLSInspectionConfigurationRequest, UpdateTLSInspectionConfigurationResponse, [InternalServerError, InvalidRequestException, InvalidTokenException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Associates a FirewallPolicy to a Firewall.
- * 
  * 
  * A firewall policy defines how to monitor and manage your VPC network traffic, using a
  * collection of inspection rule groups and other settings. Each firewall requires one
  * firewall policy association, and you can use the same firewall policy for multiple
  * firewalls.
- */export const associateFirewallPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", uri: "/", method: "POST", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.AssociateFirewallPolicy" }, AssociateFirewallPolicyRequest, AssociateFirewallPolicyResponse, [InternalServerError, InvalidOperationException, InvalidRequestException, InvalidTokenException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const associateFirewallPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.AssociateFirewallPolicy" }, AssociateFirewallPolicyRequest, AssociateFirewallPolicyResponse, [InternalServerError, InvalidOperationException, InvalidRequestException, InvalidTokenException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Associates the specified subnets in the Amazon VPC to the firewall. You can specify one
  * subnet for each of the Availability Zones that the VPC spans.
- * 
  * 
  * This request creates an Network Firewall firewall endpoint in each of the subnets. To
  * enable the firewall's protections, you must also modify the VPC's route tables for each
  * subnet's Availability Zone, to redirect the traffic that's coming into and going out of the
  * zone through the firewall endpoint.
- */export const associateSubnets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", uri: "/", method: "POST", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.AssociateSubnets" }, AssociateSubnetsRequest, AssociateSubnetsResponse, [InsufficientCapacityException, InternalServerError, InvalidOperationException, InvalidRequestException, InvalidTokenException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const associateSubnets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.AssociateSubnets" }, AssociateSubnetsRequest, AssociateSubnetsResponse, [InsufficientCapacityException, InternalServerError, InvalidOperationException, InvalidRequestException, InvalidTokenException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Attaches ProxyRuleGroup resources to a ProxyConfiguration
  * 
- * 
- * 
  * A Proxy Configuration defines the monitoring and protection behavior for a Proxy. The details of the behavior are defined in the rule groups that you add to your configuration.
- */export const attachRuleGroupsToProxyConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", uri: "/", method: "POST", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.AttachRuleGroupsToProxyConfiguration" }, AttachRuleGroupsToProxyConfigurationRequest, AttachRuleGroupsToProxyConfigurationResponse, [InternalServerError, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const attachRuleGroupsToProxyConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.AttachRuleGroupsToProxyConfiguration" }, AttachRuleGroupsToProxyConfigurationRequest, AttachRuleGroupsToProxyConfigurationResponse, [InternalServerError, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an Network Firewall Proxy
  * 
- * 
- * 
  * Attaches a Proxy configuration to a NAT Gateway.
- * 
  * 
  * To manage a proxy's tags, use the standard Amazon Web Services resource tagging operations, ListTagsForResource, TagResource, and UntagResource.
  * 
- * 
  * To retrieve information about proxies, use ListProxies and DescribeProxy.
- */export const createProxy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", uri: "/", method: "POST", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.CreateProxy" }, CreateProxyRequest, CreateProxyResponse, [InternalServerError, InvalidRequestException, LimitExceededException, ResourceNotFoundException, ThrottlingException, UnsupportedOperationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createProxy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.CreateProxy" }, CreateProxyRequest, CreateProxyResponse, [InternalServerError, InvalidRequestException, LimitExceededException, ResourceNotFoundException, ThrottlingException, UnsupportedOperationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an Network Firewall ProxyConfiguration
  * 
- * 
- * 
  * A Proxy Configuration defines the monitoring and protection behavior for a Proxy. The details of the behavior are defined in the rule groups that you add to your configuration.
- * 
  * 
  * To manage a proxy configuration's tags, use the standard Amazon Web Services resource tagging operations, ListTagsForResource, TagResource, and UntagResource.
  * 
- * 
  * To retrieve information about proxies, use ListProxyConfigurations and DescribeProxyConfiguration.
- */export const createProxyConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", uri: "/", method: "POST", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.CreateProxyConfiguration" }, CreateProxyConfigurationRequest, CreateProxyConfigurationResponse, [InternalServerError, InvalidRequestException, LimitExceededException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createProxyConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.CreateProxyConfiguration" }, CreateProxyConfigurationRequest, CreateProxyConfigurationResponse, [InternalServerError, InvalidRequestException, LimitExceededException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the specified FirewallPolicy.
- */export const deleteFirewallPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", uri: "/", method: "POST", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.DeleteFirewallPolicy" }, DeleteFirewallPolicyRequest, DeleteFirewallPolicyResponse, [InternalServerError, InvalidOperationException, InvalidRequestException, ResourceNotFoundException, ThrottlingException, UnsupportedOperationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteFirewallPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.DeleteFirewallPolicy" }, DeleteFirewallPolicyRequest, DeleteFirewallPolicyResponse, [InternalServerError, InvalidOperationException, InvalidRequestException, ResourceNotFoundException, ThrottlingException, UnsupportedOperationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the specified Proxy.
  * 
- * 
  * Detaches a Proxy configuration from a NAT Gateway.
- */export const deleteProxy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", uri: "/", method: "POST", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.DeleteProxy" }, DeleteProxyRequest, DeleteProxyResponse, [InternalServerError, InvalidRequestException, ResourceNotFoundException, ThrottlingException, UnsupportedOperationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteProxy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.DeleteProxy" }, DeleteProxyRequest, DeleteProxyResponse, [InternalServerError, InvalidRequestException, ResourceNotFoundException, ThrottlingException, UnsupportedOperationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the specified ProxyRule(s). currently attached to a ProxyRuleGroup
- */export const deleteProxyRules = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", uri: "/", method: "POST", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.DeleteProxyRules" }, DeleteProxyRulesRequest, DeleteProxyRulesResponse, [InternalServerError, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteProxyRules = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.DeleteProxyRules" }, DeleteProxyRulesRequest, DeleteProxyRulesResponse, [InternalServerError, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a resource policy that you created in a PutResourcePolicy request.
- */export const deleteResourcePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", uri: "/", method: "POST", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.DeleteResourcePolicy" }, DeleteResourcePolicyRequest, DeleteResourcePolicyResponse, [InternalServerError, InvalidRequestException, InvalidResourcePolicyException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteResourcePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.DeleteResourcePolicy" }, DeleteResourcePolicyRequest, DeleteResourcePolicyResponse, [InternalServerError, InvalidRequestException, InvalidResourcePolicyException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns key information about a specific flow operation.
- */export const describeFlowOperation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", uri: "/", method: "POST", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.DescribeFlowOperation" }, DescribeFlowOperationRequest, DescribeFlowOperationResponse, [InternalServerError, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeFlowOperation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.DescribeFlowOperation" }, DescribeFlowOperationRequest, DescribeFlowOperationResponse, [InternalServerError, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes the specified Availability Zone associations from a transit gateway-attached firewall. This removes the firewall endpoints from these Availability Zones and stops traffic filtering in those zones. Before removing an Availability Zone, ensure you've updated your transit gateway route tables to redirect traffic appropriately.
  * 
- * 
- * 
- * 
  * If `AvailabilityZoneChangeProtection` is enabled, you must first disable it using UpdateAvailabilityZoneChangeProtection.
  * 
- * 
- * 
- * 
  * To verify the status of your Availability Zone changes, use DescribeFirewall.
- */export const disassociateAvailabilityZones = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", uri: "/", method: "POST", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.DisassociateAvailabilityZones" }, DisassociateAvailabilityZonesRequest, DisassociateAvailabilityZonesResponse, [InternalServerError, InvalidOperationException, InvalidRequestException, InvalidTokenException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const disassociateAvailabilityZones = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.DisassociateAvailabilityZones" }, DisassociateAvailabilityZonesRequest, DisassociateAvailabilityZonesResponse, [InternalServerError, InvalidOperationException, InvalidRequestException, InvalidTokenException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of all traffic analysis reports generated within the last 30 days.
- */export const listAnalysisReports = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", uri: "/", method: "POST", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.ListAnalysisReports" }, ListAnalysisReportsRequest, ListAnalysisReportsResponse, [InternalServerError, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listAnalysisReports = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.ListAnalysisReports" }, ListAnalysisReportsRequest, ListAnalysisReportsResponse, [InternalServerError, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the metadata for the firewall policies that you have defined. Depending on
  * your setting for max results and the number of firewall policies, a single call might not
  * return the full list.
- */export const listFirewallPolicies = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", uri: "/", method: "POST", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.ListFirewallPolicies" }, ListFirewallPoliciesRequest, ListFirewallPoliciesResponse, [InternalServerError, InvalidRequestException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listFirewallPolicies = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.ListFirewallPolicies" }, ListFirewallPoliciesRequest, ListFirewallPoliciesResponse, [InternalServerError, InvalidRequestException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the metadata for the firewalls that you have defined. If you provide VPC
  * identifiers in your request, this returns only the firewalls for those VPCs.
  * 
- * 
  * Depending on your setting for max results and the number of firewalls, a single call
  * might not return the full list.
- */export const listFirewalls = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", uri: "/", method: "POST", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.ListFirewalls" }, ListFirewallsRequest, ListFirewallsResponse, [InternalServerError, InvalidRequestException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listFirewalls = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.ListFirewalls" }, ListFirewallsRequest, ListFirewallsResponse, [InternalServerError, InvalidRequestException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the results of a specific flow operation.
  * 
- * 
  * Flow operations let you manage the flows tracked in the flow table, also known as the firewall table.
- * 
  * 
  * A flow is network traffic that is monitored by a firewall, either by stateful or stateless rules.
  * For traffic to be considered part of a flow, it must share Destination, DestinationPort, Direction, Protocol, Source, and SourcePort.
- */export const listFlowOperationResults = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", uri: "/", method: "POST", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.ListFlowOperationResults" }, ListFlowOperationResultsRequest, ListFlowOperationResultsResponse, [InternalServerError, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listFlowOperationResults = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.ListFlowOperationResults" }, ListFlowOperationResultsRequest, ListFlowOperationResultsResponse, [InternalServerError, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of all flow operations ran in a specific firewall.
  * You can optionally narrow the request scope by specifying the operation type or Availability Zone associated with a firewall's flow operations.
  * 
- * 
  * Flow operations let you manage the flows tracked in the flow table, also known as the firewall table.
- * 
  * 
  * A flow is network traffic that is monitored by a firewall, either by stateful or stateless rules.
  * For traffic to be considered part of a flow, it must share Destination, DestinationPort, Direction, Protocol, Source, and SourcePort.
- */export const listFlowOperations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", uri: "/", method: "POST", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.ListFlowOperations" }, ListFlowOperationsRequest, ListFlowOperationsResponse, [InternalServerError, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listFlowOperations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.ListFlowOperations" }, ListFlowOperationsRequest, ListFlowOperationsResponse, [InternalServerError, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the metadata for the proxies that you have defined. Depending on
  * your setting for max results and the number of proxies, a single call might not
  * return the full list.
- */export const listProxies = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", uri: "/", method: "POST", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.ListProxies" }, ListProxiesRequest, ListProxiesResponse, [InternalServerError, InvalidRequestException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listProxies = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.ListProxies" }, ListProxiesRequest, ListProxiesResponse, [InternalServerError, InvalidRequestException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the metadata for the proxy configuration that you have defined. Depending on
  * your setting for max results and the number of proxy configurations, a single call might not
  * return the full list.
- */export const listProxyConfigurations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", uri: "/", method: "POST", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.ListProxyConfigurations" }, ListProxyConfigurationsRequest, ListProxyConfigurationsResponse, [InternalServerError, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listProxyConfigurations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.ListProxyConfigurations" }, ListProxyConfigurationsRequest, ListProxyConfigurationsResponse, [InternalServerError, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the metadata for the proxy rule groups that you have defined. Depending on
  * your setting for max results and the number of proxy rule groups, a single call might not
  * return the full list.
- */export const listProxyRuleGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", uri: "/", method: "POST", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.ListProxyRuleGroups" }, ListProxyRuleGroupsRequest, ListProxyRuleGroupsResponse, [InternalServerError, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listProxyRuleGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.ListProxyRuleGroups" }, ListProxyRuleGroupsRequest, ListProxyRuleGroupsResponse, [InternalServerError, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the metadata for the rule groups that you have defined. Depending on your
  * setting for max results and the number of rule groups, a single call might not return the
  * full list.
- */export const listRuleGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", uri: "/", method: "POST", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.ListRuleGroups" }, ListRuleGroupsRequest, ListRuleGroupsResponse, [InternalServerError, InvalidRequestException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listRuleGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.ListRuleGroups" }, ListRuleGroupsRequest, ListRuleGroupsResponse, [InternalServerError, InvalidRequestException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the metadata for the TLS inspection configurations that you have defined. Depending on your setting for max results and the number of TLS inspection configurations, a single call might not return the full list.
- */export const listTLSInspectionConfigurations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", uri: "/", method: "POST", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.ListTLSInspectionConfigurations" }, ListTLSInspectionConfigurationsRequest, ListTLSInspectionConfigurationsResponse, [InternalServerError, InvalidRequestException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listTLSInspectionConfigurations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.ListTLSInspectionConfigurations" }, ListTLSInspectionConfigurationsRequest, ListTLSInspectionConfigurationsResponse, [InternalServerError, InvalidRequestException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the metadata for the VPC endpoint associations that you have defined. If you specify a fireawll,
  * this returns only the endpoint associations for that firewall.
  * 
- * 
  * Depending on your setting for max results and the number of associations, a single call
  * might not return the full list.
- */export const listVpcEndpointAssociations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", uri: "/", method: "POST", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.ListVpcEndpointAssociations" }, ListVpcEndpointAssociationsRequest, ListVpcEndpointAssociationsResponse, [InternalServerError, InvalidRequestException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listVpcEndpointAssociations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.ListVpcEndpointAssociations" }, ListVpcEndpointAssociationsRequest, ListVpcEndpointAssociationsResponse, [InternalServerError, InvalidRequestException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Modifies the `AvailabilityZoneChangeProtection` setting for a transit gateway-attached firewall. When enabled, this setting prevents accidental changes to the firewall's Availability Zone configuration. This helps protect against disrupting traffic flow in production environments.
  * 
- * 
  * When enabled, you must disable this protection before using AssociateAvailabilityZones or DisassociateAvailabilityZones to modify the firewall's Availability Zone configuration.
- */export const updateAvailabilityZoneChangeProtection = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", uri: "/", method: "POST", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.UpdateAvailabilityZoneChangeProtection" }, UpdateAvailabilityZoneChangeProtectionRequest, UpdateAvailabilityZoneChangeProtectionResponse, [InternalServerError, InvalidRequestException, InvalidTokenException, ResourceNotFoundException, ResourceOwnerCheckException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateAvailabilityZoneChangeProtection = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.UpdateAvailabilityZoneChangeProtection" }, UpdateAvailabilityZoneChangeProtectionRequest, UpdateAvailabilityZoneChangeProtectionResponse, [InternalServerError, InvalidRequestException, InvalidTokenException, ResourceNotFoundException, ResourceOwnerCheckException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the properties of the specified proxy.
- */export const updateProxy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", uri: "/", method: "POST", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.UpdateProxy" }, UpdateProxyRequest, UpdateProxyResponse, [InternalServerError, InvalidRequestException, ResourceNotFoundException, ThrottlingException, UnsupportedOperationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateProxy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.UpdateProxy" }, UpdateProxyRequest, UpdateProxyResponse, [InternalServerError, InvalidRequestException, ResourceNotFoundException, ThrottlingException, UnsupportedOperationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the properties of the specified proxy rule.
- */export const updateProxyRule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", uri: "/", method: "POST", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.UpdateProxyRule" }, UpdateProxyRuleRequest, UpdateProxyRuleResponse, [InternalServerError, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateProxyRule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.UpdateProxyRule" }, UpdateProxyRuleRequest, UpdateProxyRuleResponse, [InternalServerError, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates proxy rule priorities within a proxy rule group.
- */export const updateProxyRulePriorities = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", uri: "/", method: "POST", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.UpdateProxyRulePriorities" }, UpdateProxyRulePrioritiesRequest, UpdateProxyRulePrioritiesResponse, [InternalServerError, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateProxyRulePriorities = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.UpdateProxyRulePriorities" }, UpdateProxyRulePrioritiesRequest, UpdateProxyRulePrioritiesResponse, [InternalServerError, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Associates the specified Availability Zones with a transit gateway-attached firewall. For each Availability Zone, Network Firewall creates a firewall endpoint to process traffic. You can specify one or more Availability Zones where you want to deploy the firewall.
  * 
- * 
  * After adding Availability Zones, you must update your transit gateway route tables to direct traffic through the new firewall endpoints. Use DescribeFirewall to monitor the status of the new endpoints.
- */export const associateAvailabilityZones = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", uri: "/", method: "POST", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.AssociateAvailabilityZones" }, AssociateAvailabilityZonesRequest, AssociateAvailabilityZonesResponse, [InsufficientCapacityException, InternalServerError, InvalidOperationException, InvalidRequestException, InvalidTokenException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const associateAvailabilityZones = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.AssociateAvailabilityZones" }, AssociateAvailabilityZonesRequest, AssociateAvailabilityZonesResponse, [InsufficientCapacityException, InternalServerError, InvalidOperationException, InvalidRequestException, InvalidTokenException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an Network Firewall Firewall and accompanying FirewallStatus for a VPC.
  * 
- * 
  * The firewall defines the configuration settings for an Network Firewall firewall. The settings that you can define at creation include the firewall policy, the subnets in your VPC to use for the firewall endpoints, and any tags that are attached to the firewall Amazon Web Services resource.
  * 
- * 
  * After you create a firewall, you can provide additional settings, like the logging configuration.
- * 
  * 
  * To update the settings for a firewall, you use the operations that apply to the settings
  * themselves, for example UpdateLoggingConfiguration, AssociateSubnets, and UpdateFirewallDeleteProtection.
  * 
- * 
  * To manage a firewall's tags, use the standard Amazon Web Services resource tagging operations, ListTagsForResource, TagResource, and UntagResource.
- * 
  * 
  * To retrieve information about firewalls, use ListFirewalls and DescribeFirewall.
  * 
- * 
  * To generate a report on the last 30 days of traffic monitored by a firewall, use StartAnalysisReport.
- */export const createFirewall = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", uri: "/", method: "POST", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.CreateFirewall" }, CreateFirewallRequest, CreateFirewallResponse, [InsufficientCapacityException, InternalServerError, InvalidOperationException, InvalidRequestException, LimitExceededException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createFirewall = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.CreateFirewall" }, CreateFirewallRequest, CreateFirewallResponse, [InsufficientCapacityException, InternalServerError, InvalidOperationException, InvalidRequestException, LimitExceededException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an Network Firewall ProxyRuleGroup
  * 
- * 
- * 
  * Collections of related proxy filtering rules. Rule groups help you manage and reuse sets of rules across multiple proxy configurations.
- * 
  * 
  * To manage a proxy rule group's tags, use the standard Amazon Web Services resource tagging operations, ListTagsForResource, TagResource, and UntagResource.
  * 
- * 
  * To retrieve information about proxy rule groups, use ListProxyRuleGroups and DescribeProxyRuleGroup.
  * 
- * 
  * To retrieve information about individual proxy rules, use DescribeProxyRuleGroup and DescribeProxyRule.
- */export const createProxyRuleGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", uri: "/", method: "POST", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.CreateProxyRuleGroup" }, CreateProxyRuleGroupRequest, CreateProxyRuleGroupResponse, [InternalServerError, InvalidRequestException, LimitExceededException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createProxyRuleGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.CreateProxyRuleGroup" }, CreateProxyRuleGroupRequest, CreateProxyRuleGroupResponse, [InternalServerError, InvalidRequestException, LimitExceededException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates Network Firewall ProxyRule resources.
  * 
- * 
  * Attaches new proxy rule(s) to an existing proxy rule group.
  * 
- * 
  * To retrieve information about individual proxy rules, use DescribeProxyRuleGroup and DescribeProxyRule.
- */export const createProxyRules = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", uri: "/", method: "POST", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.CreateProxyRules" }, CreateProxyRulesRequest, CreateProxyRulesResponse, [InternalServerError, InvalidRequestException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createProxyRules = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.CreateProxyRules" }, CreateProxyRulesRequest, CreateProxyRulesResponse, [InternalServerError, InvalidRequestException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the specified RuleGroup.
- */export const deleteRuleGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", uri: "/", method: "POST", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.DeleteRuleGroup" }, DeleteRuleGroupRequest, DeleteRuleGroupResponse, [InternalServerError, InvalidOperationException, InvalidRequestException, ResourceNotFoundException, ThrottlingException, UnsupportedOperationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteRuleGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.DeleteRuleGroup" }, DeleteRuleGroupRequest, DeleteRuleGroupResponse, [InternalServerError, InvalidOperationException, InvalidRequestException, ResourceNotFoundException, ThrottlingException, UnsupportedOperationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the specified TLSInspectionConfiguration.
- */export const deleteTLSInspectionConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", uri: "/", method: "POST", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.DeleteTLSInspectionConfiguration" }, DeleteTLSInspectionConfigurationRequest, DeleteTLSInspectionConfigurationResponse, [InternalServerError, InvalidOperationException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteTLSInspectionConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.DeleteTLSInspectionConfiguration" }, DeleteTLSInspectionConfigurationRequest, DeleteTLSInspectionConfigurationResponse, [InternalServerError, InvalidOperationException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the high-level information about a firewall, including the Availability Zones where the Firewall is
  * currently in use.
- */export const describeFirewallMetadata = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", uri: "/", method: "POST", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.DescribeFirewallMetadata" }, DescribeFirewallMetadataRequest, DescribeFirewallMetadataResponse, [InternalServerError, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeFirewallMetadata = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.DescribeFirewallMetadata" }, DescribeFirewallMetadataRequest, DescribeFirewallMetadataResponse, [InternalServerError, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the data objects for the specified proxy.
- */export const describeProxy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", uri: "/", method: "POST", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.DescribeProxy" }, DescribeProxyRequest, DescribeProxyResponse, [InternalServerError, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeProxy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.DescribeProxy" }, DescribeProxyRequest, DescribeProxyResponse, [InternalServerError, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the data objects for the specified proxy configuration.
- */export const describeProxyConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", uri: "/", method: "POST", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.DescribeProxyConfiguration" }, DescribeProxyConfigurationRequest, DescribeProxyConfigurationResponse, [InternalServerError, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeProxyConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.DescribeProxyConfiguration" }, DescribeProxyConfigurationRequest, DescribeProxyConfigurationResponse, [InternalServerError, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns detailed information for a stateful rule group.
  * 
- * 
  * For active threat defense Amazon Web Services managed rule groups, this operation provides insight into the protections enabled by the rule group, based on Suricata rule metadata fields. Summaries are available for rule groups you manage and for active threat defense Amazon Web Services managed rule groups.
  * 
- * 
  * To modify how threat information appears in summaries, use the `SummaryConfiguration` parameter in UpdateRuleGroup.
- */export const describeRuleGroupSummary = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", uri: "/", method: "POST", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.DescribeRuleGroupSummary" }, DescribeRuleGroupSummaryRequest, DescribeRuleGroupSummaryResponse, [InternalServerError, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeRuleGroupSummary = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.DescribeRuleGroupSummary" }, DescribeRuleGroupSummaryRequest, DescribeRuleGroupSummaryResponse, [InternalServerError, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * The results of a `COMPLETED` analysis report generated with StartAnalysisReport.
  * 
- * 
  * For more information, see AnalysisTypeReportResult.
- */export const getAnalysisReportResults = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", uri: "/", method: "POST", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.GetAnalysisReportResults" }, GetAnalysisReportResultsRequest, GetAnalysisReportResultsResponse, [InternalServerError, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getAnalysisReportResults = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.GetAnalysisReportResults" }, GetAnalysisReportResultsRequest, GetAnalysisReportResultsResponse, [InternalServerError, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Begins capturing the flows in a firewall, according to the filters you define.
  * Captures are similar, but not identical to snapshots. Capture operations provide visibility into flows that are not closed and are tracked by a firewall's flow table.
  * Unlike snapshots, captures are a time-boxed view.
  * 
- * 
  * A flow is network traffic that is monitored by a firewall, either by stateful or stateless rules.
  * For traffic to be considered part of a flow, it must share Destination, DestinationPort, Direction, Protocol, Source, and SourcePort.
  * 
- * 
- * 
- * 
  * To avoid encountering operation limits, you should avoid starting captures with broad filters, like wide IP ranges.
  * Instead, we recommend you define more specific criteria with `FlowFilters`, like narrow IP ranges, ports, or protocols.
- */export const startFlowCapture = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", uri: "/", method: "POST", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.StartFlowCapture" }, StartFlowCaptureRequest, StartFlowCaptureResponse, [InternalServerError, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startFlowCapture = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.StartFlowCapture" }, StartFlowCaptureRequest, StartFlowCaptureResponse, [InternalServerError, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates proxy rule group priorities within a proxy configuration.
- */export const updateProxyRuleGroupPriorities = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", uri: "/", method: "POST", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.UpdateProxyRuleGroupPriorities" }, UpdateProxyRuleGroupPrioritiesRequest, UpdateProxyRuleGroupPrioritiesResponse, [InternalServerError, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateProxyRuleGroupPriorities = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.UpdateProxyRuleGroupPriorities" }, UpdateProxyRuleGroupPrioritiesRequest, UpdateProxyRuleGroupPrioritiesResponse, [InternalServerError, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an Network Firewall TLS inspection configuration. Network Firewall uses TLS inspection configurations to decrypt your firewall's inbound and outbound SSL/TLS traffic. After decryption, Network Firewall inspects the traffic according to your firewall policy's stateful rules, and then re-encrypts it before sending it to its destination. You can enable inspection of your firewall's inbound traffic, outbound traffic, or both. To use TLS inspection with your firewall, you must first import or provision certificates using ACM, create a TLS inspection configuration, add that configuration to a new firewall policy, and then associate that policy with your firewall.
  * 
- * 
  * To update the settings for a TLS inspection configuration, use UpdateTLSInspectionConfiguration.
- * 
  * 
  * To manage a TLS inspection configuration's tags, use the standard Amazon Web Services resource tagging operations, ListTagsForResource, TagResource, and UntagResource.
  * 
- * 
  * To retrieve information about TLS inspection configurations, use ListTLSInspectionConfigurations and DescribeTLSInspectionConfiguration.
- * 
- * 
  * 
  * For more information about TLS inspection configurations, see Inspecting SSL/TLS traffic with TLS
  * inspection configurations in the *Network Firewall Developer Guide*.
- */export const createTLSInspectionConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", uri: "/", method: "POST", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.CreateTLSInspectionConfiguration" }, CreateTLSInspectionConfigurationRequest, CreateTLSInspectionConfigurationResponse, [InsufficientCapacityException, InternalServerError, InvalidRequestException, LimitExceededException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createTLSInspectionConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.CreateTLSInspectionConfiguration" }, CreateTLSInspectionConfigurationRequest, CreateTLSInspectionConfigurationResponse, [InsufficientCapacityException, InternalServerError, InvalidRequestException, LimitExceededException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a firewall endpoint for an Network Firewall firewall. This type of firewall endpoint is independent of the firewall endpoints that you specify in the `Firewall` itself, and you define it in addition to those endpoints after the firewall has been created. You can define a VPC endpoint association using a different VPC than the one you used in the firewall specifications.
- */export const createVpcEndpointAssociation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", uri: "/", method: "POST", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.CreateVpcEndpointAssociation" }, CreateVpcEndpointAssociationRequest, CreateVpcEndpointAssociationResponse, [InsufficientCapacityException, InternalServerError, InvalidOperationException, InvalidRequestException, LimitExceededException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createVpcEndpointAssociation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.CreateVpcEndpointAssociation" }, CreateVpcEndpointAssociationRequest, CreateVpcEndpointAssociationResponse, [InsufficientCapacityException, InternalServerError, InvalidOperationException, InvalidRequestException, LimitExceededException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Sets the logging configuration for the specified firewall.
- * 
  * 
  * To change the logging configuration, retrieve the LoggingConfiguration by calling DescribeLoggingConfiguration, then change it and provide
  * the modified object to this update call. You must change the logging configuration one
  * LogDestinationConfig at a time inside the retrieved LoggingConfiguration object.
  * 
- * 
  * You can perform only one of the following actions in any call to
  * `UpdateLoggingConfiguration`:
- * 
- * 
  * 
  * - Create a new log destination object by adding a single
  * `LogDestinationConfig` array element to
  * `LogDestinationConfigs`.
  * 
- * 
- * 
  * - Delete a log destination object by removing a single
  * `LogDestinationConfig` array element from
  * `LogDestinationConfigs`.
  * 
- * 
- * 
  * - Change the `LogDestination` setting in a single
  * `LogDestinationConfig` array element.
- * 
- * 
- * 
- * 
  * 
  * You can't change the `LogDestinationType` or `LogType` in a
  * `LogDestinationConfig`. To change these settings, delete the existing
  * `LogDestinationConfig` object and create a new one, using two separate calls
  * to this update operation.
- */export const updateLoggingConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", uri: "/", method: "POST", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.UpdateLoggingConfiguration" }, UpdateLoggingConfigurationRequest, UpdateLoggingConfigurationResponse, [InternalServerError, InvalidRequestException, InvalidTokenException, LogDestinationPermissionException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateLoggingConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.UpdateLoggingConfiguration" }, UpdateLoggingConfigurationRequest, UpdateLoggingConfigurationResponse, [InternalServerError, InvalidRequestException, InvalidTokenException, LogDestinationPermissionException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates the firewall policy for the firewall according to the specifications.
- * 
  * 
  * An Network Firewall firewall policy defines the behavior of a firewall, in a collection of
  * stateless and stateful rule groups and other settings. You can use one firewall policy for
  * multiple firewalls.
- */export const createFirewallPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", uri: "/", method: "POST", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.CreateFirewallPolicy" }, CreateFirewallPolicyRequest, CreateFirewallPolicyResponse, [InsufficientCapacityException, InternalServerError, InvalidRequestException, LimitExceededException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createFirewallPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.CreateFirewallPolicy" }, CreateFirewallPolicyRequest, CreateFirewallPolicyResponse, [InsufficientCapacityException, InternalServerError, InvalidRequestException, LimitExceededException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the specified Firewall and its FirewallStatus.
  * This operation requires the firewall's `DeleteProtection` flag to be
  * `FALSE`. You can't revert this operation.
- * 
  * 
  * You can check whether a firewall is
  * in use by reviewing the route tables for the Availability Zones where you have
@@ -921,15 +816,13 @@ export class LogDestinationPermissionException extends S.TaggedError<LogDestinat
  * zones to remove the firewall endpoints. When the route tables no longer use the firewall endpoints,
  * you can remove the firewall safely.
  * 
- * 
  * To delete a firewall, remove the delete protection if you need to using UpdateFirewallDeleteProtection,
  * then delete the firewall by calling DeleteFirewall.
- */export const deleteFirewall = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", uri: "/", method: "POST", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.DeleteFirewall" }, DeleteFirewallRequest, DeleteFirewallResponse, [InternalServerError, InvalidOperationException, InvalidRequestException, ResourceNotFoundException, ThrottlingException, UnsupportedOperationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteFirewall = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.DeleteFirewall" }, DeleteFirewallRequest, DeleteFirewallResponse, [InternalServerError, InvalidOperationException, InvalidRequestException, ResourceNotFoundException, ThrottlingException, UnsupportedOperationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates the specified stateless or stateful rule group, which includes the rules for
  * network traffic inspection, a capacity setting, and tags.
  * 
- * 
  * You provide your rule group specification in your request using either
  * `RuleGroup` or `Rules`.
- */export const createRuleGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", uri: "/", method: "POST", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.CreateRuleGroup" }, CreateRuleGroupRequest, CreateRuleGroupResponse, [InsufficientCapacityException, InternalServerError, InvalidRequestException, LimitExceededException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createRuleGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-12", sdkId: "Network Firewall", sigV4ServiceName: "network-firewall", name: "NetworkFirewall_20201112.CreateRuleGroup" }, CreateRuleGroupRequest, CreateRuleGroupResponse, [InsufficientCapacityException, InternalServerError, InvalidRequestException, LimitExceededException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);

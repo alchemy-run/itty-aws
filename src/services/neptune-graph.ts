@@ -48,7 +48,7 @@ export class UnprocessableException extends S.TaggedError<UnprocessableException
 //# Operations
 /**
  * Adds tags to the specified resource.
- */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-11-29", uri: "/tags/{resourceArn}", method: "POST", sdkId: "Neptune Graph", sigV4ServiceName: "neptune-graph", name: "AmazonNeptuneGraph.TagResource" }, TagResourceInput, TagResourceOutput, [InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-11-29", uri: "/tags/{resourceArn}", sdkId: "Neptune Graph", sigV4ServiceName: "neptune-graph", name: "AmazonNeptuneGraph.TagResource" }, TagResourceInput, TagResourceOutput, [InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes the specified tags from the specified resource.
  */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-11-29", uri: "/tags/{resourceArn}", method: "DELETE", sdkId: "Neptune Graph", sigV4ServiceName: "neptune-graph", name: "AmazonNeptuneGraph.UntagResource" }, UntagResourceInput, UntagResourceOutput, [InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -57,7 +57,6 @@ export class UnprocessableException extends S.TaggedError<UnprocessableException
  */export const cancelQuery = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-11-29", uri: "/queries/{queryId}", method: "DELETE", sdkId: "Neptune Graph", sigV4ServiceName: "neptune-graph", name: "AmazonNeptuneGraph.CancelQuery" }, CancelQueryInput, S.Struct({}), [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the status of a specified query.
- * 
  * 
  * When invoking this operation in a Neptune Analytics cluster, the IAM user or role making the request must have the `neptune-graph:GetQueryStatus` IAM action attached.
  */export const getQuery = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-11-29", uri: "/queries/{queryId}", method: "GET", sdkId: "Neptune Graph", sigV4ServiceName: "neptune-graph", name: "AmazonNeptuneGraph.GetQuery" }, GetQueryInput, GetQueryOutput, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -80,4 +79,4 @@ export class UnprocessableException extends S.TaggedError<UnprocessableException
  * - neptune-graph:WriteDataViaQuery
  * 
  * - neptune-graph:DeleteDataViaQuery
- */export const executeQuery = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-11-29", uri: "/queries", method: "POST", sdkId: "Neptune Graph", sigV4ServiceName: "neptune-graph", name: "AmazonNeptuneGraph.ExecuteQuery" }, ExecuteQueryInput, ExecuteQueryOutput, [AccessDeniedException, ConflictException, InternalServerException, ThrottlingException, UnprocessableException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const executeQuery = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-11-29", uri: "/queries", sdkId: "Neptune Graph", sigV4ServiceName: "neptune-graph", name: "AmazonNeptuneGraph.ExecuteQuery" }, ExecuteQueryInput, ExecuteQueryOutput, [AccessDeniedException, ConflictException, InternalServerException, ThrottlingException, UnprocessableException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

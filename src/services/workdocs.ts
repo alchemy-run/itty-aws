@@ -169,9 +169,6 @@ export class StorageLimitWillExceedException extends S.TaggedError<StorageLimitW
 /**
  * Deletes the specified user from a Simple AD or Microsoft AD directory.
  * 
- * 
- * 
- * 
  * Deleting a user immediately and permanently deletes all content in that user's folder structure. Site retention policies do NOT apply to this type of deletion.
  */export const deleteUser = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-05-01", uri: "/api/v1/users/{UserId}", method: "DELETE", sdkId: "WorkDocs", sigV4ServiceName: "workdocs", name: "AWSGorillaBoyService.DeleteUser" }, DeleteUserRequest, S.Struct({}), [EntityNotExistsException, FailedDependencyException, ServiceUnavailableException, UnauthorizedOperationException, UnauthorizedResourceAccessException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -183,10 +180,9 @@ export class StorageLimitWillExceedException extends S.TaggedError<StorageLimitW
  */export const removeResourcePermission = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-05-01", uri: "/api/v1/resources/{ResourceId}/permissions/{PrincipalId}", method: "DELETE", sdkId: "WorkDocs", sigV4ServiceName: "workdocs", name: "AWSGorillaBoyService.RemoveResourcePermission" }, RemoveResourcePermissionRequest, S.Struct({}), [FailedDependencyException, ServiceUnavailableException, UnauthorizedOperationException, UnauthorizedResourceAccessException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Recovers a deleted version of an Amazon WorkDocs document.
- */export const restoreDocumentVersions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-05-01", uri: "/api/v1/documentVersions/restore/{DocumentId}", method: "POST", sdkId: "WorkDocs", sigV4ServiceName: "workdocs", name: "AWSGorillaBoyService.RestoreDocumentVersions" }, RestoreDocumentVersionsRequest, S.Struct({}), [ConcurrentModificationException, ConflictingOperationException, EntityNotExistsException, FailedDependencyException, InvalidOperationException, ProhibitedStateException, UnauthorizedOperationException, UnauthorizedResourceAccessException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const restoreDocumentVersions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-05-01", uri: "/api/v1/documentVersions/restore/{DocumentId}", sdkId: "WorkDocs", sigV4ServiceName: "workdocs", name: "AWSGorillaBoyService.RestoreDocumentVersions" }, RestoreDocumentVersionsRequest, S.Struct({}), [ConcurrentModificationException, ConflictingOperationException, EntityNotExistsException, FailedDependencyException, InvalidOperationException, ProhibitedStateException, UnauthorizedOperationException, UnauthorizedResourceAccessException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Changes the status of the document version to ACTIVE.
- * 
  * 
  * Amazon WorkDocs also sets its document container to ACTIVE. This is the last step
  * in a document upload, after the client uploads the document to an S3-presigned URL
@@ -240,7 +236,6 @@ export class StorageLimitWillExceedException extends S.TaggedError<StorageLimitW
  * Retrieves details of the current user for whom the authentication token was
  * generated. This is not a valid action for SigV4 (administrative API) clients.
  * 
- * 
  * This action requires an authentication token. To get an authentication token,
  * register an application with Amazon WorkDocs. For more information, see Authentication and Access
  * Control for User Applications in the
@@ -256,7 +251,6 @@ export class StorageLimitWillExceedException extends S.TaggedError<StorageLimitW
 /**
  * Retrieves the path information (the hierarchy from the root folder) for the
  * specified folder.
- * 
  * 
  * By default, Amazon WorkDocs returns a maximum of 100 levels upwards from the
  * requested folder and only includes the IDs of the parent folders in the path. You can
@@ -277,7 +271,7 @@ export class StorageLimitWillExceedException extends S.TaggedError<StorageLimitW
  */export const createCustomMetadata = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-05-01", uri: "/api/v1/resources/{ResourceId}/customMetadata", method: "PUT", sdkId: "WorkDocs", sigV4ServiceName: "workdocs", name: "AWSGorillaBoyService.CreateCustomMetadata" }, CreateCustomMetadataRequest, CreateCustomMetadataResponse, [CustomMetadataLimitExceededException, EntityNotExistsException, FailedDependencyException, ProhibitedStateException, ServiceUnavailableException, UnauthorizedOperationException, UnauthorizedResourceAccessException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a folder with the specified name and parent folder.
- */export const createFolder = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-05-01", uri: "/api/v1/folders", method: "POST", sdkId: "WorkDocs", sigV4ServiceName: "workdocs", name: "AWSGorillaBoyService.CreateFolder" }, CreateFolderRequest, CreateFolderResponse, [ConcurrentModificationException, ConflictingOperationException, EntityAlreadyExistsException, EntityNotExistsException, FailedDependencyException, LimitExceededException, ProhibitedStateException, ServiceUnavailableException, UnauthorizedOperationException, UnauthorizedResourceAccessException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createFolder = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-05-01", uri: "/api/v1/folders", sdkId: "WorkDocs", sigV4ServiceName: "workdocs", name: "AWSGorillaBoyService.CreateFolder" }, CreateFolderRequest, CreateFolderResponse, [ConcurrentModificationException, ConflictingOperationException, EntityAlreadyExistsException, EntityNotExistsException, FailedDependencyException, LimitExceededException, ProhibitedStateException, ServiceUnavailableException, UnauthorizedOperationException, UnauthorizedResourceAccessException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Adds the specified list of labels to the given resource (a document or
  * folder)
@@ -285,11 +279,10 @@ export class StorageLimitWillExceedException extends S.TaggedError<StorageLimitW
 /**
  * Creates a user in a Simple AD or Microsoft AD directory. The status of a newly
  * created user is "ACTIVE". New users can access Amazon WorkDocs.
- */export const createUser = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-05-01", uri: "/api/v1/users", method: "POST", sdkId: "WorkDocs", sigV4ServiceName: "workdocs", name: "AWSGorillaBoyService.CreateUser" }, CreateUserRequest, CreateUserResponse, [EntityAlreadyExistsException, FailedDependencyException, ServiceUnavailableException, UnauthorizedOperationException, UnauthorizedResourceAccessException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createUser = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-05-01", uri: "/api/v1/users", sdkId: "WorkDocs", sigV4ServiceName: "workdocs", name: "AWSGorillaBoyService.CreateUser" }, CreateUserRequest, CreateUserResponse, [EntityAlreadyExistsException, FailedDependencyException, ServiceUnavailableException, UnauthorizedOperationException, UnauthorizedResourceAccessException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes the contents of the specified folder, including its documents and
  * subfolders.
- * 
  * 
  * By default, Amazon WorkDocs returns the first 100 active document and folder
  * metadata items. If there are more results, the response includes a marker that you can
@@ -306,7 +299,6 @@ export class StorageLimitWillExceedException extends S.TaggedError<StorageLimitW
  * folders and `RecycleBin` is the root of recycled items. This is not a valid
  * action for SigV4 (administrative API) clients.
  * 
- * 
  * This action requires an authentication token. To get an authentication token,
  * register an application with Amazon WorkDocs. For more information, see Authentication and Access
  * Control for User Applications in the
@@ -316,7 +308,6 @@ export class StorageLimitWillExceedException extends S.TaggedError<StorageLimitW
 /**
  * Describes the specified users. You can describe all users or filter the results
  * (for example, by status or organization).
- * 
  * 
  * By default, Amazon WorkDocs returns the first 24 active or pending users. If there
  * are more results, the response includes a marker that you can use to request the next
@@ -328,29 +319,27 @@ export class StorageLimitWillExceedException extends S.TaggedError<StorageLimitW
 /**
  * Activates the specified user. Only active users can access Amazon
  * WorkDocs.
- */export const activateUser = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-05-01", uri: "/api/v1/users/{UserId}/activation", method: "POST", sdkId: "WorkDocs", sigV4ServiceName: "workdocs", name: "AWSGorillaBoyService.ActivateUser" }, ActivateUserRequest, ActivateUserResponse, [EntityNotExistsException, FailedDependencyException, ServiceUnavailableException, UnauthorizedOperationException, UnauthorizedResourceAccessException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const activateUser = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-05-01", uri: "/api/v1/users/{UserId}/activation", sdkId: "WorkDocs", sigV4ServiceName: "workdocs", name: "AWSGorillaBoyService.ActivateUser" }, ActivateUserRequest, ActivateUserResponse, [EntityNotExistsException, FailedDependencyException, ServiceUnavailableException, UnauthorizedOperationException, UnauthorizedResourceAccessException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a set of permissions for the specified folder or document. The resource
  * permissions are overwritten if the principals already have different
  * permissions.
- */export const addResourcePermissions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-05-01", uri: "/api/v1/resources/{ResourceId}/permissions", method: "POST", sdkId: "WorkDocs", sigV4ServiceName: "workdocs", name: "AWSGorillaBoyService.AddResourcePermissions" }, AddResourcePermissionsRequest, AddResourcePermissionsResponse, [FailedDependencyException, ProhibitedStateException, ServiceUnavailableException, UnauthorizedOperationException, UnauthorizedResourceAccessException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const addResourcePermissions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-05-01", uri: "/api/v1/resources/{ResourceId}/permissions", sdkId: "WorkDocs", sigV4ServiceName: "workdocs", name: "AWSGorillaBoyService.AddResourcePermissions" }, AddResourcePermissionsRequest, AddResourcePermissionsResponse, [FailedDependencyException, ProhibitedStateException, ServiceUnavailableException, UnauthorizedOperationException, UnauthorizedResourceAccessException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Adds a new comment to the specified document version.
- */export const createComment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-05-01", uri: "/api/v1/documents/{DocumentId}/versions/{VersionId}/comment", method: "POST", sdkId: "WorkDocs", sigV4ServiceName: "workdocs", name: "AWSGorillaBoyService.CreateComment" }, CreateCommentRequest, CreateCommentResponse, [DocumentLockedForCommentsException, EntityNotExistsException, FailedDependencyException, InvalidCommentOperationException, ProhibitedStateException, ServiceUnavailableException, UnauthorizedOperationException, UnauthorizedResourceAccessException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createComment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-05-01", uri: "/api/v1/documents/{DocumentId}/versions/{VersionId}/comment", sdkId: "WorkDocs", sigV4ServiceName: "workdocs", name: "AWSGorillaBoyService.CreateComment" }, CreateCommentRequest, CreateCommentResponse, [DocumentLockedForCommentsException, EntityNotExistsException, FailedDependencyException, InvalidCommentOperationException, ProhibitedStateException, ServiceUnavailableException, UnauthorizedOperationException, UnauthorizedResourceAccessException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Configure Amazon WorkDocs to use Amazon SNS notifications. The endpoint receives a
  * confirmation message, and must confirm the subscription.
  * 
- * 
  * For more information, see Setting up notifications for an IAM user or role in the Amazon WorkDocs Developer
  * Guide.
- */export const createNotificationSubscription = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-05-01", uri: "/api/v1/organizations/{OrganizationId}/subscriptions", method: "POST", sdkId: "WorkDocs", sigV4ServiceName: "workdocs", name: "AWSGorillaBoyService.CreateNotificationSubscription" }, CreateNotificationSubscriptionRequest, CreateNotificationSubscriptionResponse, [InvalidArgumentException, ServiceUnavailableException, TooManySubscriptionsException, UnauthorizedResourceAccessException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createNotificationSubscription = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-05-01", uri: "/api/v1/organizations/{OrganizationId}/subscriptions", sdkId: "WorkDocs", sigV4ServiceName: "workdocs", name: "AWSGorillaBoyService.CreateNotificationSubscription" }, CreateNotificationSubscriptionRequest, CreateNotificationSubscriptionResponse, [InvalidArgumentException, ServiceUnavailableException, TooManySubscriptionsException, UnauthorizedResourceAccessException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes the user activities in a specified time period.
  */export const describeActivities = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-05-01", uri: "/api/v1/activities", method: "GET", sdkId: "WorkDocs", sigV4ServiceName: "workdocs", name: "AWSGorillaBoyService.DescribeActivities" }, DescribeActivitiesRequest, DescribeActivitiesResponse, [FailedDependencyException, InvalidArgumentException, ServiceUnavailableException, UnauthorizedOperationException, UnauthorizedResourceAccessException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the document versions for the specified document.
- * 
  * 
  * By default, only active versions are returned.
  */export const describeDocumentVersions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-05-01", uri: "/api/v1/documents/{DocumentId}/versions", method: "GET", sdkId: "WorkDocs", sigV4ServiceName: "workdocs", name: "AWSGorillaBoyService.DescribeDocumentVersions" }, DescribeDocumentVersionsRequest, DescribeDocumentVersionsResponse, [EntityNotExistsException, FailedDependencyException, InvalidArgumentException, InvalidPasswordException, ProhibitedStateException, ServiceUnavailableException, UnauthorizedOperationException, UnauthorizedResourceAccessException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -360,7 +349,6 @@ export class StorageLimitWillExceedException extends S.TaggedError<StorageLimitW
 /**
  * Retrieves the path information (the hierarchy from the root folder) for the
  * requested document.
- * 
  * 
  * By default, Amazon WorkDocs returns a maximum of 100 levels upwards from the
  * requested document and only includes the IDs of the parent folders in the path. You can
@@ -373,16 +361,14 @@ export class StorageLimitWillExceedException extends S.TaggedError<StorageLimitW
  */export const updateUser = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-05-01", uri: "/api/v1/users/{UserId}", method: "PATCH", sdkId: "WorkDocs", sigV4ServiceName: "workdocs", name: "AWSGorillaBoyService.UpdateUser" }, UpdateUserRequest, UpdateUserResponse, [DeactivatingLastSystemUserException, EntityNotExistsException, FailedDependencyException, IllegalUserStateException, InvalidArgumentException, ProhibitedStateException, ServiceUnavailableException, UnauthorizedOperationException, UnauthorizedResourceAccessException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Searches metadata and the content of folders, documents, document versions, and comments.
- */export const searchResources = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-05-01", uri: "/api/v1/search", method: "POST", sdkId: "WorkDocs", sigV4ServiceName: "workdocs", name: "AWSGorillaBoyService.SearchResources" }, SearchResourcesRequest, SearchResourcesResponse, [InvalidArgumentException, ServiceUnavailableException, UnauthorizedOperationException, UnauthorizedResourceAccessException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const searchResources = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-05-01", uri: "/api/v1/search", sdkId: "WorkDocs", sigV4ServiceName: "workdocs", name: "AWSGorillaBoyService.SearchResources" }, SearchResourcesRequest, SearchResourcesResponse, [InvalidArgumentException, ServiceUnavailableException, UnauthorizedOperationException, UnauthorizedResourceAccessException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new document object and version object.
- * 
  * 
  * The client specifies the parent folder ID and name of the document to upload. The
  * ID is optionally specified when creating a new version of an existing document. This is
  * the first step to upload a document. Next, upload the document to the URL returned from
  * the call, and then call UpdateDocumentVersion.
  * 
- * 
  * To cancel the document upload, call AbortDocumentVersionUpload.
- */export const initiateDocumentVersionUpload = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-05-01", uri: "/api/v1/documents", method: "POST", sdkId: "WorkDocs", sigV4ServiceName: "workdocs", name: "AWSGorillaBoyService.InitiateDocumentVersionUpload" }, InitiateDocumentVersionUploadRequest, InitiateDocumentVersionUploadResponse, [DraftUploadOutOfSyncException, EntityAlreadyExistsException, EntityNotExistsException, FailedDependencyException, InvalidArgumentException, InvalidPasswordException, LimitExceededException, ProhibitedStateException, ResourceAlreadyCheckedOutException, ServiceUnavailableException, StorageLimitExceededException, StorageLimitWillExceedException, UnauthorizedOperationException, UnauthorizedResourceAccessException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const initiateDocumentVersionUpload = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-05-01", uri: "/api/v1/documents", sdkId: "WorkDocs", sigV4ServiceName: "workdocs", name: "AWSGorillaBoyService.InitiateDocumentVersionUpload" }, InitiateDocumentVersionUploadRequest, InitiateDocumentVersionUploadResponse, [DraftUploadOutOfSyncException, EntityAlreadyExistsException, EntityNotExistsException, FailedDependencyException, InvalidArgumentException, InvalidPasswordException, LimitExceededException, ProhibitedStateException, ResourceAlreadyCheckedOutException, ServiceUnavailableException, StorageLimitExceededException, StorageLimitWillExceedException, UnauthorizedOperationException, UnauthorizedResourceAccessException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

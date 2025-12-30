@@ -371,7 +371,7 @@ export class TooManyRequestsException extends S.TaggedError<TooManyRequestsExcep
  * Verify the subscription and perform resource dependency checks on the requested
  * Amazon Web Services Marketplace resource. For Amazon Web Services Marketplace components, the response contains fields to download the
  * components and their artifacts.
- */export const getMarketplaceResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/GetMarketplaceResource", method: "POST", sdkId: "imagebuilder", sigV4ServiceName: "imagebuilder", name: "imagebuilder.GetMarketplaceResource" }, GetMarketplaceResourceRequest, GetMarketplaceResourceResponse, [CallRateLimitExceededException, ClientException, ForbiddenException, InvalidRequestException, ServiceException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getMarketplaceResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/GetMarketplaceResource", sdkId: "imagebuilder", sigV4ServiceName: "imagebuilder", name: "imagebuilder.GetMarketplaceResource" }, GetMarketplaceResourceRequest, GetMarketplaceResourceResponse, [CallRateLimitExceededException, ClientException, ForbiddenException, InvalidRequestException, ServiceException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Get the runtime information that was logged for a specific runtime instance
  * of the workflow.
@@ -384,8 +384,6 @@ export class TooManyRequestsException extends S.TaggedError<TooManyRequestsExcep
  * Import a Windows operating system image from a verified Microsoft ISO disk
  * file. The following disk images are supported:
  * 
- * 
- * 
  * - Windows 11 Enterprise
  */export const importDiskImage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/ImportDiskImage", method: "PUT", sdkId: "imagebuilder", sigV4ServiceName: "imagebuilder", name: "imagebuilder.ImportDiskImage" }, ImportDiskImageRequest, ImportDiskImageResponse, [ClientException, ServiceException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -395,17 +393,15 @@ export class TooManyRequestsException extends S.TaggedError<TooManyRequestsExcep
  * action uses those files to import your VM and create an AMI. To import using the CLI
  * command, see import-image
  * 
- * 
- * 
  * You can reference the task ID from the VM import to pull in the AMI that the import
  * created as the base image for your Image Builder recipe.
  */export const importVmImage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/ImportVmImage", method: "PUT", sdkId: "imagebuilder", sigV4ServiceName: "imagebuilder", name: "imagebuilder.ImportVmImage" }, ImportVmImageRequest, ImportVmImageResponse, [ClientException, ServiceException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of image pipelines.
- */export const listImagePipelines = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/ListImagePipelines", method: "POST", sdkId: "imagebuilder", sigV4ServiceName: "imagebuilder", name: "imagebuilder.ListImagePipelines" }, ListImagePipelinesRequest, ListImagePipelinesResponse, [CallRateLimitExceededException, ClientException, ForbiddenException, InvalidPaginationTokenException, InvalidRequestException, ServiceException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listImagePipelines = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/ListImagePipelines", sdkId: "imagebuilder", sigV4ServiceName: "imagebuilder", name: "imagebuilder.ListImagePipelines" }, ListImagePipelinesRequest, ListImagePipelinesResponse, [CallRateLimitExceededException, ClientException, ForbiddenException, InvalidPaginationTokenException, InvalidRequestException, ServiceException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Get the lifecycle runtime history for the specified resource.
- */export const listLifecycleExecutions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/ListLifecycleExecutions", method: "POST", sdkId: "imagebuilder", sigV4ServiceName: "imagebuilder", name: "imagebuilder.ListLifecycleExecutions" }, ListLifecycleExecutionsRequest, ListLifecycleExecutionsResponse, [CallRateLimitExceededException, ClientException, ForbiddenException, InvalidPaginationTokenException, InvalidRequestException, ServiceException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listLifecycleExecutions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/ListLifecycleExecutions", sdkId: "imagebuilder", sigV4ServiceName: "imagebuilder", name: "imagebuilder.ListLifecycleExecutions" }, ListLifecycleExecutionsRequest, ListLifecycleExecutionsResponse, [CallRateLimitExceededException, ClientException, ForbiddenException, InvalidPaginationTokenException, InvalidRequestException, ServiceException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the list of tags for the specified resource.
  */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/tags/{resourceArn}", method: "GET", sdkId: "imagebuilder", sigV4ServiceName: "imagebuilder", name: "imagebuilder.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [InvalidParameterException, ResourceNotFoundException, ServiceException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -438,7 +434,7 @@ export class TooManyRequestsException extends S.TaggedError<TooManyRequestsExcep
  */export const startImagePipelineExecution = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/StartImagePipelineExecution", method: "PUT", sdkId: "imagebuilder", sigV4ServiceName: "imagebuilder", name: "imagebuilder.StartImagePipelineExecution" }, StartImagePipelineExecutionRequest, StartImagePipelineExecutionResponse, [CallRateLimitExceededException, ClientException, ForbiddenException, IdempotentParameterMismatchException, InvalidRequestException, ResourceInUseException, ResourceNotFoundException, ServiceException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Adds a tag to a resource.
- */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/tags/{resourceArn}", method: "POST", sdkId: "imagebuilder", sigV4ServiceName: "imagebuilder", name: "imagebuilder.TagResource" }, TagResourceRequest, TagResourceResponse, [InvalidParameterException, ResourceNotFoundException, ServiceException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/tags/{resourceArn}", sdkId: "imagebuilder", sigV4ServiceName: "imagebuilder", name: "imagebuilder.TagResource" }, TagResourceRequest, TagResourceResponse, [InvalidParameterException, ResourceNotFoundException, ServiceException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes a tag from a resource.
  */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/tags/{resourceArn}", method: "DELETE", sdkId: "imagebuilder", sigV4ServiceName: "imagebuilder", name: "imagebuilder.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [InvalidParameterException, ResourceNotFoundException, ServiceException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -446,9 +442,6 @@ export class TooManyRequestsException extends S.TaggedError<TooManyRequestsExcep
  * Updates an image pipeline. Image pipelines enable you to automate the creation and
  * distribution of images. You must specify exactly one recipe for your image, using either
  * a `containerRecipeArn` or an `imageRecipeArn`.
- * 
- * 
- * 
  * 
  * UpdateImagePipeline does not support selective updates for the pipeline. You must
  * specify all of the required properties in the update request, not just the
@@ -483,21 +476,15 @@ export class TooManyRequestsException extends S.TaggedError<TooManyRequestsExcep
  * separately, using the appropriate Amazon EC2 or Amazon ECR console actions, or API or CLI
  * commands.
  * 
- * 
- * 
  * - To deregister an EC2 Linux AMI, see Deregister your
  * Linux AMI in the
  * *Amazon EC2 User Guide*
  * .
  * 
- * 
- * 
  * - To deregister an EC2 Windows AMI, see Deregister your
  * Windows AMI in the
  * *Amazon EC2 Windows Guide*
  * .
- * 
- * 
  * 
  * - To delete a container image from Amazon ECR, see Deleting
  * an image in the *Amazon ECR User Guide*.
@@ -529,54 +516,54 @@ export class TooManyRequestsException extends S.TaggedError<TooManyRequestsExcep
 /**
  * Returns the list of component build versions for the specified component
  * version Amazon Resource Name (ARN).
- */export const listComponentBuildVersions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/ListComponentBuildVersions", method: "POST", sdkId: "imagebuilder", sigV4ServiceName: "imagebuilder", name: "imagebuilder.ListComponentBuildVersions" }, ListComponentBuildVersionsRequest, ListComponentBuildVersionsResponse, [CallRateLimitExceededException, ClientException, ForbiddenException, InvalidPaginationTokenException, InvalidRequestException, ServiceException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listComponentBuildVersions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/ListComponentBuildVersions", sdkId: "imagebuilder", sigV4ServiceName: "imagebuilder", name: "imagebuilder.ListComponentBuildVersions" }, ListComponentBuildVersionsRequest, ListComponentBuildVersionsResponse, [CallRateLimitExceededException, ClientException, ForbiddenException, InvalidPaginationTokenException, InvalidRequestException, ServiceException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of container recipes.
- */export const listContainerRecipes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/ListContainerRecipes", method: "POST", sdkId: "imagebuilder", sigV4ServiceName: "imagebuilder", name: "imagebuilder.ListContainerRecipes" }, ListContainerRecipesRequest, ListContainerRecipesResponse, [CallRateLimitExceededException, ClientException, ForbiddenException, InvalidPaginationTokenException, InvalidRequestException, ServiceException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listContainerRecipes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/ListContainerRecipes", sdkId: "imagebuilder", sigV4ServiceName: "imagebuilder", name: "imagebuilder.ListContainerRecipes" }, ListContainerRecipesRequest, ListContainerRecipesResponse, [CallRateLimitExceededException, ClientException, ForbiddenException, InvalidPaginationTokenException, InvalidRequestException, ServiceException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of distribution configurations.
- */export const listDistributionConfigurations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/ListDistributionConfigurations", method: "POST", sdkId: "imagebuilder", sigV4ServiceName: "imagebuilder", name: "imagebuilder.ListDistributionConfigurations" }, ListDistributionConfigurationsRequest, ListDistributionConfigurationsResponse, [CallRateLimitExceededException, ClientException, ForbiddenException, InvalidPaginationTokenException, InvalidRequestException, ServiceException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listDistributionConfigurations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/ListDistributionConfigurations", sdkId: "imagebuilder", sigV4ServiceName: "imagebuilder", name: "imagebuilder.ListDistributionConfigurations" }, ListDistributionConfigurationsRequest, ListDistributionConfigurationsResponse, [CallRateLimitExceededException, ClientException, ForbiddenException, InvalidPaginationTokenException, InvalidRequestException, ServiceException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of image build versions.
- */export const listImageBuildVersions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/ListImageBuildVersions", method: "POST", sdkId: "imagebuilder", sigV4ServiceName: "imagebuilder", name: "imagebuilder.ListImageBuildVersions" }, ListImageBuildVersionsRequest, ListImageBuildVersionsResponse, [CallRateLimitExceededException, ClientException, ForbiddenException, InvalidPaginationTokenException, InvalidRequestException, ServiceException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listImageBuildVersions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/ListImageBuildVersions", sdkId: "imagebuilder", sigV4ServiceName: "imagebuilder", name: "imagebuilder.ListImageBuildVersions" }, ListImageBuildVersionsRequest, ListImageBuildVersionsResponse, [CallRateLimitExceededException, ClientException, ForbiddenException, InvalidPaginationTokenException, InvalidRequestException, ServiceException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * List the Packages that are associated with an Image Build Version, as determined by
  * Amazon Web Services Systems Manager Inventory at build time.
- */export const listImagePackages = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/ListImagePackages", method: "POST", sdkId: "imagebuilder", sigV4ServiceName: "imagebuilder", name: "imagebuilder.ListImagePackages" }, ListImagePackagesRequest, ListImagePackagesResponse, [CallRateLimitExceededException, ClientException, ForbiddenException, InvalidPaginationTokenException, InvalidRequestException, ResourceNotFoundException, ServiceException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listImagePackages = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/ListImagePackages", sdkId: "imagebuilder", sigV4ServiceName: "imagebuilder", name: "imagebuilder.ListImagePackages" }, ListImagePackagesRequest, ListImagePackagesResponse, [CallRateLimitExceededException, ClientException, ForbiddenException, InvalidPaginationTokenException, InvalidRequestException, ResourceNotFoundException, ServiceException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of images created by the specified pipeline.
- */export const listImagePipelineImages = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/ListImagePipelineImages", method: "POST", sdkId: "imagebuilder", sigV4ServiceName: "imagebuilder", name: "imagebuilder.ListImagePipelineImages" }, ListImagePipelineImagesRequest, ListImagePipelineImagesResponse, [CallRateLimitExceededException, ClientException, ForbiddenException, InvalidPaginationTokenException, InvalidRequestException, ResourceNotFoundException, ServiceException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listImagePipelineImages = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/ListImagePipelineImages", sdkId: "imagebuilder", sigV4ServiceName: "imagebuilder", name: "imagebuilder.ListImagePipelineImages" }, ListImagePipelineImagesRequest, ListImagePipelineImagesResponse, [CallRateLimitExceededException, ClientException, ForbiddenException, InvalidPaginationTokenException, InvalidRequestException, ResourceNotFoundException, ServiceException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of image recipes.
- */export const listImageRecipes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/ListImageRecipes", method: "POST", sdkId: "imagebuilder", sigV4ServiceName: "imagebuilder", name: "imagebuilder.ListImageRecipes" }, ListImageRecipesRequest, ListImageRecipesResponse, [CallRateLimitExceededException, ClientException, ForbiddenException, InvalidPaginationTokenException, InvalidRequestException, ServiceException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listImageRecipes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/ListImageRecipes", sdkId: "imagebuilder", sigV4ServiceName: "imagebuilder", name: "imagebuilder.ListImageRecipes" }, ListImageRecipesRequest, ListImageRecipesResponse, [CallRateLimitExceededException, ClientException, ForbiddenException, InvalidPaginationTokenException, InvalidRequestException, ServiceException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the list of images that you have access to. Newly created images can take up
  * to two minutes to appear in the ListImages API Results.
- */export const listImages = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/ListImages", method: "POST", sdkId: "imagebuilder", sigV4ServiceName: "imagebuilder", name: "imagebuilder.ListImages" }, ListImagesRequest, ListImagesResponse, [CallRateLimitExceededException, ClientException, ForbiddenException, InvalidPaginationTokenException, InvalidRequestException, ServiceException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listImages = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/ListImages", sdkId: "imagebuilder", sigV4ServiceName: "imagebuilder", name: "imagebuilder.ListImages" }, ListImagesRequest, ListImagesResponse, [CallRateLimitExceededException, ClientException, ForbiddenException, InvalidPaginationTokenException, InvalidRequestException, ServiceException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of infrastructure configurations.
- */export const listInfrastructureConfigurations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/ListInfrastructureConfigurations", method: "POST", sdkId: "imagebuilder", sigV4ServiceName: "imagebuilder", name: "imagebuilder.ListInfrastructureConfigurations" }, ListInfrastructureConfigurationsRequest, ListInfrastructureConfigurationsResponse, [CallRateLimitExceededException, ClientException, ForbiddenException, InvalidPaginationTokenException, InvalidRequestException, ServiceException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listInfrastructureConfigurations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/ListInfrastructureConfigurations", sdkId: "imagebuilder", sigV4ServiceName: "imagebuilder", name: "imagebuilder.ListInfrastructureConfigurations" }, ListInfrastructureConfigurationsRequest, ListInfrastructureConfigurationsResponse, [CallRateLimitExceededException, ClientException, ForbiddenException, InvalidPaginationTokenException, InvalidRequestException, ServiceException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Get a list of lifecycle policies in your Amazon Web Services account.
- */export const listLifecyclePolicies = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/ListLifecyclePolicies", method: "POST", sdkId: "imagebuilder", sigV4ServiceName: "imagebuilder", name: "imagebuilder.ListLifecyclePolicies" }, ListLifecyclePoliciesRequest, ListLifecyclePoliciesResponse, [CallRateLimitExceededException, ClientException, ForbiddenException, InvalidPaginationTokenException, InvalidRequestException, ServiceException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listLifecyclePolicies = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/ListLifecyclePolicies", sdkId: "imagebuilder", sigV4ServiceName: "imagebuilder", name: "imagebuilder.ListLifecyclePolicies" }, ListLifecyclePoliciesRequest, ListLifecyclePoliciesResponse, [CallRateLimitExceededException, ClientException, ForbiddenException, InvalidPaginationTokenException, InvalidRequestException, ServiceException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Get a list of workflow steps that are waiting for action for workflows
  * in your Amazon Web Services account.
- */export const listWaitingWorkflowSteps = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/ListWaitingWorkflowSteps", method: "POST", sdkId: "imagebuilder", sigV4ServiceName: "imagebuilder", name: "imagebuilder.ListWaitingWorkflowSteps" }, ListWaitingWorkflowStepsRequest, ListWaitingWorkflowStepsResponse, [CallRateLimitExceededException, ClientException, ForbiddenException, InvalidPaginationTokenException, InvalidRequestException, ServiceException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listWaitingWorkflowSteps = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/ListWaitingWorkflowSteps", sdkId: "imagebuilder", sigV4ServiceName: "imagebuilder", name: "imagebuilder.ListWaitingWorkflowSteps" }, ListWaitingWorkflowStepsRequest, ListWaitingWorkflowStepsResponse, [CallRateLimitExceededException, ClientException, ForbiddenException, InvalidPaginationTokenException, InvalidRequestException, ServiceException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of build versions for a specific workflow resource.
- */export const listWorkflowBuildVersions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/ListWorkflowBuildVersions", method: "POST", sdkId: "imagebuilder", sigV4ServiceName: "imagebuilder", name: "imagebuilder.ListWorkflowBuildVersions" }, ListWorkflowBuildVersionsRequest, ListWorkflowBuildVersionsResponse, [CallRateLimitExceededException, ClientException, ForbiddenException, InvalidPaginationTokenException, InvalidRequestException, ServiceException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listWorkflowBuildVersions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/ListWorkflowBuildVersions", sdkId: "imagebuilder", sigV4ServiceName: "imagebuilder", name: "imagebuilder.ListWorkflowBuildVersions" }, ListWorkflowBuildVersionsRequest, ListWorkflowBuildVersionsResponse, [CallRateLimitExceededException, ClientException, ForbiddenException, InvalidPaginationTokenException, InvalidRequestException, ServiceException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of workflow runtime instance metadata objects for a specific image build
  * version.
- */export const listWorkflowExecutions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/ListWorkflowExecutions", method: "POST", sdkId: "imagebuilder", sigV4ServiceName: "imagebuilder", name: "imagebuilder.ListWorkflowExecutions" }, ListWorkflowExecutionsRequest, ListWorkflowExecutionsResponse, [CallRateLimitExceededException, ClientException, ForbiddenException, InvalidPaginationTokenException, InvalidRequestException, ServiceException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listWorkflowExecutions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/ListWorkflowExecutions", sdkId: "imagebuilder", sigV4ServiceName: "imagebuilder", name: "imagebuilder.ListWorkflowExecutions" }, ListWorkflowExecutionsRequest, ListWorkflowExecutionsResponse, [CallRateLimitExceededException, ClientException, ForbiddenException, InvalidPaginationTokenException, InvalidRequestException, ServiceException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists workflow build versions based on filtering parameters.
- */export const listWorkflows = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/ListWorkflows", method: "POST", sdkId: "imagebuilder", sigV4ServiceName: "imagebuilder", name: "imagebuilder.ListWorkflows" }, ListWorkflowsRequest, ListWorkflowsResponse, [CallRateLimitExceededException, ClientException, ForbiddenException, InvalidPaginationTokenException, InvalidRequestException, ServiceException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listWorkflows = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/ListWorkflows", sdkId: "imagebuilder", sigV4ServiceName: "imagebuilder", name: "imagebuilder.ListWorkflows" }, ListWorkflowsRequest, ListWorkflowsResponse, [CallRateLimitExceededException, ClientException, ForbiddenException, InvalidPaginationTokenException, InvalidRequestException, ServiceException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns runtime data for each step in a runtime instance of the workflow
  * that you specify in the request.
- */export const listWorkflowStepExecutions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/ListWorkflowStepExecutions", method: "POST", sdkId: "imagebuilder", sigV4ServiceName: "imagebuilder", name: "imagebuilder.ListWorkflowStepExecutions" }, ListWorkflowStepExecutionsRequest, ListWorkflowStepExecutionsResponse, [CallRateLimitExceededException, ClientException, ForbiddenException, InvalidPaginationTokenException, InvalidRequestException, ServiceException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listWorkflowStepExecutions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/ListWorkflowStepExecutions", sdkId: "imagebuilder", sigV4ServiceName: "imagebuilder", name: "imagebuilder.ListWorkflowStepExecutions" }, ListWorkflowStepExecutionsRequest, ListWorkflowStepExecutionsResponse, [CallRateLimitExceededException, ClientException, ForbiddenException, InvalidPaginationTokenException, InvalidRequestException, ServiceException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Applies a policy to a component. We recommend that you call the RAM API CreateResourceShare to share resources. If you call the Image Builder API
  * `PutComponentPolicy`, you must also call the RAM API PromoteResourceShareCreatedFromPolicy in order for the resource to be
@@ -594,11 +581,7 @@ export class TooManyRequestsException extends S.TaggedError<TooManyRequestsExcep
  * image. The component is based on a YAML document that you specify using exactly one of
  * the following methods:
  * 
- * 
- * 
  * - Inline, using the `data` property in the request body.
- * 
- * 
  * 
  * - A URL that points to a YAML document file stored in Amazon S3, using the
  * `uri` property in the request body.
@@ -638,22 +621,17 @@ export class TooManyRequestsException extends S.TaggedError<TooManyRequestsExcep
  * `filters` to streamline results. Newly created components can take up to
  * two minutes to appear in the ListComponents API Results.
  * 
- * 
- * 
- * 
  * The semantic version has four nodes: ../.
  * You can assign values for the first three, and can filter on all of them.
- * 
- * 
  * 
  * **Filtering:** With semantic versioning, you have the flexibility to use wildcards (x)
  * to specify the most recent versions or nodes when selecting the base image or components for your
  * recipe. When you use a wildcard in any node, all nodes to the right of the first wildcard must also be
  * wildcards.
- */export const listComponents = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/ListComponents", method: "POST", sdkId: "imagebuilder", sigV4ServiceName: "imagebuilder", name: "imagebuilder.ListComponents" }, ListComponentsRequest, ListComponentsResponse, [CallRateLimitExceededException, ClientException, ForbiddenException, InvalidPaginationTokenException, InvalidRequestException, ServiceException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listComponents = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/ListComponents", sdkId: "imagebuilder", sigV4ServiceName: "imagebuilder", name: "imagebuilder.ListComponents" }, ListComponentsRequest, ListComponentsResponse, [CallRateLimitExceededException, ClientException, ForbiddenException, InvalidPaginationTokenException, InvalidRequestException, ServiceException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * List resources that the runtime instance of the image lifecycle identified for lifecycle actions.
- */export const listLifecycleExecutionResources = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/ListLifecycleExecutionResources", method: "POST", sdkId: "imagebuilder", sigV4ServiceName: "imagebuilder", name: "imagebuilder.ListLifecycleExecutionResources" }, ListLifecycleExecutionResourcesRequest, ListLifecycleExecutionResourcesResponse, [CallRateLimitExceededException, ClientException, ForbiddenException, InvalidPaginationTokenException, InvalidRequestException, ServiceException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listLifecycleExecutionResources = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/ListLifecycleExecutionResources", sdkId: "imagebuilder", sigV4ServiceName: "imagebuilder", name: "imagebuilder.ListLifecycleExecutionResources" }, ListLifecycleExecutionResourcesRequest, ListLifecycleExecutionResourcesResponse, [CallRateLimitExceededException, ClientException, ForbiddenException, InvalidPaginationTokenException, InvalidRequestException, ServiceException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new container recipe. Container recipes define how images are configured,
  * tested, and assessed.
@@ -678,32 +656,20 @@ export class TooManyRequestsException extends S.TaggedError<TooManyRequestsExcep
  * with the `imagePipelineArn` filter. If you don't specify a filter, Image Builder
  * returns an aggregation for your account.
  * 
- * 
  * To streamline results, you can use the following filters in your request:
- * 
- * 
  * 
  * - `accountId`
  * 
- * 
- * 
- * 
  * - `imageBuildVersionArn`
- * 
- * 
- * 
  * 
  * - `imagePipelineArn`
  * 
- * 
- * 
- * 
  * - `vulnerabilityId`
- */export const listImageScanFindingAggregations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/ListImageScanFindingAggregations", method: "POST", sdkId: "imagebuilder", sigV4ServiceName: "imagebuilder", name: "imagebuilder.ListImageScanFindingAggregations" }, ListImageScanFindingAggregationsRequest, ListImageScanFindingAggregationsResponse, [CallRateLimitExceededException, ClientException, ForbiddenException, InvalidPaginationTokenException, InvalidRequestException, ServiceException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listImageScanFindingAggregations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/ListImageScanFindingAggregations", sdkId: "imagebuilder", sigV4ServiceName: "imagebuilder", name: "imagebuilder.ListImageScanFindingAggregations" }, ListImageScanFindingAggregationsRequest, ListImageScanFindingAggregationsResponse, [CallRateLimitExceededException, ClientException, ForbiddenException, InvalidPaginationTokenException, InvalidRequestException, ServiceException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Begin asynchronous resource state update for lifecycle changes to the
  * specified image resources.
  */export const startResourceStateUpdate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/StartResourceStateUpdate", method: "PUT", sdkId: "imagebuilder", sigV4ServiceName: "imagebuilder", name: "imagebuilder.StartResourceStateUpdate" }, StartResourceStateUpdateRequest, StartResourceStateUpdateResponse, [CallRateLimitExceededException, ClientException, ForbiddenException, IdempotentParameterMismatchException, InvalidRequestException, ResourceInUseException, ResourceNotFoundException, ServiceException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of image scan findings for your account.
- */export const listImageScanFindings = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/ListImageScanFindings", method: "POST", sdkId: "imagebuilder", sigV4ServiceName: "imagebuilder", name: "imagebuilder.ListImageScanFindings" }, ListImageScanFindingsRequest, ListImageScanFindingsResponse, [CallRateLimitExceededException, ClientException, ForbiddenException, InvalidPaginationTokenException, InvalidRequestException, ServiceException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listImageScanFindings = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/ListImageScanFindings", sdkId: "imagebuilder", sigV4ServiceName: "imagebuilder", name: "imagebuilder.ListImageScanFindings" }, ListImageScanFindingsRequest, ListImageScanFindingsResponse, [CallRateLimitExceededException, ClientException, ForbiddenException, InvalidPaginationTokenException, InvalidRequestException, ServiceException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

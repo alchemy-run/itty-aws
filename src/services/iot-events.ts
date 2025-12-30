@@ -164,9 +164,6 @@ export class ResourceAlreadyExistsException extends S.TaggedError<ResourceAlread
 /**
  * Retrieves runtime information about a detector model analysis.
  * 
- * 
- * 
- * 
  * After AWS IoT Events starts analyzing your detector model, you have up to 24 hours to retrieve the analysis results.
  */export const describeDetectorModelAnalysis = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-07-27", uri: "/analysis/detector-models/{analysisId}", method: "GET", sdkId: "IoT Events", sigV4ServiceName: "iotevents", name: "IotColumboService.DescribeDetectorModelAnalysis" }, DescribeDetectorModelAnalysisRequest, DescribeDetectorModelAnalysisResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -176,18 +173,18 @@ export class ResourceAlreadyExistsException extends S.TaggedError<ResourceAlread
  * Performs an analysis of your detector model. For more information,
  * see Troubleshooting a detector model
  * in the *AWS IoT Events Developer Guide*.
- */export const startDetectorModelAnalysis = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-07-27", uri: "/analysis/detector-models", method: "POST", sdkId: "IoT Events", sigV4ServiceName: "iotevents", name: "IotColumboService.StartDetectorModelAnalysis" }, StartDetectorModelAnalysisRequest, StartDetectorModelAnalysisResponse, [InternalFailureException, InvalidRequestException, LimitExceededException, ServiceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startDetectorModelAnalysis = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-07-27", uri: "/analysis/detector-models", sdkId: "IoT Events", sigV4ServiceName: "iotevents", name: "IotColumboService.StartDetectorModelAnalysis" }, StartDetectorModelAnalysisRequest, StartDetectorModelAnalysisResponse, [InternalFailureException, InvalidRequestException, LimitExceededException, ServiceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Adds to or modifies the tags of the given resource. Tags are metadata that can be used to
  * manage a resource.
- */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-07-27", uri: "/tags", method: "POST", sdkId: "IoT Events", sigV4ServiceName: "iotevents", name: "IotColumboService.TagResource" }, TagResourceRequest, TagResourceResponse, [InternalFailureException, InvalidRequestException, LimitExceededException, ResourceInUseException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-07-27", uri: "/tags", sdkId: "IoT Events", sigV4ServiceName: "iotevents", name: "IotColumboService.TagResource" }, TagResourceRequest, TagResourceResponse, [InternalFailureException, InvalidRequestException, LimitExceededException, ResourceInUseException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes the given tags (metadata) from the resource.
  */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-07-27", uri: "/tags", method: "DELETE", sdkId: "IoT Events", sigV4ServiceName: "iotevents", name: "IotColumboService.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [InternalFailureException, InvalidRequestException, ResourceInUseException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates an alarm model. Any alarms that were created based on the previous version are
  * deleted and then created again as new data arrives.
- */export const updateAlarmModel = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-07-27", uri: "/alarm-models/{alarmModelName}", method: "POST", sdkId: "IoT Events", sigV4ServiceName: "iotevents", name: "IotColumboService.UpdateAlarmModel" }, UpdateAlarmModelRequest, UpdateAlarmModelResponse, [InternalFailureException, InvalidRequestException, ResourceInUseException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateAlarmModel = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-07-27", uri: "/alarm-models/{alarmModelName}", sdkId: "IoT Events", sigV4ServiceName: "iotevents", name: "IotColumboService.UpdateAlarmModel" }, UpdateAlarmModelRequest, UpdateAlarmModelResponse, [InternalFailureException, InvalidRequestException, ResourceInUseException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes an alarm model. Any alarm instances that were created based on this alarm model
  * are also deleted. This action can't be undone.
@@ -224,7 +221,6 @@ export class ResourceAlreadyExistsException extends S.TaggedError<ResourceAlread
 /**
  * Sets or updates the AWS IoT Events logging options.
  * 
- * 
  * If you update the value of any `loggingOptions` field, it takes up to one
  * minute for the change to take effect. If you change the policy attached to the role you
  * specified in the `roleArn` field (for example, to correct an invalid policy), it
@@ -233,29 +229,26 @@ export class ResourceAlreadyExistsException extends S.TaggedError<ResourceAlread
 /**
  * Updates a detector model. Detectors (instances) spawned by the previous version are
  * deleted and then re-created as new inputs arrive.
- */export const updateDetectorModel = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-07-27", uri: "/detector-models/{detectorModelName}", method: "POST", sdkId: "IoT Events", sigV4ServiceName: "iotevents", name: "IotColumboService.UpdateDetectorModel" }, UpdateDetectorModelRequest, UpdateDetectorModelResponse, [InternalFailureException, InvalidRequestException, ResourceInUseException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateDetectorModel = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-07-27", uri: "/detector-models/{detectorModelName}", sdkId: "IoT Events", sigV4ServiceName: "iotevents", name: "IotColumboService.UpdateDetectorModel" }, UpdateDetectorModelRequest, UpdateDetectorModelResponse, [InternalFailureException, InvalidRequestException, ResourceInUseException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates an input.
  */export const updateInput = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-07-27", uri: "/inputs/{inputName}", method: "PUT", sdkId: "IoT Events", sigV4ServiceName: "iotevents", name: "IotColumboService.UpdateInput" }, UpdateInputRequest, UpdateInputResponse, [InternalFailureException, InvalidRequestException, ResourceInUseException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves one or more analysis results of the detector model.
  * 
- * 
- * 
- * 
  * After AWS IoT Events starts analyzing your detector model, you have up to 24 hours to retrieve the analysis results.
  */export const getDetectorModelAnalysisResults = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-07-27", uri: "/analysis/detector-models/{analysisId}/results", method: "GET", sdkId: "IoT Events", sigV4ServiceName: "iotevents", name: "IotColumboService.GetDetectorModelAnalysisResults" }, GetDetectorModelAnalysisResultsRequest, GetDetectorModelAnalysisResultsResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an input.
- */export const createInput = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-07-27", uri: "/inputs", method: "POST", sdkId: "IoT Events", sigV4ServiceName: "iotevents", name: "IotColumboService.CreateInput" }, CreateInputRequest, CreateInputResponse, [InternalFailureException, InvalidRequestException, ResourceAlreadyExistsException, ServiceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createInput = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-07-27", uri: "/inputs", sdkId: "IoT Events", sigV4ServiceName: "iotevents", name: "IotColumboService.CreateInput" }, CreateInputRequest, CreateInputResponse, [InternalFailureException, InvalidRequestException, ResourceAlreadyExistsException, ServiceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists one or more input routings.
- */export const listInputRoutings = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-07-27", uri: "/input-routings", method: "POST", sdkId: "IoT Events", sigV4ServiceName: "iotevents", name: "IotColumboService.ListInputRoutings" }, ListInputRoutingsRequest, ListInputRoutingsResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listInputRoutings = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-07-27", uri: "/input-routings", sdkId: "IoT Events", sigV4ServiceName: "iotevents", name: "IotColumboService.ListInputRoutings" }, ListInputRoutingsRequest, ListInputRoutingsResponse, [InternalFailureException, InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an alarm model to monitor an AWS IoT Events input attribute. You can use the alarm to get
  * notified when the value is outside a specified range. For more information, see Create an
  * alarm model in the *AWS IoT Events Developer Guide*.
- */export const createAlarmModel = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-07-27", uri: "/alarm-models", method: "POST", sdkId: "IoT Events", sigV4ServiceName: "iotevents", name: "IotColumboService.CreateAlarmModel" }, CreateAlarmModelRequest, CreateAlarmModelResponse, [InternalFailureException, InvalidRequestException, LimitExceededException, ResourceAlreadyExistsException, ResourceInUseException, ServiceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createAlarmModel = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-07-27", uri: "/alarm-models", sdkId: "IoT Events", sigV4ServiceName: "iotevents", name: "IotColumboService.CreateAlarmModel" }, CreateAlarmModelRequest, CreateAlarmModelResponse, [InternalFailureException, InvalidRequestException, LimitExceededException, ResourceAlreadyExistsException, ResourceInUseException, ServiceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a detector model.
- */export const createDetectorModel = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-07-27", uri: "/detector-models", method: "POST", sdkId: "IoT Events", sigV4ServiceName: "iotevents", name: "IotColumboService.CreateDetectorModel" }, CreateDetectorModelRequest, CreateDetectorModelResponse, [InternalFailureException, InvalidRequestException, LimitExceededException, ResourceAlreadyExistsException, ResourceInUseException, ServiceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createDetectorModel = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-07-27", uri: "/detector-models", sdkId: "IoT Events", sigV4ServiceName: "iotevents", name: "IotColumboService.CreateDetectorModel" }, CreateDetectorModelRequest, CreateDetectorModelResponse, [InternalFailureException, InvalidRequestException, LimitExceededException, ResourceAlreadyExistsException, ResourceInUseException, ServiceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

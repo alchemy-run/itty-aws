@@ -347,22 +347,17 @@ export class DependencyFailureException extends S.TaggedError<DependencyFailureE
 /**
  * Deletes the recovery point specified by a recovery point ID.
  * 
- * 
  * If the recovery point ID belongs to a continuous backup, calling this endpoint deletes
  * the existing continuous backup and stops future continuous backup.
- * 
  * 
  * When an IAM role's permissions are insufficient to call this API, the service sends back
  * an HTTP 200 response with an empty HTTP body, but the recovery point is not deleted.
  * Instead, it enters an `EXPIRED` state.
  * 
- * 
- * 
  * `EXPIRED` recovery points can be deleted with this API once the IAM role
  * has the `iam:CreateServiceLinkedRole` action. To learn more about adding this role, see
  * 
  * Troubleshooting manual deletions.
- * 
  * 
  * If the user or role is deleted or the permission within the role is removed,
  * the deletion will not be successful and will enter an `EXPIRED` state.
@@ -373,14 +368,12 @@ export class DependencyFailureException extends S.TaggedError<DependencyFailureE
 /**
  * This request deletes the specified restore testing plan.
  * 
- * 
  * Deletion can only successfully occur if all associated
  * restore testing selections are deleted first.
  */export const deleteRestoreTestingPlan = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-15", uri: "/restore-testing/plans/{RestoreTestingPlanName}", method: "DELETE", sdkId: "Backup", sigV4ServiceName: "backup", name: "CryoControllerUserManager.DeleteRestoreTestingPlan" }, DeleteRestoreTestingPlanInput, S.Struct({}), [InvalidRequestException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Input the Restore Testing Plan name and Restore Testing Selection
  * name.
- * 
  * 
  * All testing selections associated with a restore testing plan must
  * be deleted before the restore testing plan can be deleted.
@@ -390,15 +383,14 @@ export class DependencyFailureException extends S.TaggedError<DependencyFailureE
  */export const deleteTieringConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-15", uri: "/tiering-configurations/{TieringConfigurationName}", method: "DELETE", sdkId: "Backup", sigV4ServiceName: "backup", name: "CryoControllerUserManager.DeleteTieringConfiguration" }, DeleteTieringConfigurationInput, DeleteTieringConfigurationOutput, [InvalidParameterValueException, MissingParameterValueException, ResourceNotFoundException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes the association between an MPA approval team and a backup vault, disabling the MPA approval workflow for restore operations.
- */export const disassociateBackupVaultMpaApprovalTeam = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-15", uri: "/backup-vaults/{BackupVaultName}/mpaApprovalTeam?delete", method: "POST", sdkId: "Backup", sigV4ServiceName: "backup", name: "CryoControllerUserManager.DisassociateBackupVaultMpaApprovalTeam" }, DisassociateBackupVaultMpaApprovalTeamInput, S.Struct({}), [InvalidParameterValueException, InvalidRequestException, MissingParameterValueException, ResourceNotFoundException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const disassociateBackupVaultMpaApprovalTeam = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-15", uri: "/backup-vaults/{BackupVaultName}/mpaApprovalTeam?delete", sdkId: "Backup", sigV4ServiceName: "backup", name: "CryoControllerUserManager.DisassociateBackupVaultMpaApprovalTeam" }, DisassociateBackupVaultMpaApprovalTeamInput, S.Struct({}), [InvalidParameterValueException, InvalidRequestException, MissingParameterValueException, ResourceNotFoundException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the specified continuous backup recovery point from Backup and
  * releases control of that continuous backup to the source service, such as Amazon RDS. The source service will continue to create and retain continuous backups using the
  * lifecycle that you specified in your original backup plan.
  * 
- * 
  * Does not support snapshot backup recovery points.
- */export const disassociateRecoveryPoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-15", uri: "/backup-vaults/{BackupVaultName}/recovery-points/{RecoveryPointArn}/disassociate", method: "POST", sdkId: "Backup", sigV4ServiceName: "backup", name: "CryoControllerUserManager.DisassociateRecoveryPoint" }, DisassociateRecoveryPointInput, S.Struct({}), [InvalidParameterValueException, InvalidRequestException, InvalidResourceStateException, MissingParameterValueException, ResourceNotFoundException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const disassociateRecoveryPoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-15", uri: "/backup-vaults/{BackupVaultName}/recovery-points/{RecoveryPointArn}/disassociate", sdkId: "Backup", sigV4ServiceName: "backup", name: "CryoControllerUserManager.DisassociateRecoveryPoint" }, DisassociateRecoveryPointInput, S.Struct({}), [InvalidParameterValueException, InvalidRequestException, InvalidResourceStateException, MissingParameterValueException, ResourceNotFoundException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This action to a specific child (nested) recovery point removes the relationship
  * between the specified recovery point and its parent (composite) recovery point.
@@ -418,18 +410,11 @@ export class DependencyFailureException extends S.TaggedError<DependencyFailureE
  * point currently stored in a backup vault. If specified, Vault Lock enforces a minimum and
  * maximum retention period for future backup and copy jobs that target a backup vault.
  * 
- * 
- * 
- * 
  * Backup Vault Lock has been assessed by Cohasset Associates for use in environments
  * that are subject to SEC 17a-4, CFTC, and FINRA regulations. For more information about
  * how Backup Vault Lock relates to these regulations, see the
  * Cohasset Associates
  * Compliance Assessment.
- * 
- * 
- * 
- * 
  * 
  * For more information, see Backup Vault Lock.
  */export const putBackupVaultLockConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-15", uri: "/backup-vaults/{BackupVaultName}/vault-lock", method: "PUT", sdkId: "Backup", sigV4ServiceName: "backup", name: "CryoControllerUserManager.PutBackupVaultLockConfiguration" }, PutBackupVaultLockConfigurationInput, S.Struct({}), [InvalidParameterValueException, InvalidRequestException, MissingParameterValueException, ResourceNotFoundException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -449,54 +434,34 @@ export class DependencyFailureException extends S.TaggedError<DependencyFailureE
 /**
  * Attempts to cancel a job to create a one-time backup of a resource.
  * 
- * 
  * This action is not supported for the following services:
- * 
- * 
  * 
  * - Amazon Aurora
  * 
- * 
- * 
  * - Amazon DocumentDB (with MongoDB compatibility)
- * 
- * 
  * 
  * - Amazon FSx for Lustre
  * 
- * 
- * 
  * - Amazon FSx for NetApp ONTAP
- * 
- * 
  * 
  * - Amazon FSx for OpenZFS
  * 
- * 
- * 
  * - Amazon FSx for Windows File Server
- * 
- * 
  * 
  * - Amazon Neptune
  * 
- * 
- * 
  * - SAP HANA databases on Amazon EC2 instances
  * 
- * 
- * 
  * - Amazon RDS
- */export const stopBackupJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-15", uri: "/backup-jobs/{BackupJobId}", method: "POST", sdkId: "Backup", sigV4ServiceName: "backup", name: "CryoControllerUserManager.StopBackupJob" }, StopBackupJobInput, S.Struct({}), [InvalidParameterValueException, InvalidRequestException, MissingParameterValueException, ResourceNotFoundException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const stopBackupJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-15", uri: "/backup-jobs/{BackupJobId}", sdkId: "Backup", sigV4ServiceName: "backup", name: "CryoControllerUserManager.StopBackupJob" }, StopBackupJobInput, S.Struct({}), [InvalidParameterValueException, InvalidRequestException, MissingParameterValueException, ResourceNotFoundException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes a set of key-value pairs from a recovery point, backup plan, or backup vault
  * identified by an Amazon Resource Name (ARN)
  * 
- * 
  * This API is not supported for recovery points for resource types
  * including Aurora, Amazon DocumentDB. Amazon EBS,
  * Amazon FSx, Neptune, and Amazon RDS.
- */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-15", uri: "/untag/{ResourceArn}", method: "POST", sdkId: "Backup", sigV4ServiceName: "backup", name: "CryoControllerUserManager.UntagResource" }, UntagResourceInput, S.Struct({}), [InvalidParameterValueException, MissingParameterValueException, ResourceNotFoundException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-15", uri: "/untag/{ResourceArn}", sdkId: "Backup", sigV4ServiceName: "backup", name: "CryoControllerUserManager.UntagResource" }, UntagResourceInput, S.Struct({}), [InvalidParameterValueException, MissingParameterValueException, ResourceNotFoundException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates whether the Amazon Web Services account is opted in to cross-account backup.
  * Returns an error if the account is not an Organizations management account. Use the
@@ -504,7 +469,6 @@ export class DependencyFailureException extends S.TaggedError<DependencyFailureE
  */export const updateGlobalSettings = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-15", uri: "/global-settings", method: "PUT", sdkId: "Backup", sigV4ServiceName: "backup", name: "CryoControllerUserManager.UpdateGlobalSettings" }, UpdateGlobalSettingsInput, S.Struct({}), [InvalidParameterValueException, InvalidRequestException, MissingParameterValueException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the current service opt-in settings for the Region.
- * 
  * 
  * Use
  * the `DescribeRegionSettings` API to determine the resource types that are
@@ -520,13 +484,9 @@ export class DependencyFailureException extends S.TaggedError<DependencyFailureE
 /**
  * Creates a logical container to where backups may be copied.
  * 
- * 
  * This request includes a name, the Region, the maximum number of retention days, the
  * minimum number of retention days, and optionally can include tags and a creator request
  * ID.
- * 
- * 
- * 
  * 
  * Do not include sensitive data, such as passport numbers, in the name of a backup
  * vault.
@@ -553,7 +513,6 @@ export class DependencyFailureException extends S.TaggedError<DependencyFailureE
 /**
  * Deletes Backup Vault Lock from a backup vault specified by a backup vault
  * name.
- * 
  * 
  * If the Vault Lock configuration is immutable, then you cannot delete Vault Lock using
  * API operations, and you will receive an `InvalidRequestException` if you attempt
@@ -588,7 +547,7 @@ export class DependencyFailureException extends S.TaggedError<DependencyFailureE
  */export const exportBackupPlanTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-15", uri: "/backup/plans/{BackupPlanId}/toTemplate", method: "GET", sdkId: "Backup", sigV4ServiceName: "backup", name: "CryoControllerUserManager.ExportBackupPlanTemplate" }, ExportBackupPlanTemplateInput, ExportBackupPlanTemplateOutput, [InvalidParameterValueException, MissingParameterValueException, ResourceNotFoundException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a valid JSON document specifying a backup plan or an error.
- */export const getBackupPlanFromJSON = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-15", uri: "/backup/template/json/toPlan", method: "POST", sdkId: "Backup", sigV4ServiceName: "backup", name: "CryoControllerUserManager.GetBackupPlanFromJSON" }, GetBackupPlanFromJSONInput, GetBackupPlanFromJSONOutput, [InvalidParameterValueException, InvalidRequestException, LimitExceededException, MissingParameterValueException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getBackupPlanFromJSON = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-15", uri: "/backup/template/json/toPlan", sdkId: "Backup", sigV4ServiceName: "backup", name: "CryoControllerUserManager.GetBackupPlanFromJSON" }, GetBackupPlanFromJSONInput, GetBackupPlanFromJSONOutput, [InvalidParameterValueException, InvalidRequestException, LimitExceededException, MissingParameterValueException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the template specified by its `templateId` as a backup plan.
  */export const getBackupPlanFromTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-15", uri: "/backup/template/plans/{BackupPlanTemplateId}/toPlan", method: "GET", sdkId: "Backup", sigV4ServiceName: "backup", name: "CryoControllerUserManager.GetBackupPlanFromTemplate" }, GetBackupPlanFromTemplateInput, GetBackupPlanFromTemplateOutput, [InvalidParameterValueException, MissingParameterValueException, ResourceNotFoundException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -643,7 +602,6 @@ export class DependencyFailureException extends S.TaggedError<DependencyFailureE
 /**
  * This returns restore jobs that contain the specified protected resource.
  * 
- * 
  * You must include `ResourceArn`. You can optionally include
  * `NextToken`, `ByStatus`, `MaxResults`,
  * `ByRecoveryPointCreationDateAfter` , and
@@ -653,14 +611,12 @@ export class DependencyFailureException extends S.TaggedError<DependencyFailureE
  * Returns the tags assigned to the resource, such as a target recovery point, backup plan,
  * or backup vault.
  * 
- * 
  * This operation returns results depending on the resource type used in the value for
  * `resourceArn`. For example, recovery points of Amazon DynamoDB with
  * Advanced Settings have an ARN (Amazon Resource Name) that begins with
  * `arn:aws:backup`. Recovery points (backups) of DynamoDB without
  * Advanced Settings enabled have an ARN that begins with
  * `arn:aws:dynamodb`.
- * 
  * 
  * When this operation is called and when you include values of `resourceArn`
  * that have an ARN other than `arn:aws:backup`, it may return one of the
@@ -671,9 +627,7 @@ export class DependencyFailureException extends S.TaggedError<DependencyFailureE
 /**
  * Starts a job to create a one-time copy of the specified resource.
  * 
- * 
  * Does not support continuous backups.
- * 
  * 
  * See Copy
  * job retry for information on how Backup retries copy job
@@ -681,55 +635,45 @@ export class DependencyFailureException extends S.TaggedError<DependencyFailureE
  */export const startCopyJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-15", uri: "/copy-jobs", method: "PUT", sdkId: "Backup", sigV4ServiceName: "backup", name: "CryoControllerUserManager.StartCopyJob" }, StartCopyJobInput, StartCopyJobOutput, [InvalidParameterValueException, InvalidRequestException, LimitExceededException, MissingParameterValueException, ResourceNotFoundException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts an on-demand report job for the specified report plan.
- */export const startReportJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-15", uri: "/audit/report-jobs/{ReportPlanName}", method: "POST", sdkId: "Backup", sigV4ServiceName: "backup", name: "CryoControllerUserManager.StartReportJob" }, StartReportJobInput, StartReportJobOutput, [InvalidParameterValueException, MissingParameterValueException, ResourceNotFoundException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startReportJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-15", uri: "/audit/report-jobs/{ReportPlanName}", sdkId: "Backup", sigV4ServiceName: "backup", name: "CryoControllerUserManager.StartReportJob" }, StartReportJobInput, StartReportJobOutput, [InvalidParameterValueException, MissingParameterValueException, ResourceNotFoundException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts scanning jobs for specific resources.
  */export const startScanJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-15", uri: "/scan/job", method: "PUT", sdkId: "Backup", sigV4ServiceName: "backup", name: "CryoControllerUserManager.StartScanJob" }, StartScanJobInput, StartScanJobOutput, [InvalidParameterValueException, InvalidRequestException, LimitExceededException, MissingParameterValueException, ResourceNotFoundException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Assigns a set of key-value pairs to a resource.
- */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-15", uri: "/tags/{ResourceArn}", method: "POST", sdkId: "Backup", sigV4ServiceName: "backup", name: "CryoControllerUserManager.TagResource" }, TagResourceInput, S.Struct({}), [InvalidParameterValueException, LimitExceededException, MissingParameterValueException, ResourceNotFoundException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-15", uri: "/tags/{ResourceArn}", sdkId: "Backup", sigV4ServiceName: "backup", name: "CryoControllerUserManager.TagResource" }, TagResourceInput, S.Struct({}), [InvalidParameterValueException, LimitExceededException, MissingParameterValueException, ResourceNotFoundException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the specified backup plan. The new version is uniquely identified by its ID.
- */export const updateBackupPlan = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-15", uri: "/backup/plans/{BackupPlanId}", method: "POST", sdkId: "Backup", sigV4ServiceName: "backup", name: "CryoControllerUserManager.UpdateBackupPlan" }, UpdateBackupPlanInput, UpdateBackupPlanOutput, [InvalidParameterValueException, MissingParameterValueException, ResourceNotFoundException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateBackupPlan = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-15", uri: "/backup/plans/{BackupPlanId}", sdkId: "Backup", sigV4ServiceName: "backup", name: "CryoControllerUserManager.UpdateBackupPlan" }, UpdateBackupPlanInput, UpdateBackupPlanOutput, [InvalidParameterValueException, MissingParameterValueException, ResourceNotFoundException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the specified framework.
  */export const updateFramework = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-15", uri: "/audit/frameworks/{FrameworkName}", method: "PUT", sdkId: "Backup", sigV4ServiceName: "backup", name: "CryoControllerUserManager.UpdateFramework" }, UpdateFrameworkInput, UpdateFrameworkOutput, [AlreadyExistsException, ConflictException, InvalidParameterValueException, LimitExceededException, MissingParameterValueException, ResourceNotFoundException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This operation updates the settings of a recovery point index.
  * 
- * 
  * Required: BackupVaultName, RecoveryPointArn, and IAMRoleArn
- */export const updateRecoveryPointIndexSettings = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-15", uri: "/backup-vaults/{BackupVaultName}/recovery-points/{RecoveryPointArn}/index", method: "POST", sdkId: "Backup", sigV4ServiceName: "backup", name: "CryoControllerUserManager.UpdateRecoveryPointIndexSettings" }, UpdateRecoveryPointIndexSettingsInput, UpdateRecoveryPointIndexSettingsOutput, [InvalidParameterValueException, InvalidRequestException, MissingParameterValueException, ResourceNotFoundException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateRecoveryPointIndexSettings = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-15", uri: "/backup-vaults/{BackupVaultName}/recovery-points/{RecoveryPointArn}/index", sdkId: "Backup", sigV4ServiceName: "backup", name: "CryoControllerUserManager.UpdateRecoveryPointIndexSettings" }, UpdateRecoveryPointIndexSettingsInput, UpdateRecoveryPointIndexSettingsOutput, [InvalidParameterValueException, InvalidRequestException, MissingParameterValueException, ResourceNotFoundException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Sets the transition lifecycle of a recovery point.
- * 
  * 
  * The lifecycle defines when a protected resource is transitioned to cold storage and when
  * it expires. Backup transitions and expires backups automatically according to
  * the lifecycle that you define.
  * 
- * 
  * Resource types that can transition to cold storage are listed in the Feature availability by resource table. Backup ignores this expression for
  * other resource types.
- * 
  * 
  * Backups transitioned to cold storage must be stored in cold storage for a minimum of 90
  * days. Therefore, the “retention” setting must be 90 days greater than the “transition to
  * cold after days” setting. The “transition to cold after days” setting cannot be changed
  * after a backup has been transitioned to cold.
  * 
- * 
- * 
- * 
  * If your lifecycle currently uses the parameters `DeleteAfterDays` and
  * `MoveToColdStorageAfterDays`, include these parameters and their values when you call
  * this operation. Not including them may result in your plan updating with null values.
  * 
- * 
- * 
- * 
  * This operation does not support continuous backups.
- */export const updateRecoveryPointLifecycle = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-15", uri: "/backup-vaults/{BackupVaultName}/recovery-points/{RecoveryPointArn}", method: "POST", sdkId: "Backup", sigV4ServiceName: "backup", name: "CryoControllerUserManager.UpdateRecoveryPointLifecycle" }, UpdateRecoveryPointLifecycleInput, UpdateRecoveryPointLifecycleOutput, [InvalidParameterValueException, InvalidRequestException, MissingParameterValueException, ResourceNotFoundException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateRecoveryPointLifecycle = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-15", uri: "/backup-vaults/{BackupVaultName}/recovery-points/{RecoveryPointArn}", sdkId: "Backup", sigV4ServiceName: "backup", name: "CryoControllerUserManager.UpdateRecoveryPointLifecycle" }, UpdateRecoveryPointLifecycleInput, UpdateRecoveryPointLifecycleOutput, [InvalidParameterValueException, InvalidRequestException, MissingParameterValueException, ResourceNotFoundException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the specified report plan.
  */export const updateReportPlan = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-15", uri: "/audit/report-plans/{ReportPlanName}", method: "PUT", sdkId: "Backup", sigV4ServiceName: "backup", name: "CryoControllerUserManager.UpdateReportPlan" }, UpdateReportPlanInput, UpdateReportPlanOutput, [ConflictException, InvalidParameterValueException, MissingParameterValueException, ResourceNotFoundException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -738,9 +682,6 @@ export class DependencyFailureException extends S.TaggedError<DependencyFailureE
  * request includes a name, optionally one or more resource tags, an encryption key, and a
  * request ID.
  * 
- * 
- * 
- * 
  * Do not include sensitive data, such as passport numbers, in the name of a backup
  * vault.
  */export const createBackupVault = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-15", uri: "/backup-vaults/{BackupVaultName}", method: "PUT", sdkId: "Backup", sigV4ServiceName: "backup", name: "CryoControllerUserManager.CreateBackupVault" }, CreateBackupVaultInput, CreateBackupVaultOutput, [AlreadyExistsException, InvalidParameterValueException, LimitExceededException, MissingParameterValueException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -748,10 +689,9 @@ export class DependencyFailureException extends S.TaggedError<DependencyFailureE
  * Creates a report plan. A report plan is a document that contains information about the
  * contents of the report and where Backup will deliver it.
  * 
- * 
  * If you call `CreateReportPlan` with a plan that already exists, you receive
  * an `AlreadyExistsException` exception.
- */export const createReportPlan = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-15", uri: "/audit/report-plans", method: "POST", sdkId: "Backup", sigV4ServiceName: "backup", name: "CryoControllerUserManager.CreateReportPlan" }, CreateReportPlanInput, CreateReportPlanOutput, [AlreadyExistsException, InvalidParameterValueException, LimitExceededException, MissingParameterValueException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createReportPlan = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-15", uri: "/audit/report-plans", sdkId: "Backup", sigV4ServiceName: "backup", name: "CryoControllerUserManager.CreateReportPlan" }, CreateReportPlanInput, CreateReportPlanOutput, [AlreadyExistsException, InvalidParameterValueException, LimitExceededException, MissingParameterValueException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns metadata about a backup vault specified by its name.
  */export const describeBackupVault = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-15", uri: "/backup-vaults/{BackupVaultName}", method: "GET", sdkId: "Backup", sigV4ServiceName: "backup", name: "CryoControllerUserManager.DescribeBackupVault" }, DescribeBackupVaultInput, DescribeBackupVaultOutput, [InvalidParameterValueException, MissingParameterValueException, ResourceNotFoundException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -793,7 +733,6 @@ export class DependencyFailureException extends S.TaggedError<DependencyFailureE
  * AggregationPeriod, MaxResults, or NextToken to filter
  * results.
  * 
- * 
  * This request returns a summary that contains
  * Region, Account, State, ResourceType, MessageCategory,
  * StartTime, EndTime, and Count of included jobs.
@@ -819,7 +758,6 @@ export class DependencyFailureException extends S.TaggedError<DependencyFailureE
  * AggregationPeriod, MaxResults, or NextToken to filter
  * results.
  * 
- * 
  * This request returns a summary that contains
  * Region, Account, State, RestourceType, MessageCategory,
  * StartTime, EndTime, and Count of included jobs.
@@ -830,7 +768,6 @@ export class DependencyFailureException extends S.TaggedError<DependencyFailureE
 /**
  * This operation returns a list of recovery points that have an
  * associated index, belonging to the specified account.
- * 
  * 
  * Optional parameters you can include are: MaxResults;
  * NextToken; SourceResourceArns; CreatedBefore; CreatedAfter;
@@ -852,9 +789,6 @@ export class DependencyFailureException extends S.TaggedError<DependencyFailureE
  * The information about the recovery points of the type specified by a
  * resource Amazon Resource Name (ARN).
  * 
- * 
- * 
- * 
  * For Amazon EFS and Amazon EC2, this action only lists recovery points
  * created by Backup.
  */export const listRecoveryPointsByResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-15", uri: "/resources/{ResourceArn}/recovery-points", method: "GET", sdkId: "Backup", sigV4ServiceName: "backup", name: "CryoControllerUserManager.ListRecoveryPointsByResource" }, ListRecoveryPointsByResourceInput, ListRecoveryPointsByResourceOutput, [InvalidParameterValueException, MissingParameterValueException, ResourceNotFoundException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -868,7 +802,6 @@ export class DependencyFailureException extends S.TaggedError<DependencyFailureE
  * include parameters AccountID, State, ResourceType,
  * AggregationPeriod, MaxResults, or NextToken to filter
  * results.
- * 
  * 
  * This request returns a summary that contains
  * Region, Account, State, RestourceType, MessageCategory,
@@ -901,41 +834,23 @@ export class DependencyFailureException extends S.TaggedError<DependencyFailureE
  * plan. `RestoreTestingPlanName`
  * cannot be updated after it is created.
  * 
- * 
- * 
  * `RecoveryPointSelection` can contain:
- * 
- * 
  * 
  * - `Algorithm`
  * 
- * 
- * 
- * 
  * - `ExcludeVaults`
- * 
- * 
- * 
  * 
  * - `IncludeVaults`
  * 
- * 
- * 
- * 
  * - `RecoveryPointTypes`
- * 
- * 
- * 
  * 
  * - `SelectionWindowDays`
  */export const updateRestoreTestingPlan = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-15", uri: "/restore-testing/plans/{RestoreTestingPlanName}", method: "PUT", sdkId: "Backup", sigV4ServiceName: "backup", name: "CryoControllerUserManager.UpdateRestoreTestingPlan" }, UpdateRestoreTestingPlanInput, UpdateRestoreTestingPlanOutput, [ConflictException, InvalidParameterValueException, MissingParameterValueException, ResourceNotFoundException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the specified restore testing selection.
  * 
- * 
  * Most elements except the `RestoreTestingSelectionName`
  * can be updated with this request.
- * 
  * 
  * You can use either protected resource ARNs or conditions, but not both.
  */export const updateRestoreTestingSelection = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-15", uri: "/restore-testing/plans/{RestoreTestingPlanName}/selections/{RestoreTestingSelectionName}", method: "PUT", sdkId: "Backup", sigV4ServiceName: "backup", name: "CryoControllerUserManager.UpdateRestoreTestingSelection" }, UpdateRestoreTestingSelectionInput, UpdateRestoreTestingSelectionOutput, [ConflictException, InvalidParameterValueException, MissingParameterValueException, ResourceNotFoundException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -944,21 +859,11 @@ export class DependencyFailureException extends S.TaggedError<DependencyFailureE
  * configuration. `TieringConfigurationName`
  * cannot be updated after it is created.
  * 
- * 
- * 
  * `ResourceSelection` can contain:
- * 
- * 
  * 
  * - `Resources`
  * 
- * 
- * 
- * 
  * - `TieringDownSettingsInDays`
- * 
- * 
- * 
  * 
  * - `ResourceType`
  */export const updateTieringConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-15", uri: "/tiering-configurations/{TieringConfigurationName}", method: "PUT", sdkId: "Backup", sigV4ServiceName: "backup", name: "CryoControllerUserManager.UpdateTieringConfiguration" }, UpdateTieringConfigurationInput, UpdateTieringConfigurationOutput, [AlreadyExistsException, ConflictException, InvalidParameterValueException, LimitExceededException, MissingParameterValueException, ResourceNotFoundException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -967,16 +872,15 @@ export class DependencyFailureException extends S.TaggedError<DependencyFailureE
  * that you can use to evaluate your backup practices. By using pre-built customizable
  * controls to define your policies, you can evaluate whether your backup practices comply
  * with your policies and which resources are not yet in compliance.
- */export const createFramework = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-15", uri: "/audit/frameworks", method: "POST", sdkId: "Backup", sigV4ServiceName: "backup", name: "CryoControllerUserManager.CreateFramework" }, CreateFrameworkInput, CreateFrameworkOutput, [AlreadyExistsException, InvalidParameterValueException, LimitExceededException, MissingParameterValueException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createFramework = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-15", uri: "/audit/frameworks", sdkId: "Backup", sigV4ServiceName: "backup", name: "CryoControllerUserManager.CreateFramework" }, CreateFrameworkInput, CreateFrameworkOutput, [AlreadyExistsException, InvalidParameterValueException, LimitExceededException, MissingParameterValueException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a legal hold on a recovery point (backup). A legal hold is a restraint on
  * altering or deleting a backup until an authorized user cancels the legal hold. Any actions
  * to delete or disassociate a recovery point will fail with an error if one or more active
  * legal holds are on the recovery point.
- */export const createLegalHold = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-15", uri: "/legal-holds", method: "POST", sdkId: "Backup", sigV4ServiceName: "backup", name: "CryoControllerUserManager.CreateLegalHold" }, CreateLegalHoldInput, CreateLegalHoldOutput, [InvalidParameterValueException, LimitExceededException, MissingParameterValueException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createLegalHold = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-15", uri: "/legal-holds", sdkId: "Backup", sigV4ServiceName: "backup", name: "CryoControllerUserManager.CreateLegalHold" }, CreateLegalHoldInput, CreateLegalHoldOutput, [InvalidParameterValueException, LimitExceededException, MissingParameterValueException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a restore testing plan.
- * 
  * 
  * The first of two steps to create a restore testing
  * plan. After this request is successful, finish the procedure using
@@ -985,9 +889,7 @@ export class DependencyFailureException extends S.TaggedError<DependencyFailureE
 /**
  * Creates a tiering configuration.
  * 
- * 
  * A tiering configuration enables automatic movement of backup data to a lower-cost storage tier based on the age of backed-up objects in the backup vault.
- * 
  * 
  * Each vault can only have one vault-specific tiering configuration, in addition to any global configuration that applies to all vaults.
  */export const createTieringConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-15", uri: "/tiering-configurations", method: "PUT", sdkId: "Backup", sigV4ServiceName: "backup", name: "CryoControllerUserManager.CreateTieringConfiguration" }, CreateTieringConfigurationInput, CreateTieringConfigurationOutput, [AlreadyExistsException, ConflictException, InvalidParameterValueException, LimitExceededException, MissingParameterValueException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1016,7 +918,6 @@ export class DependencyFailureException extends S.TaggedError<DependencyFailureE
  * document that contains information that Backup uses to schedule tasks that
  * create recovery points for resources.
  * 
- * 
  * If you call `CreateBackupPlan` with a plan that already exists, you receive
  * an `AlreadyExistsException` exception.
  */export const createBackupPlan = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-15", uri: "/backup/plans", method: "PUT", sdkId: "Backup", sigV4ServiceName: "backup", name: "CryoControllerUserManager.CreateBackupPlan" }, CreateBackupPlanInput, CreateBackupPlanOutput, [AlreadyExistsException, InvalidParameterValueException, LimitExceededException, MissingParameterValueException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1029,32 +930,19 @@ export class DependencyFailureException extends S.TaggedError<DependencyFailureE
  * returns successfully. This is the second part of creating a resource testing
  * plan, and it must be completed sequentially.
  * 
- * 
  * This consists of `RestoreTestingSelectionName`,
  * `ProtectedResourceType`, and one of the following:
  * 
- * 
- * 
  * - `ProtectedResourceArns`
- * 
- * 
- * 
  * 
  * - `ProtectedResourceConditions`
  * 
- * 
- * 
- * 
- * 
- * 
  * Each protected resource type can have one single value.
- * 
  * 
  * A restore testing selection can include a wildcard value ("*") for
  * `ProtectedResourceArns` along with `ProtectedResourceConditions`.
  * Alternatively, you can include up to 30 specific protected resource ARNs in
  * `ProtectedResourceArns`.
- * 
  * 
  * Cannot select by both protected resource types AND specific ARNs.
  * Request will fail if both are included.

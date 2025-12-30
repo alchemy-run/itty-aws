@@ -103,7 +103,7 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 //# Operations
 /**
  * Assigns one or more tags (key-value pairs) to the specified resource.
- */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-05-19", uri: "/tags/{resourceArn}", method: "POST", sdkId: "AppFabric", sigV4ServiceName: "appfabric", name: "FabricFrontEndService.TagResource" }, TagResourceRequest, TagResourceResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-05-19", uri: "/tags/{resourceArn}", sdkId: "AppFabric", sigV4ServiceName: "appfabric", name: "FabricFrontEndService.TagResource" }, TagResourceRequest, TagResourceResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes a tag or tags from a resource.
  */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-05-19", uri: "/tags/{resourceArn}", method: "DELETE", sdkId: "AppFabric", sigV4ServiceName: "appfabric", name: "FabricFrontEndService.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -122,7 +122,6 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Deletes an ingestion destination.
  * 
- * 
  * This deletes the association between an ingestion and it's destination. It doesn't
  * delete previously ingested data or the storage destination, such as the Amazon S3
  * bucket where the data is delivered. If the ingestion destination is deleted while the
@@ -139,11 +138,10 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-05-19", uri: "/tags/{resourceArn}", method: "GET", sdkId: "AppFabric", sigV4ServiceName: "appfabric", name: "FabricFrontEndService.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts (enables) an ingestion, which collects data from an application.
- */export const startIngestion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-05-19", uri: "/appbundles/{appBundleIdentifier}/ingestions/{ingestionIdentifier}/start", method: "POST", sdkId: "AppFabric", sigV4ServiceName: "appfabric", name: "FabricFrontEndService.StartIngestion" }, StartIngestionRequest, StartIngestionResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startIngestion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-05-19", uri: "/appbundles/{appBundleIdentifier}/ingestions/{ingestionIdentifier}/start", sdkId: "AppFabric", sigV4ServiceName: "appfabric", name: "FabricFrontEndService.StartIngestion" }, StartIngestionRequest, StartIngestionResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates an app authorization within an app bundle, which allows AppFabric to connect to an
  * application.
- * 
  * 
  * If the app authorization was in a `connected` state, updating the app
  * authorization will set it back to a `PendingConnect` state.
@@ -151,13 +149,13 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Establishes a connection between Amazon Web Services AppFabric and an application, which allows AppFabric to
  * call the APIs of the application.
- */export const connectAppAuthorization = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-05-19", uri: "/appbundles/{appBundleIdentifier}/appauthorizations/{appAuthorizationIdentifier}/connect", method: "POST", sdkId: "AppFabric", sigV4ServiceName: "appfabric", name: "FabricFrontEndService.ConnectAppAuthorization" }, ConnectAppAuthorizationRequest, ConnectAppAuthorizationResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const connectAppAuthorization = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-05-19", uri: "/appbundles/{appBundleIdentifier}/appauthorizations/{appAuthorizationIdentifier}/connect", sdkId: "AppFabric", sigV4ServiceName: "appfabric", name: "FabricFrontEndService.ConnectAppAuthorization" }, ConnectAppAuthorizationRequest, ConnectAppAuthorizationResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an app bundle to collect data from an application using AppFabric.
- */export const createAppBundle = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-05-19", uri: "/appbundles", method: "POST", sdkId: "AppFabric", sigV4ServiceName: "appfabric", name: "FabricFrontEndService.CreateAppBundle" }, CreateAppBundleRequest, CreateAppBundleResponse, [AccessDeniedException, ConflictException, InternalServerException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createAppBundle = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-05-19", uri: "/appbundles", sdkId: "AppFabric", sigV4ServiceName: "appfabric", name: "FabricFrontEndService.CreateAppBundle" }, CreateAppBundleRequest, CreateAppBundleResponse, [AccessDeniedException, ConflictException, InternalServerException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a data ingestion for an application.
- */export const createIngestion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-05-19", uri: "/appbundles/{appBundleIdentifier}/ingestions", method: "POST", sdkId: "AppFabric", sigV4ServiceName: "appfabric", name: "FabricFrontEndService.CreateIngestion" }, CreateIngestionRequest, CreateIngestionResponse, [AccessDeniedException, ConflictException, InternalServerException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createIngestion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-05-19", uri: "/appbundles/{appBundleIdentifier}/ingestions", sdkId: "AppFabric", sigV4ServiceName: "appfabric", name: "FabricFrontEndService.CreateIngestion" }, CreateIngestionRequest, CreateIngestionResponse, [AccessDeniedException, ConflictException, InternalServerException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about an app authorization.
  */export const getAppAuthorization = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-05-19", uri: "/appbundles/{appBundleIdentifier}/appauthorizations/{appAuthorizationIdentifier}", method: "GET", sdkId: "AppFabric", sigV4ServiceName: "appfabric", name: "FabricFrontEndService.GetAppAuthorization" }, GetAppAuthorizationRequest, GetAppAuthorizationResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -179,13 +177,12 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Starts the tasks to search user access status for a specific email address.
  * 
- * 
  * The tasks are stopped when the user access status data is found. The tasks are
  * terminated when the API calls to the application time out.
- */export const startUserAccessTasks = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-05-19", uri: "/useraccess/start", method: "POST", sdkId: "AppFabric", sigV4ServiceName: "appfabric", name: "FabricFrontEndService.StartUserAccessTasks" }, StartUserAccessTasksRequest, StartUserAccessTasksResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startUserAccessTasks = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-05-19", uri: "/useraccess/start", sdkId: "AppFabric", sigV4ServiceName: "appfabric", name: "FabricFrontEndService.StartUserAccessTasks" }, StartUserAccessTasksRequest, StartUserAccessTasksResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Stops (disables) an ingestion.
- */export const stopIngestion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-05-19", uri: "/appbundles/{appBundleIdentifier}/ingestions/{ingestionIdentifier}/stop", method: "POST", sdkId: "AppFabric", sigV4ServiceName: "appfabric", name: "FabricFrontEndService.StopIngestion" }, StopIngestionRequest, StopIngestionResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const stopIngestion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-05-19", uri: "/appbundles/{appBundleIdentifier}/ingestions/{ingestionIdentifier}/stop", sdkId: "AppFabric", sigV4ServiceName: "appfabric", name: "FabricFrontEndService.StopIngestion" }, StopIngestionRequest, StopIngestionResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates an ingestion destination, which specifies how an application's ingested data is
  * processed by Amazon Web Services AppFabric and where it's delivered.
@@ -193,15 +190,14 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Gets user access details in a batch request.
  * 
- * 
  * This action polls data from the tasks that are kicked off by the
  * `StartUserAccessTasks` action.
- */export const batchGetUserAccessTasks = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-05-19", uri: "/useraccess/batchget", method: "POST", sdkId: "AppFabric", sigV4ServiceName: "appfabric", name: "FabricFrontEndService.BatchGetUserAccessTasks" }, BatchGetUserAccessTasksRequest, BatchGetUserAccessTasksResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const batchGetUserAccessTasks = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-05-19", uri: "/useraccess/batchget", sdkId: "AppFabric", sigV4ServiceName: "appfabric", name: "FabricFrontEndService.BatchGetUserAccessTasks" }, BatchGetUserAccessTasksRequest, BatchGetUserAccessTasksResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an app authorization within an app bundle, which allows AppFabric to connect to an
  * application.
- */export const createAppAuthorization = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-05-19", uri: "/appbundles/{appBundleIdentifier}/appauthorizations", method: "POST", sdkId: "AppFabric", sigV4ServiceName: "appfabric", name: "FabricFrontEndService.CreateAppAuthorization" }, CreateAppAuthorizationRequest, CreateAppAuthorizationResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createAppAuthorization = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-05-19", uri: "/appbundles/{appBundleIdentifier}/appauthorizations", sdkId: "AppFabric", sigV4ServiceName: "appfabric", name: "FabricFrontEndService.CreateAppAuthorization" }, CreateAppAuthorizationRequest, CreateAppAuthorizationResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an ingestion destination, which specifies how an application's ingested data is
  * processed by Amazon Web Services AppFabric and where it's delivered.
- */export const createIngestionDestination = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-05-19", uri: "/appbundles/{appBundleIdentifier}/ingestions/{ingestionIdentifier}/ingestiondestinations", method: "POST", sdkId: "AppFabric", sigV4ServiceName: "appfabric", name: "FabricFrontEndService.CreateIngestionDestination" }, CreateIngestionDestinationRequest, CreateIngestionDestinationResponse, [AccessDeniedException, ConflictException, InternalServerException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createIngestionDestination = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-05-19", uri: "/appbundles/{appBundleIdentifier}/ingestions/{ingestionIdentifier}/ingestiondestinations", sdkId: "AppFabric", sigV4ServiceName: "appfabric", name: "FabricFrontEndService.CreateIngestionDestination" }, CreateIngestionDestinationRequest, CreateIngestionDestinationResponse, [AccessDeniedException, ConflictException, InternalServerException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

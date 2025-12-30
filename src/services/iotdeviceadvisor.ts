@@ -60,12 +60,10 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
 /**
  * Removes tags from an IoT Device Advisor resource.
  * 
- * 
  * Requires permission to access the UntagResource action.
  */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-09-18", uri: "/tags/{resourceArn}", method: "DELETE", sdkId: "IotDeviceAdvisor", sigV4ServiceName: "iotdeviceadvisor", name: "IotSenateService.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a Device Advisor test suite.
- * 
  * 
  * Requires permission to access the DeleteSuiteDefinition action.
  */export const deleteSuiteDefinition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-09-18", uri: "/suiteDefinitions/{suiteDefinitionId}", method: "DELETE", sdkId: "IotDeviceAdvisor", sigV4ServiceName: "iotdeviceadvisor", name: "IotSenateService.DeleteSuiteDefinition" }, DeleteSuiteDefinitionRequest, DeleteSuiteDefinitionResponse, [InternalServerException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -75,42 +73,35 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
 /**
  * Gets information about a Device Advisor test suite.
  * 
- * 
  * Requires permission to access the GetSuiteDefinition action.
  */export const getSuiteDefinition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-09-18", uri: "/suiteDefinitions/{suiteDefinitionId}", method: "GET", sdkId: "IotDeviceAdvisor", sigV4ServiceName: "iotdeviceadvisor", name: "IotSenateService.GetSuiteDefinition" }, GetSuiteDefinitionRequest, GetSuiteDefinitionResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets a report download link for a successful Device Advisor qualifying test suite run.
- * 
  * 
  * Requires permission to access the GetSuiteRunReport action.
  */export const getSuiteRunReport = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-09-18", uri: "/suiteDefinitions/{suiteDefinitionId}/suiteRuns/{suiteRunId}/report", method: "GET", sdkId: "IotDeviceAdvisor", sigV4ServiceName: "iotdeviceadvisor", name: "IotSenateService.GetSuiteRunReport" }, GetSuiteRunReportRequest, GetSuiteRunReportResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the tags attached to an IoT Device Advisor resource.
  * 
- * 
  * Requires permission to access the ListTagsForResource action.
  */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-09-18", uri: "/tags/{resourceArn}", method: "GET", sdkId: "IotDeviceAdvisor", sigV4ServiceName: "iotdeviceadvisor", name: "IotSenateService.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Stops a Device Advisor test suite run that is currently running.
  * 
- * 
  * Requires permission to access the StopSuiteRun action.
- */export const stopSuiteRun = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-09-18", uri: "/suiteDefinitions/{suiteDefinitionId}/suiteRuns/{suiteRunId}/stop", method: "POST", sdkId: "IotDeviceAdvisor", sigV4ServiceName: "iotdeviceadvisor", name: "IotSenateService.StopSuiteRun" }, StopSuiteRunRequest, StopSuiteRunResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const stopSuiteRun = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-09-18", uri: "/suiteDefinitions/{suiteDefinitionId}/suiteRuns/{suiteRunId}/stop", sdkId: "IotDeviceAdvisor", sigV4ServiceName: "iotdeviceadvisor", name: "IotSenateService.StopSuiteRun" }, StopSuiteRunRequest, StopSuiteRunResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Adds to and modifies existing tags of an IoT Device Advisor resource.
  * 
- * 
  * Requires permission to access the TagResource action.
- */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-09-18", uri: "/tags/{resourceArn}", method: "POST", sdkId: "IotDeviceAdvisor", sigV4ServiceName: "iotdeviceadvisor", name: "IotSenateService.TagResource" }, TagResourceRequest, TagResourceResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-09-18", uri: "/tags/{resourceArn}", sdkId: "IotDeviceAdvisor", sigV4ServiceName: "iotdeviceadvisor", name: "IotSenateService.TagResource" }, TagResourceRequest, TagResourceResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates a Device Advisor test suite.
- * 
  * 
  * Requires permission to access the UpdateSuiteDefinition action.
  */export const updateSuiteDefinition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-09-18", uri: "/suiteDefinitions/{suiteDefinitionId}", method: "PATCH", sdkId: "IotDeviceAdvisor", sigV4ServiceName: "iotdeviceadvisor", name: "IotSenateService.UpdateSuiteDefinition" }, UpdateSuiteDefinitionRequest, UpdateSuiteDefinitionResponse, [InternalServerException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the Device Advisor test suites you have created.
- * 
  * 
  * Requires permission to access the ListSuiteDefinitions action.
  */export const listSuiteDefinitions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-09-18", uri: "/suiteDefinitions", method: "GET", sdkId: "IotDeviceAdvisor", sigV4ServiceName: "iotdeviceadvisor", name: "IotSenateService.ListSuiteDefinitions" }, ListSuiteDefinitionsRequest, ListSuiteDefinitionsResponse, [InternalServerException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -118,24 +109,20 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * Lists runs of the specified Device Advisor test suite. You can list all runs of the test
  * suite, or the runs of a specific version of the test suite.
  * 
- * 
  * Requires permission to access the ListSuiteRuns action.
  */export const listSuiteRuns = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-09-18", uri: "/suiteRuns", method: "GET", sdkId: "IotDeviceAdvisor", sigV4ServiceName: "iotdeviceadvisor", name: "IotSenateService.ListSuiteRuns" }, ListSuiteRunsRequest, ListSuiteRunsResponse, [InternalServerException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a Device Advisor test suite.
  * 
- * 
  * Requires permission to access the CreateSuiteDefinition action.
- */export const createSuiteDefinition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-09-18", uri: "/suiteDefinitions", method: "POST", sdkId: "IotDeviceAdvisor", sigV4ServiceName: "iotdeviceadvisor", name: "IotSenateService.CreateSuiteDefinition" }, CreateSuiteDefinitionRequest, CreateSuiteDefinitionResponse, [InternalServerException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createSuiteDefinition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-09-18", uri: "/suiteDefinitions", sdkId: "IotDeviceAdvisor", sigV4ServiceName: "iotdeviceadvisor", name: "IotSenateService.CreateSuiteDefinition" }, CreateSuiteDefinitionRequest, CreateSuiteDefinitionResponse, [InternalServerException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts a Device Advisor test suite run.
  * 
- * 
  * Requires permission to access the StartSuiteRun action.
- */export const startSuiteRun = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-09-18", uri: "/suiteDefinitions/{suiteDefinitionId}/suiteRuns", method: "POST", sdkId: "IotDeviceAdvisor", sigV4ServiceName: "iotdeviceadvisor", name: "IotSenateService.StartSuiteRun" }, StartSuiteRunRequest, StartSuiteRunResponse, [ConflictException, InternalServerException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startSuiteRun = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-09-18", uri: "/suiteDefinitions/{suiteDefinitionId}/suiteRuns", sdkId: "IotDeviceAdvisor", sigV4ServiceName: "iotdeviceadvisor", name: "IotSenateService.StartSuiteRun" }, StartSuiteRunRequest, StartSuiteRunResponse, [ConflictException, InternalServerException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets information about a Device Advisor test suite run.
- * 
  * 
  * Requires permission to access the GetSuiteRun action.
  */export const getSuiteRun = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-09-18", uri: "/suiteDefinitions/{suiteDefinitionId}/suiteRuns/{suiteRunId}", method: "GET", sdkId: "IotDeviceAdvisor", sigV4ServiceName: "iotdeviceadvisor", name: "IotSenateService.GetSuiteRun" }, GetSuiteRunRequest, GetSuiteRunResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

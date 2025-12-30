@@ -441,19 +441,16 @@ export class ThrottlingException extends S.TaggedError<ThrottlingException>()("T
  * with certain tag values. In Connect Customer Profiles, domains, profile object types, and
  * integrations can be tagged.
  * 
- * 
  * Tags don't have any semantic meaning to AWS and are interpreted strictly as strings of
  * characters.
- * 
  * 
  * You can use the TagResource action with a resource that already has tags. If you specify
  * a new tag key, this tag is appended to the list of tags associated with the resource. If
  * you specify a tag key that is already associated with the resource, the new tag value that
  * you specify replaces the previous value for that tag.
  * 
- * 
  * You can associate as many as 50 tags with a resource.
- */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-15", uri: "/tags/{resourceArn}", method: "POST", sdkId: "Customer Profiles", sigV4ServiceName: "profile", name: "CustomerProfiles_20200815.TagResource" }, TagResourceRequest, TagResourceResponse, [BadRequestException, InternalServerException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-15", uri: "/tags/{resourceArn}", sdkId: "Customer Profiles", sigV4ServiceName: "profile", name: "CustomerProfiles_20200815.TagResource" }, TagResourceRequest, TagResourceResponse, [BadRequestException, InternalServerException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes one or more tags from the specified Amazon Connect Customer Profiles resource. In Connect
  * Customer Profiles, domains, profile object types, and integrations can be tagged.
@@ -462,25 +459,23 @@ export class ThrottlingException extends S.TaggedError<ThrottlingException>()("T
  * Associates a new key value with a specific profile, such as a Contact Record
  * ContactId.
  * 
- * 
  * A profile object can have a single unique key and any number of additional keys that can
  * be used to identify the profile that it belongs to.
- */export const addProfileKey = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-15", uri: "/domains/{DomainName}/profiles/keys", method: "POST", sdkId: "Customer Profiles", sigV4ServiceName: "profile", name: "CustomerProfiles_20200815.AddProfileKey" }, AddProfileKeyRequest, AddProfileKeyResponse, [AccessDeniedException, BadRequestException, InternalServerException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const addProfileKey = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-15", uri: "/domains/{DomainName}/profiles/keys", sdkId: "Customer Profiles", sigV4ServiceName: "profile", name: "CustomerProfiles_20200815.AddProfileKey" }, AddProfileKeyRequest, AddProfileKeyResponse, [AccessDeniedException, BadRequestException, InternalServerException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates the layout to view data for a specific domain. This API can only be invoked from
  * the Amazon Connect admin website.
- */export const createDomainLayout = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-15", uri: "/domains/{DomainName}/layouts/{LayoutDefinitionName}", method: "POST", sdkId: "Customer Profiles", sigV4ServiceName: "profile", name: "CustomerProfiles_20200815.CreateDomainLayout" }, CreateDomainLayoutRequest, CreateDomainLayoutResponse, [AccessDeniedException, BadRequestException, InternalServerException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createDomainLayout = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-15", uri: "/domains/{DomainName}/layouts/{LayoutDefinitionName}", sdkId: "Customer Profiles", sigV4ServiceName: "profile", name: "CustomerProfiles_20200815.CreateDomainLayout" }, CreateDomainLayoutRequest, CreateDomainLayoutResponse, [AccessDeniedException, BadRequestException, InternalServerException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an event stream, which is a subscription to real-time events, such as when
  * profiles are created and updated through Amazon Connect Customer Profiles.
  * 
- * 
  * Each event stream can be associated with only one Kinesis Data Stream destination in the
  * same region and Amazon Web Services account as the customer profiles domain
- */export const createEventStream = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-15", uri: "/domains/{DomainName}/event-streams/{EventStreamName}", method: "POST", sdkId: "Customer Profiles", sigV4ServiceName: "profile", name: "CustomerProfiles_20200815.CreateEventStream" }, CreateEventStreamRequest, CreateEventStreamResponse, [AccessDeniedException, BadRequestException, InternalServerException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createEventStream = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-15", uri: "/domains/{DomainName}/event-streams/{EventStreamName}", sdkId: "Customer Profiles", sigV4ServiceName: "profile", name: "CustomerProfiles_20200815.CreateEventStream" }, CreateEventStreamRequest, CreateEventStreamResponse, [AccessDeniedException, BadRequestException, InternalServerException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Triggers a job to export a segment to a specified destination.
- */export const createSegmentSnapshot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-15", uri: "/domains/{DomainName}/segments/{SegmentDefinitionName}/snapshots", method: "POST", sdkId: "Customer Profiles", sigV4ServiceName: "profile", name: "CustomerProfiles_20200815.CreateSegmentSnapshot" }, CreateSegmentSnapshotRequest, CreateSegmentSnapshotResponse, [AccessDeniedException, BadRequestException, InternalServerException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createSegmentSnapshot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-15", uri: "/domains/{DomainName}/segments/{SegmentDefinitionName}/snapshots", sdkId: "Customer Profiles", sigV4ServiceName: "profile", name: "CustomerProfiles_20200815.CreateSegmentSnapshot" }, CreateSegmentSnapshotRequest, CreateSegmentSnapshotResponse, [AccessDeniedException, BadRequestException, InternalServerException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes an existing calculated attribute definition. Note that deleting a default
  * calculated attribute is possible, however once deleted, you will be unable to undo that
@@ -504,23 +499,20 @@ export class ThrottlingException extends S.TaggedError<ThrottlingException>()("T
 /**
  * Disable and deletes the Event Trigger.
  * 
- * 
- * 
- * 
  * You cannot delete an Event Trigger with an active Integration associated.
  */export const deleteEventTrigger = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-15", uri: "/domains/{DomainName}/event-triggers/{EventTriggerName}", method: "DELETE", sdkId: "Customer Profiles", sigV4ServiceName: "profile", name: "CustomerProfiles_20200815.DeleteEventTrigger" }, DeleteEventTriggerRequest, DeleteEventTriggerResponse, [AccessDeniedException, BadRequestException, InternalServerException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes an integration from a specific domain.
- */export const deleteIntegration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-15", uri: "/domains/{DomainName}/integrations/delete", method: "POST", sdkId: "Customer Profiles", sigV4ServiceName: "profile", name: "CustomerProfiles_20200815.DeleteIntegration" }, DeleteIntegrationRequest, DeleteIntegrationResponse, [AccessDeniedException, BadRequestException, InternalServerException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteIntegration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-15", uri: "/domains/{DomainName}/integrations/delete", sdkId: "Customer Profiles", sigV4ServiceName: "profile", name: "CustomerProfiles_20200815.DeleteIntegration" }, DeleteIntegrationRequest, DeleteIntegrationResponse, [AccessDeniedException, BadRequestException, InternalServerException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the standard customer profile and all data pertaining to the profile.
- */export const deleteProfile = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-15", uri: "/domains/{DomainName}/profiles/delete", method: "POST", sdkId: "Customer Profiles", sigV4ServiceName: "profile", name: "CustomerProfiles_20200815.DeleteProfile" }, DeleteProfileRequest, DeleteProfileResponse, [AccessDeniedException, BadRequestException, InternalServerException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteProfile = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-15", uri: "/domains/{DomainName}/profiles/delete", sdkId: "Customer Profiles", sigV4ServiceName: "profile", name: "CustomerProfiles_20200815.DeleteProfile" }, DeleteProfileRequest, DeleteProfileResponse, [AccessDeniedException, BadRequestException, InternalServerException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes a searchable key from a customer profile.
- */export const deleteProfileKey = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-15", uri: "/domains/{DomainName}/profiles/keys/delete", method: "POST", sdkId: "Customer Profiles", sigV4ServiceName: "profile", name: "CustomerProfiles_20200815.DeleteProfileKey" }, DeleteProfileKeyRequest, DeleteProfileKeyResponse, [AccessDeniedException, BadRequestException, InternalServerException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteProfileKey = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-15", uri: "/domains/{DomainName}/profiles/keys/delete", sdkId: "Customer Profiles", sigV4ServiceName: "profile", name: "CustomerProfiles_20200815.DeleteProfileKey" }, DeleteProfileKeyRequest, DeleteProfileKeyResponse, [AccessDeniedException, BadRequestException, InternalServerException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes an object associated with a profile of a given ProfileObjectType.
- */export const deleteProfileObject = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-15", uri: "/domains/{DomainName}/profiles/objects/delete", method: "POST", sdkId: "Customer Profiles", sigV4ServiceName: "profile", name: "CustomerProfiles_20200815.DeleteProfileObject" }, DeleteProfileObjectRequest, DeleteProfileObjectResponse, [AccessDeniedException, BadRequestException, InternalServerException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteProfileObject = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-15", uri: "/domains/{DomainName}/profiles/objects/delete", sdkId: "Customer Profiles", sigV4ServiceName: "profile", name: "CustomerProfiles_20200815.DeleteProfileObject" }, DeleteProfileObjectRequest, DeleteProfileObjectResponse, [AccessDeniedException, BadRequestException, InternalServerException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes a ProfileObjectType from a specific domain as well as removes all the
  * ProfileObjects of that type. It also disables integrations from this specific
@@ -552,7 +544,7 @@ export class ThrottlingException extends S.TaggedError<ThrottlingException>()("T
  */export const getEventTrigger = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-15", uri: "/domains/{DomainName}/event-triggers/{EventTriggerName}", method: "GET", sdkId: "Customer Profiles", sigV4ServiceName: "profile", name: "CustomerProfiles_20200815.GetEventTrigger" }, GetEventTriggerRequest, GetEventTriggerResponse, [AccessDeniedException, BadRequestException, InternalServerException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns an integration for a domain.
- */export const getIntegration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-15", uri: "/domains/{DomainName}/integrations", method: "POST", sdkId: "Customer Profiles", sigV4ServiceName: "profile", name: "CustomerProfiles_20200815.GetIntegration" }, GetIntegrationRequest, GetIntegrationResponse, [AccessDeniedException, BadRequestException, InternalServerException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getIntegration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-15", uri: "/domains/{DomainName}/integrations", sdkId: "Customer Profiles", sigV4ServiceName: "profile", name: "CustomerProfiles_20200815.GetIntegration" }, GetIntegrationRequest, GetIntegrationResponse, [AccessDeniedException, BadRequestException, InternalServerException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a history record for a specific profile, for a specific domain.
  */export const getProfileHistoryRecord = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-15", uri: "/domains/{DomainName}/profiles/{ProfileId}/history-records/{Id}", method: "GET", sdkId: "Customer Profiles", sigV4ServiceName: "profile", name: "CustomerProfiles_20200815.GetProfileHistoryRecord" }, GetProfileHistoryRecordRequest, GetProfileHistoryRecordResponse, [AccessDeniedException, BadRequestException, InternalServerException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -561,7 +553,6 @@ export class ThrottlingException extends S.TaggedError<ThrottlingException>()("T
  */export const getProfileObjectType = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-15", uri: "/domains/{DomainName}/object-types/{ObjectTypeName}", method: "GET", sdkId: "Customer Profiles", sigV4ServiceName: "profile", name: "CustomerProfiles_20200815.GetProfileObjectType" }, GetProfileObjectTypeRequest, GetProfileObjectTypeResponse, [AccessDeniedException, BadRequestException, InternalServerException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the template information for a specific object type.
- * 
  * 
  * A template is a predefined ProfileObjectType, such as “Salesforce-Account” or
  * “Salesforce-Contact.” When a user sends a ProfileObject, using the PutProfileObject API,
@@ -582,7 +573,7 @@ export class ThrottlingException extends S.TaggedError<ThrottlingException>()("T
  * `matchId` or `profileId`. You can also specify the type of
  * matching that you want for finding similar profiles using either
  * `RULE_BASED_MATCHING` or `ML_BASED_MATCHING`.
- */export const getSimilarProfiles = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-15", uri: "/domains/{DomainName}/matches", method: "POST", sdkId: "Customer Profiles", sigV4ServiceName: "profile", name: "CustomerProfiles_20200815.GetSimilarProfiles" }, GetSimilarProfilesRequest, GetSimilarProfilesResponse, [AccessDeniedException, BadRequestException, InternalServerException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getSimilarProfiles = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-15", uri: "/domains/{DomainName}/matches", sdkId: "Customer Profiles", sigV4ServiceName: "profile", name: "CustomerProfiles_20200815.GetSimilarProfiles" }, GetSimilarProfilesRequest, GetSimilarProfilesResponse, [AccessDeniedException, BadRequestException, InternalServerException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This API retrieves the pre-signed URL and client token for uploading the file associated
  * with the upload job.
@@ -600,17 +591,14 @@ export class ThrottlingException extends S.TaggedError<ThrottlingException>()("T
 /**
  * Adds additional objects to customer profiles of a given ObjectType.
  * 
- * 
  * When adding a specific profile object, like a Contact Record, an inferred profile can
  * get created if it is not mapped to an existing profile. The resulting profile will only
  * have a phone number populated in the standard ProfileObject. Any additional Contact Records
  * with the same phone number will be mapped to the same inferred profile.
  * 
- * 
  * When a ProfileObject is created and if a ProfileObjectType already exists for the
  * ProfileObject, it will provide data to a standard profile depending on the
  * ProfileObjectType definition.
- * 
  * 
  * PutProfileObject needs an ObjectType, which can be created using
  * PutProfileObjectType.
@@ -624,18 +612,14 @@ export class ThrottlingException extends S.TaggedError<ThrottlingException>()("T
  * Updates the properties of a domain, including creating or selecting a dead letter queue
  * or an encryption key.
  * 
- * 
  * After a domain is created, the name can’t be changed.
- * 
  * 
  * Use this API or CreateDomain to
  * enable identity
  * resolution: set `Matching` to true.
  * 
- * 
  * To prevent cross-service impersonation when you call this API, see Cross-service confused deputy prevention for sample policies that you should
  * apply.
- * 
  * 
  * To add or remove tags on an existing Domain, see TagResource/UntagResource.
  */export const updateDomain = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-15", uri: "/domains/{DomainName}", method: "PUT", sdkId: "Customer Profiles", sigV4ServiceName: "profile", name: "CustomerProfiles_20200815.UpdateDomain" }, UpdateDomainRequest, UpdateDomainResponse, [AccessDeniedException, BadRequestException, InternalServerException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -651,10 +635,10 @@ export class ThrottlingException extends S.TaggedError<ThrottlingException>()("T
  */export const updateRecommender = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-15", uri: "/domains/{DomainName}/recommenders/{RecommenderName}", method: "PATCH", sdkId: "Customer Profiles", sigV4ServiceName: "profile", name: "CustomerProfiles_20200815.UpdateRecommender" }, UpdateRecommenderRequest, UpdateRecommenderResponse, [AccessDeniedException, BadRequestException, InternalServerException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a segment estimate query.
- */export const createSegmentEstimate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-15", uri: "/domains/{DomainName}/segment-estimates", method: "POST", sdkId: "Customer Profiles", sigV4ServiceName: "profile", name: "CustomerProfiles_20200815.CreateSegmentEstimate" }, CreateSegmentEstimateRequest, CreateSegmentEstimateResponse, [AccessDeniedException, BadRequestException, InternalServerException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createSegmentEstimate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-15", uri: "/domains/{DomainName}/segment-estimates", sdkId: "Customer Profiles", sigV4ServiceName: "profile", name: "CustomerProfiles_20200815.CreateSegmentEstimate" }, CreateSegmentEstimateRequest, CreateSegmentEstimateResponse, [AccessDeniedException, BadRequestException, InternalServerException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * The process of detecting profile object type mapping by using given objects.
- */export const detectProfileObjectType = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-15", uri: "/domains/{DomainName}/detect/object-types", method: "POST", sdkId: "Customer Profiles", sigV4ServiceName: "profile", name: "CustomerProfiles_20200815.DetectProfileObjectType" }, DetectProfileObjectTypeRequest, DetectProfileObjectTypeResponse, [AccessDeniedException, BadRequestException, InternalServerException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const detectProfileObjectType = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-15", uri: "/domains/{DomainName}/detect/object-types", sdkId: "Customer Profiles", sigV4ServiceName: "profile", name: "CustomerProfiles_20200815.DetectProfileObjectType" }, DetectProfileObjectTypeRequest, DetectProfileObjectTypeResponse, [AccessDeniedException, BadRequestException, InternalServerException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Tests the auto-merging settings of your Identity Resolution Job without merging your data. It randomly
  * selects a sample of matching groups from the existing matching results, and applies the
@@ -662,18 +646,14 @@ export class ThrottlingException extends S.TaggedError<ThrottlingException>()("T
  * sample, the number of matches, and the number of profiles identified to be merged. This
  * enables you to evaluate the accuracy of the attributes in your matching list.
  * 
- * 
  * You can't view which profiles are matched and would be merged.
- * 
- * 
- * 
  * 
  * We strongly recommend you use this API to do a dry run of the automerging process
  * before running the Identity Resolution Job. Include **at least** two matching
  * attributes. If your matching list includes too few attributes (such as only
  * `FirstName` or only `LastName`), there may be a large number of
  * matches. This increases the chances of erroneous merges.
- */export const getAutoMergingPreview = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-15", uri: "/domains/{DomainName}/identity-resolution-jobs/auto-merging-preview", method: "POST", sdkId: "Customer Profiles", sigV4ServiceName: "profile", name: "CustomerProfiles_20200815.GetAutoMergingPreview" }, GetAutoMergingPreviewRequest, GetAutoMergingPreviewResponse, [AccessDeniedException, BadRequestException, InternalServerException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getAutoMergingPreview = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-15", uri: "/domains/{DomainName}/identity-resolution-jobs/auto-merging-preview", sdkId: "Customer Profiles", sigV4ServiceName: "profile", name: "CustomerProfiles_20200815.GetAutoMergingPreview" }, GetAutoMergingPreviewRequest, GetAutoMergingPreviewResponse, [AccessDeniedException, BadRequestException, InternalServerException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Provides more information on a calculated attribute definition for Customer
  * Profiles.
@@ -689,63 +669,35 @@ export class ThrottlingException extends S.TaggedError<ThrottlingException>()("T
  * UpdateDomain to
  * enable identity resolution: set `Matching` to true.
  * 
- * 
  * GetMatches returns potentially matching profiles, based on the results of the latest run
  * of a machine learning process.
- * 
- * 
- * 
  * 
  * The process of matching duplicate profiles. If `Matching` = `true`, Amazon Connect Customer Profiles starts a weekly
  * batch process called Identity Resolution Job. If you do not specify a date and time for Identity Resolution Job to run, by default it runs every
  * Saturday at 12AM UTC to detect duplicate profiles in your domains.
- * 
  * 
  * After the Identity Resolution Job completes, use the
  * GetMatches
  * API to return and review the results. Or, if you have configured `ExportingConfig` in the `MatchingRequest`, you can download the results from
  * S3.
  * 
- * 
- * 
- * 
  * Amazon Connect uses the following profile attributes to identify matches:
- * 
- * 
  * 
  * - PhoneNumber
  * 
- * 
- * 
  * - HomePhoneNumber
- * 
- * 
  * 
  * - BusinessPhoneNumber
  * 
- * 
- * 
  * - MobilePhoneNumber
- * 
- * 
  * 
  * - EmailAddress
  * 
- * 
- * 
  * - PersonalEmailAddress
- * 
- * 
  * 
  * - BusinessEmailAddress
  * 
- * 
- * 
  * - FullName
- * 
- * 
- * 
- * 
  * 
  * For example, two or more profiles—with spelling mistakes such as **John Doe** and **Jhn Doe**, or different casing
  * email addresses such as **JOHN_DOE@ANYCOMPANY.COM** and
@@ -754,13 +706,13 @@ export class ThrottlingException extends S.TaggedError<ThrottlingException>()("T
  */export const getMatches = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-15", uri: "/domains/{DomainName}/matches", method: "GET", sdkId: "Customer Profiles", sigV4ServiceName: "profile", name: "CustomerProfiles_20200815.GetMatches" }, GetMatchesRequest, GetMatchesResponse, [AccessDeniedException, BadRequestException, InternalServerException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Determines if the given profiles are within a segment.
- */export const getSegmentMembership = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-15", uri: "/domains/{DomainName}/segments/{SegmentDefinitionName}/membership", method: "POST", sdkId: "Customer Profiles", sigV4ServiceName: "profile", name: "CustomerProfiles_20200815.GetSegmentMembership" }, GetSegmentMembershipRequest, GetSegmentMembershipResponse, [AccessDeniedException, BadRequestException, InternalServerException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getSegmentMembership = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-15", uri: "/domains/{DomainName}/segments/{SegmentDefinitionName}/membership", sdkId: "Customer Profiles", sigV4ServiceName: "profile", name: "CustomerProfiles_20200815.GetSegmentMembership" }, GetSegmentMembershipRequest, GetSegmentMembershipResponse, [AccessDeniedException, BadRequestException, InternalServerException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This API retrieves the details of a specific upload job.
  */export const getUploadJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-15", uri: "/domains/{DomainName}/upload-jobs/{JobId}", method: "GET", sdkId: "Customer Profiles", sigV4ServiceName: "profile", name: "CustomerProfiles_20200815.GetUploadJob" }, GetUploadJobRequest, GetUploadJobResponse, [AccessDeniedException, BadRequestException, InternalServerException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists all of the integrations associated to a specific URI in the AWS account.
- */export const listAccountIntegrations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-15", uri: "/integrations", method: "POST", sdkId: "Customer Profiles", sigV4ServiceName: "profile", name: "CustomerProfiles_20200815.ListAccountIntegrations" }, ListAccountIntegrationsRequest, ListAccountIntegrationsResponse, [AccessDeniedException, BadRequestException, InternalServerException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listAccountIntegrations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-15", uri: "/integrations", sdkId: "Customer Profiles", sigV4ServiceName: "profile", name: "CustomerProfiles_20200815.ListAccountIntegrations" }, ListAccountIntegrationsRequest, ListAccountIntegrationsResponse, [AccessDeniedException, BadRequestException, InternalServerException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists calculated attribute definitions for Customer Profiles
  */export const listCalculatedAttributeDefinitions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-15", uri: "/domains/{DomainName}/calculated-attributes", method: "GET", sdkId: "Customer Profiles", sigV4ServiceName: "profile", name: "CustomerProfiles_20200815.ListCalculatedAttributeDefinitions" }, ListCalculatedAttributeDefinitionsRequest, ListCalculatedAttributeDefinitionsResponse, [AccessDeniedException, BadRequestException, InternalServerException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -795,7 +747,7 @@ export class ThrottlingException extends S.TaggedError<ThrottlingException>()("T
  */export const listProfileAttributeValues = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-15", uri: "/domains/{DomainName}/profile-attributes/{AttributeName}/values", method: "GET", sdkId: "Customer Profiles", sigV4ServiceName: "profile", name: "CustomerProfiles_20200815.ListProfileAttributeValues" }, ProfileAttributeValuesRequest, ProfileAttributeValuesResponse, [AccessDeniedException, BadRequestException, InternalServerException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of history records for a specific profile, for a specific domain.
- */export const listProfileHistoryRecords = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-15", uri: "/domains/{DomainName}/profiles/history-records", method: "POST", sdkId: "Customer Profiles", sigV4ServiceName: "profile", name: "CustomerProfiles_20200815.ListProfileHistoryRecords" }, ListProfileHistoryRecordsRequest, ListProfileHistoryRecordsResponse, [AccessDeniedException, BadRequestException, InternalServerException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listProfileHistoryRecords = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-15", uri: "/domains/{DomainName}/profiles/history-records", sdkId: "Customer Profiles", sigV4ServiceName: "profile", name: "CustomerProfiles_20200815.ListProfileHistoryRecords" }, ListProfileHistoryRecordsRequest, ListProfileHistoryRecordsResponse, [AccessDeniedException, BadRequestException, InternalServerException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists all of the templates available within the service.
  */export const listProfileObjectTypes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-15", uri: "/domains/{DomainName}/object-types", method: "GET", sdkId: "Customer Profiles", sigV4ServiceName: "profile", name: "CustomerProfiles_20200815.ListProfileObjectTypes" }, ListProfileObjectTypesRequest, ListProfileObjectTypesResponse, [AccessDeniedException, BadRequestException, InternalServerException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -816,21 +768,19 @@ export class ThrottlingException extends S.TaggedError<ThrottlingException>()("T
  */export const listUploadJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-15", uri: "/domains/{DomainName}/upload-jobs", method: "GET", sdkId: "Customer Profiles", sigV4ServiceName: "profile", name: "CustomerProfiles_20200815.ListUploadJobs" }, ListUploadJobsRequest, ListUploadJobsResponse, [AccessDeniedException, BadRequestException, InternalServerException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Query to list all workflows.
- */export const listWorkflows = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-15", uri: "/domains/{DomainName}/workflows", method: "POST", sdkId: "Customer Profiles", sigV4ServiceName: "profile", name: "CustomerProfiles_20200815.ListWorkflows" }, ListWorkflowsRequest, ListWorkflowsResponse, [AccessDeniedException, BadRequestException, InternalServerException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listWorkflows = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-15", uri: "/domains/{DomainName}/workflows", sdkId: "Customer Profiles", sigV4ServiceName: "profile", name: "CustomerProfiles_20200815.ListWorkflows" }, ListWorkflowsRequest, ListWorkflowsResponse, [AccessDeniedException, BadRequestException, InternalServerException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Searches for profiles within a specific domain using one or more predefined search keys
  * (e.g., _fullName, _phone, _email, _account, etc.) and/or custom-defined search keys. A
  * search key is a data type pair that consists of a `KeyName` and
  * `Values` list.
  * 
- * 
  * This operation supports searching for profiles with a minimum of 1 key-value(s) pair and
  * up to 5 key-value(s) pairs using either `AND` or `OR` logic.
- */export const searchProfiles = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-15", uri: "/domains/{DomainName}/profiles/search", method: "POST", sdkId: "Customer Profiles", sigV4ServiceName: "profile", name: "CustomerProfiles_20200815.SearchProfiles" }, SearchProfilesRequest, SearchProfilesResponse, [AccessDeniedException, BadRequestException, InternalServerException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const searchProfiles = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-15", uri: "/domains/{DomainName}/profiles/search", sdkId: "Customer Profiles", sigV4ServiceName: "profile", name: "CustomerProfiles_20200815.SearchProfiles" }, SearchProfilesRequest, SearchProfilesResponse, [AccessDeniedException, BadRequestException, InternalServerException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the properties of a profile. The ProfileId is required for updating a customer
  * profile.
- * 
  * 
  * When calling the UpdateProfile API, specifying an empty string value means that any
  * existing value will be removed. Not specifying a string value means that any value already
@@ -838,21 +788,19 @@ export class ThrottlingException extends S.TaggedError<ThrottlingException>()("T
  */export const updateProfile = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-15", uri: "/domains/{DomainName}/profiles", method: "PUT", sdkId: "Customer Profiles", sigV4ServiceName: "profile", name: "CustomerProfiles_20200815.UpdateProfile" }, UpdateProfileRequest, UpdateProfileResponse, [AccessDeniedException, BadRequestException, InternalServerException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Get a batch of profiles.
- */export const batchGetProfile = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-15", uri: "/domains/{DomainName}/batch-get-profiles", method: "POST", sdkId: "Customer Profiles", sigV4ServiceName: "profile", name: "CustomerProfiles_20200815.BatchGetProfile" }, BatchGetProfileRequest, BatchGetProfileResponse, [AccessDeniedException, BadRequestException, InternalServerException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const batchGetProfile = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-15", uri: "/domains/{DomainName}/batch-get-profiles", sdkId: "Customer Profiles", sigV4ServiceName: "profile", name: "CustomerProfiles_20200815.BatchGetProfile" }, BatchGetProfileRequest, BatchGetProfileResponse, [AccessDeniedException, BadRequestException, InternalServerException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a standard profile.
  * 
- * 
  * A standard profile represents the following attributes for a customer profile in a
  * domain.
- */export const createProfile = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-15", uri: "/domains/{DomainName}/profiles", method: "POST", sdkId: "Customer Profiles", sigV4ServiceName: "profile", name: "CustomerProfiles_20200815.CreateProfile" }, CreateProfileRequest, CreateProfileResponse, [AccessDeniedException, BadRequestException, InternalServerException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createProfile = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-15", uri: "/domains/{DomainName}/profiles", sdkId: "Customer Profiles", sigV4ServiceName: "profile", name: "CustomerProfiles_20200815.CreateProfile" }, CreateProfileRequest, CreateProfileResponse, [AccessDeniedException, BadRequestException, InternalServerException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an Upload job to ingest data for segment imports. The metadata is created for
  * the job with the provided field mapping and unique key.
- */export const createUploadJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-15", uri: "/domains/{DomainName}/upload-jobs", method: "POST", sdkId: "Customer Profiles", sigV4ServiceName: "profile", name: "CustomerProfiles_20200815.CreateUploadJob" }, CreateUploadJobRequest, CreateUploadJobResponse, [AccessDeniedException, BadRequestException, InternalServerException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createUploadJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-15", uri: "/domains/{DomainName}/upload-jobs", sdkId: "Customer Profiles", sigV4ServiceName: "profile", name: "CustomerProfiles_20200815.CreateUploadJob" }, CreateUploadJobRequest, CreateUploadJobResponse, [AccessDeniedException, BadRequestException, InternalServerException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about an Identity Resolution Job in a specific domain.
- * 
  * 
  * Identity Resolution Jobs are set up using the Amazon Connect admin console. For more information, see Use
  * Identity Resolution to consolidate similar profiles.
@@ -860,17 +808,12 @@ export class ThrottlingException extends S.TaggedError<ThrottlingException>()("T
 /**
  * The GetObjectTypeAttributeValues API delivers statistical insights about attributes within a specific object type, but is exclusively available for domains with data store enabled. This API performs daily calculations to provide statistical information about your attribute values, helping you understand patterns and trends in your data. The statistical calculations are performed once per day, providing a consistent snapshot of your attribute data characteristics.
  * 
- * 
- * 
- * 
  * You'll receive null values in two scenarios:
- * 
  * 
  * During the first period after enabling data vault (unless a calculation cycle occurs, which happens once daily).
  * 
- * 
  * For attributes that don't contain numeric values.
- */export const getObjectTypeAttributeStatistics = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-15", uri: "/domains/{DomainName}/object-types/{ObjectTypeName}/attributes/{AttributeName}/statistics", method: "POST", sdkId: "Customer Profiles", sigV4ServiceName: "profile", name: "CustomerProfiles_20200815.GetObjectTypeAttributeStatistics" }, GetObjectTypeAttributeStatisticsRequest, GetObjectTypeAttributeStatisticsResponse, [AccessDeniedException, BadRequestException, InternalServerException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getObjectTypeAttributeStatistics = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-15", uri: "/domains/{DomainName}/object-types/{ObjectTypeName}/attributes/{AttributeName}/statistics", sdkId: "Customer Profiles", sigV4ServiceName: "profile", name: "CustomerProfiles_20200815.GetObjectTypeAttributeStatistics" }, GetObjectTypeAttributeStatisticsRequest, GetObjectTypeAttributeStatisticsResponse, [AccessDeniedException, BadRequestException, InternalServerException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves a recommender.
  */export const getRecommender = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-15", uri: "/domains/{DomainName}/recommenders/{RecommenderName}", method: "GET", sdkId: "Customer Profiles", sigV4ServiceName: "profile", name: "CustomerProfiles_20200815.GetRecommender" }, GetRecommenderRequest, GetRecommenderResponse, [AccessDeniedException, BadRequestException, InternalServerException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -885,130 +828,94 @@ export class ThrottlingException extends S.TaggedError<ThrottlingException>()("T
  */export const listEventStreams = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-15", uri: "/domains/{DomainName}/event-streams", method: "GET", sdkId: "Customer Profiles", sigV4ServiceName: "profile", name: "CustomerProfiles_20200815.ListEventStreams" }, ListEventStreamsRequest, ListEventStreamsResponse, [AccessDeniedException, BadRequestException, InternalServerException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of objects associated with a profile of a given ProfileObjectType.
- */export const listProfileObjects = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-15", uri: "/domains/{DomainName}/profiles/objects", method: "POST", sdkId: "Customer Profiles", sigV4ServiceName: "profile", name: "CustomerProfiles_20200815.ListProfileObjects" }, ListProfileObjectsRequest, ListProfileObjectsResponse, [AccessDeniedException, BadRequestException, InternalServerException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listProfileObjects = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-15", uri: "/domains/{DomainName}/profiles/objects", sdkId: "Customer Profiles", sigV4ServiceName: "profile", name: "CustomerProfiles_20200815.ListProfileObjects" }, ListProfileObjectsRequest, ListProfileObjectsResponse, [AccessDeniedException, BadRequestException, InternalServerException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Runs an AWS Lambda job that does the following:
- * 
- * 
  * 
  * - All the profileKeys in the `ProfileToBeMerged` will be moved to the
  * main profile.
  * 
- * 
- * 
  * - All the objects in the `ProfileToBeMerged` will be moved to the main
  * profile.
  * 
- * 
- * 
  * - All the `ProfileToBeMerged` will be deleted at the end.
- * 
- * 
  * 
  * - All the profileKeys in the `ProfileIdsToBeMerged` will be moved to the
  * main profile.
  * 
- * 
- * 
  * - Standard fields are merged as follows:
- * 
- * 
  * 
  * - Fields are always "union"-ed if there are no conflicts in standard fields or
  * attributeKeys.
  * 
- * 
- * 
  * - When there are conflicting fields:
- * 
- * 
  * 
  * - If no `SourceProfileIds` entry is specified, the main
  * Profile value is always taken.
  * 
- * 
- * 
  * - If a `SourceProfileIds` entry is specified, the specified
  * profileId is always taken, even if it is a NULL value.
- * 
- * 
- * 
- * 
- * 
- * 
- * 
  * 
  * You can use MergeProfiles together with GetMatches, which
  * returns potentially matching profiles, or use it with the results of another matching
  * system. After profiles have been merged, they cannot be separated (unmerged).
- */export const mergeProfiles = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-15", uri: "/domains/{DomainName}/profiles/objects/merge", method: "POST", sdkId: "Customer Profiles", sigV4ServiceName: "profile", name: "CustomerProfiles_20200815.MergeProfiles" }, MergeProfilesRequest, MergeProfilesResponse, [BadRequestException, InternalServerException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const mergeProfiles = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-15", uri: "/domains/{DomainName}/profiles/objects/merge", sdkId: "Customer Profiles", sigV4ServiceName: "profile", name: "CustomerProfiles_20200815.MergeProfiles" }, MergeProfilesRequest, MergeProfilesResponse, [BadRequestException, InternalServerException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Create/Update a DomainObjectType in a Customer Profiles domain. To create a new DomainObjectType, Data Store needs to be enabled on the Domain.
  */export const putDomainObjectType = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-15", uri: "/domains/{DomainName}/domain-object-types/{ObjectTypeName}", method: "PUT", sdkId: "Customer Profiles", sigV4ServiceName: "profile", name: "CustomerProfiles_20200815.PutDomainObjectType" }, PutDomainObjectTypeRequest, PutDomainObjectTypeResponse, [AccessDeniedException, BadRequestException, InternalServerException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Defines a ProfileObjectType.
  * 
- * 
  * To add or remove tags on an existing ObjectType, see
  * TagResource/UntagResource.
  */export const putProfileObjectType = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-15", uri: "/domains/{DomainName}/object-types/{ObjectTypeName}", method: "PUT", sdkId: "Customer Profiles", sigV4ServiceName: "profile", name: "CustomerProfiles_20200815.PutProfileObjectType" }, PutProfileObjectTypeRequest, PutProfileObjectTypeResponse, [AccessDeniedException, BadRequestException, InternalServerException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Fetch the possible attribute values given the attribute name.
- */export const batchGetCalculatedAttributeForProfile = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-15", uri: "/domains/{DomainName}/calculated-attributes/{CalculatedAttributeName}/batch-get-for-profiles", method: "POST", sdkId: "Customer Profiles", sigV4ServiceName: "profile", name: "CustomerProfiles_20200815.BatchGetCalculatedAttributeForProfile" }, BatchGetCalculatedAttributeForProfileRequest, BatchGetCalculatedAttributeForProfileResponse, [AccessDeniedException, BadRequestException, InternalServerException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const batchGetCalculatedAttributeForProfile = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-15", uri: "/domains/{DomainName}/calculated-attributes/{CalculatedAttributeName}/batch-get-for-profiles", sdkId: "Customer Profiles", sigV4ServiceName: "profile", name: "CustomerProfiles_20200815.BatchGetCalculatedAttributeForProfile" }, BatchGetCalculatedAttributeForProfileRequest, BatchGetCalculatedAttributeForProfileResponse, [AccessDeniedException, BadRequestException, InternalServerException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a domain, which is a container for all customer data, such as customer profile
  * attributes, object types, profile keys, and encryption keys. You can create multiple
  * domains, and each domain can have multiple third-party integrations.
  * 
- * 
  * Each Amazon Connect instance can be associated with only one domain. Multiple
  * Amazon Connect instances can be associated with one domain.
- * 
  * 
  * Use this API or UpdateDomain to
  * enable identity
  * resolution: set `Matching` to true.
  * 
- * 
  * To prevent cross-service impersonation when you call this API, see Cross-service confused deputy prevention for sample policies that you should
  * apply.
- * 
- * 
- * 
  * 
  * It is not possible to associate a Customer Profiles domain with an Amazon Connect Instance directly from
  * the API. If you would like to create a domain and associate a Customer Profiles domain, use the Amazon Connect
  * admin website. For more information, see Enable Customer Profiles.
  * 
- * 
  * Each Amazon Connect instance can be associated with only one domain. Multiple Amazon Connect instances
  * can be associated with one domain.
- */export const createDomain = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-15", uri: "/domains/{DomainName}", method: "POST", sdkId: "Customer Profiles", sigV4ServiceName: "profile", name: "CustomerProfiles_20200815.CreateDomain" }, CreateDomainRequest, CreateDomainResponse, [AccessDeniedException, BadRequestException, InternalServerException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createDomain = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-15", uri: "/domains/{DomainName}", sdkId: "Customer Profiles", sigV4ServiceName: "profile", name: "CustomerProfiles_20200815.CreateDomain" }, CreateDomainRequest, CreateDomainResponse, [AccessDeniedException, BadRequestException, InternalServerException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an event trigger, which specifies the rules when to perform action based on
  * customer's ingested data.
  * 
- * 
  * Each event stream can be associated with only one integration in the same region and AWS
  * account as the event stream.
- */export const createEventTrigger = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-15", uri: "/domains/{DomainName}/event-triggers/{EventTriggerName}", method: "POST", sdkId: "Customer Profiles", sigV4ServiceName: "profile", name: "CustomerProfiles_20200815.CreateEventTrigger" }, CreateEventTriggerRequest, CreateEventTriggerResponse, [AccessDeniedException, BadRequestException, InternalServerException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createEventTrigger = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-15", uri: "/domains/{DomainName}/event-triggers/{EventTriggerName}", sdkId: "Customer Profiles", sigV4ServiceName: "profile", name: "CustomerProfiles_20200815.CreateEventTrigger" }, CreateEventTriggerRequest, CreateEventTriggerResponse, [AccessDeniedException, BadRequestException, InternalServerException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an integration workflow. An integration workflow is an async process which
  * ingests historic data and sets up an integration for ongoing updates. The supported Amazon AppFlow sources are Salesforce, ServiceNow, and Marketo.
- */export const createIntegrationWorkflow = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-15", uri: "/domains/{DomainName}/workflows/integrations", method: "POST", sdkId: "Customer Profiles", sigV4ServiceName: "profile", name: "CustomerProfiles_20200815.CreateIntegrationWorkflow" }, CreateIntegrationWorkflowRequest, CreateIntegrationWorkflowResponse, [AccessDeniedException, BadRequestException, InternalServerException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createIntegrationWorkflow = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-15", uri: "/domains/{DomainName}/workflows/integrations", sdkId: "Customer Profiles", sigV4ServiceName: "profile", name: "CustomerProfiles_20200815.CreateIntegrationWorkflow" }, CreateIntegrationWorkflowRequest, CreateIntegrationWorkflowResponse, [AccessDeniedException, BadRequestException, InternalServerException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a recommender
- */export const createRecommender = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-15", uri: "/domains/{DomainName}/recommenders/{RecommenderName}", method: "POST", sdkId: "Customer Profiles", sigV4ServiceName: "profile", name: "CustomerProfiles_20200815.CreateRecommender" }, CreateRecommenderRequest, CreateRecommenderResponse, [AccessDeniedException, BadRequestException, InternalServerException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createRecommender = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-15", uri: "/domains/{DomainName}/recommenders/{RecommenderName}", sdkId: "Customer Profiles", sigV4ServiceName: "profile", name: "CustomerProfiles_20200815.CreateRecommender" }, CreateRecommenderRequest, CreateRecommenderResponse, [AccessDeniedException, BadRequestException, InternalServerException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Fetches the recommendations for a profile in the input Customer Profiles domain. Fetches all the profile recommendations
- */export const getProfileRecommendations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-15", uri: "/domains/{DomainName}/profiles/{ProfileId}/recommendations", method: "POST", sdkId: "Customer Profiles", sigV4ServiceName: "profile", name: "CustomerProfiles_20200815.GetProfileRecommendations" }, GetProfileRecommendationsRequest, GetProfileRecommendationsResponse, [AccessDeniedException, BadRequestException, InternalServerException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getProfileRecommendations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-15", uri: "/domains/{DomainName}/profiles/{ProfileId}/recommendations", sdkId: "Customer Profiles", sigV4ServiceName: "profile", name: "CustomerProfiles_20200815.GetProfileRecommendations" }, GetProfileRecommendationsRequest, GetProfileRecommendationsResponse, [AccessDeniedException, BadRequestException, InternalServerException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Adds an integration between the service and a third-party service, which includes
  * Amazon AppFlow and Amazon Connect.
  * 
- * 
  * An integration can belong to only one domain.
- * 
  * 
  * To add or remove tags on an existing Integration, see TagResource
  * /
@@ -1021,7 +928,7 @@ export class ThrottlingException extends S.TaggedError<ThrottlingException>()("T
  * available for all profiles within a domain. Each calculated attribute can only reference
  * one `ObjectType` and at most, two fields from that
  * `ObjectType`.
- */export const createCalculatedAttributeDefinition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-15", uri: "/domains/{DomainName}/calculated-attributes/{CalculatedAttributeName}", method: "POST", sdkId: "Customer Profiles", sigV4ServiceName: "profile", name: "CustomerProfiles_20200815.CreateCalculatedAttributeDefinition" }, CreateCalculatedAttributeDefinitionRequest, CreateCalculatedAttributeDefinitionResponse, [AccessDeniedException, BadRequestException, InternalServerException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createCalculatedAttributeDefinition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-15", uri: "/domains/{DomainName}/calculated-attributes/{CalculatedAttributeName}", sdkId: "Customer Profiles", sigV4ServiceName: "profile", name: "CustomerProfiles_20200815.CreateCalculatedAttributeDefinition" }, CreateCalculatedAttributeDefinitionRequest, CreateCalculatedAttributeDefinitionResponse, [AccessDeniedException, BadRequestException, InternalServerException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a segment definition associated to the given domain.
- */export const createSegmentDefinition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-15", uri: "/domains/{DomainName}/segment-definitions/{SegmentDefinitionName}", method: "POST", sdkId: "Customer Profiles", sigV4ServiceName: "profile", name: "CustomerProfiles_20200815.CreateSegmentDefinition" }, CreateSegmentDefinitionRequest, CreateSegmentDefinitionResponse, [AccessDeniedException, BadRequestException, InternalServerException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createSegmentDefinition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-15", uri: "/domains/{DomainName}/segment-definitions/{SegmentDefinitionName}", sdkId: "Customer Profiles", sigV4ServiceName: "profile", name: "CustomerProfiles_20200815.CreateSegmentDefinition" }, CreateSegmentDefinitionRequest, CreateSegmentDefinitionResponse, [AccessDeniedException, BadRequestException, InternalServerException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

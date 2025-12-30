@@ -228,18 +228,18 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * For the time range passed in, returns the number of open reactive insight that were
  * created, the number of open proactive insights that were created, and the Mean Time to Recover (MTTR) for all
  * closed reactive insights.
- */export const describeAccountOverview = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/accounts/overview", method: "POST", sdkId: "DevOps Guru", sigV4ServiceName: "devops-guru", name: "CapstoneControlPlaneService.DescribeAccountOverview" }, DescribeAccountOverviewRequest, DescribeAccountOverviewResponse, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeAccountOverview = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/accounts/overview", sdkId: "DevOps Guru", sigV4ServiceName: "devops-guru", name: "CapstoneControlPlaneService.DescribeAccountOverview" }, DescribeAccountOverviewRequest, DescribeAccountOverviewResponse, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the most recent feedback submitted in the current Amazon Web Services account and Region.
- */export const describeFeedback = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/feedback", method: "POST", sdkId: "DevOps Guru", sigV4ServiceName: "devops-guru", name: "CapstoneControlPlaneService.DescribeFeedback" }, DescribeFeedbackRequest, DescribeFeedbackResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeFeedback = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/feedback", sdkId: "DevOps Guru", sigV4ServiceName: "devops-guru", name: "CapstoneControlPlaneService.DescribeFeedback" }, DescribeFeedbackRequest, DescribeFeedbackResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns active insights, predictive insights, and resource hours analyzed in last
  * hour.
- */export const describeOrganizationHealth = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/organization/health", method: "POST", sdkId: "DevOps Guru", sigV4ServiceName: "devops-guru", name: "CapstoneControlPlaneService.DescribeOrganizationHealth" }, DescribeOrganizationHealthRequest, DescribeOrganizationHealthResponse, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeOrganizationHealth = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/organization/health", sdkId: "DevOps Guru", sigV4ServiceName: "devops-guru", name: "CapstoneControlPlaneService.DescribeOrganizationHealth" }, DescribeOrganizationHealthRequest, DescribeOrganizationHealthResponse, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns an overview of your organization's history based on the specified time range.
  * The overview includes the total reactive and proactive insights.
- */export const describeOrganizationOverview = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/organization/overview", method: "POST", sdkId: "DevOps Guru", sigV4ServiceName: "devops-guru", name: "CapstoneControlPlaneService.DescribeOrganizationOverview" }, DescribeOrganizationOverviewRequest, DescribeOrganizationOverviewResponse, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeOrganizationOverview = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/organization/overview", sdkId: "DevOps Guru", sigV4ServiceName: "devops-guru", name: "CapstoneControlPlaneService.DescribeOrganizationOverview" }, DescribeOrganizationOverviewRequest, DescribeOrganizationOverviewResponse, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the number of open proactive insights, open reactive insights, and the Mean Time to Recover (MTTR)
  * for all closed insights in resource collections in your account. You specify the type of
@@ -268,7 +268,7 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * via EventBridge. The one service that can be integrated with DevOps Guru is Amazon CodeGuru
  * Profiler, which can produce proactive recommendations which can be stored and viewed in
  * DevOps Guru.
- */export const describeEventSourcesConfig = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/event-sources", method: "POST", sdkId: "DevOps Guru", sigV4ServiceName: "devops-guru", name: "CapstoneControlPlaneService.DescribeEventSourcesConfig" }, DescribeEventSourcesConfigRequest, DescribeEventSourcesConfigResponse, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeEventSourcesConfig = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/event-sources", sdkId: "DevOps Guru", sigV4ServiceName: "devops-guru", name: "CapstoneControlPlaneService.DescribeEventSourcesConfig" }, DescribeEventSourcesConfigRequest, DescribeEventSourcesConfigResponse, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the integration status of services that are integrated with DevOps Guru.
  * The one service that can be integrated with DevOps Guru
@@ -286,10 +286,10 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * channel is used to notify you when DevOps Guru generates an insight that contains information
  * about how to improve your operations. The one
  * supported notification channel is Amazon Simple Notification Service (Amazon SNS).
- */export const listNotificationChannels = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/channels", method: "POST", sdkId: "DevOps Guru", sigV4ServiceName: "devops-guru", name: "CapstoneControlPlaneService.ListNotificationChannels" }, ListNotificationChannelsRequest, ListNotificationChannelsResponse, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listNotificationChannels = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/channels", sdkId: "DevOps Guru", sigV4ServiceName: "devops-guru", name: "CapstoneControlPlaneService.ListNotificationChannels" }, ListNotificationChannelsRequest, ListNotificationChannelsResponse, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of insights associated with the account or OU Id.
- */export const listOrganizationInsights = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/organization/insights", method: "POST", sdkId: "DevOps Guru", sigV4ServiceName: "devops-guru", name: "CapstoneControlPlaneService.ListOrganizationInsights" }, ListOrganizationInsightsRequest, ListOrganizationInsightsResponse, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listOrganizationInsights = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/organization/insights", sdkId: "DevOps Guru", sigV4ServiceName: "devops-guru", name: "CapstoneControlPlaneService.ListOrganizationInsights" }, ListOrganizationInsightsRequest, ListOrganizationInsightsResponse, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of insights in your organization. You can specify which insights are
  * returned by their start time, one or more statuses (`ONGOING`,
@@ -297,11 +297,10 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * (`LOW`, `MEDIUM`, and `HIGH`), and type
  * (`REACTIVE` or `PROACTIVE`).
  * 
- * 
  * Use the `Filters` parameter to specify status and severity search
  * parameters. Use the `Type` parameter to specify `REACTIVE` or
  * `PROACTIVE` in your search.
- */export const searchOrganizationInsights = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/organization/insights/search", method: "POST", sdkId: "DevOps Guru", sigV4ServiceName: "devops-guru", name: "CapstoneControlPlaneService.SearchOrganizationInsights" }, SearchOrganizationInsightsRequest, SearchOrganizationInsightsResponse, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const searchOrganizationInsights = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/organization/insights/search", sdkId: "DevOps Guru", sigV4ServiceName: "devops-guru", name: "CapstoneControlPlaneService.SearchOrganizationInsights" }, SearchOrganizationInsightsRequest, SearchOrganizationInsightsResponse, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts the creation of an estimate of the monthly cost to analyze your Amazon Web Services
  * resources.
@@ -330,7 +329,7 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * Provides an overview of your system's health. If additional member accounts are part
  * of your organization, you can filter those accounts using the `AccountIds`
  * field.
- */export const describeOrganizationResourceCollectionHealth = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/organization/health/resource-collection", method: "POST", sdkId: "DevOps Guru", sigV4ServiceName: "devops-guru", name: "CapstoneControlPlaneService.DescribeOrganizationResourceCollectionHealth" }, DescribeOrganizationResourceCollectionHealthRequest, DescribeOrganizationResourceCollectionHealthResponse, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeOrganizationResourceCollectionHealth = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/organization/health/resource-collection", sdkId: "DevOps Guru", sigV4ServiceName: "devops-guru", name: "CapstoneControlPlaneService.DescribeOrganizationResourceCollectionHealth" }, DescribeOrganizationResourceCollectionHealthRequest, DescribeOrganizationResourceCollectionHealthResponse, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns lists Amazon Web Services resources that are of the specified resource collection type.
  * The two types of Amazon Web Services resource collections supported are Amazon Web Services CloudFormation stacks and
@@ -339,28 +338,25 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  */export const getResourceCollection = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/resource-collections/{ResourceCollectionType}", method: "GET", sdkId: "DevOps Guru", sigV4ServiceName: "devops-guru", name: "CapstoneControlPlaneService.GetResourceCollection" }, GetResourceCollectionRequest, GetResourceCollectionResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the list of all log groups that are being monitored and tagged by DevOps Guru.
- */export const listMonitoredResources = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/monitoredResources", method: "POST", sdkId: "DevOps Guru", sigV4ServiceName: "devops-guru", name: "CapstoneControlPlaneService.ListMonitoredResources" }, ListMonitoredResourcesRequest, ListMonitoredResourcesResponse, [InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listMonitoredResources = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/monitoredResources", sdkId: "DevOps Guru", sigV4ServiceName: "devops-guru", name: "CapstoneControlPlaneService.ListMonitoredResources" }, ListMonitoredResourcesRequest, ListMonitoredResourcesResponse, [InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of insights in your Amazon Web Services account. You can specify which insights are
  * returned by their start time, one or more statuses (`ONGOING` or `CLOSED`), one or more severities
  * (`LOW`, `MEDIUM`, and `HIGH`), and type
  * (`REACTIVE` or `PROACTIVE`).
  * 
- * 
  * Use the `Filters` parameter to specify status and severity search
  * parameters. Use the `Type` parameter to specify `REACTIVE` or
  * `PROACTIVE` in your search.
- */export const searchInsights = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/insights/search", method: "POST", sdkId: "DevOps Guru", sigV4ServiceName: "devops-guru", name: "CapstoneControlPlaneService.SearchInsights" }, SearchInsightsRequest, SearchInsightsResponse, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const searchInsights = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/insights/search", sdkId: "DevOps Guru", sigV4ServiceName: "devops-guru", name: "CapstoneControlPlaneService.SearchInsights" }, SearchInsightsRequest, SearchInsightsResponse, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Adds a notification channel to DevOps Guru. A notification channel is used to notify you
  * about important DevOps Guru events, such as when an insight is generated.
- * 
  * 
  * If you use an Amazon SNS topic in another account, you must attach a policy to it that grants DevOps Guru permission
  * to send it notifications. DevOps Guru adds the required policy on your behalf to send notifications using Amazon SNS in your account. DevOps Guru only supports standard SNS topics.
  * For more information, see Permissions
  * for Amazon SNS topics.
- * 
  * 
  * If you use an Amazon SNS topic that is encrypted by an Amazon Web Services Key Management Service customer-managed key (CMK), then you must add permissions
  * to the CMK. For more information, see Permissions for
@@ -369,23 +365,23 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Returns a list of the anomalies that belong to an insight that you specify using its
  * ID.
- */export const listAnomaliesForInsight = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/anomalies/insight/{InsightId}", method: "POST", sdkId: "DevOps Guru", sigV4ServiceName: "devops-guru", name: "CapstoneControlPlaneService.ListAnomaliesForInsight" }, ListAnomaliesForInsightRequest, ListAnomaliesForInsightResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listAnomaliesForInsight = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/anomalies/insight/{InsightId}", sdkId: "DevOps Guru", sigV4ServiceName: "devops-guru", name: "CapstoneControlPlaneService.ListAnomaliesForInsight" }, ListAnomaliesForInsightRequest, ListAnomaliesForInsightResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the list of log groups that contain log anomalies.
- */export const listAnomalousLogGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/list-log-anomalies", method: "POST", sdkId: "DevOps Guru", sigV4ServiceName: "devops-guru", name: "CapstoneControlPlaneService.ListAnomalousLogGroups" }, ListAnomalousLogGroupsRequest, ListAnomalousLogGroupsResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listAnomalousLogGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/list-log-anomalies", sdkId: "DevOps Guru", sigV4ServiceName: "devops-guru", name: "CapstoneControlPlaneService.ListAnomalousLogGroups" }, ListAnomalousLogGroupsRequest, ListAnomalousLogGroupsResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of insights in your Amazon Web Services account. You can specify which insights are
  * returned by their start time and status (`ONGOING`, `CLOSED`, or
  * `ANY`).
- */export const listInsights = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/insights", method: "POST", sdkId: "DevOps Guru", sigV4ServiceName: "devops-guru", name: "CapstoneControlPlaneService.ListInsights" }, ListInsightsRequest, ListInsightsResponse, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listInsights = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/insights", sdkId: "DevOps Guru", sigV4ServiceName: "devops-guru", name: "CapstoneControlPlaneService.ListInsights" }, ListInsightsRequest, ListInsightsResponse, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of a specified insight's recommendations. Each recommendation includes
  * a list of related metrics and a list of related events.
- */export const listRecommendations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/recommendations", method: "POST", sdkId: "DevOps Guru", sigV4ServiceName: "devops-guru", name: "CapstoneControlPlaneService.ListRecommendations" }, ListRecommendationsRequest, ListRecommendationsResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listRecommendations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/recommendations", sdkId: "DevOps Guru", sigV4ServiceName: "devops-guru", name: "CapstoneControlPlaneService.ListRecommendations" }, ListRecommendationsRequest, ListRecommendationsResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of the events emitted by the resources that are evaluated by DevOps Guru.
  * You can use filters to specify which events are returned.
- */export const listEvents = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/events", method: "POST", sdkId: "DevOps Guru", sigV4ServiceName: "devops-guru", name: "CapstoneControlPlaneService.ListEvents" }, ListEventsRequest, ListEventsResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listEvents = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/events", sdkId: "DevOps Guru", sigV4ServiceName: "devops-guru", name: "CapstoneControlPlaneService.ListEvents" }, ListEventsRequest, ListEventsResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns details about an anomaly that you specify using its ID.
  */export const describeAnomaly = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/anomalies/{Id}", method: "GET", sdkId: "DevOps Guru", sigV4ServiceName: "devops-guru", name: "CapstoneControlPlaneService.DescribeAnomaly" }, DescribeAnomalyRequest, DescribeAnomalyResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

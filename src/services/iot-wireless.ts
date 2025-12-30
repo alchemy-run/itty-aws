@@ -462,24 +462,13 @@ export class TooManyTagsException extends S.TaggedError<TooManyTagsException>()(
 /**
  * Deletes a wireless gateway.
  * 
- * 
- * 
- * 
  * When deleting a wireless gateway, you might run into duplication errors for the
  * following reasons.
  * 
- * 
- * 
  * - If you specify a `GatewayEui` value that already exists.
- * 
- * 
  * 
  * - If you used a `ClientRequestToken` with the same parameters
  * within the last 10 minutes.
- * 
- * 
- * 
- * 
  * 
  * To avoid this error, make sure that you use unique identifiers and parameters for
  * each request within the specified time period.
@@ -536,7 +525,7 @@ export class TooManyTagsException extends S.TaggedError<TooManyTagsException>()(
 /**
  * Starts a bulk disassociatin of all qualifying wireless devices from a multicast
  * group.
- */export const startBulkDisassociateWirelessDeviceFromMulticastGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-22", uri: "/multicast-groups/{Id}/bulk", method: "POST", sdkId: "IoT Wireless", sigV4ServiceName: "iotwireless", name: "iotwireless.StartBulkDisassociateWirelessDeviceFromMulticastGroup" }, StartBulkDisassociateWirelessDeviceFromMulticastGroupRequest, StartBulkDisassociateWirelessDeviceFromMulticastGroupResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startBulkDisassociateWirelessDeviceFromMulticastGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-22", uri: "/multicast-groups/{Id}/bulk", sdkId: "IoT Wireless", sigV4ServiceName: "iotwireless", name: "iotwireless.StartBulkDisassociateWirelessDeviceFromMulticastGroup" }, StartBulkDisassociateWirelessDeviceFromMulticastGroupRequest, StartBulkDisassociateWirelessDeviceFromMulticastGroupResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes one or more tags from a resource.
  */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-22", uri: "/tags", method: "DELETE", sdkId: "IoT Wireless", sigV4ServiceName: "iotwireless", name: "iotwireless.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -553,7 +542,7 @@ export class TooManyTagsException extends S.TaggedError<TooManyTagsException>()(
  * Set default log level, or log levels by resource types. This can be for wireless
  * device, wireless gateway, or FUOTA task log options, and is used to control the log
  * messages that'll be displayed in CloudWatch.
- */export const updateLogLevelsByResourceTypes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-22", uri: "/log-levels", method: "POST", sdkId: "IoT Wireless", sigV4ServiceName: "iotwireless", name: "iotwireless.UpdateLogLevelsByResourceTypes" }, UpdateLogLevelsByResourceTypesRequest, UpdateLogLevelsByResourceTypesResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateLogLevelsByResourceTypes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-22", uri: "/log-levels", sdkId: "IoT Wireless", sigV4ServiceName: "iotwireless", name: "iotwireless.UpdateLogLevelsByResourceTypes" }, UpdateLogLevelsByResourceTypesRequest, UpdateLogLevelsByResourceTypesResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Update the summary metric configuration.
  */export const updateMetricConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-22", uri: "/metric-configuration", method: "PUT", sdkId: "IoT Wireless", sigV4ServiceName: "iotwireless", name: "iotwireless.UpdateMetricConfiguration" }, UpdateMetricConfigurationRequest, UpdateMetricConfigurationResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -565,9 +554,6 @@ export class TooManyTagsException extends S.TaggedError<TooManyTagsException>()(
  */export const updateNetworkAnalyzerConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-22", uri: "/network-analyzer-configurations/{ConfigurationName}", method: "PATCH", sdkId: "IoT Wireless", sigV4ServiceName: "iotwireless", name: "iotwireless.UpdateNetworkAnalyzerConfiguration" }, UpdateNetworkAnalyzerConfigurationRequest, UpdateNetworkAnalyzerConfigurationResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Update the position information of a resource.
- * 
- * 
- * 
  * 
  * This action is no longer supported. Calls to update the position information
  * should use the UpdateResourcePosition API operation instead.
@@ -600,10 +586,10 @@ export class TooManyTagsException extends S.TaggedError<TooManyTagsException>()(
  */export const associateWirelessGatewayWithThing = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-22", uri: "/wireless-gateways/{Id}/thing", method: "PUT", sdkId: "IoT Wireless", sigV4ServiceName: "iotwireless", name: "iotwireless.AssociateWirelessGatewayWithThing" }, AssociateWirelessGatewayWithThingRequest, AssociateWirelessGatewayWithThingResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new destination that maps a device message to an AWS IoT rule.
- */export const createDestination = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-22", uri: "/destinations", method: "POST", sdkId: "IoT Wireless", sigV4ServiceName: "iotwireless", name: "iotwireless.CreateDestination" }, CreateDestinationRequest, CreateDestinationResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createDestination = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-22", uri: "/destinations", sdkId: "IoT Wireless", sigV4ServiceName: "iotwireless", name: "iotwireless.CreateDestination" }, CreateDestinationRequest, CreateDestinationResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a task for a wireless gateway.
- */export const createWirelessGatewayTask = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-22", uri: "/wireless-gateways/{Id}/tasks", method: "POST", sdkId: "IoT Wireless", sigV4ServiceName: "iotwireless", name: "iotwireless.CreateWirelessGatewayTask" }, CreateWirelessGatewayTaskRequest, CreateWirelessGatewayTaskResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createWirelessGatewayTask = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-22", uri: "/wireless-gateways/{Id}/tasks", sdkId: "IoT Wireless", sigV4ServiceName: "iotwireless", name: "iotwireless.CreateWirelessGatewayTask" }, CreateWirelessGatewayTaskRequest, CreateWirelessGatewayTaskResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets information about a destination.
  */export const getDestination = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-22", uri: "/destinations/{Name}", method: "GET", sdkId: "IoT Wireless", sigV4ServiceName: "iotwireless", name: "iotwireless.GetDestination" }, GetDestinationRequest, GetDestinationResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -662,11 +648,11 @@ export class TooManyTagsException extends S.TaggedError<TooManyTagsException>()(
  */export const startMulticastGroupSession = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-22", uri: "/multicast-groups/{Id}/session", method: "PUT", sdkId: "IoT Wireless", sigV4ServiceName: "iotwireless", name: "iotwireless.StartMulticastGroupSession" }, StartMulticastGroupSessionRequest, StartMulticastGroupSessionResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Adds a tag to a resource.
- */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-22", uri: "/tags", method: "POST", sdkId: "IoT Wireless", sigV4ServiceName: "iotwireless", name: "iotwireless.TagResource" }, TagResourceRequest, TagResourceResponse, [ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, TooManyTagsException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-22", uri: "/tags", sdkId: "IoT Wireless", sigV4ServiceName: "iotwireless", name: "iotwireless.TagResource" }, TagResourceRequest, TagResourceResponse, [ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, TooManyTagsException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Simulates a provisioned device by sending an uplink data payload of
  * `Hello`.
- */export const testWirelessDevice = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-22", uri: "/wireless-devices/{Id}/test", method: "POST", sdkId: "IoT Wireless", sigV4ServiceName: "iotwireless", name: "iotwireless.TestWirelessDevice" }, TestWirelessDeviceRequest, TestWirelessDeviceResponse, [InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const testWirelessDevice = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-22", uri: "/wireless-devices/{Id}/test", sdkId: "IoT Wireless", sigV4ServiceName: "iotwireless", name: "iotwireless.TestWirelessDevice" }, TestWirelessDeviceRequest, TestWirelessDeviceResponse, [InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates properties of a partner account.
  */export const updatePartnerAccount = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-22", uri: "/partner-accounts/{PartnerAccountId}", method: "PATCH", sdkId: "IoT Wireless", sigV4ServiceName: "iotwireless", name: "iotwireless.UpdatePartnerAccount" }, UpdatePartnerAccountRequest, UpdatePartnerAccountResponse, [InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -675,19 +661,19 @@ export class TooManyTagsException extends S.TaggedError<TooManyTagsException>()(
  */export const updateWirelessDeviceImportTask = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-22", uri: "/wireless_device_import_task/{Id}", method: "PATCH", sdkId: "IoT Wireless", sigV4ServiceName: "iotwireless", name: "iotwireless.UpdateWirelessDeviceImportTask" }, UpdateWirelessDeviceImportTaskRequest, UpdateWirelessDeviceImportTaskResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Associates a partner account with your AWS account.
- */export const associateAwsAccountWithPartnerAccount = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-22", uri: "/partner-accounts", method: "POST", sdkId: "IoT Wireless", sigV4ServiceName: "iotwireless", name: "iotwireless.AssociateAwsAccountWithPartnerAccount" }, AssociateAwsAccountWithPartnerAccountRequest, AssociateAwsAccountWithPartnerAccountResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const associateAwsAccountWithPartnerAccount = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-22", uri: "/partner-accounts", sdkId: "IoT Wireless", sigV4ServiceName: "iotwireless", name: "iotwireless.AssociateAwsAccountWithPartnerAccount" }, AssociateAwsAccountWithPartnerAccountRequest, AssociateAwsAccountWithPartnerAccountResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new device profile.
- */export const createDeviceProfile = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-22", uri: "/device-profiles", method: "POST", sdkId: "IoT Wireless", sigV4ServiceName: "iotwireless", name: "iotwireless.CreateDeviceProfile" }, CreateDeviceProfileRequest, CreateDeviceProfileResponse, [AccessDeniedException, ConflictException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createDeviceProfile = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-22", uri: "/device-profiles", sdkId: "IoT Wireless", sigV4ServiceName: "iotwireless", name: "iotwireless.CreateDeviceProfile" }, CreateDeviceProfileRequest, CreateDeviceProfileResponse, [AccessDeniedException, ConflictException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a FUOTA task.
- */export const createFuotaTask = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-22", uri: "/fuota-tasks", method: "POST", sdkId: "IoT Wireless", sigV4ServiceName: "iotwireless", name: "iotwireless.CreateFuotaTask" }, CreateFuotaTaskRequest, CreateFuotaTaskResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createFuotaTask = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-22", uri: "/fuota-tasks", sdkId: "IoT Wireless", sigV4ServiceName: "iotwireless", name: "iotwireless.CreateFuotaTask" }, CreateFuotaTaskRequest, CreateFuotaTaskResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new network analyzer configuration.
- */export const createNetworkAnalyzerConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-22", uri: "/network-analyzer-configurations", method: "POST", sdkId: "IoT Wireless", sigV4ServiceName: "iotwireless", name: "iotwireless.CreateNetworkAnalyzerConfiguration" }, CreateNetworkAnalyzerConfigurationRequest, CreateNetworkAnalyzerConfigurationResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createNetworkAnalyzerConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-22", uri: "/network-analyzer-configurations", sdkId: "IoT Wireless", sigV4ServiceName: "iotwireless", name: "iotwireless.CreateNetworkAnalyzerConfiguration" }, CreateNetworkAnalyzerConfigurationRequest, CreateNetworkAnalyzerConfigurationResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new service profile.
- */export const createServiceProfile = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-22", uri: "/service-profiles", method: "POST", sdkId: "IoT Wireless", sigV4ServiceName: "iotwireless", name: "iotwireless.CreateServiceProfile" }, CreateServiceProfileRequest, CreateServiceProfileResponse, [AccessDeniedException, ConflictException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createServiceProfile = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-22", uri: "/service-profiles", sdkId: "IoT Wireless", sigV4ServiceName: "iotwireless", name: "iotwireless.CreateServiceProfile" }, CreateServiceProfileRequest, CreateServiceProfileResponse, [AccessDeniedException, ConflictException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Get the event configuration based on resource types.
  */export const getEventConfigurationByResourceTypes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-22", uri: "/event-configurations-resource-types", method: "GET", sdkId: "IoT Wireless", sigV4ServiceName: "iotwireless", name: "iotwireless.GetEventConfigurationByResourceTypes" }, GetEventConfigurationByResourceTypesRequest, GetEventConfigurationByResourceTypesResponse, [AccessDeniedException, InternalServerException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -708,9 +694,6 @@ export class TooManyTagsException extends S.TaggedError<TooManyTagsException>()(
  */export const getPartnerAccount = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-22", uri: "/partner-accounts/{PartnerAccountId}", method: "GET", sdkId: "IoT Wireless", sigV4ServiceName: "iotwireless", name: "iotwireless.GetPartnerAccount" }, GetPartnerAccountRequest, GetPartnerAccountResponse, [InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Get the position information for a given resource.
- * 
- * 
- * 
  * 
  * This action is no longer supported. Calls to retrieve the position information
  * should use the GetResourcePosition API operation instead.
@@ -746,9 +729,6 @@ export class TooManyTagsException extends S.TaggedError<TooManyTagsException>()(
 /**
  * List position configurations for a given resource, such as positioning solvers.
  * 
- * 
- * 
- * 
  * This action is no longer supported. Calls to retrieve position information should
  * use the GetResourcePosition API operation instead.
  */export const listPositionConfigurations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-22", uri: "/position-configurations", method: "GET", sdkId: "IoT Wireless", sigV4ServiceName: "iotwireless", name: "iotwireless.ListPositionConfigurations" }, ListPositionConfigurationsRequest, ListPositionConfigurationsResponse, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -768,19 +748,16 @@ export class TooManyTagsException extends S.TaggedError<TooManyTagsException>()(
 /**
  * Put position configuration for a given resource.
  * 
- * 
- * 
- * 
  * This action is no longer supported. Calls to update the position configuration
  * should use the UpdateResourcePosition API operation instead.
  */export const putPositionConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-22", uri: "/position-configurations/{ResourceIdentifier}", method: "PUT", sdkId: "IoT Wireless", sigV4ServiceName: "iotwireless", name: "iotwireless.PutPositionConfiguration" }, PutPositionConfigurationRequest, PutPositionConfigurationResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Start import task for a single wireless device.
- */export const startSingleWirelessDeviceImportTask = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-22", uri: "/wireless_single_device_import_task", method: "POST", sdkId: "IoT Wireless", sigV4ServiceName: "iotwireless", name: "iotwireless.StartSingleWirelessDeviceImportTask" }, StartSingleWirelessDeviceImportTaskRequest, StartSingleWirelessDeviceImportTaskResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startSingleWirelessDeviceImportTask = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-22", uri: "/wireless_single_device_import_task", sdkId: "IoT Wireless", sigV4ServiceName: "iotwireless", name: "iotwireless.StartSingleWirelessDeviceImportTask" }, StartSingleWirelessDeviceImportTaskRequest, StartSingleWirelessDeviceImportTaskResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Start import task for provisioning Sidewalk devices in bulk using an S3 CSV
  * file.
- */export const startWirelessDeviceImportTask = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-22", uri: "/wireless_device_import_task", method: "POST", sdkId: "IoT Wireless", sigV4ServiceName: "iotwireless", name: "iotwireless.StartWirelessDeviceImportTask" }, StartWirelessDeviceImportTaskRequest, StartWirelessDeviceImportTaskResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startWirelessDeviceImportTask = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-22", uri: "/wireless_device_import_task", sdkId: "IoT Wireless", sigV4ServiceName: "iotwireless", name: "iotwireless.StartWirelessDeviceImportTask" }, StartWirelessDeviceImportTaskRequest, StartWirelessDeviceImportTaskResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Update the event configuration for a particular resource identifier.
  */export const updateResourceEventConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-22", uri: "/event-configurations/{Identifier}", method: "PATCH", sdkId: "IoT Wireless", sigV4ServiceName: "iotwireless", name: "iotwireless.UpdateResourceEventConfiguration" }, UpdateResourceEventConfigurationRequest, UpdateResourceEventConfigurationResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -789,40 +766,26 @@ export class TooManyTagsException extends S.TaggedError<TooManyTagsException>()(
  */export const updateWirelessDevice = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-22", uri: "/wireless-devices/{Id}", method: "PATCH", sdkId: "IoT Wireless", sigV4ServiceName: "iotwireless", name: "iotwireless.UpdateWirelessDevice" }, UpdateWirelessDeviceRequest, UpdateWirelessDeviceResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a multicast group.
- */export const createMulticastGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-22", uri: "/multicast-groups", method: "POST", sdkId: "IoT Wireless", sigV4ServiceName: "iotwireless", name: "iotwireless.CreateMulticastGroup" }, CreateMulticastGroupRequest, CreateMulticastGroupResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createMulticastGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-22", uri: "/multicast-groups", sdkId: "IoT Wireless", sigV4ServiceName: "iotwireless", name: "iotwireless.CreateMulticastGroup" }, CreateMulticastGroupRequest, CreateMulticastGroupResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Provisions a wireless gateway.
- * 
- * 
- * 
  * 
  * When provisioning a wireless gateway, you might run into duplication errors for
  * the following reasons.
  * 
- * 
- * 
  * - If you specify a `GatewayEui` value that already exists.
- * 
- * 
  * 
  * - If you used a `ClientRequestToken` with the same parameters
  * within the last 10 minutes.
  * 
- * 
- * 
- * 
- * 
  * To avoid this error, make sure that you use unique identifiers and parameters for
  * each request within the specified time period.
- */export const createWirelessGateway = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-22", uri: "/wireless-gateways", method: "POST", sdkId: "IoT Wireless", sigV4ServiceName: "iotwireless", name: "iotwireless.CreateWirelessGateway" }, CreateWirelessGatewayRequest, CreateWirelessGatewayResponse, [AccessDeniedException, ConflictException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createWirelessGateway = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-22", uri: "/wireless-gateways", sdkId: "IoT Wireless", sigV4ServiceName: "iotwireless", name: "iotwireless.CreateWirelessGateway" }, CreateWirelessGatewayRequest, CreateWirelessGatewayResponse, [AccessDeniedException, ConflictException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets information about a device profile.
  */export const getDeviceProfile = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-22", uri: "/device-profiles/{Id}", method: "GET", sdkId: "IoT Wireless", sigV4ServiceName: "iotwireless", name: "iotwireless.GetDeviceProfile" }, GetDeviceProfileRequest, GetDeviceProfileResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Get position configuration for a given resource.
- * 
- * 
- * 
  * 
  * This action is no longer supported. Calls to retrieve the position configuration
  * should use the GetResourcePosition API operation instead.
@@ -847,21 +810,21 @@ export class TooManyTagsException extends S.TaggedError<TooManyTagsException>()(
  */export const listWirelessGatewayTaskDefinitions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-22", uri: "/wireless-gateway-task-definitions", method: "GET", sdkId: "IoT Wireless", sigV4ServiceName: "iotwireless", name: "iotwireless.ListWirelessGatewayTaskDefinitions" }, ListWirelessGatewayTaskDefinitionsRequest, ListWirelessGatewayTaskDefinitionsResponse, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Sends the specified data to a multicast group.
- */export const sendDataToMulticastGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-22", uri: "/multicast-groups/{Id}/data", method: "POST", sdkId: "IoT Wireless", sigV4ServiceName: "iotwireless", name: "iotwireless.SendDataToMulticastGroup" }, SendDataToMulticastGroupRequest, SendDataToMulticastGroupResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const sendDataToMulticastGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-22", uri: "/multicast-groups/{Id}/data", sdkId: "IoT Wireless", sigV4ServiceName: "iotwireless", name: "iotwireless.SendDataToMulticastGroup" }, SendDataToMulticastGroupRequest, SendDataToMulticastGroupResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Provisions a wireless device.
- */export const createWirelessDevice = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-22", uri: "/wireless-devices", method: "POST", sdkId: "IoT Wireless", sigV4ServiceName: "iotwireless", name: "iotwireless.CreateWirelessDevice" }, CreateWirelessDeviceRequest, CreateWirelessDeviceResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createWirelessDevice = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-22", uri: "/wireless-devices", sdkId: "IoT Wireless", sigV4ServiceName: "iotwireless", name: "iotwireless.CreateWirelessDevice" }, CreateWirelessDeviceRequest, CreateWirelessDeviceResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a gateway task definition.
- */export const createWirelessGatewayTaskDefinition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-22", uri: "/wireless-gateway-task-definitions", method: "POST", sdkId: "IoT Wireless", sigV4ServiceName: "iotwireless", name: "iotwireless.CreateWirelessGatewayTaskDefinition" }, CreateWirelessGatewayTaskDefinitionRequest, CreateWirelessGatewayTaskDefinitionResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createWirelessGatewayTaskDefinition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-22", uri: "/wireless-gateway-task-definitions", sdkId: "IoT Wireless", sigV4ServiceName: "iotwireless", name: "iotwireless.CreateWirelessGatewayTaskDefinition" }, CreateWirelessGatewayTaskDefinitionRequest, CreateWirelessGatewayTaskDefinitionResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Get the summary metrics for this AWS account.
- */export const getMetrics = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-22", uri: "/metrics", method: "POST", sdkId: "IoT Wireless", sigV4ServiceName: "iotwireless", name: "iotwireless.GetMetrics" }, GetMetricsRequest, GetMetricsResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getMetrics = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-22", uri: "/metrics", sdkId: "IoT Wireless", sigV4ServiceName: "iotwireless", name: "iotwireless.GetMetrics" }, GetMetricsRequest, GetMetricsResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Get estimated position information as a payload in GeoJSON format. The payload
  * measurement data is resolved using solvers that are provided by third-party
  * vendors.
- */export const getPositionEstimate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-22", uri: "/position-estimate", method: "POST", sdkId: "IoT Wireless", sigV4ServiceName: "iotwireless", name: "iotwireless.GetPositionEstimate" }, GetPositionEstimateRequest, GetPositionEstimateResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getPositionEstimate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-22", uri: "/position-estimate", sdkId: "IoT Wireless", sigV4ServiceName: "iotwireless", name: "iotwireless.GetPositionEstimate" }, GetPositionEstimateRequest, GetPositionEstimateResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Sends a decrypted application data frame to a device.
- */export const sendDataToWirelessDevice = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-22", uri: "/wireless-devices/{Id}/data", method: "POST", sdkId: "IoT Wireless", sigV4ServiceName: "iotwireless", name: "iotwireless.SendDataToWirelessDevice" }, SendDataToWirelessDeviceRequest, SendDataToWirelessDeviceResponse, [InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const sendDataToWirelessDevice = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-22", uri: "/wireless-devices/{Id}/data", sdkId: "IoT Wireless", sigV4ServiceName: "iotwireless", name: "iotwireless.SendDataToWirelessDevice" }, SendDataToWirelessDeviceRequest, SendDataToWirelessDeviceResponse, [InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

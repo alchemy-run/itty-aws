@@ -24,7 +24,7 @@ export class BatchPutMetricsResponse extends S.Class<BatchPutMetricsResponse>("B
 //# Operations
 /**
  * Used to retrieve training metrics from SageMaker.
- */export const batchGetMetrics = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-09-30", uri: "/BatchGetMetrics", method: "POST", sdkId: "SageMaker Metrics", sigV4ServiceName: "sagemaker", name: "SageMakerMetricsService.BatchGetMetrics" }, BatchGetMetricsRequest, BatchGetMetricsResponse, []), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const batchGetMetrics = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-09-30", uri: "/BatchGetMetrics", sdkId: "SageMaker Metrics", sigV4ServiceName: "sagemaker", name: "SageMakerMetricsService.BatchGetMetrics" }, BatchGetMetricsRequest, BatchGetMetricsResponse, []), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Used to ingest training metrics into SageMaker. These metrics can be visualized in SageMaker Studio.
  */export const batchPutMetrics = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-09-30", uri: "/BatchPutMetrics", method: "PUT", sdkId: "SageMaker Metrics", sigV4ServiceName: "sagemaker", name: "SageMakerMetricsService.BatchPutMetrics" }, BatchPutMetricsRequest, BatchPutMetricsResponse, []), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

@@ -35,50 +35,37 @@ export class ServiceLimitExceededException extends S.TaggedError<ServiceLimitExc
  * can use to route traffic to cells. When a routing control state is set to ON, traffic flows to a cell. When
  * the state is set to OFF, traffic does not flow.
  * 
- * 
  * Before you can create a routing control, you must first create a cluster, and then host the control
  * in a control panel on the cluster. For more information, see
  * Create routing control structures in the Amazon Route 53 Application Recovery Controller Developer Guide.
  * You access one of the endpoints for the cluster to get or update the routing control state to
  * redirect traffic for your application.
  * 
- * 
- * 
  * You must specify Regional endpoints when you work with API cluster operations
  * to get or update routing control states in Route 53 ARC.
- * 
- * 
  * 
  * To see a code example for getting a routing control state, including accessing Regional cluster endpoints
  * in sequence, see API examples
  * in the Amazon Route 53 Application Recovery Controller Developer Guide.
  * 
- * 
  * Learn more about working with routing controls in the following topics in the
  * Amazon Route 53 Application Recovery Controller Developer Guide:
- * 
- * 
  * 
  * -
  * Viewing and updating routing control states
  * 
- * 
- * 
- * 
  * - Working with
  * routing controls in Route 53 ARC
- */export const getRoutingControlState = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/", method: "POST", sdkId: "Route53 Recovery Cluster", sigV4ServiceName: "route53-recovery-cluster", name: "ToggleCustomerAPI.GetRoutingControlState" }, GetRoutingControlStateRequest, GetRoutingControlStateResponse, [AccessDeniedException, EndpointTemporarilyUnavailableException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getRoutingControlState = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", sdkId: "Route53 Recovery Cluster", sigV4ServiceName: "route53-recovery-cluster", name: "ToggleCustomerAPI.GetRoutingControlState" }, GetRoutingControlStateRequest, GetRoutingControlStateResponse, [AccessDeniedException, EndpointTemporarilyUnavailableException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * List routing control names and Amazon Resource Names (ARNs), as well as the routing control
  * state for each routing control, along with the control panel name and control panel ARN for the routing controls.
  * If you specify a control panel ARN, this call lists the routing controls in the control panel. Otherwise, it lists
  * all the routing controls in the cluster.
  * 
- * 
  * A routing control is a simple on/off switch in Route 53 ARC that you
  * can use to route traffic to cells. When a routing control state is set to ON, traffic flows to a cell. When
  * the state is set to OFF, traffic does not flow.
- * 
  * 
  * Before you can create a routing control, you must first create a cluster, and then host the control
  * in a control panel on the cluster. For more information, see
@@ -86,33 +73,23 @@ export class ServiceLimitExceededException extends S.TaggedError<ServiceLimitExc
  * You access one of the endpoints for the cluster to get or update the routing control state to
  * redirect traffic for your application.
  * 
- * 
- * 
  * You must specify Regional endpoints when you work with API cluster operations
  * to use this API operation to list routing controls in Route 53 ARC.
- * 
- * 
  * 
  * Learn more about working with routing controls in the following topics in the
  * Amazon Route 53 Application Recovery Controller Developer Guide:
  * 
- * 
- * 
  * -
  * Viewing and updating routing control states
  * 
- * 
- * 
- * 
  * - Working with
  * routing controls in Route 53 ARC
- */export const listRoutingControls = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/", method: "POST", sdkId: "Route53 Recovery Cluster", sigV4ServiceName: "route53-recovery-cluster", name: "ToggleCustomerAPI.ListRoutingControls" }, ListRoutingControlsRequest, ListRoutingControlsResponse, [AccessDeniedException, EndpointTemporarilyUnavailableException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listRoutingControls = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", sdkId: "Route53 Recovery Cluster", sigV4ServiceName: "route53-recovery-cluster", name: "ToggleCustomerAPI.ListRoutingControls" }, ListRoutingControlsRequest, ListRoutingControlsResponse, [AccessDeniedException, EndpointTemporarilyUnavailableException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Set multiple routing control states. You can set the value for each state to be ON or OFF.
  * When the state is ON, traffic flows to a cell. When it's OFF, traffic does not
  * flow.
  * 
- * 
  * With Route 53 ARC, you can add safety rules for routing controls, which are safeguards for routing
  * control state updates that help prevent unexpected outcomes, like fail open traffic routing. However,
  * there are scenarios when you might want to bypass the routing control safeguards that are enforced with
@@ -121,39 +98,28 @@ export class ServiceLimitExceededException extends S.TaggedError<ServiceLimitExc
  * reroute traffic. In a "break glass" scenario like this, you can override one or more safety rules to change
  * a routing control state and fail over your application.
  * 
- * 
  * The `SafetyRulesToOverride` property enables you override one or more safety rules and
  * update routing control states. For more information, see
  * 
  * Override safety rules to reroute traffic in the Amazon Route 53 Application Recovery Controller Developer Guide.
  * 
- * 
- * 
  * You must specify Regional endpoints when you work with API cluster operations
  * to get or update routing control states in Route 53 ARC.
- * 
- * 
  * 
  * To see a code example for getting a routing control state, including accessing Regional cluster endpoints
  * in sequence, see API examples
  * in the Amazon Route 53 Application Recovery Controller Developer Guide.
  * 
- * 
- * 
  * -
  * Viewing and updating routing control states
  * 
- * 
- * 
- * 
  * - Working with routing controls overall
- */export const updateRoutingControlStates = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/", method: "POST", sdkId: "Route53 Recovery Cluster", sigV4ServiceName: "route53-recovery-cluster", name: "ToggleCustomerAPI.UpdateRoutingControlStates" }, UpdateRoutingControlStatesRequest, UpdateRoutingControlStatesResponse, [AccessDeniedException, ConflictException, EndpointTemporarilyUnavailableException, InternalServerException, ResourceNotFoundException, ServiceLimitExceededException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateRoutingControlStates = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", sdkId: "Route53 Recovery Cluster", sigV4ServiceName: "route53-recovery-cluster", name: "ToggleCustomerAPI.UpdateRoutingControlStates" }, UpdateRoutingControlStatesRequest, UpdateRoutingControlStatesResponse, [AccessDeniedException, ConflictException, EndpointTemporarilyUnavailableException, InternalServerException, ResourceNotFoundException, ServiceLimitExceededException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Set the state of the routing control to reroute traffic. You can set the value to ON or
  * OFF. When the state is ON, traffic flows to a cell. When the state is OFF, traffic does not
  * flow.
  * 
- * 
  * With Route 53 ARC, you can add safety rules for routing controls, which are safeguards for routing
  * control state updates that help prevent unexpected outcomes, like fail open traffic routing. However,
  * there are scenarios when you might want to bypass the routing control safeguards that are enforced with
@@ -162,30 +128,20 @@ export class ServiceLimitExceededException extends S.TaggedError<ServiceLimitExc
  * reroute traffic. In a "break glass" scenario like this, you can override one or more safety rules to change
  * a routing control state and fail over your application.
  * 
- * 
  * The `SafetyRulesToOverride` property enables you override one or more safety rules and
  * update routing control states. For more information, see
  * 
  * Override safety rules to reroute traffic in the Amazon Route 53 Application Recovery Controller Developer Guide.
  * 
- * 
- * 
  * You must specify Regional endpoints when you work with API cluster operations
  * to get or update routing control states in Route 53 ARC.
- * 
- * 
  * 
  * To see a code example for getting a routing control state, including accessing Regional cluster endpoints
  * in sequence, see API examples
  * in the Amazon Route 53 Application Recovery Controller Developer Guide.
  * 
- * 
- * 
  * -
  * Viewing and updating routing control states
  * 
- * 
- * 
- * 
  * - Working with routing controls overall
- */export const updateRoutingControlState = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", uri: "/", method: "POST", sdkId: "Route53 Recovery Cluster", sigV4ServiceName: "route53-recovery-cluster", name: "ToggleCustomerAPI.UpdateRoutingControlState" }, UpdateRoutingControlStateRequest, UpdateRoutingControlStateResponse, [AccessDeniedException, ConflictException, EndpointTemporarilyUnavailableException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateRoutingControlState = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-02", sdkId: "Route53 Recovery Cluster", sigV4ServiceName: "route53-recovery-cluster", name: "ToggleCustomerAPI.UpdateRoutingControlState" }, UpdateRoutingControlStateRequest, UpdateRoutingControlStateResponse, [AccessDeniedException, ConflictException, EndpointTemporarilyUnavailableException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);

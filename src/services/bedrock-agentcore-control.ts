@@ -39,42 +39,36 @@ export class ConcurrentModificationException extends S.TaggedError<ConcurrentMod
 /**
  * Creates or updates a resource-based policy for a resource with the specified resourceArn.
  * 
- * 
  * This feature is currently available only for AgentCore Runtime and Gateway.
  */export const putResourcePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-06-05", uri: "/resourcepolicy/{resourceArn}", method: "PUT", sdkId: "Bedrock AgentCore Control", sigV4ServiceName: "bedrock-agentcore", name: "AmazonBedrockAgentCoreControl.PutResourcePolicy" }, PutResourcePolicyRequest, PutResourcePolicyResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes the specified tags from the specified resource.
- * 
  * 
  * This feature is currently available only for AgentCore Runtime, Browser, Code Interpreter tool, and Gateway.
  */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-06-05", uri: "/tags/{resourceArn}", method: "DELETE", sdkId: "Bedrock AgentCore Control", sigV4ServiceName: "bedrock-agentcore", name: "AmazonBedrockAgentCoreControl.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the resource-based policy for a specified resource.
  * 
- * 
  * This feature is currently available only for AgentCore Runtime and Gateway.
  */export const deleteResourcePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-06-05", uri: "/resourcepolicy/{resourceArn}", method: "DELETE", sdkId: "Bedrock AgentCore Control", sigV4ServiceName: "bedrock-agentcore", name: "AmazonBedrockAgentCoreControl.DeleteResourcePolicy" }, DeleteResourcePolicyRequest, DeleteResourcePolicyResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the resource-based policy for a specified resource.
  * 
- * 
  * This feature is currently available only for AgentCore Runtime and Gateway.
  */export const getResourcePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-06-05", uri: "/resourcepolicy/{resourceArn}", method: "GET", sdkId: "Bedrock AgentCore Control", sigV4ServiceName: "bedrock-agentcore", name: "AmazonBedrockAgentCoreControl.GetResourcePolicy" }, GetResourcePolicyRequest, GetResourcePolicyResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves information about a token vault.
- */export const getTokenVault = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-06-05", uri: "/identities/get-token-vault", method: "POST", sdkId: "Bedrock AgentCore Control", sigV4ServiceName: "bedrock-agentcore", name: "AmazonBedrockAgentCoreControl.GetTokenVault" }, GetTokenVaultRequest, GetTokenVaultResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, UnauthorizedException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getTokenVault = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-06-05", uri: "/identities/get-token-vault", sdkId: "Bedrock AgentCore Control", sigV4ServiceName: "bedrock-agentcore", name: "AmazonBedrockAgentCoreControl.GetTokenVault" }, GetTokenVaultRequest, GetTokenVaultResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, UnauthorizedException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Associates the specified tags to a resource with the specified resourceArn. If existing tags on a resource are not specified in the request parameters, they are not changed. When a resource is deleted, the tags associated with that resource are also deleted.
  * 
- * 
  * This feature is currently available only for AgentCore Runtime, Browser, Code Interpreter tool, and Gateway.
- */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-06-05", uri: "/tags/{resourceArn}", method: "POST", sdkId: "Bedrock AgentCore Control", sigV4ServiceName: "bedrock-agentcore", name: "AmazonBedrockAgentCoreControl.TagResource" }, TagResourceRequest, TagResourceResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-06-05", uri: "/tags/{resourceArn}", sdkId: "Bedrock AgentCore Control", sigV4ServiceName: "bedrock-agentcore", name: "AmazonBedrockAgentCoreControl.TagResource" }, TagResourceRequest, TagResourceResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the tags associated with the specified resource.
- * 
  * 
  * This feature is currently available only for AgentCore Runtime, Browser, Code Interpreter tool, and Gateway.
  */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-06-05", uri: "/tags/{resourceArn}", method: "GET", sdkId: "Bedrock AgentCore Control", sigV4ServiceName: "bedrock-agentcore", name: "AmazonBedrockAgentCoreControl.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Sets the customer master key (CMK) for a token vault.
- */export const setTokenVaultCMK = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-06-05", uri: "/identities/set-token-vault-cmk", method: "POST", sdkId: "Bedrock AgentCore Control", sigV4ServiceName: "bedrock-agentcore", name: "AmazonBedrockAgentCoreControl.SetTokenVaultCMK" }, SetTokenVaultCMKRequest, SetTokenVaultCMKResponse, [AccessDeniedException, ConcurrentModificationException, InternalServerException, ResourceNotFoundException, ThrottlingException, UnauthorizedException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const setTokenVaultCMK = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-06-05", uri: "/identities/set-token-vault-cmk", sdkId: "Bedrock AgentCore Control", sigV4ServiceName: "bedrock-agentcore", name: "AmazonBedrockAgentCoreControl.SetTokenVaultCMK" }, SetTokenVaultCMKRequest, SetTokenVaultCMKResponse, [AccessDeniedException, ConcurrentModificationException, InternalServerException, ResourceNotFoundException, ThrottlingException, UnauthorizedException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

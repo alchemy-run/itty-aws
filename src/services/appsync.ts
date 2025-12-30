@@ -320,9 +320,6 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
 /**
  * Lists the API keys for a given API.
  * 
- * 
- * 
- * 
  * API keys are deleted automatically 60 days after they expire. However, they may still
  * be included in the response until they have actually been deleted. You can safely call
  * `DeleteApiKey` to manually delete a key before it's automatically
@@ -331,15 +328,11 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
 /**
  * Lists the APIs in your AppSync account.
  * 
- * 
- * 
  * `ListApis` returns only the high level API details. For more detailed
  * information about an API, use `GetApi`.
  */export const listApis = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/v2/apis", method: "GET", sdkId: "AppSync", sigV4ServiceName: "appsync", name: "AWSDeepdishControlPlaneService.ListApis" }, ListApisRequest, ListApisResponse, [BadRequestException, InternalFailureException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the channel namespaces for a specified `Api`.
- * 
- * 
  * 
  * `ListChannelNamespaces` returns only high level details for the channel
  * namespace. To retrieve code handlers, use `GetChannelNamespace`.
@@ -374,74 +367,72 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
 /**
  * Adds a new schema to your GraphQL API.
  * 
- * 
  * This operation is asynchronous. Use to
  * determine when it has completed.
- */export const startSchemaCreation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/v1/apis/{apiId}/schemacreation", method: "POST", sdkId: "AppSync", sigV4ServiceName: "appsync", name: "AWSDeepdishControlPlaneService.StartSchemaCreation" }, StartSchemaCreationRequest, StartSchemaCreationResponse, [BadRequestException, ConcurrentModificationException, InternalFailureException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startSchemaCreation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/v1/apis/{apiId}/schemacreation", sdkId: "AppSync", sigV4ServiceName: "appsync", name: "AWSDeepdishControlPlaneService.StartSchemaCreation" }, StartSchemaCreationRequest, StartSchemaCreationResponse, [BadRequestException, ConcurrentModificationException, InternalFailureException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Initiates a merge operation. Returns a status that shows the result of the merge
  * operation.
- */export const startSchemaMerge = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/v1/mergedApis/{mergedApiIdentifier}/sourceApiAssociations/{associationId}/merge", method: "POST", sdkId: "AppSync", sigV4ServiceName: "appsync", name: "AWSDeepdishControlPlaneService.StartSchemaMerge" }, StartSchemaMergeRequest, StartSchemaMergeResponse, [BadRequestException, ConcurrentModificationException, InternalFailureException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startSchemaMerge = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/v1/mergedApis/{mergedApiIdentifier}/sourceApiAssociations/{associationId}/merge", sdkId: "AppSync", sigV4ServiceName: "appsync", name: "AWSDeepdishControlPlaneService.StartSchemaMerge" }, StartSchemaMergeRequest, StartSchemaMergeResponse, [BadRequestException, ConcurrentModificationException, InternalFailureException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Tags a resource with user-supplied tags.
- */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/v1/tags/{resourceArn}", method: "POST", sdkId: "AppSync", sigV4ServiceName: "appsync", name: "AWSDeepdishControlPlaneService.TagResource" }, TagResourceRequest, TagResourceResponse, [AccessDeniedException, BadRequestException, InternalFailureException, LimitExceededException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/v1/tags/{resourceArn}", sdkId: "AppSync", sigV4ServiceName: "appsync", name: "AWSDeepdishControlPlaneService.TagResource" }, TagResourceRequest, TagResourceResponse, [AccessDeniedException, BadRequestException, InternalFailureException, LimitExceededException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates an `Api`.
- */export const updateApi = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/v2/apis/{apiId}", method: "POST", sdkId: "AppSync", sigV4ServiceName: "appsync", name: "AWSDeepdishControlPlaneService.UpdateApi" }, UpdateApiRequest, UpdateApiResponse, [AccessDeniedException, BadRequestException, ConcurrentModificationException, InternalFailureException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateApi = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/v2/apis/{apiId}", sdkId: "AppSync", sigV4ServiceName: "appsync", name: "AWSDeepdishControlPlaneService.UpdateApi" }, UpdateApiRequest, UpdateApiResponse, [AccessDeniedException, BadRequestException, ConcurrentModificationException, InternalFailureException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the cache for the GraphQL API.
- */export const updateApiCache = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/v1/apis/{apiId}/ApiCaches/update", method: "POST", sdkId: "AppSync", sigV4ServiceName: "appsync", name: "AWSDeepdishControlPlaneService.UpdateApiCache" }, UpdateApiCacheRequest, UpdateApiCacheResponse, [BadRequestException, ConcurrentModificationException, InternalFailureException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateApiCache = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/v1/apis/{apiId}/ApiCaches/update", sdkId: "AppSync", sigV4ServiceName: "appsync", name: "AWSDeepdishControlPlaneService.UpdateApiCache" }, UpdateApiCacheRequest, UpdateApiCacheResponse, [BadRequestException, ConcurrentModificationException, InternalFailureException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates a `ChannelNamespace` associated with an `Api`.
- */export const updateChannelNamespace = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/v2/apis/{apiId}/channelNamespaces/{name}", method: "POST", sdkId: "AppSync", sigV4ServiceName: "appsync", name: "AWSDeepdishControlPlaneService.UpdateChannelNamespace" }, UpdateChannelNamespaceRequest, UpdateChannelNamespaceResponse, [AccessDeniedException, BadRequestException, ConcurrentModificationException, InternalFailureException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateChannelNamespace = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/v2/apis/{apiId}/channelNamespaces/{name}", sdkId: "AppSync", sigV4ServiceName: "appsync", name: "AWSDeepdishControlPlaneService.UpdateChannelNamespace" }, UpdateChannelNamespaceRequest, UpdateChannelNamespaceResponse, [AccessDeniedException, BadRequestException, ConcurrentModificationException, InternalFailureException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates a `DataSource` object.
- */export const updateDataSource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/v1/apis/{apiId}/datasources/{name}", method: "POST", sdkId: "AppSync", sigV4ServiceName: "appsync", name: "AWSDeepdishControlPlaneService.UpdateDataSource" }, UpdateDataSourceRequest, UpdateDataSourceResponse, [BadRequestException, ConcurrentModificationException, InternalFailureException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateDataSource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/v1/apis/{apiId}/datasources/{name}", sdkId: "AppSync", sigV4ServiceName: "appsync", name: "AWSDeepdishControlPlaneService.UpdateDataSource" }, UpdateDataSourceRequest, UpdateDataSourceResponse, [BadRequestException, ConcurrentModificationException, InternalFailureException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates a custom `DomainName` object.
- */export const updateDomainName = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/v1/domainnames/{domainName}", method: "POST", sdkId: "AppSync", sigV4ServiceName: "appsync", name: "AWSDeepdishControlPlaneService.UpdateDomainName" }, UpdateDomainNameRequest, UpdateDomainNameResponse, [AccessDeniedException, BadRequestException, ConcurrentModificationException, InternalFailureException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateDomainName = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/v1/domainnames/{domainName}", sdkId: "AppSync", sigV4ServiceName: "appsync", name: "AWSDeepdishControlPlaneService.UpdateDomainName" }, UpdateDomainNameRequest, UpdateDomainNameResponse, [AccessDeniedException, BadRequestException, ConcurrentModificationException, InternalFailureException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates a `Function` object.
- */export const updateFunction = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/v1/apis/{apiId}/functions/{functionId}", method: "POST", sdkId: "AppSync", sigV4ServiceName: "appsync", name: "AWSDeepdishControlPlaneService.UpdateFunction" }, UpdateFunctionRequest, UpdateFunctionResponse, [BadRequestException, ConcurrentModificationException, InternalFailureException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateFunction = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/v1/apis/{apiId}/functions/{functionId}", sdkId: "AppSync", sigV4ServiceName: "appsync", name: "AWSDeepdishControlPlaneService.UpdateFunction" }, UpdateFunctionRequest, UpdateFunctionResponse, [BadRequestException, ConcurrentModificationException, InternalFailureException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates a `GraphqlApi` object.
- */export const updateGraphqlApi = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/v1/apis/{apiId}", method: "POST", sdkId: "AppSync", sigV4ServiceName: "appsync", name: "AWSDeepdishControlPlaneService.UpdateGraphqlApi" }, UpdateGraphqlApiRequest, UpdateGraphqlApiResponse, [AccessDeniedException, BadRequestException, ConcurrentModificationException, InternalFailureException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateGraphqlApi = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/v1/apis/{apiId}", sdkId: "AppSync", sigV4ServiceName: "appsync", name: "AWSDeepdishControlPlaneService.UpdateGraphqlApi" }, UpdateGraphqlApiRequest, UpdateGraphqlApiResponse, [AccessDeniedException, BadRequestException, ConcurrentModificationException, InternalFailureException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates a `Resolver` object.
- */export const updateResolver = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/v1/apis/{apiId}/types/{typeName}/resolvers/{fieldName}", method: "POST", sdkId: "AppSync", sigV4ServiceName: "appsync", name: "AWSDeepdishControlPlaneService.UpdateResolver" }, UpdateResolverRequest, UpdateResolverResponse, [BadRequestException, ConcurrentModificationException, InternalFailureException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateResolver = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/v1/apis/{apiId}/types/{typeName}/resolvers/{fieldName}", sdkId: "AppSync", sigV4ServiceName: "appsync", name: "AWSDeepdishControlPlaneService.UpdateResolver" }, UpdateResolverRequest, UpdateResolverResponse, [BadRequestException, ConcurrentModificationException, InternalFailureException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates some of the configuration choices of a particular source API association.
- */export const updateSourceApiAssociation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/v1/mergedApis/{mergedApiIdentifier}/sourceApiAssociations/{associationId}", method: "POST", sdkId: "AppSync", sigV4ServiceName: "appsync", name: "AWSDeepdishControlPlaneService.UpdateSourceApiAssociation" }, UpdateSourceApiAssociationRequest, UpdateSourceApiAssociationResponse, [BadRequestException, ConcurrentModificationException, InternalFailureException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateSourceApiAssociation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/v1/mergedApis/{mergedApiIdentifier}/sourceApiAssociations/{associationId}", sdkId: "AppSync", sigV4ServiceName: "appsync", name: "AWSDeepdishControlPlaneService.UpdateSourceApiAssociation" }, UpdateSourceApiAssociationRequest, UpdateSourceApiAssociationResponse, [BadRequestException, ConcurrentModificationException, InternalFailureException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates a `Type` object.
- */export const updateType = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/v1/apis/{apiId}/types/{typeName}", method: "POST", sdkId: "AppSync", sigV4ServiceName: "appsync", name: "AWSDeepdishControlPlaneService.UpdateType" }, UpdateTypeRequest, UpdateTypeResponse, [BadRequestException, ConcurrentModificationException, InternalFailureException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateType = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/v1/apis/{apiId}/types/{typeName}", sdkId: "AppSync", sigV4ServiceName: "appsync", name: "AWSDeepdishControlPlaneService.UpdateType" }, UpdateTypeRequest, UpdateTypeResponse, [BadRequestException, ConcurrentModificationException, InternalFailureException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Maps an endpoint to your custom domain.
- */export const associateApi = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/v1/domainnames/{domainName}/apiassociation", method: "POST", sdkId: "AppSync", sigV4ServiceName: "appsync", name: "AWSDeepdishControlPlaneService.AssociateApi" }, AssociateApiRequest, AssociateApiResponse, [AccessDeniedException, BadRequestException, InternalFailureException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const associateApi = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/v1/domainnames/{domainName}/apiassociation", sdkId: "AppSync", sigV4ServiceName: "appsync", name: "AWSDeepdishControlPlaneService.AssociateApi" }, AssociateApiRequest, AssociateApiResponse, [AccessDeniedException, BadRequestException, InternalFailureException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an association between a Merged API and source API using the source API's
  * identifier.
- */export const associateMergedGraphqlApi = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/v1/sourceApis/{sourceApiIdentifier}/mergedApiAssociations", method: "POST", sdkId: "AppSync", sigV4ServiceName: "appsync", name: "AWSDeepdishControlPlaneService.AssociateMergedGraphqlApi" }, AssociateMergedGraphqlApiRequest, AssociateMergedGraphqlApiResponse, [BadRequestException, ConcurrentModificationException, InternalFailureException, LimitExceededException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const associateMergedGraphqlApi = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/v1/sourceApis/{sourceApiIdentifier}/mergedApiAssociations", sdkId: "AppSync", sigV4ServiceName: "appsync", name: "AWSDeepdishControlPlaneService.AssociateMergedGraphqlApi" }, AssociateMergedGraphqlApiRequest, AssociateMergedGraphqlApiResponse, [BadRequestException, ConcurrentModificationException, InternalFailureException, LimitExceededException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an association between a Merged API and source API using the Merged API's
  * identifier.
- */export const associateSourceGraphqlApi = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/v1/mergedApis/{mergedApiIdentifier}/sourceApiAssociations", method: "POST", sdkId: "AppSync", sigV4ServiceName: "appsync", name: "AWSDeepdishControlPlaneService.AssociateSourceGraphqlApi" }, AssociateSourceGraphqlApiRequest, AssociateSourceGraphqlApiResponse, [BadRequestException, ConcurrentModificationException, InternalFailureException, LimitExceededException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const associateSourceGraphqlApi = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/v1/mergedApis/{mergedApiIdentifier}/sourceApiAssociations", sdkId: "AppSync", sigV4ServiceName: "appsync", name: "AWSDeepdishControlPlaneService.AssociateSourceGraphqlApi" }, AssociateSourceGraphqlApiRequest, AssociateSourceGraphqlApiResponse, [BadRequestException, ConcurrentModificationException, InternalFailureException, LimitExceededException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a cache for the GraphQL API.
- */export const createApiCache = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/v1/apis/{apiId}/ApiCaches", method: "POST", sdkId: "AppSync", sigV4ServiceName: "appsync", name: "AWSDeepdishControlPlaneService.CreateApiCache" }, CreateApiCacheRequest, CreateApiCacheResponse, [BadRequestException, ConcurrentModificationException, InternalFailureException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createApiCache = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/v1/apis/{apiId}/ApiCaches", sdkId: "AppSync", sigV4ServiceName: "appsync", name: "AWSDeepdishControlPlaneService.CreateApiCache" }, CreateApiCacheRequest, CreateApiCacheResponse, [BadRequestException, ConcurrentModificationException, InternalFailureException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a custom `DomainName` object.
- */export const createDomainName = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/v1/domainnames", method: "POST", sdkId: "AppSync", sigV4ServiceName: "appsync", name: "AWSDeepdishControlPlaneService.CreateDomainName" }, CreateDomainNameRequest, CreateDomainNameResponse, [AccessDeniedException, BadRequestException, InternalFailureException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createDomainName = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/v1/domainnames", sdkId: "AppSync", sigV4ServiceName: "appsync", name: "AWSDeepdishControlPlaneService.CreateDomainName" }, CreateDomainNameRequest, CreateDomainNameResponse, [AccessDeniedException, BadRequestException, InternalFailureException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a `Resolver` object.
  * 
- * 
  * A resolver converts incoming requests into a format that a data source can understand,
  * and converts the data source's responses into GraphQL.
- */export const createResolver = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/v1/apis/{apiId}/types/{typeName}/resolvers", method: "POST", sdkId: "AppSync", sigV4ServiceName: "appsync", name: "AWSDeepdishControlPlaneService.CreateResolver" }, CreateResolverRequest, CreateResolverResponse, [BadRequestException, ConcurrentModificationException, InternalFailureException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createResolver = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/v1/apis/{apiId}/types/{typeName}/resolvers", sdkId: "AppSync", sigV4ServiceName: "appsync", name: "AWSDeepdishControlPlaneService.CreateResolver" }, CreateResolverRequest, CreateResolverResponse, [BadRequestException, ConcurrentModificationException, InternalFailureException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a `Type` object.
- */export const createType = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/v1/apis/{apiId}/types", method: "POST", sdkId: "AppSync", sigV4ServiceName: "appsync", name: "AWSDeepdishControlPlaneService.CreateType" }, CreateTypeRequest, CreateTypeResponse, [BadRequestException, ConcurrentModificationException, InternalFailureException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createType = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/v1/apis/{apiId}/types", sdkId: "AppSync", sigV4ServiceName: "appsync", name: "AWSDeepdishControlPlaneService.CreateType" }, CreateTypeRequest, CreateTypeResponse, [BadRequestException, ConcurrentModificationException, InternalFailureException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Evaluates the given code and returns the response. The code definition requirements
  * depend on the specified runtime. For `APPSYNC_JS` runtimes, the code defines the
@@ -449,20 +440,18 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * GraphQL operation is parsed and converts it into a request configuration for the selected
  * data source operation. The response function interprets responses from the data source and
  * maps it to the shape of the GraphQL field output type.
- */export const evaluateCode = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/v1/dataplane-evaluatecode", method: "POST", sdkId: "AppSync", sigV4ServiceName: "appsync", name: "AWSDeepdishControlPlaneService.EvaluateCode" }, EvaluateCodeRequest, EvaluateCodeResponse, [AccessDeniedException, BadRequestException, InternalFailureException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const evaluateCode = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/v1/dataplane-evaluatecode", sdkId: "AppSync", sigV4ServiceName: "appsync", name: "AWSDeepdishControlPlaneService.EvaluateCode" }, EvaluateCodeRequest, EvaluateCodeResponse, [AccessDeniedException, BadRequestException, InternalFailureException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Evaluates a given template and returns the response. The mapping template can be a
  * request or response template.
- * 
  * 
  * Request templates take the incoming request after a GraphQL operation is parsed and
  * convert it into a request configuration for the selected data source operation. Response
  * templates interpret responses from the data source and map it to the shape of the GraphQL
  * field output type.
  * 
- * 
  * Mapping templates are written in the Apache Velocity Template Language (VTL).
- */export const evaluateMappingTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/v1/dataplane-evaluatetemplate", method: "POST", sdkId: "AppSync", sigV4ServiceName: "appsync", name: "AWSDeepdishControlPlaneService.EvaluateMappingTemplate" }, EvaluateMappingTemplateRequest, EvaluateMappingTemplateResponse, [AccessDeniedException, BadRequestException, InternalFailureException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const evaluateMappingTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/v1/dataplane-evaluatetemplate", sdkId: "AppSync", sigV4ServiceName: "appsync", name: "AWSDeepdishControlPlaneService.EvaluateMappingTemplate" }, EvaluateMappingTemplateRequest, EvaluateMappingTemplateResponse, [AccessDeniedException, BadRequestException, InternalFailureException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the channel namespace for a specified `Api`.
  */export const getChannelNamespace = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/v2/apis/{apiId}/channelNamespaces/{name}", method: "GET", sdkId: "AppSync", sigV4ServiceName: "appsync", name: "AWSDeepdishControlPlaneService.GetChannelNamespace" }, GetChannelNamespaceRequest, GetChannelNamespaceResponse, [AccessDeniedException, BadRequestException, InternalFailureException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -487,62 +476,33 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
 /**
  * Creates a list of environmental variables in an API by its ID value.
  * 
- * 
  * When creating an environmental variable, it must follow the constraints below:
- * 
- * 
  * 
  * - Both JavaScript and VTL templates support environmental variables.
  * 
- * 
- * 
  * - Environmental variables are not evaluated before function invocation.
  * 
- * 
- * 
  * - Environmental variables only support string values.
- * 
- * 
  * 
  * - Any defined value in an environmental variable is considered a string literal
  * and not expanded.
  * 
- * 
- * 
  * - Variable evaluations should ideally be performed in the function
  * code.
- * 
- * 
- * 
- * 
  * 
  * When creating an environmental variable key-value pair, it must follow the additional
  * constraints below:
  * 
- * 
- * 
  * - Keys must begin with a letter.
  * 
- * 
- * 
  * - Keys must be at least two characters long.
- * 
- * 
  * 
  * - Keys can only contain letters, numbers, and the underscore character
  * (_).
  * 
- * 
- * 
  * - Values can be up to 512 characters long.
  * 
- * 
- * 
  * - You can configure up to 50 key-value pairs in a GraphQL API.
- * 
- * 
- * 
- * 
  * 
  * You can create a list of environmental variables by adding it to the
  * `environmentVariables` payload as a list in the format
@@ -555,29 +515,28 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
 /**
  * Creates a new introspection. Returns the `introspectionId` of the new
  * introspection after its creation.
- */export const startDataSourceIntrospection = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/v1/datasources/introspections", method: "POST", sdkId: "AppSync", sigV4ServiceName: "appsync", name: "AWSDeepdishControlPlaneService.StartDataSourceIntrospection" }, StartDataSourceIntrospectionRequest, StartDataSourceIntrospectionResponse, [BadRequestException, InternalFailureException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startDataSourceIntrospection = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/v1/datasources/introspections", sdkId: "AppSync", sigV4ServiceName: "appsync", name: "AWSDeepdishControlPlaneService.StartDataSourceIntrospection" }, StartDataSourceIntrospectionRequest, StartDataSourceIntrospectionResponse, [BadRequestException, InternalFailureException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates an API key. You can update the key as long as it's not deleted.
- */export const updateApiKey = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/v1/apis/{apiId}/apikeys/{id}", method: "POST", sdkId: "AppSync", sigV4ServiceName: "appsync", name: "AWSDeepdishControlPlaneService.UpdateApiKey" }, UpdateApiKeyRequest, UpdateApiKeyResponse, [ApiKeyValidityOutOfBoundsException, BadRequestException, InternalFailureException, LimitExceededException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateApiKey = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/v1/apis/{apiId}/apikeys/{id}", sdkId: "AppSync", sigV4ServiceName: "appsync", name: "AWSDeepdishControlPlaneService.UpdateApiKey" }, UpdateApiKeyRequest, UpdateApiKeyResponse, [ApiKeyValidityOutOfBoundsException, BadRequestException, InternalFailureException, LimitExceededException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a unique key that you can distribute to clients who invoke your API.
- */export const createApiKey = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/v1/apis/{apiId}/apikeys", method: "POST", sdkId: "AppSync", sigV4ServiceName: "appsync", name: "AWSDeepdishControlPlaneService.CreateApiKey" }, CreateApiKeyRequest, CreateApiKeyResponse, [ApiKeyLimitExceededException, ApiKeyValidityOutOfBoundsException, BadRequestException, InternalFailureException, LimitExceededException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createApiKey = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/v1/apis/{apiId}/apikeys", sdkId: "AppSync", sigV4ServiceName: "appsync", name: "AWSDeepdishControlPlaneService.CreateApiKey" }, CreateApiKeyRequest, CreateApiKeyResponse, [ApiKeyLimitExceededException, ApiKeyValidityOutOfBoundsException, BadRequestException, InternalFailureException, LimitExceededException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a `Function` object.
  * 
- * 
  * A function is a reusable entity. You can use multiple functions to compose the resolver
  * logic.
- */export const createFunction = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/v1/apis/{apiId}/functions", method: "POST", sdkId: "AppSync", sigV4ServiceName: "appsync", name: "AWSDeepdishControlPlaneService.CreateFunction" }, CreateFunctionRequest, CreateFunctionResponse, [BadRequestException, ConcurrentModificationException, InternalFailureException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createFunction = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/v1/apis/{apiId}/functions", sdkId: "AppSync", sigV4ServiceName: "appsync", name: "AWSDeepdishControlPlaneService.CreateFunction" }, CreateFunctionRequest, CreateFunctionResponse, [BadRequestException, ConcurrentModificationException, InternalFailureException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves an `Api` object.
  */export const getApi = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/v2/apis/{apiId}", method: "GET", sdkId: "AppSync", sigV4ServiceName: "appsync", name: "AWSDeepdishControlPlaneService.GetApi" }, GetApiRequest, GetApiResponse, [AccessDeniedException, BadRequestException, InternalFailureException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a `DataSource` object.
- */export const createDataSource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/v1/apis/{apiId}/datasources", method: "POST", sdkId: "AppSync", sigV4ServiceName: "appsync", name: "AWSDeepdishControlPlaneService.CreateDataSource" }, CreateDataSourceRequest, CreateDataSourceResponse, [BadRequestException, ConcurrentModificationException, InternalFailureException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createDataSource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/v1/apis/{apiId}/datasources", sdkId: "AppSync", sigV4ServiceName: "appsync", name: "AWSDeepdishControlPlaneService.CreateDataSource" }, CreateDataSourceRequest, CreateDataSourceResponse, [BadRequestException, ConcurrentModificationException, InternalFailureException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a `GraphqlApi` object.
- */export const createGraphqlApi = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/v1/apis", method: "POST", sdkId: "AppSync", sigV4ServiceName: "appsync", name: "AWSDeepdishControlPlaneService.CreateGraphqlApi" }, CreateGraphqlApiRequest, CreateGraphqlApiResponse, [ApiLimitExceededException, BadRequestException, ConcurrentModificationException, InternalFailureException, LimitExceededException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createGraphqlApi = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/v1/apis", sdkId: "AppSync", sigV4ServiceName: "appsync", name: "AWSDeepdishControlPlaneService.CreateGraphqlApi" }, CreateGraphqlApiRequest, CreateGraphqlApiResponse, [ApiLimitExceededException, BadRequestException, ConcurrentModificationException, InternalFailureException, LimitExceededException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes an `ApiCache` object.
  */export const deleteApiCache = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/v1/apis/{apiId}/ApiCaches", method: "DELETE", sdkId: "AppSync", sigV4ServiceName: "appsync", name: "AWSDeepdishControlPlaneService.DeleteApiCache" }, DeleteApiCacheRequest, DeleteApiCacheResponse, [BadRequestException, ConcurrentModificationException, InternalFailureException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -585,7 +544,7 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * Creates an `Api` object. Use this operation to create an AppSync
  * API with your preferred configuration, such as an Event API that provides real-time message
  * publishing and message subscriptions over WebSockets.
- */export const createApi = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/v2/apis", method: "POST", sdkId: "AppSync", sigV4ServiceName: "appsync", name: "AWSDeepdishControlPlaneService.CreateApi" }, CreateApiRequest, CreateApiResponse, [BadRequestException, ConcurrentModificationException, InternalFailureException, ServiceQuotaExceededException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createApi = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/v2/apis", sdkId: "AppSync", sigV4ServiceName: "appsync", name: "AWSDeepdishControlPlaneService.CreateApi" }, CreateApiRequest, CreateApiResponse, [BadRequestException, ConcurrentModificationException, InternalFailureException, ServiceQuotaExceededException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the record of an existing introspection. If the retrieval is successful, the
  * result of the instrospection will also be returned. If the retrieval fails the operation,
@@ -593,4 +552,4 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  */export const getDataSourceIntrospection = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/v1/datasources/introspections/{introspectionId}", method: "GET", sdkId: "AppSync", sigV4ServiceName: "appsync", name: "AWSDeepdishControlPlaneService.GetDataSourceIntrospection" }, GetDataSourceIntrospectionRequest, GetDataSourceIntrospectionResponse, [BadRequestException, InternalFailureException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a `ChannelNamespace` for an `Api`.
- */export const createChannelNamespace = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/v2/apis/{apiId}/channelNamespaces", method: "POST", sdkId: "AppSync", sigV4ServiceName: "appsync", name: "AWSDeepdishControlPlaneService.CreateChannelNamespace" }, CreateChannelNamespaceRequest, CreateChannelNamespaceResponse, [BadRequestException, ConcurrentModificationException, ConflictException, InternalFailureException, NotFoundException, ServiceQuotaExceededException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createChannelNamespace = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/v2/apis/{apiId}/channelNamespaces", sdkId: "AppSync", sigV4ServiceName: "appsync", name: "AWSDeepdishControlPlaneService.CreateChannelNamespace" }, CreateChannelNamespaceRequest, CreateChannelNamespaceResponse, [BadRequestException, ConcurrentModificationException, ConflictException, InternalFailureException, NotFoundException, ServiceQuotaExceededException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

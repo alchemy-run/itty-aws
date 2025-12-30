@@ -279,9 +279,6 @@ export class GoneException extends S.TaggedError<GoneException>()("GoneException
 /**
  * Deletes the origination settings for the specified Amazon Chime SDK Voice Connector.
  * 
- * 
- * 
- * 
  * If emergency calling is configured for the Voice Connector, it must be
  * deleted prior to deleting the origination settings.
  */export const deleteVoiceConnectorOrigination = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-08-03", uri: "/voice-connectors/{VoiceConnectorId}/origination", method: "DELETE", sdkId: "Chime SDK Voice", sigV4ServiceName: "chime", name: "ChimeSDKTelephonyService.DeleteVoiceConnectorOrigination" }, DeleteVoiceConnectorOriginationRequest, S.Struct({}), [BadRequestException, ForbiddenException, NotFoundException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -294,16 +291,13 @@ export class GoneException extends S.TaggedError<GoneException>()("GoneException
 /**
  * Deletes the termination settings for the specified Amazon Chime SDK Voice Connector.
  * 
- * 
- * 
- * 
  * If emergency calling is configured for the Voice Connector, it must be
  * deleted prior to deleting the termination settings.
  */export const deleteVoiceConnectorTermination = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-08-03", uri: "/voice-connectors/{VoiceConnectorId}/termination", method: "DELETE", sdkId: "Chime SDK Voice", sigV4ServiceName: "chime", name: "ChimeSDKTelephonyService.DeleteVoiceConnectorTermination" }, DeleteVoiceConnectorTerminationRequest, S.Struct({}), [BadRequestException, ForbiddenException, NotFoundException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the specified SIP credentials used by your equipment to
  * authenticate during call termination.
- */export const deleteVoiceConnectorTerminationCredentials = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-08-03", uri: "/voice-connectors/{VoiceConnectorId}/termination/credentials?operation=delete", method: "POST", sdkId: "Chime SDK Voice", sigV4ServiceName: "chime", name: "ChimeSDKTelephonyService.DeleteVoiceConnectorTerminationCredentials" }, DeleteVoiceConnectorTerminationCredentialsRequest, S.Struct({}), [BadRequestException, ForbiddenException, NotFoundException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteVoiceConnectorTerminationCredentials = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-08-03", uri: "/voice-connectors/{VoiceConnectorId}/termination/credentials?operation=delete", sdkId: "Chime SDK Voice", sigV4ServiceName: "chime", name: "ChimeSDKTelephonyService.DeleteVoiceConnectorTerminationCredentials" }, DeleteVoiceConnectorTerminationCredentialsRequest, S.Struct({}), [BadRequestException, ForbiddenException, NotFoundException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes all voice profiles in the domain. WARNING: This action is not reversible.
  */export const deleteVoiceProfileDomain = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-08-03", uri: "/voice-profile-domains/{VoiceProfileDomainId}", method: "DELETE", sdkId: "Chime SDK Voice", sigV4ServiceName: "chime", name: "ChimeSDKTelephonyService.DeleteVoiceProfileDomain" }, DeleteVoiceProfileDomainRequest, S.Struct({}), [AccessDeniedException, BadRequestException, ConflictException, ForbiddenException, NotFoundException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -316,10 +310,10 @@ export class GoneException extends S.TaggedError<GoneException>()("GoneException
  */export const listAvailableVoiceConnectorRegions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-08-03", uri: "/voice-connector-regions", method: "GET", sdkId: "Chime SDK Voice", sigV4ServiceName: "chime", name: "ChimeSDKTelephonyService.ListAvailableVoiceConnectorRegions" }, S.Struct({}), ListAvailableVoiceConnectorRegionsResponse, [BadRequestException, ForbiddenException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Stops a voice tone analysis task.
- */export const stopVoiceToneAnalysisTask = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-08-03", uri: "/voice-connectors/{VoiceConnectorId}/voice-tone-analysis-tasks/{VoiceToneAnalysisTaskId}?operation=stop", method: "POST", sdkId: "Chime SDK Voice", sigV4ServiceName: "chime", name: "ChimeSDKTelephonyService.StopVoiceToneAnalysisTask" }, StopVoiceToneAnalysisTaskRequest, S.Struct({}), [AccessDeniedException, BadRequestException, ConflictException, ForbiddenException, NotFoundException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException, UnprocessableEntityException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const stopVoiceToneAnalysisTask = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-08-03", uri: "/voice-connectors/{VoiceConnectorId}/voice-tone-analysis-tasks/{VoiceToneAnalysisTaskId}?operation=stop", sdkId: "Chime SDK Voice", sigV4ServiceName: "chime", name: "ChimeSDKTelephonyService.StopVoiceToneAnalysisTask" }, StopVoiceToneAnalysisTaskRequest, S.Struct({}), [AccessDeniedException, BadRequestException, ConflictException, ForbiddenException, NotFoundException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException, UnprocessableEntityException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes tags from a resource.
- */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-08-03", uri: "/tags?operation=untag-resource", method: "POST", sdkId: "Chime SDK Voice", sigV4ServiceName: "chime", name: "ChimeSDKTelephonyService.UntagResource" }, UntagResourceRequest, S.Struct({}), [BadRequestException, ForbiddenException, NotFoundException, ServiceFailureException, ServiceUnavailableException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-08-03", uri: "/tags?operation=untag-resource", sdkId: "Chime SDK Voice", sigV4ServiceName: "chime", name: "ChimeSDKTelephonyService.UntagResource" }, UntagResourceRequest, S.Struct({}), [BadRequestException, ForbiddenException, NotFoundException, ServiceFailureException, ServiceUnavailableException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates global settings for the Amazon Chime SDK Voice Connectors in an AWS account.
  */export const updateGlobalSettings = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-08-03", uri: "/settings", method: "PUT", sdkId: "Chime SDK Voice", sigV4ServiceName: "chime", name: "ChimeSDKTelephonyService.UpdateGlobalSettings" }, UpdateGlobalSettingsRequest, S.Struct({}), [BadRequestException, ForbiddenException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -331,23 +325,19 @@ export class GoneException extends S.TaggedError<GoneException>()("GoneException
  */export const updatePhoneNumberSettings = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-08-03", uri: "/settings/phone-number", method: "PUT", sdkId: "Chime SDK Voice", sigV4ServiceName: "chime", name: "ChimeSDKTelephonyService.UpdatePhoneNumberSettings" }, UpdatePhoneNumberSettingsRequest, S.Struct({}), [BadRequestException, ForbiddenException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Associates phone numbers with the specified Amazon Chime SDK Voice Connector group.
- */export const associatePhoneNumbersWithVoiceConnectorGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-08-03", uri: "/voice-connector-groups/{VoiceConnectorGroupId}?operation=associate-phone-numbers", method: "POST", sdkId: "Chime SDK Voice", sigV4ServiceName: "chime", name: "ChimeSDKTelephonyService.AssociatePhoneNumbersWithVoiceConnectorGroup" }, AssociatePhoneNumbersWithVoiceConnectorGroupRequest, AssociatePhoneNumbersWithVoiceConnectorGroupResponse, [AccessDeniedException, BadRequestException, ForbiddenException, NotFoundException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const associatePhoneNumbersWithVoiceConnectorGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-08-03", uri: "/voice-connector-groups/{VoiceConnectorGroupId}?operation=associate-phone-numbers", sdkId: "Chime SDK Voice", sigV4ServiceName: "chime", name: "ChimeSDKTelephonyService.AssociatePhoneNumbersWithVoiceConnectorGroup" }, AssociatePhoneNumbersWithVoiceConnectorGroupRequest, AssociatePhoneNumbersWithVoiceConnectorGroupResponse, [AccessDeniedException, BadRequestException, ForbiddenException, NotFoundException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Moves phone numbers into the
  * **Deletion queue**. Phone numbers must be disassociated from any users or Amazon Chime SDK Voice Connectors before they can be deleted.
  * 
- * 
- * 
- * 
  * Phone numbers remain in the
  * **Deletion queue** for 7 days before they are deleted permanently.
- */export const batchDeletePhoneNumber = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-08-03", uri: "/phone-numbers?operation=batch-delete", method: "POST", sdkId: "Chime SDK Voice", sigV4ServiceName: "chime", name: "ChimeSDKTelephonyService.BatchDeletePhoneNumber" }, BatchDeletePhoneNumberRequest, BatchDeletePhoneNumberResponse, [BadRequestException, ForbiddenException, NotFoundException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const batchDeletePhoneNumber = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-08-03", uri: "/phone-numbers?operation=batch-delete", sdkId: "Chime SDK Voice", sigV4ServiceName: "chime", name: "ChimeSDKTelephonyService.BatchDeletePhoneNumber" }, BatchDeletePhoneNumberRequest, BatchDeletePhoneNumberResponse, [BadRequestException, ForbiddenException, NotFoundException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Moves the specified phone number into the
  * **Deletion queue**. A phone number must
  * be disassociated from any users or Amazon Chime SDK Voice Connectors before it can be
  * deleted.
- * 
  * 
  * Deleted phone numbers remain in the
  * **Deletion queue** queue for 7 days before
@@ -386,11 +376,11 @@ export class GoneException extends S.TaggedError<GoneException>()("GoneException
 /**
  * Disassociates the specified phone numbers from the specified
  * Amazon Chime SDK Voice Connector.
- */export const disassociatePhoneNumbersFromVoiceConnector = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-08-03", uri: "/voice-connectors/{VoiceConnectorId}?operation=disassociate-phone-numbers", method: "POST", sdkId: "Chime SDK Voice", sigV4ServiceName: "chime", name: "ChimeSDKTelephonyService.DisassociatePhoneNumbersFromVoiceConnector" }, DisassociatePhoneNumbersFromVoiceConnectorRequest, DisassociatePhoneNumbersFromVoiceConnectorResponse, [BadRequestException, ForbiddenException, NotFoundException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const disassociatePhoneNumbersFromVoiceConnector = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-08-03", uri: "/voice-connectors/{VoiceConnectorId}?operation=disassociate-phone-numbers", sdkId: "Chime SDK Voice", sigV4ServiceName: "chime", name: "ChimeSDKTelephonyService.DisassociatePhoneNumbersFromVoiceConnector" }, DisassociatePhoneNumbersFromVoiceConnectorRequest, DisassociatePhoneNumbersFromVoiceConnectorResponse, [BadRequestException, ForbiddenException, NotFoundException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Disassociates the specified phone numbers from the specified Amazon Chime SDK Voice
  * Connector group.
- */export const disassociatePhoneNumbersFromVoiceConnectorGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-08-03", uri: "/voice-connector-groups/{VoiceConnectorGroupId}?operation=disassociate-phone-numbers", method: "POST", sdkId: "Chime SDK Voice", sigV4ServiceName: "chime", name: "ChimeSDKTelephonyService.DisassociatePhoneNumbersFromVoiceConnectorGroup" }, DisassociatePhoneNumbersFromVoiceConnectorGroupRequest, DisassociatePhoneNumbersFromVoiceConnectorGroupResponse, [BadRequestException, ForbiddenException, NotFoundException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const disassociatePhoneNumbersFromVoiceConnectorGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-08-03", uri: "/voice-connector-groups/{VoiceConnectorGroupId}?operation=disassociate-phone-numbers", sdkId: "Chime SDK Voice", sigV4ServiceName: "chime", name: "ChimeSDKTelephonyService.DisassociatePhoneNumbersFromVoiceConnectorGroup" }, DisassociatePhoneNumbersFromVoiceConnectorGroupRequest, DisassociatePhoneNumbersFromVoiceConnectorGroupResponse, [BadRequestException, ForbiddenException, NotFoundException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the global settings for the Amazon Chime SDK Voice Connectors in an AWS account.
  */export const getGlobalSettings = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-08-03", uri: "/settings", method: "GET", sdkId: "Chime SDK Voice", sigV4ServiceName: "chime", name: "ChimeSDKTelephonyService.GetGlobalSettings" }, S.Struct({}), GetGlobalSettingsResponse, [BadRequestException, ForbiddenException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -401,9 +391,6 @@ export class GoneException extends S.TaggedError<GoneException>()("GoneException
  */export const getPhoneNumberOrder = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-08-03", uri: "/phone-number-orders/{PhoneNumberOrderId}", method: "GET", sdkId: "Chime SDK Voice", sigV4ServiceName: "chime", name: "ChimeSDKTelephonyService.GetPhoneNumberOrder" }, GetPhoneNumberOrderRequest, GetPhoneNumberOrderResponse, [BadRequestException, ForbiddenException, NotFoundException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets the Alexa Skill configuration for the SIP media application.
- * 
- * 
- * 
  * 
  * Due to changes made by the Amazon Alexa service, this API is no longer available for use. For more information, refer to
  * the Alexa Smart Properties page.
@@ -475,10 +462,10 @@ export class GoneException extends S.TaggedError<GoneException>()("GoneException
  */export const putVoiceConnectorProxy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-08-03", uri: "/voice-connectors/{VoiceConnectorId}/programmable-numbers/proxy", method: "PUT", sdkId: "Chime SDK Voice", sigV4ServiceName: "chime", name: "ChimeSDKTelephonyService.PutVoiceConnectorProxy" }, PutVoiceConnectorProxyRequest, PutVoiceConnectorProxyResponse, [AccessDeniedException, BadRequestException, ForbiddenException, NotFoundException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates a Voice Connector's termination credentials.
- */export const putVoiceConnectorTerminationCredentials = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-08-03", uri: "/voice-connectors/{VoiceConnectorId}/termination/credentials?operation=put", method: "POST", sdkId: "Chime SDK Voice", sigV4ServiceName: "chime", name: "ChimeSDKTelephonyService.PutVoiceConnectorTerminationCredentials" }, PutVoiceConnectorTerminationCredentialsRequest, S.Struct({}), [BadRequestException, ForbiddenException, NotFoundException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putVoiceConnectorTerminationCredentials = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-08-03", uri: "/voice-connectors/{VoiceConnectorId}/termination/credentials?operation=put", sdkId: "Chime SDK Voice", sigV4ServiceName: "chime", name: "ChimeSDKTelephonyService.PutVoiceConnectorTerminationCredentials" }, PutVoiceConnectorTerminationCredentialsRequest, S.Struct({}), [BadRequestException, ForbiddenException, NotFoundException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Restores a deleted phone number.
- */export const restorePhoneNumber = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-08-03", uri: "/phone-numbers/{PhoneNumberId}?operation=restore", method: "POST", sdkId: "Chime SDK Voice", sigV4ServiceName: "chime", name: "ChimeSDKTelephonyService.RestorePhoneNumber" }, RestorePhoneNumberRequest, RestorePhoneNumberResponse, [BadRequestException, ForbiddenException, NotFoundException, ResourceLimitExceededException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const restorePhoneNumber = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-08-03", uri: "/phone-numbers/{PhoneNumberId}?operation=restore", sdkId: "Chime SDK Voice", sigV4ServiceName: "chime", name: "ChimeSDKTelephonyService.RestorePhoneNumber" }, RestorePhoneNumberRequest, RestorePhoneNumberResponse, [BadRequestException, ForbiddenException, NotFoundException, ResourceLimitExceededException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Searches the provisioned phone numbers in an organization.
  */export const searchAvailablePhoneNumbers = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-08-03", uri: "/search?type=phone-numbers", method: "GET", sdkId: "Chime SDK Voice", sigV4ServiceName: "chime", name: "ChimeSDKTelephonyService.SearchAvailablePhoneNumbers" }, SearchAvailablePhoneNumbersRequest, SearchAvailablePhoneNumbersResponse, [AccessDeniedException, BadRequestException, ForbiddenException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -487,35 +474,30 @@ export class GoneException extends S.TaggedError<GoneException>()("GoneException
  * Using Amazon Chime SDK voice analytics
  * in the *Amazon Chime SDK Developer Guide*.
  * 
- * 
- * 
- * 
  * Before starting any voice tone analysis tasks, you must provide all notices and obtain all consents from the speaker as required under applicable privacy and biometrics laws, and as required under the
  * AWS service terms for the Amazon Chime SDK.
- */export const startVoiceToneAnalysisTask = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-08-03", uri: "/voice-connectors/{VoiceConnectorId}/voice-tone-analysis-tasks", method: "POST", sdkId: "Chime SDK Voice", sigV4ServiceName: "chime", name: "ChimeSDKTelephonyService.StartVoiceToneAnalysisTask" }, StartVoiceToneAnalysisTaskRequest, StartVoiceToneAnalysisTaskResponse, [AccessDeniedException, BadRequestException, ConflictException, ForbiddenException, GoneException, NotFoundException, ResourceLimitExceededException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException, UnprocessableEntityException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startVoiceToneAnalysisTask = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-08-03", uri: "/voice-connectors/{VoiceConnectorId}/voice-tone-analysis-tasks", sdkId: "Chime SDK Voice", sigV4ServiceName: "chime", name: "ChimeSDKTelephonyService.StartVoiceToneAnalysisTask" }, StartVoiceToneAnalysisTaskRequest, StartVoiceToneAnalysisTaskResponse, [AccessDeniedException, BadRequestException, ConflictException, ForbiddenException, GoneException, NotFoundException, ResourceLimitExceededException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException, UnprocessableEntityException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Stops a speaker search task.
- */export const stopSpeakerSearchTask = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-08-03", uri: "/voice-connectors/{VoiceConnectorId}/speaker-search-tasks/{SpeakerSearchTaskId}?operation=stop", method: "POST", sdkId: "Chime SDK Voice", sigV4ServiceName: "chime", name: "ChimeSDKTelephonyService.StopSpeakerSearchTask" }, StopSpeakerSearchTaskRequest, S.Struct({}), [AccessDeniedException, BadRequestException, ConflictException, ForbiddenException, NotFoundException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException, UnprocessableEntityException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const stopSpeakerSearchTask = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-08-03", uri: "/voice-connectors/{VoiceConnectorId}/speaker-search-tasks/{SpeakerSearchTaskId}?operation=stop", sdkId: "Chime SDK Voice", sigV4ServiceName: "chime", name: "ChimeSDKTelephonyService.StopSpeakerSearchTask" }, StopSpeakerSearchTaskRequest, S.Struct({}), [AccessDeniedException, BadRequestException, ConflictException, ForbiddenException, NotFoundException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException, UnprocessableEntityException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Adds a tag to the specified resource.
- */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-08-03", uri: "/tags?operation=tag-resource", method: "POST", sdkId: "Chime SDK Voice", sigV4ServiceName: "chime", name: "ChimeSDKTelephonyService.TagResource" }, TagResourceRequest, S.Struct({}), [BadRequestException, ForbiddenException, NotFoundException, ResourceLimitExceededException, ServiceFailureException, ServiceUnavailableException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-08-03", uri: "/tags?operation=tag-resource", sdkId: "Chime SDK Voice", sigV4ServiceName: "chime", name: "ChimeSDKTelephonyService.TagResource" }, TagResourceRequest, S.Struct({}), [BadRequestException, ForbiddenException, NotFoundException, ResourceLimitExceededException, ServiceFailureException, ServiceUnavailableException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates phone number details, such as product type, calling name, or phone number name for the
  * specified phone number ID. You can update one phone number detail at a time. For
  * example, you can update either the product type, calling name, or phone number name in one action.
  * 
- * 
  * For numbers outside the U.S., you must use the Amazon Chime SDK SIP Media
  * Application Dial-In product type.
- * 
  * 
  * Updates to outbound calling names can take 72 hours to complete. Pending
  * updates to outbound calling names must be complete before you can request another
  * update.
- */export const updatePhoneNumber = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-08-03", uri: "/phone-numbers/{PhoneNumberId}", method: "POST", sdkId: "Chime SDK Voice", sigV4ServiceName: "chime", name: "ChimeSDKTelephonyService.UpdatePhoneNumber" }, UpdatePhoneNumberRequest, UpdatePhoneNumberResponse, [BadRequestException, ConflictException, ForbiddenException, NotFoundException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updatePhoneNumber = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-08-03", uri: "/phone-numbers/{PhoneNumberId}", sdkId: "Chime SDK Voice", sigV4ServiceName: "chime", name: "ChimeSDKTelephonyService.UpdatePhoneNumber" }, UpdatePhoneNumberRequest, UpdatePhoneNumberResponse, [BadRequestException, ConflictException, ForbiddenException, NotFoundException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the specified proxy session details, such as voice or SMS capabilities.
- */export const updateProxySession = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-08-03", uri: "/voice-connectors/{VoiceConnectorId}/proxy-sessions/{ProxySessionId}", method: "POST", sdkId: "Chime SDK Voice", sigV4ServiceName: "chime", name: "ChimeSDKTelephonyService.UpdateProxySession" }, UpdateProxySessionRequest, UpdateProxySessionResponse, [BadRequestException, ForbiddenException, NotFoundException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateProxySession = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-08-03", uri: "/voice-connectors/{VoiceConnectorId}/proxy-sessions/{ProxySessionId}", sdkId: "Chime SDK Voice", sigV4ServiceName: "chime", name: "ChimeSDKTelephonyService.UpdateProxySession" }, UpdateProxySessionRequest, UpdateProxySessionResponse, [BadRequestException, ForbiddenException, NotFoundException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the details of the specified SIP media application.
  */export const updateSipMediaApplication = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-08-03", uri: "/sip-media-applications/{SipMediaApplicationId}", method: "PUT", sdkId: "Chime SDK Voice", sigV4ServiceName: "chime", name: "ChimeSDKTelephonyService.UpdateSipMediaApplication" }, UpdateSipMediaApplicationRequest, UpdateSipMediaApplicationResponse, [BadRequestException, ConflictException, ForbiddenException, NotFoundException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -531,14 +513,10 @@ export class GoneException extends S.TaggedError<GoneException>()("GoneException
 /**
  * Updates the specified voice profile’s voice print and refreshes its expiration timestamp.
  * 
- * 
- * 
- * 
  * As a condition of using this feature, you acknowledge that the collection, use, storage, and retention of
  * your caller’s biometric identifiers and biometric information (“biometric data”) in the form of a digital voiceprint
  * requires the caller’s informed consent via a written release. Such consent is required under various state laws,
  * including biometrics laws in Illinois, Texas, Washington and other state privacy laws.
- * 
  * 
  * You must provide a written release to each caller through a process that clearly reflects each caller’s informed
  * consent before using Amazon Chime SDK Voice Insights service, as required under the terms of your agreement
@@ -549,75 +527,58 @@ export class GoneException extends S.TaggedError<GoneException>()("GoneException
  */export const updateVoiceProfileDomain = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-08-03", uri: "/voice-profile-domains/{VoiceProfileDomainId}", method: "PUT", sdkId: "Chime SDK Voice", sigV4ServiceName: "chime", name: "ChimeSDKTelephonyService.UpdateVoiceProfileDomain" }, UpdateVoiceProfileDomainRequest, UpdateVoiceProfileDomainResponse, [AccessDeniedException, BadRequestException, ForbiddenException, NotFoundException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Associates phone numbers with the specified Amazon Chime SDK Voice Connector.
- */export const associatePhoneNumbersWithVoiceConnector = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-08-03", uri: "/voice-connectors/{VoiceConnectorId}?operation=associate-phone-numbers", method: "POST", sdkId: "Chime SDK Voice", sigV4ServiceName: "chime", name: "ChimeSDKTelephonyService.AssociatePhoneNumbersWithVoiceConnector" }, AssociatePhoneNumbersWithVoiceConnectorRequest, AssociatePhoneNumbersWithVoiceConnectorResponse, [AccessDeniedException, BadRequestException, ForbiddenException, NotFoundException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const associatePhoneNumbersWithVoiceConnector = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-08-03", uri: "/voice-connectors/{VoiceConnectorId}?operation=associate-phone-numbers", sdkId: "Chime SDK Voice", sigV4ServiceName: "chime", name: "ChimeSDKTelephonyService.AssociatePhoneNumbersWithVoiceConnector" }, AssociatePhoneNumbersWithVoiceConnectorRequest, AssociatePhoneNumbersWithVoiceConnectorResponse, [AccessDeniedException, BadRequestException, ForbiddenException, NotFoundException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates phone number product types, calling names, or phone number names. You can update one attribute at a time for each
  * `UpdatePhoneNumberRequestItem`. For example, you can update the product type, the calling name, or phone name.
  * 
- * 
- * 
- * 
- * 
  * You cannot have a duplicate `phoneNumberId` in a request.
- */export const batchUpdatePhoneNumber = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-08-03", uri: "/phone-numbers?operation=batch-update", method: "POST", sdkId: "Chime SDK Voice", sigV4ServiceName: "chime", name: "ChimeSDKTelephonyService.BatchUpdatePhoneNumber" }, BatchUpdatePhoneNumberRequest, BatchUpdatePhoneNumberResponse, [BadRequestException, ForbiddenException, NotFoundException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const batchUpdatePhoneNumber = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-08-03", uri: "/phone-numbers?operation=batch-update", sdkId: "Chime SDK Voice", sigV4ServiceName: "chime", name: "ChimeSDKTelephonyService.BatchUpdatePhoneNumber" }, BatchUpdatePhoneNumberRequest, BatchUpdatePhoneNumberResponse, [BadRequestException, ForbiddenException, NotFoundException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a proxy session for the specified Amazon Chime SDK Voice Connector for
  * the specified participant phone numbers.
- */export const createProxySession = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-08-03", uri: "/voice-connectors/{VoiceConnectorId}/proxy-sessions", method: "POST", sdkId: "Chime SDK Voice", sigV4ServiceName: "chime", name: "ChimeSDKTelephonyService.CreateProxySession" }, CreateProxySessionRequest, CreateProxySessionResponse, [BadRequestException, ForbiddenException, NotFoundException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createProxySession = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-08-03", uri: "/voice-connectors/{VoiceConnectorId}/proxy-sessions", sdkId: "Chime SDK Voice", sigV4ServiceName: "chime", name: "ChimeSDKTelephonyService.CreateProxySession" }, CreateProxySessionRequest, CreateProxySessionResponse, [BadRequestException, ForbiddenException, NotFoundException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a SIP media application. For more information about SIP media applications, see Managing SIP media applications
  * and rules in the *Amazon Chime SDK Administrator Guide*.
- */export const createSipMediaApplication = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-08-03", uri: "/sip-media-applications", method: "POST", sdkId: "Chime SDK Voice", sigV4ServiceName: "chime", name: "ChimeSDKTelephonyService.CreateSipMediaApplication" }, CreateSipMediaApplicationRequest, CreateSipMediaApplicationResponse, [AccessDeniedException, BadRequestException, ConflictException, ForbiddenException, ResourceLimitExceededException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createSipMediaApplication = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-08-03", uri: "/sip-media-applications", sdkId: "Chime SDK Voice", sigV4ServiceName: "chime", name: "ChimeSDKTelephonyService.CreateSipMediaApplication" }, CreateSipMediaApplicationRequest, CreateSipMediaApplicationResponse, [AccessDeniedException, BadRequestException, ConflictException, ForbiddenException, ResourceLimitExceededException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a SIP rule, which can be used to run a SIP media application as a target for a specific trigger type. For more information about SIP rules, see Managing SIP media applications
  * and rules in the *Amazon Chime SDK Administrator Guide*.
- */export const createSipRule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-08-03", uri: "/sip-rules", method: "POST", sdkId: "Chime SDK Voice", sigV4ServiceName: "chime", name: "ChimeSDKTelephonyService.CreateSipRule" }, CreateSipRuleRequest, CreateSipRuleResponse, [AccessDeniedException, BadRequestException, ConflictException, ForbiddenException, ResourceLimitExceededException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createSipRule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-08-03", uri: "/sip-rules", sdkId: "Chime SDK Voice", sigV4ServiceName: "chime", name: "ChimeSDKTelephonyService.CreateSipRule" }, CreateSipRuleRequest, CreateSipRuleResponse, [AccessDeniedException, BadRequestException, ConflictException, ForbiddenException, ResourceLimitExceededException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an Amazon Chime SDK Voice Connector. For more information about
  * Voice Connectors,
  * see Managing Amazon Chime SDK Voice Connector groups in the Amazon Chime SDK
  * Administrator Guide.
- */export const createVoiceConnector = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-08-03", uri: "/voice-connectors", method: "POST", sdkId: "Chime SDK Voice", sigV4ServiceName: "chime", name: "ChimeSDKTelephonyService.CreateVoiceConnector" }, CreateVoiceConnectorRequest, CreateVoiceConnectorResponse, [AccessDeniedException, BadRequestException, ForbiddenException, ResourceLimitExceededException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createVoiceConnector = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-08-03", uri: "/voice-connectors", sdkId: "Chime SDK Voice", sigV4ServiceName: "chime", name: "ChimeSDKTelephonyService.CreateVoiceConnector" }, CreateVoiceConnectorRequest, CreateVoiceConnectorResponse, [AccessDeniedException, BadRequestException, ForbiddenException, ResourceLimitExceededException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an Amazon Chime SDK Voice Connector group under the administrator's
  * AWS account. You can associate Amazon Chime SDK Voice Connectors with the
  * Voice Connector group by including `VoiceConnectorItems` in the
  * request.
  * 
- * 
  * You can include Voice Connectors from different AWS Regions in your group.
  * This creates a fault tolerant mechanism for fallback in case of availability events.
- */export const createVoiceConnectorGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-08-03", uri: "/voice-connector-groups", method: "POST", sdkId: "Chime SDK Voice", sigV4ServiceName: "chime", name: "ChimeSDKTelephonyService.CreateVoiceConnectorGroup" }, CreateVoiceConnectorGroupRequest, CreateVoiceConnectorGroupResponse, [AccessDeniedException, BadRequestException, ForbiddenException, ResourceLimitExceededException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createVoiceConnectorGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-08-03", uri: "/voice-connector-groups", sdkId: "Chime SDK Voice", sigV4ServiceName: "chime", name: "ChimeSDKTelephonyService.CreateVoiceConnectorGroup" }, CreateVoiceConnectorGroupRequest, CreateVoiceConnectorGroupResponse, [AccessDeniedException, BadRequestException, ForbiddenException, ResourceLimitExceededException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a voice profile, which consists of an enrolled user and their latest voice print.
  * 
- * 
- * 
- * 
  * Before creating any voice profiles, you must provide all notices and obtain all consents from the speaker as required under applicable privacy and biometrics laws, and as required under the
  * AWS service terms for the Amazon Chime SDK.
- * 
- * 
- * 
  * 
  * For more information about voice profiles and voice analytics, see Using Amazon Chime SDK Voice Analytics
  * in the *Amazon Chime SDK Developer Guide*.
- */export const createVoiceProfile = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-08-03", uri: "/voice-profiles", method: "POST", sdkId: "Chime SDK Voice", sigV4ServiceName: "chime", name: "ChimeSDKTelephonyService.CreateVoiceProfile" }, CreateVoiceProfileRequest, CreateVoiceProfileResponse, [AccessDeniedException, BadRequestException, ConflictException, ForbiddenException, GoneException, NotFoundException, ResourceLimitExceededException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createVoiceProfile = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-08-03", uri: "/voice-profiles", sdkId: "Chime SDK Voice", sigV4ServiceName: "chime", name: "ChimeSDKTelephonyService.CreateVoiceProfile" }, CreateVoiceProfileRequest, CreateVoiceProfileResponse, [AccessDeniedException, BadRequestException, ConflictException, ForbiddenException, GoneException, NotFoundException, ResourceLimitExceededException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a voice profile domain, a collection of voice profiles, their voice prints, and encrypted enrollment audio.
- * 
- * 
- * 
  * 
  * Before creating any voice profiles, you must provide all notices and obtain all consents from the speaker as required under applicable privacy and biometrics laws, and as required under the
  * AWS service terms for the Amazon Chime SDK.
  * 
- * 
- * 
- * 
  * For more information about voice profile domains, see Using Amazon Chime SDK Voice Analytics
  * in the *Amazon Chime SDK Developer Guide*.
- */export const createVoiceProfileDomain = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-08-03", uri: "/voice-profile-domains", method: "POST", sdkId: "Chime SDK Voice", sigV4ServiceName: "chime", name: "ChimeSDKTelephonyService.CreateVoiceProfileDomain" }, CreateVoiceProfileDomainRequest, CreateVoiceProfileDomainResponse, [AccessDeniedException, BadRequestException, ConflictException, ForbiddenException, ResourceLimitExceededException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createVoiceProfileDomain = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-08-03", uri: "/voice-profile-domains", sdkId: "Chime SDK Voice", sigV4ServiceName: "chime", name: "ChimeSDKTelephonyService.CreateVoiceProfileDomain" }, CreateVoiceProfileDomainRequest, CreateVoiceProfileDomainResponse, [AccessDeniedException, BadRequestException, ConflictException, ForbiddenException, ResourceLimitExceededException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the information for a SIP media application, including name,
  * AWS Region, and endpoints.
@@ -661,9 +622,6 @@ export class GoneException extends S.TaggedError<GoneException>()("GoneException
 /**
  * Updates the Alexa Skill configuration for the SIP media application.
  * 
- * 
- * 
- * 
  * Due to changes made by the Amazon Alexa service, this API is no longer available for use. For more information, refer to
  * the Alexa Smart Properties page.
  */export const putSipMediaApplicationAlexaSkillConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-08-03", uri: "/sip-media-applications/{SipMediaApplicationId}/alexa-skill-configuration", method: "PUT", sdkId: "Chime SDK Voice", sigV4ServiceName: "chime", name: "ChimeSDKTelephonyService.PutSipMediaApplicationAlexaSkillConfiguration" }, PutSipMediaApplicationAlexaSkillConfigurationRequest, PutSipMediaApplicationAlexaSkillConfigurationResponse, [BadRequestException, ForbiddenException, NotFoundException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -679,31 +637,28 @@ export class GoneException extends S.TaggedError<GoneException>()("GoneException
 /**
  * Starts a speaker search task.
  * 
- * 
- * 
- * 
  * Before starting any speaker search tasks, you must provide all notices and obtain all consents from the speaker as required under applicable privacy and biometrics laws, and as required under the
  * AWS service terms for the Amazon Chime SDK.
- */export const startSpeakerSearchTask = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-08-03", uri: "/voice-connectors/{VoiceConnectorId}/speaker-search-tasks", method: "POST", sdkId: "Chime SDK Voice", sigV4ServiceName: "chime", name: "ChimeSDKTelephonyService.StartSpeakerSearchTask" }, StartSpeakerSearchTaskRequest, StartSpeakerSearchTaskResponse, [AccessDeniedException, BadRequestException, ConflictException, ForbiddenException, GoneException, NotFoundException, ResourceLimitExceededException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException, UnprocessableEntityException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startSpeakerSearchTask = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-08-03", uri: "/voice-connectors/{VoiceConnectorId}/speaker-search-tasks", sdkId: "Chime SDK Voice", sigV4ServiceName: "chime", name: "ChimeSDKTelephonyService.StartSpeakerSearchTask" }, StartSpeakerSearchTaskRequest, StartSpeakerSearchTaskResponse, [AccessDeniedException, BadRequestException, ConflictException, ForbiddenException, GoneException, NotFoundException, ResourceLimitExceededException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException, UnprocessableEntityException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Invokes the AWS Lambda function associated with the SIP media application and
  * transaction ID in an update request. The Lambda function can then return a new set
  * of actions.
- */export const updateSipMediaApplicationCall = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-08-03", uri: "/sip-media-applications/{SipMediaApplicationId}/calls/{TransactionId}", method: "POST", sdkId: "Chime SDK Voice", sigV4ServiceName: "chime", name: "ChimeSDKTelephonyService.UpdateSipMediaApplicationCall" }, UpdateSipMediaApplicationCallRequest, UpdateSipMediaApplicationCallResponse, [BadRequestException, ForbiddenException, NotFoundException, ResourceLimitExceededException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateSipMediaApplicationCall = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-08-03", uri: "/sip-media-applications/{SipMediaApplicationId}/calls/{TransactionId}", sdkId: "Chime SDK Voice", sigV4ServiceName: "chime", name: "ChimeSDKTelephonyService.UpdateSipMediaApplicationCall" }, UpdateSipMediaApplicationCallRequest, UpdateSipMediaApplicationCallResponse, [BadRequestException, ForbiddenException, NotFoundException, ResourceLimitExceededException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Validates an address to be used for 911 calls made with Amazon Chime SDK Voice
  * Connectors. You can use validated addresses in a Presence Information Data Format
  * Location Object file that you include in SIP requests. That helps ensure that addresses
  * are routed to the appropriate Public Safety Answering Point.
- */export const validateE911Address = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-08-03", uri: "/emergency-calling/address", method: "POST", sdkId: "Chime SDK Voice", sigV4ServiceName: "chime", name: "ChimeSDKTelephonyService.ValidateE911Address" }, ValidateE911AddressRequest, ValidateE911AddressResponse, [AccessDeniedException, BadRequestException, ForbiddenException, NotFoundException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const validateE911Address = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-08-03", uri: "/emergency-calling/address", sdkId: "Chime SDK Voice", sigV4ServiceName: "chime", name: "ChimeSDKTelephonyService.ValidateE911Address" }, ValidateE911AddressRequest, ValidateE911AddressResponse, [AccessDeniedException, BadRequestException, ForbiddenException, NotFoundException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an order for phone numbers to be provisioned. For numbers outside the U.S., you must use the Amazon Chime SDK SIP media application dial-in product type.
- */export const createPhoneNumberOrder = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-08-03", uri: "/phone-number-orders", method: "POST", sdkId: "Chime SDK Voice", sigV4ServiceName: "chime", name: "ChimeSDKTelephonyService.CreatePhoneNumberOrder" }, CreatePhoneNumberOrderRequest, CreatePhoneNumberOrderResponse, [AccessDeniedException, BadRequestException, ForbiddenException, ResourceLimitExceededException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createPhoneNumberOrder = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-08-03", uri: "/phone-number-orders", sdkId: "Chime SDK Voice", sigV4ServiceName: "chime", name: "ChimeSDKTelephonyService.CreatePhoneNumberOrder" }, CreatePhoneNumberOrderRequest, CreatePhoneNumberOrderResponse, [AccessDeniedException, BadRequestException, ForbiddenException, ResourceLimitExceededException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an outbound call to a phone number from the phone number specified
  * in the request, and it invokes the endpoint of the specified
  * `sipMediaApplicationId`.
- */export const createSipMediaApplicationCall = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-08-03", uri: "/sip-media-applications/{SipMediaApplicationId}/calls", method: "POST", sdkId: "Chime SDK Voice", sigV4ServiceName: "chime", name: "ChimeSDKTelephonyService.CreateSipMediaApplicationCall" }, CreateSipMediaApplicationCallRequest, CreateSipMediaApplicationCallResponse, [AccessDeniedException, BadRequestException, ForbiddenException, ResourceLimitExceededException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createSipMediaApplicationCall = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-08-03", uri: "/sip-media-applications/{SipMediaApplicationId}/calls", sdkId: "Chime SDK Voice", sigV4ServiceName: "chime", name: "ChimeSDKTelephonyService.CreateSipMediaApplicationCall" }, CreateSipMediaApplicationCallRequest, CreateSipMediaApplicationCallResponse, [AccessDeniedException, BadRequestException, ForbiddenException, ResourceLimitExceededException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves details for the specified phone number ID, such as associations,
  * capabilities, and product type.

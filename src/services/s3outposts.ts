@@ -33,78 +33,40 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
 /**
  * Lists all endpoints associated with an Outpost that has been shared by Amazon Web Services Resource Access Manager (RAM).
  * 
- * 
  * Related actions include:
  * 
- * 
- * 
  * - CreateEndpoint
- * 
- * 
- * 
  * 
  * - DeleteEndpoint
  */export const listSharedEndpoints = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/S3Outposts/ListSharedEndpoints", method: "GET", sdkId: "S3Outposts", sigV4ServiceName: "s3-outposts", name: "S3Outposts.ListSharedEndpoints" }, ListSharedEndpointsRequest, ListSharedEndpointsResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an endpoint and associates it with the specified Outpost.
  * 
- * 
- * 
- * 
  * It can take up to 5 minutes for this action to finish.
  * 
- * 
- * 
- * 
- * 
- * 
  * Related actions include:
- * 
- * 
  * 
  * - DeleteEndpoint
  * 
- * 
- * 
- * 
  * - ListEndpoints
- */export const createEndpoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/S3Outposts/CreateEndpoint", method: "POST", sdkId: "S3Outposts", sigV4ServiceName: "s3-outposts", name: "S3Outposts.CreateEndpoint" }, CreateEndpointRequest, CreateEndpointResult, [AccessDeniedException, ConflictException, InternalServerException, OutpostOfflineException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createEndpoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/S3Outposts/CreateEndpoint", sdkId: "S3Outposts", sigV4ServiceName: "s3-outposts", name: "S3Outposts.CreateEndpoint" }, CreateEndpointRequest, CreateEndpointResult, [AccessDeniedException, ConflictException, InternalServerException, OutpostOfflineException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes an endpoint.
  * 
- * 
- * 
- * 
  * It can take up to 5 minutes for this action to finish.
- * 
- * 
- * 
- * 
- * 
  * 
  * Related actions include:
  * 
- * 
- * 
  * - CreateEndpoint
- * 
- * 
- * 
  * 
  * - ListEndpoints
  */export const deleteEndpoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/S3Outposts/DeleteEndpoint", method: "DELETE", sdkId: "S3Outposts", sigV4ServiceName: "s3-outposts", name: "S3Outposts.DeleteEndpoint" }, DeleteEndpointRequest, S.Struct({}), [AccessDeniedException, InternalServerException, OutpostOfflineException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists endpoints associated with the specified Outpost.
  * 
- * 
  * Related actions include:
  * 
- * 
- * 
  * - CreateEndpoint
- * 
- * 
- * 
  * 
  * - DeleteEndpoint
  */export const listEndpoints = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/S3Outposts/ListEndpoints", method: "GET", sdkId: "S3Outposts", sigV4ServiceName: "s3-outposts", name: "S3Outposts.ListEndpoints" }, ListEndpointsRequest, ListEndpointsResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

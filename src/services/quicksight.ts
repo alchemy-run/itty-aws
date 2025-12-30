@@ -1916,7 +1916,6 @@ export class IdentityTypeNotSupportedException extends S.TaggedError<IdentityTyp
 /**
  * Deletes all access scopes and authorized targets that are associated with a service from the Quick Sight IAM Identity Center application.
  * 
- * 
  * This operation is only supported for Quick Sight accounts that use IAM Identity Center.
  */export const deleteIdentityPropagationConfig = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/identity-propagation-config/{Service}", method: "DELETE", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.DeleteIdentityPropagationConfig" }, DeleteIdentityPropagationConfigRequest, DeleteIdentityPropagationConfigResponse, [AccessDeniedException, InternalFailureException, InvalidParameterValueException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -1974,11 +1973,8 @@ export class IdentityTypeNotSupportedException extends S.TaggedError<IdentityTyp
  * customizations to apply by running this API operation with the `Resolved` flag
  * included.
  * 
- * 
  * To determine what customizations display when you run this command, it can help to
  * visualize the relationship of the entities involved.
- * 
- * 
  * 
  * - `Amazon Web Services account` - The Amazon Web Services account exists at the top of the hierarchy.
  * It has the potential to use all of the Amazon Web Services Regions and Amazon Web Services Services. When you
@@ -1986,35 +1982,21 @@ export class IdentityTypeNotSupportedException extends S.TaggedError<IdentityTyp
  * That's where your free SPICE capacity is located. You can use Quick Sight in any
  * supported Amazon Web Services Region.
  * 
- * 
- * 
  * - `Amazon Web Services Region` - You can sign in to Quick Sight in any Amazon Web Services Region. If
  * you have a user directory, it resides in us-east-1, which is US East (N.
  * Virginia). Generally speaking, these users have access to Quick Sight in any
  * Amazon Web Services Region, unless they are constrained to a namespace.
  * 
- * 
  * To run the command in a different Amazon Web Services Region, you change your Region settings.
  * If you're using the CLI, you can use one of the following options:
  * 
- * 
- * 
  * - Use command line options.
  * 
- * 
- * 
  * - Use named profiles.
- * 
- * 
  * 
  * - Run `aws configure` to change your default Amazon Web Services Region. Use
  * Enter to key the same settings for your keys. For more information, see
  * Configuring the CLI.
- * 
- * 
- * 
- * 
- * 
  * 
  * - `Namespace` - A Quick Sight namespace is a partition that contains
  * users and assets (data sources, datasets, dashboards, and so on). To access
@@ -2022,8 +2004,6 @@ export class IdentityTypeNotSupportedException extends S.TaggedError<IdentityTyp
  * the same namespace. People who share a namespace are completely isolated from
  * users and assets in other namespaces, even if they are in the same Amazon Web Services account
  * and Amazon Web Services Region.
- * 
- * 
  * 
  * - `Applied customizations` - Quick Sight customizations can apply to an Amazon Web Services account or to a namespace.
  * Settings that you apply to a namespace override settings that you apply to an
@@ -2052,7 +2032,6 @@ export class IdentityTypeNotSupportedException extends S.TaggedError<IdentityTyp
  */export const describeDashboardsQAConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/dashboards-qa-configuration", method: "GET", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.DescribeDashboardsQAConfiguration" }, DescribeDashboardsQAConfigurationRequest, DescribeDashboardsQAConfigurationResponse, [AccessDeniedException, ConflictException, InternalFailureException, InvalidParameterValueException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes the permissions on a dataset.
- * 
  * 
  * The permissions resource is
  * `arn:aws:quicksight:region:aws-account-id:dataset/data-set-id`.
@@ -2163,23 +2142,20 @@ export class IdentityTypeNotSupportedException extends S.TaggedError<IdentityTyp
  */export const listUsers = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/namespaces/{Namespace}/users", method: "GET", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.ListUsers" }, ListUsersRequest, ListUsersResponse, [AccessDeniedException, InternalFailureException, InvalidNextTokenException, InvalidParameterValueException, PreconditionNotMetException, ResourceNotFoundException, ResourceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an Amazon Quick Sight user whose identity is associated with the Identity and Access Management (IAM) identity or role specified in the request. When you register a new user from the Quick Sight API, Quick Sight generates a registration URL. The user accesses this registration URL to create their account. Quick Sight doesn't send a registration email to users who are registered from the Quick Sight API. If you want new users to receive a registration email, then add those users in the Quick Sight console. For more information on registering a new user in the Quick Sight console, see Inviting users to access Quick Sight.
- */export const registerUser = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/namespaces/{Namespace}/users", method: "POST", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.RegisterUser" }, RegisterUserRequest, RegisterUserResponse, [AccessDeniedException, InternalFailureException, InvalidParameterValueException, LimitExceededException, PreconditionNotMetException, ResourceExistsException, ResourceNotFoundException, ResourceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const registerUser = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/namespaces/{Namespace}/users", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.RegisterUser" }, RegisterUserRequest, RegisterUserResponse, [AccessDeniedException, InternalFailureException, InvalidParameterValueException, LimitExceededException, PreconditionNotMetException, ResourceExistsException, ResourceNotFoundException, ResourceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Restores an analysis.
- */export const restoreAnalysis = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/restore/analyses/{AnalysisId}", method: "POST", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.RestoreAnalysis" }, RestoreAnalysisRequest, RestoreAnalysisResponse, [ConflictException, InternalFailureException, InvalidParameterValueException, LimitExceededException, PreconditionNotMetException, ResourceNotFoundException, ThrottlingException, UnsupportedUserEditionException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const restoreAnalysis = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/restore/analyses/{AnalysisId}", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.RestoreAnalysis" }, RestoreAnalysisRequest, RestoreAnalysisResponse, [ConflictException, InternalFailureException, InvalidParameterValueException, LimitExceededException, PreconditionNotMetException, ResourceNotFoundException, ThrottlingException, UnsupportedUserEditionException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts an asynchronous job that runs an existing dashboard schedule and sends the dashboard snapshot through email.
  * 
- * 
  * Only one job can run simultaneously in a given schedule. Repeated requests are skipped with a `202` HTTP status code.
  * 
- * 
  * For more information, see Scheduling and sending Amazon Quick Sight reports by email and Configuring email report settings for a Amazon Quick Sight dashboard in the *Amazon Quick Sight User Guide*.
- */export const startDashboardSnapshotJobSchedule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/dashboards/{DashboardId}/schedules/{ScheduleId}", method: "POST", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.StartDashboardSnapshotJobSchedule" }, StartDashboardSnapshotJobScheduleRequest, StartDashboardSnapshotJobScheduleResponse, [AccessDeniedException, InternalFailureException, InvalidParameterValueException, LimitExceededException, ResourceNotFoundException, ThrottlingException, UnsupportedUserEditionException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startDashboardSnapshotJobSchedule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/dashboards/{DashboardId}/schedules/{ScheduleId}", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.StartDashboardSnapshotJobSchedule" }, StartDashboardSnapshotJobScheduleRequest, StartDashboardSnapshotJobScheduleResponse, [AccessDeniedException, InternalFailureException, InvalidParameterValueException, LimitExceededException, ResourceNotFoundException, ThrottlingException, UnsupportedUserEditionException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Assigns one or more tags (key-value pairs) to the specified Amazon Quick Sight
  * resource.
- * 
  * 
  * Tags can help you organize and categorize your resources. You can also use them to
  * scope user permissions, by granting a user permission to access or change only resources
@@ -2189,29 +2165,22 @@ export class IdentityTypeNotSupportedException extends S.TaggedError<IdentityTyp
  * that is already associated with the resource, the new tag value that you specify
  * replaces the previous value for that tag.
  * 
- * 
  * You can associate as many as 50 tags with a resource. Amazon Quick Sight supports
  * tagging on data set, data source, dashboard, template, topic, and user.
  * 
- * 
  * Tagging for Amazon Quick Sight works in a similar way to tagging for other Amazon Web Services services, except for the following:
- * 
- * 
  * 
  * - Tags are used to track costs for users in Amazon Quick Sight. You can't
  * tag other resources that Amazon Quick Sight costs are based on, such as storage
  * capacoty (SPICE), session usage, alert consumption, or reporting units.
  * 
- * 
- * 
  * - Amazon Quick Sight doesn't currently support the tag editor for Resource Groups.
- */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/resources/{ResourceArn}/tags", method: "POST", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.TagResource" }, TagResourceRequest, TagResourceResponse, [AccessDeniedException, InternalFailureException, InvalidParameterValueException, LimitExceededException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/resources/{ResourceArn}/tags", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.TagResource" }, TagResourceRequest, TagResourceResponse, [AccessDeniedException, InternalFailureException, InvalidParameterValueException, LimitExceededException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes a tag or tags from a resource.
  */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/resources/{ResourceArn}/tags", method: "DELETE", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [AccessDeniedException, InternalFailureException, InvalidParameterValueException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates Amazon Quick Sight customizations. Currently, the only customization that you can use is a theme.
- * 
  * 
  * You can use customizations for your Amazon Web Services account or, if you specify a namespace, for a
  * Quick Sight namespace instead. Customizations that apply to a namespace override
@@ -2231,7 +2200,7 @@ export class IdentityTypeNotSupportedException extends S.TaggedError<IdentityTyp
  */export const updateActionConnector = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/action-connectors/{ActionConnectorId}", method: "PUT", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.UpdateActionConnector" }, UpdateActionConnectorRequest, UpdateActionConnectorResponse, [AccessDeniedException, ConflictException, InternalFailureException, InvalidParameterValueException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the permissions for an action connector by granting or revoking access for specific users and groups. You can control who can view, use, or manage the action connector.
- */export const updateActionConnectorPermissions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/action-connectors/{ActionConnectorId}/permissions", method: "POST", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.UpdateActionConnectorPermissions" }, UpdateActionConnectorPermissionsRequest, UpdateActionConnectorPermissionsResponse, [AccessDeniedException, ConflictException, InternalFailureException, InvalidParameterValueException, LimitExceededException, ResourceNotFoundException, ThrottlingException, UnsupportedUserEditionException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateActionConnectorPermissions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/action-connectors/{ActionConnectorId}/permissions", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.UpdateActionConnectorPermissions" }, UpdateActionConnectorPermissionsRequest, UpdateActionConnectorPermissionsResponse, [AccessDeniedException, ConflictException, InternalFailureException, InvalidParameterValueException, LimitExceededException, ResourceNotFoundException, ThrottlingException, UnsupportedUserEditionException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates an analysis in Amazon Quick Sight
  */export const updateAnalysis = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/analyses/{AnalysisId}", method: "PUT", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.UpdateAnalysis" }, UpdateAnalysisRequest, UpdateAnalysisResponse, [ConflictException, InternalFailureException, InvalidParameterValueException, ResourceExistsException, ResourceNotFoundException, ThrottlingException, UnsupportedUserEditionException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -2256,9 +2225,6 @@ export class IdentityTypeNotSupportedException extends S.TaggedError<IdentityTyp
 /**
  * Updates a dashboard in an Amazon Web Services account.
  * 
- * 
- * 
- * 
  * Updating a Dashboard creates a new dashboard version but does not immediately
  * publish the new version. You can update the published version of a dashboard by
  * using the
@@ -2280,13 +2246,12 @@ export class IdentityTypeNotSupportedException extends S.TaggedError<IdentityTyp
 /**
  * Updates the permissions on a dataset.
  * 
- * 
  * The permissions resource is
  * `arn:aws:quicksight:region:aws-account-id:dataset/data-set-id`.
- */export const updateDataSetPermissions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/data-sets/{DataSetId}/permissions", method: "POST", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.UpdateDataSetPermissions" }, UpdateDataSetPermissionsRequest, UpdateDataSetPermissionsResponse, [AccessDeniedException, ConflictException, InternalFailureException, InvalidParameterValueException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateDataSetPermissions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/data-sets/{DataSetId}/permissions", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.UpdateDataSetPermissions" }, UpdateDataSetPermissionsRequest, UpdateDataSetPermissionsResponse, [AccessDeniedException, ConflictException, InternalFailureException, InvalidParameterValueException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the permissions to a data source.
- */export const updateDataSourcePermissions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/data-sources/{DataSourceId}/permissions", method: "POST", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.UpdateDataSourcePermissions" }, UpdateDataSourcePermissionsRequest, UpdateDataSourcePermissionsResponse, [AccessDeniedException, ConflictException, InternalFailureException, InvalidParameterValueException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateDataSourcePermissions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/data-sources/{DataSourceId}/permissions", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.UpdateDataSourcePermissions" }, UpdateDataSourcePermissionsRequest, UpdateDataSourcePermissionsResponse, [AccessDeniedException, ConflictException, InternalFailureException, InvalidParameterValueException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates a Amazon Q Business application that is linked to a Quick Sight account.
  */export const updateDefaultQBusinessApplication = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/default-qbusiness-application", method: "PUT", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.UpdateDefaultQBusinessApplication" }, UpdateDefaultQBusinessApplicationRequest, UpdateDefaultQBusinessApplicationResponse, [AccessDeniedException, ConflictException, InternalFailureException, InvalidParameterValueException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -2307,9 +2272,8 @@ export class IdentityTypeNotSupportedException extends S.TaggedError<IdentityTyp
 /**
  * Adds or updates services and authorized targets to configure what the Quick Sight IAM Identity Center application can access.
  * 
- * 
  * This operation is only supported for Quick Sight accounts using IAM Identity Center
- */export const updateIdentityPropagationConfig = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/identity-propagation-config/{Service}", method: "POST", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.UpdateIdentityPropagationConfig" }, UpdateIdentityPropagationConfigRequest, UpdateIdentityPropagationConfigResponse, [AccessDeniedException, InternalFailureException, InvalidParameterValueException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateIdentityPropagationConfig = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/identity-propagation-config/{Service}", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.UpdateIdentityPropagationConfig" }, UpdateIdentityPropagationConfigRequest, UpdateIdentityPropagationConfigResponse, [AccessDeniedException, InternalFailureException, InvalidParameterValueException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates a personalization configuration.
  */export const updateQPersonalizationConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/q-personalization-configuration", method: "PUT", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.UpdateQPersonalizationConfiguration" }, UpdateQPersonalizationConfigurationRequest, UpdateQPersonalizationConfigurationResponse, [AccessDeniedException, ConflictException, InternalFailureException, InvalidParameterValueException, ResourceNotFoundException, ResourceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -2324,10 +2288,10 @@ export class IdentityTypeNotSupportedException extends S.TaggedError<IdentityTyp
  */export const updateRoleCustomPermission = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/namespaces/{Namespace}/roles/{Role}/custom-permission", method: "PUT", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.UpdateRoleCustomPermission" }, UpdateRoleCustomPermissionRequest, UpdateRoleCustomPermissionResponse, [AccessDeniedException, InternalFailureException, InvalidParameterValueException, PreconditionNotMetException, ResourceNotFoundException, ResourceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates a self-upgrade request for a Quick Suite user by approving, denying, or verifying the request.
- */export const updateSelfUpgrade = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/namespaces/{Namespace}/update-self-upgrade-request", method: "POST", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.UpdateSelfUpgrade" }, UpdateSelfUpgradeRequest, UpdateSelfUpgradeResponse, [AccessDeniedException, InternalFailureException, InvalidNextTokenException, InvalidParameterValueException, LimitExceededException, PreconditionNotMetException, ResourceNotFoundException, ResourceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateSelfUpgrade = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/namespaces/{Namespace}/update-self-upgrade-request", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.UpdateSelfUpgrade" }, UpdateSelfUpgradeRequest, UpdateSelfUpgradeResponse, [AccessDeniedException, InternalFailureException, InvalidNextTokenException, InvalidParameterValueException, LimitExceededException, PreconditionNotMetException, ResourceNotFoundException, ResourceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the SPICE capacity configuration for a Quick Sight account.
- */export const updateSPICECapacityConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/spice-capacity-configuration", method: "POST", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.UpdateSPICECapacityConfiguration" }, UpdateSPICECapacityConfigurationRequest, UpdateSPICECapacityConfigurationResponse, [AccessDeniedException, InternalFailureException, InvalidParameterValueException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateSPICECapacityConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/spice-capacity-configuration", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.UpdateSPICECapacityConfiguration" }, UpdateSPICECapacityConfigurationRequest, UpdateSPICECapacityConfigurationResponse, [AccessDeniedException, InternalFailureException, InvalidParameterValueException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates a template from an existing Amazon Quick Sight analysis or another template.
  */export const updateTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/templates/{TemplateId}", method: "PUT", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.UpdateTemplate" }, UpdateTemplateRequest, UpdateTemplateResponse, [ConflictException, InternalFailureException, InvalidParameterValueException, LimitExceededException, ResourceExistsException, ResourceNotFoundException, ThrottlingException, UnsupportedUserEditionException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -2347,100 +2311,42 @@ export class IdentityTypeNotSupportedException extends S.TaggedError<IdentityTyp
  * Updates the resource permissions for a theme. Permissions apply to the action to grant or
  * revoke permissions on, for example `"quicksight:DescribeTheme"`.
  * 
- * 
  * Theme permissions apply in groupings. Valid groupings include the following for the three
  * levels of permissions, which are user, owner, or no permissions:
  * 
- * 
- * 
  * - User
- * 
- * 
  * 
  * - `"quicksight:DescribeTheme"`
  * 
- * 
- * 
- * 
  * - `"quicksight:DescribeThemeAlias"`
- * 
- * 
- * 
  * 
  * - `"quicksight:ListThemeAliases"`
  * 
- * 
- * 
- * 
  * - `"quicksight:ListThemeVersions"`
- * 
- * 
- * 
- * 
- * 
- * 
  * 
  * - Owner
  * 
- * 
- * 
  * - `"quicksight:DescribeTheme"`
- * 
- * 
- * 
  * 
  * - `"quicksight:DescribeThemeAlias"`
  * 
- * 
- * 
- * 
  * - `"quicksight:ListThemeAliases"`
- * 
- * 
- * 
  * 
  * - `"quicksight:ListThemeVersions"`
  * 
- * 
- * 
- * 
  * - `"quicksight:DeleteTheme"`
- * 
- * 
- * 
  * 
  * - `"quicksight:UpdateTheme"`
  * 
- * 
- * 
- * 
  * - `"quicksight:CreateThemeAlias"`
- * 
- * 
- * 
  * 
  * - `"quicksight:DeleteThemeAlias"`
  * 
- * 
- * 
- * 
  * - `"quicksight:UpdateThemeAlias"`
- * 
- * 
- * 
  * 
  * - `"quicksight:UpdateThemePermissions"`
  * 
- * 
- * 
- * 
  * - `"quicksight:DescribeThemePermissions"`
- * 
- * 
- * 
- * 
- * 
- * 
  * 
  * - To specify no permissions, omit the permissions list.
  */export const updateThemePermissions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/themes/{ThemeId}/permissions", method: "PUT", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.UpdateThemePermissions" }, UpdateThemePermissionsRequest, UpdateThemePermissionsResponse, [AccessDeniedException, InternalFailureException, InvalidParameterValueException, LimitExceededException, ResourceNotFoundException, ThrottlingException, UnsupportedUserEditionException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -2464,7 +2370,7 @@ export class IdentityTypeNotSupportedException extends S.TaggedError<IdentityTyp
  */export const updateVPCConnection = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/vpc-connections/{VPCConnectionId}", method: "PUT", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.UpdateVPCConnection" }, UpdateVPCConnectionRequest, UpdateVPCConnectionResponse, [AccessDeniedException, ConflictException, InternalFailureException, InvalidParameterValueException, LimitExceededException, ResourceNotFoundException, ThrottlingException, UnsupportedUserEditionException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes reviewed answers for Q Topic.
- */export const batchDeleteTopicReviewedAnswer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/topics/{TopicId}/batch-delete-reviewed-answers", method: "POST", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.BatchDeleteTopicReviewedAnswer" }, BatchDeleteTopicReviewedAnswerRequest, BatchDeleteTopicReviewedAnswerResponse, [AccessDeniedException, ConflictException, InternalFailureException, InvalidParameterValueException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const batchDeleteTopicReviewedAnswer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/topics/{TopicId}/batch-delete-reviewed-answers", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.BatchDeleteTopicReviewedAnswer" }, BatchDeleteTopicReviewedAnswerRequest, BatchDeleteTopicReviewedAnswerResponse, [AccessDeniedException, ConflictException, InternalFailureException, InvalidParameterValueException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Cancels an ongoing ingestion of data into SPICE.
  */export const cancelIngestion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/data-sets/{DataSetId}/ingestions/{IngestionId}", method: "DELETE", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.CancelIngestion" }, CancelIngestionRequest, CancelIngestionResponse, [AccessDeniedException, InternalFailureException, InvalidParameterValueException, ResourceExistsException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -2474,13 +2380,10 @@ export class IdentityTypeNotSupportedException extends S.TaggedError<IdentityTyp
  * API operation. To further customize Amazon Quick Sight by removing Amazon Quick Sight
  * sample assets and videos for all new users, see Customizing Quick Sight in the *Amazon Quick Sight User Guide.*
  * 
- * 
- * 
  * You can create customizations for your Amazon Web Services account or, if you specify a namespace, for
  * a Quick Sight namespace instead. Customizations that apply to a namespace always override
  * customizations that apply to an Amazon Web Services account. To find out which customizations apply, use
  * the `DescribeAccountCustomization` API operation.
- * 
  * 
  * Before you use the `CreateAccountCustomization` API operation to add a theme
  * as the namespace default, make sure that you first share the theme with the namespace.
@@ -2496,14 +2399,12 @@ export class IdentityTypeNotSupportedException extends S.TaggedError<IdentityTyp
  * UpdateThemePermissions
  * 
  * API operation.
- */export const createAccountCustomization = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/customizations", method: "POST", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.CreateAccountCustomization" }, CreateAccountCustomizationRequest, CreateAccountCustomizationResponse, [AccessDeniedException, ConflictException, InternalFailureException, InvalidParameterValueException, ResourceExistsException, ResourceNotFoundException, ResourceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createAccountCustomization = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/customizations", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.CreateAccountCustomization" }, CreateAccountCustomizationRequest, CreateAccountCustomizationResponse, [AccessDeniedException, ConflictException, InternalFailureException, InvalidParameterValueException, ResourceExistsException, ResourceNotFoundException, ResourceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an Amazon Quick Sight account, or subscribes to Amazon Quick Sight Q.
  * 
- * 
  * The Amazon Web Services Region for the account is derived from what is configured in the
  * CLI or SDK.
- * 
  * 
  * Before you use this operation, make sure that you can connect to an existing Amazon Web Services account. If you don't have an Amazon Web Services account, see Sign
  * up for Amazon Web Services in the Amazon Quick Sight User
@@ -2512,17 +2413,14 @@ export class IdentityTypeNotSupportedException extends S.TaggedError<IdentityTyp
  * see IAM Policy Examples for Amazon Quick Sight in the
  * *Amazon Quick Sight User Guide*.
  * 
- * 
  * If your IAM policy includes both the `Subscribe` and
  * `CreateAccountSubscription` actions, make sure that both actions are set
  * to `Allow`. If either action is set to `Deny`, the
  * `Deny` action prevails and your API call fails.
  * 
- * 
  * You can't pass an existing IAM role to access other Amazon Web Services services using this API operation. To pass your existing IAM role to
  * Amazon Quick Sight, see Passing IAM roles to Amazon Quick Sight in the
  * *Amazon Quick Sight User Guide*.
- * 
  * 
  * You can't set default resource access on the new account from the Amazon Quick Sight
  * API. Instead, add default resource access from the Amazon Quick Sight console. For more
@@ -2530,27 +2428,25 @@ export class IdentityTypeNotSupportedException extends S.TaggedError<IdentityTyp
  * Setting default resource
  * access to Amazon Web Services services in the Amazon Quick Sight
  * User Guide.
- */export const createAccountSubscription = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/account/{AwsAccountId}", method: "POST", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.CreateAccountSubscription" }, CreateAccountSubscriptionRequest, CreateAccountSubscriptionResponse, [AccessDeniedException, ConflictException, InternalFailureException, InvalidParameterValueException, PreconditionNotMetException, ResourceExistsException, ResourceNotFoundException, ResourceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createAccountSubscription = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/account/{AwsAccountId}", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.CreateAccountSubscription" }, CreateAccountSubscriptionRequest, CreateAccountSubscriptionResponse, [AccessDeniedException, ConflictException, InternalFailureException, InvalidParameterValueException, PreconditionNotMetException, ResourceExistsException, ResourceNotFoundException, ResourceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a custom permissions profile.
- */export const createCustomPermissions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/custom-permissions", method: "POST", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.CreateCustomPermissions" }, CreateCustomPermissionsRequest, CreateCustomPermissionsResponse, [AccessDeniedException, ConflictException, InternalFailureException, InvalidParameterValueException, LimitExceededException, PreconditionNotMetException, ResourceExistsException, ResourceNotFoundException, ResourceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createCustomPermissions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/custom-permissions", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.CreateCustomPermissions" }, CreateCustomPermissionsRequest, CreateCustomPermissionsResponse, [AccessDeniedException, ConflictException, InternalFailureException, InvalidParameterValueException, LimitExceededException, PreconditionNotMetException, ResourceExistsException, ResourceNotFoundException, ResourceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an empty shared folder.
- */export const createFolder = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/folders/{FolderId}", method: "POST", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.CreateFolder" }, CreateFolderRequest, CreateFolderResponse, [AccessDeniedException, ConflictException, InternalFailureException, InvalidParameterValueException, LimitExceededException, ResourceExistsException, ResourceNotFoundException, ThrottlingException, UnsupportedUserEditionException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createFolder = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/folders/{FolderId}", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.CreateFolder" }, CreateFolderRequest, CreateFolderResponse, [AccessDeniedException, ConflictException, InternalFailureException, InvalidParameterValueException, LimitExceededException, ResourceExistsException, ResourceNotFoundException, ThrottlingException, UnsupportedUserEditionException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Adds an asset, such as a dashboard, analysis, or dataset into a folder.
  */export const createFolderMembership = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/folders/{FolderId}/members/{MemberType}/{MemberId}", method: "PUT", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.CreateFolderMembership" }, CreateFolderMembershipRequest, CreateFolderMembershipResponse, [AccessDeniedException, InternalFailureException, InvalidParameterValueException, LimitExceededException, ResourceExistsException, ResourceNotFoundException, ThrottlingException, UnsupportedUserEditionException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Use the `CreateGroup` operation to create a group in Quick Sight. You can create up to 10,000 groups in a namespace. If you want to create more than 10,000 groups in a namespace, contact Amazon Web Services Support.
  * 
- * 
  * The permissions resource is
  * arn:aws:quicksight::**:group/default/**
  * .
  * 
- * 
  * The response is a group object.
- */export const createGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/namespaces/{Namespace}/groups", method: "POST", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.CreateGroup" }, CreateGroupRequest, CreateGroupResponse, [AccessDeniedException, InternalFailureException, InvalidParameterValueException, LimitExceededException, PreconditionNotMetException, ResourceExistsException, ResourceNotFoundException, ResourceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/namespaces/{Namespace}/groups", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.CreateGroup" }, CreateGroupRequest, CreateGroupResponse, [AccessDeniedException, InternalFailureException, InvalidParameterValueException, LimitExceededException, PreconditionNotMetException, ResourceExistsException, ResourceNotFoundException, ResourceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Adds an Amazon Quick Sight user to an Amazon Quick Sight group.
  */export const createGroupMembership = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/namespaces/{Namespace}/groups/{GroupName}/members/{MemberName}", method: "PUT", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.CreateGroupMembership" }, CreateGroupMembershipRequest, CreateGroupMembershipResponse, [AccessDeniedException, InternalFailureException, InvalidParameterValueException, PreconditionNotMetException, ResourceNotFoundException, ResourceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -2560,13 +2456,12 @@ export class IdentityTypeNotSupportedException extends S.TaggedError<IdentityTyp
  * or users of Amazon Quick Sight. Assignment names are unique per Amazon Web Services
  * account. To avoid overwriting rules in other namespaces, use assignment names that are
  * unique.
- */export const createIAMPolicyAssignment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/namespaces/{Namespace}/iam-policy-assignments", method: "POST", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.CreateIAMPolicyAssignment" }, CreateIAMPolicyAssignmentRequest, CreateIAMPolicyAssignmentResponse, [AccessDeniedException, ConcurrentUpdatingException, InternalFailureException, InvalidParameterValueException, ResourceExistsException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createIAMPolicyAssignment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/namespaces/{Namespace}/iam-policy-assignments", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.CreateIAMPolicyAssignment" }, CreateIAMPolicyAssignmentRequest, CreateIAMPolicyAssignmentResponse, [AccessDeniedException, ConcurrentUpdatingException, InternalFailureException, InvalidParameterValueException, ResourceExistsException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates and starts a new SPICE ingestion for a dataset. You can manually refresh datasets in
  * an Enterprise edition account 32 times in a 24-hour period. You can manually refresh
  * datasets in a Standard edition account 8 times in a 24-hour period. Each 24-hour period
  * is measured starting 24 hours before the current date and time.
- * 
  * 
  * Any ingestions operating on tagged datasets inherit the same tags automatically for use in
  * access control. For an example, see How do I create an IAM policy to control access to Amazon EC2 resources using
@@ -2575,7 +2470,6 @@ export class IdentityTypeNotSupportedException extends S.TaggedError<IdentityTyp
 /**
  * (Enterprise edition only) Creates a new namespace for you to use with Amazon Quick Sight.
  * 
- * 
  * A namespace allows you to isolate the Quick Sight users and groups that are registered
  * for that namespace. Users that access the namespace can share assets only with other
  * users or groups in the same namespace. They can't see users and groups in other
@@ -2583,46 +2477,32 @@ export class IdentityTypeNotSupportedException extends S.TaggedError<IdentityTyp
  * Quick Sight. The namespace must be unique within the Amazon Web Services account. By default, there is a
  * limit of 100 namespaces per Amazon Web Services account. To increase your limit, create a ticket with
  * Amazon Web Services Support.
- */export const createNamespace = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}", method: "POST", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.CreateNamespace" }, CreateNamespaceRequest, CreateNamespaceResponse, [AccessDeniedException, ConflictException, InternalFailureException, InvalidParameterValueException, LimitExceededException, PreconditionNotMetException, ResourceExistsException, ResourceNotFoundException, ResourceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createNamespace = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.CreateNamespace" }, CreateNamespaceRequest, CreateNamespaceResponse, [AccessDeniedException, ConflictException, InternalFailureException, InvalidParameterValueException, LimitExceededException, PreconditionNotMetException, ResourceExistsException, ResourceNotFoundException, ResourceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Use `CreateRoleMembership` to add an existing Quick Sight group to an existing role.
- */export const createRoleMembership = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/namespaces/{Namespace}/roles/{Role}/members/{MemberName}", method: "POST", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.CreateRoleMembership" }, CreateRoleMembershipRequest, CreateRoleMembershipResponse, [AccessDeniedException, InternalFailureException, InvalidParameterValueException, PreconditionNotMetException, ResourceNotFoundException, ResourceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createRoleMembership = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/namespaces/{Namespace}/roles/{Role}/members/{MemberName}", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.CreateRoleMembership" }, CreateRoleMembershipRequest, CreateRoleMembershipResponse, [AccessDeniedException, InternalFailureException, InvalidParameterValueException, PreconditionNotMetException, ResourceNotFoundException, ResourceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a template alias for a template.
- */export const createTemplateAlias = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/templates/{TemplateId}/aliases/{AliasName}", method: "POST", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.CreateTemplateAlias" }, CreateTemplateAliasRequest, CreateTemplateAliasResponse, [ConflictException, InternalFailureException, LimitExceededException, ResourceExistsException, ResourceNotFoundException, ThrottlingException, UnsupportedUserEditionException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createTemplateAlias = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/templates/{TemplateId}/aliases/{AliasName}", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.CreateTemplateAlias" }, CreateTemplateAliasRequest, CreateTemplateAliasResponse, [ConflictException, InternalFailureException, LimitExceededException, ResourceExistsException, ResourceNotFoundException, ThrottlingException, UnsupportedUserEditionException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a theme alias for a theme.
- */export const createThemeAlias = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/themes/{ThemeId}/aliases/{AliasName}", method: "POST", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.CreateThemeAlias" }, CreateThemeAliasRequest, CreateThemeAliasResponse, [ConflictException, InternalFailureException, InvalidParameterValueException, LimitExceededException, ResourceExistsException, ResourceNotFoundException, ThrottlingException, UnsupportedUserEditionException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createThemeAlias = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/themes/{ThemeId}/aliases/{AliasName}", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.CreateThemeAlias" }, CreateThemeAliasRequest, CreateThemeAliasResponse, [ConflictException, InternalFailureException, InvalidParameterValueException, LimitExceededException, ResourceExistsException, ResourceNotFoundException, ThrottlingException, UnsupportedUserEditionException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a topic refresh schedule.
- */export const createTopicRefreshSchedule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/topics/{TopicId}/schedules", method: "POST", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.CreateTopicRefreshSchedule" }, CreateTopicRefreshScheduleRequest, CreateTopicRefreshScheduleResponse, [AccessDeniedException, ConflictException, InternalFailureException, InvalidParameterValueException, LimitExceededException, ResourceExistsException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createTopicRefreshSchedule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/topics/{TopicId}/schedules", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.CreateTopicRefreshSchedule" }, CreateTopicRefreshScheduleRequest, CreateTopicRefreshScheduleResponse, [AccessDeniedException, ConflictException, InternalFailureException, InvalidParameterValueException, LimitExceededException, ResourceExistsException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new VPC connection.
- */export const createVPCConnection = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/vpc-connections", method: "POST", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.CreateVPCConnection" }, CreateVPCConnectionRequest, CreateVPCConnectionResponse, [AccessDeniedException, ConflictException, InternalFailureException, InvalidParameterValueException, LimitExceededException, ResourceExistsException, ThrottlingException, UnsupportedUserEditionException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createVPCConnection = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/vpc-connections", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.CreateVPCConnection" }, CreateVPCConnectionRequest, CreateVPCConnectionResponse, [AccessDeniedException, ConflictException, InternalFailureException, InvalidParameterValueException, LimitExceededException, ResourceExistsException, ThrottlingException, UnsupportedUserEditionException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This API permanently deletes all Quick Sight customizations for the specified Amazon Web Services account and namespace. When you delete account customizations:
  * 
- * 
- * 
  * - All customizations are removed including themes, branding, and visual settings
- * 
- * 
  * 
  * - This action cannot be undone through the API
  * 
- * 
- * 
  * - Users will see default Quick Sight styling after customizations are deleted
  * 
- * 
- * 
- * 
- * 
- * 
  * **Before proceeding:** Ensure you have backups of any custom themes or branding elements you may want to recreate.
- * 
- * 
- * 
  * 
  * Deletes all Amazon Quick Sight customizations for the specified Amazon Web Services account and Quick Sight namespace.
  */export const deleteAccountCustomization = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/customizations", method: "DELETE", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.DeleteAccountCustomization" }, DeleteAccountCustomizationRequest, DeleteAccountCustomizationResponse, [AccessDeniedException, ConflictException, InternalFailureException, InvalidParameterValueException, LimitExceededException, PreconditionNotMetException, ResourceNotFoundException, ResourceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -2632,38 +2512,19 @@ export class IdentityTypeNotSupportedException extends S.TaggedError<IdentityTyp
 /**
  * Deleting your Quick Sight account subscription has permanent, irreversible consequences across all Amazon Web Services regions:
  * 
- * 
- * 
  * - Global deletion – Running this operation from any single region will delete your Quick Sight account and all data in every Amazon Web Services region where you have Quick Sight resources.
- * 
- * 
  * 
  * - Complete data loss – All dashboards, analyses, datasets, data sources, and custom visuals will be permanently deleted across all regions.
  * 
- * 
- * 
  * - Embedded content failure – All embedded dashboards and visuals in your applications will immediately stop working and display errors to end users.
- * 
- * 
  * 
  * - Shared resources removed – All shared dashboards, folders, and resources will become inaccessible to other users and external recipients.
  * 
- * 
- * 
  * - User access terminated – All Quick Sight users in your account will lose access immediately, including authors, readers, and administrators.
- * 
- * 
  * 
  * - **No recovery possible** – Once deleted, your Quick Sight account and all associated data cannot be restored.
  * 
- * 
- * 
- * 
- * 
  * Consider exporting critical dashboards and data before proceeding with account deletion.
- * 
- * 
- * 
  * 
  * Use the `DeleteAccountSubscription` operation to delete an Quick Sight account. This operation will result in an error message if you have configured your account termination protection settings to `True`. To change this setting and delete your account, call the `UpdateAccountSettings` API and set the value of the `TerminationProtectionEnabled` parameter to `False`, then make another call to the `DeleteAccountSubscription` API.
  */export const deleteAccountSubscription = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/account/{AwsAccountId}", method: "DELETE", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.DeleteAccountSubscription" }, DeleteAccountSubscriptionRequest, DeleteAccountSubscriptionResponse, [AccessDeniedException, InternalFailureException, InvalidParameterValueException, PreconditionNotMetException, ResourceNotFoundException, ResourceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -2674,12 +2535,10 @@ export class IdentityTypeNotSupportedException extends S.TaggedError<IdentityTyp
  * the response that specifies the end of the recovery window. At the end of the recovery
  * window, Amazon Quick Sight deletes the analysis permanently.
  * 
- * 
  * At any time before recovery window ends, you can use the `RestoreAnalysis`
  * API operation to remove the `DeletionTime` stamp and cancel the deletion of
  * the analysis. The analysis remains visible in the API until it's deleted, so you can
  * describe it but you can't make a template from it.
- * 
  * 
  * An analysis that's scheduled for deletion isn't accessible in the Amazon Quick Sight console.
  * To access it in the console, restore it. Deleting an analysis doesn't delete the
@@ -2688,27 +2547,13 @@ export class IdentityTypeNotSupportedException extends S.TaggedError<IdentityTyp
 /**
  * This API permanently deletes the specified Quick Sight brand. When you delete a brand:
  * 
- * 
- * 
  * - The brand and all its associated branding elements are permanently removed
- * 
- * 
  * 
  * - Any applications or dashboards using this brand will revert to default styling
  * 
- * 
- * 
  * - This action cannot be undone through the API
  * 
- * 
- * 
- * 
- * 
- * 
  * **Before proceeding:** Verify that the brand is no longer needed and consider the impact on any applications currently using this brand.
- * 
- * 
- * 
  * 
  * Deletes an Quick Sight brand.
  */export const deleteBrand = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/brands/{BrandId}", method: "DELETE", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.DeleteBrand" }, DeleteBrandRequest, DeleteBrandResponse, [AccessDeniedException, ConflictException, InternalServerException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -2731,18 +2576,15 @@ export class IdentityTypeNotSupportedException extends S.TaggedError<IdentityTyp
 /**
  * Describes an existing export job.
  * 
- * 
  * Poll job descriptions after a job starts to know the status of the job. When a job
  * succeeds, a URL is provided to download the exported assets' data from. Download URLs
  * are valid for five minutes after they are generated. You can call the
  * `DescribeAssetBundleExportJob` API for a new download URL as needed.
  * 
- * 
  * Job descriptions are available for 14 days after the job starts.
  */export const describeAssetBundleExportJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/asset-bundle-export-jobs/{AssetBundleExportJobId}", method: "GET", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.DescribeAssetBundleExportJob" }, DescribeAssetBundleExportJobRequest, DescribeAssetBundleExportJobResponse, [ResourceNotFoundException, ThrottlingException, UnsupportedUserEditionException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes an existing import job.
- * 
  * 
  * Poll job descriptions after starting a job to know when it has succeeded or failed. Job
  * descriptions are available for 14 days after job starts.
@@ -2752,9 +2594,6 @@ export class IdentityTypeNotSupportedException extends S.TaggedError<IdentityTyp
  */export const describeCustomPermissions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/custom-permissions/{CustomPermissionsName}", method: "GET", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.DescribeCustomPermissions" }, DescribeCustomPermissionsRequest, DescribeCustomPermissionsResponse, [AccessDeniedException, InternalFailureException, InvalidParameterValueException, PreconditionNotMetException, ResourceNotFoundException, ResourceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Provides a detailed description of the definition of a dashboard.
- * 
- * 
- * 
  * 
  * If you do not need to know details about the content of a dashboard, for instance
  * if you are trying to check the status of a recently created or updated dashboard,
@@ -2781,9 +2620,6 @@ export class IdentityTypeNotSupportedException extends S.TaggedError<IdentityTyp
 /**
  * Provides a detailed description of the definition of a template.
  * 
- * 
- * 
- * 
  * If you do not need to know details about the content of a template, for instance if you
  * are trying to check the status of a recently created or updated template, use the
  * 
@@ -2803,76 +2639,42 @@ export class IdentityTypeNotSupportedException extends S.TaggedError<IdentityTyp
  * requires identity-enhanced IAM Role sessions for the authenticated
  * user that the API call is being made for.
  * 
- * 
  * This API uses trusted identity
  * propagation to ensure that an end user is authenticated and receives the
  * embed URL that is specific to that user. The IAM Identity Center application that the
  * user has logged into needs to have trusted Identity Propagation enabled for Amazon Quick Sight with the scope
  * value set to `quicksight:read`. Before you use this action, make sure that
  * you have configured the relevant Amazon Quick Sight resource and permissions.
- */export const generateEmbedUrlForRegisteredUserWithIdentity = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/embed-url/registered-user-with-identity", method: "POST", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.GenerateEmbedUrlForRegisteredUserWithIdentity" }, GenerateEmbedUrlForRegisteredUserWithIdentityRequest, GenerateEmbedUrlForRegisteredUserWithIdentityResponse, [AccessDeniedException, InternalFailureException, InvalidParameterValueException, QuickSightUserNotFoundException, ResourceNotFoundException, SessionLifetimeInMinutesInvalidException, ThrottlingException, UnsupportedPricingPlanException, UnsupportedUserEditionException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const generateEmbedUrlForRegisteredUserWithIdentity = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/embed-url/registered-user-with-identity", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.GenerateEmbedUrlForRegisteredUserWithIdentity" }, GenerateEmbedUrlForRegisteredUserWithIdentityRequest, GenerateEmbedUrlForRegisteredUserWithIdentityResponse, [AccessDeniedException, InternalFailureException, InvalidParameterValueException, QuickSightUserNotFoundException, ResourceNotFoundException, SessionLifetimeInMinutesInvalidException, ThrottlingException, UnsupportedPricingPlanException, UnsupportedUserEditionException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the identity context for a Quick Sight user in a specified namespace, allowing you to obtain identity tokens that can be used with identity-enhanced IAM role sessions to call identity-aware APIs.
  * 
- * 
  * Currently, you can call the following APIs with identity-enhanced Credentials
- * 
- * 
  * 
  * - StartDashboardSnapshotJob
  * 
- * 
- * 
- * 
  * - DescribeDashboardSnapshotJob
- * 
- * 
- * 
  * 
  * - DescribeDashboardSnapshotJobResult
  * 
- * 
- * 
- * 
- * 
- * 
- * 
  * **Supported Authentication Methods**
- * 
- * 
  * 
  * This API supports Quick Sight native users, IAM federated users, and Active Directory users. For Quick Sight users authenticated by Amazon Web Services Identity Center, see Identity Center documentation on identity-enhanced IAM role sessions.
  * 
- * 
- * 
  * **Getting Identity-Enhanced Credentials**
- * 
- * 
  * 
  * To obtain identity-enhanced credentials, follow these steps:
  * 
- * 
- * 
  * - Call the GetIdentityContext API to retrieve an identity token for the specified user.
- * 
- * 
  * 
  * - Use the identity token with the STS AssumeRole API to obtain identity-enhanced IAM role session credentials.
  * 
- * 
- * 
- * 
- * 
- * 
  * **Usage with STS AssumeRole**
- * 
- * 
  * 
  * The identity token returned by this API should be used with the STS AssumeRole API to obtain credentials for an identity-enhanced IAM role session. When calling AssumeRole, include the identity token in the `ProvidedContexts` parameter with `ProviderArn` set to `arn:aws:iam::aws:contextProvider/QuickSight` and `ContextAssertion` set to the identity token received from this API.
  * 
- * 
  * The assumed role must allow the `sts:SetContext` action in addition to `sts:AssumeRole` in its trust relationship policy. The trust policy should include both actions for the principal that will be assuming the role.
- */export const getIdentityContext = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/identity-context", method: "POST", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.GetIdentityContext" }, GetIdentityContextRequest, GetIdentityContextResponse, [AccessDeniedException, InternalFailureException, InvalidParameterValueException, PreconditionNotMetException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getIdentityContext = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/identity-context", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.GetIdentityContext" }, GetIdentityContextRequest, GetIdentityContextResponse, [AccessDeniedException, InternalFailureException, InvalidParameterValueException, PreconditionNotMetException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Generates a session URL and authorization code that you can use to embed the Amazon
  * Amazon Quick Sight console in your web server code. Use
@@ -2888,13 +2690,8 @@ export class IdentityTypeNotSupportedException extends S.TaggedError<IdentityTyp
  * permission profile attached. For more information, see the following sections in the
  * *Amazon Quick Suite User Guide*:
  * 
- * 
- * 
  * - Embedding
  * Analytics
- * 
- * 
- * 
  * 
  * - Customizing Access to the Amazon Quick Suite Console
  */export const getSessionEmbedUrl = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/session-embed-url", method: "GET", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.GetSessionEmbedUrl" }, GetSessionEmbedUrlRequest, GetSessionEmbedUrlResponse, [AccessDeniedException, InternalFailureException, InvalidParameterValueException, QuickSightUserNotFoundException, ResourceExistsException, ResourceNotFoundException, SessionLifetimeInMinutesInvalidException, ThrottlingException, UnsupportedUserEditionException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -2951,7 +2748,6 @@ export class IdentityTypeNotSupportedException extends S.TaggedError<IdentityTyp
 /**
  * Lists all services and authorized targets that the Quick Sight IAM Identity Center application can access.
  * 
- * 
  * This operation is only supported for Quick Sight accounts that use IAM Identity Center.
  */export const listIdentityPropagationConfigs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/identity-propagation-config", method: "GET", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.ListIdentityPropagationConfigs" }, ListIdentityPropagationConfigsRequest, ListIdentityPropagationConfigsResponse, [AccessDeniedException, InternalFailureException, InvalidParameterValueException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
@@ -2984,40 +2780,34 @@ export class IdentityTypeNotSupportedException extends S.TaggedError<IdentityTyp
  */export const listVPCConnections = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/vpc-connections", method: "GET", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.ListVPCConnections" }, ListVPCConnectionsRequest, ListVPCConnectionsResponse, [AccessDeniedException, InternalFailureException, InvalidNextTokenException, InvalidParameterValueException, ThrottlingException, UnsupportedUserEditionException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Searches for action connectors in the specified Amazon Web Services account using filters. You can search by connector name, type, or user permissions.
- */export const searchActionConnectors = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/search/action-connectors", method: "POST", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.SearchActionConnectors" }, SearchActionConnectorsRequest, SearchActionConnectorsResponse, [AccessDeniedException, InvalidNextTokenException, InvalidParameterValueException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const searchActionConnectors = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/search/action-connectors", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.SearchActionConnectors" }, SearchActionConnectorsRequest, SearchActionConnectorsResponse, [AccessDeniedException, InvalidNextTokenException, InvalidParameterValueException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Searches for analyses that belong to the user specified in the filter.
  * 
- * 
- * 
- * 
  * This operation is eventually consistent. The results are best effort and may not reflect very recent updates and changes.
- */export const searchAnalyses = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/search/analyses", method: "POST", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.SearchAnalyses" }, SearchAnalysesRequest, SearchAnalysesResponse, [InternalFailureException, InvalidNextTokenException, InvalidParameterValueException, ResourceNotFoundException, ThrottlingException, UnsupportedUserEditionException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const searchAnalyses = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/search/analyses", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.SearchAnalyses" }, SearchAnalysesRequest, SearchAnalysesResponse, [InternalFailureException, InvalidNextTokenException, InvalidParameterValueException, ResourceNotFoundException, ThrottlingException, UnsupportedUserEditionException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Searches for dashboards that belong to a user.
  * 
- * 
- * 
- * 
  * This operation is eventually consistent. The results are best effort and may not
  * reflect very recent updates and changes.
- */export const searchDashboards = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/search/dashboards", method: "POST", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.SearchDashboards" }, SearchDashboardsRequest, SearchDashboardsResponse, [InternalFailureException, InvalidNextTokenException, InvalidParameterValueException, ResourceNotFoundException, ThrottlingException, UnsupportedUserEditionException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const searchDashboards = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/search/dashboards", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.SearchDashboards" }, SearchDashboardsRequest, SearchDashboardsResponse, [InternalFailureException, InvalidNextTokenException, InvalidParameterValueException, ResourceNotFoundException, ThrottlingException, UnsupportedUserEditionException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Use the `SearchDataSets` operation to search for datasets that belong to an
  * account.
- */export const searchDataSets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/search/data-sets", method: "POST", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.SearchDataSets" }, SearchDataSetsRequest, SearchDataSetsResponse, [AccessDeniedException, InternalFailureException, InvalidNextTokenException, InvalidParameterValueException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const searchDataSets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/search/data-sets", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.SearchDataSets" }, SearchDataSetsRequest, SearchDataSetsResponse, [AccessDeniedException, InternalFailureException, InvalidNextTokenException, InvalidParameterValueException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Search for the flows in an Amazon Web Services account.
- */export const searchFlows = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/flows/searchFlows", method: "POST", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.SearchFlows" }, SearchFlowsInput, SearchFlowsOutput, [AccessDeniedException, InternalFailureException, InvalidParameterValueException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const searchFlows = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/flows/searchFlows", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.SearchFlows" }, SearchFlowsInput, SearchFlowsOutput, [AccessDeniedException, InternalFailureException, InvalidParameterValueException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Searches the subfolders in a folder.
- */export const searchFolders = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/search/folders", method: "POST", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.SearchFolders" }, SearchFoldersRequest, SearchFoldersResponse, [AccessDeniedException, InternalFailureException, InvalidNextTokenException, InvalidParameterValueException, InvalidRequestException, ResourceNotFoundException, ThrottlingException, UnsupportedUserEditionException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const searchFolders = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/search/folders", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.SearchFolders" }, SearchFoldersRequest, SearchFoldersResponse, [AccessDeniedException, InternalFailureException, InvalidNextTokenException, InvalidParameterValueException, InvalidRequestException, ResourceNotFoundException, ThrottlingException, UnsupportedUserEditionException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Use the `SearchGroups` operation to search groups in a specified Quick Sight namespace using the supplied filters.
- */export const searchGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/namespaces/{Namespace}/groups-search", method: "POST", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.SearchGroups" }, SearchGroupsRequest, SearchGroupsResponse, [AccessDeniedException, InternalFailureException, InvalidNextTokenException, InvalidParameterValueException, PreconditionNotMetException, ResourceNotFoundException, ResourceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const searchGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/namespaces/{Namespace}/groups-search", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.SearchGroups" }, SearchGroupsRequest, SearchGroupsResponse, [AccessDeniedException, InternalFailureException, InvalidNextTokenException, InvalidParameterValueException, PreconditionNotMetException, ResourceNotFoundException, ResourceUnavailableException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Searches for any Q topic that exists in an Quick Suite account.
- */export const searchTopics = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/search/topics", method: "POST", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.SearchTopics" }, SearchTopicsRequest, SearchTopicsResponse, [InternalFailureException, InvalidNextTokenException, InvalidParameterValueException, ResourceNotFoundException, ThrottlingException, UnsupportedUserEditionException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const searchTopics = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/search/topics", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.SearchTopics" }, SearchTopicsRequest, SearchTopicsResponse, [InternalFailureException, InvalidNextTokenException, InvalidParameterValueException, ResourceNotFoundException, ThrottlingException, UnsupportedUserEditionException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates a dataset. This operation doesn't support datasets that include uploaded files
  * as a source. Partial updates are not supported by this operation.
@@ -3030,39 +2820,25 @@ export class IdentityTypeNotSupportedException extends S.TaggedError<IdentityTyp
  */export const updateFlowPermissions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/flows/{FlowId}/permissions", method: "PUT", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.UpdateFlowPermissions" }, UpdateFlowPermissionsInput, UpdateFlowPermissionsOutput, [AccessDeniedException, InternalFailureException, InvalidParameterValueException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the content and status of IP rules. Traffic from a source is allowed when the source satisfies either the `IpRestrictionRule`, `VpcIdRestrictionRule`, or `VpcEndpointIdRestrictionRule`. To use this operation, you must provide the entire map of rules. You can use the `DescribeIpRestriction` operation to get the current rule map.
- */export const updateIpRestriction = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/ip-restriction", method: "POST", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.UpdateIpRestriction" }, UpdateIpRestrictionRequest, UpdateIpRestrictionResponse, [AccessDeniedException, InternalFailureException, InvalidParameterValueException, LimitExceededException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateIpRestriction = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/ip-restriction", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.UpdateIpRestriction" }, UpdateIpRestrictionRequest, UpdateIpRestrictionResponse, [AccessDeniedException, InternalFailureException, InvalidParameterValueException, LimitExceededException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This API controls public sharing settings for your entire Quick Sight account, affecting
  * data security and access. When you enable public sharing:
  * 
- * 
- * 
  * - Dashboards can be shared publicly
- * 
- * 
  * 
  * - This setting affects your entire Amazon Web Services account and all Quick Sight
  * users
- * 
- * 
- * 
- * 
- * 
  * 
  * **Before proceeding:** Ensure you understand the
  * security implications and have proper IAM permissions
  * configured.
  * 
- * 
- * 
- * 
  * Use the `UpdatePublicSharingSettings` operation to turn on or turn off the
  * public sharing settings of an Amazon Quick Sight dashboard.
  * 
- * 
  * To use this operation, turn on session capacity pricing for your Amazon Quick Sight
  * account.
- * 
  * 
  * Before you can turn on public sharing on your account, make sure to give public
  * sharing permissions to an administrative user in the Identity and Access Management (IAM) console. For more information on using IAM with Amazon
@@ -3078,9 +2854,6 @@ export class IdentityTypeNotSupportedException extends S.TaggedError<IdentityTyp
 /**
  * Provides a detailed description of the definition of an analysis.
  * 
- * 
- * 
- * 
  * If you do not need to know details about the content of an Analysis, for instance if you
  * are trying to check the status of a recently created or updated Analysis, use the
  * 
@@ -3093,34 +2866,19 @@ export class IdentityTypeNotSupportedException extends S.TaggedError<IdentityTyp
 /**
  * Describes an existing snapshot job.
  * 
- * 
  * Poll job descriptions after a job starts to know the status of the job. For information on available status codes, see `JobStatus`.
- * 
- * 
  * 
  * **Registered user support**
  * 
- * 
- * 
  * This API can be called as before to get status of a job started by the same Quick Sight user.
- * 
- * 
  * 
  * **Possible error scenarios**
  * 
- * 
- * 
  * Request will fail with an Access Denied error in the following scenarios:
- * 
- * 
  * 
  * - The credentials have expired.
  * 
- * 
- * 
  * - Job has been started by a different user.
- * 
- * 
  * 
  * - Impersonated Quick Sight user doesn't have access to the specified dashboard in the job.
  */export const describeDashboardSnapshotJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/dashboards/{DashboardId}/snapshot-jobs/{SnapshotJobId}", method: "GET", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.DescribeDashboardSnapshotJob" }, DescribeDashboardSnapshotJobRequest, DescribeDashboardSnapshotJobResponse, [AccessDeniedException, InternalFailureException, ResourceNotFoundException, ThrottlingException, UnsupportedUserEditionException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -3149,40 +2907,24 @@ export class IdentityTypeNotSupportedException extends S.TaggedError<IdentityTyp
  * Before you use this command, make sure that you have configured the dashboards and
  * permissions.
  * 
- * 
  * Currently, you can use `GetDashboardEmbedURL` only from the server, not
  * from the user's browser. The following rules apply to the generated URL:
  * 
- * 
- * 
  * - They must be used together.
- * 
- * 
  * 
  * - They can be used one time only.
  * 
- * 
- * 
  * - They are valid for 5 minutes after you run this command.
  * 
- * 
- * 
  * - You are charged only when the URL is used or there is interaction with Quick Suite.
- * 
- * 
  * 
  * - The resulting user session is valid for 15 minutes (default) up to 10 hours
  * (maximum). You can use the optional `SessionLifetimeInMinutes`
  * parameter to customize session duration.
  * 
- * 
- * 
- * 
- * 
  * For more information, see Embedding Analytics
  * Using GetDashboardEmbedUrl in the Amazon Quick Suite User
  * Guide.
- * 
  * 
  * For more information about the high-level steps for embedding and for an interactive
  * demo of the ways you can customize embedding, visit the Amazon Quick Suite
@@ -3192,26 +2934,22 @@ export class IdentityTypeNotSupportedException extends S.TaggedError<IdentityTyp
  * Lists all of the datasets belonging to the current Amazon Web Services account in an
  * Amazon Web Services Region.
  * 
- * 
  * The permissions resource is
  * `arn:aws:quicksight:region:aws-account-id:dataset/*`.
  */export const listDataSets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/data-sets", method: "GET", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.ListDataSets" }, ListDataSetsRequest, ListDataSetsResponse, [AccessDeniedException, InternalFailureException, InvalidNextTokenException, InvalidParameterValueException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Predicts existing visuals or generates new visuals to answer a given query.
  * 
- * 
  * This API uses trusted identity propagation to ensure that an end user is authenticated and receives the embed URL that is specific to that user. The IAM Identity Center application that the user has logged into needs to have trusted Identity Propagation enabled for Quick Suite with the scope value set to `quicksight:read`. Before you use this action, make sure that you have configured the relevant Quick Suite resource and permissions.
  * 
- * 
  * We recommend enabling the `QSearchStatus` API to unlock the full potential of `PredictQnA`. When `QSearchStatus` is enabled, it first checks the specified dashboard for any existing visuals that match the question. If no matching visuals are found, `PredictQnA` uses generative Q&A to provide an answer. To update the `QSearchStatus`, see UpdateQuickSightQSearchConfiguration.
- */export const predictQAResults = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/qa/predict", method: "POST", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.PredictQAResults" }, PredictQAResultsRequest, PredictQAResultsResponse, [AccessDeniedException, InternalFailureException, InvalidParameterValueException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const predictQAResults = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/qa/predict", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.PredictQAResults" }, PredictQAResultsRequest, PredictQAResultsResponse, [AccessDeniedException, InternalFailureException, InvalidParameterValueException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Use the `SearchDataSources` operation to search for data sources that
  * belong to an account.
- */export const searchDataSources = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/search/data-sources", method: "POST", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.SearchDataSources" }, SearchDataSourcesRequest, SearchDataSourcesResponse, [AccessDeniedException, InternalFailureException, InvalidNextTokenException, InvalidParameterValueException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const searchDataSources = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/search/data-sources", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.SearchDataSources" }, SearchDataSourcesRequest, SearchDataSourcesResponse, [AccessDeniedException, InternalFailureException, InvalidNextTokenException, InvalidParameterValueException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts an Asset Bundle export job.
- * 
  * 
  * An Asset Bundle export job exports specified Amazon Quick Sight assets. You can also choose to
  * export any asset dependencies in the same job. Export jobs run asynchronously and can be
@@ -3221,32 +2959,30 @@ export class IdentityTypeNotSupportedException extends S.TaggedError<IdentityTyp
  * `DescribeAssetBundleExportJob` API call. Each Amazon Quick Sight account can
  * run up to 5 export jobs concurrently.
  * 
- * 
  * The API caller must have the necessary permissions in their IAM role to
  * access each resource before the resources can be exported.
- */export const startAssetBundleExportJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/asset-bundle-export-jobs/export", method: "POST", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.StartAssetBundleExportJob" }, StartAssetBundleExportJobRequest, StartAssetBundleExportJobResponse, [AccessDeniedException, ConflictException, InvalidParameterValueException, LimitExceededException, ResourceNotFoundException, ThrottlingException, UnsupportedUserEditionException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startAssetBundleExportJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/asset-bundle-export-jobs/export", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.StartAssetBundleExportJob" }, StartAssetBundleExportJobRequest, StartAssetBundleExportJobResponse, [AccessDeniedException, ConflictException, InvalidParameterValueException, LimitExceededException, ResourceNotFoundException, ThrottlingException, UnsupportedUserEditionException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates a customer managed key in a Quick Sight account.
- */export const updateKeyRegistration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/key-registration", method: "POST", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.UpdateKeyRegistration" }, UpdateKeyRegistrationRequest, UpdateKeyRegistrationResponse, [AccessDeniedException, InternalFailureException, InvalidParameterValueException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateKeyRegistration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/key-registration", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.UpdateKeyRegistration" }, UpdateKeyRegistrationRequest, UpdateKeyRegistrationResponse, [AccessDeniedException, InternalFailureException, InvalidParameterValueException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a dashboard from either a template or directly with a
  * `DashboardDefinition`. To first create a template, see the
  * CreateTemplate
  * API operation.
  * 
- * 
  * A dashboard is an entity in Amazon Quick Sight that identifies Amazon Quick Sight
  * reports, created from analyses. You can share Amazon Quick Sight dashboards. With the
  * right permissions, you can create scheduled email reports from them. If you have the
  * correct permissions, you can create a dashboard from a template that exists in a
  * different Amazon Web Services account.
- */export const createDashboard = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/dashboards/{DashboardId}", method: "POST", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.CreateDashboard" }, CreateDashboardRequest, CreateDashboardResponse, [ConflictException, InternalFailureException, InvalidParameterValueException, LimitExceededException, ResourceExistsException, ResourceNotFoundException, ThrottlingException, UnsupportedUserEditionException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createDashboard = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/dashboards/{DashboardId}", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.CreateDashboard" }, CreateDashboardRequest, CreateDashboardResponse, [ConflictException, InternalFailureException, InvalidParameterValueException, LimitExceededException, ResourceExistsException, ResourceNotFoundException, ThrottlingException, UnsupportedUserEditionException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a data source.
- */export const createDataSource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/data-sources", method: "POST", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.CreateDataSource" }, CreateDataSourceRequest, CreateDataSourceResponse, [AccessDeniedException, ConflictException, CustomerManagedKeyUnavailableException, InternalFailureException, InvalidParameterValueException, LimitExceededException, ResourceExistsException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createDataSource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/data-sources", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.CreateDataSource" }, CreateDataSourceRequest, CreateDataSourceResponse, [AccessDeniedException, ConflictException, CustomerManagedKeyUnavailableException, InternalFailureException, InvalidParameterValueException, LimitExceededException, ResourceExistsException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a refresh schedule for a dataset. You can create up to 5 different schedules for a single dataset.
- */export const createRefreshSchedule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/data-sets/{DataSetId}/refresh-schedules", method: "POST", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.CreateRefreshSchedule" }, CreateRefreshScheduleRequest, CreateRefreshScheduleResponse, [AccessDeniedException, InternalFailureException, InvalidParameterValueException, LimitExceededException, PreconditionNotMetException, ResourceExistsException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createRefreshSchedule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/data-sets/{DataSetId}/refresh-schedules", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.CreateRefreshSchedule" }, CreateRefreshScheduleRequest, CreateRefreshScheduleResponse, [AccessDeniedException, InternalFailureException, InvalidParameterValueException, LimitExceededException, PreconditionNotMetException, ResourceExistsException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes a theme.
  */export const describeTheme = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/themes/{ThemeId}", method: "GET", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.DescribeTheme" }, DescribeThemeRequest, DescribeThemeResponse, [AccessDeniedException, InternalFailureException, InvalidParameterValueException, ResourceExistsException, ResourceNotFoundException, ThrottlingException, UnsupportedUserEditionException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -3254,36 +2990,29 @@ export class IdentityTypeNotSupportedException extends S.TaggedError<IdentityTyp
  * Creates a template either from a `TemplateDefinition` or from an existing Quick Sight analysis or template. You can use the resulting
  * template to create additional dashboards, templates, or analyses.
  * 
- * 
  * A *template* is an entity in Quick Sight that encapsulates the metadata
  * required to create an analysis and that you can use to create s dashboard. A template adds
  * a layer of abstraction by using placeholders to replace the dataset associated with the
  * analysis. You can use templates to create dashboards by replacing dataset placeholders
  * with datasets that follow the same schema that was used to create the source analysis
  * and template.
- */export const createTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/templates/{TemplateId}", method: "POST", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.CreateTemplate" }, CreateTemplateRequest, CreateTemplateResponse, [AccessDeniedException, ConflictException, InternalFailureException, InvalidParameterValueException, LimitExceededException, ResourceExistsException, ResourceNotFoundException, ThrottlingException, UnsupportedUserEditionException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/templates/{TemplateId}", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.CreateTemplate" }, CreateTemplateRequest, CreateTemplateResponse, [AccessDeniedException, ConflictException, InternalFailureException, InvalidParameterValueException, LimitExceededException, ResourceExistsException, ResourceNotFoundException, ThrottlingException, UnsupportedUserEditionException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a theme.
- * 
  * 
  * A *theme* is set of configuration options for color and layout.
  * Themes apply to analyses and dashboards. For more information, see Using
  * Themes in Amazon Quick Sight in the *Amazon Quick Sight User Guide*.
- */export const createTheme = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/themes/{ThemeId}", method: "POST", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.CreateTheme" }, CreateThemeRequest, CreateThemeResponse, [AccessDeniedException, InternalFailureException, InvalidParameterValueException, LimitExceededException, ResourceExistsException, ResourceNotFoundException, ThrottlingException, UnsupportedUserEditionException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createTheme = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/themes/{ThemeId}", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.CreateTheme" }, CreateThemeRequest, CreateThemeResponse, [AccessDeniedException, InternalFailureException, InvalidParameterValueException, LimitExceededException, ResourceExistsException, ResourceNotFoundException, ThrottlingException, UnsupportedUserEditionException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Generates an embed URL that you can use to embed an Amazon Quick Suite dashboard or
  * visual in your website, without having to register any reader users. Before you use this
  * action, make sure that you have configured the dashboards and permissions.
  * 
- * 
  * The following rules apply to the generated URL:
- * 
- * 
  * 
  * - It contains a temporary bearer token. It is valid for 5 minutes after it is
  * generated. Once redeemed within this period, it cannot be re-used again.
- * 
- * 
  * 
  * - The URL validity period should not be confused with the actual session
  * lifetime that can be customized using the
@@ -3292,28 +3021,20 @@ export class IdentityTypeNotSupportedException extends S.TaggedError<IdentityTyp
  * session is valid for 15 minutes (minimum) to 10 hours (maximum). The default
  * session duration is 10 hours.
  * 
- * 
- * 
  * - You are charged only when the URL is used or there is interaction with Amazon Quick Suite.
- * 
- * 
- * 
- * 
  * 
  * For more information, see Embedded Analytics in
  * the *Amazon Quick Suite User Guide*.
  * 
- * 
  * For more information about the high-level steps for embedding and for an interactive
  * demo of the ways you can customize embedding, visit the Amazon Quick Suite
  * Developer Portal.
- */export const generateEmbedUrlForAnonymousUser = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/embed-url/anonymous-user", method: "POST", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.GenerateEmbedUrlForAnonymousUser" }, GenerateEmbedUrlForAnonymousUserRequest, GenerateEmbedUrlForAnonymousUserResponse, [AccessDeniedException, InternalFailureException, InvalidParameterValueException, ResourceNotFoundException, SessionLifetimeInMinutesInvalidException, ThrottlingException, UnsupportedPricingPlanException, UnsupportedUserEditionException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const generateEmbedUrlForAnonymousUser = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/embed-url/anonymous-user", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.GenerateEmbedUrlForAnonymousUser" }, GenerateEmbedUrlForAnonymousUserRequest, GenerateEmbedUrlForAnonymousUserResponse, [AccessDeniedException, InternalFailureException, InvalidParameterValueException, ResourceNotFoundException, SessionLifetimeInMinutesInvalidException, ThrottlingException, UnsupportedPricingPlanException, UnsupportedUserEditionException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates or updates the dataset refresh properties for the dataset.
  */export const putDataSetRefreshProperties = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/data-sets/{DataSetId}/refresh-properties", method: "PUT", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.PutDataSetRefreshProperties" }, PutDataSetRefreshPropertiesRequest, PutDataSetRefreshPropertiesResponse, [AccessDeniedException, ConflictException, InternalFailureException, InvalidParameterValueException, LimitExceededException, PreconditionNotMetException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts an Asset Bundle import job.
- * 
  * 
  * An Asset Bundle import job imports specified Amazon Quick Sight assets into an Amazon Quick
  * Sight account. You can also choose to import a naming prefix and specified configuration
@@ -3321,276 +3042,143 @@ export class IdentityTypeNotSupportedException extends S.TaggedError<IdentityTyp
  * create or update a new or existing asset in your Amazon Quick Sight account. Each Amazon
  * Quick Sight account can run up to 5 import jobs concurrently.
  * 
- * 
  * The API caller must have the necessary `"create"`, `"describe"`,
  * and `"update"` permissions in their IAM role to access each
  * resource type that is contained in the bundle file before the resources can be
  * imported.
- */export const startAssetBundleImportJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/asset-bundle-import-jobs/import", method: "POST", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.StartAssetBundleImportJob" }, StartAssetBundleImportJobRequest, StartAssetBundleImportJobResponse, [AccessDeniedException, ConflictException, InvalidParameterValueException, LimitExceededException, ResourceNotFoundException, ThrottlingException, UnsupportedUserEditionException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startAssetBundleImportJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/asset-bundle-import-jobs/import", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.StartAssetBundleImportJob" }, StartAssetBundleImportJobRequest, StartAssetBundleImportJobResponse, [AccessDeniedException, ConflictException, InvalidParameterValueException, LimitExceededException, ResourceNotFoundException, ThrottlingException, UnsupportedUserEditionException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts an asynchronous job that generates a snapshot of a dashboard's output. You can request one or several of the following format configurations in each API call.
  * 
- * 
- * 
  * - 1 Paginated PDF
- * 
- * 
  * 
  * - 1 Excel workbook that includes up to 5 table or pivot table visuals
  * 
- * 
- * 
  * - 5 CSVs from table or pivot table visuals
- * 
- * 
- * 
- * 
  * 
  * The status of a submitted job can be polled with the `DescribeDashboardSnapshotJob` API. When you call the `DescribeDashboardSnapshotJob` API, check the `JobStatus` field in the response. Once the job reaches a `COMPLETED` or `FAILED` status, use the `DescribeDashboardSnapshotJobResult` API to obtain the URLs for the generated files. If the job fails, the `DescribeDashboardSnapshotJobResult` API returns detailed information about the error that occurred.
  * 
- * 
- * 
  * **StartDashboardSnapshotJob API throttling**
- * 
- * 
  * 
  * Quick Sight utilizes API throttling to create a more consistent user experience within a time span for customers when they call the `StartDashboardSnapshotJob`. By default, 12 jobs can run simlutaneously in one Amazon Web Services account and users can submit up 10 API requests per second before an account is throttled. If an overwhelming number of API requests are made by the same user in a short period of time, Quick Sight throttles the API calls to maintin an optimal experience and reliability for all Quick Sight users.
  * 
- * 
- * 
  * **Common throttling scenarios**
- * 
- * 
  * 
  * The following list provides information about the most commin throttling scenarios that can occur.
  * 
- * 
- * 
  * - **A large number of `SnapshotExport` API jobs are running simultaneously on an Amazon Web Services account.** When a new `StartDashboardSnapshotJob` is created and there are already 12 jobs with the `RUNNING` status, the new job request fails and returns a `LimitExceededException` error. Wait for a current job to comlpete before you resubmit the new job.
- * 
- * 
  * 
  * - **A large number of API requests are submitted on an Amazon Web Services account.** When a user makes more than 10 API calls to the Quick Sight API in one second, a `ThrottlingException` is returned.
  * 
- * 
- * 
- * 
- * 
  * If your use case requires a higher throttling limit, contact your account admin or Amazon Web ServicesSupport to explore options to tailor a more optimal expereince for your account.
- * 
- * 
  * 
  * **Best practices to handle throttling**
  * 
- * 
- * 
  * If your use case projects high levels of API traffic, try to reduce the degree of frequency and parallelism of API calls as much as you can to avoid throttling. You can also perform a timing test to calculate an estimate for the total processing time of your projected load that stays within the throttling limits of the Quick Sight APIs. For example, if your projected traffic is 100 snapshot jobs before 12:00 PM per day, start 12 jobs in parallel and measure the amount of time it takes to proccess all 12 jobs. Once you obtain the result, multiply the duration by 9, for example `(12 minutes * 9 = 108 minutes)`. Use the new result to determine the latest time at which the jobs need to be started to meet your target deadline.
- * 
  * 
  * The time that it takes to process a job can be impacted by the following factors:
  * 
- * 
- * 
  * - The dataset type (Direct Query or SPICE).
- * 
- * 
  * 
  * - The size of the dataset.
  * 
- * 
- * 
  * - The complexity of the calculated fields that are used in the dashboard.
- * 
- * 
  * 
  * - The number of visuals that are on a sheet.
  * 
- * 
- * 
  * - The types of visuals that are on the sheet.
- * 
- * 
  * 
  * - The number of formats and snapshots that are requested in the job configuration.
  * 
- * 
- * 
  * - The size of the generated snapshots.
- * 
- * 
- * 
- * 
- * 
  * 
  * **Registered user support**
  * 
- * 
- * 
  * You can generate snapshots for registered Quick Sight users by using the Snapshot Job APIs with identity-enhanced IAM role session credentials. This approach allows you to create snapshots on behalf of specific Quick Sight users while respecting their row-level security (RLS), column-level security (CLS), dynamic default parameters and dashboard parameter/filter settings.
- * 
  * 
  * To generate snapshots for registered Quick Sight users, you need to:
  * 
- * 
- * 
  * - Obtain identity-enhanced IAM role session credentials from Amazon Web Services Security Token Service (STS).
- * 
- * 
  * 
  * - Use these credentials to call the Snapshot Job APIs.
  * 
- * 
- * 
- * 
- * 
  * Identity-enhanced credentials are credentials that contain information about the end user (e.g., registered Quick Sight user).
- * 
  * 
  * If your Quick Sight users are backed by Amazon Web Services Identity Center, then you need to set up a trusted token issuer. Then, getting identity-enhanced IAM credentials for a Quick Sight user will look like the following:
  * 
- * 
- * 
  * - Authenticate user with your OIDC compliant Identity Provider. You should get auth tokens back.
- * 
- * 
  * 
  * - Use the OIDC API, CreateTokenWithIAM, to exchange auth tokens to IAM tokens. One of the resulted tokens will be identity token.
  * 
- * 
- * 
  * - Call STS AssumeRole API as you normally would, but provide an extra `ProvidedContexts` parameter in the API request. The list of contexts must have a single trusted context assertion. The `ProviderArn` should be `arn:aws:iam::aws:contextProvider/IdentityCenter` while `ContextAssertion` will be the identity token you received in response from CreateTokenWithIAM
- * 
- * 
- * 
- * 
  * 
  * For more details, see IdC documentation on Identity-enhanced IAM role sessions.
  * 
- * 
  * To obtain Identity-enhanced credentials for Quick Sight native users, IAM federated users, or Active Directory users, follow the steps below:
- * 
- * 
  * 
  * - Call Quick Sight GetIdentityContext API to get identity token.
  * 
- * 
- * 
  * - Call STS AssumeRole API as you normally would, but provide extra `ProvidedContexts` parameter in the API request. The list of contexts must have a single trusted context assertion. The `ProviderArn` should be `arn:aws:iam::aws:contextProvider/QuickSight` while `ContextAssertion` will be the identity token you received in response from GetIdentityContext
- * 
- * 
- * 
- * 
  * 
  * After obtaining the identity-enhanced IAM role session credentials, you can use them to start a job, describe the job and describe job result. You can use the same credentials as long as they haven't expired. All API requests made with these credentials are considered to be made by the impersonated Quick Sight user.
  * 
- * 
- * 
- * 
  * When using identity-enhanced session credentials, set the UserConfiguration request attribute to null. Otherwise, the request will be invalid.
- * 
- * 
- * 
- * 
  * 
  * **Possible error scenarios**
  * 
- * 
- * 
  * The request fails with an Access Denied error in the following scenarios:
- * 
- * 
  * 
  * - The credentials have expired.
  * 
- * 
- * 
  * - The impersonated Quick Sight user doesn't have access to the specified dashboard.
  * 
- * 
- * 
  * - The impersonated Quick Sight user is restricted from exporting data in the selected formats. For more information about export restrictions, see Customizing access to Amazon Quick Sight capabilities.
- */export const startDashboardSnapshotJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/dashboards/{DashboardId}/snapshot-jobs", method: "POST", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.StartDashboardSnapshotJob" }, StartDashboardSnapshotJobRequest, StartDashboardSnapshotJobResponse, [AccessDeniedException, InternalFailureException, InvalidParameterValueException, LimitExceededException, ResourceExistsException, ResourceNotFoundException, ThrottlingException, UnsupportedPricingPlanException, UnsupportedUserEditionException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startDashboardSnapshotJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/dashboards/{DashboardId}/snapshot-jobs", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.StartDashboardSnapshotJob" }, StartDashboardSnapshotJobRequest, StartDashboardSnapshotJobResponse, [AccessDeniedException, InternalFailureException, InvalidParameterValueException, LimitExceededException, ResourceExistsException, ResourceNotFoundException, ThrottlingException, UnsupportedPricingPlanException, UnsupportedUserEditionException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates new reviewed answers for a Q Topic.
- */export const batchCreateTopicReviewedAnswer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/topics/{TopicId}/batch-create-reviewed-answers", method: "POST", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.BatchCreateTopicReviewedAnswer" }, BatchCreateTopicReviewedAnswerRequest, BatchCreateTopicReviewedAnswerResponse, [AccessDeniedException, InternalFailureException, InvalidParameterValueException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const batchCreateTopicReviewedAnswer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/topics/{TopicId}/batch-create-reviewed-answers", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.BatchCreateTopicReviewedAnswer" }, BatchCreateTopicReviewedAnswerRequest, BatchCreateTopicReviewedAnswerResponse, [AccessDeniedException, InternalFailureException, InvalidParameterValueException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an action connector that enables Amazon Quick Sight to connect to external services and perform actions.
  * Action connectors support various authentication methods and can be configured with specific actions from supported connector types
  * like Amazon S3, Salesforce, JIRA.
- */export const createActionConnector = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/action-connectors", method: "POST", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.CreateActionConnector" }, CreateActionConnectorRequest, CreateActionConnectorResponse, [AccessDeniedException, ConflictException, InternalFailureException, InvalidParameterValueException, ResourceExistsException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createActionConnector = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/action-connectors", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.CreateActionConnector" }, CreateActionConnectorRequest, CreateActionConnectorResponse, [AccessDeniedException, ConflictException, InternalFailureException, InvalidParameterValueException, ResourceExistsException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes a brand.
  */export const describeBrand = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/brands/{BrandId}", method: "GET", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.DescribeBrand" }, DescribeBrandRequest, DescribeBrandResponse, [AccessDeniedException, ConflictException, InternalServerException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes the result of an existing snapshot job that has finished running.
  * 
- * 
  * A finished snapshot job will return a `COMPLETED` or `FAILED` status when you poll the job with a `DescribeDashboardSnapshotJob` API call.
- * 
  * 
  * If the job has not finished running, this operation returns a message that says `Dashboard Snapshot Job with id has not reached a terminal state.`.
  * 
- * 
- * 
  * **Registered user support**
- * 
- * 
  * 
  * This API can be called as before to get the result of a job started by the same Quick Sight user. The result for the user will be returned in `RegisteredUsers` response attribute. The attribute will contain a list with at most one object in it.
  * 
- * 
- * 
  * **Possible error scenarios**
- * 
- * 
  * 
  * The request fails with an Access Denied error in the following scenarios:
  * 
- * 
- * 
  * - The credentials have expired.
- * 
- * 
  * 
  * - The job was started by a different user.
  * 
- * 
- * 
  * - The registered user doesn't have access to the specified dashboard.
- * 
- * 
- * 
- * 
  * 
  * The request succeeds but the job fails in the following scenarios:
  * 
- * 
- * 
  * - `DASHBOARD_ACCESS_DENIED` - The registered user lost access to the dashboard.
- * 
- * 
  * 
  * - `CAPABILITY_RESTRICTED` - The registered user is restricted from exporting data in **all** selected formats.
  * 
- * 
- * 
- * 
- * 
  * The request succeeds but the response contains an error code in the following scenarios:
- * 
- * 
  * 
  * - `CAPABILITY_RESTRICTED` - The registered user is restricted from exporting data in **some** selected formats.
  * 
- * 
- * 
  * - `RLS_CHANGED` - Row-level security settings have changed. Re-run the job with current settings.
  * 
- * 
- * 
  * - `CLS_CHANGED` - Column-level security settings have changed. Re-run the job with current settings.
- * 
- * 
  * 
  * - `DATASET_DELETED` - The dataset has been deleted. Verify the dataset exists before re-running the job.
  */export const describeDashboardSnapshotJobResult = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/dashboards/{DashboardId}/snapshot-jobs/{SnapshotJobId}/result", method: "GET", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.DescribeDashboardSnapshotJobResult" }, DescribeDashboardSnapshotJobResultRequest, DescribeDashboardSnapshotJobResultResponse, [AccessDeniedException, InternalFailureException, InvalidParameterValueException, PreconditionNotMetException, ResourceNotFoundException, ThrottlingException, UnsupportedUserEditionException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -3599,54 +3187,41 @@ export class IdentityTypeNotSupportedException extends S.TaggedError<IdentityTyp
  * in your website. This action can be used for any type of user registered in an Amazon Quick Suite account. Before you use this action, make sure that you have
  * configured the relevant Amazon Quick Suite resource and permissions.
  * 
- * 
  * The following rules apply to the generated URL:
- * 
- * 
  * 
  * - It contains a temporary bearer token. It is valid for 5 minutes after it is
  * generated. Once redeemed within this period, it cannot be re-used again.
- * 
- * 
  * 
  * - The URL validity period should not be confused with the actual session
  * lifetime that can be customized using the
  * SessionLifetimeInMinutes
  * parameter.
  * 
- * 
  * The resulting user session is valid for 15 minutes (minimum) to 10 hours
  * (maximum). The default session duration is 10 hours.
  * 
- * 
- * 
  * - You are charged only when the URL is used or there is interaction with Amazon Quick Suite.
- * 
- * 
- * 
- * 
  * 
  * For more information, see Embedded Analytics in
  * the *Amazon Quick Suite User Guide*.
  * 
- * 
  * For more information about the high-level steps for embedding and for an interactive
  * demo of the ways you can customize embedding, visit the Amazon Quick Suite
  * Developer Portal.
- */export const generateEmbedUrlForRegisteredUser = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/embed-url/registered-user", method: "POST", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.GenerateEmbedUrlForRegisteredUser" }, GenerateEmbedUrlForRegisteredUserRequest, GenerateEmbedUrlForRegisteredUserResponse, [AccessDeniedException, InternalFailureException, InvalidParameterValueException, QuickSightUserNotFoundException, ResourceNotFoundException, SessionLifetimeInMinutesInvalidException, ThrottlingException, UnsupportedPricingPlanException, UnsupportedUserEditionException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const generateEmbedUrlForRegisteredUser = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/embed-url/registered-user", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.GenerateEmbedUrlForRegisteredUser" }, GenerateEmbedUrlForRegisteredUserRequest, GenerateEmbedUrlForRegisteredUserResponse, [AccessDeniedException, InternalFailureException, InvalidParameterValueException, QuickSightUserNotFoundException, ResourceNotFoundException, SessionLifetimeInMinutesInvalidException, ThrottlingException, UnsupportedPricingPlanException, UnsupportedUserEditionException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an Quick Sight brand.
- */export const createBrand = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/brands/{BrandId}", method: "POST", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.CreateBrand" }, CreateBrandRequest, CreateBrandResponse, [AccessDeniedException, ConflictException, InternalServerException, InvalidRequestException, LimitExceededException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createBrand = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/brands/{BrandId}", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.CreateBrand" }, CreateBrandRequest, CreateBrandResponse, [AccessDeniedException, ConflictException, InternalServerException, InvalidRequestException, LimitExceededException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new Q topic.
- */export const createTopic = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/topics", method: "POST", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.CreateTopic" }, CreateTopicRequest, CreateTopicResponse, [AccessDeniedException, ConflictException, InternalFailureException, InvalidParameterValueException, LimitExceededException, ResourceExistsException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createTopic = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/topics", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.CreateTopic" }, CreateTopicRequest, CreateTopicResponse, [AccessDeniedException, ConflictException, InternalFailureException, InvalidParameterValueException, LimitExceededException, ResourceExistsException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves detailed information about an action connector, including its configuration, authentication settings, enabled actions, and current status.
  */export const describeActionConnector = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/action-connectors/{ActionConnectorId}", method: "GET", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.DescribeActionConnector" }, DescribeActionConnectorRequest, DescribeActionConnectorResponse, [AccessDeniedException, InternalFailureException, InvalidParameterValueException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a dataset. This operation doesn't support datasets that include uploaded files
  * as a source.
- */export const createDataSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/data-sets", method: "POST", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.CreateDataSet" }, CreateDataSetRequest, CreateDataSetResponse, [AccessDeniedException, ConflictException, InternalFailureException, InvalidDataSetParameterValueException, InvalidParameterValueException, LimitExceededException, ResourceExistsException, ResourceNotFoundException, ThrottlingException, UnsupportedUserEditionException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createDataSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/data-sets", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.CreateDataSet" }, CreateDataSetRequest, CreateDataSetResponse, [AccessDeniedException, ConflictException, InternalFailureException, InvalidDataSetParameterValueException, InvalidParameterValueException, LimitExceededException, ResourceExistsException, ResourceNotFoundException, ThrottlingException, UnsupportedUserEditionException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an analysis in Amazon Quick Sight. Analyses can be created either from a template or from an `AnalysisDefinition`.
- */export const createAnalysis = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/analyses/{AnalysisId}", method: "POST", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.CreateAnalysis" }, CreateAnalysisRequest, CreateAnalysisResponse, [ConflictException, InternalFailureException, InvalidParameterValueException, LimitExceededException, ResourceExistsException, ResourceNotFoundException, ThrottlingException, UnsupportedUserEditionException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createAnalysis = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-04-01", uri: "/accounts/{AwsAccountId}/analyses/{AnalysisId}", sdkId: "QuickSight", sigV4ServiceName: "quicksight", name: "QuickSight_20180401.CreateAnalysis" }, CreateAnalysisRequest, CreateAnalysisResponse, [ConflictException, InternalFailureException, InvalidParameterValueException, LimitExceededException, ResourceExistsException, ResourceNotFoundException, ThrottlingException, UnsupportedUserEditionException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

@@ -41,16 +41,13 @@ export class ValidationError extends S.TaggedError<ValidationError>()("Validatio
  * The `PutRecord` API is used to ingest a list of `Records` into
  * your feature group.
  * 
- * 
  * If a new record’s `EventTime` is greater, the new record is written to both
  * the `OnlineStore` and `OfflineStore`. Otherwise, the record is a
  * historic record and it is written only to the `OfflineStore`.
  * 
- * 
  * You can specify the ingestion to be applied to the `OnlineStore`,
  * `OfflineStore`, or both by using the `TargetStores` request
  * parameter.
- * 
  * 
  * You can set the ingested record to expire at a given time to live (TTL) duration after
  * the record’s event time, `ExpiresAt` = `EventTime` +
@@ -63,7 +60,7 @@ export class ValidationError extends S.TaggedError<ValidationError>()("Validatio
  */export const putRecord = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-07-01", uri: "/FeatureGroup/{FeatureGroupName}", method: "PUT", sdkId: "SageMaker FeatureStore Runtime", sigV4ServiceName: "sagemaker", name: "AmazonSageMakerFeatureStoreRuntime.PutRecord" }, PutRecordRequest, S.Struct({}), [AccessForbidden, InternalFailure, ServiceUnavailable, ValidationError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves a batch of `Records` from a `FeatureGroup`.
- */export const batchGetRecord = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-07-01", uri: "/BatchGetRecord", method: "POST", sdkId: "SageMaker FeatureStore Runtime", sigV4ServiceName: "sagemaker", name: "AmazonSageMakerFeatureStoreRuntime.BatchGetRecord" }, BatchGetRecordRequest, BatchGetRecordResponse, [AccessForbidden, InternalFailure, ServiceUnavailable, ValidationError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const batchGetRecord = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-07-01", uri: "/BatchGetRecord", sdkId: "SageMaker FeatureStore Runtime", sigV4ServiceName: "sagemaker", name: "AmazonSageMakerFeatureStoreRuntime.BatchGetRecord" }, BatchGetRecordRequest, BatchGetRecordResponse, [AccessForbidden, InternalFailure, ServiceUnavailable, ValidationError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a `Record` from a `FeatureGroup` in the
  * `OnlineStore`. Feature Store supports both `SoftDelete` and
@@ -77,27 +74,18 @@ export class ValidationError extends S.TaggedError<ValidationError>()("Validatio
  * the delete input `EventTime`, and other feature values set to
  * `null`.
  * 
- * 
  * Note that the `EventTime` specified in `DeleteRecord` should be
  * set later than the `EventTime` of the existing record in the
  * `OnlineStore` for that `RecordIdentifer`. If it is not, the
  * deletion does not occur:
  * 
- * 
- * 
  * - For `SoftDelete`, the existing (not deleted) record remains in the
  * `OnlineStore`, though the delete record marker is still written to the
  * `OfflineStore`.
  * 
- * 
- * 
  * - `HardDelete` returns `EventTime`: 400
  * ValidationException to indicate that the delete operation failed. No delete
  * record marker is written to the `OfflineStore`.
- * 
- * 
- * 
- * 
  * 
  * When a record is deleted from the `OnlineStore`, the deleted record marker is
  * appended to the `OfflineStore`. If you have the Iceberg table format enabled for

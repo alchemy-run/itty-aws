@@ -36,9 +36,6 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
 /**
  * Returns information about the blocks in an Amazon Elastic Block Store snapshot.
  * 
- * 
- * 
- * 
  * You should always retry requests that receive server (`5xx`)
  * error responses, and `ThrottlingException` and `RequestThrottledException`
  * client error responses. For more information see Error retries in the
@@ -49,11 +46,7 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * data, the existing data is overwritten. The target snapshot must be in the
  * `pending` state.
  * 
- * 
  * Data written to a snapshot must be aligned with 512-KiB sectors.
- * 
- * 
- * 
  * 
  * You should always retry requests that receive server (`5xx`)
  * error responses, and `ThrottlingException` and `RequestThrottledException`
@@ -65,19 +58,13 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * written to it. Completing the snapshot changes the status to `completed`. You
  * cannot write new blocks to a snapshot after it has been completed.
  * 
- * 
- * 
- * 
  * You should always retry requests that receive server (`5xx`)
  * error responses, and `ThrottlingException` and `RequestThrottledException`
  * client error responses. For more information see Error retries in the
  * *Amazon Elastic Compute Cloud User Guide*.
- */export const completeSnapshot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-02", uri: "/snapshots/completion/{SnapshotId}", method: "POST", sdkId: "EBS", sigV4ServiceName: "ebs", name: "Ebs.CompleteSnapshot" }, CompleteSnapshotRequest, CompleteSnapshotResponse, [AccessDeniedException, InternalServerException, RequestThrottledException, ResourceNotFoundException, ServiceQuotaExceededException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const completeSnapshot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-02", uri: "/snapshots/completion/{SnapshotId}", sdkId: "EBS", sigV4ServiceName: "ebs", name: "Ebs.CompleteSnapshot" }, CompleteSnapshotRequest, CompleteSnapshotResponse, [AccessDeniedException, InternalServerException, RequestThrottledException, ResourceNotFoundException, ServiceQuotaExceededException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the data in a block in an Amazon Elastic Block Store snapshot.
- * 
- * 
- * 
  * 
  * You should always retry requests that receive server (`5xx`)
  * error responses, and `ThrottlingException` and `RequestThrottledException`
@@ -88,9 +75,6 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * Returns information about the blocks that are different between two
  * Amazon Elastic Block Store snapshots of the same volume/snapshot lineage.
  * 
- * 
- * 
- * 
  * You should always retry requests that receive server (`5xx`)
  * error responses, and `ThrottlingException` and `RequestThrottledException`
  * client error responses. For more information see Error retries in the
@@ -100,15 +84,11 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * Creates a new Amazon EBS snapshot. The new snapshot enters the `pending` state
  * after the request completes.
  * 
- * 
  * After creating the snapshot, use PutSnapshotBlock to
  * write blocks of data to the snapshot.
- * 
- * 
- * 
  * 
  * You should always retry requests that receive server (`5xx`)
  * error responses, and `ThrottlingException` and `RequestThrottledException`
  * client error responses. For more information see Error retries in the
  * *Amazon Elastic Compute Cloud User Guide*.
- */export const startSnapshot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-02", uri: "/snapshots", method: "POST", sdkId: "EBS", sigV4ServiceName: "ebs", name: "Ebs.StartSnapshot" }, StartSnapshotRequest, StartSnapshotResponse, [AccessDeniedException, ConcurrentLimitExceededException, ConflictException, InternalServerException, RequestThrottledException, ResourceNotFoundException, ServiceQuotaExceededException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startSnapshot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-02", uri: "/snapshots", sdkId: "EBS", sigV4ServiceName: "ebs", name: "Ebs.StartSnapshot" }, StartSnapshotRequest, StartSnapshotResponse, [AccessDeniedException, ConcurrentLimitExceededException, ConflictException, InternalServerException, RequestThrottledException, ResourceNotFoundException, ServiceQuotaExceededException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
