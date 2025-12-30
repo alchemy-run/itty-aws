@@ -643,7 +643,7 @@ export class PutObjectAclRequest extends S.Class<PutObjectAclRequest>("PutObject
   ExpectedBucketOwner: S.optional(H.Header("x-amz-expected-bucket-owner")),
 }) {}
 export class Tag extends S.Class<Tag>("Tag")({ Key: S.String, Value: S.String }) {}
-export const TagSet = S.Array(Tag);
+export const TagSet = S.Array(Tag)
 export class Tagging extends S.Class<Tagging>("Tagging")({ TagSet: TagSet }) {}
 export class PutObjectTaggingRequest extends S.Class<PutObjectTaggingRequest>(
   "PutObjectTaggingRequest",
