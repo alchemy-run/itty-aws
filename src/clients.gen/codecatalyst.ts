@@ -12,5 +12,5 @@ export class GetUserDetailsResponse extends S.Class<GetUserDetailsResponse>("Get
 
 
 //# Operations
-export const verifySession = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-09-28", uri: "/session", method: "GET", sdkId: "CodeCatalyst", sigV4ServiceName: null, name: "CodeCatalyst.VerifySession" }, S.Struct({}), VerifySessionResponse, []), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getUserDetails = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-09-28", uri: "/userDetails", method: "GET", sdkId: "CodeCatalyst", sigV4ServiceName: null, name: "CodeCatalyst.GetUserDetails" }, GetUserDetailsRequest, GetUserDetailsResponse, []), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const verifySession = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-09-28", uri: "/session", method: "GET", sdkId: "CodeCatalyst", sigV4ServiceName: "CodeCatalyst", name: "CodeCatalyst.VerifySession" }, S.Struct({}), VerifySessionResponse, []), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const getUserDetails = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-09-28", uri: "/userDetails", method: "GET", sdkId: "CodeCatalyst", sigV4ServiceName: "CodeCatalyst", name: "CodeCatalyst.GetUserDetails" }, GetUserDetailsRequest, GetUserDetailsResponse, []), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
