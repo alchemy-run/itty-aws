@@ -39,6 +39,8 @@ export const Path = <S extends Schema.Schema.AnyNoContext>(
 ) => schema.pipe(Schema.annotations({ [requestPathSymbol]: pathName }));
 
 export const OperationMeta = Schema.Struct({
+  inputSchema: Schema.optional(Schema.Any),
+  outputSchema: Schema.optional(Schema.Any),
   uri: Schema.optional(Schema.String),
   method: Schema.optional(
     Schema.Union(
@@ -79,7 +81,11 @@ export const Operation = <
     output: outputSchema,
   }).pipe(
     Schema.annotations({
-      [requestMetaSymbol]: meta,
+      [requestMetaSymbol]: {
+        ...meta,
+        inputSchema,
+        outputSchema
+      },
       [requestError]: errorList,
     }),
   ) as any;

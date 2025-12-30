@@ -1,40 +1,30 @@
 import { FileSystem, Path } from "@effect/platform";
 import { BunContext, BunRuntime } from "@effect/platform-bun";
+import dedent from "dedent";
 import {
+  Console,
+  Context,
+  Data,
+  Deferred,
   Effect,
   LogLevel,
   Logger,
-  Schema as S,
-  Data,
-  Context,
   Match,
-  Ref,
-  Console,
-  Option,
   MutableHashMap,
-  Deferred,
   MutableHashSet,
+  Option,
+  Ref,
+  Schema as S,
 } from "effect";
-import {
-  SmithyModel,
-  ServiceShape,
-  GenericShape,
-  type ShapeTypeMap,
-} from "./model-schema.ts";
-import dedent from "dedent";
+import { GenericShape, ServiceShape, SmithyModel, type ShapeTypeMap } from "./model-schema.ts";
 //todo(pear): swap out for effect platform path
 import path from "pathe";
 
 class SdkFile extends Context.Tag("SdkFile")<
   SdkFile,
   {
-    map: MutableHashMap.MutableHashMap<
-      string,
-      Deferred.Deferred<string, never>
-    >;
-    schemas: Ref.Ref<
-      Array<{ name: string; definition: string; deps: string[] }>
-    >;
+    map: MutableHashMap.MutableHashMap<string, Deferred.Deferred<string, never>>;
+    schemas: Ref.Ref<Array<{ name: string; definition: string; deps: string[] }>>;
     errors: Ref.Ref<Array<{ name: string; definition: string }>>;
     operations: Ref.Ref<string>;
     // Set of schema names that are part of a cycle (populated before generation)
@@ -47,13 +37,12 @@ class SdkFile extends Context.Tag("SdkFile")<
     errorShapeIds: Set<string>;
     // Map of error shape names to their inline fields definition
     errorFields: Ref.Ref<Map<string, string>>;
+    // Track if middleware import is needed
+    usesMiddleware: Ref.Ref<boolean>;
   }
 >() {}
 
-class ModelService extends Context.Tag("ModelService")<
-  ModelService,
-  SmithyModel
->() {}
+class ModelService extends Context.Tag("ModelService")<ModelService, SmithyModel>() {}
 
 function getSdkFlag(): Option.Option<string> {
   const idx = process.argv.indexOf("--sdk");
@@ -69,29 +58,21 @@ class ShapeNotFound extends Data.TaggedError("ShapeNotFound")<{
 class ProtocolNotFound extends Data.TaggedError("ProtocolNotFound")<{}> {}
 
 //* todo(pear): better error here - most of these need to be handled
-class UnableToTransformShapeToSchema extends Data.TaggedError(
-  "UnableToTransformShapeToSchema",
-)<{
+class UnableToTransformShapeToSchema extends Data.TaggedError("UnableToTransformShapeToSchema")<{
   message: string;
 }> {}
 
-class ProtocolNotImplemented extends Data.TaggedError(
-  "ProtocolNotImplemented",
-)<{
+class ProtocolNotImplemented extends Data.TaggedError("ProtocolNotImplemented")<{
   message: string;
 }> {}
 
 const findServiceShape = Effect.gen(function* () {
   const model = yield* ModelService;
-  const serviceEntry = Object.entries(model.shapes).find(
-    ([_, shape]) => shape.type === "service",
-  );
+  const serviceEntry = Object.entries(model.shapes).find(([_, shape]) => shape.type === "service");
 
   return serviceEntry
     ? (serviceEntry as [string, ServiceShape])
-    : yield* Effect.fail(
-        new ShapeNotFound({ message: "service shape not found" }),
-      );
+    : yield* Effect.fail(new ShapeNotFound({ message: "service shape not found" }));
 });
 
 //todo(pear): cache this
@@ -108,13 +89,10 @@ function findShape(
   type?: string,
 ): Effect.Effect<[string, GenericShape], ShapeNotFound, ModelService> {
   const effect = Effect.gen(function* () {
-    yield* Effect.logDebug(
-      `finding shape: \`${shapeId}\` of type: ${type ?? "any"}`,
-    );
+    yield* Effect.logDebug(`finding shape: \`${shapeId}\` of type: ${type ?? "any"}`);
     const model = yield* ModelService;
     const entry = Object.entries(model.shapes).find(
-      ([id, shape]) =>
-        (type == null ? true : shape.type === type) && id === shapeId,
+      ([id, shape]) => (type == null ? true : shape.type === type) && id === shapeId,
     );
 
     return entry
@@ -186,8 +164,7 @@ function topologicalSortWithCycles(
 ): Array<{ name: string; definition: string; deps: string[] }> {
   const schemaMap = new Map(schemas.map((s) => [s.name, s]));
   const visited = new Set<string>();
-  const result: Array<{ name: string; definition: string; deps: string[] }> =
-    [];
+  const result: Array<{ name: string; definition: string; deps: string[] }> = [];
 
   //todo(pear): rewrite this as an effect
   function visit(name: string) {
@@ -260,9 +237,7 @@ function collectShapeDependencies(
 
 //todo(pear): rewrite as effect
 // Find all schemas that are part of a cycle using the pre-collected dependencies
-function findCyclicSchemasFromDeps(
-  shapeDeps: Map<string, { deps: string[]; type: string }>,
-): {
+function findCyclicSchemasFromDeps(shapeDeps: Map<string, { deps: string[]; type: string }>): {
   cyclicSchemas: Set<string>;
   cyclicClasses: Set<string>;
   allStructNames: Set<string>;
@@ -288,15 +263,9 @@ function findCyclicSchemasFromDeps(
         if (shapeDeps.has(dep)) {
           if (!indices.has(dep)) {
             strongConnect(dep);
-            lowlinks.set(
-              name,
-              Math.min(lowlinks.get(name)!, lowlinks.get(dep)!),
-            );
+            lowlinks.set(name, Math.min(lowlinks.get(name)!, lowlinks.get(dep)!));
           } else if (onStack.has(dep)) {
-            lowlinks.set(
-              name,
-              Math.min(lowlinks.get(name)!, indices.get(dep)!),
-            );
+            lowlinks.set(name, Math.min(lowlinks.get(name)!, indices.get(dep)!));
           }
         }
       }
@@ -372,9 +341,7 @@ const convertShapeToSchema: (
   ModelService | SdkFile
 > = Effect.fn(function* (target: string) {
   const sdkFile = yield* SdkFile;
-  const cachedResult = Option.getOrNull(
-    MutableHashMap.get(sdkFile.map, target),
-  );
+  const cachedResult = Option.getOrNull(MutableHashMap.get(sdkFile.map, target));
   const deferredValue = yield* Deferred.make<string, never>();
   if (cachedResult != null) {
     return cachedResult;
@@ -398,10 +365,7 @@ const convertShapeToSchema: (
     yield* Deferred.succeed(deferredValue, tsName);
     const definition = yield* definitionEffect;
 
-    yield* Ref.update(sdkFile.schemas, (arr) => [
-      ...arr,
-      { name: tsName, definition, deps },
-    ]);
+    yield* Ref.update(sdkFile.schemas, (arr) => [...arr, { name: tsName, definition, deps }]);
     return tsName;
   });
 
@@ -422,8 +386,7 @@ const convertShapeToSchema: (
           () => Effect.succeed("S.Number"),
         ),
         Match.when(
-          (s) =>
-            s === "smithy.api#Boolean" || s === "smithy.api#PrimitiveBoolean",
+          (s) => s === "smithy.api#Boolean" || s === "smithy.api#PrimitiveBoolean",
           () => Effect.succeed("S.Boolean"),
         ),
         Match.when(
@@ -490,8 +453,7 @@ const convertShapeToSchema: (
             (s) =>
               Effect.succeed(
                 Object.values(s.members).map(
-                  ({ traits }) =>
-                    `S.Literal("${traits["smithy.api#enumValue"]}")`,
+                  ({ traits }) => `S.Literal("${traits["smithy.api#enumValue"]}")`,
                 ),
                 //todo(pear): figure our a more typesafe way of doing this
                 // ).pipe(Effect.map((members) => `S.Union(${members.join(", ")})`)),
@@ -502,8 +464,7 @@ const convertShapeToSchema: (
             (s) =>
               Effect.succeed(
                 Object.values(s.members).map(
-                  ({ traits }) =>
-                    `S.Literal("${traits["smithy.api#enumValue"]}")`,
+                  ({ traits }) => `S.Literal("${traits["smithy.api#enumValue"]}")`,
                 ),
                 //todo(pear): figure our a more typesafe way of doing this
                 // ).pipe(Effect.map((members) => `S.Union(${members.join(", ")})`)),
@@ -515,9 +476,7 @@ const convertShapeToSchema: (
               const memberName = formatName(s.member.target);
               const schemaName = getSchemaName();
               const isCyclic = sdkFile.cyclicSchemas.has(schemaName);
-              const isMemberErrorShape = sdkFile.errorShapeIds.has(
-                s.member.target,
-              );
+              const isMemberErrorShape = sdkFile.errorShapeIds.has(s.member.target);
               return addAlias(
                 convertShapeToSchema(s.member.target).pipe(
                   Effect.flatMap(Deferred.await),
@@ -556,20 +515,15 @@ const convertShapeToSchema: (
           Match.when(
             (s) => s.type === "structure",
             (s) => {
-              const memberTargets = Object.values(s.members).map((m) =>
-                formatName(m.target),
-              );
+              const memberTargets = Object.values(s.members).map((m) => formatName(m.target));
               const currentSchemaName = getSchemaName();
-              const isCurrentCyclic =
-                sdkFile.cyclicSchemas.has(currentSchemaName);
+              const isCurrentCyclic = sdkFile.cyclicSchemas.has(currentSchemaName);
               const isErrorShape = sdkFile.errorShapeIds.has(target);
 
               const membersEffect = Effect.all(
                 Object.entries(s.members).map(([memberName, member]) => {
                   const memberTargetName = formatName(member.target);
-                  const isMemberErrorShape = sdkFile.errorShapeIds.has(
-                    member.target,
-                  );
+                  const isMemberErrorShape = sdkFile.errorShapeIds.has(member.target);
                   return convertShapeToSchema(member.target).pipe(
                     Effect.flatMap(Deferred.await),
                     Effect.map((baseSchema) => {
@@ -580,10 +534,7 @@ const convertShapeToSchema: (
                         schema = `S.suspend(() => ${schema})`;
                       }
                       // Wrap cyclic references in S.suspend (only if current schema is also cyclic)
-                      else if (
-                        isCurrentCyclic &&
-                        sdkFile.cyclicSchemas.has(memberTargetName)
-                      ) {
+                      else if (isCurrentCyclic && sdkFile.cyclicSchemas.has(memberTargetName)) {
                         if (sdkFile.cyclicClasses.has(memberTargetName)) {
                           // TODO(sam): I had to add the any here because encoded type was creting circular errors. hopefully OK since we don't really need it
                           schema = `S.suspend((): S.Schema<${schema}, any> => ${schema})`;
@@ -651,9 +602,7 @@ const convertShapeToSchema: (
           Match.when(
             (s) => s.type === "union",
             (s) => {
-              const memberTargets = Object.values(s.members).map((m) =>
-                formatName(m.target),
-              );
+              const memberTargets = Object.values(s.members).map((m) => formatName(m.target));
               const schemaName = getSchemaName();
               const isCurrentCyclic = sdkFile.cyclicSchemas.has(schemaName);
 
@@ -661,9 +610,7 @@ const convertShapeToSchema: (
                 Effect.all(
                   Object.entries(s.members).map(([_memberName, member]) => {
                     const memberTargetName = formatName(member.target);
-                    const isMemberErrorShape = sdkFile.errorShapeIds.has(
-                      member.target,
-                    );
+                    const isMemberErrorShape = sdkFile.errorShapeIds.has(member.target);
                     return convertShapeToSchema(member.target).pipe(
                       Effect.flatMap(Deferred.await),
                       Effect.map((schema) => {
@@ -674,10 +621,7 @@ const convertShapeToSchema: (
                           wrappedSchema = `S.suspend(() => ${schema})`;
                         }
                         // Wrap cyclic references in S.suspend
-                        else if (
-                          isCurrentCyclic &&
-                          sdkFile.cyclicSchemas.has(memberTargetName)
-                        ) {
+                        else if (isCurrentCyclic && sdkFile.cyclicSchemas.has(memberTargetName)) {
                           if (sdkFile.cyclicClasses.has(memberTargetName)) {
                             // TODO(sam): I had to add the any here because encoded type was creting circular errors. hopefully OK since we don't really need it
                             wrappedSchema = `S.suspend((): S.Schema<${schema}, any> => ${schema})`;
@@ -727,18 +671,12 @@ const convertShapeToSchema: (
               const keyTargetName = formatName(s.key.target);
               const valueTargetName = formatName(s.value.target);
               const isKeyErrorShape = sdkFile.errorShapeIds.has(s.key.target);
-              const isValueErrorShape = sdkFile.errorShapeIds.has(
-                s.value.target,
-              );
+              const isValueErrorShape = sdkFile.errorShapeIds.has(s.value.target);
               return addAlias(
                 Effect.all(
                   [
-                    convertShapeToSchema(s.key.target).pipe(
-                      Effect.flatMap(Deferred.await),
-                    ),
-                    convertShapeToSchema(s.value.target).pipe(
-                      Effect.flatMap(Deferred.await),
-                    ),
+                    convertShapeToSchema(s.key.target).pipe(Effect.flatMap(Deferred.await)),
+                    convertShapeToSchema(s.value.target).pipe(Effect.flatMap(Deferred.await)),
                   ],
                   { concurrency: "unbounded" },
                 ).pipe(
@@ -821,10 +759,7 @@ const addError = Effect.fn(function* (error: { name: string }) {
   return error.name;
 });
 
-const generateClient = Effect.fn(function* (
-  modelPath: string,
-  outputRootPath: string,
-) {
+const generateClient = Effect.fn(function* (modelPath: string, outputRootPath: string) {
   const fs = yield* FileSystem.FileSystem;
   const path = yield* Path.Path;
   const clientImports = MutableHashSet.empty<string>();
@@ -853,10 +788,7 @@ const generateClient = Effect.fn(function* (
     yield* Effect.forEach(
       serviceShape.operations ?? [],
       Effect.fn(function* ({ target: operationId }: { target: string }) {
-        const [operationShapeName, operationShape] = yield* findShape(
-          operationId,
-          "operation",
-        );
+        const [operationShapeName, operationShape] = yield* findShape(operationId, "operation");
 
         //todo(pear): we shouldn't default sigv4 to serviceName here, we should do that in client.ts so we don't take up as much space
         const operationName = `${serviceName}.${operationShapeName.split("#")[1]}`;
@@ -864,27 +796,25 @@ const generateClient = Effect.fn(function* (
           operationShape["traits"]["smithy.api#documentation"] ?? "",
         );
 
-        const input = yield* convertShapeToSchema(
-          operationShape.input.target,
-        ).pipe(Effect.flatMap(Deferred.await));
-        const output = yield* convertShapeToSchema(
-          operationShape.output.target,
-        ).pipe(Effect.flatMap(Deferred.await));
+        const input = yield* convertShapeToSchema(operationShape.input.target).pipe(
+          Effect.flatMap(Deferred.await),
+        );
+        const output = yield* convertShapeToSchema(operationShape.output.target).pipe(
+          Effect.flatMap(Deferred.await),
+        );
 
         const operationErrors =
           operationShape.errors == null || operationShape.errors.length === 0
             ? "[]"
-            : yield* Effect.forEach(
-                operationShape.errors,
-                ({ target: errorShapeReference }) =>
-                  convertShapeToSchema(errorShapeReference).pipe(
-                    Effect.flatMap(Deferred.await),
-                    Effect.flatMap(() =>
-                      addError({
-                        name: formatName(errorShapeReference),
-                      }),
-                    ),
+            : yield* Effect.forEach(operationShape.errors, ({ target: errorShapeReference }) =>
+                convertShapeToSchema(errorShapeReference).pipe(
+                  Effect.flatMap(Deferred.await),
+                  Effect.flatMap(() =>
+                    addError({
+                      name: formatName(errorShapeReference),
+                    }),
                   ),
+                ),
               ).pipe(Effect.map((errors) => `[${errors.join(", ")}]`));
 
         const httpTrait = operationShape["traits"]["smithy.api#http"] ?? {
@@ -892,22 +822,34 @@ const generateClient = Effect.fn(function* (
           uri: "/",
         };
 
-        const [responseParser, requestParser, errorParser] = yield* Match.value(
-          protocol,
-        ).pipe(
+        // Detect httpChecksum trait and find the algorithm header
+        const httpChecksumTrait = operationShape["traits"]["aws.protocols#httpChecksum"] as
+          | {
+              requestAlgorithmMember?: string;
+              requestChecksumRequired?: boolean;
+            }
+          | undefined;
+
+        let checksumMiddleware: string | undefined;
+        if (httpChecksumTrait?.requestAlgorithmMember) {
+          // Find the input shape to get the header name for the algorithm member
+          const [, inputShape] = yield* findShape(operationShape.input.target, "structure");
+          const algorithmMember = inputShape.members[httpChecksumTrait.requestAlgorithmMember];
+          if (algorithmMember) {
+            const algorithmHeader = algorithmMember.traits?.["smithy.api#httpHeader"];
+            if (algorithmHeader) {
+              checksumMiddleware = `M.HttpChecksum({ algorithmHeader: "${algorithmHeader}" })`;
+              yield* Ref.set(sdkFile.usesMiddleware, true);
+            }
+          }
+        }
+
+        const [responseParser, requestParser, errorParser] = yield* Match.value(protocol).pipe(
           Match.when("aws.protocols#restXml", () =>
-            Effect.succeed([
-              "FormatXMLRequest",
-              "FormatXMLResponse",
-              "FormatAwsXMLError",
-            ]),
+            Effect.succeed(["FormatXMLRequest", "FormatXMLResponse", "FormatAwsXMLError"]),
           ),
           Match.when("aws.protocols#restJson1", () =>
-            Effect.succeed([
-              "FormatJSONRequest",
-              "FormatJSONResponse",
-              "FormatAwsRestJSONError",
-            ]),
+            Effect.succeed(["FormatJSONRequest", "FormatJSONResponse", "FormatAwsRestJSONError"]),
           ),
           Match.when("aws.protocols#awsJson1_0", () =>
             Effect.succeed([
@@ -950,6 +892,7 @@ const generateClient = Effect.fn(function* (
         MutableHashSet.add(clientImports, requestParser);
         MutableHashSet.add(clientImports, errorParser);
 
+        const middlewareArgs = checksumMiddleware ? `, ${checksumMiddleware}` : "";
         // Build meta object, omitting uri if "/" and method if "POST"
         const metaParts: string[] = [`version: "${serviceShape.version}"`];
         if (httpTrait["uri"] !== "/") {
@@ -970,7 +913,7 @@ const generateClient = Effect.fn(function* (
             (c) =>
               c +
               operationComment +
-              `export const ${formatName(operationShapeName, true)} = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation(${metaObject}, ${input}, ${output}, ${operationErrors}), ${responseParser}, ${requestParser}, ${errorParser});\n`,
+              `export const ${formatName(operationShapeName, true)} = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation(${metaObject}, ${input}, ${output}, ${operationErrors}), ${responseParser}, ${requestParser}, ${errorParser}${middlewareArgs});\n`,
           ),
         );
       }),
@@ -982,23 +925,22 @@ const generateClient = Effect.fn(function* (
     // Get schemas and sort them topologically
     // Cycles were already computed before generation, so just sort
     const schemas = yield* Ref.get(sdkFile.schemas);
-    const sortedSchemas = topologicalSortWithCycles(
-      schemas,
-      sdkFile.cyclicSchemas,
-    );
+    const sortedSchemas = topologicalSortWithCycles(schemas, sdkFile.cyclicSchemas);
     const schemaDefinitions = sortedSchemas.map((s) => s.definition).join("\n");
 
     const errors = yield* Ref.get(sdkFile.errors);
     const errorDefinitions = errors.map((s) => s.definition).join("\n");
 
     const operations = yield* Ref.get(sdkFile.operations);
+    const usesMiddleware = yield* Ref.get(sdkFile.usesMiddleware);
 
     //todo(pear): optimize imports
     const clientImportsArray = Array.from(clientImports);
+    const middlewareImport = usesMiddleware ? `\nimport * as M from "../middleware/index.ts";` : "";
     const imports = dedent`
       import * as S from "effect/Schema"
       import { ${clientImportsArray.join(",")}${clientImportsArray.length > 0 ? "," : ""} makeOperation } from "../client.ts";
-      import * as H from "../schema-helpers.ts";`;
+      import * as H from "../schema-helpers.ts";${middlewareImport}`;
 
     const fileContents = `${imports}\n\n//# Schemas\n${schemaDefinitions}\n\n//# Errors\n${errorDefinitions}\n\n//# Operations\n${operations}`;
 
@@ -1013,17 +955,14 @@ const generateClient = Effect.fn(function* (
 
   // Pre-compute cyclic schemas from the model before generation
   const shapeDeps = collectShapeDependencies(model);
-  const { cyclicSchemas, cyclicClasses, allStructNames } =
-    findCyclicSchemasFromDeps(shapeDeps);
+  const { cyclicSchemas, cyclicClasses, allStructNames } = findCyclicSchemasFromDeps(shapeDeps);
 
   // Pre-collect error shape IDs so we can inline their fields in TaggedError
   const errorShapeIds = collectErrorShapeIds(model);
 
   return yield* client.pipe(
     Effect.provideService(SdkFile, {
-      schemas: yield* Ref.make<
-        Array<{ name: string; definition: string; deps: string[] }>
-      >([]),
+      schemas: yield* Ref.make<Array<{ name: string; definition: string; deps: string[] }>>([]),
       errors: yield* Ref.make<Array<{ name: string; definition: string }>>([]),
       operations: yield* Ref.make(""),
       map: MutableHashMap.empty<string, Deferred.Deferred<string, never>>(),
@@ -1032,6 +971,7 @@ const generateClient = Effect.fn(function* (
       allStructNames,
       errorShapeIds,
       errorFields: yield* Ref.make<Map<string, string>>(new Map()),
+      usesMiddleware: yield* Ref.make<boolean>(false),
     }),
     Effect.provideService(ModelService, model),
   );
@@ -1061,26 +1001,17 @@ BunRuntime.runMain(
           yield* Console.log(`⏩ STARTED SERVICE: ${service}`);
           const baseModelPath = path.join(rootModelsPath, service, "service");
           const folder = (yield* fs.readDirectory(baseModelPath))[0]!;
-          const modelPath = path.join(
-            baseModelPath,
-            folder,
-            `${service}-${folder}.json`,
-          );
+          const modelPath = path.join(baseModelPath, folder, `${service}-${folder}.json`);
           yield* generateClient(modelPath, RESULT_ROOT_PATH);
         }).pipe(
           Effect.andThen(() => Console.log(`✅ SUCCEEDED SERVICE: ${service}`)),
           Effect.catchAll(
             (error) =>
-              Console.error(
-                `❌ FAILED SERVICE: ${service}\n\tUnable to generate client: ${error}`,
-              ), //.pipe(Effect.andThen(() => Effect.die(error))),
+              Console.error(`❌ FAILED SERVICE: ${service}\n\tUnable to generate client: ${error}`), //.pipe(Effect.andThen(() => Effect.die(error))),
           ),
         ),
     );
-  }).pipe(
-    Logger.withMinimumLogLevel(LogLevel.Error),
-    Effect.provide(BunContext.layer),
-  ),
+  }).pipe(Logger.withMinimumLogLevel(LogLevel.Error), Effect.provide(BunContext.layer)),
 );
 
 export function htmlToJsdoc(html: string): string {
@@ -1124,8 +1055,6 @@ export function htmlToJsdoc(html: string): string {
 
   // Format as JSDoc
   const lines = text.split("\n").map((line) => ` * ${line.trim()}`);
-  const dedupedLines = lines.filter(
-    (line, i) => !(line === " * " && lines[i - 1] === " * "),
-  );
+  const dedupedLines = lines.filter((line, i) => !(line === " * " && lines[i - 1] === " * "));
   return `/**\n${dedupedLines.join("\n")}\n */`;
 }
