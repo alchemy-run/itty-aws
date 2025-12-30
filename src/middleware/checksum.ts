@@ -1,24 +1,20 @@
 import type { Checksum } from "@smithy/types";
+import { toBase64 } from "@smithy/util-base64";
 import * as Effect from "effect/Effect";
 import { getCrc32ChecksumAlgorithmFunction } from "../hash/crc32.ts";
+import { getMd5ChecksumAlgorithmFunction } from "../hash/md5.ts";
 import { toUint8Array } from "../hash/utf8.ts";
 import type { Middleware } from "../middleware.ts";
 
 /**
  * Middleware that computes a checksum for the request body.
  * Reads the algorithm from a specified header and adds the checksum to another header.
+ * Defaults to CRC32 if no algorithm is specified.
  *
  * @param options.algorithmHeader - The header that contains the algorithm name (e.g., "x-amz-checksum-algorithm")
  */
-export const HttpChecksum = (options: { algorithmHeader: string }): Middleware => ({
+export const HttpChecksum = (options: { algorithmHeader: string, algorithm?: string}): Middleware => ({
   request: Effect.fnUntraced(function* (request) {
-    const algorithmRaw = request.unsignedHeaders[options.algorithmHeader];
-    if (!algorithmRaw) {
-      // No algorithm specified, skip checksum
-      return request;
-    }
-
-    const algorithm = algorithmRaw.toLowerCase();
     const body = request.unsignedBody;
 
     // TODO(sam): support streaming
@@ -26,16 +22,20 @@ export const HttpChecksum = (options: { algorithmHeader: string }): Middleware =
       return request;
     }
 
-    const checksumHeader = `x-amz-checksum-${algorithm}`;
+    const algorithm = request.unsignedHeaders[options.algorithmHeader]?.toLowerCase() ?? options.algorithm ?? "crc32";
+    const checksumHeader = algorithm === "md5" ? "content-md5" : `x-amz-checksum-${algorithm}`;
 
+    let hasher: ChecksumConstructor;
     if (algorithm === "crc32") {
-      const checksum = yield* stringHasher(getCrc32ChecksumAlgorithmFunction(), body);
-      // @ts-expect-error - TODO(sam): we need to be able to write the Record
-      request.unsignedHeaders[checksumHeader] = checksum.toBase64();
-      return request;
+      hasher = getCrc32ChecksumAlgorithmFunction();
+    } else if (algorithm === "md5") {
+      hasher = getMd5ChecksumAlgorithmFunction();
+    } else {
+      return yield* Effect.die(new Error(`Unsupported checksum algorithm: ${algorithm}`));
     }
-
-    return yield* Effect.die(new Error(`Unsupported checksum algorithm: ${algorithm}`));
+    // @ts-expect-error - TODO(sam): we need to be able to write the Record
+    request.unsignedHeaders[checksumHeader] = toBase64(yield* stringHasher(hasher, body));
+    return request;
   }),
 });
 

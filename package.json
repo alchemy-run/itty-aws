@@ -34,14 +34,15 @@
     "@aws-crypto/crc32": "^5.2.0",
     "@aws-sdk/credential-providers": "^3.933.0",
     "@effect/platform": "latest",
+    "@smithy/util-base64": "^4.3.0",
     "aws4fetch": "^1.0.20",
     "fast-xml-parser": "^5.3.2"
   },
   "devDependencies": {
     "@effect/cluster": "latest",
     "@effect/experimental": "latest",
-    "@effect/platform-node": "latest",
     "@effect/platform-bun": "latest",
+    "@effect/platform-node": "latest",
     "@effect/rpc": "latest",
     "@effect/sql": "latest",
     "@effect/vitest": "latest",
@@ -52,6 +53,7 @@
     "@typescript/native-preview": "^7.0.0-dev.20251230.1",
     "dedent": "^1.7.0",
     "effect": "latest",
+    "oxfmt": "^0.21.0",
     "pathe": "^2.0.3",
     "typescript": "^5"
   }

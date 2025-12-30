@@ -64,6 +64,6 @@ export function test(
         Logger.withMinimumLogLevel(process.env.DEBUG ? LogLevel.Debug : LogLevel.Info),
         Effect.provide(NodeContext.layer),
       ),
-    options.timeout,
+    options.timeout ?? 120_000,
   );
 }
