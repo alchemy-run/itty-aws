@@ -17,4 +17,27 @@ export class ResourceNotFoundException extends S.TaggedError<ResourceNotFoundExc
 export class ThrottlingException extends S.TaggedError<ThrottlingException>()("ThrottlingException", {Message: S.optional(S.String)}) {};
 
 //# Operations
-export const getLatestConfiguration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-11-11", uri: "/configuration", method: "GET", sdkId: "AppConfigData", sigV4ServiceName: "appconfig", name: "AppConfigData.GetLatestConfiguration" }, GetLatestConfigurationRequest, GetLatestConfigurationResponse, [BadRequestException, InternalServerException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves the latest deployed configuration. This API may return empty configuration
+ * data if the client already has the latest version. For more information about this API
+ * action and to view example CLI commands that show how to use it with the StartConfigurationSession API action, see Retrieving the
+ * configuration in the *AppConfig User Guide*.
+ * 
+ * 
+ * 
+ * 
+ * Note the following important information.
+ * 
+ * 
+ * 
+ * - Each configuration token is only valid for one call to
+ * `GetLatestConfiguration`. The `GetLatestConfiguration`
+ * response includes a `NextPollConfigurationToken` that should always
+ * replace the token used for the just-completed call in preparation for the next
+ * one.
+ * 
+ * 
+ * 
+ * - `GetLatestConfiguration` is a priced call. For more information, see
+ * Pricing.
+ */export const getLatestConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-11-11", uri: "/configuration", method: "GET", sdkId: "AppConfigData", sigV4ServiceName: "appconfig", name: "AppConfigData.GetLatestConfiguration" }, GetLatestConfigurationRequest, GetLatestConfigurationResponse, [BadRequestException, InternalServerException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

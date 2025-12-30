@@ -276,54 +276,493 @@ export class TooManyLoadBalancersException extends S.TaggedError<TooManyLoadBala
 export class PriorRequestNotCompleteException extends S.TaggedError<PriorRequestNotCompleteException>()("PriorRequestNotCompleteException", {Message: S.optional(S.String)}) {};
 
 //# Operations
-export const removeListenerCertificates = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.RemoveListenerCertificates" }, RemoveListenerCertificatesInput, RemoveListenerCertificatesOutput, [ListenerNotFoundException, OperationNotPermittedException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const deleteListener = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.DeleteListener" }, DeleteListenerInput, DeleteListenerOutput, [ListenerNotFoundException, ResourceInUseException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const deleteLoadBalancer = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.DeleteLoadBalancer" }, DeleteLoadBalancerInput, DeleteLoadBalancerOutput, [LoadBalancerNotFoundException, OperationNotPermittedException, ResourceInUseException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const deleteRule = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.DeleteRule" }, DeleteRuleInput, DeleteRuleOutput, [OperationNotPermittedException, RuleNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const deleteTargetGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.DeleteTargetGroup" }, DeleteTargetGroupInput, DeleteTargetGroupOutput, [ResourceInUseException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const describeListenerAttributes = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.DescribeListenerAttributes" }, DescribeListenerAttributesInput, DescribeListenerAttributesOutput, [ListenerNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const describeListenerCertificates = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.DescribeListenerCertificates" }, DescribeListenerCertificatesInput, DescribeListenerCertificatesOutput, [ListenerNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const describeLoadBalancerAttributes = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.DescribeLoadBalancerAttributes" }, DescribeLoadBalancerAttributesInput, DescribeLoadBalancerAttributesOutput, [LoadBalancerNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const describeTargetGroupAttributes = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.DescribeTargetGroupAttributes" }, DescribeTargetGroupAttributesInput, DescribeTargetGroupAttributesOutput, [TargetGroupNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const describeTrustStores = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.DescribeTrustStores" }, DescribeTrustStoresInput, DescribeTrustStoresOutput, [TrustStoreNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const getTrustStoreCaCertificatesBundle = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.GetTrustStoreCaCertificatesBundle" }, GetTrustStoreCaCertificatesBundleInput, GetTrustStoreCaCertificatesBundleOutput, [TrustStoreNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const getTrustStoreRevocationContent = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.GetTrustStoreRevocationContent" }, GetTrustStoreRevocationContentInput, GetTrustStoreRevocationContentOutput, [RevocationIdNotFoundException, TrustStoreNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const modifyIpPools = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.ModifyIpPools" }, ModifyIpPoolsInput, ModifyIpPoolsOutput, [LoadBalancerNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const removeTrustStoreRevocations = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.RemoveTrustStoreRevocations" }, RemoveTrustStoreRevocationsInput, RemoveTrustStoreRevocationsOutput, [RevocationIdNotFoundException, TrustStoreNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const addTags = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.AddTags" }, AddTagsInput, AddTagsOutput, [DuplicateTagKeysException, ListenerNotFoundException, LoadBalancerNotFoundException, RuleNotFoundException, TargetGroupNotFoundException, TooManyTagsException, TrustStoreNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const deleteSharedTrustStoreAssociation = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.DeleteSharedTrustStoreAssociation" }, DeleteSharedTrustStoreAssociationInput, DeleteSharedTrustStoreAssociationOutput, [DeleteAssociationSameAccountException, TrustStoreAssociationNotFoundException, TrustStoreNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const deleteTrustStore = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.DeleteTrustStore" }, DeleteTrustStoreInput, DeleteTrustStoreOutput, [TrustStoreInUseException, TrustStoreNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const deregisterTargets = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.DeregisterTargets" }, DeregisterTargetsInput, DeregisterTargetsOutput, [InvalidTargetException, TargetGroupNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const describeAccountLimits = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.DescribeAccountLimits" }, DescribeAccountLimitsInput, DescribeAccountLimitsOutput, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const describeRules = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.DescribeRules" }, DescribeRulesInput, DescribeRulesOutput, [ListenerNotFoundException, RuleNotFoundException, UnsupportedProtocolException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const describeTags = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.DescribeTags" }, DescribeTagsInput, DescribeTagsOutput, [ListenerNotFoundException, LoadBalancerNotFoundException, RuleNotFoundException, TargetGroupNotFoundException, TrustStoreNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const describeTargetGroups = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.DescribeTargetGroups" }, DescribeTargetGroupsInput, DescribeTargetGroupsOutput, [LoadBalancerNotFoundException, TargetGroupNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const describeTrustStoreAssociations = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.DescribeTrustStoreAssociations" }, DescribeTrustStoreAssociationsInput, DescribeTrustStoreAssociationsOutput, [TrustStoreNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const describeTrustStoreRevocations = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.DescribeTrustStoreRevocations" }, DescribeTrustStoreRevocationsInput, DescribeTrustStoreRevocationsOutput, [RevocationIdNotFoundException, TrustStoreNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const getResourcePolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.GetResourcePolicy" }, GetResourcePolicyInput, GetResourcePolicyOutput, [ResourceNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const modifyListenerAttributes = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.ModifyListenerAttributes" }, ModifyListenerAttributesInput, ModifyListenerAttributesOutput, [InvalidConfigurationRequestException, ListenerNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const modifyLoadBalancerAttributes = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.ModifyLoadBalancerAttributes" }, ModifyLoadBalancerAttributesInput, ModifyLoadBalancerAttributesOutput, [InvalidConfigurationRequestException, LoadBalancerNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const modifyTargetGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.ModifyTargetGroup" }, ModifyTargetGroupInput, ModifyTargetGroupOutput, [InvalidConfigurationRequestException, TargetGroupNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const modifyTargetGroupAttributes = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.ModifyTargetGroupAttributes" }, ModifyTargetGroupAttributesInput, ModifyTargetGroupAttributesOutput, [InvalidConfigurationRequestException, TargetGroupNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const removeTags = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.RemoveTags" }, RemoveTagsInput, RemoveTagsOutput, [ListenerNotFoundException, LoadBalancerNotFoundException, RuleNotFoundException, TargetGroupNotFoundException, TooManyTagsException, TrustStoreNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const setIpAddressType = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.SetIpAddressType" }, SetIpAddressTypeInput, SetIpAddressTypeOutput, [InvalidConfigurationRequestException, InvalidSubnetException, LoadBalancerNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const setSecurityGroups = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.SetSecurityGroups" }, SetSecurityGroupsInput, SetSecurityGroupsOutput, [InvalidConfigurationRequestException, InvalidSecurityGroupException, LoadBalancerNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const describeCapacityReservation = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.DescribeCapacityReservation" }, DescribeCapacityReservationInput, DescribeCapacityReservationOutput, [LoadBalancerNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const describeListeners = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.DescribeListeners" }, DescribeListenersInput, DescribeListenersOutput, [ListenerNotFoundException, LoadBalancerNotFoundException, UnsupportedProtocolException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const describeLoadBalancers = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.DescribeLoadBalancers" }, DescribeLoadBalancersInput, DescribeLoadBalancersOutput, [LoadBalancerNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const modifyTrustStore = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.ModifyTrustStore" }, ModifyTrustStoreInput, ModifyTrustStoreOutput, [CaCertificatesBundleNotFoundException, InvalidCaCertificatesBundleException, TrustStoreNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const registerTargets = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.RegisterTargets" }, RegisterTargetsInput, RegisterTargetsOutput, [InvalidTargetException, TargetGroupNotFoundException, TooManyRegistrationsForTargetIdException, TooManyTargetsException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const setRulePriorities = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.SetRulePriorities" }, SetRulePrioritiesInput, SetRulePrioritiesOutput, [OperationNotPermittedException, PriorityInUseException, RuleNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const addListenerCertificates = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.AddListenerCertificates" }, AddListenerCertificatesInput, AddListenerCertificatesOutput, [CertificateNotFoundException, ListenerNotFoundException, TooManyCertificatesException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const createTargetGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.CreateTargetGroup" }, CreateTargetGroupInput, CreateTargetGroupOutput, [DuplicateTargetGroupNameException, InvalidConfigurationRequestException, TooManyTagsException, TooManyTargetGroupsException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const createTrustStore = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.CreateTrustStore" }, CreateTrustStoreInput, CreateTrustStoreOutput, [CaCertificatesBundleNotFoundException, DuplicateTagKeysException, DuplicateTrustStoreNameException, InvalidCaCertificatesBundleException, TooManyTagsException, TooManyTrustStoresException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const describeSSLPolicies = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.DescribeSSLPolicies" }, DescribeSSLPoliciesInput, DescribeSSLPoliciesOutput, [SSLPolicyNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const describeTargetHealth = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.DescribeTargetHealth" }, DescribeTargetHealthInput, DescribeTargetHealthOutput, [HealthUnavailableException, InvalidTargetException, TargetGroupNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const modifyRule = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.ModifyRule" }, ModifyRuleInput, ModifyRuleOutput, [IncompatibleProtocolsException, InvalidLoadBalancerActionException, OperationNotPermittedException, RuleNotFoundException, TargetGroupAssociationLimitException, TargetGroupNotFoundException, TooManyActionsException, TooManyRegistrationsForTargetIdException, TooManyTargetsException, TooManyUniqueTargetGroupsPerLoadBalancerException, UnsupportedProtocolException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const setSubnets = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.SetSubnets" }, SetSubnetsInput, SetSubnetsOutput, [AllocationIdNotFoundException, AvailabilityZoneNotSupportedException, CapacityReservationPendingException, InvalidConfigurationRequestException, InvalidSubnetException, LoadBalancerNotFoundException, SubnetNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const createRule = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.CreateRule" }, CreateRuleInput, CreateRuleOutput, [IncompatibleProtocolsException, InvalidConfigurationRequestException, InvalidLoadBalancerActionException, ListenerNotFoundException, PriorityInUseException, TargetGroupAssociationLimitException, TargetGroupNotFoundException, TooManyActionsException, TooManyRegistrationsForTargetIdException, TooManyRulesException, TooManyTagsException, TooManyTargetGroupsException, TooManyTargetsException, TooManyUniqueTargetGroupsPerLoadBalancerException, UnsupportedProtocolException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const modifyListener = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.ModifyListener" }, ModifyListenerInput, ModifyListenerOutput, [ALPNPolicyNotSupportedException, CertificateNotFoundException, DuplicateListenerException, IncompatibleProtocolsException, InvalidConfigurationRequestException, InvalidLoadBalancerActionException, ListenerNotFoundException, SSLPolicyNotFoundException, TargetGroupAssociationLimitException, TargetGroupNotFoundException, TooManyActionsException, TooManyCertificatesException, TooManyListenersException, TooManyRegistrationsForTargetIdException, TooManyTargetsException, TooManyUniqueTargetGroupsPerLoadBalancerException, TrustStoreNotFoundException, TrustStoreNotReadyException, UnsupportedProtocolException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const addTrustStoreRevocations = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.AddTrustStoreRevocations" }, AddTrustStoreRevocationsInput, AddTrustStoreRevocationsOutput, [InvalidRevocationContentException, RevocationContentNotFoundException, TooManyTrustStoreRevocationEntriesException, TrustStoreNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const createListener = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.CreateListener" }, CreateListenerInput, CreateListenerOutput, [ALPNPolicyNotSupportedException, CertificateNotFoundException, DuplicateListenerException, IncompatibleProtocolsException, InvalidConfigurationRequestException, InvalidLoadBalancerActionException, LoadBalancerNotFoundException, SSLPolicyNotFoundException, TargetGroupAssociationLimitException, TargetGroupNotFoundException, TooManyActionsException, TooManyCertificatesException, TooManyListenersException, TooManyRegistrationsForTargetIdException, TooManyTagsException, TooManyTargetsException, TooManyUniqueTargetGroupsPerLoadBalancerException, TrustStoreNotFoundException, TrustStoreNotReadyException, UnsupportedProtocolException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const createLoadBalancer = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.CreateLoadBalancer" }, CreateLoadBalancerInput, CreateLoadBalancerOutput, [AllocationIdNotFoundException, AvailabilityZoneNotSupportedException, DuplicateLoadBalancerNameException, DuplicateTagKeysException, InvalidConfigurationRequestException, InvalidSchemeException, InvalidSecurityGroupException, InvalidSubnetException, OperationNotPermittedException, ResourceInUseException, SubnetNotFoundException, TooManyLoadBalancersException, TooManyTagsException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const modifyCapacityReservation = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.ModifyCapacityReservation" }, ModifyCapacityReservationInput, ModifyCapacityReservationOutput, [CapacityDecreaseRequestsLimitExceededException, CapacityReservationPendingException, CapacityUnitsLimitExceededException, InsufficientCapacityException, InvalidConfigurationRequestException, LoadBalancerNotFoundException, OperationNotPermittedException, PriorRequestNotCompleteException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Removes the specified certificate from the certificate list for the specified HTTPS or TLS
+ * listener.
+ */export const removeListenerCertificates = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.RemoveListenerCertificates" }, RemoveListenerCertificatesInput, RemoveListenerCertificatesOutput, [ListenerNotFoundException, OperationNotPermittedException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Deletes the specified listener.
+ * 
+ * 
+ * Alternatively, your listener is deleted when you delete the load balancer to which it is
+ * attached.
+ */export const deleteListener = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.DeleteListener" }, DeleteListenerInput, DeleteListenerOutput, [ListenerNotFoundException, ResourceInUseException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Deletes the specified Application Load Balancer, Network Load Balancer, or Gateway Load
+ * Balancer. Deleting a load balancer also deletes its listeners.
+ * 
+ * 
+ * You can't delete a load balancer if deletion protection is enabled. If the load balancer
+ * does not exist or has already been deleted, the call succeeds.
+ * 
+ * 
+ * Deleting a load balancer does not affect its registered targets. For example, your EC2
+ * instances continue to run and are still registered to their target groups. If you no longer
+ * need these EC2 instances, you can stop or terminate them.
+ */export const deleteLoadBalancer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.DeleteLoadBalancer" }, DeleteLoadBalancerInput, DeleteLoadBalancerOutput, [LoadBalancerNotFoundException, OperationNotPermittedException, ResourceInUseException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Deletes the specified rule.
+ * 
+ * 
+ * You can't delete the default rule.
+ */export const deleteRule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.DeleteRule" }, DeleteRuleInput, DeleteRuleOutput, [OperationNotPermittedException, RuleNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Deletes the specified target group.
+ * 
+ * 
+ * You can delete a target group if it is not referenced by any actions. Deleting a target
+ * group also deletes any associated health checks. Deleting a target group does not affect its
+ * registered targets. For example, any EC2 instances continue to run until you stop or terminate
+ * them.
+ */export const deleteTargetGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.DeleteTargetGroup" }, DeleteTargetGroupInput, DeleteTargetGroupOutput, [ResourceInUseException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Describes the attributes for the specified listener.
+ */export const describeListenerAttributes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.DescribeListenerAttributes" }, DescribeListenerAttributesInput, DescribeListenerAttributesOutput, [ListenerNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Describes the default certificate and the certificate list for the specified HTTPS or TLS
+ * listener.
+ * 
+ * 
+ * If the default certificate is also in the certificate list, it appears twice in the
+ * results (once with `IsDefault` set to true and once with `IsDefault` set
+ * to false).
+ * 
+ * 
+ * For more information, see SSL certificates in the *Application Load Balancers Guide* or
+ * Server certificates in the Network Load Balancers
+ * Guide.
+ */export const describeListenerCertificates = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.DescribeListenerCertificates" }, DescribeListenerCertificatesInput, DescribeListenerCertificatesOutput, [ListenerNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Describes the attributes for the specified Application Load Balancer, Network Load
+ * Balancer, or Gateway Load Balancer.
+ * 
+ * 
+ * For more information, see the following:
+ * 
+ * 
+ * 
+ * - Load balancer attributes in the Application Load Balancers
+ * Guide
+ * 
+ * 
+ * 
+ * 
+ * - Load balancer attributes in the Network Load Balancers
+ * Guide
+ * 
+ * 
+ * 
+ * 
+ * - Load balancer attributes in the Gateway Load Balancers
+ * Guide
+ */export const describeLoadBalancerAttributes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.DescribeLoadBalancerAttributes" }, DescribeLoadBalancerAttributesInput, DescribeLoadBalancerAttributesOutput, [LoadBalancerNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Describes the attributes for the specified target group.
+ * 
+ * 
+ * For more information, see the following:
+ * 
+ * 
+ * 
+ * - Target group attributes in the Application Load Balancers
+ * Guide
+ * 
+ * 
+ * 
+ * 
+ * - Target group attributes in the Network Load Balancers
+ * Guide
+ * 
+ * 
+ * 
+ * 
+ * - Target group attributes in the Gateway Load Balancers
+ * Guide
+ */export const describeTargetGroupAttributes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.DescribeTargetGroupAttributes" }, DescribeTargetGroupAttributesInput, DescribeTargetGroupAttributesOutput, [TargetGroupNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Describes all trust stores for the specified account.
+ */export const describeTrustStores = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.DescribeTrustStores" }, DescribeTrustStoresInput, DescribeTrustStoresOutput, [TrustStoreNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Retrieves the ca certificate bundle.
+ * 
+ * 
+ * This action returns a pre-signed S3 URI which is
+ * active for ten minutes.
+ */export const getTrustStoreCaCertificatesBundle = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.GetTrustStoreCaCertificatesBundle" }, GetTrustStoreCaCertificatesBundleInput, GetTrustStoreCaCertificatesBundleOutput, [TrustStoreNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Retrieves the specified revocation file.
+ * 
+ * 
+ * This action returns a pre-signed S3 URI which is
+ * active for ten minutes.
+ */export const getTrustStoreRevocationContent = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.GetTrustStoreRevocationContent" }, GetTrustStoreRevocationContentInput, GetTrustStoreRevocationContentOutput, [RevocationIdNotFoundException, TrustStoreNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * [Application Load Balancers] Modify the IP pool associated to a load balancer.
+ */export const modifyIpPools = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.ModifyIpPools" }, ModifyIpPoolsInput, ModifyIpPoolsOutput, [LoadBalancerNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Removes the specified revocation file from the specified trust store.
+ */export const removeTrustStoreRevocations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.RemoveTrustStoreRevocations" }, RemoveTrustStoreRevocationsInput, RemoveTrustStoreRevocationsOutput, [RevocationIdNotFoundException, TrustStoreNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Adds the specified tags to the specified Elastic Load Balancing resource. You can tag your
+ * Application Load Balancers, Network Load Balancers, Gateway Load Balancers, target groups,
+ * trust stores, listeners, and rules.
+ * 
+ * 
+ * Each tag consists of a key and an optional value. If a resource already has a tag with the
+ * same key, `AddTags` updates its value.
+ */export const addTags = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.AddTags" }, AddTagsInput, AddTagsOutput, [DuplicateTagKeysException, ListenerNotFoundException, LoadBalancerNotFoundException, RuleNotFoundException, TargetGroupNotFoundException, TooManyTagsException, TrustStoreNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Deletes a shared trust store association.
+ */export const deleteSharedTrustStoreAssociation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.DeleteSharedTrustStoreAssociation" }, DeleteSharedTrustStoreAssociationInput, DeleteSharedTrustStoreAssociationOutput, [DeleteAssociationSameAccountException, TrustStoreAssociationNotFoundException, TrustStoreNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Deletes a trust store.
+ */export const deleteTrustStore = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.DeleteTrustStore" }, DeleteTrustStoreInput, DeleteTrustStoreOutput, [TrustStoreInUseException, TrustStoreNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Deregisters the specified targets from the specified target group. After the targets are
+ * deregistered, they no longer receive traffic from the load balancer.
+ * 
+ * 
+ * The load balancer stops sending requests to targets that are deregistering, but uses
+ * connection draining to ensure that in-flight traffic completes on the existing connections.
+ * This deregistration delay is configured by default but can be updated for each target group.
+ * 
+ * 
+ * For more information, see the following:
+ * 
+ * 
+ * 
+ * -
+ * Deregistration delay in the *Application Load Balancers User Guide*
+ * 
+ * 
+ * 
+ * 
+ * -
+ * Deregistration delay in the *Network Load Balancers User Guide*
+ * 
+ * 
+ * 
+ * 
+ * -
+ * Deregistration delay in the *Gateway Load Balancers User Guide*
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * Note: If the specified target does not exist, the action returns successfully.
+ */export const deregisterTargets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.DeregisterTargets" }, DeregisterTargetsInput, DeregisterTargetsOutput, [InvalidTargetException, TargetGroupNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Describes the current Elastic Load Balancing resource limits for your Amazon Web Services
+ * account.
+ * 
+ * 
+ * For more information, see the following:
+ * 
+ * 
+ * 
+ * - Quotas for your
+ * Application Load Balancers
+ * 
+ * 
+ * 
+ * 
+ * - Quotas for your
+ * Network Load Balancers
+ * 
+ * 
+ * 
+ * 
+ * - Quotas for your Gateway
+ * Load Balancers
+ */export const describeAccountLimits = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.DescribeAccountLimits" }, DescribeAccountLimitsInput, DescribeAccountLimitsOutput, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Describes the specified rules or the rules for the specified listener. You must specify
+ * either a listener or rules.
+ */export const describeRules = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.DescribeRules" }, DescribeRulesInput, DescribeRulesOutput, [ListenerNotFoundException, RuleNotFoundException, UnsupportedProtocolException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Describes the tags for the specified Elastic Load Balancing resources. You can describe
+ * the tags for one or more Application Load Balancers, Network Load Balancers, Gateway Load
+ * Balancers, target groups, listeners, or rules.
+ */export const describeTags = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.DescribeTags" }, DescribeTagsInput, DescribeTagsOutput, [ListenerNotFoundException, LoadBalancerNotFoundException, RuleNotFoundException, TargetGroupNotFoundException, TrustStoreNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Describes the specified target groups or all of your target groups. By default, all target
+ * groups are described. Alternatively, you can specify one of the following to filter the
+ * results: the ARN of the load balancer, the names of one or more target groups, or the ARNs of
+ * one or more target groups.
+ */export const describeTargetGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.DescribeTargetGroups" }, DescribeTargetGroupsInput, DescribeTargetGroupsOutput, [LoadBalancerNotFoundException, TargetGroupNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Describes all resources associated with the specified trust store.
+ */export const describeTrustStoreAssociations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.DescribeTrustStoreAssociations" }, DescribeTrustStoreAssociationsInput, DescribeTrustStoreAssociationsOutput, [TrustStoreNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Describes the revocation files in use by the specified trust store or revocation
+ * files.
+ */export const describeTrustStoreRevocations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.DescribeTrustStoreRevocations" }, DescribeTrustStoreRevocationsInput, DescribeTrustStoreRevocationsOutput, [RevocationIdNotFoundException, TrustStoreNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Retrieves the resource policy for a specified resource.
+ */export const getResourcePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.GetResourcePolicy" }, GetResourcePolicyInput, GetResourcePolicyOutput, [ResourceNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Modifies the specified attributes of the specified listener.
+ */export const modifyListenerAttributes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.ModifyListenerAttributes" }, ModifyListenerAttributesInput, ModifyListenerAttributesOutput, [InvalidConfigurationRequestException, ListenerNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Modifies the specified attributes of the specified Application Load Balancer, Network Load
+ * Balancer, or Gateway Load Balancer.
+ * 
+ * 
+ * If any of the specified attributes can't be modified as requested, the call fails. Any
+ * existing attributes that you do not modify retain their current values.
+ */export const modifyLoadBalancerAttributes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.ModifyLoadBalancerAttributes" }, ModifyLoadBalancerAttributesInput, ModifyLoadBalancerAttributesOutput, [InvalidConfigurationRequestException, LoadBalancerNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Modifies the health checks used when evaluating the health state of the targets in the
+ * specified target group.
+ */export const modifyTargetGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.ModifyTargetGroup" }, ModifyTargetGroupInput, ModifyTargetGroupOutput, [InvalidConfigurationRequestException, TargetGroupNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Modifies the specified attributes of the specified target group.
+ */export const modifyTargetGroupAttributes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.ModifyTargetGroupAttributes" }, ModifyTargetGroupAttributesInput, ModifyTargetGroupAttributesOutput, [InvalidConfigurationRequestException, TargetGroupNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Removes the specified tags from the specified Elastic Load Balancing resources. You can
+ * remove the tags for one or more Application Load Balancers, Network Load Balancers, Gateway
+ * Load Balancers, target groups, listeners, or rules.
+ */export const removeTags = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.RemoveTags" }, RemoveTagsInput, RemoveTagsOutput, [ListenerNotFoundException, LoadBalancerNotFoundException, RuleNotFoundException, TargetGroupNotFoundException, TooManyTagsException, TrustStoreNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Sets the type of IP addresses used by the subnets of the specified load balancer.
+ */export const setIpAddressType = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.SetIpAddressType" }, SetIpAddressTypeInput, SetIpAddressTypeOutput, [InvalidConfigurationRequestException, InvalidSubnetException, LoadBalancerNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Associates the specified security groups with the specified Application Load Balancer or
+ * Network Load Balancer. The specified security groups override the previously associated
+ * security groups.
+ * 
+ * 
+ * You can't perform this operation on a Network Load Balancer unless you specified a
+ * security group for the load balancer when you created it.
+ * 
+ * 
+ * You can't associate a security group with a Gateway Load Balancer.
+ */export const setSecurityGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.SetSecurityGroups" }, SetSecurityGroupsInput, SetSecurityGroupsOutput, [InvalidConfigurationRequestException, InvalidSecurityGroupException, LoadBalancerNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Describes the capacity reservation status for the specified load balancer.
+ */export const describeCapacityReservation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.DescribeCapacityReservation" }, DescribeCapacityReservationInput, DescribeCapacityReservationOutput, [LoadBalancerNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Describes the specified listeners or the listeners for the specified Application Load
+ * Balancer, Network Load Balancer, or Gateway Load Balancer. You must specify either a load
+ * balancer or one or more listeners.
+ */export const describeListeners = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.DescribeListeners" }, DescribeListenersInput, DescribeListenersOutput, [ListenerNotFoundException, LoadBalancerNotFoundException, UnsupportedProtocolException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Describes the specified load balancers or all of your load balancers.
+ */export const describeLoadBalancers = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.DescribeLoadBalancers" }, DescribeLoadBalancersInput, DescribeLoadBalancersOutput, [LoadBalancerNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Update the ca certificate bundle for the specified trust store.
+ */export const modifyTrustStore = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.ModifyTrustStore" }, ModifyTrustStoreInput, ModifyTrustStoreOutput, [CaCertificatesBundleNotFoundException, InvalidCaCertificatesBundleException, TrustStoreNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Registers the specified targets with the specified target group.
+ * 
+ * 
+ * If the target is an EC2 instance, it must be in the `running` state when you
+ * register it.
+ * 
+ * 
+ * By default, the load balancer routes requests to registered targets using the protocol and
+ * port for the target group. Alternatively, you can override the port for a target when you
+ * register it. You can register each EC2 instance or IP address with the same target group
+ * multiple times using different ports.
+ * 
+ * 
+ * For more information, see the following:
+ * 
+ * 
+ * 
+ * - Register
+ * targets for your Application Load Balancer
+ * 
+ * 
+ * 
+ * 
+ * - Register targets
+ * for your Network Load Balancer
+ * 
+ * 
+ * 
+ * 
+ * - Register targets for your
+ * Gateway Load Balancer
+ */export const registerTargets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.RegisterTargets" }, RegisterTargetsInput, RegisterTargetsOutput, [InvalidTargetException, TargetGroupNotFoundException, TooManyRegistrationsForTargetIdException, TooManyTargetsException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Sets the priorities of the specified rules.
+ * 
+ * 
+ * You can reorder the rules as long as there are no priority conflicts in the new order. Any
+ * existing rules that you do not specify retain their current priority.
+ */export const setRulePriorities = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.SetRulePriorities" }, SetRulePrioritiesInput, SetRulePrioritiesOutput, [OperationNotPermittedException, PriorityInUseException, RuleNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Adds the specified SSL server certificate to the certificate list for the specified HTTPS
+ * or TLS listener.
+ * 
+ * 
+ * If the certificate in already in the certificate list, the call is successful but the
+ * certificate is not added again.
+ * 
+ * 
+ * For more information, see SSL
+ * certificates in the *Application Load Balancers Guide* or Server
+ * certificates in the *Network Load Balancers Guide*.
+ */export const addListenerCertificates = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.AddListenerCertificates" }, AddListenerCertificatesInput, AddListenerCertificatesOutput, [CertificateNotFoundException, ListenerNotFoundException, TooManyCertificatesException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Creates a target group.
+ * 
+ * 
+ * For more information, see the following:
+ * 
+ * 
+ * 
+ * - Target
+ * groups for your Application Load Balancers
+ * 
+ * 
+ * 
+ * 
+ * - Target groups
+ * for your Network Load Balancers
+ * 
+ * 
+ * 
+ * 
+ * - Target groups for your
+ * Gateway Load Balancers
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * This operation is idempotent, which means that it completes at most one time. If you
+ * attempt to create multiple target groups with the same settings, each call succeeds.
+ */export const createTargetGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.CreateTargetGroup" }, CreateTargetGroupInput, CreateTargetGroupOutput, [DuplicateTargetGroupNameException, InvalidConfigurationRequestException, TooManyTagsException, TooManyTargetGroupsException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Creates a trust store.
+ * 
+ * 
+ * For more information, see Mutual TLS for Application Load Balancers.
+ */export const createTrustStore = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.CreateTrustStore" }, CreateTrustStoreInput, CreateTrustStoreOutput, [CaCertificatesBundleNotFoundException, DuplicateTagKeysException, DuplicateTrustStoreNameException, InvalidCaCertificatesBundleException, TooManyTagsException, TooManyTrustStoresException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Describes the specified policies or all policies used for SSL negotiation.
+ * 
+ * 
+ * For more information, see Security policies in the *Application Load Balancers Guide* and
+ * Security policies in the *Network Load Balancers Guide*.
+ */export const describeSSLPolicies = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.DescribeSSLPolicies" }, DescribeSSLPoliciesInput, DescribeSSLPoliciesOutput, [SSLPolicyNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Describes the health of the specified targets or all of your targets.
+ */export const describeTargetHealth = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.DescribeTargetHealth" }, DescribeTargetHealthInput, DescribeTargetHealthOutput, [HealthUnavailableException, InvalidTargetException, TargetGroupNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Replaces the specified properties of the specified rule. Any properties that you do not
+ * specify are unchanged.
+ * 
+ * 
+ * To add an item to a list, remove an item from a list, or update an item in a list, you
+ * must provide the entire list. For example, to add an action, specify a list with the current
+ * actions plus the new action.
+ */export const modifyRule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.ModifyRule" }, ModifyRuleInput, ModifyRuleOutput, [IncompatibleProtocolsException, InvalidLoadBalancerActionException, OperationNotPermittedException, RuleNotFoundException, TargetGroupAssociationLimitException, TargetGroupNotFoundException, TooManyActionsException, TooManyRegistrationsForTargetIdException, TooManyTargetsException, TooManyUniqueTargetGroupsPerLoadBalancerException, UnsupportedProtocolException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Enables the Availability Zones for the specified public subnets for the specified
+ * Application Load Balancer, Network Load Balancer or Gateway Load Balancer. The specified subnets
+ * replace the previously enabled subnets.
+ */export const setSubnets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.SetSubnets" }, SetSubnetsInput, SetSubnetsOutput, [AllocationIdNotFoundException, AvailabilityZoneNotSupportedException, CapacityReservationPendingException, InvalidConfigurationRequestException, InvalidSubnetException, LoadBalancerNotFoundException, SubnetNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Creates a rule for the specified listener. The listener must be associated with an
+ * Application Load Balancer.
+ * 
+ * 
+ * Each rule consists of a priority, one or more actions, one or more conditions, and
+ * up to two optional transforms. Rules are evaluated in priority order, from the lowest value
+ * to the highest value. When the conditions for a rule are met, its actions are performed.
+ * If the conditions for no rules are met, the actions for the default rule are performed.
+ * For more information, see Listener rules in the *Application Load Balancers Guide*.
+ */export const createRule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.CreateRule" }, CreateRuleInput, CreateRuleOutput, [IncompatibleProtocolsException, InvalidConfigurationRequestException, InvalidLoadBalancerActionException, ListenerNotFoundException, PriorityInUseException, TargetGroupAssociationLimitException, TargetGroupNotFoundException, TooManyActionsException, TooManyRegistrationsForTargetIdException, TooManyRulesException, TooManyTagsException, TooManyTargetGroupsException, TooManyTargetsException, TooManyUniqueTargetGroupsPerLoadBalancerException, UnsupportedProtocolException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Replaces the specified properties of the specified listener. Any properties that you do
+ * not specify remain unchanged.
+ * 
+ * 
+ * Changing the protocol from HTTPS to HTTP, or from TLS to TCP, removes the security policy
+ * and default certificate properties. If you change the protocol from HTTP to HTTPS, or from TCP
+ * to TLS, you must add the security policy and default certificate properties.
+ * 
+ * 
+ * To add an item to a list, remove an item from a list, or update an item in a list, you
+ * must provide the entire list. For example, to add an action, specify a list with the current
+ * actions plus the new action.
+ */export const modifyListener = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.ModifyListener" }, ModifyListenerInput, ModifyListenerOutput, [ALPNPolicyNotSupportedException, CertificateNotFoundException, DuplicateListenerException, IncompatibleProtocolsException, InvalidConfigurationRequestException, InvalidLoadBalancerActionException, ListenerNotFoundException, SSLPolicyNotFoundException, TargetGroupAssociationLimitException, TargetGroupNotFoundException, TooManyActionsException, TooManyCertificatesException, TooManyListenersException, TooManyRegistrationsForTargetIdException, TooManyTargetsException, TooManyUniqueTargetGroupsPerLoadBalancerException, TrustStoreNotFoundException, TrustStoreNotReadyException, UnsupportedProtocolException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Adds the specified revocation file to the specified trust store.
+ */export const addTrustStoreRevocations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.AddTrustStoreRevocations" }, AddTrustStoreRevocationsInput, AddTrustStoreRevocationsOutput, [InvalidRevocationContentException, RevocationContentNotFoundException, TooManyTrustStoreRevocationEntriesException, TrustStoreNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Creates a listener for the specified Application Load Balancer, Network Load Balancer, or
+ * Gateway Load Balancer.
+ * 
+ * 
+ * For more information, see the following:
+ * 
+ * 
+ * 
+ * - Listeners for
+ * your Application Load Balancers
+ * 
+ * 
+ * 
+ * 
+ * - Listeners for
+ * your Network Load Balancers
+ * 
+ * 
+ * 
+ * 
+ * - Listeners for your
+ * Gateway Load Balancers
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * This operation is idempotent, which means that it completes at most one time. If you
+ * attempt to create multiple listeners with the same settings, each call succeeds.
+ */export const createListener = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.CreateListener" }, CreateListenerInput, CreateListenerOutput, [ALPNPolicyNotSupportedException, CertificateNotFoundException, DuplicateListenerException, IncompatibleProtocolsException, InvalidConfigurationRequestException, InvalidLoadBalancerActionException, LoadBalancerNotFoundException, SSLPolicyNotFoundException, TargetGroupAssociationLimitException, TargetGroupNotFoundException, TooManyActionsException, TooManyCertificatesException, TooManyListenersException, TooManyRegistrationsForTargetIdException, TooManyTagsException, TooManyTargetsException, TooManyUniqueTargetGroupsPerLoadBalancerException, TrustStoreNotFoundException, TrustStoreNotReadyException, UnsupportedProtocolException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Creates an Application Load Balancer, Network Load Balancer, or Gateway Load
+ * Balancer.
+ * 
+ * 
+ * For more information, see the following:
+ * 
+ * 
+ * 
+ * - Application Load Balancers
+ * 
+ * 
+ * 
+ * 
+ * - Network Load
+ * Balancers
+ * 
+ * 
+ * 
+ * 
+ * - Gateway Load
+ * Balancers
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * This operation is idempotent, which means that it completes at most one time. If you
+ * attempt to create multiple load balancers with the same settings, each call succeeds.
+ */export const createLoadBalancer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.CreateLoadBalancer" }, CreateLoadBalancerInput, CreateLoadBalancerOutput, [AllocationIdNotFoundException, AvailabilityZoneNotSupportedException, DuplicateLoadBalancerNameException, DuplicateTagKeysException, InvalidConfigurationRequestException, InvalidSchemeException, InvalidSecurityGroupException, InvalidSubnetException, OperationNotPermittedException, ResourceInUseException, SubnetNotFoundException, TooManyLoadBalancersException, TooManyTagsException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Modifies the capacity reservation of the specified load balancer.
+ * 
+ * 
+ * When modifying capacity reservation, you must include at least one `MinimumLoadBalancerCapacity`
+ * or `ResetCapacityReservation`.
+ */export const modifyCapacityReservation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.ModifyCapacityReservation" }, ModifyCapacityReservationInput, ModifyCapacityReservationOutput, [CapacityDecreaseRequestsLimitExceededException, CapacityReservationPendingException, CapacityUnitsLimitExceededException, InsufficientCapacityException, InvalidConfigurationRequestException, LoadBalancerNotFoundException, OperationNotPermittedException, PriorRequestNotCompleteException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);

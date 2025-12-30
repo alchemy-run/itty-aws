@@ -62,20 +62,120 @@ export class ThrottlingException extends S.TaggedError<ThrottlingException>()("T
 export class ValidationException extends S.TaggedError<ValidationException>()("ValidationException", {}) {};
 
 //# Operations
-export const addGroupMember = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-05-31", uri: "/GroupMemberships/AddGroupMember", method: "POST", sdkId: "Directory Service Data", sigV4ServiceName: "ds-data", name: "DirectoryServiceData.AddGroupMember" }, AddGroupMemberRequest, AddGroupMemberResult, [AccessDeniedException, ConflictException, DirectoryUnavailableException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const createUser = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-05-31", uri: "/Users/CreateUser", method: "POST", sdkId: "Directory Service Data", sigV4ServiceName: "ds-data", name: "DirectoryServiceData.CreateUser" }, CreateUserRequest, CreateUserResult, [AccessDeniedException, ConflictException, DirectoryUnavailableException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-05-31", uri: "/Groups/DeleteGroup", method: "POST", sdkId: "Directory Service Data", sigV4ServiceName: "ds-data", name: "DirectoryServiceData.DeleteGroup" }, DeleteGroupRequest, DeleteGroupResult, [AccessDeniedException, ConflictException, DirectoryUnavailableException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteUser = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-05-31", uri: "/Users/DeleteUser", method: "POST", sdkId: "Directory Service Data", sigV4ServiceName: "ds-data", name: "DirectoryServiceData.DeleteUser" }, DeleteUserRequest, DeleteUserResult, [AccessDeniedException, ConflictException, DirectoryUnavailableException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-05-31", uri: "/Groups/DescribeGroup", method: "POST", sdkId: "Directory Service Data", sigV4ServiceName: "ds-data", name: "DirectoryServiceData.DescribeGroup" }, DescribeGroupRequest, DescribeGroupResult, [AccessDeniedException, DirectoryUnavailableException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeUser = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-05-31", uri: "/Users/DescribeUser", method: "POST", sdkId: "Directory Service Data", sigV4ServiceName: "ds-data", name: "DirectoryServiceData.DescribeUser" }, DescribeUserRequest, DescribeUserResult, [AccessDeniedException, DirectoryUnavailableException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const disableUser = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-05-31", uri: "/Users/DisableUser", method: "POST", sdkId: "Directory Service Data", sigV4ServiceName: "ds-data", name: "DirectoryServiceData.DisableUser" }, DisableUserRequest, DisableUserResult, [AccessDeniedException, ConflictException, DirectoryUnavailableException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listGroupsForMember = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-05-31", uri: "/GroupMemberships/ListGroupsForMember", method: "POST", sdkId: "Directory Service Data", sigV4ServiceName: "ds-data", name: "DirectoryServiceData.ListGroupsForMember" }, ListGroupsForMemberRequest, ListGroupsForMemberResult, [AccessDeniedException, DirectoryUnavailableException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const removeGroupMember = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-05-31", uri: "/GroupMemberships/RemoveGroupMember", method: "POST", sdkId: "Directory Service Data", sigV4ServiceName: "ds-data", name: "DirectoryServiceData.RemoveGroupMember" }, RemoveGroupMemberRequest, RemoveGroupMemberResult, [AccessDeniedException, ConflictException, DirectoryUnavailableException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-05-31", uri: "/Groups/UpdateGroup", method: "POST", sdkId: "Directory Service Data", sigV4ServiceName: "ds-data", name: "DirectoryServiceData.UpdateGroup" }, UpdateGroupRequest, UpdateGroupResult, [AccessDeniedException, ConflictException, DirectoryUnavailableException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateUser = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-05-31", uri: "/Users/UpdateUser", method: "POST", sdkId: "Directory Service Data", sigV4ServiceName: "ds-data", name: "DirectoryServiceData.UpdateUser" }, UpdateUserRequest, UpdateUserResult, [AccessDeniedException, ConflictException, DirectoryUnavailableException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listGroupMembers = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-05-31", uri: "/GroupMemberships/ListGroupMembers", method: "POST", sdkId: "Directory Service Data", sigV4ServiceName: "ds-data", name: "DirectoryServiceData.ListGroupMembers" }, ListGroupMembersRequest, ListGroupMembersResult, [AccessDeniedException, DirectoryUnavailableException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listGroups = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-05-31", uri: "/Groups/ListGroups", method: "POST", sdkId: "Directory Service Data", sigV4ServiceName: "ds-data", name: "DirectoryServiceData.ListGroups" }, ListGroupsRequest, ListGroupsResult, [AccessDeniedException, DirectoryUnavailableException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listUsers = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-05-31", uri: "/Users/ListUsers", method: "POST", sdkId: "Directory Service Data", sigV4ServiceName: "ds-data", name: "DirectoryServiceData.ListUsers" }, ListUsersRequest, ListUsersResult, [AccessDeniedException, DirectoryUnavailableException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const searchGroups = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-05-31", uri: "/Groups/SearchGroups", method: "POST", sdkId: "Directory Service Data", sigV4ServiceName: "ds-data", name: "DirectoryServiceData.SearchGroups" }, SearchGroupsRequest, SearchGroupsResult, [AccessDeniedException, DirectoryUnavailableException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const searchUsers = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-05-31", uri: "/Users/SearchUsers", method: "POST", sdkId: "Directory Service Data", sigV4ServiceName: "ds-data", name: "DirectoryServiceData.SearchUsers" }, SearchUsersRequest, SearchUsersResult, [AccessDeniedException, DirectoryUnavailableException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const createGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-05-31", uri: "/Groups/CreateGroup", method: "POST", sdkId: "Directory Service Data", sigV4ServiceName: "ds-data", name: "DirectoryServiceData.CreateGroup" }, CreateGroupRequest, CreateGroupResult, [AccessDeniedException, ConflictException, DirectoryUnavailableException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Adds an existing user, group, or computer as a group member.
+ */export const addGroupMember = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-05-31", uri: "/GroupMemberships/AddGroupMember", method: "POST", sdkId: "Directory Service Data", sigV4ServiceName: "ds-data", name: "DirectoryServiceData.AddGroupMember" }, AddGroupMemberRequest, AddGroupMemberResult, [AccessDeniedException, ConflictException, DirectoryUnavailableException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a new user.
+ */export const createUser = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-05-31", uri: "/Users/CreateUser", method: "POST", sdkId: "Directory Service Data", sigV4ServiceName: "ds-data", name: "DirectoryServiceData.CreateUser" }, CreateUserRequest, CreateUserResult, [AccessDeniedException, ConflictException, DirectoryUnavailableException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes a group.
+ */export const deleteGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-05-31", uri: "/Groups/DeleteGroup", method: "POST", sdkId: "Directory Service Data", sigV4ServiceName: "ds-data", name: "DirectoryServiceData.DeleteGroup" }, DeleteGroupRequest, DeleteGroupResult, [AccessDeniedException, ConflictException, DirectoryUnavailableException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes a user.
+ */export const deleteUser = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-05-31", uri: "/Users/DeleteUser", method: "POST", sdkId: "Directory Service Data", sigV4ServiceName: "ds-data", name: "DirectoryServiceData.DeleteUser" }, DeleteUserRequest, DeleteUserResult, [AccessDeniedException, ConflictException, DirectoryUnavailableException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns information about a specific group.
+ */export const describeGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-05-31", uri: "/Groups/DescribeGroup", method: "POST", sdkId: "Directory Service Data", sigV4ServiceName: "ds-data", name: "DirectoryServiceData.DescribeGroup" }, DescribeGroupRequest, DescribeGroupResult, [AccessDeniedException, DirectoryUnavailableException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns information about a specific user.
+ */export const describeUser = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-05-31", uri: "/Users/DescribeUser", method: "POST", sdkId: "Directory Service Data", sigV4ServiceName: "ds-data", name: "DirectoryServiceData.DescribeUser" }, DescribeUserRequest, DescribeUserResult, [AccessDeniedException, DirectoryUnavailableException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deactivates an active user account. For information about how to enable an inactive user
+ * account, see ResetUserPassword
+ * in the *Directory Service API Reference*.
+ */export const disableUser = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-05-31", uri: "/Users/DisableUser", method: "POST", sdkId: "Directory Service Data", sigV4ServiceName: "ds-data", name: "DirectoryServiceData.DisableUser" }, DisableUserRequest, DisableUserResult, [AccessDeniedException, ConflictException, DirectoryUnavailableException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns group information for the specified member.
+ * 
+ * 
+ * This operation supports pagination with the use of the `NextToken` request and
+ * response parameters. If more results are available, the
+ * `ListGroupsForMember.NextToken` member contains a token that you pass in the next
+ * call to `ListGroupsForMember`. This retrieves the next set of items.
+ * 
+ * 
+ * You can also specify a maximum number of return results with the `MaxResults`
+ * parameter.
+ */export const listGroupsForMember = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-05-31", uri: "/GroupMemberships/ListGroupsForMember", method: "POST", sdkId: "Directory Service Data", sigV4ServiceName: "ds-data", name: "DirectoryServiceData.ListGroupsForMember" }, ListGroupsForMemberRequest, ListGroupsForMemberResult, [AccessDeniedException, DirectoryUnavailableException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Removes a member from a group.
+ */export const removeGroupMember = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-05-31", uri: "/GroupMemberships/RemoveGroupMember", method: "POST", sdkId: "Directory Service Data", sigV4ServiceName: "ds-data", name: "DirectoryServiceData.RemoveGroupMember" }, RemoveGroupMemberRequest, RemoveGroupMemberResult, [AccessDeniedException, ConflictException, DirectoryUnavailableException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates group information.
+ */export const updateGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-05-31", uri: "/Groups/UpdateGroup", method: "POST", sdkId: "Directory Service Data", sigV4ServiceName: "ds-data", name: "DirectoryServiceData.UpdateGroup" }, UpdateGroupRequest, UpdateGroupResult, [AccessDeniedException, ConflictException, DirectoryUnavailableException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates user information.
+ */export const updateUser = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-05-31", uri: "/Users/UpdateUser", method: "POST", sdkId: "Directory Service Data", sigV4ServiceName: "ds-data", name: "DirectoryServiceData.UpdateUser" }, UpdateUserRequest, UpdateUserResult, [AccessDeniedException, ConflictException, DirectoryUnavailableException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns member information for the specified group.
+ * 
+ * 
+ * This operation supports pagination with the use of the `NextToken` request and
+ * response parameters. If more results are available, the
+ * `ListGroupMembers.NextToken` member contains a token that you pass in the next
+ * call to `ListGroupMembers`. This retrieves the next set of items.
+ * 
+ * 
+ * You can also specify a maximum number of return results with the `MaxResults`
+ * parameter.
+ */export const listGroupMembers = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-05-31", uri: "/GroupMemberships/ListGroupMembers", method: "POST", sdkId: "Directory Service Data", sigV4ServiceName: "ds-data", name: "DirectoryServiceData.ListGroupMembers" }, ListGroupMembersRequest, ListGroupMembersResult, [AccessDeniedException, DirectoryUnavailableException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns group information for the specified directory.
+ * 
+ * 
+ * This operation supports pagination with the use of the `NextToken` request and
+ * response parameters. If more results are available, the `ListGroups.NextToken`
+ * member contains a token that you pass in the next call to `ListGroups`. This
+ * retrieves the next set of items.
+ * 
+ * 
+ * You can also specify a maximum number of return results with the `MaxResults`
+ * parameter.
+ */export const listGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-05-31", uri: "/Groups/ListGroups", method: "POST", sdkId: "Directory Service Data", sigV4ServiceName: "ds-data", name: "DirectoryServiceData.ListGroups" }, ListGroupsRequest, ListGroupsResult, [AccessDeniedException, DirectoryUnavailableException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns user information for the specified directory.
+ * 
+ * 
+ * This operation supports pagination with the use of the `NextToken` request and
+ * response parameters. If more results are available, the `ListUsers.NextToken`
+ * member contains a token that you pass in the next call to `ListUsers`. This
+ * retrieves the next set of items.
+ * 
+ * 
+ * You can also specify a maximum number of return results with the `MaxResults`
+ * parameter.
+ */export const listUsers = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-05-31", uri: "/Users/ListUsers", method: "POST", sdkId: "Directory Service Data", sigV4ServiceName: "ds-data", name: "DirectoryServiceData.ListUsers" }, ListUsersRequest, ListUsersResult, [AccessDeniedException, DirectoryUnavailableException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Searches the specified directory for a group. You can find groups that match the
+ * `SearchString` parameter with the value of their attributes included in the
+ * `SearchString` parameter.
+ * 
+ * 
+ * This operation supports pagination with the use of the `NextToken` request and
+ * response parameters. If more results are available, the `SearchGroups.NextToken`
+ * member contains a token that you pass in the next call to `SearchGroups`. This
+ * retrieves the next set of items.
+ * 
+ * 
+ * You can also specify a maximum number of return results with the `MaxResults`
+ * parameter.
+ */export const searchGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-05-31", uri: "/Groups/SearchGroups", method: "POST", sdkId: "Directory Service Data", sigV4ServiceName: "ds-data", name: "DirectoryServiceData.SearchGroups" }, SearchGroupsRequest, SearchGroupsResult, [AccessDeniedException, DirectoryUnavailableException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Searches the specified directory for a user. You can find users that match the
+ * `SearchString` parameter with the value of their attributes included in the
+ * `SearchString` parameter.
+ * 
+ * 
+ * This operation supports pagination with the use of the `NextToken` request and
+ * response parameters. If more results are available, the `SearchUsers.NextToken`
+ * member contains a token that you pass in the next call to `SearchUsers`. This
+ * retrieves the next set of items.
+ * 
+ * 
+ * You can also specify a maximum number of return results with the `MaxResults`
+ * parameter.
+ */export const searchUsers = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-05-31", uri: "/Users/SearchUsers", method: "POST", sdkId: "Directory Service Data", sigV4ServiceName: "ds-data", name: "DirectoryServiceData.SearchUsers" }, SearchUsersRequest, SearchUsersResult, [AccessDeniedException, DirectoryUnavailableException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a new group.
+ */export const createGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-05-31", uri: "/Groups/CreateGroup", method: "POST", sdkId: "Directory Service Data", sigV4ServiceName: "ds-data", name: "DirectoryServiceData.CreateGroup" }, CreateGroupRequest, CreateGroupResult, [AccessDeniedException, ConflictException, DirectoryUnavailableException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

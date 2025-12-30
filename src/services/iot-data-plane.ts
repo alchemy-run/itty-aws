@@ -35,11 +35,91 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
 export class RequestEntityTooLargeException extends S.TaggedError<RequestEntityTooLargeException>()("RequestEntityTooLargeException", {message: S.optional(S.String)}) {};
 
 //# Operations
-export const deleteConnection = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/connections/{clientId}", method: "DELETE", sdkId: "IoT Data Plane", sigV4ServiceName: "iotdata", name: "IotMoonrakerService.DeleteConnection" }, DeleteConnectionRequest, S.Struct({}), [ForbiddenException, InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getRetainedMessage = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/retainedMessage/{topic}", method: "GET", sdkId: "IoT Data Plane", sigV4ServiceName: "iotdata", name: "IotMoonrakerService.GetRetainedMessage" }, GetRetainedMessageRequest, GetRetainedMessageResponse, [InternalFailureException, InvalidRequestException, MethodNotAllowedException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getThingShadow = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/things/{thingName}/shadow", method: "GET", sdkId: "IoT Data Plane", sigV4ServiceName: "iotdata", name: "IotMoonrakerService.GetThingShadow" }, GetThingShadowRequest, GetThingShadowResponse, [InternalFailureException, InvalidRequestException, MethodNotAllowedException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException, UnauthorizedException, UnsupportedDocumentEncodingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listNamedShadowsForThing = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/api/things/shadow/ListNamedShadowsForThing/{thingName}", method: "GET", sdkId: "IoT Data Plane", sigV4ServiceName: "iotdata", name: "IotMoonrakerService.ListNamedShadowsForThing" }, ListNamedShadowsForThingRequest, ListNamedShadowsForThingResponse, [InternalFailureException, InvalidRequestException, MethodNotAllowedException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listRetainedMessages = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/retainedMessage", method: "GET", sdkId: "IoT Data Plane", sigV4ServiceName: "iotdata", name: "IotMoonrakerService.ListRetainedMessages" }, ListRetainedMessagesRequest, ListRetainedMessagesResponse, [InternalFailureException, InvalidRequestException, MethodNotAllowedException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const publish = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/topics/{topic}", method: "POST", sdkId: "IoT Data Plane", sigV4ServiceName: "iotdata", name: "IotMoonrakerService.Publish" }, PublishRequest, S.Struct({}), [InternalFailureException, InvalidRequestException, MethodNotAllowedException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteThingShadow = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/things/{thingName}/shadow", method: "DELETE", sdkId: "IoT Data Plane", sigV4ServiceName: "iotdata", name: "IotMoonrakerService.DeleteThingShadow" }, DeleteThingShadowRequest, DeleteThingShadowResponse, [InternalFailureException, InvalidRequestException, MethodNotAllowedException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException, UnauthorizedException, UnsupportedDocumentEncodingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateThingShadow = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/things/{thingName}/shadow", method: "POST", sdkId: "IoT Data Plane", sigV4ServiceName: "iotdata", name: "IotMoonrakerService.UpdateThingShadow" }, UpdateThingShadowRequest, UpdateThingShadowResponse, [ConflictException, InternalFailureException, InvalidRequestException, MethodNotAllowedException, RequestEntityTooLargeException, ServiceUnavailableException, ThrottlingException, UnauthorizedException, UnsupportedDocumentEncodingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Disconnects a connected MQTT client from Amazon Web Services IoT Core. When you disconnect a client, Amazon Web Services IoT Core closes the client's network connection and optionally cleans the session state.
+ */export const deleteConnection = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/connections/{clientId}", method: "DELETE", sdkId: "IoT Data Plane", sigV4ServiceName: "iotdata", name: "IotMoonrakerService.DeleteConnection" }, DeleteConnectionRequest, S.Struct({}), [ForbiddenException, InternalFailureException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets the details of a single retained message for the specified topic.
+ * 
+ * 
+ * This action returns the message payload of the retained message, which can
+ * incur messaging costs. To list only the topic names of the retained messages, call
+ * ListRetainedMessages.
+ * 
+ * 
+ * Requires permission to access the GetRetainedMessage action.
+ * 
+ * 
+ * For more information about messaging costs, see Amazon Web Services IoT Core
+ * pricing - Messaging.
+ */export const getRetainedMessage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/retainedMessage/{topic}", method: "GET", sdkId: "IoT Data Plane", sigV4ServiceName: "iotdata", name: "IotMoonrakerService.GetRetainedMessage" }, GetRetainedMessageRequest, GetRetainedMessageResponse, [InternalFailureException, InvalidRequestException, MethodNotAllowedException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets the shadow for the specified thing.
+ * 
+ * 
+ * Requires permission to access the GetThingShadow action.
+ * 
+ * 
+ * For more information, see GetThingShadow in the
+ * IoT Developer Guide.
+ */export const getThingShadow = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/things/{thingName}/shadow", method: "GET", sdkId: "IoT Data Plane", sigV4ServiceName: "iotdata", name: "IotMoonrakerService.GetThingShadow" }, GetThingShadowRequest, GetThingShadowResponse, [InternalFailureException, InvalidRequestException, MethodNotAllowedException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException, UnauthorizedException, UnsupportedDocumentEncodingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists the shadows for the specified thing.
+ * 
+ * 
+ * Requires permission to access the ListNamedShadowsForThing action.
+ */export const listNamedShadowsForThing = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/api/things/shadow/ListNamedShadowsForThing/{thingName}", method: "GET", sdkId: "IoT Data Plane", sigV4ServiceName: "iotdata", name: "IotMoonrakerService.ListNamedShadowsForThing" }, ListNamedShadowsForThingRequest, ListNamedShadowsForThingResponse, [InternalFailureException, InvalidRequestException, MethodNotAllowedException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists summary information about the retained messages stored for the account.
+ * 
+ * 
+ * This action returns only the topic names of the retained messages. It doesn't
+ * return any message payloads. Although this action doesn't return a message payload,
+ * it can still incur messaging costs.
+ * 
+ * 
+ * To get the message payload of a retained message, call
+ * GetRetainedMessage
+ * with the topic name of the retained message.
+ * 
+ * 
+ * Requires permission to access the ListRetainedMessages action.
+ * 
+ * 
+ * For more information about messaging costs, see Amazon Web Services IoT Core
+ * pricing - Messaging.
+ */export const listRetainedMessages = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/retainedMessage", method: "GET", sdkId: "IoT Data Plane", sigV4ServiceName: "iotdata", name: "IotMoonrakerService.ListRetainedMessages" }, ListRetainedMessagesRequest, ListRetainedMessagesResponse, [InternalFailureException, InvalidRequestException, MethodNotAllowedException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Publishes an MQTT message.
+ * 
+ * 
+ * Requires permission to access the Publish action.
+ * 
+ * 
+ * For more information about MQTT messages, see
+ * MQTT Protocol in the
+ * IoT Developer Guide.
+ * 
+ * 
+ * For more information about messaging costs, see Amazon Web Services IoT Core
+ * pricing - Messaging.
+ */export const publish = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/topics/{topic}", method: "POST", sdkId: "IoT Data Plane", sigV4ServiceName: "iotdata", name: "IotMoonrakerService.Publish" }, PublishRequest, S.Struct({}), [InternalFailureException, InvalidRequestException, MethodNotAllowedException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes the shadow for the specified thing.
+ * 
+ * 
+ * Requires permission to access the DeleteThingShadow action.
+ * 
+ * 
+ * For more information, see DeleteThingShadow in the IoT Developer Guide.
+ */export const deleteThingShadow = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/things/{thingName}/shadow", method: "DELETE", sdkId: "IoT Data Plane", sigV4ServiceName: "iotdata", name: "IotMoonrakerService.DeleteThingShadow" }, DeleteThingShadowRequest, DeleteThingShadowResponse, [InternalFailureException, InvalidRequestException, MethodNotAllowedException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException, UnauthorizedException, UnsupportedDocumentEncodingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates the shadow for the specified thing.
+ * 
+ * 
+ * Requires permission to access the UpdateThingShadow action.
+ * 
+ * 
+ * For more information, see UpdateThingShadow in the
+ * IoT Developer Guide.
+ */export const updateThingShadow = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/things/{thingName}/shadow", method: "POST", sdkId: "IoT Data Plane", sigV4ServiceName: "iotdata", name: "IotMoonrakerService.UpdateThingShadow" }, UpdateThingShadowRequest, UpdateThingShadowResponse, [ConflictException, InternalFailureException, InvalidRequestException, MethodNotAllowedException, RequestEntityTooLargeException, ServiceUnavailableException, ThrottlingException, UnauthorizedException, UnsupportedDocumentEncodingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

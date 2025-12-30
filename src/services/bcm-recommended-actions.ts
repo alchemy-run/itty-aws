@@ -23,4 +23,6 @@ export class ThrottlingException extends S.TaggedError<ThrottlingException>()("T
 export class ValidationException extends S.TaggedError<ValidationException>()("ValidationException", {message: S.String, reason: S.String, fieldList: S.optional(ValidationExceptionFieldList)}) {};
 
 //# Operations
-export const listRecommendedActions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2024-11-14", uri: "/", method: "POST", sdkId: "BCM Recommended Actions", sigV4ServiceName: "bcm-recommended-actions", name: "AWSBillingAndCostManagementRecommendedActions.ListRecommendedActions" }, ListRecommendedActionsRequest, ListRecommendedActionsResponse, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns a list of recommended actions that match the filter criteria.
+ */export const listRecommendedActions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2024-11-14", uri: "/", method: "POST", sdkId: "BCM Recommended Actions", sigV4ServiceName: "bcm-recommended-actions", name: "AWSBillingAndCostManagementRecommendedActions.ListRecommendedActions" }, ListRecommendedActionsRequest, ListRecommendedActionsResponse, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);

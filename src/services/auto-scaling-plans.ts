@@ -49,9 +49,38 @@ export class InvalidNextTokenException extends S.TaggedError<InvalidNextTokenExc
 export class LimitExceededException extends S.TaggedError<LimitExceededException>()("LimitExceededException", {Message: S.optional(S.String)}) {};
 
 //# Operations
-export const deleteScalingPlan = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-06", uri: "/", method: "POST", sdkId: "Auto Scaling Plans", sigV4ServiceName: "autoscaling-plans", name: "AnyScaleScalingPlannerFrontendService.DeleteScalingPlan" }, DeleteScalingPlanRequest, DeleteScalingPlanResponse, [ConcurrentUpdateException, InternalServiceException, ObjectNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const getScalingPlanResourceForecastData = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-06", uri: "/", method: "POST", sdkId: "Auto Scaling Plans", sigV4ServiceName: "autoscaling-plans", name: "AnyScaleScalingPlannerFrontendService.GetScalingPlanResourceForecastData" }, GetScalingPlanResourceForecastDataRequest, GetScalingPlanResourceForecastDataResponse, [InternalServiceException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateScalingPlan = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-06", uri: "/", method: "POST", sdkId: "Auto Scaling Plans", sigV4ServiceName: "autoscaling-plans", name: "AnyScaleScalingPlannerFrontendService.UpdateScalingPlan" }, UpdateScalingPlanRequest, UpdateScalingPlanResponse, [ConcurrentUpdateException, InternalServiceException, ObjectNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeScalingPlanResources = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-06", uri: "/", method: "POST", sdkId: "Auto Scaling Plans", sigV4ServiceName: "autoscaling-plans", name: "AnyScaleScalingPlannerFrontendService.DescribeScalingPlanResources" }, DescribeScalingPlanResourcesRequest, DescribeScalingPlanResourcesResponse, [ConcurrentUpdateException, InternalServiceException, InvalidNextTokenException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeScalingPlans = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-06", uri: "/", method: "POST", sdkId: "Auto Scaling Plans", sigV4ServiceName: "autoscaling-plans", name: "AnyScaleScalingPlannerFrontendService.DescribeScalingPlans" }, DescribeScalingPlansRequest, DescribeScalingPlansResponse, [ConcurrentUpdateException, InternalServiceException, InvalidNextTokenException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const createScalingPlan = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-06", uri: "/", method: "POST", sdkId: "Auto Scaling Plans", sigV4ServiceName: "autoscaling-plans", name: "AnyScaleScalingPlannerFrontendService.CreateScalingPlan" }, CreateScalingPlanRequest, CreateScalingPlanResponse, [ConcurrentUpdateException, InternalServiceException, LimitExceededException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes the specified scaling plan.
+ * 
+ * 
+ * Deleting a scaling plan deletes the underlying ScalingInstruction for
+ * all of the scalable resources that are covered by the plan.
+ * 
+ * 
+ * If the plan has launched resources or has scaling activities in progress, you must
+ * delete those resources separately.
+ */export const deleteScalingPlan = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-06", uri: "/", method: "POST", sdkId: "Auto Scaling Plans", sigV4ServiceName: "autoscaling-plans", name: "AnyScaleScalingPlannerFrontendService.DeleteScalingPlan" }, DeleteScalingPlanRequest, DeleteScalingPlanResponse, [ConcurrentUpdateException, InternalServiceException, ObjectNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves the forecast data for a scalable resource.
+ * 
+ * 
+ * Capacity forecasts are represented as predicted values, or data points, that are
+ * calculated using historical data points from a specified CloudWatch load metric. Data points are
+ * available for up to 56 days.
+ */export const getScalingPlanResourceForecastData = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-06", uri: "/", method: "POST", sdkId: "Auto Scaling Plans", sigV4ServiceName: "autoscaling-plans", name: "AnyScaleScalingPlannerFrontendService.GetScalingPlanResourceForecastData" }, GetScalingPlanResourceForecastDataRequest, GetScalingPlanResourceForecastDataResponse, [InternalServiceException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates the specified scaling plan.
+ * 
+ * 
+ * You cannot update a scaling plan if it is in the process of being created, updated, or
+ * deleted.
+ */export const updateScalingPlan = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-06", uri: "/", method: "POST", sdkId: "Auto Scaling Plans", sigV4ServiceName: "autoscaling-plans", name: "AnyScaleScalingPlannerFrontendService.UpdateScalingPlan" }, UpdateScalingPlanRequest, UpdateScalingPlanResponse, [ConcurrentUpdateException, InternalServiceException, ObjectNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Describes the scalable resources in the specified scaling plan.
+ */export const describeScalingPlanResources = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-06", uri: "/", method: "POST", sdkId: "Auto Scaling Plans", sigV4ServiceName: "autoscaling-plans", name: "AnyScaleScalingPlannerFrontendService.DescribeScalingPlanResources" }, DescribeScalingPlanResourcesRequest, DescribeScalingPlanResourcesResponse, [ConcurrentUpdateException, InternalServiceException, InvalidNextTokenException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Describes one or more of your scaling plans.
+ */export const describeScalingPlans = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-06", uri: "/", method: "POST", sdkId: "Auto Scaling Plans", sigV4ServiceName: "autoscaling-plans", name: "AnyScaleScalingPlannerFrontendService.DescribeScalingPlans" }, DescribeScalingPlansRequest, DescribeScalingPlansResponse, [ConcurrentUpdateException, InternalServiceException, InvalidNextTokenException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a scaling plan.
+ */export const createScalingPlan = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-01-06", uri: "/", method: "POST", sdkId: "Auto Scaling Plans", sigV4ServiceName: "autoscaling-plans", name: "AnyScaleScalingPlannerFrontendService.CreateScalingPlan" }, CreateScalingPlanRequest, CreateScalingPlanResponse, [ConcurrentUpdateException, InternalServiceException, LimitExceededException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

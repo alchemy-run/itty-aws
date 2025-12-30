@@ -179,47 +179,199 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 export class AccessDeniedException extends S.TaggedError<AccessDeniedException>()("AccessDeniedException", {}) {};
 
 //# Operations
-export const deleteJob = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/jobs/{Name}", method: "DELETE", sdkId: "DataBrew", sigV4ServiceName: "databrew", name: "AWSGlueDataBrew.DeleteJob" }, DeleteJobRequest, DeleteJobResponse, [ConflictException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteProject = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/projects/{Name}", method: "DELETE", sdkId: "DataBrew", sigV4ServiceName: "databrew", name: "AWSGlueDataBrew.DeleteProject" }, DeleteProjectRequest, DeleteProjectResponse, [ConflictException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteRecipeVersion = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/recipes/{Name}/recipeVersion/{RecipeVersion}", method: "DELETE", sdkId: "DataBrew", sigV4ServiceName: "databrew", name: "AWSGlueDataBrew.DeleteRecipeVersion" }, DeleteRecipeVersionRequest, DeleteRecipeVersionResponse, [ConflictException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteRuleset = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/rulesets/{Name}", method: "DELETE", sdkId: "DataBrew", sigV4ServiceName: "databrew", name: "AWSGlueDataBrew.DeleteRuleset" }, DeleteRulesetRequest, DeleteRulesetResponse, [ConflictException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteSchedule = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/schedules/{Name}", method: "DELETE", sdkId: "DataBrew", sigV4ServiceName: "databrew", name: "AWSGlueDataBrew.DeleteSchedule" }, DeleteScheduleRequest, DeleteScheduleResponse, [ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeDataset = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/datasets/{Name}", method: "GET", sdkId: "DataBrew", sigV4ServiceName: "databrew", name: "AWSGlueDataBrew.DescribeDataset" }, DescribeDatasetRequest, DescribeDatasetResponse, [ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeJob = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/jobs/{Name}", method: "GET", sdkId: "DataBrew", sigV4ServiceName: "databrew", name: "AWSGlueDataBrew.DescribeJob" }, DescribeJobRequest, DescribeJobResponse, [ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeJobRun = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/jobs/{Name}/jobRun/{RunId}", method: "GET", sdkId: "DataBrew", sigV4ServiceName: "databrew", name: "AWSGlueDataBrew.DescribeJobRun" }, DescribeJobRunRequest, DescribeJobRunResponse, [ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeProject = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/projects/{Name}", method: "GET", sdkId: "DataBrew", sigV4ServiceName: "databrew", name: "AWSGlueDataBrew.DescribeProject" }, DescribeProjectRequest, DescribeProjectResponse, [ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeRecipe = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/recipes/{Name}", method: "GET", sdkId: "DataBrew", sigV4ServiceName: "databrew", name: "AWSGlueDataBrew.DescribeRecipe" }, DescribeRecipeRequest, DescribeRecipeResponse, [ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeRuleset = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/rulesets/{Name}", method: "GET", sdkId: "DataBrew", sigV4ServiceName: "databrew", name: "AWSGlueDataBrew.DescribeRuleset" }, DescribeRulesetRequest, DescribeRulesetResponse, [ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeSchedule = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/schedules/{Name}", method: "GET", sdkId: "DataBrew", sigV4ServiceName: "databrew", name: "AWSGlueDataBrew.DescribeSchedule" }, DescribeScheduleRequest, DescribeScheduleResponse, [ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listRecipeVersions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/recipeVersions", method: "GET", sdkId: "DataBrew", sigV4ServiceName: "databrew", name: "AWSGlueDataBrew.ListRecipeVersions" }, ListRecipeVersionsRequest, ListRecipeVersionsResponse, [ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listTagsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/tags/{ResourceArn}", method: "GET", sdkId: "DataBrew", sigV4ServiceName: "databrew", name: "AWSGlueDataBrew.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const startJobRun = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/jobs/{Name}/startJobRun", method: "POST", sdkId: "DataBrew", sigV4ServiceName: "databrew", name: "AWSGlueDataBrew.StartJobRun" }, StartJobRunRequest, StartJobRunResponse, [ConflictException, ResourceNotFoundException, ServiceQuotaExceededException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const startProjectSession = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/projects/{Name}/startProjectSession", method: "PUT", sdkId: "DataBrew", sigV4ServiceName: "databrew", name: "AWSGlueDataBrew.StartProjectSession" }, StartProjectSessionRequest, StartProjectSessionResponse, [ConflictException, ResourceNotFoundException, ServiceQuotaExceededException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const stopJobRun = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/jobs/{Name}/jobRun/{RunId}/stopJobRun", method: "POST", sdkId: "DataBrew", sigV4ServiceName: "databrew", name: "AWSGlueDataBrew.StopJobRun" }, StopJobRunRequest, StopJobRunResponse, [ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const tagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/tags/{ResourceArn}", method: "POST", sdkId: "DataBrew", sigV4ServiceName: "databrew", name: "AWSGlueDataBrew.TagResource" }, TagResourceRequest, TagResourceResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const untagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/tags/{ResourceArn}", method: "DELETE", sdkId: "DataBrew", sigV4ServiceName: "databrew", name: "AWSGlueDataBrew.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateProfileJob = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/profileJobs/{Name}", method: "PUT", sdkId: "DataBrew", sigV4ServiceName: "databrew", name: "AWSGlueDataBrew.UpdateProfileJob" }, UpdateProfileJobRequest, UpdateProfileJobResponse, [AccessDeniedException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateProject = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/projects/{Name}", method: "PUT", sdkId: "DataBrew", sigV4ServiceName: "databrew", name: "AWSGlueDataBrew.UpdateProject" }, UpdateProjectRequest, UpdateProjectResponse, [ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateRecipe = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/recipes/{Name}", method: "PUT", sdkId: "DataBrew", sigV4ServiceName: "databrew", name: "AWSGlueDataBrew.UpdateRecipe" }, UpdateRecipeRequest, UpdateRecipeResponse, [ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateRecipeJob = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/recipeJobs/{Name}", method: "PUT", sdkId: "DataBrew", sigV4ServiceName: "databrew", name: "AWSGlueDataBrew.UpdateRecipeJob" }, UpdateRecipeJobRequest, UpdateRecipeJobResponse, [AccessDeniedException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateRuleset = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/rulesets/{Name}", method: "PUT", sdkId: "DataBrew", sigV4ServiceName: "databrew", name: "AWSGlueDataBrew.UpdateRuleset" }, UpdateRulesetRequest, UpdateRulesetResponse, [ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateSchedule = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/schedules/{Name}", method: "PUT", sdkId: "DataBrew", sigV4ServiceName: "databrew", name: "AWSGlueDataBrew.UpdateSchedule" }, UpdateScheduleRequest, UpdateScheduleResponse, [ResourceNotFoundException, ServiceQuotaExceededException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const batchDeleteRecipeVersion = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/recipes/{Name}/batchDeleteRecipeVersion", method: "POST", sdkId: "DataBrew", sigV4ServiceName: "databrew", name: "AWSGlueDataBrew.BatchDeleteRecipeVersion" }, BatchDeleteRecipeVersionRequest, BatchDeleteRecipeVersionResponse, [ConflictException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const createProject = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/projects", method: "POST", sdkId: "DataBrew", sigV4ServiceName: "databrew", name: "AWSGlueDataBrew.CreateProject" }, CreateProjectRequest, CreateProjectResponse, [ConflictException, InternalServerException, ServiceQuotaExceededException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const createSchedule = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/schedules", method: "POST", sdkId: "DataBrew", sigV4ServiceName: "databrew", name: "AWSGlueDataBrew.CreateSchedule" }, CreateScheduleRequest, CreateScheduleResponse, [ConflictException, ServiceQuotaExceededException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteDataset = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/datasets/{Name}", method: "DELETE", sdkId: "DataBrew", sigV4ServiceName: "databrew", name: "AWSGlueDataBrew.DeleteDataset" }, DeleteDatasetRequest, DeleteDatasetResponse, [ConflictException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listDatasets = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/datasets", method: "GET", sdkId: "DataBrew", sigV4ServiceName: "databrew", name: "AWSGlueDataBrew.ListDatasets" }, ListDatasetsRequest, ListDatasetsResponse, [ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listJobRuns = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/jobs/{Name}/jobRuns", method: "GET", sdkId: "DataBrew", sigV4ServiceName: "databrew", name: "AWSGlueDataBrew.ListJobRuns" }, ListJobRunsRequest, ListJobRunsResponse, [ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listJobs = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/jobs", method: "GET", sdkId: "DataBrew", sigV4ServiceName: "databrew", name: "AWSGlueDataBrew.ListJobs" }, ListJobsRequest, ListJobsResponse, [ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listProjects = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/projects", method: "GET", sdkId: "DataBrew", sigV4ServiceName: "databrew", name: "AWSGlueDataBrew.ListProjects" }, ListProjectsRequest, ListProjectsResponse, [ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listRecipes = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/recipes", method: "GET", sdkId: "DataBrew", sigV4ServiceName: "databrew", name: "AWSGlueDataBrew.ListRecipes" }, ListRecipesRequest, ListRecipesResponse, [ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listRulesets = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/rulesets", method: "GET", sdkId: "DataBrew", sigV4ServiceName: "databrew", name: "AWSGlueDataBrew.ListRulesets" }, ListRulesetsRequest, ListRulesetsResponse, [ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listSchedules = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/schedules", method: "GET", sdkId: "DataBrew", sigV4ServiceName: "databrew", name: "AWSGlueDataBrew.ListSchedules" }, ListSchedulesRequest, ListSchedulesResponse, [ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const publishRecipe = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/recipes/{Name}/publishRecipe", method: "POST", sdkId: "DataBrew", sigV4ServiceName: "databrew", name: "AWSGlueDataBrew.PublishRecipe" }, PublishRecipeRequest, PublishRecipeResponse, [ResourceNotFoundException, ServiceQuotaExceededException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const sendProjectSessionAction = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/projects/{Name}/sendProjectSessionAction", method: "PUT", sdkId: "DataBrew", sigV4ServiceName: "databrew", name: "AWSGlueDataBrew.SendProjectSessionAction" }, SendProjectSessionActionRequest, SendProjectSessionActionResponse, [ConflictException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateDataset = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/datasets/{Name}", method: "PUT", sdkId: "DataBrew", sigV4ServiceName: "databrew", name: "AWSGlueDataBrew.UpdateDataset" }, UpdateDatasetRequest, UpdateDatasetResponse, [AccessDeniedException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const createRuleset = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/rulesets", method: "POST", sdkId: "DataBrew", sigV4ServiceName: "databrew", name: "AWSGlueDataBrew.CreateRuleset" }, CreateRulesetRequest, CreateRulesetResponse, [ConflictException, ServiceQuotaExceededException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const createProfileJob = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/profileJobs", method: "POST", sdkId: "DataBrew", sigV4ServiceName: "databrew", name: "AWSGlueDataBrew.CreateProfileJob" }, CreateProfileJobRequest, CreateProfileJobResponse, [AccessDeniedException, ConflictException, ResourceNotFoundException, ServiceQuotaExceededException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const createRecipe = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/recipes", method: "POST", sdkId: "DataBrew", sigV4ServiceName: "databrew", name: "AWSGlueDataBrew.CreateRecipe" }, CreateRecipeRequest, CreateRecipeResponse, [ConflictException, ServiceQuotaExceededException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const createRecipeJob = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/recipeJobs", method: "POST", sdkId: "DataBrew", sigV4ServiceName: "databrew", name: "AWSGlueDataBrew.CreateRecipeJob" }, CreateRecipeJobRequest, CreateRecipeJobResponse, [AccessDeniedException, ConflictException, ResourceNotFoundException, ServiceQuotaExceededException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const createDataset = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/datasets", method: "POST", sdkId: "DataBrew", sigV4ServiceName: "databrew", name: "AWSGlueDataBrew.CreateDataset" }, CreateDatasetRequest, CreateDatasetResponse, [AccessDeniedException, ConflictException, ServiceQuotaExceededException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes the specified DataBrew job.
+ */export const deleteJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/jobs/{Name}", method: "DELETE", sdkId: "DataBrew", sigV4ServiceName: "databrew", name: "AWSGlueDataBrew.DeleteJob" }, DeleteJobRequest, DeleteJobResponse, [ConflictException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes an existing DataBrew project.
+ */export const deleteProject = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/projects/{Name}", method: "DELETE", sdkId: "DataBrew", sigV4ServiceName: "databrew", name: "AWSGlueDataBrew.DeleteProject" }, DeleteProjectRequest, DeleteProjectResponse, [ConflictException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes a single version of a DataBrew recipe.
+ */export const deleteRecipeVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/recipes/{Name}/recipeVersion/{RecipeVersion}", method: "DELETE", sdkId: "DataBrew", sigV4ServiceName: "databrew", name: "AWSGlueDataBrew.DeleteRecipeVersion" }, DeleteRecipeVersionRequest, DeleteRecipeVersionResponse, [ConflictException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes a ruleset.
+ */export const deleteRuleset = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/rulesets/{Name}", method: "DELETE", sdkId: "DataBrew", sigV4ServiceName: "databrew", name: "AWSGlueDataBrew.DeleteRuleset" }, DeleteRulesetRequest, DeleteRulesetResponse, [ConflictException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes the specified DataBrew schedule.
+ */export const deleteSchedule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/schedules/{Name}", method: "DELETE", sdkId: "DataBrew", sigV4ServiceName: "databrew", name: "AWSGlueDataBrew.DeleteSchedule" }, DeleteScheduleRequest, DeleteScheduleResponse, [ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns the definition of a specific DataBrew dataset.
+ */export const describeDataset = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/datasets/{Name}", method: "GET", sdkId: "DataBrew", sigV4ServiceName: "databrew", name: "AWSGlueDataBrew.DescribeDataset" }, DescribeDatasetRequest, DescribeDatasetResponse, [ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns the definition of a specific DataBrew job.
+ */export const describeJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/jobs/{Name}", method: "GET", sdkId: "DataBrew", sigV4ServiceName: "databrew", name: "AWSGlueDataBrew.DescribeJob" }, DescribeJobRequest, DescribeJobResponse, [ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Represents one run of a DataBrew job.
+ */export const describeJobRun = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/jobs/{Name}/jobRun/{RunId}", method: "GET", sdkId: "DataBrew", sigV4ServiceName: "databrew", name: "AWSGlueDataBrew.DescribeJobRun" }, DescribeJobRunRequest, DescribeJobRunResponse, [ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns the definition of a specific DataBrew project.
+ */export const describeProject = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/projects/{Name}", method: "GET", sdkId: "DataBrew", sigV4ServiceName: "databrew", name: "AWSGlueDataBrew.DescribeProject" }, DescribeProjectRequest, DescribeProjectResponse, [ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns the definition of a specific DataBrew recipe corresponding to a particular
+ * version.
+ */export const describeRecipe = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/recipes/{Name}", method: "GET", sdkId: "DataBrew", sigV4ServiceName: "databrew", name: "AWSGlueDataBrew.DescribeRecipe" }, DescribeRecipeRequest, DescribeRecipeResponse, [ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves detailed information about the ruleset.
+ */export const describeRuleset = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/rulesets/{Name}", method: "GET", sdkId: "DataBrew", sigV4ServiceName: "databrew", name: "AWSGlueDataBrew.DescribeRuleset" }, DescribeRulesetRequest, DescribeRulesetResponse, [ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns the definition of a specific DataBrew schedule.
+ */export const describeSchedule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/schedules/{Name}", method: "GET", sdkId: "DataBrew", sigV4ServiceName: "databrew", name: "AWSGlueDataBrew.DescribeSchedule" }, DescribeScheduleRequest, DescribeScheduleResponse, [ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists the versions of a particular DataBrew recipe, except for
+ * `LATEST_WORKING`.
+ */export const listRecipeVersions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/recipeVersions", method: "GET", sdkId: "DataBrew", sigV4ServiceName: "databrew", name: "AWSGlueDataBrew.ListRecipeVersions" }, ListRecipeVersionsRequest, ListRecipeVersionsResponse, [ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists all the tags for a DataBrew resource.
+ */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/tags/{ResourceArn}", method: "GET", sdkId: "DataBrew", sigV4ServiceName: "databrew", name: "AWSGlueDataBrew.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Runs a DataBrew job.
+ */export const startJobRun = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/jobs/{Name}/startJobRun", method: "POST", sdkId: "DataBrew", sigV4ServiceName: "databrew", name: "AWSGlueDataBrew.StartJobRun" }, StartJobRunRequest, StartJobRunResponse, [ConflictException, ResourceNotFoundException, ServiceQuotaExceededException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates an interactive session, enabling you to manipulate data in a DataBrew
+ * project.
+ */export const startProjectSession = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/projects/{Name}/startProjectSession", method: "PUT", sdkId: "DataBrew", sigV4ServiceName: "databrew", name: "AWSGlueDataBrew.StartProjectSession" }, StartProjectSessionRequest, StartProjectSessionResponse, [ConflictException, ResourceNotFoundException, ServiceQuotaExceededException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Stops a particular run of a job.
+ */export const stopJobRun = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/jobs/{Name}/jobRun/{RunId}/stopJobRun", method: "POST", sdkId: "DataBrew", sigV4ServiceName: "databrew", name: "AWSGlueDataBrew.StopJobRun" }, StopJobRunRequest, StopJobRunResponse, [ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Adds metadata tags to a DataBrew resource, such as a dataset, project, recipe, job, or
+ * schedule.
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/tags/{ResourceArn}", method: "POST", sdkId: "DataBrew", sigV4ServiceName: "databrew", name: "AWSGlueDataBrew.TagResource" }, TagResourceRequest, TagResourceResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Removes metadata tags from a DataBrew resource.
+ */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/tags/{ResourceArn}", method: "DELETE", sdkId: "DataBrew", sigV4ServiceName: "databrew", name: "AWSGlueDataBrew.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Modifies the definition of an existing profile job.
+ */export const updateProfileJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/profileJobs/{Name}", method: "PUT", sdkId: "DataBrew", sigV4ServiceName: "databrew", name: "AWSGlueDataBrew.UpdateProfileJob" }, UpdateProfileJobRequest, UpdateProfileJobResponse, [AccessDeniedException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Modifies the definition of an existing DataBrew project.
+ */export const updateProject = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/projects/{Name}", method: "PUT", sdkId: "DataBrew", sigV4ServiceName: "databrew", name: "AWSGlueDataBrew.UpdateProject" }, UpdateProjectRequest, UpdateProjectResponse, [ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Modifies the definition of the `LATEST_WORKING` version of a DataBrew
+ * recipe.
+ */export const updateRecipe = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/recipes/{Name}", method: "PUT", sdkId: "DataBrew", sigV4ServiceName: "databrew", name: "AWSGlueDataBrew.UpdateRecipe" }, UpdateRecipeRequest, UpdateRecipeResponse, [ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Modifies the definition of an existing DataBrew recipe job.
+ */export const updateRecipeJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/recipeJobs/{Name}", method: "PUT", sdkId: "DataBrew", sigV4ServiceName: "databrew", name: "AWSGlueDataBrew.UpdateRecipeJob" }, UpdateRecipeJobRequest, UpdateRecipeJobResponse, [AccessDeniedException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates specified ruleset.
+ */export const updateRuleset = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/rulesets/{Name}", method: "PUT", sdkId: "DataBrew", sigV4ServiceName: "databrew", name: "AWSGlueDataBrew.UpdateRuleset" }, UpdateRulesetRequest, UpdateRulesetResponse, [ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Modifies the definition of an existing DataBrew schedule.
+ */export const updateSchedule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/schedules/{Name}", method: "PUT", sdkId: "DataBrew", sigV4ServiceName: "databrew", name: "AWSGlueDataBrew.UpdateSchedule" }, UpdateScheduleRequest, UpdateScheduleResponse, [ResourceNotFoundException, ServiceQuotaExceededException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes one or more versions of a recipe at a time.
+ * 
+ * 
+ * The entire request will be rejected if:
+ * 
+ * 
+ * 
+ * - The recipe does not exist.
+ * 
+ * 
+ * 
+ * - There is an invalid version identifier in the list of versions.
+ * 
+ * 
+ * 
+ * - The version list is empty.
+ * 
+ * 
+ * 
+ * - The version list size exceeds 50.
+ * 
+ * 
+ * 
+ * - The version list contains duplicate entries.
+ * 
+ * 
+ * 
+ * 
+ * 
+ * The request will complete successfully, but with partial failures, if:
+ * 
+ * 
+ * 
+ * - A version does not exist.
+ * 
+ * 
+ * 
+ * - A version is being used by a job.
+ * 
+ * 
+ * 
+ * - You specify `LATEST_WORKING`, but it's being used by a
+ * project.
+ * 
+ * 
+ * 
+ * - The version fails to be deleted.
+ * 
+ * 
+ * 
+ * 
+ * 
+ * The `LATEST_WORKING` version will only be deleted if the recipe has no
+ * other versions. If you try to delete `LATEST_WORKING` while other versions
+ * exist (or if they can't be deleted), then `LATEST_WORKING` will be listed as
+ * partial failure in the response.
+ */export const batchDeleteRecipeVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/recipes/{Name}/batchDeleteRecipeVersion", method: "POST", sdkId: "DataBrew", sigV4ServiceName: "databrew", name: "AWSGlueDataBrew.BatchDeleteRecipeVersion" }, BatchDeleteRecipeVersionRequest, BatchDeleteRecipeVersionResponse, [ConflictException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a new DataBrew project.
+ */export const createProject = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/projects", method: "POST", sdkId: "DataBrew", sigV4ServiceName: "databrew", name: "AWSGlueDataBrew.CreateProject" }, CreateProjectRequest, CreateProjectResponse, [ConflictException, InternalServerException, ServiceQuotaExceededException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a new schedule for one or more DataBrew jobs. Jobs can be run at a specific
+ * date and time, or at regular intervals.
+ */export const createSchedule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/schedules", method: "POST", sdkId: "DataBrew", sigV4ServiceName: "databrew", name: "AWSGlueDataBrew.CreateSchedule" }, CreateScheduleRequest, CreateScheduleResponse, [ConflictException, ServiceQuotaExceededException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes a dataset from DataBrew.
+ */export const deleteDataset = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/datasets/{Name}", method: "DELETE", sdkId: "DataBrew", sigV4ServiceName: "databrew", name: "AWSGlueDataBrew.DeleteDataset" }, DeleteDatasetRequest, DeleteDatasetResponse, [ConflictException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists all of the DataBrew datasets.
+ */export const listDatasets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/datasets", method: "GET", sdkId: "DataBrew", sigV4ServiceName: "databrew", name: "AWSGlueDataBrew.ListDatasets" }, ListDatasetsRequest, ListDatasetsResponse, [ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists all of the previous runs of a particular DataBrew job.
+ */export const listJobRuns = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/jobs/{Name}/jobRuns", method: "GET", sdkId: "DataBrew", sigV4ServiceName: "databrew", name: "AWSGlueDataBrew.ListJobRuns" }, ListJobRunsRequest, ListJobRunsResponse, [ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists all of the DataBrew jobs that are defined.
+ */export const listJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/jobs", method: "GET", sdkId: "DataBrew", sigV4ServiceName: "databrew", name: "AWSGlueDataBrew.ListJobs" }, ListJobsRequest, ListJobsResponse, [ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists all of the DataBrew projects that are defined.
+ */export const listProjects = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/projects", method: "GET", sdkId: "DataBrew", sigV4ServiceName: "databrew", name: "AWSGlueDataBrew.ListProjects" }, ListProjectsRequest, ListProjectsResponse, [ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists all of the DataBrew recipes that are defined.
+ */export const listRecipes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/recipes", method: "GET", sdkId: "DataBrew", sigV4ServiceName: "databrew", name: "AWSGlueDataBrew.ListRecipes" }, ListRecipesRequest, ListRecipesResponse, [ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * List all rulesets available in the current account or rulesets associated
+ * with a specific resource (dataset).
+ */export const listRulesets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/rulesets", method: "GET", sdkId: "DataBrew", sigV4ServiceName: "databrew", name: "AWSGlueDataBrew.ListRulesets" }, ListRulesetsRequest, ListRulesetsResponse, [ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists the DataBrew schedules that are defined.
+ */export const listSchedules = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/schedules", method: "GET", sdkId: "DataBrew", sigV4ServiceName: "databrew", name: "AWSGlueDataBrew.ListSchedules" }, ListSchedulesRequest, ListSchedulesResponse, [ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Publishes a new version of a DataBrew recipe.
+ */export const publishRecipe = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/recipes/{Name}/publishRecipe", method: "POST", sdkId: "DataBrew", sigV4ServiceName: "databrew", name: "AWSGlueDataBrew.PublishRecipe" }, PublishRecipeRequest, PublishRecipeResponse, [ResourceNotFoundException, ServiceQuotaExceededException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Performs a recipe step within an interactive DataBrew session that's currently
+ * open.
+ */export const sendProjectSessionAction = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/projects/{Name}/sendProjectSessionAction", method: "PUT", sdkId: "DataBrew", sigV4ServiceName: "databrew", name: "AWSGlueDataBrew.SendProjectSessionAction" }, SendProjectSessionActionRequest, SendProjectSessionActionResponse, [ConflictException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Modifies the definition of an existing DataBrew dataset.
+ */export const updateDataset = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/datasets/{Name}", method: "PUT", sdkId: "DataBrew", sigV4ServiceName: "databrew", name: "AWSGlueDataBrew.UpdateDataset" }, UpdateDatasetRequest, UpdateDatasetResponse, [AccessDeniedException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a new ruleset that can be used in a profile job to validate
+ * the data quality of a dataset.
+ */export const createRuleset = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/rulesets", method: "POST", sdkId: "DataBrew", sigV4ServiceName: "databrew", name: "AWSGlueDataBrew.CreateRuleset" }, CreateRulesetRequest, CreateRulesetResponse, [ConflictException, ServiceQuotaExceededException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a new job to analyze a dataset and create its data profile.
+ */export const createProfileJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/profileJobs", method: "POST", sdkId: "DataBrew", sigV4ServiceName: "databrew", name: "AWSGlueDataBrew.CreateProfileJob" }, CreateProfileJobRequest, CreateProfileJobResponse, [AccessDeniedException, ConflictException, ResourceNotFoundException, ServiceQuotaExceededException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a new DataBrew recipe.
+ */export const createRecipe = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/recipes", method: "POST", sdkId: "DataBrew", sigV4ServiceName: "databrew", name: "AWSGlueDataBrew.CreateRecipe" }, CreateRecipeRequest, CreateRecipeResponse, [ConflictException, ServiceQuotaExceededException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a new job to transform input data, using steps defined in an existing Glue DataBrew recipe
+ */export const createRecipeJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/recipeJobs", method: "POST", sdkId: "DataBrew", sigV4ServiceName: "databrew", name: "AWSGlueDataBrew.CreateRecipeJob" }, CreateRecipeJobRequest, CreateRecipeJobResponse, [AccessDeniedException, ConflictException, ResourceNotFoundException, ServiceQuotaExceededException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a new DataBrew dataset.
+ */export const createDataset = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/datasets", method: "POST", sdkId: "DataBrew", sigV4ServiceName: "databrew", name: "AWSGlueDataBrew.CreateDataset" }, CreateDatasetRequest, CreateDatasetResponse, [AccessDeniedException, ConflictException, ServiceQuotaExceededException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

@@ -127,4 +127,6 @@ export class ThrottlingException extends S.TaggedError<ThrottlingException>()("T
 export class ValidationException extends S.TaggedError<ValidationException>()("ValidationException", {message: S.optional(S.String), fieldList: S.optional(ValidationExceptionFieldList)}) {};
 
 //# Operations
-export const validateFlowDefinition = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-06-05", uri: "/flows/validate-definition", method: "POST", sdkId: "Bedrock Agent", sigV4ServiceName: "bedrock", name: "AmazonBedrockAgentBuildTimeLambda.ValidateFlowDefinition" }, ValidateFlowDefinitionRequest, ValidateFlowDefinitionResponse, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Validates the definition of a flow.
+ */export const validateFlowDefinition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-06-05", uri: "/flows/validate-definition", method: "POST", sdkId: "Bedrock Agent", sigV4ServiceName: "bedrock", name: "AmazonBedrockAgentBuildTimeLambda.ValidateFlowDefinition" }, ValidateFlowDefinitionRequest, ValidateFlowDefinitionResponse, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

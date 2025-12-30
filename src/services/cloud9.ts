@@ -52,16 +52,155 @@ export class NotFoundException extends S.TaggedError<NotFoundException>()("NotFo
 export class TooManyRequestsException extends S.TaggedError<TooManyRequestsException>()("TooManyRequestsException", {}) {};
 
 //# Operations
-export const describeEnvironmentStatus = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-23", uri: "/", method: "POST", sdkId: "Cloud9", sigV4ServiceName: "cloud9", name: "AWSCloud9WorkspaceManagementService.DescribeEnvironmentStatus" }, DescribeEnvironmentStatusRequest, DescribeEnvironmentStatusResult, [BadRequestException, ConflictException, ForbiddenException, InternalServerErrorException, LimitExceededException, NotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listEnvironments = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-23", uri: "/", method: "POST", sdkId: "Cloud9", sigV4ServiceName: "cloud9", name: "AWSCloud9WorkspaceManagementService.ListEnvironments" }, ListEnvironmentsRequest, ListEnvironmentsResult, [BadRequestException, ConflictException, ForbiddenException, InternalServerErrorException, LimitExceededException, NotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listTagsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-23", uri: "/", method: "POST", sdkId: "Cloud9", sigV4ServiceName: "cloud9", name: "AWSCloud9WorkspaceManagementService.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [BadRequestException, InternalServerErrorException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const tagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-23", uri: "/", method: "POST", sdkId: "Cloud9", sigV4ServiceName: "cloud9", name: "AWSCloud9WorkspaceManagementService.TagResource" }, TagResourceRequest, TagResourceResponse, [BadRequestException, ConcurrentAccessException, InternalServerErrorException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const untagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-23", uri: "/", method: "POST", sdkId: "Cloud9", sigV4ServiceName: "cloud9", name: "AWSCloud9WorkspaceManagementService.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [BadRequestException, ConcurrentAccessException, InternalServerErrorException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateEnvironment = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-23", uri: "/", method: "POST", sdkId: "Cloud9", sigV4ServiceName: "cloud9", name: "AWSCloud9WorkspaceManagementService.UpdateEnvironment" }, UpdateEnvironmentRequest, UpdateEnvironmentResult, [BadRequestException, ConflictException, ForbiddenException, InternalServerErrorException, LimitExceededException, NotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateEnvironmentMembership = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-23", uri: "/", method: "POST", sdkId: "Cloud9", sigV4ServiceName: "cloud9", name: "AWSCloud9WorkspaceManagementService.UpdateEnvironmentMembership" }, UpdateEnvironmentMembershipRequest, UpdateEnvironmentMembershipResult, [BadRequestException, ConflictException, ForbiddenException, InternalServerErrorException, LimitExceededException, NotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const createEnvironmentEC2 = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-23", uri: "/", method: "POST", sdkId: "Cloud9", sigV4ServiceName: "cloud9", name: "AWSCloud9WorkspaceManagementService.CreateEnvironmentEC2" }, CreateEnvironmentEC2Request, CreateEnvironmentEC2Result, [BadRequestException, ConflictException, ForbiddenException, InternalServerErrorException, LimitExceededException, NotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const createEnvironmentMembership = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-23", uri: "/", method: "POST", sdkId: "Cloud9", sigV4ServiceName: "cloud9", name: "AWSCloud9WorkspaceManagementService.CreateEnvironmentMembership" }, CreateEnvironmentMembershipRequest, CreateEnvironmentMembershipResult, [BadRequestException, ConflictException, ForbiddenException, InternalServerErrorException, LimitExceededException, NotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteEnvironment = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-23", uri: "/", method: "POST", sdkId: "Cloud9", sigV4ServiceName: "cloud9", name: "AWSCloud9WorkspaceManagementService.DeleteEnvironment" }, DeleteEnvironmentRequest, DeleteEnvironmentResult, [BadRequestException, ConflictException, ForbiddenException, InternalServerErrorException, LimitExceededException, NotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteEnvironmentMembership = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-23", uri: "/", method: "POST", sdkId: "Cloud9", sigV4ServiceName: "cloud9", name: "AWSCloud9WorkspaceManagementService.DeleteEnvironmentMembership" }, DeleteEnvironmentMembershipRequest, DeleteEnvironmentMembershipResult, [BadRequestException, ConflictException, ForbiddenException, InternalServerErrorException, LimitExceededException, NotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeEnvironmentMemberships = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-23", uri: "/", method: "POST", sdkId: "Cloud9", sigV4ServiceName: "cloud9", name: "AWSCloud9WorkspaceManagementService.DescribeEnvironmentMemberships" }, DescribeEnvironmentMembershipsRequest, DescribeEnvironmentMembershipsResult, [BadRequestException, ConflictException, ForbiddenException, InternalServerErrorException, LimitExceededException, NotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeEnvironments = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-23", uri: "/", method: "POST", sdkId: "Cloud9", sigV4ServiceName: "cloud9", name: "AWSCloud9WorkspaceManagementService.DescribeEnvironments" }, DescribeEnvironmentsRequest, DescribeEnvironmentsResult, [BadRequestException, ConflictException, ForbiddenException, InternalServerErrorException, LimitExceededException, NotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets status information for an Cloud9 development environment.
+ * 
+ * 
+ * 
+ * 
+ * Cloud9 is no longer available to new customers. Existing customers of
+ * Cloud9 can continue to use the service as normal.
+ * Learn more"
+ */export const describeEnvironmentStatus = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-23", uri: "/", method: "POST", sdkId: "Cloud9", sigV4ServiceName: "cloud9", name: "AWSCloud9WorkspaceManagementService.DescribeEnvironmentStatus" }, DescribeEnvironmentStatusRequest, DescribeEnvironmentStatusResult, [BadRequestException, ConflictException, ForbiddenException, InternalServerErrorException, LimitExceededException, NotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets a list of Cloud9 development environment identifiers.
+ * 
+ * 
+ * 
+ * 
+ * Cloud9 is no longer available to new customers. Existing customers of
+ * Cloud9 can continue to use the service as normal.
+ * Learn more"
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * Cloud9 is no longer available to new customers. Existing customers of
+ * Cloud9 can continue to use the service as normal.
+ * Learn more"
+ */export const listEnvironments = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-23", uri: "/", method: "POST", sdkId: "Cloud9", sigV4ServiceName: "cloud9", name: "AWSCloud9WorkspaceManagementService.ListEnvironments" }, ListEnvironmentsRequest, ListEnvironmentsResult, [BadRequestException, ConflictException, ForbiddenException, InternalServerErrorException, LimitExceededException, NotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets a list of the tags associated with an Cloud9 development environment.
+ * 
+ * 
+ * 
+ * 
+ * Cloud9 is no longer available to new customers. Existing customers of
+ * Cloud9 can continue to use the service as normal.
+ * Learn more"
+ */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-23", uri: "/", method: "POST", sdkId: "Cloud9", sigV4ServiceName: "cloud9", name: "AWSCloud9WorkspaceManagementService.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [BadRequestException, InternalServerErrorException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Adds tags to an Cloud9 development environment.
+ * 
+ * 
+ * 
+ * 
+ * Cloud9 is no longer available to new customers. Existing customers of
+ * Cloud9 can continue to use the service as normal.
+ * Learn more"
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * Tags that you add to an Cloud9 environment by using this method will NOT be
+ * automatically propagated to underlying resources.
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-23", uri: "/", method: "POST", sdkId: "Cloud9", sigV4ServiceName: "cloud9", name: "AWSCloud9WorkspaceManagementService.TagResource" }, TagResourceRequest, TagResourceResponse, [BadRequestException, ConcurrentAccessException, InternalServerErrorException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Removes tags from an Cloud9 development environment.
+ * 
+ * 
+ * 
+ * 
+ * Cloud9 is no longer available to new customers. Existing customers of
+ * Cloud9 can continue to use the service as normal.
+ * Learn more"
+ */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-23", uri: "/", method: "POST", sdkId: "Cloud9", sigV4ServiceName: "cloud9", name: "AWSCloud9WorkspaceManagementService.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [BadRequestException, ConcurrentAccessException, InternalServerErrorException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Changes the settings of an existing Cloud9 development environment.
+ * 
+ * 
+ * 
+ * 
+ * Cloud9 is no longer available to new customers. Existing customers of
+ * Cloud9 can continue to use the service as normal.
+ * Learn more"
+ */export const updateEnvironment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-23", uri: "/", method: "POST", sdkId: "Cloud9", sigV4ServiceName: "cloud9", name: "AWSCloud9WorkspaceManagementService.UpdateEnvironment" }, UpdateEnvironmentRequest, UpdateEnvironmentResult, [BadRequestException, ConflictException, ForbiddenException, InternalServerErrorException, LimitExceededException, NotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Changes the settings of an existing environment member for an Cloud9 development
+ * environment.
+ * 
+ * 
+ * 
+ * 
+ * Cloud9 is no longer available to new customers. Existing customers of
+ * Cloud9 can continue to use the service as normal.
+ * Learn more"
+ */export const updateEnvironmentMembership = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-23", uri: "/", method: "POST", sdkId: "Cloud9", sigV4ServiceName: "cloud9", name: "AWSCloud9WorkspaceManagementService.UpdateEnvironmentMembership" }, UpdateEnvironmentMembershipRequest, UpdateEnvironmentMembershipResult, [BadRequestException, ConflictException, ForbiddenException, InternalServerErrorException, LimitExceededException, NotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates an Cloud9 development environment, launches an Amazon Elastic Compute Cloud (Amazon EC2) instance, and
+ * then connects from the instance to the environment.
+ * 
+ * 
+ * 
+ * 
+ * Cloud9 is no longer available to new customers. Existing customers of
+ * Cloud9 can continue to use the service as normal.
+ * Learn more"
+ */export const createEnvironmentEC2 = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-23", uri: "/", method: "POST", sdkId: "Cloud9", sigV4ServiceName: "cloud9", name: "AWSCloud9WorkspaceManagementService.CreateEnvironmentEC2" }, CreateEnvironmentEC2Request, CreateEnvironmentEC2Result, [BadRequestException, ConflictException, ForbiddenException, InternalServerErrorException, LimitExceededException, NotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Adds an environment member to an Cloud9 development environment.
+ * 
+ * 
+ * 
+ * 
+ * Cloud9 is no longer available to new customers. Existing customers of
+ * Cloud9 can continue to use the service as normal.
+ * Learn more"
+ */export const createEnvironmentMembership = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-23", uri: "/", method: "POST", sdkId: "Cloud9", sigV4ServiceName: "cloud9", name: "AWSCloud9WorkspaceManagementService.CreateEnvironmentMembership" }, CreateEnvironmentMembershipRequest, CreateEnvironmentMembershipResult, [BadRequestException, ConflictException, ForbiddenException, InternalServerErrorException, LimitExceededException, NotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes an Cloud9 development environment. If an Amazon EC2 instance is connected to the
+ * environment, also terminates the instance.
+ * 
+ * 
+ * 
+ * 
+ * Cloud9 is no longer available to new customers. Existing customers of
+ * Cloud9 can continue to use the service as normal.
+ * Learn more"
+ */export const deleteEnvironment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-23", uri: "/", method: "POST", sdkId: "Cloud9", sigV4ServiceName: "cloud9", name: "AWSCloud9WorkspaceManagementService.DeleteEnvironment" }, DeleteEnvironmentRequest, DeleteEnvironmentResult, [BadRequestException, ConflictException, ForbiddenException, InternalServerErrorException, LimitExceededException, NotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes an environment member from a development environment.
+ * 
+ * 
+ * 
+ * 
+ * Cloud9 is no longer available to new customers. Existing customers of
+ * Cloud9 can continue to use the service as normal.
+ * Learn more"
+ */export const deleteEnvironmentMembership = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-23", uri: "/", method: "POST", sdkId: "Cloud9", sigV4ServiceName: "cloud9", name: "AWSCloud9WorkspaceManagementService.DeleteEnvironmentMembership" }, DeleteEnvironmentMembershipRequest, DeleteEnvironmentMembershipResult, [BadRequestException, ConflictException, ForbiddenException, InternalServerErrorException, LimitExceededException, NotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets information about environment members for an Cloud9 development environment.
+ * 
+ * 
+ * 
+ * 
+ * Cloud9 is no longer available to new customers. Existing customers of
+ * Cloud9 can continue to use the service as normal.
+ * Learn more"
+ */export const describeEnvironmentMemberships = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-23", uri: "/", method: "POST", sdkId: "Cloud9", sigV4ServiceName: "cloud9", name: "AWSCloud9WorkspaceManagementService.DescribeEnvironmentMemberships" }, DescribeEnvironmentMembershipsRequest, DescribeEnvironmentMembershipsResult, [BadRequestException, ConflictException, ForbiddenException, InternalServerErrorException, LimitExceededException, NotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets information about Cloud9 development environments.
+ * 
+ * 
+ * 
+ * 
+ * Cloud9 is no longer available to new customers. Existing customers of
+ * Cloud9 can continue to use the service as normal.
+ * Learn more"
+ */export const describeEnvironments = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-23", uri: "/", method: "POST", sdkId: "Cloud9", sigV4ServiceName: "cloud9", name: "AWSCloud9WorkspaceManagementService.DescribeEnvironments" }, DescribeEnvironmentsRequest, DescribeEnvironmentsResult, [BadRequestException, ConflictException, ForbiddenException, InternalServerErrorException, LimitExceededException, NotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

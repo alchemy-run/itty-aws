@@ -129,40 +129,166 @@ export class ResourceNotFoundException extends S.TaggedError<ResourceNotFoundExc
 export class DependentServiceFailureException extends S.TaggedError<DependentServiceFailureException>()("DependentServiceFailureException", {}) {};
 
 //# Operations
-export const getArtifactUrl = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/artifacts/{artifactId}", method: "GET", sdkId: "Amplify", sigV4ServiceName: "amplify", name: "Amplify.GetArtifactUrl" }, GetArtifactUrlRequest, GetArtifactUrlResult, [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getBackendEnvironment = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/apps/{appId}/backendenvironments/{environmentName}", method: "GET", sdkId: "Amplify", sigV4ServiceName: "amplify", name: "Amplify.GetBackendEnvironment" }, GetBackendEnvironmentRequest, GetBackendEnvironmentResult, [BadRequestException, InternalFailureException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getBranch = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/apps/{appId}/branches/{branchName}", method: "GET", sdkId: "Amplify", sigV4ServiceName: "amplify", name: "Amplify.GetBranch" }, GetBranchRequest, GetBranchResult, [BadRequestException, InternalFailureException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getDomainAssociation = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/apps/{appId}/domains/{domainName}", method: "GET", sdkId: "Amplify", sigV4ServiceName: "amplify", name: "Amplify.GetDomainAssociation" }, GetDomainAssociationRequest, GetDomainAssociationResult, [BadRequestException, InternalFailureException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getWebhook = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/webhooks/{webhookId}", method: "GET", sdkId: "Amplify", sigV4ServiceName: "amplify", name: "Amplify.GetWebhook" }, GetWebhookRequest, GetWebhookResult, [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listApps = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/apps", method: "GET", sdkId: "Amplify", sigV4ServiceName: "amplify", name: "Amplify.ListApps" }, ListAppsRequest, ListAppsResult, [BadRequestException, InternalFailureException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listBackendEnvironments = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/apps/{appId}/backendenvironments", method: "GET", sdkId: "Amplify", sigV4ServiceName: "amplify", name: "Amplify.ListBackendEnvironments" }, ListBackendEnvironmentsRequest, ListBackendEnvironmentsResult, [BadRequestException, InternalFailureException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listBranches = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/apps/{appId}/branches", method: "GET", sdkId: "Amplify", sigV4ServiceName: "amplify", name: "Amplify.ListBranches" }, ListBranchesRequest, ListBranchesResult, [BadRequestException, InternalFailureException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listDomainAssociations = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/apps/{appId}/domains", method: "GET", sdkId: "Amplify", sigV4ServiceName: "amplify", name: "Amplify.ListDomainAssociations" }, ListDomainAssociationsRequest, ListDomainAssociationsResult, [BadRequestException, InternalFailureException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listJobs = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/apps/{appId}/branches/{branchName}/jobs", method: "GET", sdkId: "Amplify", sigV4ServiceName: "amplify", name: "Amplify.ListJobs" }, ListJobsRequest, ListJobsResult, [BadRequestException, InternalFailureException, LimitExceededException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listWebhooks = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/apps/{appId}/webhooks", method: "GET", sdkId: "Amplify", sigV4ServiceName: "amplify", name: "Amplify.ListWebhooks" }, ListWebhooksRequest, ListWebhooksResult, [BadRequestException, InternalFailureException, LimitExceededException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const startDeployment = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/apps/{appId}/branches/{branchName}/deployments/start", method: "POST", sdkId: "Amplify", sigV4ServiceName: "amplify", name: "Amplify.StartDeployment" }, StartDeploymentRequest, StartDeploymentResult, [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const startJob = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/apps/{appId}/branches/{branchName}/jobs", method: "POST", sdkId: "Amplify", sigV4ServiceName: "amplify", name: "Amplify.StartJob" }, StartJobRequest, StartJobResult, [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const stopJob = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/apps/{appId}/branches/{branchName}/jobs/{jobId}/stop", method: "DELETE", sdkId: "Amplify", sigV4ServiceName: "amplify", name: "Amplify.StopJob" }, StopJobRequest, StopJobResult, [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const tagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/tags/{resourceArn}", method: "POST", sdkId: "Amplify", sigV4ServiceName: "amplify", name: "Amplify.TagResource" }, TagResourceRequest, TagResourceResponse, [BadRequestException, InternalFailureException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const untagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/tags/{resourceArn}", method: "DELETE", sdkId: "Amplify", sigV4ServiceName: "amplify", name: "Amplify.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [BadRequestException, InternalFailureException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateApp = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/apps/{appId}", method: "POST", sdkId: "Amplify", sigV4ServiceName: "amplify", name: "Amplify.UpdateApp" }, UpdateAppRequest, UpdateAppResult, [BadRequestException, InternalFailureException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateBranch = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/apps/{appId}/branches/{branchName}", method: "POST", sdkId: "Amplify", sigV4ServiceName: "amplify", name: "Amplify.UpdateBranch" }, UpdateBranchRequest, UpdateBranchResult, [BadRequestException, DependentServiceFailureException, InternalFailureException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateDomainAssociation = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/apps/{appId}/domains/{domainName}", method: "POST", sdkId: "Amplify", sigV4ServiceName: "amplify", name: "Amplify.UpdateDomainAssociation" }, UpdateDomainAssociationRequest, UpdateDomainAssociationResult, [BadRequestException, DependentServiceFailureException, InternalFailureException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateWebhook = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/webhooks/{webhookId}", method: "POST", sdkId: "Amplify", sigV4ServiceName: "amplify", name: "Amplify.UpdateWebhook" }, UpdateWebhookRequest, UpdateWebhookResult, [BadRequestException, DependentServiceFailureException, InternalFailureException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const createApp = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/apps", method: "POST", sdkId: "Amplify", sigV4ServiceName: "amplify", name: "Amplify.CreateApp" }, CreateAppRequest, CreateAppResult, [BadRequestException, DependentServiceFailureException, InternalFailureException, LimitExceededException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const createBackendEnvironment = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/apps/{appId}/backendenvironments", method: "POST", sdkId: "Amplify", sigV4ServiceName: "amplify", name: "Amplify.CreateBackendEnvironment" }, CreateBackendEnvironmentRequest, CreateBackendEnvironmentResult, [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const createBranch = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/apps/{appId}/branches", method: "POST", sdkId: "Amplify", sigV4ServiceName: "amplify", name: "Amplify.CreateBranch" }, CreateBranchRequest, CreateBranchResult, [BadRequestException, DependentServiceFailureException, InternalFailureException, LimitExceededException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const createDomainAssociation = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/apps/{appId}/domains", method: "POST", sdkId: "Amplify", sigV4ServiceName: "amplify", name: "Amplify.CreateDomainAssociation" }, CreateDomainAssociationRequest, CreateDomainAssociationResult, [BadRequestException, DependentServiceFailureException, InternalFailureException, LimitExceededException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const createWebhook = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/apps/{appId}/webhooks", method: "POST", sdkId: "Amplify", sigV4ServiceName: "amplify", name: "Amplify.CreateWebhook" }, CreateWebhookRequest, CreateWebhookResult, [BadRequestException, DependentServiceFailureException, InternalFailureException, LimitExceededException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteBackendEnvironment = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/apps/{appId}/backendenvironments/{environmentName}", method: "DELETE", sdkId: "Amplify", sigV4ServiceName: "amplify", name: "Amplify.DeleteBackendEnvironment" }, DeleteBackendEnvironmentRequest, DeleteBackendEnvironmentResult, [BadRequestException, DependentServiceFailureException, InternalFailureException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteBranch = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/apps/{appId}/branches/{branchName}", method: "DELETE", sdkId: "Amplify", sigV4ServiceName: "amplify", name: "Amplify.DeleteBranch" }, DeleteBranchRequest, DeleteBranchResult, [BadRequestException, DependentServiceFailureException, InternalFailureException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteJob = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/apps/{appId}/branches/{branchName}/jobs/{jobId}", method: "DELETE", sdkId: "Amplify", sigV4ServiceName: "amplify", name: "Amplify.DeleteJob" }, DeleteJobRequest, DeleteJobResult, [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteWebhook = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/webhooks/{webhookId}", method: "DELETE", sdkId: "Amplify", sigV4ServiceName: "amplify", name: "Amplify.DeleteWebhook" }, DeleteWebhookRequest, DeleteWebhookResult, [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const generateAccessLogs = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/apps/{appId}/accesslogs", method: "POST", sdkId: "Amplify", sigV4ServiceName: "amplify", name: "Amplify.GenerateAccessLogs" }, GenerateAccessLogsRequest, GenerateAccessLogsResult, [BadRequestException, InternalFailureException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getApp = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/apps/{appId}", method: "GET", sdkId: "Amplify", sigV4ServiceName: "amplify", name: "Amplify.GetApp" }, GetAppRequest, GetAppResult, [BadRequestException, InternalFailureException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listArtifacts = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/apps/{appId}/branches/{branchName}/jobs/{jobId}/artifacts", method: "GET", sdkId: "Amplify", sigV4ServiceName: "amplify", name: "Amplify.ListArtifacts" }, ListArtifactsRequest, ListArtifactsResult, [BadRequestException, InternalFailureException, LimitExceededException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listTagsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/tags/{resourceArn}", method: "GET", sdkId: "Amplify", sigV4ServiceName: "amplify", name: "Amplify.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [BadRequestException, InternalFailureException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const createDeployment = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/apps/{appId}/branches/{branchName}/deployments", method: "POST", sdkId: "Amplify", sigV4ServiceName: "amplify", name: "Amplify.CreateDeployment" }, CreateDeploymentRequest, CreateDeploymentResult, [BadRequestException, InternalFailureException, LimitExceededException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteApp = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/apps/{appId}", method: "DELETE", sdkId: "Amplify", sigV4ServiceName: "amplify", name: "Amplify.DeleteApp" }, DeleteAppRequest, DeleteAppResult, [BadRequestException, DependentServiceFailureException, InternalFailureException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteDomainAssociation = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/apps/{appId}/domains/{domainName}", method: "DELETE", sdkId: "Amplify", sigV4ServiceName: "amplify", name: "Amplify.DeleteDomainAssociation" }, DeleteDomainAssociationRequest, DeleteDomainAssociationResult, [BadRequestException, DependentServiceFailureException, InternalFailureException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getJob = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/apps/{appId}/branches/{branchName}/jobs/{jobId}", method: "GET", sdkId: "Amplify", sigV4ServiceName: "amplify", name: "Amplify.GetJob" }, GetJobRequest, GetJobResult, [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns the artifact info that corresponds to an artifact id.
+ */export const getArtifactUrl = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/artifacts/{artifactId}", method: "GET", sdkId: "Amplify", sigV4ServiceName: "amplify", name: "Amplify.GetArtifactUrl" }, GetArtifactUrlRequest, GetArtifactUrlResult, [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns a backend environment for an Amplify app.
+ * 
+ * 
+ * This API is available only to Amplify Gen 1 applications where the
+ * backend is created using Amplify Studio or the Amplify
+ * command line interface (CLI). This API isn’t available to Amplify Gen 2
+ * applications. When you deploy an application with Amplify Gen 2, you provision the app's
+ * backend infrastructure using Typescript code.
+ */export const getBackendEnvironment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/apps/{appId}/backendenvironments/{environmentName}", method: "GET", sdkId: "Amplify", sigV4ServiceName: "amplify", name: "Amplify.GetBackendEnvironment" }, GetBackendEnvironmentRequest, GetBackendEnvironmentResult, [BadRequestException, InternalFailureException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns a branch for an Amplify app.
+ */export const getBranch = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/apps/{appId}/branches/{branchName}", method: "GET", sdkId: "Amplify", sigV4ServiceName: "amplify", name: "Amplify.GetBranch" }, GetBranchRequest, GetBranchResult, [BadRequestException, InternalFailureException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns the domain information for an Amplify app.
+ */export const getDomainAssociation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/apps/{appId}/domains/{domainName}", method: "GET", sdkId: "Amplify", sigV4ServiceName: "amplify", name: "Amplify.GetDomainAssociation" }, GetDomainAssociationRequest, GetDomainAssociationResult, [BadRequestException, InternalFailureException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns the webhook information that corresponds to a specified webhook ID.
+ */export const getWebhook = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/webhooks/{webhookId}", method: "GET", sdkId: "Amplify", sigV4ServiceName: "amplify", name: "Amplify.GetWebhook" }, GetWebhookRequest, GetWebhookResult, [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns a list of the existing Amplify apps.
+ */export const listApps = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/apps", method: "GET", sdkId: "Amplify", sigV4ServiceName: "amplify", name: "Amplify.ListApps" }, ListAppsRequest, ListAppsResult, [BadRequestException, InternalFailureException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists the backend environments for an Amplify app.
+ * 
+ * 
+ * This API is available only to Amplify Gen 1 applications where the
+ * backend is created using Amplify Studio or the Amplify
+ * command line interface (CLI). This API isn’t available to Amplify Gen 2
+ * applications. When you deploy an application with Amplify Gen 2, you provision the app's
+ * backend infrastructure using Typescript code.
+ */export const listBackendEnvironments = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/apps/{appId}/backendenvironments", method: "GET", sdkId: "Amplify", sigV4ServiceName: "amplify", name: "Amplify.ListBackendEnvironments" }, ListBackendEnvironmentsRequest, ListBackendEnvironmentsResult, [BadRequestException, InternalFailureException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists the branches of an Amplify app.
+ */export const listBranches = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/apps/{appId}/branches", method: "GET", sdkId: "Amplify", sigV4ServiceName: "amplify", name: "Amplify.ListBranches" }, ListBranchesRequest, ListBranchesResult, [BadRequestException, InternalFailureException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns the domain associations for an Amplify app.
+ */export const listDomainAssociations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/apps/{appId}/domains", method: "GET", sdkId: "Amplify", sigV4ServiceName: "amplify", name: "Amplify.ListDomainAssociations" }, ListDomainAssociationsRequest, ListDomainAssociationsResult, [BadRequestException, InternalFailureException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists the jobs for a branch of an Amplify app.
+ */export const listJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/apps/{appId}/branches/{branchName}/jobs", method: "GET", sdkId: "Amplify", sigV4ServiceName: "amplify", name: "Amplify.ListJobs" }, ListJobsRequest, ListJobsResult, [BadRequestException, InternalFailureException, LimitExceededException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns a list of webhooks for an Amplify app.
+ */export const listWebhooks = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/apps/{appId}/webhooks", method: "GET", sdkId: "Amplify", sigV4ServiceName: "amplify", name: "Amplify.ListWebhooks" }, ListWebhooksRequest, ListWebhooksResult, [BadRequestException, InternalFailureException, LimitExceededException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Starts a deployment for a manually deployed app. Manually deployed apps are not
+ * connected to a Git repository.
+ * 
+ * 
+ * The maximum duration between the `CreateDeployment` call and the
+ * `StartDeployment` call cannot exceed 8 hours. If the duration exceeds 8
+ * hours, the `StartDeployment` call and the associated `Job` will
+ * fail.
+ */export const startDeployment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/apps/{appId}/branches/{branchName}/deployments/start", method: "POST", sdkId: "Amplify", sigV4ServiceName: "amplify", name: "Amplify.StartDeployment" }, StartDeploymentRequest, StartDeploymentResult, [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Starts a new job for a branch of an Amplify app.
+ */export const startJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/apps/{appId}/branches/{branchName}/jobs", method: "POST", sdkId: "Amplify", sigV4ServiceName: "amplify", name: "Amplify.StartJob" }, StartJobRequest, StartJobResult, [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Stops a job that is in progress for a branch of an Amplify app.
+ */export const stopJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/apps/{appId}/branches/{branchName}/jobs/{jobId}/stop", method: "DELETE", sdkId: "Amplify", sigV4ServiceName: "amplify", name: "Amplify.StopJob" }, StopJobRequest, StopJobResult, [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Tags the resource with a tag key and value.
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/tags/{resourceArn}", method: "POST", sdkId: "Amplify", sigV4ServiceName: "amplify", name: "Amplify.TagResource" }, TagResourceRequest, TagResourceResponse, [BadRequestException, InternalFailureException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Untags a resource with a specified Amazon Resource Name (ARN).
+ */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/tags/{resourceArn}", method: "DELETE", sdkId: "Amplify", sigV4ServiceName: "amplify", name: "Amplify.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [BadRequestException, InternalFailureException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates an existing Amplify app.
+ */export const updateApp = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/apps/{appId}", method: "POST", sdkId: "Amplify", sigV4ServiceName: "amplify", name: "Amplify.UpdateApp" }, UpdateAppRequest, UpdateAppResult, [BadRequestException, InternalFailureException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates a branch for an Amplify app.
+ */export const updateBranch = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/apps/{appId}/branches/{branchName}", method: "POST", sdkId: "Amplify", sigV4ServiceName: "amplify", name: "Amplify.UpdateBranch" }, UpdateBranchRequest, UpdateBranchResult, [BadRequestException, DependentServiceFailureException, InternalFailureException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a new domain association for an Amplify app.
+ */export const updateDomainAssociation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/apps/{appId}/domains/{domainName}", method: "POST", sdkId: "Amplify", sigV4ServiceName: "amplify", name: "Amplify.UpdateDomainAssociation" }, UpdateDomainAssociationRequest, UpdateDomainAssociationResult, [BadRequestException, DependentServiceFailureException, InternalFailureException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates a webhook.
+ */export const updateWebhook = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/webhooks/{webhookId}", method: "POST", sdkId: "Amplify", sigV4ServiceName: "amplify", name: "Amplify.UpdateWebhook" }, UpdateWebhookRequest, UpdateWebhookResult, [BadRequestException, DependentServiceFailureException, InternalFailureException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a new Amplify app.
+ */export const createApp = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/apps", method: "POST", sdkId: "Amplify", sigV4ServiceName: "amplify", name: "Amplify.CreateApp" }, CreateAppRequest, CreateAppResult, [BadRequestException, DependentServiceFailureException, InternalFailureException, LimitExceededException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a new backend environment for an Amplify app.
+ * 
+ * 
+ * This API is available only to Amplify Gen 1 applications where the
+ * backend is created using Amplify Studio or the Amplify
+ * command line interface (CLI). This API isn’t available to Amplify Gen 2
+ * applications. When you deploy an application with Amplify Gen 2, you provision the app's
+ * backend infrastructure using Typescript code.
+ */export const createBackendEnvironment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/apps/{appId}/backendenvironments", method: "POST", sdkId: "Amplify", sigV4ServiceName: "amplify", name: "Amplify.CreateBackendEnvironment" }, CreateBackendEnvironmentRequest, CreateBackendEnvironmentResult, [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a new branch for an Amplify app.
+ */export const createBranch = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/apps/{appId}/branches", method: "POST", sdkId: "Amplify", sigV4ServiceName: "amplify", name: "Amplify.CreateBranch" }, CreateBranchRequest, CreateBranchResult, [BadRequestException, DependentServiceFailureException, InternalFailureException, LimitExceededException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a new domain association for an Amplify app. This action associates a custom
+ * domain with the Amplify app
+ */export const createDomainAssociation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/apps/{appId}/domains", method: "POST", sdkId: "Amplify", sigV4ServiceName: "amplify", name: "Amplify.CreateDomainAssociation" }, CreateDomainAssociationRequest, CreateDomainAssociationResult, [BadRequestException, DependentServiceFailureException, InternalFailureException, LimitExceededException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a new webhook on an Amplify app.
+ */export const createWebhook = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/apps/{appId}/webhooks", method: "POST", sdkId: "Amplify", sigV4ServiceName: "amplify", name: "Amplify.CreateWebhook" }, CreateWebhookRequest, CreateWebhookResult, [BadRequestException, DependentServiceFailureException, InternalFailureException, LimitExceededException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes a backend environment for an Amplify app.
+ * 
+ * 
+ * This API is available only to Amplify Gen 1 applications where the
+ * backend is created using Amplify Studio or the Amplify
+ * command line interface (CLI). This API isn’t available to Amplify Gen 2
+ * applications. When you deploy an application with Amplify Gen 2, you provision the app's
+ * backend infrastructure using Typescript code.
+ */export const deleteBackendEnvironment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/apps/{appId}/backendenvironments/{environmentName}", method: "DELETE", sdkId: "Amplify", sigV4ServiceName: "amplify", name: "Amplify.DeleteBackendEnvironment" }, DeleteBackendEnvironmentRequest, DeleteBackendEnvironmentResult, [BadRequestException, DependentServiceFailureException, InternalFailureException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes a branch for an Amplify app.
+ */export const deleteBranch = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/apps/{appId}/branches/{branchName}", method: "DELETE", sdkId: "Amplify", sigV4ServiceName: "amplify", name: "Amplify.DeleteBranch" }, DeleteBranchRequest, DeleteBranchResult, [BadRequestException, DependentServiceFailureException, InternalFailureException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes a job for a branch of an Amplify app.
+ */export const deleteJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/apps/{appId}/branches/{branchName}/jobs/{jobId}", method: "DELETE", sdkId: "Amplify", sigV4ServiceName: "amplify", name: "Amplify.DeleteJob" }, DeleteJobRequest, DeleteJobResult, [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes a webhook.
+ */export const deleteWebhook = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/webhooks/{webhookId}", method: "DELETE", sdkId: "Amplify", sigV4ServiceName: "amplify", name: "Amplify.DeleteWebhook" }, DeleteWebhookRequest, DeleteWebhookResult, [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns the website access logs for a specific time range using a presigned URL.
+ */export const generateAccessLogs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/apps/{appId}/accesslogs", method: "POST", sdkId: "Amplify", sigV4ServiceName: "amplify", name: "Amplify.GenerateAccessLogs" }, GenerateAccessLogsRequest, GenerateAccessLogsResult, [BadRequestException, InternalFailureException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns an existing Amplify app specified by an app ID.
+ */export const getApp = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/apps/{appId}", method: "GET", sdkId: "Amplify", sigV4ServiceName: "amplify", name: "Amplify.GetApp" }, GetAppRequest, GetAppResult, [BadRequestException, InternalFailureException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns a list of end-to-end testing artifacts for a specified app, branch, and
+ * job.
+ * 
+ * 
+ * To return the build artifacts, use the GetJob API.
+ * 
+ * 
+ * For more information about Amplify testing support, see Setting up
+ * end-to-end Cypress tests for your Amplify application in the
+ * *Amplify Hosting User Guide*.
+ */export const listArtifacts = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/apps/{appId}/branches/{branchName}/jobs/{jobId}/artifacts", method: "GET", sdkId: "Amplify", sigV4ServiceName: "amplify", name: "Amplify.ListArtifacts" }, ListArtifactsRequest, ListArtifactsResult, [BadRequestException, InternalFailureException, LimitExceededException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns a list of tags for a specified Amazon Resource Name (ARN).
+ */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/tags/{resourceArn}", method: "GET", sdkId: "Amplify", sigV4ServiceName: "amplify", name: "Amplify.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [BadRequestException, InternalFailureException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a deployment for a manually deployed Amplify app. Manually deployed apps are
+ * not connected to a Git repository.
+ * 
+ * 
+ * The maximum duration between the `CreateDeployment` call and the
+ * `StartDeployment` call cannot exceed 8 hours. If the duration exceeds 8
+ * hours, the `StartDeployment` call and the associated `Job` will
+ * fail.
+ */export const createDeployment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/apps/{appId}/branches/{branchName}/deployments", method: "POST", sdkId: "Amplify", sigV4ServiceName: "amplify", name: "Amplify.CreateDeployment" }, CreateDeploymentRequest, CreateDeploymentResult, [BadRequestException, InternalFailureException, LimitExceededException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes an existing Amplify app specified by an app ID.
+ */export const deleteApp = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/apps/{appId}", method: "DELETE", sdkId: "Amplify", sigV4ServiceName: "amplify", name: "Amplify.DeleteApp" }, DeleteAppRequest, DeleteAppResult, [BadRequestException, DependentServiceFailureException, InternalFailureException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes a domain association for an Amplify app.
+ */export const deleteDomainAssociation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/apps/{appId}/domains/{domainName}", method: "DELETE", sdkId: "Amplify", sigV4ServiceName: "amplify", name: "Amplify.DeleteDomainAssociation" }, DeleteDomainAssociationRequest, DeleteDomainAssociationResult, [BadRequestException, DependentServiceFailureException, InternalFailureException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns a job for a branch of an Amplify app.
+ */export const getJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-25", uri: "/apps/{appId}/branches/{branchName}/jobs/{jobId}", method: "GET", sdkId: "Amplify", sigV4ServiceName: "amplify", name: "Amplify.GetJob" }, GetJobRequest, GetJobResult, [BadRequestException, InternalFailureException, LimitExceededException, NotFoundException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

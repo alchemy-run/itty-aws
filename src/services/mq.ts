@@ -99,27 +99,111 @@ export class NotFoundException extends S.TaggedError<NotFoundException>()("NotFo
 export class UnauthorizedException extends S.TaggedError<UnauthorizedException>()("UnauthorizedException", {ErrorAttribute: S.optional(S.String), Message: S.optional(S.String)}) {};
 
 //# Operations
-export const updateUser = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/v1/brokers/{BrokerId}/users/{Username}", method: "PUT", sdkId: "mq", sigV4ServiceName: "mq", name: "mq.UpdateUser" }, UpdateUserRequest, UpdateUserResponse, [BadRequestException, ConflictException, ForbiddenException, InternalServerErrorException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const createTags = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/v1/tags/{ResourceArn}", method: "POST", sdkId: "mq", sigV4ServiceName: "mq", name: "mq.CreateTags" }, CreateTagsRequest, S.Struct({}), [BadRequestException, ForbiddenException, InternalServerErrorException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const createUser = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/v1/brokers/{BrokerId}/users/{Username}", method: "POST", sdkId: "mq", sigV4ServiceName: "mq", name: "mq.CreateUser" }, CreateUserRequest, CreateUserResponse, [BadRequestException, ConflictException, ForbiddenException, InternalServerErrorException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteBroker = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/v1/brokers/{BrokerId}", method: "DELETE", sdkId: "mq", sigV4ServiceName: "mq", name: "mq.DeleteBroker" }, DeleteBrokerRequest, DeleteBrokerResponse, [BadRequestException, ForbiddenException, InternalServerErrorException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteConfiguration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/v1/configurations/{ConfigurationId}", method: "DELETE", sdkId: "mq", sigV4ServiceName: "mq", name: "mq.DeleteConfiguration" }, DeleteConfigurationRequest, DeleteConfigurationResponse, [BadRequestException, ConflictException, ForbiddenException, InternalServerErrorException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteTags = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/v1/tags/{ResourceArn}", method: "DELETE", sdkId: "mq", sigV4ServiceName: "mq", name: "mq.DeleteTags" }, DeleteTagsRequest, S.Struct({}), [BadRequestException, ForbiddenException, InternalServerErrorException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteUser = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/v1/brokers/{BrokerId}/users/{Username}", method: "DELETE", sdkId: "mq", sigV4ServiceName: "mq", name: "mq.DeleteUser" }, DeleteUserRequest, DeleteUserResponse, [BadRequestException, ForbiddenException, InternalServerErrorException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeConfiguration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/v1/configurations/{ConfigurationId}", method: "GET", sdkId: "mq", sigV4ServiceName: "mq", name: "mq.DescribeConfiguration" }, DescribeConfigurationRequest, DescribeConfigurationResponse, [BadRequestException, ForbiddenException, InternalServerErrorException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeConfigurationRevision = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/v1/configurations/{ConfigurationId}/revisions/{ConfigurationRevision}", method: "GET", sdkId: "mq", sigV4ServiceName: "mq", name: "mq.DescribeConfigurationRevision" }, DescribeConfigurationRevisionRequest, DescribeConfigurationRevisionResponse, [BadRequestException, ForbiddenException, InternalServerErrorException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listConfigurationRevisions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/v1/configurations/{ConfigurationId}/revisions", method: "GET", sdkId: "mq", sigV4ServiceName: "mq", name: "mq.ListConfigurationRevisions" }, ListConfigurationRevisionsRequest, ListConfigurationRevisionsResponse, [BadRequestException, ForbiddenException, InternalServerErrorException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listTags = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/v1/tags/{ResourceArn}", method: "GET", sdkId: "mq", sigV4ServiceName: "mq", name: "mq.ListTags" }, ListTagsRequest, ListTagsResponse, [BadRequestException, ForbiddenException, InternalServerErrorException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listUsers = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/v1/brokers/{BrokerId}/users", method: "GET", sdkId: "mq", sigV4ServiceName: "mq", name: "mq.ListUsers" }, ListUsersRequest, ListUsersResponse, [BadRequestException, ForbiddenException, InternalServerErrorException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const promote = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/v1/brokers/{BrokerId}/promote", method: "POST", sdkId: "mq", sigV4ServiceName: "mq", name: "mq.Promote" }, PromoteRequest, PromoteResponse, [BadRequestException, ForbiddenException, InternalServerErrorException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const rebootBroker = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/v1/brokers/{BrokerId}/reboot", method: "POST", sdkId: "mq", sigV4ServiceName: "mq", name: "mq.RebootBroker" }, RebootBrokerRequest, RebootBrokerResponse, [BadRequestException, ForbiddenException, InternalServerErrorException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateBroker = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/v1/brokers/{BrokerId}", method: "PUT", sdkId: "mq", sigV4ServiceName: "mq", name: "mq.UpdateBroker" }, UpdateBrokerRequest, UpdateBrokerResponse, [BadRequestException, ConflictException, ForbiddenException, InternalServerErrorException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const createConfiguration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/v1/configurations", method: "POST", sdkId: "mq", sigV4ServiceName: "mq", name: "mq.CreateConfiguration" }, CreateConfigurationRequest, CreateConfigurationResponse, [BadRequestException, ConflictException, ForbiddenException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeUser = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/v1/brokers/{BrokerId}/users/{Username}", method: "GET", sdkId: "mq", sigV4ServiceName: "mq", name: "mq.DescribeUser" }, DescribeUserRequest, DescribeUserResponse, [BadRequestException, ForbiddenException, InternalServerErrorException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listBrokers = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/v1/brokers", method: "GET", sdkId: "mq", sigV4ServiceName: "mq", name: "mq.ListBrokers" }, ListBrokersRequest, ListBrokersResponse, [BadRequestException, ForbiddenException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listConfigurations = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/v1/configurations", method: "GET", sdkId: "mq", sigV4ServiceName: "mq", name: "mq.ListConfigurations" }, ListConfigurationsRequest, ListConfigurationsResponse, [BadRequestException, ForbiddenException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateConfiguration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/v1/configurations/{ConfigurationId}", method: "PUT", sdkId: "mq", sigV4ServiceName: "mq", name: "mq.UpdateConfiguration" }, UpdateConfigurationRequest, UpdateConfigurationResponse, [BadRequestException, ConflictException, ForbiddenException, InternalServerErrorException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const createBroker = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/v1/brokers", method: "POST", sdkId: "mq", sigV4ServiceName: "mq", name: "mq.CreateBroker" }, CreateBrokerRequest, CreateBrokerResponse, [BadRequestException, ConflictException, ForbiddenException, InternalServerErrorException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeBroker = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/v1/brokers/{BrokerId}", method: "GET", sdkId: "mq", sigV4ServiceName: "mq", name: "mq.DescribeBroker" }, DescribeBrokerRequest, DescribeBrokerResponse, [BadRequestException, ForbiddenException, InternalServerErrorException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeBrokerEngineTypes = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/v1/broker-engine-types", method: "GET", sdkId: "mq", sigV4ServiceName: "mq", name: "mq.DescribeBrokerEngineTypes" }, DescribeBrokerEngineTypesRequest, DescribeBrokerEngineTypesResponse, [BadRequestException, ForbiddenException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeBrokerInstanceOptions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/v1/broker-instance-options", method: "GET", sdkId: "mq", sigV4ServiceName: "mq", name: "mq.DescribeBrokerInstanceOptions" }, DescribeBrokerInstanceOptionsRequest, DescribeBrokerInstanceOptionsResponse, [BadRequestException, ForbiddenException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates the information for an ActiveMQ user.
+ */export const updateUser = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/v1/brokers/{BrokerId}/users/{Username}", method: "PUT", sdkId: "mq", sigV4ServiceName: "mq", name: "mq.UpdateUser" }, UpdateUserRequest, UpdateUserResponse, [BadRequestException, ConflictException, ForbiddenException, InternalServerErrorException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Add a tag to a resource.
+ */export const createTags = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/v1/tags/{ResourceArn}", method: "POST", sdkId: "mq", sigV4ServiceName: "mq", name: "mq.CreateTags" }, CreateTagsRequest, S.Struct({}), [BadRequestException, ForbiddenException, InternalServerErrorException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates an ActiveMQ user.
+ * 
+ * 
+ * Do not add personally identifiable information (PII) or other confidential or sensitive information in broker usernames. Broker usernames are accessible to other Amazon Web Services services, including CloudWatch Logs. Broker usernames are not intended to be used for private or sensitive data.
+ */export const createUser = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/v1/brokers/{BrokerId}/users/{Username}", method: "POST", sdkId: "mq", sigV4ServiceName: "mq", name: "mq.CreateUser" }, CreateUserRequest, CreateUserResponse, [BadRequestException, ConflictException, ForbiddenException, InternalServerErrorException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes a broker. Note: This API is asynchronous.
+ */export const deleteBroker = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/v1/brokers/{BrokerId}", method: "DELETE", sdkId: "mq", sigV4ServiceName: "mq", name: "mq.DeleteBroker" }, DeleteBrokerRequest, DeleteBrokerResponse, [BadRequestException, ForbiddenException, InternalServerErrorException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes the specified configuration.
+ */export const deleteConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/v1/configurations/{ConfigurationId}", method: "DELETE", sdkId: "mq", sigV4ServiceName: "mq", name: "mq.DeleteConfiguration" }, DeleteConfigurationRequest, DeleteConfigurationResponse, [BadRequestException, ConflictException, ForbiddenException, InternalServerErrorException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Removes a tag from a resource.
+ */export const deleteTags = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/v1/tags/{ResourceArn}", method: "DELETE", sdkId: "mq", sigV4ServiceName: "mq", name: "mq.DeleteTags" }, DeleteTagsRequest, S.Struct({}), [BadRequestException, ForbiddenException, InternalServerErrorException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes an ActiveMQ user.
+ */export const deleteUser = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/v1/brokers/{BrokerId}/users/{Username}", method: "DELETE", sdkId: "mq", sigV4ServiceName: "mq", name: "mq.DeleteUser" }, DeleteUserRequest, DeleteUserResponse, [BadRequestException, ForbiddenException, InternalServerErrorException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns information about the specified configuration.
+ */export const describeConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/v1/configurations/{ConfigurationId}", method: "GET", sdkId: "mq", sigV4ServiceName: "mq", name: "mq.DescribeConfiguration" }, DescribeConfigurationRequest, DescribeConfigurationResponse, [BadRequestException, ForbiddenException, InternalServerErrorException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns the specified configuration revision for the specified configuration.
+ */export const describeConfigurationRevision = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/v1/configurations/{ConfigurationId}/revisions/{ConfigurationRevision}", method: "GET", sdkId: "mq", sigV4ServiceName: "mq", name: "mq.DescribeConfigurationRevision" }, DescribeConfigurationRevisionRequest, DescribeConfigurationRevisionResponse, [BadRequestException, ForbiddenException, InternalServerErrorException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns a list of all revisions for the specified configuration.
+ */export const listConfigurationRevisions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/v1/configurations/{ConfigurationId}/revisions", method: "GET", sdkId: "mq", sigV4ServiceName: "mq", name: "mq.ListConfigurationRevisions" }, ListConfigurationRevisionsRequest, ListConfigurationRevisionsResponse, [BadRequestException, ForbiddenException, InternalServerErrorException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists tags for a resource.
+ */export const listTags = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/v1/tags/{ResourceArn}", method: "GET", sdkId: "mq", sigV4ServiceName: "mq", name: "mq.ListTags" }, ListTagsRequest, ListTagsResponse, [BadRequestException, ForbiddenException, InternalServerErrorException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns a list of all ActiveMQ users.
+ */export const listUsers = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/v1/brokers/{BrokerId}/users", method: "GET", sdkId: "mq", sigV4ServiceName: "mq", name: "mq.ListUsers" }, ListUsersRequest, ListUsersResponse, [BadRequestException, ForbiddenException, InternalServerErrorException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Promotes a data replication replica broker to the primary broker role.
+ */export const promote = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/v1/brokers/{BrokerId}/promote", method: "POST", sdkId: "mq", sigV4ServiceName: "mq", name: "mq.Promote" }, PromoteRequest, PromoteResponse, [BadRequestException, ForbiddenException, InternalServerErrorException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Reboots a broker. Note: This API is asynchronous.
+ */export const rebootBroker = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/v1/brokers/{BrokerId}/reboot", method: "POST", sdkId: "mq", sigV4ServiceName: "mq", name: "mq.RebootBroker" }, RebootBrokerRequest, RebootBrokerResponse, [BadRequestException, ForbiddenException, InternalServerErrorException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Adds a pending configuration change to a broker.
+ */export const updateBroker = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/v1/brokers/{BrokerId}", method: "PUT", sdkId: "mq", sigV4ServiceName: "mq", name: "mq.UpdateBroker" }, UpdateBrokerRequest, UpdateBrokerResponse, [BadRequestException, ConflictException, ForbiddenException, InternalServerErrorException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a new configuration for the specified configuration name. Amazon MQ uses the default configuration (the engine type and version).
+ */export const createConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/v1/configurations", method: "POST", sdkId: "mq", sigV4ServiceName: "mq", name: "mq.CreateConfiguration" }, CreateConfigurationRequest, CreateConfigurationResponse, [BadRequestException, ConflictException, ForbiddenException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns information about an ActiveMQ user.
+ */export const describeUser = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/v1/brokers/{BrokerId}/users/{Username}", method: "GET", sdkId: "mq", sigV4ServiceName: "mq", name: "mq.DescribeUser" }, DescribeUserRequest, DescribeUserResponse, [BadRequestException, ForbiddenException, InternalServerErrorException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns a list of all brokers.
+ */export const listBrokers = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/v1/brokers", method: "GET", sdkId: "mq", sigV4ServiceName: "mq", name: "mq.ListBrokers" }, ListBrokersRequest, ListBrokersResponse, [BadRequestException, ForbiddenException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns a list of all configurations.
+ */export const listConfigurations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/v1/configurations", method: "GET", sdkId: "mq", sigV4ServiceName: "mq", name: "mq.ListConfigurations" }, ListConfigurationsRequest, ListConfigurationsResponse, [BadRequestException, ForbiddenException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates the specified configuration.
+ */export const updateConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/v1/configurations/{ConfigurationId}", method: "PUT", sdkId: "mq", sigV4ServiceName: "mq", name: "mq.UpdateConfiguration" }, UpdateConfigurationRequest, UpdateConfigurationResponse, [BadRequestException, ConflictException, ForbiddenException, InternalServerErrorException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a broker. Note: This API is asynchronous.
+ * 
+ * To create a broker, you must either use the AmazonMQFullAccess IAM policy or include the following EC2 permissions in your IAM policy.
+ * 
+ * - ec2:CreateNetworkInterface
+ * 
+ * This permission is required to allow Amazon MQ to create an elastic network interface (ENI) on behalf of your account.
+ * 
+ * - ec2:CreateNetworkInterfacePermission
+ * 
+ * This permission is required to attach the ENI to the broker instance.
+ * 
+ * - ec2:DeleteNetworkInterface
+ * 
+ * - ec2:DeleteNetworkInterfacePermission
+ * 
+ * - ec2:DetachNetworkInterface
+ * 
+ * - ec2:DescribeInternetGateways
+ * 
+ * - ec2:DescribeNetworkInterfaces
+ * 
+ * - ec2:DescribeNetworkInterfacePermissions
+ * 
+ * - ec2:DescribeRouteTables
+ * 
+ * - ec2:DescribeSecurityGroups
+ * 
+ * - ec2:DescribeSubnets
+ * 
+ * - ec2:DescribeVpcs
+ * 
+ * 
+ * For more information, see Create an IAM User and Get Your Amazon Web Services Credentials and Never Modify or Delete the Amazon MQ Elastic Network Interface in the *Amazon MQ Developer Guide*.
+ */export const createBroker = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/v1/brokers", method: "POST", sdkId: "mq", sigV4ServiceName: "mq", name: "mq.CreateBroker" }, CreateBrokerRequest, CreateBrokerResponse, [BadRequestException, ConflictException, ForbiddenException, InternalServerErrorException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns information about the specified broker.
+ */export const describeBroker = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/v1/brokers/{BrokerId}", method: "GET", sdkId: "mq", sigV4ServiceName: "mq", name: "mq.DescribeBroker" }, DescribeBrokerRequest, DescribeBrokerResponse, [BadRequestException, ForbiddenException, InternalServerErrorException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Describe available engine types and versions.
+ */export const describeBrokerEngineTypes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/v1/broker-engine-types", method: "GET", sdkId: "mq", sigV4ServiceName: "mq", name: "mq.DescribeBrokerEngineTypes" }, DescribeBrokerEngineTypesRequest, DescribeBrokerEngineTypesResponse, [BadRequestException, ForbiddenException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Describe available broker instance options.
+ */export const describeBrokerInstanceOptions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-27", uri: "/v1/broker-instance-options", method: "GET", sdkId: "mq", sigV4ServiceName: "mq", name: "mq.DescribeBrokerInstanceOptions" }, DescribeBrokerInstanceOptionsRequest, DescribeBrokerInstanceOptionsResponse, [BadRequestException, ForbiddenException, InternalServerErrorException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

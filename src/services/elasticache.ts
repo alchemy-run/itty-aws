@@ -369,78 +369,813 @@ export class ReplicationGroupNotUnderMigrationFault extends S.TaggedError<Replic
 export class CacheSubnetGroupQuotaExceededFault extends S.TaggedError<CacheSubnetGroupQuotaExceededFault>()("CacheSubnetGroupQuotaExceededFault", {message: S.optional(S.String)}) {};
 
 //# Operations
-export const deleteCacheSubnetGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.DeleteCacheSubnetGroup" }, DeleteCacheSubnetGroupMessage, S.Struct({}), [CacheSubnetGroupInUse, CacheSubnetGroupNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const describeCacheClusters = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.DescribeCacheClusters" }, DescribeCacheClustersMessage, CacheClusterMessage, [CacheClusterNotFoundFault, InvalidParameterCombinationException, InvalidParameterValueException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const describeCacheParameterGroups = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.DescribeCacheParameterGroups" }, DescribeCacheParameterGroupsMessage, CacheParameterGroupsMessage, [CacheParameterGroupNotFoundFault, InvalidParameterCombinationException, InvalidParameterValueException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const describeCacheSecurityGroups = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.DescribeCacheSecurityGroups" }, DescribeCacheSecurityGroupsMessage, CacheSecurityGroupMessage, [CacheSecurityGroupNotFoundFault, InvalidParameterCombinationException, InvalidParameterValueException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const describeCacheSubnetGroups = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.DescribeCacheSubnetGroups" }, DescribeCacheSubnetGroupsMessage, CacheSubnetGroupMessage, [CacheSubnetGroupNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const describeGlobalReplicationGroups = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.DescribeGlobalReplicationGroups" }, DescribeGlobalReplicationGroupsMessage, DescribeGlobalReplicationGroupsResult, [GlobalReplicationGroupNotFoundFault, InvalidParameterCombinationException, InvalidParameterValueException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const disassociateGlobalReplicationGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.DisassociateGlobalReplicationGroup" }, DisassociateGlobalReplicationGroupMessage, DisassociateGlobalReplicationGroupResult, [GlobalReplicationGroupNotFoundFault, InvalidGlobalReplicationGroupStateFault, InvalidParameterCombinationException, InvalidParameterValueException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const exportServerlessCacheSnapshot = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.ExportServerlessCacheSnapshot" }, ExportServerlessCacheSnapshotRequest, ExportServerlessCacheSnapshotResponse, [InvalidParameterValueException, InvalidServerlessCacheSnapshotStateFault, ServerlessCacheSnapshotNotFoundFault, ServiceLinkedRoleNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const failoverGlobalReplicationGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.FailoverGlobalReplicationGroup" }, FailoverGlobalReplicationGroupMessage, FailoverGlobalReplicationGroupResult, [GlobalReplicationGroupNotFoundFault, InvalidGlobalReplicationGroupStateFault, InvalidParameterCombinationException, InvalidParameterValueException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const listAllowedNodeTypeModifications = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.ListAllowedNodeTypeModifications" }, ListAllowedNodeTypeModificationsMessage, AllowedNodeTypeModificationsMessage, [CacheClusterNotFoundFault, InvalidParameterCombinationException, InvalidParameterValueException, ReplicationGroupNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const modifyCacheParameterGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.ModifyCacheParameterGroup" }, ModifyCacheParameterGroupMessage, CacheParameterGroupNameMessage, [CacheParameterGroupNotFoundFault, InvalidCacheParameterGroupStateFault, InvalidGlobalReplicationGroupStateFault, InvalidParameterCombinationException, InvalidParameterValueException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const modifyGlobalReplicationGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.ModifyGlobalReplicationGroup" }, ModifyGlobalReplicationGroupMessage, ModifyGlobalReplicationGroupResult, [GlobalReplicationGroupNotFoundFault, InvalidGlobalReplicationGroupStateFault, InvalidParameterValueException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const rebalanceSlotsInGlobalReplicationGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.RebalanceSlotsInGlobalReplicationGroup" }, RebalanceSlotsInGlobalReplicationGroupMessage, RebalanceSlotsInGlobalReplicationGroupResult, [GlobalReplicationGroupNotFoundFault, InvalidGlobalReplicationGroupStateFault, InvalidParameterValueException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const rebootCacheCluster = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.RebootCacheCluster" }, RebootCacheClusterMessage, RebootCacheClusterResult, [CacheClusterNotFoundFault, InvalidCacheClusterStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const resetCacheParameterGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.ResetCacheParameterGroup" }, ResetCacheParameterGroupMessage, CacheParameterGroupNameMessage, [CacheParameterGroupNotFoundFault, InvalidCacheParameterGroupStateFault, InvalidGlobalReplicationGroupStateFault, InvalidParameterCombinationException, InvalidParameterValueException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const batchApplyUpdateAction = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.BatchApplyUpdateAction" }, BatchApplyUpdateActionMessage, UpdateActionResultsMessage, [InvalidParameterValueException, ServiceUpdateNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const batchStopUpdateAction = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.BatchStopUpdateAction" }, BatchStopUpdateActionMessage, UpdateActionResultsMessage, [InvalidParameterValueException, ServiceUpdateNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const decreaseNodeGroupsInGlobalReplicationGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.DecreaseNodeGroupsInGlobalReplicationGroup" }, DecreaseNodeGroupsInGlobalReplicationGroupMessage, DecreaseNodeGroupsInGlobalReplicationGroupResult, [GlobalReplicationGroupNotFoundFault, InvalidGlobalReplicationGroupStateFault, InvalidParameterCombinationException, InvalidParameterValueException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const deleteCacheParameterGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.DeleteCacheParameterGroup" }, DeleteCacheParameterGroupMessage, S.Struct({}), [CacheParameterGroupNotFoundFault, InvalidCacheParameterGroupStateFault, InvalidParameterCombinationException, InvalidParameterValueException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const deleteCacheSecurityGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.DeleteCacheSecurityGroup" }, DeleteCacheSecurityGroupMessage, S.Struct({}), [CacheSecurityGroupNotFoundFault, InvalidCacheSecurityGroupStateFault, InvalidParameterCombinationException, InvalidParameterValueException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const deleteGlobalReplicationGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.DeleteGlobalReplicationGroup" }, DeleteGlobalReplicationGroupMessage, DeleteGlobalReplicationGroupResult, [GlobalReplicationGroupNotFoundFault, InvalidGlobalReplicationGroupStateFault, InvalidParameterValueException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const deleteServerlessCache = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.DeleteServerlessCache" }, DeleteServerlessCacheRequest, DeleteServerlessCacheResponse, [InvalidCredentialsException, InvalidParameterCombinationException, InvalidParameterValueException, InvalidServerlessCacheStateFault, ServerlessCacheNotFoundFault, ServerlessCacheSnapshotAlreadyExistsFault, ServiceLinkedRoleNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const deleteServerlessCacheSnapshot = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.DeleteServerlessCacheSnapshot" }, DeleteServerlessCacheSnapshotRequest, DeleteServerlessCacheSnapshotResponse, [InvalidParameterValueException, InvalidServerlessCacheSnapshotStateFault, ServerlessCacheSnapshotNotFoundFault, ServiceLinkedRoleNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const deleteSnapshot = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.DeleteSnapshot" }, DeleteSnapshotMessage, DeleteSnapshotResult, [InvalidParameterCombinationException, InvalidParameterValueException, InvalidSnapshotStateFault, SnapshotNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const deleteUserGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.DeleteUserGroup" }, DeleteUserGroupMessage, UserGroup, [InvalidParameterValueException, InvalidUserGroupStateFault, ServiceLinkedRoleNotFoundFault, UserGroupNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const describeCacheEngineVersions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.DescribeCacheEngineVersions" }, DescribeCacheEngineVersionsMessage, CacheEngineVersionMessage, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const describeEngineDefaultParameters = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.DescribeEngineDefaultParameters" }, DescribeEngineDefaultParametersMessage, DescribeEngineDefaultParametersResult, [InvalidParameterCombinationException, InvalidParameterValueException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const describeEvents = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.DescribeEvents" }, DescribeEventsMessage, EventsMessage, [InvalidParameterCombinationException, InvalidParameterValueException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const describeReplicationGroups = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.DescribeReplicationGroups" }, DescribeReplicationGroupsMessage, ReplicationGroupMessage, [InvalidParameterCombinationException, InvalidParameterValueException, ReplicationGroupNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const describeServerlessCaches = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.DescribeServerlessCaches" }, DescribeServerlessCachesRequest, DescribeServerlessCachesResponse, [InvalidParameterCombinationException, InvalidParameterValueException, ServerlessCacheNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const describeServerlessCacheSnapshots = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.DescribeServerlessCacheSnapshots" }, DescribeServerlessCacheSnapshotsRequest, DescribeServerlessCacheSnapshotsResponse, [InvalidParameterCombinationException, InvalidParameterValueException, ServerlessCacheNotFoundFault, ServerlessCacheSnapshotNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const describeServiceUpdates = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.DescribeServiceUpdates" }, DescribeServiceUpdatesMessage, ServiceUpdatesMessage, [InvalidParameterCombinationException, InvalidParameterValueException, ServiceUpdateNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const describeSnapshots = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.DescribeSnapshots" }, DescribeSnapshotsMessage, DescribeSnapshotsListMessage, [CacheClusterNotFoundFault, InvalidParameterCombinationException, InvalidParameterValueException, SnapshotNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const describeUserGroups = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.DescribeUserGroups" }, DescribeUserGroupsMessage, DescribeUserGroupsResult, [InvalidParameterCombinationException, ServiceLinkedRoleNotFoundFault, UserGroupNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const describeUsers = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.DescribeUsers" }, DescribeUsersMessage, DescribeUsersResult, [InvalidParameterCombinationException, ServiceLinkedRoleNotFoundFault, UserNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const increaseNodeGroupsInGlobalReplicationGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.IncreaseNodeGroupsInGlobalReplicationGroup" }, IncreaseNodeGroupsInGlobalReplicationGroupMessage, IncreaseNodeGroupsInGlobalReplicationGroupResult, [GlobalReplicationGroupNotFoundFault, InvalidGlobalReplicationGroupStateFault, InvalidParameterValueException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const listTagsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.ListTagsForResource" }, ListTagsForResourceMessage, TagListMessage, [CacheClusterNotFoundFault, CacheParameterGroupNotFoundFault, CacheSecurityGroupNotFoundFault, CacheSubnetGroupNotFoundFault, InvalidARNFault, InvalidReplicationGroupStateFault, InvalidServerlessCacheSnapshotStateFault, InvalidServerlessCacheStateFault, ReplicationGroupNotFoundFault, ReservedCacheNodeNotFoundFault, ServerlessCacheNotFoundFault, ServerlessCacheSnapshotNotFoundFault, SnapshotNotFoundFault, UserGroupNotFoundFault, UserNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const modifyReplicationGroupShardConfiguration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.ModifyReplicationGroupShardConfiguration" }, ModifyReplicationGroupShardConfigurationMessage, ModifyReplicationGroupShardConfigurationResult, [InsufficientCacheClusterCapacityFault, InvalidCacheClusterStateFault, InvalidKMSKeyFault, InvalidParameterCombinationException, InvalidParameterValueException, InvalidReplicationGroupStateFault, InvalidVPCNetworkStateFault, NodeGroupsPerReplicationGroupQuotaExceededFault, NodeQuotaForCustomerExceededFault, ReplicationGroupNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const modifyServerlessCache = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.ModifyServerlessCache" }, ModifyServerlessCacheRequest, ModifyServerlessCacheResponse, [InvalidCredentialsException, InvalidParameterCombinationException, InvalidParameterValueException, InvalidServerlessCacheStateFault, InvalidUserGroupStateFault, ServerlessCacheNotFoundFault, ServiceLinkedRoleNotFoundFault, UserGroupNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const modifyUser = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.ModifyUser" }, ModifyUserMessage, User, [InvalidParameterCombinationException, InvalidParameterValueException, InvalidUserStateFault, ServiceLinkedRoleNotFoundFault, UserNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const modifyUserGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.ModifyUserGroup" }, ModifyUserGroupMessage, UserGroup, [DefaultUserRequired, DuplicateUserNameFault, InvalidParameterCombinationException, InvalidParameterValueException, InvalidUserGroupStateFault, ServiceLinkedRoleNotFoundFault, UserGroupNotFoundFault, UserNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const revokeCacheSecurityGroupIngress = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.RevokeCacheSecurityGroupIngress" }, RevokeCacheSecurityGroupIngressMessage, RevokeCacheSecurityGroupIngressResult, [AuthorizationNotFoundFault, CacheSecurityGroupNotFoundFault, InvalidCacheSecurityGroupStateFault, InvalidParameterCombinationException, InvalidParameterValueException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const startMigration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.StartMigration" }, StartMigrationMessage, StartMigrationResponse, [InvalidParameterValueException, InvalidReplicationGroupStateFault, ReplicationGroupAlreadyUnderMigrationFault, ReplicationGroupNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const testMigration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.TestMigration" }, TestMigrationMessage, TestMigrationResponse, [InvalidParameterValueException, InvalidReplicationGroupStateFault, ReplicationGroupAlreadyUnderMigrationFault, ReplicationGroupNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const addTagsToResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.AddTagsToResource" }, AddTagsToResourceMessage, TagListMessage, [CacheClusterNotFoundFault, CacheParameterGroupNotFoundFault, CacheSecurityGroupNotFoundFault, CacheSubnetGroupNotFoundFault, InvalidARNFault, InvalidReplicationGroupStateFault, InvalidServerlessCacheSnapshotStateFault, InvalidServerlessCacheStateFault, ReplicationGroupNotFoundFault, ReservedCacheNodeNotFoundFault, ServerlessCacheNotFoundFault, ServerlessCacheSnapshotNotFoundFault, SnapshotNotFoundFault, TagQuotaPerResourceExceeded, UserGroupNotFoundFault, UserNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const createCacheSecurityGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.CreateCacheSecurityGroup" }, CreateCacheSecurityGroupMessage, CreateCacheSecurityGroupResult, [CacheSecurityGroupAlreadyExistsFault, CacheSecurityGroupQuotaExceededFault, InvalidParameterCombinationException, InvalidParameterValueException, TagQuotaPerResourceExceeded]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const createServerlessCacheSnapshot = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.CreateServerlessCacheSnapshot" }, CreateServerlessCacheSnapshotRequest, CreateServerlessCacheSnapshotResponse, [InvalidParameterCombinationException, InvalidParameterValueException, InvalidServerlessCacheStateFault, ServerlessCacheNotFoundFault, ServerlessCacheSnapshotAlreadyExistsFault, ServerlessCacheSnapshotQuotaExceededFault, ServiceLinkedRoleNotFoundFault, TagQuotaPerResourceExceeded]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const createSnapshot = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.CreateSnapshot" }, CreateSnapshotMessage, CreateSnapshotResult, [CacheClusterNotFoundFault, InvalidCacheClusterStateFault, InvalidParameterCombinationException, InvalidParameterValueException, InvalidReplicationGroupStateFault, ReplicationGroupNotFoundFault, SnapshotAlreadyExistsFault, SnapshotFeatureNotSupportedFault, SnapshotQuotaExceededFault, TagQuotaPerResourceExceeded]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const deleteCacheCluster = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.DeleteCacheCluster" }, DeleteCacheClusterMessage, DeleteCacheClusterResult, [CacheClusterNotFoundFault, InvalidCacheClusterStateFault, InvalidParameterCombinationException, InvalidParameterValueException, SnapshotAlreadyExistsFault, SnapshotFeatureNotSupportedFault, SnapshotQuotaExceededFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const deleteReplicationGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.DeleteReplicationGroup" }, DeleteReplicationGroupMessage, DeleteReplicationGroupResult, [InvalidParameterCombinationException, InvalidParameterValueException, InvalidReplicationGroupStateFault, ReplicationGroupNotFoundFault, SnapshotAlreadyExistsFault, SnapshotFeatureNotSupportedFault, SnapshotQuotaExceededFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const deleteUser = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.DeleteUser" }, DeleteUserMessage, User, [DefaultUserAssociatedToUserGroupFault, InvalidParameterValueException, InvalidUserStateFault, ServiceLinkedRoleNotFoundFault, UserNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const describeCacheParameters = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.DescribeCacheParameters" }, DescribeCacheParametersMessage, CacheParameterGroupDetails, [CacheParameterGroupNotFoundFault, InvalidParameterCombinationException, InvalidParameterValueException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const describeReservedCacheNodes = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.DescribeReservedCacheNodes" }, DescribeReservedCacheNodesMessage, ReservedCacheNodeMessage, [InvalidParameterCombinationException, InvalidParameterValueException, ReservedCacheNodeNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const describeReservedCacheNodesOfferings = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.DescribeReservedCacheNodesOfferings" }, DescribeReservedCacheNodesOfferingsMessage, ReservedCacheNodesOfferingMessage, [InvalidParameterCombinationException, InvalidParameterValueException, ReservedCacheNodesOfferingNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const increaseReplicaCount = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.IncreaseReplicaCount" }, IncreaseReplicaCountMessage, IncreaseReplicaCountResult, [ClusterQuotaForCustomerExceededFault, InsufficientCacheClusterCapacityFault, InvalidCacheClusterStateFault, InvalidKMSKeyFault, InvalidParameterCombinationException, InvalidParameterValueException, InvalidReplicationGroupStateFault, InvalidVPCNetworkStateFault, NodeGroupsPerReplicationGroupQuotaExceededFault, NodeQuotaForCustomerExceededFault, NoOperationFault, ReplicationGroupNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const modifyCacheCluster = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.ModifyCacheCluster" }, ModifyCacheClusterMessage, ModifyCacheClusterResult, [CacheClusterNotFoundFault, CacheParameterGroupNotFoundFault, CacheSecurityGroupNotFoundFault, InsufficientCacheClusterCapacityFault, InvalidCacheClusterStateFault, InvalidCacheSecurityGroupStateFault, InvalidParameterCombinationException, InvalidParameterValueException, InvalidVPCNetworkStateFault, NodeQuotaForClusterExceededFault, NodeQuotaForCustomerExceededFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const modifyReplicationGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.ModifyReplicationGroup" }, ModifyReplicationGroupMessage, ModifyReplicationGroupResult, [CacheClusterNotFoundFault, CacheParameterGroupNotFoundFault, CacheSecurityGroupNotFoundFault, InsufficientCacheClusterCapacityFault, InvalidCacheClusterStateFault, InvalidCacheSecurityGroupStateFault, InvalidKMSKeyFault, InvalidParameterCombinationException, InvalidParameterValueException, InvalidReplicationGroupStateFault, InvalidUserGroupStateFault, InvalidVPCNetworkStateFault, NodeQuotaForClusterExceededFault, NodeQuotaForCustomerExceededFault, ReplicationGroupNotFoundFault, UserGroupNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const purchaseReservedCacheNodesOffering = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.PurchaseReservedCacheNodesOffering" }, PurchaseReservedCacheNodesOfferingMessage, PurchaseReservedCacheNodesOfferingResult, [InvalidParameterCombinationException, InvalidParameterValueException, ReservedCacheNodeAlreadyExistsFault, ReservedCacheNodeQuotaExceededFault, ReservedCacheNodesOfferingNotFoundFault, TagQuotaPerResourceExceeded]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const removeTagsFromResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.RemoveTagsFromResource" }, RemoveTagsFromResourceMessage, TagListMessage, [CacheClusterNotFoundFault, CacheParameterGroupNotFoundFault, CacheSecurityGroupNotFoundFault, CacheSubnetGroupNotFoundFault, InvalidARNFault, InvalidReplicationGroupStateFault, InvalidServerlessCacheSnapshotStateFault, InvalidServerlessCacheStateFault, ReplicationGroupNotFoundFault, ReservedCacheNodeNotFoundFault, ServerlessCacheNotFoundFault, ServerlessCacheSnapshotNotFoundFault, SnapshotNotFoundFault, TagNotFoundFault, UserGroupNotFoundFault, UserNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const authorizeCacheSecurityGroupIngress = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.AuthorizeCacheSecurityGroupIngress" }, AuthorizeCacheSecurityGroupIngressMessage, AuthorizeCacheSecurityGroupIngressResult, [AuthorizationAlreadyExistsFault, CacheSecurityGroupNotFoundFault, InvalidCacheSecurityGroupStateFault, InvalidParameterCombinationException, InvalidParameterValueException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const copyServerlessCacheSnapshot = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.CopyServerlessCacheSnapshot" }, CopyServerlessCacheSnapshotRequest, CopyServerlessCacheSnapshotResponse, [InvalidParameterCombinationException, InvalidParameterValueException, InvalidServerlessCacheSnapshotStateFault, ServerlessCacheSnapshotAlreadyExistsFault, ServerlessCacheSnapshotNotFoundFault, ServerlessCacheSnapshotQuotaExceededFault, ServiceLinkedRoleNotFoundFault, TagQuotaPerResourceExceeded]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const copySnapshot = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.CopySnapshot" }, CopySnapshotMessage, CopySnapshotResult, [InvalidParameterCombinationException, InvalidParameterValueException, InvalidSnapshotStateFault, SnapshotAlreadyExistsFault, SnapshotNotFoundFault, SnapshotQuotaExceededFault, TagQuotaPerResourceExceeded]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const createCacheParameterGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.CreateCacheParameterGroup" }, CreateCacheParameterGroupMessage, CreateCacheParameterGroupResult, [CacheParameterGroupAlreadyExistsFault, CacheParameterGroupQuotaExceededFault, InvalidCacheParameterGroupStateFault, InvalidParameterCombinationException, InvalidParameterValueException, TagQuotaPerResourceExceeded]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const createGlobalReplicationGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.CreateGlobalReplicationGroup" }, CreateGlobalReplicationGroupMessage, CreateGlobalReplicationGroupResult, [GlobalReplicationGroupAlreadyExistsFault, InvalidParameterValueException, InvalidReplicationGroupStateFault, ReplicationGroupNotFoundFault, ServiceLinkedRoleNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const createReplicationGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.CreateReplicationGroup" }, CreateReplicationGroupMessage, CreateReplicationGroupResult, [CacheClusterNotFoundFault, CacheParameterGroupNotFoundFault, CacheSecurityGroupNotFoundFault, CacheSubnetGroupNotFoundFault, ClusterQuotaForCustomerExceededFault, GlobalReplicationGroupNotFoundFault, InsufficientCacheClusterCapacityFault, InvalidCacheClusterStateFault, InvalidGlobalReplicationGroupStateFault, InvalidParameterCombinationException, InvalidParameterValueException, InvalidUserGroupStateFault, InvalidVPCNetworkStateFault, NodeGroupsPerReplicationGroupQuotaExceededFault, NodeQuotaForClusterExceededFault, NodeQuotaForCustomerExceededFault, ReplicationGroupAlreadyExistsFault, TagQuotaPerResourceExceeded, UserGroupNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const createUser = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.CreateUser" }, CreateUserMessage, User, [DuplicateUserNameFault, InvalidParameterCombinationException, InvalidParameterValueException, ServiceLinkedRoleNotFoundFault, TagQuotaPerResourceExceeded, UserAlreadyExistsFault, UserQuotaExceededFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const createUserGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.CreateUserGroup" }, CreateUserGroupMessage, UserGroup, [DefaultUserRequired, DuplicateUserNameFault, InvalidParameterValueException, ServiceLinkedRoleNotFoundFault, TagQuotaPerResourceExceeded, UserGroupAlreadyExistsFault, UserGroupQuotaExceededFault, UserNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const decreaseReplicaCount = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.DecreaseReplicaCount" }, DecreaseReplicaCountMessage, DecreaseReplicaCountResult, [ClusterQuotaForCustomerExceededFault, InsufficientCacheClusterCapacityFault, InvalidCacheClusterStateFault, InvalidParameterCombinationException, InvalidParameterValueException, InvalidReplicationGroupStateFault, InvalidVPCNetworkStateFault, NodeGroupsPerReplicationGroupQuotaExceededFault, NodeQuotaForCustomerExceededFault, NoOperationFault, ReplicationGroupNotFoundFault, ServiceLinkedRoleNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const testFailover = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.TestFailover" }, TestFailoverMessage, TestFailoverResult, [APICallRateForCustomerExceededFault, InvalidCacheClusterStateFault, InvalidKMSKeyFault, InvalidParameterCombinationException, InvalidParameterValueException, InvalidReplicationGroupStateFault, NodeGroupNotFoundFault, ReplicationGroupNotFoundFault, TestFailoverNotAvailableFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const createCacheCluster = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.CreateCacheCluster" }, CreateCacheClusterMessage, CreateCacheClusterResult, [CacheClusterAlreadyExistsFault, CacheParameterGroupNotFoundFault, CacheSecurityGroupNotFoundFault, CacheSubnetGroupNotFoundFault, ClusterQuotaForCustomerExceededFault, InsufficientCacheClusterCapacityFault, InvalidParameterCombinationException, InvalidParameterValueException, InvalidReplicationGroupStateFault, InvalidVPCNetworkStateFault, NodeQuotaForClusterExceededFault, NodeQuotaForCustomerExceededFault, ReplicationGroupNotFoundFault, TagQuotaPerResourceExceeded]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const createServerlessCache = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.CreateServerlessCache" }, CreateServerlessCacheRequest, CreateServerlessCacheResponse, [InvalidCredentialsException, InvalidParameterCombinationException, InvalidParameterValueException, InvalidServerlessCacheStateFault, InvalidUserGroupStateFault, ServerlessCacheAlreadyExistsFault, ServerlessCacheNotFoundFault, ServerlessCacheQuotaForCustomerExceededFault, ServiceLinkedRoleNotFoundFault, TagQuotaPerResourceExceeded, UserGroupNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const describeUpdateActions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.DescribeUpdateActions" }, DescribeUpdateActionsMessage, UpdateActionsMessage, [InvalidParameterCombinationException, InvalidParameterValueException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const modifyCacheSubnetGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.ModifyCacheSubnetGroup" }, ModifyCacheSubnetGroupMessage, ModifyCacheSubnetGroupResult, [CacheSubnetGroupNotFoundFault, CacheSubnetQuotaExceededFault, InvalidSubnet, SubnetInUse, SubnetNotAllowedFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const completeMigration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.CompleteMigration" }, CompleteMigrationMessage, CompleteMigrationResponse, [InvalidReplicationGroupStateFault, ReplicationGroupNotFoundFault, ReplicationGroupNotUnderMigrationFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const createCacheSubnetGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.CreateCacheSubnetGroup" }, CreateCacheSubnetGroupMessage, CreateCacheSubnetGroupResult, [CacheSubnetGroupAlreadyExistsFault, CacheSubnetGroupQuotaExceededFault, CacheSubnetQuotaExceededFault, InvalidSubnet, SubnetNotAllowedFault, TagQuotaPerResourceExceeded]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Deletes a cache subnet group.
+ * 
+ * 
+ * 
+ * 
+ * You cannot delete a default cache subnet group or one that is associated with any
+ * clusters.
+ */export const deleteCacheSubnetGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.DeleteCacheSubnetGroup" }, DeleteCacheSubnetGroupMessage, S.Struct({}), [CacheSubnetGroupInUse, CacheSubnetGroupNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Returns information about all provisioned clusters if no cluster identifier is
+ * specified, or about a specific cache cluster if a cluster identifier is supplied.
+ * 
+ * 
+ * By default, abbreviated information about the clusters is returned. You can use the
+ * optional *ShowCacheNodeInfo* flag to retrieve detailed information
+ * about the cache nodes associated with the clusters. These details include the DNS
+ * address and port for the cache node endpoint.
+ * 
+ * 
+ * If the cluster is in the *creating* state, only cluster-level
+ * information is displayed until all of the nodes are successfully provisioned.
+ * 
+ * 
+ * If the cluster is in the *deleting* state, only cluster-level
+ * information is displayed.
+ * 
+ * 
+ * If cache nodes are currently being added to the cluster, node endpoint information and
+ * creation time for the additional nodes are not displayed until they are completely
+ * provisioned. When the cluster state is *available*, the cluster is
+ * ready for use.
+ * 
+ * 
+ * If cache nodes are currently being removed from the cluster, no endpoint information
+ * for the removed nodes is displayed.
+ */export const describeCacheClusters = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.DescribeCacheClusters" }, DescribeCacheClustersMessage, CacheClusterMessage, [CacheClusterNotFoundFault, InvalidParameterCombinationException, InvalidParameterValueException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Returns a list of cache parameter group descriptions. If a cache parameter group name
+ * is specified, the list contains only the descriptions for that group.
+ */export const describeCacheParameterGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.DescribeCacheParameterGroups" }, DescribeCacheParameterGroupsMessage, CacheParameterGroupsMessage, [CacheParameterGroupNotFoundFault, InvalidParameterCombinationException, InvalidParameterValueException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Returns a list of cache security group descriptions. If a cache security group name is
+ * specified, the list contains only the description of that group. This applicable only
+ * when you have ElastiCache in Classic setup
+ */export const describeCacheSecurityGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.DescribeCacheSecurityGroups" }, DescribeCacheSecurityGroupsMessage, CacheSecurityGroupMessage, [CacheSecurityGroupNotFoundFault, InvalidParameterCombinationException, InvalidParameterValueException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Returns a list of cache subnet group descriptions. If a subnet group name is
+ * specified, the list contains only the description of that group. This is applicable only
+ * when you have ElastiCache in VPC setup. All ElastiCache clusters now launch in VPC by
+ * default.
+ */export const describeCacheSubnetGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.DescribeCacheSubnetGroups" }, DescribeCacheSubnetGroupsMessage, CacheSubnetGroupMessage, [CacheSubnetGroupNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Returns information about a particular global replication group. If no identifier is
+ * specified, returns information about all Global datastores.
+ */export const describeGlobalReplicationGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.DescribeGlobalReplicationGroups" }, DescribeGlobalReplicationGroupsMessage, DescribeGlobalReplicationGroupsResult, [GlobalReplicationGroupNotFoundFault, InvalidParameterCombinationException, InvalidParameterValueException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Remove a secondary cluster from the Global datastore using the Global datastore name.
+ * The secondary cluster will no longer receive updates from the primary cluster, but will
+ * remain as a standalone cluster in that Amazon region.
+ */export const disassociateGlobalReplicationGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.DisassociateGlobalReplicationGroup" }, DisassociateGlobalReplicationGroupMessage, DisassociateGlobalReplicationGroupResult, [GlobalReplicationGroupNotFoundFault, InvalidGlobalReplicationGroupStateFault, InvalidParameterCombinationException, InvalidParameterValueException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Provides the functionality to export the serverless cache snapshot data to Amazon S3. Available for Valkey and Redis OSS only.
+ */export const exportServerlessCacheSnapshot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.ExportServerlessCacheSnapshot" }, ExportServerlessCacheSnapshotRequest, ExportServerlessCacheSnapshotResponse, [InvalidParameterValueException, InvalidServerlessCacheSnapshotStateFault, ServerlessCacheSnapshotNotFoundFault, ServiceLinkedRoleNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Used to failover the primary region to a secondary region. The secondary region will
+ * become primary, and all other clusters will become secondary.
+ */export const failoverGlobalReplicationGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.FailoverGlobalReplicationGroup" }, FailoverGlobalReplicationGroupMessage, FailoverGlobalReplicationGroupResult, [GlobalReplicationGroupNotFoundFault, InvalidGlobalReplicationGroupStateFault, InvalidParameterCombinationException, InvalidParameterValueException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Lists all available node types that you can scale with your cluster's replication
+ * group's current node type.
+ * 
+ * 
+ * When you use the `ModifyCacheCluster` or
+ * `ModifyReplicationGroup` operations to scale your cluster or replication
+ * group, the value of the `CacheNodeType` parameter must be one of the node
+ * types returned by this operation.
+ */export const listAllowedNodeTypeModifications = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.ListAllowedNodeTypeModifications" }, ListAllowedNodeTypeModificationsMessage, AllowedNodeTypeModificationsMessage, [CacheClusterNotFoundFault, InvalidParameterCombinationException, InvalidParameterValueException, ReplicationGroupNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Modifies the parameters of a cache parameter group. You can modify up to 20 parameters
+ * in a single request by submitting a list parameter name and value pairs.
+ */export const modifyCacheParameterGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.ModifyCacheParameterGroup" }, ModifyCacheParameterGroupMessage, CacheParameterGroupNameMessage, [CacheParameterGroupNotFoundFault, InvalidCacheParameterGroupStateFault, InvalidGlobalReplicationGroupStateFault, InvalidParameterCombinationException, InvalidParameterValueException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Modifies the settings for a Global datastore.
+ */export const modifyGlobalReplicationGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.ModifyGlobalReplicationGroup" }, ModifyGlobalReplicationGroupMessage, ModifyGlobalReplicationGroupResult, [GlobalReplicationGroupNotFoundFault, InvalidGlobalReplicationGroupStateFault, InvalidParameterValueException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Redistribute slots to ensure uniform distribution across existing shards in the
+ * cluster.
+ */export const rebalanceSlotsInGlobalReplicationGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.RebalanceSlotsInGlobalReplicationGroup" }, RebalanceSlotsInGlobalReplicationGroupMessage, RebalanceSlotsInGlobalReplicationGroupResult, [GlobalReplicationGroupNotFoundFault, InvalidGlobalReplicationGroupStateFault, InvalidParameterValueException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Reboots some, or all, of the cache nodes within a provisioned cluster. This operation
+ * applies any modified cache parameter groups to the cluster. The reboot operation takes
+ * place as soon as possible, and results in a momentary outage to the cluster. During the
+ * reboot, the cluster status is set to REBOOTING.
+ * 
+ * 
+ * The reboot causes the contents of the cache (for each cache node being rebooted) to be
+ * lost.
+ * 
+ * 
+ * When the reboot is complete, a cluster event is created.
+ * 
+ * 
+ * Rebooting a cluster is currently supported on Memcached, Valkey and Redis OSS (cluster mode
+ * disabled) clusters. Rebooting is not supported on Valkey or Redis OSS (cluster mode enabled)
+ * clusters.
+ * 
+ * 
+ * If you make changes to parameters that require a Valkey or Redis OSS (cluster mode enabled) cluster
+ * reboot for the changes to be applied, see Rebooting a Cluster for an alternate process.
+ */export const rebootCacheCluster = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.RebootCacheCluster" }, RebootCacheClusterMessage, RebootCacheClusterResult, [CacheClusterNotFoundFault, InvalidCacheClusterStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Modifies the parameters of a cache parameter group to the engine or system default
+ * value. You can reset specific parameters by submitting a list of parameter names. To
+ * reset the entire cache parameter group, specify the `ResetAllParameters` and
+ * `CacheParameterGroupName` parameters.
+ */export const resetCacheParameterGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.ResetCacheParameterGroup" }, ResetCacheParameterGroupMessage, CacheParameterGroupNameMessage, [CacheParameterGroupNotFoundFault, InvalidCacheParameterGroupStateFault, InvalidGlobalReplicationGroupStateFault, InvalidParameterCombinationException, InvalidParameterValueException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Apply the service update. For more information on service updates and applying them,
+ * see Applying Service
+ * Updates.
+ */export const batchApplyUpdateAction = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.BatchApplyUpdateAction" }, BatchApplyUpdateActionMessage, UpdateActionResultsMessage, [InvalidParameterValueException, ServiceUpdateNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Stop the service update. For more information on service updates and stopping them,
+ * see Stopping
+ * Service Updates.
+ */export const batchStopUpdateAction = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.BatchStopUpdateAction" }, BatchStopUpdateActionMessage, UpdateActionResultsMessage, [InvalidParameterValueException, ServiceUpdateNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Decreases the number of node groups in a Global datastore
+ */export const decreaseNodeGroupsInGlobalReplicationGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.DecreaseNodeGroupsInGlobalReplicationGroup" }, DecreaseNodeGroupsInGlobalReplicationGroupMessage, DecreaseNodeGroupsInGlobalReplicationGroupResult, [GlobalReplicationGroupNotFoundFault, InvalidGlobalReplicationGroupStateFault, InvalidParameterCombinationException, InvalidParameterValueException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Deletes the specified cache parameter group. You cannot delete a cache parameter group
+ * if it is associated with any cache clusters. You cannot delete the default cache
+ * parameter groups in your account.
+ */export const deleteCacheParameterGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.DeleteCacheParameterGroup" }, DeleteCacheParameterGroupMessage, S.Struct({}), [CacheParameterGroupNotFoundFault, InvalidCacheParameterGroupStateFault, InvalidParameterCombinationException, InvalidParameterValueException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Deletes a cache security group.
+ * 
+ * 
+ * 
+ * 
+ * You cannot delete a cache security group if it is associated with any
+ * clusters.
+ */export const deleteCacheSecurityGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.DeleteCacheSecurityGroup" }, DeleteCacheSecurityGroupMessage, S.Struct({}), [CacheSecurityGroupNotFoundFault, InvalidCacheSecurityGroupStateFault, InvalidParameterCombinationException, InvalidParameterValueException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Deleting a Global datastore is a two-step process:
+ * 
+ * 
+ * 
+ * - First, you must DisassociateGlobalReplicationGroup to remove
+ * the secondary clusters in the Global datastore.
+ * 
+ * 
+ * 
+ * - Once the Global datastore contains only the primary cluster, you can use the
+ * `DeleteGlobalReplicationGroup` API to delete the Global datastore
+ * while retainining the primary cluster using
+ * `RetainPrimaryReplicationGroup=true`.
+ * 
+ * 
+ * 
+ * 
+ * 
+ * Since the Global Datastore has only a primary cluster, you can delete the Global
+ * Datastore while retaining the primary by setting
+ * `RetainPrimaryReplicationGroup=true`. The primary cluster is never
+ * deleted when deleting a Global Datastore. It can only be deleted when it no longer is
+ * associated with any Global Datastore.
+ * 
+ * 
+ * When you receive a successful response from this operation, Amazon ElastiCache
+ * immediately begins deleting the selected resources; you cannot cancel or revert this
+ * operation.
+ */export const deleteGlobalReplicationGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.DeleteGlobalReplicationGroup" }, DeleteGlobalReplicationGroupMessage, DeleteGlobalReplicationGroupResult, [GlobalReplicationGroupNotFoundFault, InvalidGlobalReplicationGroupStateFault, InvalidParameterValueException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Deletes a specified existing serverless cache.
+ * 
+ * 
+ * 
+ * 
+ * 
+ * `CreateServerlessCacheSnapshot` permission is required to create a final snapshot.
+ * Without this permission, the API call will fail with an `Access Denied` exception.
+ */export const deleteServerlessCache = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.DeleteServerlessCache" }, DeleteServerlessCacheRequest, DeleteServerlessCacheResponse, [InvalidCredentialsException, InvalidParameterCombinationException, InvalidParameterValueException, InvalidServerlessCacheStateFault, ServerlessCacheNotFoundFault, ServerlessCacheSnapshotAlreadyExistsFault, ServiceLinkedRoleNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Deletes an existing serverless cache snapshot. Available for Valkey, Redis OSS and Serverless Memcached only.
+ */export const deleteServerlessCacheSnapshot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.DeleteServerlessCacheSnapshot" }, DeleteServerlessCacheSnapshotRequest, DeleteServerlessCacheSnapshotResponse, [InvalidParameterValueException, InvalidServerlessCacheSnapshotStateFault, ServerlessCacheSnapshotNotFoundFault, ServiceLinkedRoleNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Deletes an existing snapshot. When you receive a successful response from this
+ * operation, ElastiCache immediately begins deleting the snapshot; you cannot cancel or
+ * revert this operation.
+ * 
+ * 
+ * 
+ * 
+ * This operation is valid for Valkey or Redis OSS only.
+ */export const deleteSnapshot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.DeleteSnapshot" }, DeleteSnapshotMessage, DeleteSnapshotResult, [InvalidParameterCombinationException, InvalidParameterValueException, InvalidSnapshotStateFault, SnapshotNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * For Valkey engine version 7.2 onwards and Redis OSS 6.0 onwards: Deletes a user group. The user group must first
+ * be disassociated from the replication group before it can be deleted. For more
+ * information, see Using Role Based Access Control (RBAC).
+ */export const deleteUserGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.DeleteUserGroup" }, DeleteUserGroupMessage, UserGroup, [InvalidParameterValueException, InvalidUserGroupStateFault, ServiceLinkedRoleNotFoundFault, UserGroupNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Returns a list of the available cache engines and their versions.
+ */export const describeCacheEngineVersions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.DescribeCacheEngineVersions" }, DescribeCacheEngineVersionsMessage, CacheEngineVersionMessage, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Returns the default engine and system parameter information for the specified cache
+ * engine.
+ */export const describeEngineDefaultParameters = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.DescribeEngineDefaultParameters" }, DescribeEngineDefaultParametersMessage, DescribeEngineDefaultParametersResult, [InvalidParameterCombinationException, InvalidParameterValueException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Returns events related to clusters, cache security groups, and cache parameter groups.
+ * You can obtain events specific to a particular cluster, cache security group, or cache
+ * parameter group by providing the name as a parameter.
+ * 
+ * 
+ * By default, only the events occurring within the last hour are returned; however, you
+ * can retrieve up to 14 days' worth of events if necessary.
+ */export const describeEvents = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.DescribeEvents" }, DescribeEventsMessage, EventsMessage, [InvalidParameterCombinationException, InvalidParameterValueException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Returns information about a particular replication group. If no identifier is
+ * specified, `DescribeReplicationGroups` returns information about all
+ * replication groups.
+ * 
+ * 
+ * 
+ * 
+ * This operation is valid for Valkey or Redis OSS only.
+ */export const describeReplicationGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.DescribeReplicationGroups" }, DescribeReplicationGroupsMessage, ReplicationGroupMessage, [InvalidParameterCombinationException, InvalidParameterValueException, ReplicationGroupNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Returns information about a specific serverless cache.
+ * If no identifier is specified, then the API returns information on all the serverless caches belonging to
+ * this Amazon Web Services account.
+ */export const describeServerlessCaches = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.DescribeServerlessCaches" }, DescribeServerlessCachesRequest, DescribeServerlessCachesResponse, [InvalidParameterCombinationException, InvalidParameterValueException, ServerlessCacheNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Returns information about serverless cache snapshots.
+ * By default, this API lists all of the customer’s serverless cache snapshots.
+ * It can also describe a single serverless cache snapshot, or the snapshots associated with
+ * a particular serverless cache. Available for Valkey, Redis OSS and Serverless Memcached only.
+ */export const describeServerlessCacheSnapshots = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.DescribeServerlessCacheSnapshots" }, DescribeServerlessCacheSnapshotsRequest, DescribeServerlessCacheSnapshotsResponse, [InvalidParameterCombinationException, InvalidParameterValueException, ServerlessCacheNotFoundFault, ServerlessCacheSnapshotNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Returns details of the service updates
+ */export const describeServiceUpdates = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.DescribeServiceUpdates" }, DescribeServiceUpdatesMessage, ServiceUpdatesMessage, [InvalidParameterCombinationException, InvalidParameterValueException, ServiceUpdateNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Returns information about cluster or replication group snapshots. By default,
+ * `DescribeSnapshots` lists all of your snapshots; it can optionally
+ * describe a single snapshot, or just the snapshots associated with a particular cache
+ * cluster.
+ * 
+ * 
+ * 
+ * 
+ * This operation is valid for Valkey or Redis OSS only.
+ */export const describeSnapshots = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.DescribeSnapshots" }, DescribeSnapshotsMessage, DescribeSnapshotsListMessage, [CacheClusterNotFoundFault, InvalidParameterCombinationException, InvalidParameterValueException, SnapshotNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Returns a list of user groups.
+ */export const describeUserGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.DescribeUserGroups" }, DescribeUserGroupsMessage, DescribeUserGroupsResult, [InvalidParameterCombinationException, ServiceLinkedRoleNotFoundFault, UserGroupNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Returns a list of users.
+ */export const describeUsers = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.DescribeUsers" }, DescribeUsersMessage, DescribeUsersResult, [InvalidParameterCombinationException, ServiceLinkedRoleNotFoundFault, UserNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Increase the number of node groups in the Global datastore
+ */export const increaseNodeGroupsInGlobalReplicationGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.IncreaseNodeGroupsInGlobalReplicationGroup" }, IncreaseNodeGroupsInGlobalReplicationGroupMessage, IncreaseNodeGroupsInGlobalReplicationGroupResult, [GlobalReplicationGroupNotFoundFault, InvalidGlobalReplicationGroupStateFault, InvalidParameterValueException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Lists all tags currently on a named resource.
+ * 
+ * 
+ * A tag is a key-value pair where the key and value are case-sensitive. You can use
+ * tags to categorize and track all your ElastiCache resources, with the exception of
+ * global replication group. When you add or remove tags on replication groups, those
+ * actions will be replicated to all nodes in the replication group. For more information,
+ * see Resource-level permissions.
+ * 
+ * 
+ * If the cluster is not in the *available* state,
+ * `ListTagsForResource` returns an error.
+ */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.ListTagsForResource" }, ListTagsForResourceMessage, TagListMessage, [CacheClusterNotFoundFault, CacheParameterGroupNotFoundFault, CacheSecurityGroupNotFoundFault, CacheSubnetGroupNotFoundFault, InvalidARNFault, InvalidReplicationGroupStateFault, InvalidServerlessCacheSnapshotStateFault, InvalidServerlessCacheStateFault, ReplicationGroupNotFoundFault, ReservedCacheNodeNotFoundFault, ServerlessCacheNotFoundFault, ServerlessCacheSnapshotNotFoundFault, SnapshotNotFoundFault, UserGroupNotFoundFault, UserNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Modifies a replication group's shards (node groups) by allowing you to add shards,
+ * remove shards, or rebalance the keyspaces among existing shards.
+ */export const modifyReplicationGroupShardConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.ModifyReplicationGroupShardConfiguration" }, ModifyReplicationGroupShardConfigurationMessage, ModifyReplicationGroupShardConfigurationResult, [InsufficientCacheClusterCapacityFault, InvalidCacheClusterStateFault, InvalidKMSKeyFault, InvalidParameterCombinationException, InvalidParameterValueException, InvalidReplicationGroupStateFault, InvalidVPCNetworkStateFault, NodeGroupsPerReplicationGroupQuotaExceededFault, NodeQuotaForCustomerExceededFault, ReplicationGroupNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * This API modifies the attributes of a serverless cache.
+ */export const modifyServerlessCache = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.ModifyServerlessCache" }, ModifyServerlessCacheRequest, ModifyServerlessCacheResponse, [InvalidCredentialsException, InvalidParameterCombinationException, InvalidParameterValueException, InvalidServerlessCacheStateFault, InvalidUserGroupStateFault, ServerlessCacheNotFoundFault, ServiceLinkedRoleNotFoundFault, UserGroupNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Changes user password(s) and/or access string.
+ */export const modifyUser = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.ModifyUser" }, ModifyUserMessage, User, [InvalidParameterCombinationException, InvalidParameterValueException, InvalidUserStateFault, ServiceLinkedRoleNotFoundFault, UserNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Changes the list of users that belong to the user group.
+ */export const modifyUserGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.ModifyUserGroup" }, ModifyUserGroupMessage, UserGroup, [DefaultUserRequired, DuplicateUserNameFault, InvalidParameterCombinationException, InvalidParameterValueException, InvalidUserGroupStateFault, ServiceLinkedRoleNotFoundFault, UserGroupNotFoundFault, UserNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Revokes ingress from a cache security group. Use this operation to disallow access
+ * from an Amazon EC2 security group that had been previously authorized.
+ */export const revokeCacheSecurityGroupIngress = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.RevokeCacheSecurityGroupIngress" }, RevokeCacheSecurityGroupIngressMessage, RevokeCacheSecurityGroupIngressResult, [AuthorizationNotFoundFault, CacheSecurityGroupNotFoundFault, InvalidCacheSecurityGroupStateFault, InvalidParameterCombinationException, InvalidParameterValueException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Start the migration of data.
+ */export const startMigration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.StartMigration" }, StartMigrationMessage, StartMigrationResponse, [InvalidParameterValueException, InvalidReplicationGroupStateFault, ReplicationGroupAlreadyUnderMigrationFault, ReplicationGroupNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Async API to test connection between source and target replication group.
+ */export const testMigration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.TestMigration" }, TestMigrationMessage, TestMigrationResponse, [InvalidParameterValueException, InvalidReplicationGroupStateFault, ReplicationGroupAlreadyUnderMigrationFault, ReplicationGroupNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * A tag is a key-value pair where the key and value are case-sensitive. You can use tags
+ * to categorize and track all your ElastiCache resources, with the exception of global
+ * replication group. When you add or remove tags on replication groups, those actions will
+ * be replicated to all nodes in the replication group. For more information, see Resource-level permissions.
+ * 
+ * 
+ * For example, you can use cost-allocation tags to your ElastiCache resources, Amazon
+ * generates a cost allocation report as a comma-separated value (CSV) file with your usage
+ * and costs aggregated by your tags. You can apply tags that represent business categories
+ * (such as cost centers, application names, or owners) to organize your costs across
+ * multiple services.
+ * 
+ * 
+ * For more information, see Using Cost Allocation Tags in
+ * Amazon ElastiCache in the ElastiCache User
+ * Guide.
+ */export const addTagsToResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.AddTagsToResource" }, AddTagsToResourceMessage, TagListMessage, [CacheClusterNotFoundFault, CacheParameterGroupNotFoundFault, CacheSecurityGroupNotFoundFault, CacheSubnetGroupNotFoundFault, InvalidARNFault, InvalidReplicationGroupStateFault, InvalidServerlessCacheSnapshotStateFault, InvalidServerlessCacheStateFault, ReplicationGroupNotFoundFault, ReservedCacheNodeNotFoundFault, ServerlessCacheNotFoundFault, ServerlessCacheSnapshotNotFoundFault, SnapshotNotFoundFault, TagQuotaPerResourceExceeded, UserGroupNotFoundFault, UserNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Creates a new cache security group. Use a cache security group to control access to
+ * one or more clusters.
+ * 
+ * 
+ * Cache security groups are only used when you are creating a cluster outside of an
+ * Amazon Virtual Private Cloud (Amazon VPC). If you are creating a cluster inside of a
+ * VPC, use a cache subnet group instead. For more information, see CreateCacheSubnetGroup.
+ */export const createCacheSecurityGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.CreateCacheSecurityGroup" }, CreateCacheSecurityGroupMessage, CreateCacheSecurityGroupResult, [CacheSecurityGroupAlreadyExistsFault, CacheSecurityGroupQuotaExceededFault, InvalidParameterCombinationException, InvalidParameterValueException, TagQuotaPerResourceExceeded]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * This API creates a copy of an entire ServerlessCache at a specific moment in time. Available for Valkey, Redis OSS and Serverless Memcached only.
+ */export const createServerlessCacheSnapshot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.CreateServerlessCacheSnapshot" }, CreateServerlessCacheSnapshotRequest, CreateServerlessCacheSnapshotResponse, [InvalidParameterCombinationException, InvalidParameterValueException, InvalidServerlessCacheStateFault, ServerlessCacheNotFoundFault, ServerlessCacheSnapshotAlreadyExistsFault, ServerlessCacheSnapshotQuotaExceededFault, ServiceLinkedRoleNotFoundFault, TagQuotaPerResourceExceeded]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Creates a copy of an entire cluster or replication group at a specific moment in
+ * time.
+ * 
+ * 
+ * 
+ * 
+ * This operation is valid for Valkey or Redis OSS only.
+ */export const createSnapshot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.CreateSnapshot" }, CreateSnapshotMessage, CreateSnapshotResult, [CacheClusterNotFoundFault, InvalidCacheClusterStateFault, InvalidParameterCombinationException, InvalidParameterValueException, InvalidReplicationGroupStateFault, ReplicationGroupNotFoundFault, SnapshotAlreadyExistsFault, SnapshotFeatureNotSupportedFault, SnapshotQuotaExceededFault, TagQuotaPerResourceExceeded]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Deletes a previously provisioned cluster. `DeleteCacheCluster` deletes all
+ * associated cache nodes, node endpoints and the cluster itself. When you receive a
+ * successful response from this operation, Amazon ElastiCache immediately begins deleting
+ * the cluster; you cannot cancel or revert this operation.
+ * 
+ * 
+ * This operation is not valid for:
+ * 
+ * 
+ * 
+ * - Valkey or Redis OSS (cluster mode enabled) clusters
+ * 
+ * 
+ * 
+ * - Valkey or Redis OSS (cluster mode disabled) clusters
+ * 
+ * 
+ * 
+ * - A cluster that is the last read replica of a replication group
+ * 
+ * 
+ * 
+ * - A cluster that is the primary node of a replication group
+ * 
+ * 
+ * 
+ * - A node group (shard) that has Multi-AZ mode enabled
+ * 
+ * 
+ * 
+ * - A cluster from a Valkey or Redis OSS (cluster mode enabled) replication group
+ * 
+ * 
+ * 
+ * - A cluster that is not in the `available` state
+ */export const deleteCacheCluster = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.DeleteCacheCluster" }, DeleteCacheClusterMessage, DeleteCacheClusterResult, [CacheClusterNotFoundFault, InvalidCacheClusterStateFault, InvalidParameterCombinationException, InvalidParameterValueException, SnapshotAlreadyExistsFault, SnapshotFeatureNotSupportedFault, SnapshotQuotaExceededFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Deletes an existing replication group. By default, this operation deletes the entire
+ * replication group, including the primary/primaries and all of the read replicas. If the
+ * replication group has only one primary, you can optionally delete only the read
+ * replicas, while retaining the primary by setting
+ * `RetainPrimaryCluster=true`.
+ * 
+ * 
+ * When you receive a successful response from this operation, Amazon ElastiCache
+ * immediately begins deleting the selected resources; you cannot cancel or revert this
+ * operation.
+ * 
+ * 
+ * 
+ * 
+ * 
+ * - `CreateSnapshot` permission is required to create a final snapshot.
+ * Without this permission, the API call will fail with an `Access Denied` exception.
+ * 
+ * 
+ * 
+ * - This operation is valid for Redis OSS only.
+ */export const deleteReplicationGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.DeleteReplicationGroup" }, DeleteReplicationGroupMessage, DeleteReplicationGroupResult, [InvalidParameterCombinationException, InvalidParameterValueException, InvalidReplicationGroupStateFault, ReplicationGroupNotFoundFault, SnapshotAlreadyExistsFault, SnapshotFeatureNotSupportedFault, SnapshotQuotaExceededFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * For Valkey engine version 7.2 onwards and Redis OSS 6.0 onwards: Deletes a user. The user will be removed from
+ * all user groups and in turn removed from all replication groups. For more information,
+ * see Using Role Based Access Control (RBAC).
+ */export const deleteUser = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.DeleteUser" }, DeleteUserMessage, User, [DefaultUserAssociatedToUserGroupFault, InvalidParameterValueException, InvalidUserStateFault, ServiceLinkedRoleNotFoundFault, UserNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Returns the detailed parameter list for a particular cache parameter group.
+ */export const describeCacheParameters = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.DescribeCacheParameters" }, DescribeCacheParametersMessage, CacheParameterGroupDetails, [CacheParameterGroupNotFoundFault, InvalidParameterCombinationException, InvalidParameterValueException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Returns information about reserved cache nodes for this account, or about a specified
+ * reserved cache node.
+ */export const describeReservedCacheNodes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.DescribeReservedCacheNodes" }, DescribeReservedCacheNodesMessage, ReservedCacheNodeMessage, [InvalidParameterCombinationException, InvalidParameterValueException, ReservedCacheNodeNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Lists available reserved cache node offerings.
+ */export const describeReservedCacheNodesOfferings = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.DescribeReservedCacheNodesOfferings" }, DescribeReservedCacheNodesOfferingsMessage, ReservedCacheNodesOfferingMessage, [InvalidParameterCombinationException, InvalidParameterValueException, ReservedCacheNodesOfferingNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Dynamically increases the number of replicas in a Valkey or Redis OSS (cluster mode disabled)
+ * replication group or the number of replica nodes in one or more node groups (shards) of
+ * a Valkey or Redis OSS (cluster mode enabled) replication group. This operation is performed with no
+ * cluster down time.
+ */export const increaseReplicaCount = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.IncreaseReplicaCount" }, IncreaseReplicaCountMessage, IncreaseReplicaCountResult, [ClusterQuotaForCustomerExceededFault, InsufficientCacheClusterCapacityFault, InvalidCacheClusterStateFault, InvalidKMSKeyFault, InvalidParameterCombinationException, InvalidParameterValueException, InvalidReplicationGroupStateFault, InvalidVPCNetworkStateFault, NodeGroupsPerReplicationGroupQuotaExceededFault, NodeQuotaForCustomerExceededFault, NoOperationFault, ReplicationGroupNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Modifies the settings for a cluster. You can use this operation to change one or more
+ * cluster configuration parameters by specifying the parameters and the new values.
+ */export const modifyCacheCluster = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.ModifyCacheCluster" }, ModifyCacheClusterMessage, ModifyCacheClusterResult, [CacheClusterNotFoundFault, CacheParameterGroupNotFoundFault, CacheSecurityGroupNotFoundFault, InsufficientCacheClusterCapacityFault, InvalidCacheClusterStateFault, InvalidCacheSecurityGroupStateFault, InvalidParameterCombinationException, InvalidParameterValueException, InvalidVPCNetworkStateFault, NodeQuotaForClusterExceededFault, NodeQuotaForCustomerExceededFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Modifies the settings for a replication group. This is limited to Valkey and Redis OSS 7 and above.
+ * 
+ * 
+ * 
+ * - Scaling for Valkey or Redis OSS (cluster mode enabled) in
+ * the ElastiCache User Guide
+ * 
+ * 
+ * 
+ * - ModifyReplicationGroupShardConfiguration in the ElastiCache API
+ * Reference
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * This operation is valid for Valkey or Redis OSS only.
+ */export const modifyReplicationGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.ModifyReplicationGroup" }, ModifyReplicationGroupMessage, ModifyReplicationGroupResult, [CacheClusterNotFoundFault, CacheParameterGroupNotFoundFault, CacheSecurityGroupNotFoundFault, InsufficientCacheClusterCapacityFault, InvalidCacheClusterStateFault, InvalidCacheSecurityGroupStateFault, InvalidKMSKeyFault, InvalidParameterCombinationException, InvalidParameterValueException, InvalidReplicationGroupStateFault, InvalidUserGroupStateFault, InvalidVPCNetworkStateFault, NodeQuotaForClusterExceededFault, NodeQuotaForCustomerExceededFault, ReplicationGroupNotFoundFault, UserGroupNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Allows you to purchase a reserved cache node offering. Reserved nodes are not eligible
+ * for cancellation and are non-refundable. For more information, see Managing Costs with Reserved Nodes.
+ */export const purchaseReservedCacheNodesOffering = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.PurchaseReservedCacheNodesOffering" }, PurchaseReservedCacheNodesOfferingMessage, PurchaseReservedCacheNodesOfferingResult, [InvalidParameterCombinationException, InvalidParameterValueException, ReservedCacheNodeAlreadyExistsFault, ReservedCacheNodeQuotaExceededFault, ReservedCacheNodesOfferingNotFoundFault, TagQuotaPerResourceExceeded]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Removes the tags identified by the `TagKeys` list from the named resource.
+ * A tag is a key-value pair where the key and value are case-sensitive. You can use tags
+ * to categorize and track all your ElastiCache resources, with the exception of global
+ * replication group. When you add or remove tags on replication groups, those actions will
+ * be replicated to all nodes in the replication group. For more information, see Resource-level permissions.
+ */export const removeTagsFromResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.RemoveTagsFromResource" }, RemoveTagsFromResourceMessage, TagListMessage, [CacheClusterNotFoundFault, CacheParameterGroupNotFoundFault, CacheSecurityGroupNotFoundFault, CacheSubnetGroupNotFoundFault, InvalidARNFault, InvalidReplicationGroupStateFault, InvalidServerlessCacheSnapshotStateFault, InvalidServerlessCacheStateFault, ReplicationGroupNotFoundFault, ReservedCacheNodeNotFoundFault, ServerlessCacheNotFoundFault, ServerlessCacheSnapshotNotFoundFault, SnapshotNotFoundFault, TagNotFoundFault, UserGroupNotFoundFault, UserNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Allows network ingress to a cache security group. Applications using ElastiCache must
+ * be running on Amazon EC2, and Amazon EC2 security groups are used as the authorization
+ * mechanism.
+ * 
+ * 
+ * 
+ * 
+ * You cannot authorize ingress from an Amazon EC2 security group in one region to an
+ * ElastiCache cluster in another region.
+ */export const authorizeCacheSecurityGroupIngress = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.AuthorizeCacheSecurityGroupIngress" }, AuthorizeCacheSecurityGroupIngressMessage, AuthorizeCacheSecurityGroupIngressResult, [AuthorizationAlreadyExistsFault, CacheSecurityGroupNotFoundFault, InvalidCacheSecurityGroupStateFault, InvalidParameterCombinationException, InvalidParameterValueException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Creates a copy of an existing serverless cache’s snapshot. Available for Valkey, Redis OSS and Serverless Memcached only.
+ */export const copyServerlessCacheSnapshot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.CopyServerlessCacheSnapshot" }, CopyServerlessCacheSnapshotRequest, CopyServerlessCacheSnapshotResponse, [InvalidParameterCombinationException, InvalidParameterValueException, InvalidServerlessCacheSnapshotStateFault, ServerlessCacheSnapshotAlreadyExistsFault, ServerlessCacheSnapshotNotFoundFault, ServerlessCacheSnapshotQuotaExceededFault, ServiceLinkedRoleNotFoundFault, TagQuotaPerResourceExceeded]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Makes a copy of an existing snapshot.
+ * 
+ * 
+ * 
+ * 
+ * This operation is valid for Valkey or Redis OSS only.
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * Users or groups that have permissions to use the `CopySnapshot`
+ * operation can create their own Amazon S3 buckets and copy snapshots to it. To
+ * control access to your snapshots, use an IAM policy to control who has the ability
+ * to use the `CopySnapshot` operation. For more information about using IAM
+ * to control the use of ElastiCache operations, see Exporting
+ * Snapshots and Authentication & Access
+ * Control.
+ * 
+ * 
+ * 
+ * 
+ * You could receive the following error messages.
+ * 
+ * 
+ * **Error Messages**
+ * 
+ * 
+ * 
+ * 
+ * - **Error Message:** The S3 bucket %s is outside of
+ * the region.
+ * 
+ * 
+ * 
+ * **Solution:** Create an Amazon S3 bucket in the
+ * same region as your snapshot. For more information, see Step 1: Create an Amazon S3 Bucket in the ElastiCache User
+ * Guide.
+ * 
+ * 
+ * 
+ * - **Error Message:** The S3 bucket %s does not
+ * exist.
+ * 
+ * 
+ * 
+ * **Solution:** Create an Amazon S3 bucket in the
+ * same region as your snapshot. For more information, see Step 1: Create an Amazon S3 Bucket in the ElastiCache User
+ * Guide.
+ * 
+ * 
+ * 
+ * - **Error Message:** The S3 bucket %s is not owned
+ * by the authenticated user.
+ * 
+ * 
+ * 
+ * **Solution:** Create an Amazon S3 bucket in the
+ * same region as your snapshot. For more information, see Step 1: Create an Amazon S3 Bucket in the ElastiCache User
+ * Guide.
+ * 
+ * 
+ * 
+ * - **Error Message:** The authenticated user does
+ * not have sufficient permissions to perform the desired activity.
+ * 
+ * 
+ * 
+ * **Solution:** Contact your system administrator
+ * to get the needed permissions.
+ * 
+ * 
+ * 
+ * - **Error Message:** The S3 bucket %s already
+ * contains an object with key %s.
+ * 
+ * 
+ * 
+ * **Solution:** Give the
+ * `TargetSnapshotName` a new and unique value. If exporting a
+ * snapshot, you could alternatively create a new Amazon S3 bucket and use this
+ * same value for `TargetSnapshotName`.
+ * 
+ * 
+ * 
+ * - **Error Message: ** ElastiCache has not been
+ * granted READ permissions %s on the S3 Bucket.
+ * 
+ * 
+ * 
+ * **Solution:** Add List and Read permissions on
+ * the bucket. For more information, see Step 2: Grant ElastiCache Access to Your Amazon S3 Bucket in the
+ * ElastiCache User Guide.
+ * 
+ * 
+ * 
+ * - **Error Message: ** ElastiCache has not been
+ * granted WRITE permissions %s on the S3 Bucket.
+ * 
+ * 
+ * 
+ * **Solution:** Add Upload/Delete permissions on
+ * the bucket. For more information, see Step 2: Grant ElastiCache Access to Your Amazon S3 Bucket in the
+ * ElastiCache User Guide.
+ * 
+ * 
+ * 
+ * - **Error Message: ** ElastiCache has not been
+ * granted READ_ACP permissions %s on the S3 Bucket.
+ * 
+ * 
+ * 
+ * **Solution:** Add View Permissions on the bucket.
+ * For more information, see Step 2: Grant ElastiCache Access to Your Amazon S3 Bucket in the
+ * ElastiCache User Guide.
+ */export const copySnapshot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.CopySnapshot" }, CopySnapshotMessage, CopySnapshotResult, [InvalidParameterCombinationException, InvalidParameterValueException, InvalidSnapshotStateFault, SnapshotAlreadyExistsFault, SnapshotNotFoundFault, SnapshotQuotaExceededFault, TagQuotaPerResourceExceeded]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Creates a new Amazon ElastiCache cache parameter group. An ElastiCache cache parameter
+ * group is a collection of parameters and their values that are applied to all of the
+ * nodes in any cluster or replication group using the CacheParameterGroup.
+ * 
+ * 
+ * A newly created CacheParameterGroup is an exact duplicate of the default parameter
+ * group for the CacheParameterGroupFamily. To customize the newly created
+ * CacheParameterGroup you can change the values of specific parameters. For more
+ * information, see:
+ * 
+ * 
+ * 
+ * - ModifyCacheParameterGroup in the ElastiCache API Reference.
+ * 
+ * 
+ * 
+ * - Parameters and
+ * Parameter Groups in the ElastiCache User Guide.
+ */export const createCacheParameterGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.CreateCacheParameterGroup" }, CreateCacheParameterGroupMessage, CreateCacheParameterGroupResult, [CacheParameterGroupAlreadyExistsFault, CacheParameterGroupQuotaExceededFault, InvalidCacheParameterGroupStateFault, InvalidParameterCombinationException, InvalidParameterValueException, TagQuotaPerResourceExceeded]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Global Datastore offers fully managed, fast, reliable and secure
+ * cross-region replication. Using Global Datastore with Valkey or Redis OSS, you can create cross-region
+ * read replica clusters for ElastiCache to enable low-latency reads and disaster
+ * recovery across regions. For more information, see Replication
+ * Across Regions Using Global Datastore.
+ * 
+ * 
+ * 
+ * - The **GlobalReplicationGroupIdSuffix** is the
+ * name of the Global datastore.
+ * 
+ * 
+ * 
+ * - The **PrimaryReplicationGroupId** represents the
+ * name of the primary cluster that accepts writes and will replicate updates to
+ * the secondary cluster.
+ */export const createGlobalReplicationGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.CreateGlobalReplicationGroup" }, CreateGlobalReplicationGroupMessage, CreateGlobalReplicationGroupResult, [GlobalReplicationGroupAlreadyExistsFault, InvalidParameterValueException, InvalidReplicationGroupStateFault, ReplicationGroupNotFoundFault, ServiceLinkedRoleNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Creates a Valkey or Redis OSS (cluster mode disabled) or a Valkey or Redis OSS (cluster mode enabled) replication
+ * group.
+ * 
+ * 
+ * This API can be used to create a standalone regional replication group or a secondary
+ * replication group associated with a Global datastore.
+ * 
+ * 
+ * A Valkey or Redis OSS (cluster mode disabled) replication group is a collection of nodes, where
+ * one of the nodes is a read/write primary and the others are read-only replicas.
+ * Writes to the primary are asynchronously propagated to the replicas.
+ * 
+ * 
+ * A Valkey or Redis OSS cluster-mode enabled cluster is comprised of from 1 to 90 shards (API/CLI:
+ * node groups). Each shard has a primary node and up to 5 read-only replica nodes. The
+ * configuration can range from 90 shards and 0 replicas to 15 shards and 5 replicas, which
+ * is the maximum number or replicas allowed.
+ * 
+ * 
+ * The node or shard limit can be increased to a maximum of 500 per cluster if the Valkey or Redis OSS
+ * engine version is 5.0.6 or higher. For example, you can choose to configure a 500 node
+ * cluster that ranges between 83 shards (one primary and 5 replicas per shard) and 500
+ * shards (single primary and no replicas). Make sure there are enough available IP
+ * addresses to accommodate the increase. Common pitfalls include the subnets in the subnet
+ * group have too small a CIDR range or the subnets are shared and heavily used by other
+ * clusters. For more information, see Creating a Subnet
+ * Group. For versions below 5.0.6, the limit is 250 per cluster.
+ * 
+ * 
+ * To request a limit increase, see Amazon Service Limits and
+ * choose the limit type Nodes per cluster per instance
+ * type.
+ * 
+ * 
+ * When a Valkey or Redis OSS (cluster mode disabled) replication group has been successfully created,
+ * you can add one or more read replicas to it, up to a total of 5 read replicas. If you
+ * need to increase or decrease the number of node groups (console: shards), you can use scaling.
+ * For more information, see Scaling self-designed clusters in the ElastiCache User
+ * Guide.
+ * 
+ * 
+ * 
+ * 
+ * This operation is valid for Valkey and Redis OSS only.
+ */export const createReplicationGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.CreateReplicationGroup" }, CreateReplicationGroupMessage, CreateReplicationGroupResult, [CacheClusterNotFoundFault, CacheParameterGroupNotFoundFault, CacheSecurityGroupNotFoundFault, CacheSubnetGroupNotFoundFault, ClusterQuotaForCustomerExceededFault, GlobalReplicationGroupNotFoundFault, InsufficientCacheClusterCapacityFault, InvalidCacheClusterStateFault, InvalidGlobalReplicationGroupStateFault, InvalidParameterCombinationException, InvalidParameterValueException, InvalidUserGroupStateFault, InvalidVPCNetworkStateFault, NodeGroupsPerReplicationGroupQuotaExceededFault, NodeQuotaForClusterExceededFault, NodeQuotaForCustomerExceededFault, ReplicationGroupAlreadyExistsFault, TagQuotaPerResourceExceeded, UserGroupNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * For Valkey engine version 7.2 onwards and Redis OSS 6.0 to 7.1: Creates a user. For more information, see
+ * Using Role Based Access Control (RBAC).
+ */export const createUser = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.CreateUser" }, CreateUserMessage, User, [DuplicateUserNameFault, InvalidParameterCombinationException, InvalidParameterValueException, ServiceLinkedRoleNotFoundFault, TagQuotaPerResourceExceeded, UserAlreadyExistsFault, UserQuotaExceededFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * For Valkey engine version 7.2 onwards and Redis OSS 6.0 to 7.1: Creates a user group. For more
+ * information, see Using Role Based Access Control (RBAC)
+ */export const createUserGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.CreateUserGroup" }, CreateUserGroupMessage, UserGroup, [DefaultUserRequired, DuplicateUserNameFault, InvalidParameterValueException, ServiceLinkedRoleNotFoundFault, TagQuotaPerResourceExceeded, UserGroupAlreadyExistsFault, UserGroupQuotaExceededFault, UserNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Dynamically decreases the number of replicas in a Valkey or Redis OSS (cluster mode disabled)
+ * replication group or the number of replica nodes in one or more node groups (shards) of
+ * a Valkey or Redis OSS (cluster mode enabled) replication group. This operation is performed with no
+ * cluster down time.
+ */export const decreaseReplicaCount = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.DecreaseReplicaCount" }, DecreaseReplicaCountMessage, DecreaseReplicaCountResult, [ClusterQuotaForCustomerExceededFault, InsufficientCacheClusterCapacityFault, InvalidCacheClusterStateFault, InvalidParameterCombinationException, InvalidParameterValueException, InvalidReplicationGroupStateFault, InvalidVPCNetworkStateFault, NodeGroupsPerReplicationGroupQuotaExceededFault, NodeQuotaForCustomerExceededFault, NoOperationFault, ReplicationGroupNotFoundFault, ServiceLinkedRoleNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Represents the input of a `TestFailover` operation which tests automatic
+ * failover on a specified node group (called shard in the console) in a replication group
+ * (called cluster in the console).
+ * 
+ * 
+ * This API is designed for testing the behavior of your application in case of
+ * ElastiCache failover. It is not designed to be an operational tool for initiating a
+ * failover to overcome a problem you may have with the cluster. Moreover, in certain
+ * conditions such as large-scale operational events, Amazon may block this API.
+ * 
+ * 
+ * **Note the following**
+ * 
+ * 
+ * 
+ * 
+ * - A customer can use this operation to test automatic failover on up to 15 shards
+ * (called node groups in the ElastiCache API and Amazon CLI) in any rolling
+ * 24-hour period.
+ * 
+ * 
+ * 
+ * - If calling this operation on shards in different clusters (called replication
+ * groups in the API and CLI), the calls can be made concurrently.
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * - If calling this operation multiple times on different shards in the same Valkey or Redis OSS (cluster mode enabled) replication group, the first node replacement must
+ * complete before a subsequent call can be made.
+ * 
+ * 
+ * 
+ * - To determine whether the node replacement is complete you can check Events
+ * using the Amazon ElastiCache console, the Amazon CLI, or the ElastiCache API.
+ * Look for the following automatic failover related events, listed here in order
+ * of occurrance:
+ * 
+ * 
+ * 
+ * - Replication group message: Test Failover API called for node
+ * group
+ * 
+ * 
+ * 
+ * 
+ * - Cache cluster message: Failover from primary node
+ * to replica node
+ * completed
+ * 
+ * 
+ * 
+ * 
+ * - Replication group message: Failover from primary node
+ * to replica node
+ * completed
+ * 
+ * 
+ * 
+ * 
+ * - Cache cluster message: Recovering cache nodes
+ * 
+ * 
+ * 
+ * 
+ * 
+ * - Cache cluster message: Finished recovery for cache nodes
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * For more information see:
+ * 
+ * 
+ * 
+ * - Viewing
+ * ElastiCache Events in the ElastiCache User
+ * Guide
+ * 
+ * 
+ * 
+ * 
+ * - DescribeEvents in the ElastiCache API Reference
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * Also see, Testing
+ * Multi-AZ in the *ElastiCache User Guide*.
+ */export const testFailover = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.TestFailover" }, TestFailoverMessage, TestFailoverResult, [APICallRateForCustomerExceededFault, InvalidCacheClusterStateFault, InvalidKMSKeyFault, InvalidParameterCombinationException, InvalidParameterValueException, InvalidReplicationGroupStateFault, NodeGroupNotFoundFault, ReplicationGroupNotFoundFault, TestFailoverNotAvailableFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Creates a cluster. All nodes in the cluster run the same protocol-compliant cache
+ * engine software, either Memcached, Valkey or Redis OSS.
+ * 
+ * 
+ * This operation is not supported for Valkey or Redis OSS (cluster mode enabled) clusters.
+ */export const createCacheCluster = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.CreateCacheCluster" }, CreateCacheClusterMessage, CreateCacheClusterResult, [CacheClusterAlreadyExistsFault, CacheParameterGroupNotFoundFault, CacheSecurityGroupNotFoundFault, CacheSubnetGroupNotFoundFault, ClusterQuotaForCustomerExceededFault, InsufficientCacheClusterCapacityFault, InvalidParameterCombinationException, InvalidParameterValueException, InvalidReplicationGroupStateFault, InvalidVPCNetworkStateFault, NodeQuotaForClusterExceededFault, NodeQuotaForCustomerExceededFault, ReplicationGroupNotFoundFault, TagQuotaPerResourceExceeded]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Creates a serverless cache.
+ */export const createServerlessCache = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.CreateServerlessCache" }, CreateServerlessCacheRequest, CreateServerlessCacheResponse, [InvalidCredentialsException, InvalidParameterCombinationException, InvalidParameterValueException, InvalidServerlessCacheStateFault, InvalidUserGroupStateFault, ServerlessCacheAlreadyExistsFault, ServerlessCacheNotFoundFault, ServerlessCacheQuotaForCustomerExceededFault, ServiceLinkedRoleNotFoundFault, TagQuotaPerResourceExceeded, UserGroupNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Returns details of the update actions
+ */export const describeUpdateActions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.DescribeUpdateActions" }, DescribeUpdateActionsMessage, UpdateActionsMessage, [InvalidParameterCombinationException, InvalidParameterValueException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Modifies an existing cache subnet group.
+ */export const modifyCacheSubnetGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.ModifyCacheSubnetGroup" }, ModifyCacheSubnetGroupMessage, ModifyCacheSubnetGroupResult, [CacheSubnetGroupNotFoundFault, CacheSubnetQuotaExceededFault, InvalidSubnet, SubnetInUse, SubnetNotAllowedFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Complete the migration of data.
+ */export const completeMigration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.CompleteMigration" }, CompleteMigrationMessage, CompleteMigrationResponse, [InvalidReplicationGroupStateFault, ReplicationGroupNotFoundFault, ReplicationGroupNotUnderMigrationFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Creates a new cache subnet group.
+ * 
+ * 
+ * Use this parameter only when you are creating a cluster in an Amazon Virtual Private
+ * Cloud (Amazon VPC).
+ */export const createCacheSubnetGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-02", uri: "/", method: "POST", sdkId: "ElastiCache", sigV4ServiceName: "elasticache", name: "AmazonElastiCacheV9.CreateCacheSubnetGroup" }, CreateCacheSubnetGroupMessage, CreateCacheSubnetGroupResult, [CacheSubnetGroupAlreadyExistsFault, CacheSubnetGroupQuotaExceededFault, CacheSubnetQuotaExceededFault, InvalidSubnet, SubnetNotAllowedFault, TagQuotaPerResourceExceeded]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);

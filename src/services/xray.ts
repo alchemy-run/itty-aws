@@ -216,41 +216,295 @@ export class PolicyCountLimitExceededException extends S.TaggedError<PolicyCount
 export class PolicySizeLimitExceededException extends S.TaggedError<PolicySizeLimitExceededException>()("PolicySizeLimitExceededException", {Message: S.optional(S.String)}) {};
 
 //# Operations
-export const getTraceSegmentDestination = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-12", uri: "/GetTraceSegmentDestination", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.GetTraceSegmentDestination" }, GetTraceSegmentDestinationRequest, GetTraceSegmentDestinationResult, [InvalidRequestException, ThrottledException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const untagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-12", uri: "/UntagResource", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [InvalidRequestException, ResourceNotFoundException, ThrottledException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const cancelTraceRetrieval = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-12", uri: "/CancelTraceRetrieval", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.CancelTraceRetrieval" }, CancelTraceRetrievalRequest, CancelTraceRetrievalResult, [InvalidRequestException, ResourceNotFoundException, ThrottledException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-12", uri: "/DeleteGroup", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.DeleteGroup" }, DeleteGroupRequest, DeleteGroupResult, [InvalidRequestException, ThrottledException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteResourcePolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-12", uri: "/DeleteResourcePolicy", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.DeleteResourcePolicy" }, DeleteResourcePolicyRequest, DeleteResourcePolicyResult, [InvalidPolicyRevisionIdException, InvalidRequestException, ThrottledException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getEncryptionConfig = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-12", uri: "/EncryptionConfig", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.GetEncryptionConfig" }, GetEncryptionConfigRequest, GetEncryptionConfigResult, [InvalidRequestException, ThrottledException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getSamplingRules = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-12", uri: "/GetSamplingRules", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.GetSamplingRules" }, GetSamplingRulesRequest, GetSamplingRulesResult, [InvalidRequestException, ThrottledException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getTraceGraph = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-12", uri: "/TraceGraph", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.GetTraceGraph" }, GetTraceGraphRequest, GetTraceGraphResult, [InvalidRequestException, ThrottledException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listTagsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-12", uri: "/ListTagsForResource", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [InvalidRequestException, ResourceNotFoundException, ThrottledException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const putEncryptionConfig = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-12", uri: "/PutEncryptionConfig", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.PutEncryptionConfig" }, PutEncryptionConfigRequest, PutEncryptionConfigResult, [InvalidRequestException, ThrottledException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const startTraceRetrieval = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-12", uri: "/StartTraceRetrieval", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.StartTraceRetrieval" }, StartTraceRetrievalRequest, StartTraceRetrievalResult, [InvalidRequestException, ResourceNotFoundException, ThrottledException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-12", uri: "/UpdateGroup", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.UpdateGroup" }, UpdateGroupRequest, UpdateGroupResult, [InvalidRequestException, ThrottledException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateTraceSegmentDestination = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-12", uri: "/UpdateTraceSegmentDestination", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.UpdateTraceSegmentDestination" }, UpdateTraceSegmentDestinationRequest, UpdateTraceSegmentDestinationResult, [InvalidRequestException, ThrottledException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const createGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-12", uri: "/CreateGroup", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.CreateGroup" }, CreateGroupRequest, CreateGroupResult, [InvalidRequestException, ThrottledException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteSamplingRule = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-12", uri: "/DeleteSamplingRule", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.DeleteSamplingRule" }, DeleteSamplingRuleRequest, DeleteSamplingRuleResult, [InvalidRequestException, ThrottledException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-12", uri: "/GetGroup", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.GetGroup" }, GetGroupRequest, GetGroupResult, [InvalidRequestException, ThrottledException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getGroups = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-12", uri: "/Groups", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.GetGroups" }, GetGroupsRequest, GetGroupsResult, [InvalidRequestException, ThrottledException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getInsightEvents = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-12", uri: "/InsightEvents", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.GetInsightEvents" }, GetInsightEventsRequest, GetInsightEventsResult, [InvalidRequestException, ThrottledException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getInsightSummaries = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-12", uri: "/InsightSummaries", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.GetInsightSummaries" }, GetInsightSummariesRequest, GetInsightSummariesResult, [InvalidRequestException, ThrottledException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getSamplingStatisticSummaries = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-12", uri: "/SamplingStatisticSummaries", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.GetSamplingStatisticSummaries" }, GetSamplingStatisticSummariesRequest, GetSamplingStatisticSummariesResult, [InvalidRequestException, ThrottledException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listResourcePolicies = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-12", uri: "/ListResourcePolicies", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.ListResourcePolicies" }, ListResourcePoliciesRequest, ListResourcePoliciesResult, [InvalidRequestException, ThrottledException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const putTelemetryRecords = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-12", uri: "/TelemetryRecords", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.PutTelemetryRecords" }, PutTelemetryRecordsRequest, PutTelemetryRecordsResult, [InvalidRequestException, ThrottledException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const putTraceSegments = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-12", uri: "/TraceSegments", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.PutTraceSegments" }, PutTraceSegmentsRequest, PutTraceSegmentsResult, [InvalidRequestException, ThrottledException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const tagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-12", uri: "/TagResource", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.TagResource" }, TagResourceRequest, TagResourceResponse, [InvalidRequestException, ResourceNotFoundException, ThrottledException, TooManyTagsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateSamplingRule = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-12", uri: "/UpdateSamplingRule", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.UpdateSamplingRule" }, UpdateSamplingRuleRequest, UpdateSamplingRuleResult, [InvalidRequestException, ThrottledException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const batchGetTraces = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-12", uri: "/Traces", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.BatchGetTraces" }, BatchGetTracesRequest, BatchGetTracesResult, [InvalidRequestException, ThrottledException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getInsight = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-12", uri: "/Insight", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.GetInsight" }, GetInsightRequest, GetInsightResult, [InvalidRequestException, ThrottledException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getInsightImpactGraph = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-12", uri: "/InsightImpactGraph", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.GetInsightImpactGraph" }, GetInsightImpactGraphRequest, GetInsightImpactGraphResult, [InvalidRequestException, ThrottledException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getRetrievedTracesGraph = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-12", uri: "/GetRetrievedTracesGraph", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.GetRetrievedTracesGraph" }, GetRetrievedTracesGraphRequest, GetRetrievedTracesGraphResult, [InvalidRequestException, ResourceNotFoundException, ThrottledException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getTimeSeriesServiceStatistics = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-12", uri: "/TimeSeriesServiceStatistics", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.GetTimeSeriesServiceStatistics" }, GetTimeSeriesServiceStatisticsRequest, GetTimeSeriesServiceStatisticsResult, [InvalidRequestException, ThrottledException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listRetrievedTraces = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-12", uri: "/ListRetrievedTraces", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.ListRetrievedTraces" }, ListRetrievedTracesRequest, ListRetrievedTracesResult, [InvalidRequestException, ResourceNotFoundException, ThrottledException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateIndexingRule = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-12", uri: "/UpdateIndexingRule", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.UpdateIndexingRule" }, UpdateIndexingRuleRequest, UpdateIndexingRuleResult, [InvalidRequestException, ResourceNotFoundException, ThrottledException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const createSamplingRule = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-12", uri: "/CreateSamplingRule", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.CreateSamplingRule" }, CreateSamplingRuleRequest, CreateSamplingRuleResult, [InvalidRequestException, RuleLimitExceededException, ThrottledException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getIndexingRules = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-12", uri: "/GetIndexingRules", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.GetIndexingRules" }, GetIndexingRulesRequest, GetIndexingRulesResult, [InvalidRequestException, ThrottledException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getSamplingTargets = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-12", uri: "/SamplingTargets", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.GetSamplingTargets" }, GetSamplingTargetsRequest, GetSamplingTargetsResult, [InvalidRequestException, ThrottledException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getServiceGraph = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-12", uri: "/ServiceGraph", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.GetServiceGraph" }, GetServiceGraphRequest, GetServiceGraphResult, [InvalidRequestException, ThrottledException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const putResourcePolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-12", uri: "/PutResourcePolicy", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.PutResourcePolicy" }, PutResourcePolicyRequest, PutResourcePolicyResult, [InvalidPolicyRevisionIdException, LockoutPreventionException, MalformedPolicyDocumentException, PolicyCountLimitExceededException, PolicySizeLimitExceededException, ThrottledException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getTraceSummaries = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-12", uri: "/TraceSummaries", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.GetTraceSummaries" }, GetTraceSummariesRequest, GetTraceSummariesResult, [InvalidRequestException, ThrottledException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves the current destination of data sent to `PutTraceSegments` and *OpenTelemetry protocol (OTLP)* endpoint. The Transaction Search feature requires a CloudWatchLogs destination. For more information, see Transaction Search and OpenTelemetry.
+ */export const getTraceSegmentDestination = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-12", uri: "/GetTraceSegmentDestination", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.GetTraceSegmentDestination" }, GetTraceSegmentDestinationRequest, GetTraceSegmentDestinationResult, [InvalidRequestException, ThrottledException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Removes tags from an Amazon Web Services X-Ray group or sampling rule. You cannot edit or delete system
+ * tags (those with an `aws:` prefix).
+ */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-12", uri: "/UntagResource", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [InvalidRequestException, ResourceNotFoundException, ThrottledException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Cancels an ongoing trace retrieval job initiated by `StartTraceRetrieval` using the provided `RetrievalToken`. A successful cancellation will return an HTTP 200 response.
+ */export const cancelTraceRetrieval = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-12", uri: "/CancelTraceRetrieval", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.CancelTraceRetrieval" }, CancelTraceRetrievalRequest, CancelTraceRetrievalResult, [InvalidRequestException, ResourceNotFoundException, ThrottledException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes a group resource.
+ */export const deleteGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-12", uri: "/DeleteGroup", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.DeleteGroup" }, DeleteGroupRequest, DeleteGroupResult, [InvalidRequestException, ThrottledException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes a resource policy from the target Amazon Web Services account.
+ */export const deleteResourcePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-12", uri: "/DeleteResourcePolicy", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.DeleteResourcePolicy" }, DeleteResourcePolicyRequest, DeleteResourcePolicyResult, [InvalidPolicyRevisionIdException, InvalidRequestException, ThrottledException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves the current encryption configuration for X-Ray data.
+ */export const getEncryptionConfig = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-12", uri: "/EncryptionConfig", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.GetEncryptionConfig" }, GetEncryptionConfigRequest, GetEncryptionConfigResult, [InvalidRequestException, ThrottledException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves all sampling rules.
+ */export const getSamplingRules = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-12", uri: "/GetSamplingRules", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.GetSamplingRules" }, GetSamplingRulesRequest, GetSamplingRulesResult, [InvalidRequestException, ThrottledException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves a service graph for one or more specific trace IDs.
+ */export const getTraceGraph = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-12", uri: "/TraceGraph", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.GetTraceGraph" }, GetTraceGraphRequest, GetTraceGraphResult, [InvalidRequestException, ThrottledException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns a list of tags that are applied to the specified Amazon Web Services X-Ray group or sampling rule.
+ */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-12", uri: "/ListTagsForResource", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [InvalidRequestException, ResourceNotFoundException, ThrottledException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates the encryption configuration for X-Ray data.
+ */export const putEncryptionConfig = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-12", uri: "/PutEncryptionConfig", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.PutEncryptionConfig" }, PutEncryptionConfigRequest, PutEncryptionConfigResult, [InvalidRequestException, ThrottledException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Initiates a trace retrieval process using the specified time range and for the given trace IDs in the Transaction Search generated CloudWatch log group. For more information, see Transaction Search.
+ * 
+ * 
+ * API returns a `RetrievalToken`, which can be used with `ListRetrievedTraces` or `GetRetrievedTracesGraph` to fetch results. Retrievals will time out after 60 minutes. To execute long time ranges, consider segmenting into multiple retrievals.
+ * 
+ * 
+ * If you are using CloudWatch cross-account observability, you can use this operation in a monitoring account to retrieve data from a linked source account, as long as both accounts have transaction search enabled.
+ * 
+ * 
+ * For retrieving data from X-Ray directly as opposed to the Transaction-Search Log group, see BatchGetTraces.
+ */export const startTraceRetrieval = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-12", uri: "/StartTraceRetrieval", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.StartTraceRetrieval" }, StartTraceRetrievalRequest, StartTraceRetrievalResult, [InvalidRequestException, ResourceNotFoundException, ThrottledException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates a group resource.
+ */export const updateGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-12", uri: "/UpdateGroup", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.UpdateGroup" }, UpdateGroupRequest, UpdateGroupResult, [InvalidRequestException, ThrottledException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Modifies the destination of data sent to `PutTraceSegments`. The Transaction Search feature requires the CloudWatchLogs destination. For more information, see Transaction Search.
+ */export const updateTraceSegmentDestination = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-12", uri: "/UpdateTraceSegmentDestination", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.UpdateTraceSegmentDestination" }, UpdateTraceSegmentDestinationRequest, UpdateTraceSegmentDestinationResult, [InvalidRequestException, ThrottledException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a group resource with a name and a filter expression.
+ */export const createGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-12", uri: "/CreateGroup", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.CreateGroup" }, CreateGroupRequest, CreateGroupResult, [InvalidRequestException, ThrottledException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes a sampling rule.
+ */export const deleteSamplingRule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-12", uri: "/DeleteSamplingRule", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.DeleteSamplingRule" }, DeleteSamplingRuleRequest, DeleteSamplingRuleResult, [InvalidRequestException, ThrottledException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves group resource details.
+ */export const getGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-12", uri: "/GetGroup", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.GetGroup" }, GetGroupRequest, GetGroupResult, [InvalidRequestException, ThrottledException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves all active group details.
+ */export const getGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-12", uri: "/Groups", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.GetGroups" }, GetGroupsRequest, GetGroupsResult, [InvalidRequestException, ThrottledException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * X-Ray reevaluates insights periodically until they're resolved, and records each intermediate state as an
+ * event. You can review an insight's events in the Impact Timeline on the Inspect page in the X-Ray
+ * console.
+ */export const getInsightEvents = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-12", uri: "/InsightEvents", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.GetInsightEvents" }, GetInsightEventsRequest, GetInsightEventsResult, [InvalidRequestException, ThrottledException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves the summaries of all insights in the specified group matching the provided filter values.
+ */export const getInsightSummaries = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-12", uri: "/InsightSummaries", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.GetInsightSummaries" }, GetInsightSummariesRequest, GetInsightSummariesResult, [InvalidRequestException, ThrottledException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves information about recent sampling results for all sampling rules.
+ */export const getSamplingStatisticSummaries = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-12", uri: "/SamplingStatisticSummaries", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.GetSamplingStatisticSummaries" }, GetSamplingStatisticSummariesRequest, GetSamplingStatisticSummariesResult, [InvalidRequestException, ThrottledException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns the list of resource policies in the target Amazon Web Services account.
+ */export const listResourcePolicies = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-12", uri: "/ListResourcePolicies", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.ListResourcePolicies" }, ListResourcePoliciesRequest, ListResourcePoliciesResult, [InvalidRequestException, ThrottledException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Used by the Amazon Web Services X-Ray daemon to upload telemetry.
+ */export const putTelemetryRecords = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-12", uri: "/TelemetryRecords", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.PutTelemetryRecords" }, PutTelemetryRecordsRequest, PutTelemetryRecordsResult, [InvalidRequestException, ThrottledException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Uploads segment documents to Amazon Web Services X-Ray.
+ * A segment document can be a completed segment, an in-progress segment, or an array of
+ * subsegments.
+ * 
+ * 
+ * Segments must include the following fields. For the full segment document schema, see
+ * Amazon Web Services X-Ray
+ * Segment Documents in the *Amazon Web Services X-Ray Developer Guide*.
+ * 
+ * 
+ * **Required segment document fields**
+ * 
+ * 
+ * 
+ * 
+ * - `name` - The name of the service that handled the request.
+ * 
+ * 
+ * 
+ * - `id` - A 64-bit identifier for the segment, unique among segments in the same trace, in 16
+ * hexadecimal digits.
+ * 
+ * 
+ * 
+ * - `trace_id` - A unique identifier that connects all segments and subsegments originating from
+ * a single client request.
+ * 
+ * 
+ * 
+ * - `start_time` - Time the segment or subsegment was created, in floating point seconds in
+ * epoch time, accurate to milliseconds. For example, `1480615200.010` or
+ * `1.480615200010E9`.
+ * 
+ * 
+ * 
+ * - `end_time` - Time the segment or subsegment was closed. For example,
+ * `1480615200.090` or `1.480615200090E9`. Specify either an `end_time` or
+ * `in_progress`.
+ * 
+ * 
+ * 
+ * - `in_progress` - Set to `true` instead of specifying an `end_time` to
+ * record that a segment has been started, but is not complete. Send an in-progress segment when your application
+ * receives a request that will take a long time to serve, to trace that the request was received. When the
+ * response is sent, send the complete segment to overwrite the in-progress segment.
+ * 
+ * 
+ * 
+ * 
+ * 
+ * A `trace_id` consists of three numbers separated by hyphens. For example,
+ * 1-58406520-a006649127e371903a2de979. For trace IDs created by an X-Ray SDK, or by Amazon Web Services services
+ * integrated with X-Ray, a trace ID includes:
+ * 
+ * 
+ * **Trace ID Format**
+ * 
+ * 
+ * 
+ * 
+ * - The version number, for instance, `1`.
+ * 
+ * 
+ * 
+ * - The time of the original request, in Unix epoch time, in 8 hexadecimal digits. For
+ * example, 10:00AM December 2nd, 2016 PST in epoch time is `1480615200` seconds,
+ * or `58406520` in hexadecimal.
+ * 
+ * 
+ * 
+ * - A 96-bit identifier for the trace, globally unique, in 24 hexadecimal
+ * digits.
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * Trace IDs created via OpenTelemetry have a different format based on the
+ * W3C Trace Context specification.
+ * A W3C trace ID must be formatted in the X-Ray trace ID format when sending to X-Ray. For example, a W3C
+ * trace ID `4efaaf4d1e8720b39541901950019ee5` should be formatted as
+ * `1-4efaaf4d-1e8720b39541901950019ee5` when sending to X-Ray. While X-Ray trace IDs include
+ * the original request timestamp in Unix epoch time, this is not required or validated.
+ */export const putTraceSegments = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-12", uri: "/TraceSegments", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.PutTraceSegments" }, PutTraceSegmentsRequest, PutTraceSegmentsResult, [InvalidRequestException, ThrottledException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Applies tags to an existing Amazon Web Services X-Ray group or sampling rule.
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-12", uri: "/TagResource", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.TagResource" }, TagResourceRequest, TagResourceResponse, [InvalidRequestException, ResourceNotFoundException, ThrottledException, TooManyTagsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Modifies a sampling rule's configuration.
+ */export const updateSamplingRule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-12", uri: "/UpdateSamplingRule", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.UpdateSamplingRule" }, UpdateSamplingRuleRequest, UpdateSamplingRuleResult, [InvalidRequestException, ThrottledException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * You cannot find traces through this API if Transaction Search is enabled since trace is not indexed in X-Ray.
+ * 
+ * 
+ * 
+ * 
+ * Retrieves a list of traces specified by ID. Each trace is a collection of segment
+ * documents that originates from a single request. Use `GetTraceSummaries` to get a
+ * list of trace IDs.
+ */export const batchGetTraces = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-12", uri: "/Traces", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.BatchGetTraces" }, BatchGetTracesRequest, BatchGetTracesResult, [InvalidRequestException, ThrottledException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves the summary information of an insight. This includes impact to clients and
+ * root cause services, the top anomalous services, the category, the state of the insight,
+ * and the start and end time of the insight.
+ */export const getInsight = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-12", uri: "/Insight", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.GetInsight" }, GetInsightRequest, GetInsightResult, [InvalidRequestException, ThrottledException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves a service graph structure filtered by the specified insight. The service graph is limited to only
+ * structural information. For a complete service graph, use this API with the GetServiceGraph API.
+ */export const getInsightImpactGraph = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-12", uri: "/InsightImpactGraph", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.GetInsightImpactGraph" }, GetInsightImpactGraphRequest, GetInsightImpactGraphResult, [InvalidRequestException, ThrottledException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves a service graph for traces based on the specified `RetrievalToken` from the CloudWatch log group generated by Transaction Search. This API does not initiate a retrieval job. You must first execute `StartTraceRetrieval` to obtain the required `RetrievalToken`.
+ * 
+ * 
+ * The trace graph describes services that process incoming requests and any downstream services they call, which may include Amazon Web Services resources, external APIs, or databases.
+ * 
+ * 
+ * The response is empty until the `RetrievalStatus` is *COMPLETE*. Retry the request after the status changes from *RUNNING* or *SCHEDULED* to *COMPLETE* to access the full service graph.
+ * 
+ * 
+ * 
+ * When CloudWatch log is the destination, this API can support cross-account observability and service graph retrieval across linked accounts.
+ * 
+ * 
+ * For retrieving graphs from X-Ray directly as opposed to the Transaction-Search Log group, see GetTraceGraph.
+ */export const getRetrievedTracesGraph = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-12", uri: "/GetRetrievedTracesGraph", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.GetRetrievedTracesGraph" }, GetRetrievedTracesGraphRequest, GetRetrievedTracesGraphResult, [InvalidRequestException, ResourceNotFoundException, ThrottledException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Get an aggregation of service statistics defined by a specific time
+ * range.
+ */export const getTimeSeriesServiceStatistics = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-12", uri: "/TimeSeriesServiceStatistics", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.GetTimeSeriesServiceStatistics" }, GetTimeSeriesServiceStatisticsRequest, GetTimeSeriesServiceStatisticsResult, [InvalidRequestException, ThrottledException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves a list of traces for a given `RetrievalToken` from the CloudWatch log group generated by Transaction Search. For information on what each trace returns, see BatchGetTraces.
+ * 
+ * 
+ * This API does not initiate a retrieval process. To start a trace retrieval, use `StartTraceRetrieval`, which generates the required `RetrievalToken`.
+ * 
+ * 
+ * 
+ * When the `RetrievalStatus` is not *COMPLETE*, the API will return an empty response. Retry the request once the retrieval has completed to access the full list of traces.
+ * 
+ * 
+ * For cross-account observability, this API can retrieve traces from linked accounts when CloudWatch log is set as the destination across relevant accounts. For more details, see CloudWatch cross-account observability.
+ * 
+ * 
+ * For retrieving data from X-Ray directly as opposed to the Transaction Search generated log group, see BatchGetTraces.
+ */export const listRetrievedTraces = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-12", uri: "/ListRetrievedTraces", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.ListRetrievedTraces" }, ListRetrievedTracesRequest, ListRetrievedTracesResult, [InvalidRequestException, ResourceNotFoundException, ThrottledException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Modifies an indexing rule’s configuration.
+ * 
+ * 
+ * Indexing rules are used for determining the sampling rate for spans indexed from CloudWatch Logs. For more information, see Transaction Search.
+ */export const updateIndexingRule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-12", uri: "/UpdateIndexingRule", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.UpdateIndexingRule" }, UpdateIndexingRuleRequest, UpdateIndexingRuleResult, [InvalidRequestException, ResourceNotFoundException, ThrottledException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a rule to control sampling behavior for instrumented applications. Services
+ * retrieve rules with GetSamplingRules, and evaluate each rule in ascending
+ * order of *priority* for each request. If a rule matches, the service
+ * records a trace, borrowing it from the reservoir size. After 10 seconds, the service
+ * reports back to X-Ray with GetSamplingTargets to get updated versions of
+ * each in-use rule. The updated rule contains a trace quota that the service can use instead
+ * of borrowing from the reservoir.
+ */export const createSamplingRule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-12", uri: "/CreateSamplingRule", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.CreateSamplingRule" }, CreateSamplingRuleRequest, CreateSamplingRuleResult, [InvalidRequestException, RuleLimitExceededException, ThrottledException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves all indexing rules.
+ * 
+ * 
+ * Indexing rules are used to determine the server-side sampling rate for spans ingested through the CloudWatchLogs destination and indexed by X-Ray. For more information, see Transaction Search.
+ */export const getIndexingRules = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-12", uri: "/GetIndexingRules", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.GetIndexingRules" }, GetIndexingRulesRequest, GetIndexingRulesResult, [InvalidRequestException, ThrottledException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Requests a sampling quota for rules that the service is using to sample requests.
+ */export const getSamplingTargets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-12", uri: "/SamplingTargets", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.GetSamplingTargets" }, GetSamplingTargetsRequest, GetSamplingTargetsResult, [InvalidRequestException, ThrottledException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves a document that describes services that process incoming requests, and
+ * downstream services that they call as a result. Root services process incoming requests and
+ * make calls to downstream services. Root services are applications that use the Amazon Web Services X-Ray SDK.
+ * Downstream services can be other applications, Amazon Web Services resources, HTTP web APIs, or SQL
+ * databases.
+ */export const getServiceGraph = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-12", uri: "/ServiceGraph", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.GetServiceGraph" }, GetServiceGraphRequest, GetServiceGraphResult, [InvalidRequestException, ThrottledException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Sets the resource policy to grant one or more Amazon Web Services services and accounts permissions to
+ * access X-Ray. Each resource policy will be associated with a specific Amazon Web Services account.
+ * Each Amazon Web Services account can have a maximum of 5 resource policies, and each policy name must be
+ * unique within that account. The maximum size of each resource policy is 5KB.
+ */export const putResourcePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-12", uri: "/PutResourcePolicy", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.PutResourcePolicy" }, PutResourcePolicyRequest, PutResourcePolicyResult, [InvalidPolicyRevisionIdException, LockoutPreventionException, MalformedPolicyDocumentException, PolicyCountLimitExceededException, PolicySizeLimitExceededException, ThrottledException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves IDs and annotations for traces available for a specified time frame using an
+ * optional filter. To get the full traces, pass the trace IDs to
+ * `BatchGetTraces`.
+ * 
+ * 
+ * A filter expression can target traced requests that hit specific service nodes or
+ * edges, have errors, or come from a known user. For example, the following filter expression
+ * targets traces that pass through `api.example.com`:
+ * 
+ * 
+ * 
+ * `service("api.example.com")`
+ * 
+ * 
+ * 
+ * This filter expression finds traces that have an annotation named `account`
+ * with the value `12345`:
+ * 
+ * 
+ * 
+ * `annotation.account = "12345"`
+ * 
+ * 
+ * 
+ * For a full list of indexed fields and keywords that you can use in filter expressions,
+ * see Use filter
+ * expressions in the *Amazon Web Services X-Ray Developer Guide*.
+ */export const getTraceSummaries = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-12", uri: "/TraceSummaries", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.GetTraceSummaries" }, GetTraceSummariesRequest, GetTraceSummariesResult, [InvalidRequestException, ThrottledException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

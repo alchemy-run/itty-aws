@@ -17,4 +17,16 @@ export class InvalidParameterException extends S.TaggedError<InvalidParameterExc
 export class ThrottlingException extends S.TaggedError<ThrottlingException>()("ThrottlingException", {message: S.optional(S.String)}) {};
 
 //# Operations
-export const getEntitlements = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-11", uri: "/", method: "POST", sdkId: "Marketplace Entitlement Service", sigV4ServiceName: "aws-marketplace", name: "AWSMPEntitlementService.GetEntitlements" }, GetEntitlementsRequest, GetEntitlementsResult, [InternalServiceErrorException, InvalidParameterException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * GetEntitlements retrieves entitlement values for a given product. The results can be
+ * filtered based on customer identifier, AWS account ID, or product dimensions.
+ * 
+ * 
+ * 
+ * 
+ * 
+ * The `CustomerIdentifier` parameter is on path for deprecation. Use `CustomerAWSAccountID` instead.
+ * 
+ * 
+ * These parameters are mutually exclusive. You can't specify both `CustomerIdentifier` and `CustomerAWSAccountID` in the same request.
+ */export const getEntitlements = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-11", uri: "/", method: "POST", sdkId: "Marketplace Entitlement Service", sigV4ServiceName: "aws-marketplace", name: "AWSMPEntitlementService.GetEntitlements" }, GetEntitlementsRequest, GetEntitlementsResult, [InternalServiceErrorException, InvalidParameterException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

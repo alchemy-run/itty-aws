@@ -263,73 +263,376 @@ export class MetadataException extends S.TaggedError<MetadataException>()("Metad
 export class SessionAlreadyExistsException extends S.TaggedError<SessionAlreadyExistsException>()("SessionAlreadyExistsException", {Message: S.optional(S.String)}) {};
 
 //# Operations
-export const deleteCapacityReservation = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.DeleteCapacityReservation" }, DeleteCapacityReservationInput, DeleteCapacityReservationOutput, [InternalServerException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteNamedQuery = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.DeleteNamedQuery" }, DeleteNamedQueryInput, DeleteNamedQueryOutput, [InternalServerException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteWorkGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.DeleteWorkGroup" }, DeleteWorkGroupInput, DeleteWorkGroupOutput, [InternalServerException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const stopQueryExecution = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.StopQueryExecution" }, StopQueryExecutionInput, StopQueryExecutionOutput, [InternalServerException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const tagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.TagResource" }, TagResourceInput, TagResourceOutput, [InternalServerException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const untagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.UntagResource" }, UntagResourceInput, UntagResourceOutput, [InternalServerException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateCapacityReservation = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.UpdateCapacityReservation" }, UpdateCapacityReservationInput, UpdateCapacityReservationOutput, [InternalServerException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateDataCatalog = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.UpdateDataCatalog" }, UpdateDataCatalogInput, UpdateDataCatalogOutput, [InternalServerException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateNamedQuery = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.UpdateNamedQuery" }, UpdateNamedQueryInput, UpdateNamedQueryOutput, [InternalServerException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateNotebook = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.UpdateNotebook" }, UpdateNotebookInput, UpdateNotebookOutput, [InternalServerException, InvalidRequestException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateNotebookMetadata = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.UpdateNotebookMetadata" }, UpdateNotebookMetadataInput, UpdateNotebookMetadataOutput, [InternalServerException, InvalidRequestException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const updatePreparedStatement = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.UpdatePreparedStatement" }, UpdatePreparedStatementInput, UpdatePreparedStatementOutput, [InternalServerException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const cancelCapacityReservation = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.CancelCapacityReservation" }, CancelCapacityReservationInput, CancelCapacityReservationOutput, [InternalServerException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const createCapacityReservation = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.CreateCapacityReservation" }, CreateCapacityReservationInput, CreateCapacityReservationOutput, [InternalServerException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const createNamedQuery = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.CreateNamedQuery" }, CreateNamedQueryInput, CreateNamedQueryOutput, [InternalServerException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const createNotebook = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.CreateNotebook" }, CreateNotebookInput, CreateNotebookOutput, [InternalServerException, InvalidRequestException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const createPreparedStatement = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.CreatePreparedStatement" }, CreatePreparedStatementInput, CreatePreparedStatementOutput, [InternalServerException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const createPresignedNotebookUrl = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.CreatePresignedNotebookUrl" }, CreatePresignedNotebookUrlRequest, CreatePresignedNotebookUrlResponse, [InternalServerException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteNotebook = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.DeleteNotebook" }, DeleteNotebookInput, DeleteNotebookOutput, [InternalServerException, InvalidRequestException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const deletePreparedStatement = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.DeletePreparedStatement" }, DeletePreparedStatementInput, DeletePreparedStatementOutput, [InternalServerException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const getCalculationExecutionCode = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.GetCalculationExecutionCode" }, GetCalculationExecutionCodeRequest, GetCalculationExecutionCodeResponse, [InternalServerException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const getCalculationExecutionStatus = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.GetCalculationExecutionStatus" }, GetCalculationExecutionStatusRequest, GetCalculationExecutionStatusResponse, [InternalServerException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const getDataCatalog = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.GetDataCatalog" }, GetDataCatalogInput, GetDataCatalogOutput, [InternalServerException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const getNamedQuery = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.GetNamedQuery" }, GetNamedQueryInput, GetNamedQueryOutput, [InternalServerException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const getNotebookMetadata = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.GetNotebookMetadata" }, GetNotebookMetadataInput, GetNotebookMetadataOutput, [InternalServerException, InvalidRequestException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const getPreparedStatement = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.GetPreparedStatement" }, GetPreparedStatementInput, GetPreparedStatementOutput, [InternalServerException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const getQueryExecution = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.GetQueryExecution" }, GetQueryExecutionInput, GetQueryExecutionOutput, [InternalServerException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const getResourceDashboard = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.GetResourceDashboard" }, GetResourceDashboardRequest, GetResourceDashboardResponse, [InternalServerException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const getSessionEndpoint = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.GetSessionEndpoint" }, GetSessionEndpointRequest, GetSessionEndpointResponse, [InternalServerException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const getSessionStatus = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.GetSessionStatus" }, GetSessionStatusRequest, GetSessionStatusResponse, [InternalServerException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const importNotebook = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.ImportNotebook" }, ImportNotebookInput, ImportNotebookOutput, [InternalServerException, InvalidRequestException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listCapacityReservations = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.ListCapacityReservations" }, ListCapacityReservationsInput, ListCapacityReservationsOutput, [InternalServerException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listEngineVersions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.ListEngineVersions" }, ListEngineVersionsInput, ListEngineVersionsOutput, [InternalServerException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listNamedQueries = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.ListNamedQueries" }, ListNamedQueriesInput, ListNamedQueriesOutput, [InternalServerException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listQueryExecutions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.ListQueryExecutions" }, ListQueryExecutionsInput, ListQueryExecutionsOutput, [InternalServerException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listTableMetadata = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.ListTableMetadata" }, ListTableMetadataInput, ListTableMetadataOutput, [InternalServerException, InvalidRequestException, MetadataException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listTagsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.ListTagsForResource" }, ListTagsForResourceInput, ListTagsForResourceOutput, [InternalServerException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const putCapacityAssignmentConfiguration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.PutCapacityAssignmentConfiguration" }, PutCapacityAssignmentConfigurationInput, PutCapacityAssignmentConfigurationOutput, [InternalServerException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const stopCalculationExecution = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.StopCalculationExecution" }, StopCalculationExecutionRequest, StopCalculationExecutionResponse, [InternalServerException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const terminateSession = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.TerminateSession" }, TerminateSessionRequest, TerminateSessionResponse, [InternalServerException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const batchGetNamedQuery = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.BatchGetNamedQuery" }, BatchGetNamedQueryInput, BatchGetNamedQueryOutput, [InternalServerException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const batchGetPreparedStatement = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.BatchGetPreparedStatement" }, BatchGetPreparedStatementInput, BatchGetPreparedStatementOutput, [InternalServerException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const createDataCatalog = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.CreateDataCatalog" }, CreateDataCatalogInput, CreateDataCatalogOutput, [InternalServerException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteDataCatalog = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.DeleteDataCatalog" }, DeleteDataCatalogInput, DeleteDataCatalogOutput, [InternalServerException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const exportNotebook = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.ExportNotebook" }, ExportNotebookInput, ExportNotebookOutput, [InternalServerException, InvalidRequestException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const getCalculationExecution = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.GetCalculationExecution" }, GetCalculationExecutionRequest, GetCalculationExecutionResponse, [InternalServerException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const getCapacityAssignmentConfiguration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.GetCapacityAssignmentConfiguration" }, GetCapacityAssignmentConfigurationInput, GetCapacityAssignmentConfigurationOutput, [InternalServerException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const getDatabase = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.GetDatabase" }, GetDatabaseInput, GetDatabaseOutput, [InternalServerException, InvalidRequestException, MetadataException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const getSession = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.GetSession" }, GetSessionRequest, GetSessionResponse, [InternalServerException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const getWorkGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.GetWorkGroup" }, GetWorkGroupInput, GetWorkGroupOutput, [InternalServerException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listApplicationDPUSizes = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.ListApplicationDPUSizes" }, ListApplicationDPUSizesInput, ListApplicationDPUSizesOutput, [InternalServerException, InvalidRequestException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listCalculationExecutions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.ListCalculationExecutions" }, ListCalculationExecutionsRequest, ListCalculationExecutionsResponse, [InternalServerException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listDatabases = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.ListDatabases" }, ListDatabasesInput, ListDatabasesOutput, [InternalServerException, InvalidRequestException, MetadataException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listDataCatalogs = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.ListDataCatalogs" }, ListDataCatalogsInput, ListDataCatalogsOutput, [InternalServerException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listExecutors = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.ListExecutors" }, ListExecutorsRequest, ListExecutorsResponse, [InternalServerException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listNotebookMetadata = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.ListNotebookMetadata" }, ListNotebookMetadataInput, ListNotebookMetadataOutput, [InternalServerException, InvalidRequestException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listNotebookSessions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.ListNotebookSessions" }, ListNotebookSessionsRequest, ListNotebookSessionsResponse, [InternalServerException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listPreparedStatements = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.ListPreparedStatements" }, ListPreparedStatementsInput, ListPreparedStatementsOutput, [InternalServerException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listSessions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.ListSessions" }, ListSessionsRequest, ListSessionsResponse, [InternalServerException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listWorkGroups = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.ListWorkGroups" }, ListWorkGroupsInput, ListWorkGroupsOutput, [InternalServerException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const startCalculationExecution = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.StartCalculationExecution" }, StartCalculationExecutionRequest, StartCalculationExecutionResponse, [InternalServerException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateWorkGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.UpdateWorkGroup" }, UpdateWorkGroupInput, UpdateWorkGroupOutput, [InternalServerException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const createWorkGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.CreateWorkGroup" }, CreateWorkGroupInput, CreateWorkGroupOutput, [InternalServerException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const getCapacityReservation = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.GetCapacityReservation" }, GetCapacityReservationInput, GetCapacityReservationOutput, [InternalServerException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const getTableMetadata = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.GetTableMetadata" }, GetTableMetadataInput, GetTableMetadataOutput, [InternalServerException, InvalidRequestException, MetadataException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const startQueryExecution = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.StartQueryExecution" }, StartQueryExecutionInput, StartQueryExecutionOutput, [InternalServerException, InvalidRequestException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const batchGetQueryExecution = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.BatchGetQueryExecution" }, BatchGetQueryExecutionInput, BatchGetQueryExecutionOutput, [InternalServerException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const getQueryResults = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.GetQueryResults" }, GetQueryResultsInput, GetQueryResultsOutput, [InternalServerException, InvalidRequestException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const getQueryRuntimeStatistics = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.GetQueryRuntimeStatistics" }, GetQueryRuntimeStatisticsInput, GetQueryRuntimeStatisticsOutput, [InternalServerException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const startSession = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.StartSession" }, StartSessionRequest, StartSessionResponse, [InternalServerException, InvalidRequestException, ResourceNotFoundException, SessionAlreadyExistsException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes a cancelled capacity reservation. A reservation must be cancelled before it
+ * can be deleted. A deleted reservation is immediately removed from your account and can
+ * no longer be referenced, including by its ARN. A deleted reservation cannot be called by
+ * `GetCapacityReservation`, and deleted reservations do not appear in the
+ * output of `ListCapacityReservations`.
+ */export const deleteCapacityReservation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.DeleteCapacityReservation" }, DeleteCapacityReservationInput, DeleteCapacityReservationOutput, [InternalServerException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes the named query if you have access to the workgroup in which the query was
+ * saved.
+ */export const deleteNamedQuery = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.DeleteNamedQuery" }, DeleteNamedQueryInput, DeleteNamedQueryOutput, [InternalServerException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes the workgroup with the specified name. The primary workgroup cannot be
+ * deleted.
+ */export const deleteWorkGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.DeleteWorkGroup" }, DeleteWorkGroupInput, DeleteWorkGroupOutput, [InternalServerException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Stops a query execution. Requires you to have access to the workgroup in which the
+ * query ran.
+ */export const stopQueryExecution = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.StopQueryExecution" }, StopQueryExecutionInput, StopQueryExecutionOutput, [InternalServerException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Adds one or more tags to an Athena resource. A tag is a label that you
+ * assign to a resource. Each tag consists of a key and an optional value, both of which
+ * you define. For example, you can use tags to categorize Athena workgroups,
+ * data catalogs, or capacity reservations by purpose, owner, or environment. Use a
+ * consistent set of tag keys to make it easier to search and filter the resources in your
+ * account. For best practices, see Tagging
+ * Best Practices. Tag keys can be from 1 to 128 UTF-8 Unicode characters, and
+ * tag values can be from 0 to 256 UTF-8 Unicode characters. Tags can use letters and
+ * numbers representable in UTF-8, and the following characters: + - = . _ : / @. Tag keys
+ * and values are case-sensitive. Tag keys must be unique per resource. If you specify more
+ * than one tag, separate them by commas.
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.TagResource" }, TagResourceInput, TagResourceOutput, [InternalServerException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Removes one or more tags from an Athena resource.
+ */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.UntagResource" }, UntagResourceInput, UntagResourceOutput, [InternalServerException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates the number of requested data processing units for the capacity reservation
+ * with the specified name.
+ */export const updateCapacityReservation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.UpdateCapacityReservation" }, UpdateCapacityReservationInput, UpdateCapacityReservationOutput, [InternalServerException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates the data catalog that has the specified name.
+ */export const updateDataCatalog = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.UpdateDataCatalog" }, UpdateDataCatalogInput, UpdateDataCatalogOutput, [InternalServerException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates a NamedQuery object. The database or workgroup cannot be
+ * updated.
+ */export const updateNamedQuery = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.UpdateNamedQuery" }, UpdateNamedQueryInput, UpdateNamedQueryOutput, [InternalServerException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates the contents of a Spark notebook.
+ */export const updateNotebook = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.UpdateNotebook" }, UpdateNotebookInput, UpdateNotebookOutput, [InternalServerException, InvalidRequestException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates the metadata for a notebook.
+ */export const updateNotebookMetadata = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.UpdateNotebookMetadata" }, UpdateNotebookMetadataInput, UpdateNotebookMetadataOutput, [InternalServerException, InvalidRequestException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates a prepared statement.
+ */export const updatePreparedStatement = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.UpdatePreparedStatement" }, UpdatePreparedStatementInput, UpdatePreparedStatementOutput, [InternalServerException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Cancels the capacity reservation with the specified name. Cancelled reservations
+ * remain in your account and will be deleted 45 days after cancellation. During the 45
+ * days, you cannot re-purpose or reuse a reservation that has been cancelled, but you can
+ * refer to its tags and view it for historical reference.
+ */export const cancelCapacityReservation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.CancelCapacityReservation" }, CancelCapacityReservationInput, CancelCapacityReservationOutput, [InternalServerException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a capacity reservation with the specified name and number of requested data
+ * processing units.
+ */export const createCapacityReservation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.CreateCapacityReservation" }, CreateCapacityReservationInput, CreateCapacityReservationOutput, [InternalServerException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a named query in the specified workgroup. Requires that you have access to the
+ * workgroup.
+ */export const createNamedQuery = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.CreateNamedQuery" }, CreateNamedQueryInput, CreateNamedQueryOutput, [InternalServerException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates an empty `ipynb` file in the specified Apache Spark enabled
+ * workgroup. Throws an error if a file in the workgroup with the same name already
+ * exists.
+ */export const createNotebook = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.CreateNotebook" }, CreateNotebookInput, CreateNotebookOutput, [InternalServerException, InvalidRequestException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a prepared statement for use with SQL queries in Athena.
+ */export const createPreparedStatement = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.CreatePreparedStatement" }, CreatePreparedStatementInput, CreatePreparedStatementOutput, [InternalServerException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets an authentication token and the URL at which the notebook can be accessed. During
+ * programmatic access, `CreatePresignedNotebookUrl` must be called every 10
+ * minutes to refresh the authentication token. For information about granting programmatic
+ * access, see Grant
+ * programmatic access.
+ */export const createPresignedNotebookUrl = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.CreatePresignedNotebookUrl" }, CreatePresignedNotebookUrlRequest, CreatePresignedNotebookUrlResponse, [InternalServerException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes the specified notebook.
+ */export const deleteNotebook = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.DeleteNotebook" }, DeleteNotebookInput, DeleteNotebookOutput, [InternalServerException, InvalidRequestException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes the prepared statement with the specified name from the specified
+ * workgroup.
+ */export const deletePreparedStatement = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.DeletePreparedStatement" }, DeletePreparedStatementInput, DeletePreparedStatementOutput, [InternalServerException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves the unencrypted code that was executed for the calculation.
+ */export const getCalculationExecutionCode = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.GetCalculationExecutionCode" }, GetCalculationExecutionCodeRequest, GetCalculationExecutionCodeResponse, [InternalServerException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets the status of a current calculation.
+ */export const getCalculationExecutionStatus = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.GetCalculationExecutionStatus" }, GetCalculationExecutionStatusRequest, GetCalculationExecutionStatusResponse, [InternalServerException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns the specified data catalog.
+ */export const getDataCatalog = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.GetDataCatalog" }, GetDataCatalogInput, GetDataCatalogOutput, [InternalServerException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns information about a single query. Requires that you have access to the
+ * workgroup in which the query was saved.
+ */export const getNamedQuery = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.GetNamedQuery" }, GetNamedQueryInput, GetNamedQueryOutput, [InternalServerException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves notebook metadata for the specified notebook ID.
+ */export const getNotebookMetadata = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.GetNotebookMetadata" }, GetNotebookMetadataInput, GetNotebookMetadataOutput, [InternalServerException, InvalidRequestException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves the prepared statement with the specified name from the specified
+ * workgroup.
+ */export const getPreparedStatement = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.GetPreparedStatement" }, GetPreparedStatementInput, GetPreparedStatementOutput, [InternalServerException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns information about a single execution of a query if you have access to the
+ * workgroup in which the query ran. Each time a query executes, information about the
+ * query execution is saved with a unique ID.
+ */export const getQueryExecution = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.GetQueryExecution" }, GetQueryExecutionInput, GetQueryExecutionOutput, [InternalServerException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets the Live UI/Persistence UI for a session.
+ */export const getResourceDashboard = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.GetResourceDashboard" }, GetResourceDashboardRequest, GetResourceDashboardResponse, [InternalServerException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets a connection endpoint and authentication token for a given session Id.
+ */export const getSessionEndpoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.GetSessionEndpoint" }, GetSessionEndpointRequest, GetSessionEndpointResponse, [InternalServerException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets the current status of a session.
+ */export const getSessionStatus = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.GetSessionStatus" }, GetSessionStatusRequest, GetSessionStatusResponse, [InternalServerException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Imports a single `ipynb` file to a Spark enabled workgroup. To import the
+ * notebook, the request must specify a value for either `Payload` or
+ * `NoteBookS3LocationUri`. If neither is specified or both are specified,
+ * an `InvalidRequestException` occurs. The maximum file size that can be
+ * imported is 10 megabytes. If an `ipynb` file with the same name already
+ * exists in the workgroup, throws an error.
+ */export const importNotebook = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.ImportNotebook" }, ImportNotebookInput, ImportNotebookOutput, [InternalServerException, InvalidRequestException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists the capacity reservations for the current account.
+ */export const listCapacityReservations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.ListCapacityReservations" }, ListCapacityReservationsInput, ListCapacityReservationsOutput, [InternalServerException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns a list of engine versions that are available to choose from, including the
+ * Auto option.
+ */export const listEngineVersions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.ListEngineVersions" }, ListEngineVersionsInput, ListEngineVersionsOutput, [InternalServerException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Provides a list of available query IDs only for queries saved in the specified
+ * workgroup. Requires that you have access to the specified workgroup. If a workgroup is
+ * not specified, lists the saved queries for the primary workgroup.
+ */export const listNamedQueries = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.ListNamedQueries" }, ListNamedQueriesInput, ListNamedQueriesOutput, [InternalServerException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Provides a list of available query execution IDs for the queries in the specified
+ * workgroup. Athena keeps a query history for 45 days. If a workgroup is not
+ * specified, returns a list of query execution IDs for the primary workgroup. Requires you
+ * to have access to the workgroup in which the queries ran.
+ */export const listQueryExecutions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.ListQueryExecutions" }, ListQueryExecutionsInput, ListQueryExecutionsOutput, [InternalServerException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists the metadata for the tables in the specified data catalog database.
+ */export const listTableMetadata = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.ListTableMetadata" }, ListTableMetadataInput, ListTableMetadataOutput, [InternalServerException, InvalidRequestException, MetadataException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists the tags associated with an Athena resource.
+ */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.ListTagsForResource" }, ListTagsForResourceInput, ListTagsForResourceOutput, [InternalServerException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Puts a new capacity assignment configuration for a specified capacity reservation. If
+ * a capacity assignment configuration already exists for the capacity reservation,
+ * replaces the existing capacity assignment configuration.
+ */export const putCapacityAssignmentConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.PutCapacityAssignmentConfiguration" }, PutCapacityAssignmentConfigurationInput, PutCapacityAssignmentConfigurationOutput, [InternalServerException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Requests the cancellation of a calculation. A `StopCalculationExecution`
+ * call on a calculation that is already in a terminal state (for example,
+ * `STOPPED`, `FAILED`, or `COMPLETED`) succeeds but
+ * has no effect.
+ * 
+ * 
+ * 
+ * 
+ * Cancelling a calculation is done on a best effort basis. If a calculation cannot
+ * be cancelled, you can be charged for its completion. If you are concerned about
+ * being charged for a calculation that cannot be cancelled, consider terminating the
+ * session in which the calculation is running.
+ */export const stopCalculationExecution = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.StopCalculationExecution" }, StopCalculationExecutionRequest, StopCalculationExecutionResponse, [InternalServerException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Terminates an active session. A `TerminateSession` call on a session that
+ * is already inactive (for example, in a `FAILED`, `TERMINATED` or
+ * `TERMINATING` state) succeeds but has no effect. Calculations running in
+ * the session when `TerminateSession` is called are forcefully stopped, but may
+ * display as `FAILED` instead of `STOPPED`.
+ */export const terminateSession = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.TerminateSession" }, TerminateSessionRequest, TerminateSessionResponse, [InternalServerException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns the details of a single named query or a list of up to 50 queries, which you
+ * provide as an array of query ID strings. Requires you to have access to the workgroup in
+ * which the queries were saved. Use ListNamedQueriesInput to get the
+ * list of named query IDs in the specified workgroup. If information could not be
+ * retrieved for a submitted query ID, information about the query ID submitted is listed
+ * under UnprocessedNamedQueryId. Named queries differ from executed
+ * queries. Use BatchGetQueryExecutionInput to get details about each
+ * unique query execution, and ListQueryExecutionsInput to get a list of
+ * query execution IDs.
+ */export const batchGetNamedQuery = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.BatchGetNamedQuery" }, BatchGetNamedQueryInput, BatchGetNamedQueryOutput, [InternalServerException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns the details of a single prepared statement or a list of up to 256 prepared
+ * statements for the array of prepared statement names that you provide. Requires you to
+ * have access to the workgroup to which the prepared statements belong. If a prepared
+ * statement cannot be retrieved for the name specified, the statement is listed in
+ * `UnprocessedPreparedStatementNames`.
+ */export const batchGetPreparedStatement = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.BatchGetPreparedStatement" }, BatchGetPreparedStatementInput, BatchGetPreparedStatementOutput, [InternalServerException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates (registers) a data catalog with the specified name and properties. Catalogs
+ * created are visible to all users of the same Amazon Web Services account.
+ * 
+ * 
+ * For a `FEDERATED` catalog, this API operation creates the following
+ * resources.
+ * 
+ * 
+ * 
+ * - CFN Stack Name with a maximum length of 128 characters and prefix
+ * `athenafederatedcatalog-CATALOG_NAME_SANITIZED` with length 23
+ * characters.
+ * 
+ * 
+ * 
+ * - Lambda Function Name with a maximum length of 64 characters and prefix
+ * `athenafederatedcatalog_CATALOG_NAME_SANITIZED` with length 23
+ * characters.
+ * 
+ * 
+ * 
+ * - Glue Connection Name with a maximum length of 255 characters and a prefix
+ * `athenafederatedcatalog_CATALOG_NAME_SANITIZED` with length 23
+ * characters.
+ */export const createDataCatalog = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.CreateDataCatalog" }, CreateDataCatalogInput, CreateDataCatalogOutput, [InternalServerException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes a data catalog.
+ */export const deleteDataCatalog = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.DeleteDataCatalog" }, DeleteDataCatalogInput, DeleteDataCatalogOutput, [InternalServerException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Exports the specified notebook and its metadata.
+ */export const exportNotebook = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.ExportNotebook" }, ExportNotebookInput, ExportNotebookOutput, [InternalServerException, InvalidRequestException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Describes a previously submitted calculation execution.
+ */export const getCalculationExecution = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.GetCalculationExecution" }, GetCalculationExecutionRequest, GetCalculationExecutionResponse, [InternalServerException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets the capacity assignment configuration for a capacity reservation, if one
+ * exists.
+ */export const getCapacityAssignmentConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.GetCapacityAssignmentConfiguration" }, GetCapacityAssignmentConfigurationInput, GetCapacityAssignmentConfigurationOutput, [InternalServerException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns a database object for the specified database and data catalog.
+ */export const getDatabase = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.GetDatabase" }, GetDatabaseInput, GetDatabaseOutput, [InternalServerException, InvalidRequestException, MetadataException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets the full details of a previously created session, including the session status
+ * and configuration.
+ */export const getSession = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.GetSession" }, GetSessionRequest, GetSessionResponse, [InternalServerException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns information about the workgroup with the specified name.
+ */export const getWorkGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.GetWorkGroup" }, GetWorkGroupInput, GetWorkGroupOutput, [InternalServerException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns the supported DPU sizes for the supported application runtimes (for example,
+ * `Athena notebook version 1`).
+ */export const listApplicationDPUSizes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.ListApplicationDPUSizes" }, ListApplicationDPUSizesInput, ListApplicationDPUSizesOutput, [InternalServerException, InvalidRequestException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists the calculations that have been submitted to a session in descending order.
+ * Newer calculations are listed first; older calculations are listed later.
+ */export const listCalculationExecutions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.ListCalculationExecutions" }, ListCalculationExecutionsRequest, ListCalculationExecutionsResponse, [InternalServerException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists the databases in the specified data catalog.
+ */export const listDatabases = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.ListDatabases" }, ListDatabasesInput, ListDatabasesOutput, [InternalServerException, InvalidRequestException, MetadataException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists the data catalogs in the current Amazon Web Services account.
+ * 
+ * 
+ * 
+ * 
+ * In the Athena console, data catalogs are listed as "data sources" on
+ * the **Data sources** page under the **Data source name** column.
+ */export const listDataCatalogs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.ListDataCatalogs" }, ListDataCatalogsInput, ListDataCatalogsOutput, [InternalServerException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists, in descending order, the executors that joined a session. Newer executors are
+ * listed first; older executors are listed later. The result can be optionally filtered by
+ * state.
+ */export const listExecutors = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.ListExecutors" }, ListExecutorsRequest, ListExecutorsResponse, [InternalServerException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Displays the notebook files for the specified workgroup in paginated format.
+ */export const listNotebookMetadata = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.ListNotebookMetadata" }, ListNotebookMetadataInput, ListNotebookMetadataOutput, [InternalServerException, InvalidRequestException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists, in descending order, the sessions that have been created in a notebook that are
+ * in an active state like `CREATING`, `CREATED`, `IDLE`
+ * or `BUSY`. Newer sessions are listed first; older sessions are listed
+ * later.
+ */export const listNotebookSessions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.ListNotebookSessions" }, ListNotebookSessionsRequest, ListNotebookSessionsResponse, [InternalServerException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists the prepared statements in the specified workgroup.
+ */export const listPreparedStatements = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.ListPreparedStatements" }, ListPreparedStatementsInput, ListPreparedStatementsOutput, [InternalServerException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists the sessions in a workgroup that are in an active state like
+ * `CREATING`, `CREATED`, `IDLE`, or
+ * `BUSY`. Newer sessions are listed first; older sessions are listed
+ * later.
+ */export const listSessions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.ListSessions" }, ListSessionsRequest, ListSessionsResponse, [InternalServerException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists available workgroups for the account.
+ */export const listWorkGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.ListWorkGroups" }, ListWorkGroupsInput, ListWorkGroupsOutput, [InternalServerException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Submits calculations for execution within a session. You can supply the code to run as
+ * an inline code block within the request.
+ * 
+ * 
+ * 
+ * 
+ * The request syntax requires the StartCalculationExecutionRequest$CodeBlock parameter or the CalculationConfiguration$CodeBlock parameter, but not both. Because
+ * CalculationConfiguration$CodeBlock is deprecated, use the
+ * StartCalculationExecutionRequest$CodeBlock parameter
+ * instead.
+ */export const startCalculationExecution = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.StartCalculationExecution" }, StartCalculationExecutionRequest, StartCalculationExecutionResponse, [InternalServerException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates the workgroup with the specified name. The workgroup's name cannot be changed.
+ * Only `ConfigurationUpdates` can be specified.
+ */export const updateWorkGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.UpdateWorkGroup" }, UpdateWorkGroupInput, UpdateWorkGroupOutput, [InternalServerException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a workgroup with the specified name. A workgroup can be an Apache Spark
+ * enabled workgroup or an Athena SQL workgroup.
+ */export const createWorkGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.CreateWorkGroup" }, CreateWorkGroupInput, CreateWorkGroupOutput, [InternalServerException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns information about the capacity reservation with the specified name.
+ */export const getCapacityReservation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.GetCapacityReservation" }, GetCapacityReservationInput, GetCapacityReservationOutput, [InternalServerException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns table metadata for the specified catalog, database, and table.
+ */export const getTableMetadata = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.GetTableMetadata" }, GetTableMetadataInput, GetTableMetadataOutput, [InternalServerException, InvalidRequestException, MetadataException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Runs the SQL query statements contained in the `Query`. Requires you to
+ * have access to the workgroup in which the query ran. Running queries against an external
+ * catalog requires GetDataCatalog permission to the catalog. For code
+ * samples using the Amazon Web Services SDK for Java, see Examples and
+ * Code Samples in the Amazon Athena User
+ * Guide.
+ */export const startQueryExecution = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.StartQueryExecution" }, StartQueryExecutionInput, StartQueryExecutionOutput, [InternalServerException, InvalidRequestException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns the details of a single query execution or a list of up to 50 query
+ * executions, which you provide as an array of query execution ID strings. Requires you to
+ * have access to the workgroup in which the queries ran. To get a list of query execution
+ * IDs, use ListQueryExecutionsInput$WorkGroup. Query executions differ
+ * from named (saved) queries. Use BatchGetNamedQueryInput to get details
+ * about named queries.
+ */export const batchGetQueryExecution = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.BatchGetQueryExecution" }, BatchGetQueryExecutionInput, BatchGetQueryExecutionOutput, [InternalServerException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Streams the results of a single query execution specified by
+ * `QueryExecutionId` from the Athena query results location in
+ * Amazon S3. For more information, see Working with query results, recent queries, and
+ * output files in the *Amazon Athena User Guide*.
+ * This request does not execute the query but returns results. Use StartQueryExecution to run a query.
+ * 
+ * 
+ * To stream query results successfully, the IAM principal with permission to call
+ * `GetQueryResults` also must have permissions to the Amazon S3
+ * `GetObject` action for the Athena query results location.
+ * 
+ * 
+ * 
+ * 
+ * IAM principals with permission to the Amazon S3
+ * `GetObject` action for the query results location are able to retrieve
+ * query results from Amazon S3 even if permission to the
+ * `GetQueryResults` action is denied. To restrict user or role access,
+ * ensure that Amazon S3 permissions to the Athena query location
+ * are denied.
+ */export const getQueryResults = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.GetQueryResults" }, GetQueryResultsInput, GetQueryResultsOutput, [InternalServerException, InvalidRequestException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns query execution runtime statistics related to a single execution of a query if
+ * you have access to the workgroup in which the query ran. Statistics from the
+ * `Timeline` section of the response object are available as soon as QueryExecutionStatus$State is in a SUCCEEDED or FAILED state. The
+ * remaining non-timeline statistics in the response (like stage-level input and output row
+ * count and data size) are updated asynchronously and may not be available immediately
+ * after a query completes or, in some cases, may not be returned. The non-timeline
+ * statistics are also not included when a query has row-level filters defined in Lake Formation.
+ */export const getQueryRuntimeStatistics = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.GetQueryRuntimeStatistics" }, GetQueryRuntimeStatisticsInput, GetQueryRuntimeStatisticsOutput, [InternalServerException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a session for running calculations within a workgroup. The session is ready
+ * when it reaches an `IDLE` state.
+ */export const startSession = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.StartSession" }, StartSessionRequest, StartSessionResponse, [InternalServerException, InvalidRequestException, ResourceNotFoundException, SessionAlreadyExistsException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

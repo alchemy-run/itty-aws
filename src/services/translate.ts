@@ -89,22 +89,112 @@ export class DetectedLanguageLowConfidenceException extends S.TaggedError<Detect
 export class TextSizeLimitExceededException extends S.TaggedError<TextSizeLimitExceededException>()("TextSizeLimitExceededException", {Message: S.optional(S.String)}) {};
 
 //# Operations
-export const listParallelData = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-01", uri: "/", method: "POST", sdkId: "Translate", sigV4ServiceName: "translate", name: "AWSShineFrontendService_20170701.ListParallelData" }, ListParallelDataRequest, ListParallelDataResponse, [InternalServerException, InvalidParameterValueException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listTagsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-01", uri: "/", method: "POST", sdkId: "Translate", sigV4ServiceName: "translate", name: "AWSShineFrontendService_20170701.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [InternalServerException, InvalidParameterValueException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listTerminologies = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-01", uri: "/", method: "POST", sdkId: "Translate", sigV4ServiceName: "translate", name: "AWSShineFrontendService_20170701.ListTerminologies" }, ListTerminologiesRequest, ListTerminologiesResponse, [InternalServerException, InvalidParameterValueException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const stopTextTranslationJob = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-01", uri: "/", method: "POST", sdkId: "Translate", sigV4ServiceName: "translate", name: "AWSShineFrontendService_20170701.StopTextTranslationJob" }, StopTextTranslationJobRequest, StopTextTranslationJobResponse, [InternalServerException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const untagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-01", uri: "/", method: "POST", sdkId: "Translate", sigV4ServiceName: "translate", name: "AWSShineFrontendService_20170701.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [ConcurrentModificationException, InternalServerException, InvalidParameterValueException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteParallelData = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-01", uri: "/", method: "POST", sdkId: "Translate", sigV4ServiceName: "translate", name: "AWSShineFrontendService_20170701.DeleteParallelData" }, DeleteParallelDataRequest, DeleteParallelDataResponse, [ConcurrentModificationException, InternalServerException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteTerminology = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-01", uri: "/", method: "POST", sdkId: "Translate", sigV4ServiceName: "translate", name: "AWSShineFrontendService_20170701.DeleteTerminology" }, DeleteTerminologyRequest, S.Struct({}), [InternalServerException, InvalidParameterValueException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const getParallelData = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-01", uri: "/", method: "POST", sdkId: "Translate", sigV4ServiceName: "translate", name: "AWSShineFrontendService_20170701.GetParallelData" }, GetParallelDataRequest, GetParallelDataResponse, [InternalServerException, InvalidParameterValueException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const getTerminology = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-01", uri: "/", method: "POST", sdkId: "Translate", sigV4ServiceName: "translate", name: "AWSShineFrontendService_20170701.GetTerminology" }, GetTerminologyRequest, GetTerminologyResponse, [InternalServerException, InvalidParameterValueException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const tagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-01", uri: "/", method: "POST", sdkId: "Translate", sigV4ServiceName: "translate", name: "AWSShineFrontendService_20170701.TagResource" }, TagResourceRequest, TagResourceResponse, [ConcurrentModificationException, InternalServerException, InvalidParameterValueException, ResourceNotFoundException, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateParallelData = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-01", uri: "/", method: "POST", sdkId: "Translate", sigV4ServiceName: "translate", name: "AWSShineFrontendService_20170701.UpdateParallelData" }, UpdateParallelDataRequest, UpdateParallelDataResponse, [ConcurrentModificationException, ConflictException, InternalServerException, InvalidParameterValueException, InvalidRequestException, LimitExceededException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const createParallelData = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-01", uri: "/", method: "POST", sdkId: "Translate", sigV4ServiceName: "translate", name: "AWSShineFrontendService_20170701.CreateParallelData" }, CreateParallelDataRequest, CreateParallelDataResponse, [ConcurrentModificationException, ConflictException, InternalServerException, InvalidParameterValueException, InvalidRequestException, LimitExceededException, TooManyRequestsException, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeTextTranslationJob = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-01", uri: "/", method: "POST", sdkId: "Translate", sigV4ServiceName: "translate", name: "AWSShineFrontendService_20170701.DescribeTextTranslationJob" }, DescribeTextTranslationJobRequest, DescribeTextTranslationJobResponse, [InternalServerException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const importTerminology = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-01", uri: "/", method: "POST", sdkId: "Translate", sigV4ServiceName: "translate", name: "AWSShineFrontendService_20170701.ImportTerminology" }, ImportTerminologyRequest, ImportTerminologyResponse, [ConcurrentModificationException, InternalServerException, InvalidParameterValueException, LimitExceededException, TooManyRequestsException, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listLanguages = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-01", uri: "/", method: "POST", sdkId: "Translate", sigV4ServiceName: "translate", name: "AWSShineFrontendService_20170701.ListLanguages" }, ListLanguagesRequest, ListLanguagesResponse, [InternalServerException, InvalidParameterValueException, TooManyRequestsException, UnsupportedDisplayLanguageCodeException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listTextTranslationJobs = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-01", uri: "/", method: "POST", sdkId: "Translate", sigV4ServiceName: "translate", name: "AWSShineFrontendService_20170701.ListTextTranslationJobs" }, ListTextTranslationJobsRequest, ListTextTranslationJobsResponse, [InternalServerException, InvalidFilterException, InvalidRequestException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const startTextTranslationJob = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-01", uri: "/", method: "POST", sdkId: "Translate", sigV4ServiceName: "translate", name: "AWSShineFrontendService_20170701.StartTextTranslationJob" }, StartTextTranslationJobRequest, StartTextTranslationJobResponse, [InternalServerException, InvalidParameterValueException, InvalidRequestException, ResourceNotFoundException, TooManyRequestsException, UnsupportedLanguagePairException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const translateDocument = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-01", uri: "/", method: "POST", sdkId: "Translate", sigV4ServiceName: "translate", name: "AWSShineFrontendService_20170701.TranslateDocument" }, TranslateDocumentRequest, TranslateDocumentResponse, [InternalServerException, InvalidRequestException, LimitExceededException, ResourceNotFoundException, ServiceUnavailableException, TooManyRequestsException, UnsupportedLanguagePairException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const translateText = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-01", uri: "/", method: "POST", sdkId: "Translate", sigV4ServiceName: "translate", name: "AWSShineFrontendService_20170701.TranslateText" }, TranslateTextRequest, TranslateTextResponse, [DetectedLanguageLowConfidenceException, InternalServerException, InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, TextSizeLimitExceededException, TooManyRequestsException, UnsupportedLanguagePairException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Provides a list of your parallel data resources in Amazon Translate.
+ */export const listParallelData = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-01", uri: "/", method: "POST", sdkId: "Translate", sigV4ServiceName: "translate", name: "AWSShineFrontendService_20170701.ListParallelData" }, ListParallelDataRequest, ListParallelDataResponse, [InternalServerException, InvalidParameterValueException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists all tags associated with a given Amazon Translate resource.
+ * For more information, see
+ * Tagging your resources.
+ */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-01", uri: "/", method: "POST", sdkId: "Translate", sigV4ServiceName: "translate", name: "AWSShineFrontendService_20170701.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [InternalServerException, InvalidParameterValueException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Provides a list of custom terminologies associated with your account.
+ */export const listTerminologies = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-01", uri: "/", method: "POST", sdkId: "Translate", sigV4ServiceName: "translate", name: "AWSShineFrontendService_20170701.ListTerminologies" }, ListTerminologiesRequest, ListTerminologiesResponse, [InternalServerException, InvalidParameterValueException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Stops an asynchronous batch translation job that is in progress.
+ * 
+ * 
+ * If the job's state is `IN_PROGRESS`, the job will be marked for termination and
+ * put into the `STOP_REQUESTED` state. If the job completes before it can be stopped,
+ * it is put into the `COMPLETED` state. Otherwise, the job is put into the
+ * `STOPPED` state.
+ * 
+ * 
+ * Asynchronous batch translation jobs are started with the StartTextTranslationJob operation. You can use the DescribeTextTranslationJob or ListTextTranslationJobs
+ * operations to get a batch translation job's `JobId`.
+ */export const stopTextTranslationJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-01", uri: "/", method: "POST", sdkId: "Translate", sigV4ServiceName: "translate", name: "AWSShineFrontendService_20170701.StopTextTranslationJob" }, StopTextTranslationJobRequest, StopTextTranslationJobResponse, [InternalServerException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Removes a specific tag associated with an Amazon Translate resource.
+ * For more information, see
+ * Tagging your resources.
+ */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-01", uri: "/", method: "POST", sdkId: "Translate", sigV4ServiceName: "translate", name: "AWSShineFrontendService_20170701.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [ConcurrentModificationException, InternalServerException, InvalidParameterValueException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes a parallel data resource in Amazon Translate.
+ */export const deleteParallelData = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-01", uri: "/", method: "POST", sdkId: "Translate", sigV4ServiceName: "translate", name: "AWSShineFrontendService_20170701.DeleteParallelData" }, DeleteParallelDataRequest, DeleteParallelDataResponse, [ConcurrentModificationException, InternalServerException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * A synchronous action that deletes a custom terminology.
+ */export const deleteTerminology = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-01", uri: "/", method: "POST", sdkId: "Translate", sigV4ServiceName: "translate", name: "AWSShineFrontendService_20170701.DeleteTerminology" }, DeleteTerminologyRequest, S.Struct({}), [InternalServerException, InvalidParameterValueException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Provides information about a parallel data resource.
+ */export const getParallelData = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-01", uri: "/", method: "POST", sdkId: "Translate", sigV4ServiceName: "translate", name: "AWSShineFrontendService_20170701.GetParallelData" }, GetParallelDataRequest, GetParallelDataResponse, [InternalServerException, InvalidParameterValueException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves a custom terminology.
+ */export const getTerminology = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-01", uri: "/", method: "POST", sdkId: "Translate", sigV4ServiceName: "translate", name: "AWSShineFrontendService_20170701.GetTerminology" }, GetTerminologyRequest, GetTerminologyResponse, [InternalServerException, InvalidParameterValueException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Associates a specific tag with a resource. A tag is a key-value pair
+ * that adds as a metadata to a resource.
+ * For more information, see
+ * Tagging your resources.
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-01", uri: "/", method: "POST", sdkId: "Translate", sigV4ServiceName: "translate", name: "AWSShineFrontendService_20170701.TagResource" }, TagResourceRequest, TagResourceResponse, [ConcurrentModificationException, InternalServerException, InvalidParameterValueException, ResourceNotFoundException, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates a previously created parallel data resource by importing a new input file from
+ * Amazon S3.
+ */export const updateParallelData = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-01", uri: "/", method: "POST", sdkId: "Translate", sigV4ServiceName: "translate", name: "AWSShineFrontendService_20170701.UpdateParallelData" }, UpdateParallelDataRequest, UpdateParallelDataResponse, [ConcurrentModificationException, ConflictException, InternalServerException, InvalidParameterValueException, InvalidRequestException, LimitExceededException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a parallel data resource in Amazon Translate by importing an input file from
+ * Amazon S3. Parallel data files contain examples that show how you want segments of text to be
+ * translated. By adding parallel data, you can influence the style, tone, and word choice in
+ * your translation output.
+ */export const createParallelData = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-01", uri: "/", method: "POST", sdkId: "Translate", sigV4ServiceName: "translate", name: "AWSShineFrontendService_20170701.CreateParallelData" }, CreateParallelDataRequest, CreateParallelDataResponse, [ConcurrentModificationException, ConflictException, InternalServerException, InvalidParameterValueException, InvalidRequestException, LimitExceededException, TooManyRequestsException, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets the properties associated with an asynchronous batch translation job including name,
+ * ID, status, source and target languages, input/output S3 buckets, and so on.
+ */export const describeTextTranslationJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-01", uri: "/", method: "POST", sdkId: "Translate", sigV4ServiceName: "translate", name: "AWSShineFrontendService_20170701.DescribeTextTranslationJob" }, DescribeTextTranslationJobRequest, DescribeTextTranslationJobResponse, [InternalServerException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates or updates a custom terminology, depending on whether one already exists for the
+ * given terminology name. Importing a terminology with the same name as an existing one will
+ * merge the terminologies based on the chosen merge strategy. The only supported merge strategy
+ * is OVERWRITE, where the imported terminology overwrites the existing terminology of the same
+ * name.
+ * 
+ * 
+ * If you import a terminology that overwrites an existing one, the new terminology takes up
+ * to 10 minutes to fully propagate. After that, translations have access to the new
+ * terminology.
+ */export const importTerminology = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-01", uri: "/", method: "POST", sdkId: "Translate", sigV4ServiceName: "translate", name: "AWSShineFrontendService_20170701.ImportTerminology" }, ImportTerminologyRequest, ImportTerminologyResponse, [ConcurrentModificationException, InternalServerException, InvalidParameterValueException, LimitExceededException, TooManyRequestsException, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Provides a list of languages (RFC-5646 codes and names) that Amazon Translate supports.
+ */export const listLanguages = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-01", uri: "/", method: "POST", sdkId: "Translate", sigV4ServiceName: "translate", name: "AWSShineFrontendService_20170701.ListLanguages" }, ListLanguagesRequest, ListLanguagesResponse, [InternalServerException, InvalidParameterValueException, TooManyRequestsException, UnsupportedDisplayLanguageCodeException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets a list of the batch translation jobs that you have submitted.
+ */export const listTextTranslationJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-01", uri: "/", method: "POST", sdkId: "Translate", sigV4ServiceName: "translate", name: "AWSShineFrontendService_20170701.ListTextTranslationJobs" }, ListTextTranslationJobsRequest, ListTextTranslationJobsResponse, [InternalServerException, InvalidFilterException, InvalidRequestException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Starts an asynchronous batch translation job. Use batch translation jobs to
+ * translate large volumes of text across multiple documents at once.
+ * For batch translation, you can input documents with different source languages (specify `auto`
+ * as the source language). You can specify one
+ * or more target languages. Batch translation translates each input document into each of the target languages.
+ * For more information, see
+ * Asynchronous batch processing.
+ * 
+ * 
+ * Batch translation jobs can be described with the DescribeTextTranslationJob operation, listed with the ListTextTranslationJobs operation, and stopped with the StopTextTranslationJob operation.
+ */export const startTextTranslationJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-01", uri: "/", method: "POST", sdkId: "Translate", sigV4ServiceName: "translate", name: "AWSShineFrontendService_20170701.StartTextTranslationJob" }, StartTextTranslationJobRequest, StartTextTranslationJobResponse, [InternalServerException, InvalidParameterValueException, InvalidRequestException, ResourceNotFoundException, TooManyRequestsException, UnsupportedLanguagePairException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Translates the input document from the source language to the target language.
+ * This synchronous operation supports text, HTML, or Word documents as the input document.
+ * 
+ * `TranslateDocument` supports translations from English to any supported language,
+ * and from any supported language to English. Therefore, specify either the source language code
+ * or the target language code as “en” (English).
+ * 
+ * 
+ * 
+ * If you set the `Formality` parameter, the request will fail if the target language does
+ * not support formality. For a list of target languages that support formality, see
+ * Setting formality.
+ */export const translateDocument = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-01", uri: "/", method: "POST", sdkId: "Translate", sigV4ServiceName: "translate", name: "AWSShineFrontendService_20170701.TranslateDocument" }, TranslateDocumentRequest, TranslateDocumentResponse, [InternalServerException, InvalidRequestException, LimitExceededException, ResourceNotFoundException, ServiceUnavailableException, TooManyRequestsException, UnsupportedLanguagePairException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Translates input text from the source language to the target language. For a list of
+ * available languages and language codes, see Supported languages.
+ */export const translateText = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-01", uri: "/", method: "POST", sdkId: "Translate", sigV4ServiceName: "translate", name: "AWSShineFrontendService_20170701.TranslateText" }, TranslateTextRequest, TranslateTextResponse, [DetectedLanguageLowConfidenceException, InternalServerException, InvalidRequestException, ResourceNotFoundException, ServiceUnavailableException, TextSizeLimitExceededException, TooManyRequestsException, UnsupportedLanguagePairException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

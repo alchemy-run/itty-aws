@@ -33,8 +33,30 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
 export class TooManyTagsException extends S.TaggedError<TooManyTagsException>()("TooManyTagsException", {message: S.optional(S.String)}) {};
 
 //# Operations
-export const listTagsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/ListTagsForResource", method: "GET", sdkId: "RolesAnywhere", sigV4ServiceName: "rolesanywhere", name: "RolesAnywhere.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [AccessDeniedException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const resetNotificationSettings = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/reset-notifications-settings", method: "PATCH", sdkId: "RolesAnywhere", sigV4ServiceName: "rolesanywhere", name: "RolesAnywhere.ResetNotificationSettings" }, ResetNotificationSettingsRequest, ResetNotificationSettingsResponse, [AccessDeniedException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const tagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/TagResource", method: "POST", sdkId: "RolesAnywhere", sigV4ServiceName: "rolesanywhere", name: "RolesAnywhere.TagResource" }, TagResourceRequest, TagResourceResponse, [AccessDeniedException, ResourceNotFoundException, TooManyTagsException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const untagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/UntagResource", method: "POST", sdkId: "RolesAnywhere", sigV4ServiceName: "rolesanywhere", name: "RolesAnywhere.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [AccessDeniedException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const putNotificationSettings = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/put-notifications-settings", method: "PATCH", sdkId: "RolesAnywhere", sigV4ServiceName: "rolesanywhere", name: "RolesAnywhere.PutNotificationSettings" }, PutNotificationSettingsRequest, PutNotificationSettingsResponse, [AccessDeniedException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists the tags attached to the resource.
+ * 
+ * **Required permissions: ** `rolesanywhere:ListTagsForResource`.
+ */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/ListTagsForResource", method: "GET", sdkId: "RolesAnywhere", sigV4ServiceName: "rolesanywhere", name: "RolesAnywhere.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [AccessDeniedException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Resets the *custom notification setting* to IAM Roles Anywhere default setting.
+ * 
+ * **Required permissions: ** `rolesanywhere:ResetNotificationSettings`.
+ */export const resetNotificationSettings = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/reset-notifications-settings", method: "PATCH", sdkId: "RolesAnywhere", sigV4ServiceName: "rolesanywhere", name: "RolesAnywhere.ResetNotificationSettings" }, ResetNotificationSettingsRequest, ResetNotificationSettingsResponse, [AccessDeniedException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Attaches tags to a resource.
+ * 
+ * **Required permissions: ** `rolesanywhere:TagResource`.
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/TagResource", method: "POST", sdkId: "RolesAnywhere", sigV4ServiceName: "rolesanywhere", name: "RolesAnywhere.TagResource" }, TagResourceRequest, TagResourceResponse, [AccessDeniedException, ResourceNotFoundException, TooManyTagsException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Removes tags from the resource.
+ * 
+ * **Required permissions: ** `rolesanywhere:UntagResource`.
+ */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/UntagResource", method: "POST", sdkId: "RolesAnywhere", sigV4ServiceName: "rolesanywhere", name: "RolesAnywhere.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [AccessDeniedException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Attaches a list of *notification settings* to a trust anchor.
+ * 
+ * A notification setting includes information such as event name, threshold, status of the notification setting, and the channel to notify.
+ * 
+ * **Required permissions: ** `rolesanywhere:PutNotificationSettings`.
+ */export const putNotificationSettings = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/put-notifications-settings", method: "PATCH", sdkId: "RolesAnywhere", sigV4ServiceName: "rolesanywhere", name: "RolesAnywhere.PutNotificationSettings" }, PutNotificationSettingsRequest, PutNotificationSettingsResponse, [AccessDeniedException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

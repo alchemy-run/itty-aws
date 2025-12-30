@@ -424,122 +424,3094 @@ export class WebAuthnOriginNotAllowedException extends S.TaggedError<WebAuthnOri
 export class WebAuthnRelyingPartyMismatchException extends S.TaggedError<WebAuthnRelyingPartyMismatchException>()("WebAuthnRelyingPartyMismatchException", {message: S.optional(S.String)}) {};
 
 //# Operations
-export const adminUpdateDeviceStatus = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminUpdateDeviceStatus" }, AdminUpdateDeviceStatusRequest, AdminUpdateDeviceStatusResponse, [InternalErrorException, InvalidParameterException, InvalidUserPoolConfigurationException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const adminUserGlobalSignOut = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminUserGlobalSignOut" }, AdminUserGlobalSignOutRequest, AdminUserGlobalSignOutResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DeleteGroup" }, DeleteGroupRequest, S.Struct({}), [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteManagedLoginBranding = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DeleteManagedLoginBranding" }, DeleteManagedLoginBrandingRequest, S.Struct({}), [ConcurrentModificationException, InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteResourceServer = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DeleteResourceServer" }, DeleteResourceServerRequest, S.Struct({}), [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteTerms = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DeleteTerms" }, DeleteTermsRequest, S.Struct({}), [ConcurrentModificationException, InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteUserPoolClient = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DeleteUserPoolClient" }, DeleteUserPoolClientRequest, S.Struct({}), [ConcurrentModificationException, InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteUserPoolDomain = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DeleteUserPoolDomain" }, DeleteUserPoolDomainRequest, DeleteUserPoolDomainResponse, [ConcurrentModificationException, InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteWebAuthnCredential = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DeleteWebAuthnCredential" }, DeleteWebAuthnCredentialRequest, DeleteWebAuthnCredentialResponse, [ForbiddenException, InternalErrorException, InvalidParameterException, LimitExceededException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const forgetDevice = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.ForgetDevice" }, ForgetDeviceRequest, S.Struct({}), [ForbiddenException, InternalErrorException, InvalidParameterException, InvalidUserPoolConfigurationException, NotAuthorizedException, PasswordResetRequiredException, ResourceNotFoundException, TooManyRequestsException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const globalSignOut = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.GlobalSignOut" }, GlobalSignOutRequest, GlobalSignOutResponse, [ForbiddenException, InternalErrorException, InvalidParameterException, NotAuthorizedException, PasswordResetRequiredException, ResourceNotFoundException, TooManyRequestsException, UserNotConfirmedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const setUserMFAPreference = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.SetUserMFAPreference" }, SetUserMFAPreferenceRequest, SetUserMFAPreferenceResponse, [ForbiddenException, InternalErrorException, InvalidParameterException, NotAuthorizedException, PasswordResetRequiredException, ResourceNotFoundException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const setUserSettings = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.SetUserSettings" }, SetUserSettingsRequest, SetUserSettingsResponse, [ForbiddenException, InternalErrorException, InvalidParameterException, NotAuthorizedException, PasswordResetRequiredException, ResourceNotFoundException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const tagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.TagResource" }, TagResourceRequest, TagResourceResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const untagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateAuthEventFeedback = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.UpdateAuthEventFeedback" }, UpdateAuthEventFeedbackRequest, UpdateAuthEventFeedbackResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserNotFoundException, UserPoolAddOnNotEnabledException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateDeviceStatus = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.UpdateDeviceStatus" }, UpdateDeviceStatusRequest, UpdateDeviceStatusResponse, [ForbiddenException, InternalErrorException, InvalidParameterException, InvalidUserPoolConfigurationException, NotAuthorizedException, PasswordResetRequiredException, ResourceNotFoundException, TooManyRequestsException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const adminAddUserToGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminAddUserToGroup" }, AdminAddUserToGroupRequest, S.Struct({}), [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const adminDeleteUser = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminDeleteUser" }, AdminDeleteUserRequest, S.Struct({}), [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const adminDeleteUserAttributes = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminDeleteUserAttributes" }, AdminDeleteUserAttributesRequest, AdminDeleteUserAttributesResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const adminDisableProviderForUser = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminDisableProviderForUser" }, AdminDisableProviderForUserRequest, AdminDisableProviderForUserResponse, [AliasExistsException, InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const adminDisableUser = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminDisableUser" }, AdminDisableUserRequest, AdminDisableUserResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const adminEnableUser = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminEnableUser" }, AdminEnableUserRequest, AdminEnableUserResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const adminForgetDevice = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminForgetDevice" }, AdminForgetDeviceRequest, S.Struct({}), [InternalErrorException, InvalidParameterException, InvalidUserPoolConfigurationException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const adminGetUser = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminGetUser" }, AdminGetUserRequest, AdminGetUserResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const adminLinkProviderForUser = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminLinkProviderForUser" }, AdminLinkProviderForUserRequest, AdminLinkProviderForUserResponse, [AliasExistsException, InternalErrorException, InvalidParameterException, LimitExceededException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const adminListDevices = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminListDevices" }, AdminListDevicesRequest, AdminListDevicesResponse, [InternalErrorException, InvalidParameterException, InvalidUserPoolConfigurationException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const adminRemoveUserFromGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminRemoveUserFromGroup" }, AdminRemoveUserFromGroupRequest, S.Struct({}), [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const adminSetUserMFAPreference = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminSetUserMFAPreference" }, AdminSetUserMFAPreferenceRequest, AdminSetUserMFAPreferenceResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, PasswordResetRequiredException, ResourceNotFoundException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const adminSetUserSettings = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminSetUserSettings" }, AdminSetUserSettingsRequest, AdminSetUserSettingsResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const adminUpdateAuthEventFeedback = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminUpdateAuthEventFeedback" }, AdminUpdateAuthEventFeedbackRequest, AdminUpdateAuthEventFeedbackResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserNotFoundException, UserPoolAddOnNotEnabledException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const changePassword = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.ChangePassword" }, ChangePasswordRequest, ChangePasswordResponse, [ForbiddenException, InternalErrorException, InvalidParameterException, InvalidPasswordException, LimitExceededException, NotAuthorizedException, PasswordHistoryPolicyViolationException, PasswordResetRequiredException, ResourceNotFoundException, TooManyRequestsException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteUser = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DeleteUser" }, DeleteUserRequest, S.Struct({}), [ForbiddenException, InternalErrorException, InvalidParameterException, NotAuthorizedException, PasswordResetRequiredException, ResourceNotFoundException, TooManyRequestsException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteUserAttributes = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DeleteUserAttributes" }, DeleteUserAttributesRequest, DeleteUserAttributesResponse, [ForbiddenException, InternalErrorException, InvalidParameterException, NotAuthorizedException, PasswordResetRequiredException, ResourceNotFoundException, TooManyRequestsException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteUserPool = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DeleteUserPool" }, DeleteUserPoolRequest, S.Struct({}), [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserImportInProgressException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeManagedLoginBrandingByClient = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DescribeManagedLoginBrandingByClient" }, DescribeManagedLoginBrandingByClientRequest, DescribeManagedLoginBrandingByClientResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeUserImportJob = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DescribeUserImportJob" }, DescribeUserImportJobRequest, DescribeUserImportJobResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const getCSVHeader = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.GetCSVHeader" }, GetCSVHeaderRequest, GetCSVHeaderResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const getDevice = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.GetDevice" }, GetDeviceRequest, GetDeviceResponse, [ForbiddenException, InternalErrorException, InvalidParameterException, InvalidUserPoolConfigurationException, NotAuthorizedException, PasswordResetRequiredException, ResourceNotFoundException, TooManyRequestsException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const getGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.GetGroup" }, GetGroupRequest, GetGroupResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const getIdentityProviderByIdentifier = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.GetIdentityProviderByIdentifier" }, GetIdentityProviderByIdentifierRequest, GetIdentityProviderByIdentifierResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const getSigningCertificate = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.GetSigningCertificate" }, GetSigningCertificateRequest, GetSigningCertificateResponse, [InternalErrorException, InvalidParameterException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const getUser = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.GetUser" }, GetUserRequest, GetUserResponse, [ForbiddenException, InternalErrorException, InvalidParameterException, NotAuthorizedException, PasswordResetRequiredException, ResourceNotFoundException, TooManyRequestsException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const getUserAuthFactors = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.GetUserAuthFactors" }, GetUserAuthFactorsRequest, GetUserAuthFactorsResponse, [ForbiddenException, InternalErrorException, InvalidParameterException, NotAuthorizedException, PasswordResetRequiredException, ResourceNotFoundException, TooManyRequestsException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const getUserPoolMfaConfig = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.GetUserPoolMfaConfig" }, GetUserPoolMfaConfigRequest, GetUserPoolMfaConfigResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listDevices = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.ListDevices" }, ListDevicesRequest, ListDevicesResponse, [ForbiddenException, InternalErrorException, InvalidParameterException, InvalidUserPoolConfigurationException, NotAuthorizedException, PasswordResetRequiredException, ResourceNotFoundException, TooManyRequestsException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listGroups = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.ListGroups" }, ListGroupsRequest, ListGroupsResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listResourceServers = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.ListResourceServers" }, ListResourceServersRequest, ListResourceServersResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listTagsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listUserImportJobs = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.ListUserImportJobs" }, ListUserImportJobsRequest, ListUserImportJobsResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listUsersInGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.ListUsersInGroup" }, ListUsersInGroupRequest, ListUsersInGroupResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const setUICustomization = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.SetUICustomization" }, SetUICustomizationRequest, SetUICustomizationResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const stopUserImportJob = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.StopUserImportJob" }, StopUserImportJobRequest, StopUserImportJobResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, PreconditionNotMetException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.UpdateGroup" }, UpdateGroupRequest, UpdateGroupResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateIdentityProvider = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.UpdateIdentityProvider" }, UpdateIdentityProviderRequest, UpdateIdentityProviderResponse, [ConcurrentModificationException, InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UnsupportedIdentityProviderException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateManagedLoginBranding = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.UpdateManagedLoginBranding" }, UpdateManagedLoginBrandingRequest, UpdateManagedLoginBrandingResponse, [ConcurrentModificationException, InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateResourceServer = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.UpdateResourceServer" }, UpdateResourceServerRequest, UpdateResourceServerResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateUserAttributes = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.UpdateUserAttributes" }, UpdateUserAttributesRequest, UpdateUserAttributesResponse, [AliasExistsException, CodeDeliveryFailureException, CodeMismatchException, ExpiredCodeException, ForbiddenException, InternalErrorException, InvalidEmailRoleAccessPolicyException, InvalidLambdaResponseException, InvalidParameterException, InvalidSmsRoleAccessPolicyException, InvalidSmsRoleTrustRelationshipException, NotAuthorizedException, PasswordResetRequiredException, ResourceNotFoundException, TooManyRequestsException, UnexpectedLambdaException, UserLambdaValidationException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateUserPoolDomain = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.UpdateUserPoolDomain" }, UpdateUserPoolDomainRequest, UpdateUserPoolDomainResponse, [ConcurrentModificationException, FeatureUnavailableInTierException, InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const verifyUserAttribute = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.VerifyUserAttribute" }, VerifyUserAttributeRequest, VerifyUserAttributeResponse, [AliasExistsException, CodeMismatchException, ExpiredCodeException, ForbiddenException, InternalErrorException, InvalidParameterException, LimitExceededException, NotAuthorizedException, PasswordResetRequiredException, ResourceNotFoundException, TooManyRequestsException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const addCustomAttributes = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AddCustomAttributes" }, AddCustomAttributesRequest, AddCustomAttributesResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserImportInProgressException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const adminConfirmSignUp = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminConfirmSignUp" }, AdminConfirmSignUpRequest, AdminConfirmSignUpResponse, [InternalErrorException, InvalidLambdaResponseException, InvalidParameterException, LimitExceededException, NotAuthorizedException, ResourceNotFoundException, TooManyFailedAttemptsException, TooManyRequestsException, UnexpectedLambdaException, UserLambdaValidationException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const adminGetDevice = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminGetDevice" }, AdminGetDeviceRequest, AdminGetDeviceResponse, [InternalErrorException, InvalidParameterException, InvalidUserPoolConfigurationException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const adminListGroupsForUser = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminListGroupsForUser" }, AdminListGroupsForUserRequest, AdminListGroupsForUserResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const adminResetUserPassword = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminResetUserPassword" }, AdminResetUserPasswordRequest, AdminResetUserPasswordResponse, [InternalErrorException, InvalidEmailRoleAccessPolicyException, InvalidLambdaResponseException, InvalidParameterException, InvalidSmsRoleAccessPolicyException, InvalidSmsRoleTrustRelationshipException, LimitExceededException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UnexpectedLambdaException, UserLambdaValidationException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const adminRespondToAuthChallenge = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminRespondToAuthChallenge" }, AdminRespondToAuthChallengeRequest, AdminRespondToAuthChallengeResponse, [AliasExistsException, CodeMismatchException, ExpiredCodeException, InternalErrorException, InvalidEmailRoleAccessPolicyException, InvalidLambdaResponseException, InvalidParameterException, InvalidPasswordException, InvalidSmsRoleAccessPolicyException, InvalidSmsRoleTrustRelationshipException, InvalidUserPoolConfigurationException, MFAMethodNotFoundException, NotAuthorizedException, PasswordHistoryPolicyViolationException, PasswordResetRequiredException, ResourceNotFoundException, SoftwareTokenMFANotFoundException, TooManyRequestsException, UnexpectedLambdaException, UserLambdaValidationException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const adminSetUserPassword = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminSetUserPassword" }, AdminSetUserPasswordRequest, AdminSetUserPasswordResponse, [InternalErrorException, InvalidParameterException, InvalidPasswordException, NotAuthorizedException, PasswordHistoryPolicyViolationException, ResourceNotFoundException, TooManyRequestsException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const adminUpdateUserAttributes = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminUpdateUserAttributes" }, AdminUpdateUserAttributesRequest, AdminUpdateUserAttributesResponse, [AliasExistsException, InternalErrorException, InvalidEmailRoleAccessPolicyException, InvalidLambdaResponseException, InvalidParameterException, InvalidSmsRoleAccessPolicyException, InvalidSmsRoleTrustRelationshipException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UnexpectedLambdaException, UserLambdaValidationException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const associateSoftwareToken = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AssociateSoftwareToken" }, AssociateSoftwareTokenRequest, AssociateSoftwareTokenResponse, [ConcurrentModificationException, ForbiddenException, InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, SoftwareTokenMFANotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const confirmForgotPassword = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.ConfirmForgotPassword" }, ConfirmForgotPasswordRequest, ConfirmForgotPasswordResponse, [CodeMismatchException, ExpiredCodeException, ForbiddenException, InternalErrorException, InvalidLambdaResponseException, InvalidParameterException, InvalidPasswordException, LimitExceededException, NotAuthorizedException, PasswordHistoryPolicyViolationException, ResourceNotFoundException, TooManyFailedAttemptsException, TooManyRequestsException, UnexpectedLambdaException, UserLambdaValidationException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const confirmSignUp = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.ConfirmSignUp" }, ConfirmSignUpRequest, ConfirmSignUpResponse, [AliasExistsException, CodeMismatchException, ExpiredCodeException, ForbiddenException, InternalErrorException, InvalidLambdaResponseException, InvalidParameterException, LimitExceededException, NotAuthorizedException, ResourceNotFoundException, TooManyFailedAttemptsException, TooManyRequestsException, UnexpectedLambdaException, UserLambdaValidationException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const createGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.CreateGroup" }, CreateGroupRequest, CreateGroupResponse, [GroupExistsException, InternalErrorException, InvalidParameterException, LimitExceededException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const createResourceServer = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.CreateResourceServer" }, CreateResourceServerRequest, CreateResourceServerResponse, [InternalErrorException, InvalidParameterException, LimitExceededException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const createTerms = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.CreateTerms" }, CreateTermsRequest, CreateTermsResponse, [ConcurrentModificationException, InternalErrorException, InvalidParameterException, LimitExceededException, NotAuthorizedException, ResourceNotFoundException, TermsExistsException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const createUserImportJob = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.CreateUserImportJob" }, CreateUserImportJobRequest, CreateUserImportJobResponse, [InternalErrorException, InvalidParameterException, LimitExceededException, NotAuthorizedException, PreconditionNotMetException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const createUserPoolDomain = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.CreateUserPoolDomain" }, CreateUserPoolDomainRequest, CreateUserPoolDomainResponse, [ConcurrentModificationException, FeatureUnavailableInTierException, InternalErrorException, InvalidParameterException, LimitExceededException, NotAuthorizedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteIdentityProvider = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DeleteIdentityProvider" }, DeleteIdentityProviderRequest, S.Struct({}), [ConcurrentModificationException, InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UnsupportedIdentityProviderException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeIdentityProvider = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DescribeIdentityProvider" }, DescribeIdentityProviderRequest, DescribeIdentityProviderResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeManagedLoginBranding = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DescribeManagedLoginBranding" }, DescribeManagedLoginBrandingRequest, DescribeManagedLoginBrandingResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeResourceServer = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DescribeResourceServer" }, DescribeResourceServerRequest, DescribeResourceServerResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeRiskConfiguration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DescribeRiskConfiguration" }, DescribeRiskConfigurationRequest, DescribeRiskConfigurationResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserPoolAddOnNotEnabledException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeTerms = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DescribeTerms" }, DescribeTermsRequest, DescribeTermsResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeUserPoolClient = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DescribeUserPoolClient" }, DescribeUserPoolClientRequest, DescribeUserPoolClientResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeUserPoolDomain = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DescribeUserPoolDomain" }, DescribeUserPoolDomainRequest, DescribeUserPoolDomainResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const forgotPassword = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.ForgotPassword" }, ForgotPasswordRequest, ForgotPasswordResponse, [CodeDeliveryFailureException, ForbiddenException, InternalErrorException, InvalidEmailRoleAccessPolicyException, InvalidLambdaResponseException, InvalidParameterException, InvalidSmsRoleAccessPolicyException, InvalidSmsRoleTrustRelationshipException, LimitExceededException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UnexpectedLambdaException, UserLambdaValidationException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const getLogDeliveryConfiguration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.GetLogDeliveryConfiguration" }, GetLogDeliveryConfigurationRequest, GetLogDeliveryConfigurationResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const getUICustomization = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.GetUICustomization" }, GetUICustomizationRequest, GetUICustomizationResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const getUserAttributeVerificationCode = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.GetUserAttributeVerificationCode" }, GetUserAttributeVerificationCodeRequest, GetUserAttributeVerificationCodeResponse, [CodeDeliveryFailureException, ForbiddenException, InternalErrorException, InvalidEmailRoleAccessPolicyException, InvalidLambdaResponseException, InvalidParameterException, InvalidSmsRoleAccessPolicyException, InvalidSmsRoleTrustRelationshipException, LimitExceededException, NotAuthorizedException, PasswordResetRequiredException, ResourceNotFoundException, TooManyRequestsException, UnexpectedLambdaException, UserLambdaValidationException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const initiateAuth = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.InitiateAuth" }, InitiateAuthRequest, InitiateAuthResponse, [ForbiddenException, InternalErrorException, InvalidEmailRoleAccessPolicyException, InvalidLambdaResponseException, InvalidParameterException, InvalidSmsRoleAccessPolicyException, InvalidSmsRoleTrustRelationshipException, InvalidUserPoolConfigurationException, NotAuthorizedException, PasswordResetRequiredException, ResourceNotFoundException, TooManyRequestsException, UnexpectedLambdaException, UnsupportedOperationException, UserLambdaValidationException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listIdentityProviders = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.ListIdentityProviders" }, ListIdentityProvidersRequest, ListIdentityProvidersResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listTerms = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.ListTerms" }, ListTermsRequest, ListTermsResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listUserPoolClients = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.ListUserPoolClients" }, ListUserPoolClientsRequest, ListUserPoolClientsResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listUserPools = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.ListUserPools" }, ListUserPoolsRequest, ListUserPoolsResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listUsers = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.ListUsers" }, ListUsersRequest, ListUsersResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listWebAuthnCredentials = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.ListWebAuthnCredentials" }, ListWebAuthnCredentialsRequest, ListWebAuthnCredentialsResponse, [ForbiddenException, InternalErrorException, InvalidParameterException, LimitExceededException, NotAuthorizedException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const resendConfirmationCode = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.ResendConfirmationCode" }, ResendConfirmationCodeRequest, ResendConfirmationCodeResponse, [CodeDeliveryFailureException, ForbiddenException, InternalErrorException, InvalidEmailRoleAccessPolicyException, InvalidLambdaResponseException, InvalidParameterException, InvalidSmsRoleAccessPolicyException, InvalidSmsRoleTrustRelationshipException, LimitExceededException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UnexpectedLambdaException, UserLambdaValidationException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const respondToAuthChallenge = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.RespondToAuthChallenge" }, RespondToAuthChallengeRequest, RespondToAuthChallengeResponse, [AliasExistsException, CodeMismatchException, ExpiredCodeException, ForbiddenException, InternalErrorException, InvalidEmailRoleAccessPolicyException, InvalidLambdaResponseException, InvalidParameterException, InvalidPasswordException, InvalidSmsRoleAccessPolicyException, InvalidSmsRoleTrustRelationshipException, InvalidUserPoolConfigurationException, MFAMethodNotFoundException, NotAuthorizedException, PasswordHistoryPolicyViolationException, PasswordResetRequiredException, ResourceNotFoundException, SoftwareTokenMFANotFoundException, TooManyRequestsException, UnexpectedLambdaException, UserLambdaValidationException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const setUserPoolMfaConfig = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.SetUserPoolMfaConfig" }, SetUserPoolMfaConfigRequest, SetUserPoolMfaConfigResponse, [ConcurrentModificationException, FeatureUnavailableInTierException, InternalErrorException, InvalidParameterException, InvalidSmsRoleAccessPolicyException, InvalidSmsRoleTrustRelationshipException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const signUp = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.SignUp" }, SignUpRequest, SignUpResponse, [CodeDeliveryFailureException, ForbiddenException, InternalErrorException, InvalidEmailRoleAccessPolicyException, InvalidLambdaResponseException, InvalidParameterException, InvalidPasswordException, InvalidSmsRoleAccessPolicyException, InvalidSmsRoleTrustRelationshipException, LimitExceededException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UnexpectedLambdaException, UserLambdaValidationException, UsernameExistsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const startUserImportJob = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.StartUserImportJob" }, StartUserImportJobRequest, StartUserImportJobResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, PreconditionNotMetException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateTerms = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.UpdateTerms" }, UpdateTermsRequest, UpdateTermsResponse, [ConcurrentModificationException, InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TermsExistsException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateUserPool = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.UpdateUserPool" }, UpdateUserPoolRequest, UpdateUserPoolResponse, [ConcurrentModificationException, FeatureUnavailableInTierException, InternalErrorException, InvalidEmailRoleAccessPolicyException, InvalidParameterException, InvalidSmsRoleAccessPolicyException, InvalidSmsRoleTrustRelationshipException, NotAuthorizedException, ResourceNotFoundException, TierChangeNotAllowedException, TooManyRequestsException, UserImportInProgressException, UserPoolTaggingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateUserPoolClient = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.UpdateUserPoolClient" }, UpdateUserPoolClientRequest, UpdateUserPoolClientResponse, [ConcurrentModificationException, FeatureUnavailableInTierException, InternalErrorException, InvalidOAuthFlowException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, ScopeDoesNotExistException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const verifySoftwareToken = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.VerifySoftwareToken" }, VerifySoftwareTokenRequest, VerifySoftwareTokenResponse, [CodeMismatchException, EnableSoftwareTokenMFAException, ForbiddenException, InternalErrorException, InvalidParameterException, InvalidUserPoolConfigurationException, NotAuthorizedException, PasswordResetRequiredException, ResourceNotFoundException, SoftwareTokenMFANotFoundException, TooManyRequestsException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const adminCreateUser = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminCreateUser" }, AdminCreateUserRequest, AdminCreateUserResponse, [CodeDeliveryFailureException, InternalErrorException, InvalidLambdaResponseException, InvalidParameterException, InvalidPasswordException, InvalidSmsRoleAccessPolicyException, InvalidSmsRoleTrustRelationshipException, NotAuthorizedException, PreconditionNotMetException, ResourceNotFoundException, TooManyRequestsException, UnexpectedLambdaException, UnsupportedUserStateException, UserLambdaValidationException, UsernameExistsException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const adminInitiateAuth = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminInitiateAuth" }, AdminInitiateAuthRequest, AdminInitiateAuthResponse, [InternalErrorException, InvalidEmailRoleAccessPolicyException, InvalidLambdaResponseException, InvalidParameterException, InvalidSmsRoleAccessPolicyException, InvalidSmsRoleTrustRelationshipException, InvalidUserPoolConfigurationException, MFAMethodNotFoundException, NotAuthorizedException, PasswordResetRequiredException, ResourceNotFoundException, TooManyRequestsException, UnexpectedLambdaException, UnsupportedOperationException, UserLambdaValidationException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const adminListUserAuthEvents = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminListUserAuthEvents" }, AdminListUserAuthEventsRequest, AdminListUserAuthEventsResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserNotFoundException, UserPoolAddOnNotEnabledException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const confirmDevice = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.ConfirmDevice" }, ConfirmDeviceRequest, ConfirmDeviceResponse, [DeviceKeyExistsException, ForbiddenException, InternalErrorException, InvalidLambdaResponseException, InvalidParameterException, InvalidPasswordException, InvalidUserPoolConfigurationException, NotAuthorizedException, PasswordResetRequiredException, ResourceNotFoundException, TooManyRequestsException, UsernameExistsException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const createIdentityProvider = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.CreateIdentityProvider" }, CreateIdentityProviderRequest, CreateIdentityProviderResponse, [DuplicateProviderException, InternalErrorException, InvalidParameterException, LimitExceededException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const createManagedLoginBranding = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.CreateManagedLoginBranding" }, CreateManagedLoginBrandingRequest, CreateManagedLoginBrandingResponse, [ConcurrentModificationException, InternalErrorException, InvalidParameterException, LimitExceededException, ManagedLoginBrandingExistsException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const createUserPool = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.CreateUserPool" }, CreateUserPoolRequest, CreateUserPoolResponse, [FeatureUnavailableInTierException, InternalErrorException, InvalidEmailRoleAccessPolicyException, InvalidParameterException, InvalidSmsRoleAccessPolicyException, InvalidSmsRoleTrustRelationshipException, LimitExceededException, NotAuthorizedException, TierChangeNotAllowedException, TooManyRequestsException, UserPoolTaggingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const createUserPoolClient = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.CreateUserPoolClient" }, CreateUserPoolClientRequest, CreateUserPoolClientResponse, [FeatureUnavailableInTierException, InternalErrorException, InvalidOAuthFlowException, InvalidParameterException, LimitExceededException, NotAuthorizedException, ResourceNotFoundException, ScopeDoesNotExistException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeUserPool = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DescribeUserPool" }, DescribeUserPoolRequest, DescribeUserPoolResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserPoolTaggingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const revokeToken = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.RevokeToken" }, RevokeTokenRequest, RevokeTokenResponse, [ForbiddenException, InternalErrorException, InvalidParameterException, TooManyRequestsException, UnauthorizedException, UnsupportedOperationException, UnsupportedTokenTypeException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const setLogDeliveryConfiguration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.SetLogDeliveryConfiguration" }, SetLogDeliveryConfigurationRequest, SetLogDeliveryConfigurationResponse, [FeatureUnavailableInTierException, InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const startWebAuthnRegistration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.StartWebAuthnRegistration" }, StartWebAuthnRegistrationRequest, StartWebAuthnRegistrationResponse, [ForbiddenException, InternalErrorException, InvalidParameterException, LimitExceededException, NotAuthorizedException, TooManyRequestsException, WebAuthnConfigurationMissingException, WebAuthnNotEnabledException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const getTokensFromRefreshToken = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.GetTokensFromRefreshToken" }, GetTokensFromRefreshTokenRequest, GetTokensFromRefreshTokenResponse, [ForbiddenException, InternalErrorException, InvalidLambdaResponseException, InvalidParameterException, NotAuthorizedException, RefreshTokenReuseException, ResourceNotFoundException, TooManyRequestsException, UnexpectedLambdaException, UserLambdaValidationException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const setRiskConfiguration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.SetRiskConfiguration" }, SetRiskConfigurationRequest, SetRiskConfigurationResponse, [CodeDeliveryFailureException, InternalErrorException, InvalidEmailRoleAccessPolicyException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserPoolAddOnNotEnabledException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const completeWebAuthnRegistration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.CompleteWebAuthnRegistration" }, CompleteWebAuthnRegistrationRequest, CompleteWebAuthnRegistrationResponse, [ForbiddenException, InternalErrorException, InvalidParameterException, LimitExceededException, NotAuthorizedException, TooManyRequestsException, WebAuthnChallengeNotFoundException, WebAuthnClientMismatchException, WebAuthnCredentialNotSupportedException, WebAuthnNotEnabledException, WebAuthnOriginNotAllowedException, WebAuthnRelyingPartyMismatchException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates the status of a user's device so that it is marked as remembered or not
+ * remembered for the purpose of device authentication. Device authentication is a
+ * "remember me" mechanism that silently completes sign-in from trusted devices with a
+ * device key instead of a user-provided MFA code. This operation changes the status of a
+ * device without deleting it, so you can enable it again later. For more information about
+ * device authentication, see Working with devices.
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you must use IAM credentials to authorize requests, and you must
+ * grant yourself the corresponding IAM permission in a policy.
+ * 
+ * 
+ * **Learn more**
+ * 
+ * 
+ * 
+ * 
+ * - Signing Amazon Web Services API Requests
+ * 
+ * 
+ * 
+ * 
+ * - Using the Amazon Cognito user pools API and user pool endpoints
+ */export const adminUpdateDeviceStatus = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminUpdateDeviceStatus" }, AdminUpdateDeviceStatusRequest, AdminUpdateDeviceStatusResponse, [InternalErrorException, InvalidParameterException, InvalidUserPoolConfigurationException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Invalidates the identity, access, and refresh tokens that Amazon Cognito issued to a user. Call
+ * this operation with your administrative credentials when your user signs out of your
+ * app. This results in the following behavior.
+ * 
+ * 
+ * 
+ * - Amazon Cognito no longer accepts *token-authorized* user operations
+ * that you authorize with a signed-out user's access tokens. For more information,
+ * see Using the Amazon Cognito user pools API and user pool
+ * endpoints.
+ * 
+ * 
+ * Amazon Cognito returns an `Access Token has been revoked` error when your
+ * app attempts to authorize a user pools API request with a revoked access token
+ * that contains the scope `aws.cognito.signin.user.admin`.
+ * 
+ * 
+ * 
+ * - Amazon Cognito no longer accepts a signed-out user's ID token in a GetId request to an identity pool with
+ * `ServerSideTokenCheck` enabled for its user pool IdP
+ * configuration in CognitoIdentityProvider.
+ * 
+ * 
+ * 
+ * - Amazon Cognito no longer accepts a signed-out user's refresh tokens in refresh
+ * requests.
+ * 
+ * 
+ * 
+ * 
+ * 
+ * Other requests might be valid until your user's token expires. This operation
+ * doesn't clear the managed login session cookie. To clear the session for
+ * a user who signed in with managed login or the classic hosted UI, direct their browser
+ * session to the logout endpoint.
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you must use IAM credentials to authorize requests, and you must
+ * grant yourself the corresponding IAM permission in a policy.
+ * 
+ * 
+ * **Learn more**
+ * 
+ * 
+ * 
+ * 
+ * - Signing Amazon Web Services API Requests
+ * 
+ * 
+ * 
+ * 
+ * - Using the Amazon Cognito user pools API and user pool endpoints
+ */export const adminUserGlobalSignOut = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminUserGlobalSignOut" }, AdminUserGlobalSignOutRequest, AdminUserGlobalSignOutResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes a group from the specified user pool. When you delete a group, that group no
+ * longer contributes to users' `cognito:preferred_group` or
+ * `cognito:groups` claims, and no longer influence access-control decision
+ * that are based on group membership. For more information about user pool groups, see
+ * Adding groups to a user pool.
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you must use IAM credentials to authorize requests, and you must
+ * grant yourself the corresponding IAM permission in a policy.
+ * 
+ * 
+ * **Learn more**
+ * 
+ * 
+ * 
+ * 
+ * - Signing Amazon Web Services API Requests
+ * 
+ * 
+ * 
+ * 
+ * - Using the Amazon Cognito user pools API and user pool endpoints
+ */export const deleteGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DeleteGroup" }, DeleteGroupRequest, S.Struct({}), [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes a managed login branding style. When you delete a style, you delete the
+ * branding association for an app client. When an app client doesn't have a style
+ * assigned, your managed login pages for that app client are nonfunctional until you
+ * create a new style or switch the domain branding version.
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you must use IAM credentials to authorize requests, and you must
+ * grant yourself the corresponding IAM permission in a policy.
+ * 
+ * 
+ * **Learn more**
+ * 
+ * 
+ * 
+ * 
+ * - Signing Amazon Web Services API Requests
+ * 
+ * 
+ * 
+ * 
+ * - Using the Amazon Cognito user pools API and user pool endpoints
+ */export const deleteManagedLoginBranding = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DeleteManagedLoginBranding" }, DeleteManagedLoginBrandingRequest, S.Struct({}), [ConcurrentModificationException, InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes a resource server. After you delete a resource server, users can no longer
+ * generate access tokens with scopes that are associate with that resource server.
+ * 
+ * 
+ * Resource servers are associated with custom scopes and machine-to-machine (M2M)
+ * authorization. For more information, see Access control with resource servers.
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you must use IAM credentials to authorize requests, and you must
+ * grant yourself the corresponding IAM permission in a policy.
+ * 
+ * 
+ * **Learn more**
+ * 
+ * 
+ * 
+ * 
+ * - Signing Amazon Web Services API Requests
+ * 
+ * 
+ * 
+ * 
+ * - Using the Amazon Cognito user pools API and user pool endpoints
+ */export const deleteResourceServer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DeleteResourceServer" }, DeleteResourceServerRequest, S.Struct({}), [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes the terms documents with the requested ID from your app client.
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you must use IAM credentials to authorize requests, and you must
+ * grant yourself the corresponding IAM permission in a policy.
+ * 
+ * 
+ * **Learn more**
+ * 
+ * 
+ * 
+ * 
+ * - Signing Amazon Web Services API Requests
+ * 
+ * 
+ * 
+ * 
+ * - Using the Amazon Cognito user pools API and user pool endpoints
+ */export const deleteTerms = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DeleteTerms" }, DeleteTermsRequest, S.Struct({}), [ConcurrentModificationException, InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes a user pool app client. After you delete an app client, users can no longer
+ * sign in to the associated application.
+ */export const deleteUserPoolClient = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DeleteUserPoolClient" }, DeleteUserPoolClientRequest, S.Struct({}), [ConcurrentModificationException, InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Given a user pool ID and domain identifier, deletes a user pool domain. After you
+ * delete a user pool domain, your managed login pages and authorization server are no
+ * longer available.
+ */export const deleteUserPoolDomain = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DeleteUserPoolDomain" }, DeleteUserPoolDomainRequest, DeleteUserPoolDomainResponse, [ConcurrentModificationException, InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes a registered passkey, or WebAuthn, authenticator for the currently signed-in
+ * user.
+ * 
+ * 
+ * Authorize this action with a signed-in user's access token. It must include the scope `aws.cognito.signin.user.admin`.
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you can't use IAM credentials to authorize requests, and you can't
+ * grant IAM permissions in policies. For more information about authorization models in
+ * Amazon Cognito, see Using the Amazon Cognito user pools API and user pool endpoints.
+ */export const deleteWebAuthnCredential = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DeleteWebAuthnCredential" }, DeleteWebAuthnCredentialRequest, DeleteWebAuthnCredentialResponse, [ForbiddenException, InternalErrorException, InvalidParameterException, LimitExceededException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Given a device key, deletes a remembered device as the currently signed-in user. For
+ * more information about device authentication, see Working with user devices in your user pool.
+ * 
+ * 
+ * Authorize this action with a signed-in user's access token. It must include the scope `aws.cognito.signin.user.admin`.
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you can't use IAM credentials to authorize requests, and you can't
+ * grant IAM permissions in policies. For more information about authorization models in
+ * Amazon Cognito, see Using the Amazon Cognito user pools API and user pool endpoints.
+ */export const forgetDevice = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.ForgetDevice" }, ForgetDeviceRequest, S.Struct({}), [ForbiddenException, InternalErrorException, InvalidParameterException, InvalidUserPoolConfigurationException, NotAuthorizedException, PasswordResetRequiredException, ResourceNotFoundException, TooManyRequestsException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Invalidates the identity, access, and refresh tokens that Amazon Cognito issued to a user. Call
+ * this operation when your user signs out of your app. This results in the following
+ * behavior.
+ * 
+ * 
+ * 
+ * - Amazon Cognito no longer accepts *token-authorized* user operations
+ * that you authorize with a signed-out user's access tokens. For more information,
+ * see Using the Amazon Cognito user pools API and user pool
+ * endpoints.
+ * 
+ * 
+ * Amazon Cognito returns an `Access Token has been revoked` error when your
+ * app attempts to authorize a user pools API request with a revoked access token
+ * that contains the scope `aws.cognito.signin.user.admin`.
+ * 
+ * 
+ * 
+ * - Amazon Cognito no longer accepts a signed-out user's ID token in a GetId request to an identity pool with
+ * `ServerSideTokenCheck` enabled for its user pool IdP
+ * configuration in CognitoIdentityProvider.
+ * 
+ * 
+ * 
+ * - Amazon Cognito no longer accepts a signed-out user's refresh tokens in refresh
+ * requests.
+ * 
+ * 
+ * 
+ * 
+ * 
+ * Other requests might be valid until your user's token expires. This operation
+ * doesn't clear the managed login session cookie. To clear the session for
+ * a user who signed in with managed login or the classic hosted UI, direct their browser
+ * session to the logout endpoint.
+ * 
+ * 
+ * Authorize this action with a signed-in user's access token. It must include the scope `aws.cognito.signin.user.admin`.
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you can't use IAM credentials to authorize requests, and you can't
+ * grant IAM permissions in policies. For more information about authorization models in
+ * Amazon Cognito, see Using the Amazon Cognito user pools API and user pool endpoints.
+ */export const globalSignOut = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.GlobalSignOut" }, GlobalSignOutRequest, GlobalSignOutResponse, [ForbiddenException, InternalErrorException, InvalidParameterException, NotAuthorizedException, PasswordResetRequiredException, ResourceNotFoundException, TooManyRequestsException, UserNotConfirmedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Set the user's multi-factor authentication (MFA) method preference, including which
+ * MFA factors are activated and if any are preferred. Only one factor can be set as
+ * preferred. The preferred MFA factor will be used to authenticate a user if multiple
+ * factors are activated. If multiple options are activated and no preference is set, a
+ * challenge to choose an MFA option will be returned during sign-in. If an MFA type is
+ * activated for a user, the user will be prompted for MFA during all sign-in attempts
+ * unless device tracking is turned on and the device has been trusted. If you want MFA to
+ * be applied selectively based on the assessed risk level of sign-in attempts, deactivate
+ * MFA for users and turn on Adaptive Authentication for the user pool.
+ * 
+ * 
+ * Authorize this action with a signed-in user's access token. It must include the scope `aws.cognito.signin.user.admin`.
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you can't use IAM credentials to authorize requests, and you can't
+ * grant IAM permissions in policies. For more information about authorization models in
+ * Amazon Cognito, see Using the Amazon Cognito user pools API and user pool endpoints.
+ */export const setUserMFAPreference = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.SetUserMFAPreference" }, SetUserMFAPreferenceRequest, SetUserMFAPreferenceResponse, [ForbiddenException, InternalErrorException, InvalidParameterException, NotAuthorizedException, PasswordResetRequiredException, ResourceNotFoundException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * *This action is no longer supported.* You can use it to configure
+ * only SMS MFA. You can't use it to configure time-based one-time password (TOTP) software
+ * token or email MFA.
+ * 
+ * 
+ * Authorize this action with a signed-in user's access token. It must include the scope `aws.cognito.signin.user.admin`.
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you can't use IAM credentials to authorize requests, and you can't
+ * grant IAM permissions in policies. For more information about authorization models in
+ * Amazon Cognito, see Using the Amazon Cognito user pools API and user pool endpoints.
+ */export const setUserSettings = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.SetUserSettings" }, SetUserSettingsRequest, SetUserSettingsResponse, [ForbiddenException, InternalErrorException, InvalidParameterException, NotAuthorizedException, PasswordResetRequiredException, ResourceNotFoundException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Assigns a set of tags to an Amazon Cognito user pool. A tag is a label that you can use to
+ * categorize and manage user pools in different ways, such as by purpose, owner,
+ * environment, or other criteria.
+ * 
+ * 
+ * Each tag consists of a key and value, both of which you define. A key is a general
+ * category for more specific values. For example, if you have two versions of a user pool,
+ * one for testing and another for production, you might assign an `Environment`
+ * tag key to both user pools. The value of this key might be `Test` for one
+ * user pool, and `Production` for the other.
+ * 
+ * 
+ * Tags are useful for cost tracking and access control. You can activate your tags so
+ * that they appear on the Billing and Cost Management console, where you can track the
+ * costs associated with your user pools. In an Identity and Access Management policy, you can constrain
+ * permissions for user pools based on specific tags or tag values.
+ * 
+ * 
+ * You can use this action up to 5 times per second, per account. A user pool can have as
+ * many as 50 tags.
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.TagResource" }, TagResourceRequest, TagResourceResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Given tag IDs that you previously assigned to a user pool, removes them.
+ */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Provides the feedback for an authentication event generated by threat protection
+ * features. The user's response indicates that you think that the event either was from a
+ * valid user or was an unwanted authentication attempt. This feedback improves the risk
+ * evaluation decision for the user pool as part of Amazon Cognito threat protection.
+ * To activate this setting, your user pool must be on the
+ * Plus tier.
+ * 
+ * 
+ * This operation requires a `FeedbackToken` that Amazon Cognito generates and adds to
+ * notification emails when users have potentially suspicious authentication events. Users
+ * invoke this operation when they select the link that corresponds to
+ * `{one-click-link-valid}` or `{one-click-link-invalid}` in your
+ * notification template. Because `FeedbackToken` is a required parameter, you
+ * can't make requests to `UpdateAuthEventFeedback` without the contents of
+ * the notification email message.
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you can't use IAM credentials to authorize requests, and you can't
+ * grant IAM permissions in policies. For more information about authorization models in
+ * Amazon Cognito, see Using the Amazon Cognito user pools API and user pool endpoints.
+ */export const updateAuthEventFeedback = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.UpdateAuthEventFeedback" }, UpdateAuthEventFeedbackRequest, UpdateAuthEventFeedbackResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserNotFoundException, UserPoolAddOnNotEnabledException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates the status of a the currently signed-in user's device so that it is
+ * marked as remembered or not remembered for the purpose of device authentication. Device
+ * authentication is a "remember me" mechanism that silently completes sign-in from trusted
+ * devices with a device key instead of a user-provided MFA code. This operation changes
+ * the status of a device without deleting it, so you can enable it again later. For more
+ * information about device authentication, see Working with devices.
+ * 
+ * 
+ * Authorize this action with a signed-in user's access token. It must include the scope `aws.cognito.signin.user.admin`.
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you can't use IAM credentials to authorize requests, and you can't
+ * grant IAM permissions in policies. For more information about authorization models in
+ * Amazon Cognito, see Using the Amazon Cognito user pools API and user pool endpoints.
+ */export const updateDeviceStatus = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.UpdateDeviceStatus" }, UpdateDeviceStatusRequest, UpdateDeviceStatusResponse, [ForbiddenException, InternalErrorException, InvalidParameterException, InvalidUserPoolConfigurationException, NotAuthorizedException, PasswordResetRequiredException, ResourceNotFoundException, TooManyRequestsException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Adds a user to a group. A user who is in a group can present a preferred-role claim to
+ * an identity pool, and populates a `cognito:groups` claim to their access and
+ * identity tokens.
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you must use IAM credentials to authorize requests, and you must
+ * grant yourself the corresponding IAM permission in a policy.
+ * 
+ * 
+ * **Learn more**
+ * 
+ * 
+ * 
+ * 
+ * - Signing Amazon Web Services API Requests
+ * 
+ * 
+ * 
+ * 
+ * - Using the Amazon Cognito user pools API and user pool endpoints
+ */export const adminAddUserToGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminAddUserToGroup" }, AdminAddUserToGroupRequest, S.Struct({}), [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes a user profile in your user pool.
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you must use IAM credentials to authorize requests, and you must
+ * grant yourself the corresponding IAM permission in a policy.
+ * 
+ * 
+ * **Learn more**
+ * 
+ * 
+ * 
+ * 
+ * - Signing Amazon Web Services API Requests
+ * 
+ * 
+ * 
+ * 
+ * - Using the Amazon Cognito user pools API and user pool endpoints
+ */export const adminDeleteUser = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminDeleteUser" }, AdminDeleteUserRequest, S.Struct({}), [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes attribute values from a user. This operation doesn't affect tokens for
+ * existing user sessions. The next ID token that the user receives will no longer have the
+ * deleted attributes.
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you must use IAM credentials to authorize requests, and you must
+ * grant yourself the corresponding IAM permission in a policy.
+ * 
+ * 
+ * **Learn more**
+ * 
+ * 
+ * 
+ * 
+ * - Signing Amazon Web Services API Requests
+ * 
+ * 
+ * 
+ * 
+ * - Using the Amazon Cognito user pools API and user pool endpoints
+ */export const adminDeleteUserAttributes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminDeleteUserAttributes" }, AdminDeleteUserAttributesRequest, AdminDeleteUserAttributesResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Prevents the user from signing in with the specified external (SAML or social)
+ * identity provider (IdP). If the user that you want to deactivate is a Amazon Cognito user pools
+ * native username + password user, they can't use their password to sign in. If the user
+ * to deactivate is a linked external IdP user, any link between that user and an existing
+ * user is removed. When the external user signs in again, and the user is no longer
+ * attached to the previously linked `DestinationUser`, the user must create a
+ * new user account.
+ * 
+ * 
+ * The value of `ProviderName` must match the name of a user pool IdP.
+ * 
+ * 
+ * To deactivate a local user, set `ProviderName` to `Cognito` and
+ * the `ProviderAttributeName` to `Cognito_Subject`. The
+ * `ProviderAttributeValue` must be user's local username.
+ * 
+ * 
+ * The `ProviderAttributeName` must always be `Cognito_Subject` for
+ * social IdPs. The `ProviderAttributeValue` must always be the exact subject
+ * that was used when the user was originally linked as a source user.
+ * 
+ * 
+ * For de-linking a SAML identity, there are two scenarios. If the linked identity has
+ * not yet been used to sign in, the `ProviderAttributeName` and
+ * `ProviderAttributeValue` must be the same values that were used for the
+ * `SourceUser` when the identities were originally linked using
+ * AdminLinkProviderForUser call. This is also true if the linking was done with
+ * `ProviderAttributeName` set to `Cognito_Subject`. If the user
+ * has already signed in, the `ProviderAttributeName` must be
+ * `Cognito_Subject` and `ProviderAttributeValue` must be the
+ * `NameID` from their SAML assertion.
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you must use IAM credentials to authorize requests, and you must
+ * grant yourself the corresponding IAM permission in a policy.
+ * 
+ * 
+ * **Learn more**
+ * 
+ * 
+ * 
+ * 
+ * - Signing Amazon Web Services API Requests
+ * 
+ * 
+ * 
+ * 
+ * - Using the Amazon Cognito user pools API and user pool endpoints
+ */export const adminDisableProviderForUser = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminDisableProviderForUser" }, AdminDisableProviderForUserRequest, AdminDisableProviderForUserResponse, [AliasExistsException, InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deactivates a user profile and revokes all access tokens for the user. A deactivated
+ * user can't sign in, but still appears in the responses to `ListUsers`
+ * API requests.
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you must use IAM credentials to authorize requests, and you must
+ * grant yourself the corresponding IAM permission in a policy.
+ * 
+ * 
+ * **Learn more**
+ * 
+ * 
+ * 
+ * 
+ * - Signing Amazon Web Services API Requests
+ * 
+ * 
+ * 
+ * 
+ * - Using the Amazon Cognito user pools API and user pool endpoints
+ */export const adminDisableUser = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminDisableUser" }, AdminDisableUserRequest, AdminDisableUserResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Activates sign-in for a user profile that previously had sign-in access
+ * disabled.
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you must use IAM credentials to authorize requests, and you must
+ * grant yourself the corresponding IAM permission in a policy.
+ * 
+ * 
+ * **Learn more**
+ * 
+ * 
+ * 
+ * 
+ * - Signing Amazon Web Services API Requests
+ * 
+ * 
+ * 
+ * 
+ * - Using the Amazon Cognito user pools API and user pool endpoints
+ */export const adminEnableUser = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminEnableUser" }, AdminEnableUserRequest, AdminEnableUserResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Forgets, or deletes, a remembered device from a user's profile. After you forget
+ * the device, the user can no longer complete device authentication with that device and
+ * when applicable, must submit MFA codes again. For more information, see Working with devices.
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you must use IAM credentials to authorize requests, and you must
+ * grant yourself the corresponding IAM permission in a policy.
+ * 
+ * 
+ * **Learn more**
+ * 
+ * 
+ * 
+ * 
+ * - Signing Amazon Web Services API Requests
+ * 
+ * 
+ * 
+ * 
+ * - Using the Amazon Cognito user pools API and user pool endpoints
+ */export const adminForgetDevice = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminForgetDevice" }, AdminForgetDeviceRequest, S.Struct({}), [InternalErrorException, InvalidParameterException, InvalidUserPoolConfigurationException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Given a username, returns details about a user profile in a user pool. You can specify
+ * alias attributes in the `Username` request parameter.
+ * 
+ * 
+ * This operation contributes to your monthly active user (MAU) count for the purpose of
+ * billing.
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you must use IAM credentials to authorize requests, and you must
+ * grant yourself the corresponding IAM permission in a policy.
+ * 
+ * 
+ * **Learn more**
+ * 
+ * 
+ * 
+ * 
+ * - Signing Amazon Web Services API Requests
+ * 
+ * 
+ * 
+ * 
+ * - Using the Amazon Cognito user pools API and user pool endpoints
+ */export const adminGetUser = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminGetUser" }, AdminGetUserRequest, AdminGetUserResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Links an existing user account in a user pool, or `DestinationUser`, to an
+ * identity from an external IdP, or `SourceUser`, based on a specified
+ * attribute name and value from the external IdP.
+ * 
+ * 
+ * This operation connects a local user profile with a user identity who hasn't yet
+ * signed in from their third-party IdP. When the user signs in with their IdP, they get
+ * access-control configuration from the local user profile. Linked local users can also
+ * sign in with SDK-based API operations like `InitiateAuth` after they sign in
+ * at least once through their IdP. For more information, see Linking federated users.
+ * 
+ * 
+ * 
+ * 
+ * The maximum number of federated identities linked to a user is five.
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * Because this API allows a user with an external federated identity to sign in as a
+ * local user, it is critical that it only be used with external IdPs and linked
+ * attributes that you trust.
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you must use IAM credentials to authorize requests, and you must
+ * grant yourself the corresponding IAM permission in a policy.
+ * 
+ * 
+ * **Learn more**
+ * 
+ * 
+ * 
+ * 
+ * - Signing Amazon Web Services API Requests
+ * 
+ * 
+ * 
+ * 
+ * - Using the Amazon Cognito user pools API and user pool endpoints
+ */export const adminLinkProviderForUser = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminLinkProviderForUser" }, AdminLinkProviderForUserRequest, AdminLinkProviderForUserResponse, [AliasExistsException, InternalErrorException, InvalidParameterException, LimitExceededException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists a user's registered devices. Remembered devices are used in authentication
+ * services where you offer a "Remember me" option for users who you want to permit to sign
+ * in without MFA from a trusted device. Users can bypass MFA while your application
+ * performs device SRP authentication on the back end. For more information, see Working with devices.
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you must use IAM credentials to authorize requests, and you must
+ * grant yourself the corresponding IAM permission in a policy.
+ * 
+ * 
+ * **Learn more**
+ * 
+ * 
+ * 
+ * 
+ * - Signing Amazon Web Services API Requests
+ * 
+ * 
+ * 
+ * 
+ * - Using the Amazon Cognito user pools API and user pool endpoints
+ */export const adminListDevices = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminListDevices" }, AdminListDevicesRequest, AdminListDevicesResponse, [InternalErrorException, InvalidParameterException, InvalidUserPoolConfigurationException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Given a username and a group name, removes them from the group. User pool groups are
+ * identifiers that you can reference from the contents of ID and access tokens, and set
+ * preferred IAM roles for identity-pool authentication. For more information, see Adding groups to a user pool.
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you must use IAM credentials to authorize requests, and you must
+ * grant yourself the corresponding IAM permission in a policy.
+ * 
+ * 
+ * **Learn more**
+ * 
+ * 
+ * 
+ * 
+ * - Signing Amazon Web Services API Requests
+ * 
+ * 
+ * 
+ * 
+ * - Using the Amazon Cognito user pools API and user pool endpoints
+ */export const adminRemoveUserFromGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminRemoveUserFromGroup" }, AdminRemoveUserFromGroupRequest, S.Struct({}), [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Sets the user's multi-factor authentication (MFA) preference, including which MFA
+ * options are activated, and if any are preferred. Only one factor can be set as
+ * preferred. The preferred MFA factor will be used to authenticate a user if multiple
+ * factors are activated. If multiple options are activated and no preference is set, a
+ * challenge to choose an MFA option will be returned during sign-in.
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you must use IAM credentials to authorize requests, and you must
+ * grant yourself the corresponding IAM permission in a policy.
+ * 
+ * 
+ * **Learn more**
+ * 
+ * 
+ * 
+ * 
+ * - Signing Amazon Web Services API Requests
+ * 
+ * 
+ * 
+ * 
+ * - Using the Amazon Cognito user pools API and user pool endpoints
+ */export const adminSetUserMFAPreference = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminSetUserMFAPreference" }, AdminSetUserMFAPreferenceRequest, AdminSetUserMFAPreferenceResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, PasswordResetRequiredException, ResourceNotFoundException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * *This action is no longer supported.* You can use it to configure
+ * only SMS MFA. You can't use it to configure time-based one-time password (TOTP) software
+ * token MFA.
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you must use IAM credentials to authorize requests, and you must
+ * grant yourself the corresponding IAM permission in a policy.
+ * 
+ * 
+ * **Learn more**
+ * 
+ * 
+ * 
+ * 
+ * - Signing Amazon Web Services API Requests
+ * 
+ * 
+ * 
+ * 
+ * - Using the Amazon Cognito user pools API and user pool endpoints
+ */export const adminSetUserSettings = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminSetUserSettings" }, AdminSetUserSettingsRequest, AdminSetUserSettingsResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Provides the feedback for an authentication event generated by threat protection
+ * features. Your response indicates that you think that the event either was from a valid
+ * user or was an unwanted authentication attempt. This feedback improves the risk
+ * evaluation decision for the user pool as part of Amazon Cognito threat protection.
+ * To activate this setting, your user pool must be on the
+ * Plus tier.
+ * 
+ * 
+ * To train the threat-protection model to recognize trusted and untrusted sign-in
+ * characteristics, configure threat protection in audit-only mode and provide a mechanism
+ * for users or administrators to submit feedback. Your feedback can tell Amazon Cognito that a risk
+ * rating was assigned at a level you don't agree with.
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you must use IAM credentials to authorize requests, and you must
+ * grant yourself the corresponding IAM permission in a policy.
+ * 
+ * 
+ * **Learn more**
+ * 
+ * 
+ * 
+ * 
+ * - Signing Amazon Web Services API Requests
+ * 
+ * 
+ * 
+ * 
+ * - Using the Amazon Cognito user pools API and user pool endpoints
+ */export const adminUpdateAuthEventFeedback = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminUpdateAuthEventFeedback" }, AdminUpdateAuthEventFeedbackRequest, AdminUpdateAuthEventFeedbackResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserNotFoundException, UserPoolAddOnNotEnabledException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Changes the password for the currently signed-in user.
+ * 
+ * 
+ * Authorize this action with a signed-in user's access token. It must include the scope `aws.cognito.signin.user.admin`.
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you can't use IAM credentials to authorize requests, and you can't
+ * grant IAM permissions in policies. For more information about authorization models in
+ * Amazon Cognito, see Using the Amazon Cognito user pools API and user pool endpoints.
+ */export const changePassword = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.ChangePassword" }, ChangePasswordRequest, ChangePasswordResponse, [ForbiddenException, InternalErrorException, InvalidParameterException, InvalidPasswordException, LimitExceededException, NotAuthorizedException, PasswordHistoryPolicyViolationException, PasswordResetRequiredException, ResourceNotFoundException, TooManyRequestsException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes the profile of the currently signed-in user. A deleted user profile can no
+ * longer be used to sign in and can't be restored.
+ * 
+ * 
+ * Authorize this action with a signed-in user's access token. It must include the scope `aws.cognito.signin.user.admin`.
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you can't use IAM credentials to authorize requests, and you can't
+ * grant IAM permissions in policies. For more information about authorization models in
+ * Amazon Cognito, see Using the Amazon Cognito user pools API and user pool endpoints.
+ */export const deleteUser = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DeleteUser" }, DeleteUserRequest, S.Struct({}), [ForbiddenException, InternalErrorException, InvalidParameterException, NotAuthorizedException, PasswordResetRequiredException, ResourceNotFoundException, TooManyRequestsException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes attributes from the currently signed-in user. For example, your application
+ * can submit a request to this operation when a user wants to remove their
+ * `birthdate` attribute value.
+ * 
+ * 
+ * Authorize this action with a signed-in user's access token. It must include the scope `aws.cognito.signin.user.admin`.
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you can't use IAM credentials to authorize requests, and you can't
+ * grant IAM permissions in policies. For more information about authorization models in
+ * Amazon Cognito, see Using the Amazon Cognito user pools API and user pool endpoints.
+ */export const deleteUserAttributes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DeleteUserAttributes" }, DeleteUserAttributesRequest, DeleteUserAttributesResponse, [ForbiddenException, InternalErrorException, InvalidParameterException, NotAuthorizedException, PasswordResetRequiredException, ResourceNotFoundException, TooManyRequestsException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes a user pool. After you delete a user pool, users can no longer sign in to any
+ * associated applications.
+ * 
+ * 
+ * When you delete a user pool, it's no longer visible or operational in your Amazon Web Services account. Amazon Cognito retains deleted user pools in an inactive state for 14
+ * days, then begins a cleanup process that fully removes them from Amazon Web Services systems. In case
+ * of accidental deletion, contact Amazon Web ServicesSupport within 14 days for restoration
+ * assistance.
+ * 
+ * 
+ * Amazon Cognito begins full deletion of all resources from deleted user pools after 14 days. In
+ * the case of large user pools, the cleanup process might take significant additional time
+ * before all user data is permanently deleted.
+ */export const deleteUserPool = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DeleteUserPool" }, DeleteUserPoolRequest, S.Struct({}), [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserImportInProgressException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Given the ID of a user pool app client, returns detailed information about the style
+ * assigned to the app client.
+ */export const describeManagedLoginBrandingByClient = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DescribeManagedLoginBrandingByClient" }, DescribeManagedLoginBrandingByClientRequest, DescribeManagedLoginBrandingByClientResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Describes a user import job. For more information about user CSV import, see Importing users from a CSV file.
+ */export const describeUserImportJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DescribeUserImportJob" }, DescribeUserImportJobRequest, DescribeUserImportJobResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Given a user pool ID, generates a comma-separated value (CSV) list populated with
+ * available user attributes in the user pool. This list is the header for the CSV file
+ * that determines the users in a user import job. Save the content of
+ * `CSVHeader` in the response as a `.csv` file and populate it
+ * with the usernames and attributes of users that you want to import. For more information
+ * about CSV user import, see Importing users from a CSV file.
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you must use IAM credentials to authorize requests, and you must
+ * grant yourself the corresponding IAM permission in a policy.
+ * 
+ * 
+ * **Learn more**
+ * 
+ * 
+ * 
+ * 
+ * - Signing Amazon Web Services API Requests
+ * 
+ * 
+ * 
+ * 
+ * - Using the Amazon Cognito user pools API and user pool endpoints
+ */export const getCSVHeader = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.GetCSVHeader" }, GetCSVHeaderRequest, GetCSVHeaderResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Given a device key, returns information about a remembered device for the current
+ * user. For more information about device authentication, see Working with user devices in your user pool.
+ * 
+ * 
+ * Authorize this action with a signed-in user's access token. It must include the scope `aws.cognito.signin.user.admin`.
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you can't use IAM credentials to authorize requests, and you can't
+ * grant IAM permissions in policies. For more information about authorization models in
+ * Amazon Cognito, see Using the Amazon Cognito user pools API and user pool endpoints.
+ */export const getDevice = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.GetDevice" }, GetDeviceRequest, GetDeviceResponse, [ForbiddenException, InternalErrorException, InvalidParameterException, InvalidUserPoolConfigurationException, NotAuthorizedException, PasswordResetRequiredException, ResourceNotFoundException, TooManyRequestsException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Given a user pool ID and a group name, returns information about the user
+ * group.
+ * 
+ * 
+ * For more information about user pool groups, see Adding groups to a user pool.
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you must use IAM credentials to authorize requests, and you must
+ * grant yourself the corresponding IAM permission in a policy.
+ * 
+ * 
+ * **Learn more**
+ * 
+ * 
+ * 
+ * 
+ * - Signing Amazon Web Services API Requests
+ * 
+ * 
+ * 
+ * 
+ * - Using the Amazon Cognito user pools API and user pool endpoints
+ */export const getGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.GetGroup" }, GetGroupRequest, GetGroupResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Given the identifier of an identity provider (IdP), for example
+ * `examplecorp`, returns information about the user pool configuration for
+ * that IdP. For more information about IdPs, see Third-party IdP sign-in.
+ */export const getIdentityProviderByIdentifier = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.GetIdentityProviderByIdentifier" }, GetIdentityProviderByIdentifierRequest, GetIdentityProviderByIdentifierResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Given a user pool ID, returns the signing certificate for SAML 2.0 federation.
+ * 
+ * 
+ * Issued certificates are valid for 10 years from the date of issue. Amazon Cognito issues and
+ * assigns a new signing certificate annually. This renewal process returns a new value in
+ * the response to `GetSigningCertificate`, but doesn't invalidate the original
+ * certificate.
+ * 
+ * 
+ * For more information, see Signing SAML requests.
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you must use IAM credentials to authorize requests, and you must
+ * grant yourself the corresponding IAM permission in a policy.
+ * 
+ * 
+ * **Learn more**
+ * 
+ * 
+ * 
+ * 
+ * - Signing Amazon Web Services API Requests
+ * 
+ * 
+ * 
+ * 
+ * - Using the Amazon Cognito user pools API and user pool endpoints
+ */export const getSigningCertificate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.GetSigningCertificate" }, GetSigningCertificateRequest, GetSigningCertificateResponse, [InternalErrorException, InvalidParameterException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets user attributes and and MFA settings for the currently signed-in user.
+ * 
+ * 
+ * Authorize this action with a signed-in user's access token. It must include the scope `aws.cognito.signin.user.admin`.
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you can't use IAM credentials to authorize requests, and you can't
+ * grant IAM permissions in policies. For more information about authorization models in
+ * Amazon Cognito, see Using the Amazon Cognito user pools API and user pool endpoints.
+ */export const getUser = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.GetUser" }, GetUserRequest, GetUserResponse, [ForbiddenException, InternalErrorException, InvalidParameterException, NotAuthorizedException, PasswordResetRequiredException, ResourceNotFoundException, TooManyRequestsException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists the authentication options for the currently signed-in user. Returns the
+ * following:
+ * 
+ * 
+ * 
+ * - The user's multi-factor authentication (MFA) preferences.
+ * 
+ * 
+ * 
+ * - The user's options for choice-based authentication with the
+ * `USER_AUTH` flow.
+ * 
+ * 
+ * 
+ * 
+ * Authorize this action with a signed-in user's access token. It must include the scope `aws.cognito.signin.user.admin`.
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you can't use IAM credentials to authorize requests, and you can't
+ * grant IAM permissions in policies. For more information about authorization models in
+ * Amazon Cognito, see Using the Amazon Cognito user pools API and user pool endpoints.
+ */export const getUserAuthFactors = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.GetUserAuthFactors" }, GetUserAuthFactorsRequest, GetUserAuthFactorsResponse, [ForbiddenException, InternalErrorException, InvalidParameterException, NotAuthorizedException, PasswordResetRequiredException, ResourceNotFoundException, TooManyRequestsException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Given a user pool ID, returns configuration for sign-in with WebAuthn authenticators
+ * and for multi-factor authentication (MFA). This operation describes the
+ * following:
+ * 
+ * 
+ * 
+ * - The WebAuthn relying party (RP) ID and user-verification settings.
+ * 
+ * 
+ * 
+ * - The required, optional, or disabled state of MFA for all user pool
+ * users.
+ * 
+ * 
+ * 
+ * - The message templates for email and SMS MFA.
+ * 
+ * 
+ * 
+ * - The enabled or disabled state of time-based one-time password (TOTP)
+ * MFA.
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you must use IAM credentials to authorize requests, and you must
+ * grant yourself the corresponding IAM permission in a policy.
+ * 
+ * 
+ * **Learn more**
+ * 
+ * 
+ * 
+ * 
+ * - Signing Amazon Web Services API Requests
+ * 
+ * 
+ * 
+ * 
+ * - Using the Amazon Cognito user pools API and user pool endpoints
+ */export const getUserPoolMfaConfig = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.GetUserPoolMfaConfig" }, GetUserPoolMfaConfigRequest, GetUserPoolMfaConfigResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists the devices that Amazon Cognito has registered to the currently signed-in user. For more
+ * information about device authentication, see Working with user devices in your user pool.
+ * 
+ * 
+ * Authorize this action with a signed-in user's access token. It must include the scope `aws.cognito.signin.user.admin`.
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you can't use IAM credentials to authorize requests, and you can't
+ * grant IAM permissions in policies. For more information about authorization models in
+ * Amazon Cognito, see Using the Amazon Cognito user pools API and user pool endpoints.
+ */export const listDevices = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.ListDevices" }, ListDevicesRequest, ListDevicesResponse, [ForbiddenException, InternalErrorException, InvalidParameterException, InvalidUserPoolConfigurationException, NotAuthorizedException, PasswordResetRequiredException, ResourceNotFoundException, TooManyRequestsException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Given a user pool ID, returns user pool groups and their details.
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you must use IAM credentials to authorize requests, and you must
+ * grant yourself the corresponding IAM permission in a policy.
+ * 
+ * 
+ * **Learn more**
+ * 
+ * 
+ * 
+ * 
+ * - Signing Amazon Web Services API Requests
+ * 
+ * 
+ * 
+ * 
+ * - Using the Amazon Cognito user pools API and user pool endpoints
+ */export const listGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.ListGroups" }, ListGroupsRequest, ListGroupsResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Given a user pool ID, returns all resource servers and their details. For more
+ * information about resource servers, see Access control with resource servers.
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you must use IAM credentials to authorize requests, and you must
+ * grant yourself the corresponding IAM permission in a policy.
+ * 
+ * 
+ * **Learn more**
+ * 
+ * 
+ * 
+ * 
+ * - Signing Amazon Web Services API Requests
+ * 
+ * 
+ * 
+ * 
+ * - Using the Amazon Cognito user pools API and user pool endpoints
+ */export const listResourceServers = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.ListResourceServers" }, ListResourceServersRequest, ListResourceServersResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists the tags that are assigned to an Amazon Cognito user pool. For more information, see
+ * Tagging
+ * resources.
+ */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Given a user pool ID, returns user import jobs and their details. Import jobs are
+ * retained in user pool configuration so that you can stage, stop, start, review, and
+ * delete them. For more information about user import, see Importing users from a CSV file.
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you must use IAM credentials to authorize requests, and you must
+ * grant yourself the corresponding IAM permission in a policy.
+ * 
+ * 
+ * **Learn more**
+ * 
+ * 
+ * 
+ * 
+ * - Signing Amazon Web Services API Requests
+ * 
+ * 
+ * 
+ * 
+ * - Using the Amazon Cognito user pools API and user pool endpoints
+ */export const listUserImportJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.ListUserImportJobs" }, ListUserImportJobsRequest, ListUserImportJobsResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Given a user pool ID and a group name, returns a list of users in the group. For more
+ * information about user pool groups, see Adding groups to a user pool.
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you must use IAM credentials to authorize requests, and you must
+ * grant yourself the corresponding IAM permission in a policy.
+ * 
+ * 
+ * **Learn more**
+ * 
+ * 
+ * 
+ * 
+ * - Signing Amazon Web Services API Requests
+ * 
+ * 
+ * 
+ * 
+ * - Using the Amazon Cognito user pools API and user pool endpoints
+ */export const listUsersInGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.ListUsersInGroup" }, ListUsersInGroupRequest, ListUsersInGroupResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Configures UI branding settings for domains with the hosted UI (classic) branding
+ * version. Your user pool must have a domain. Configure a domain with .
+ * 
+ * 
+ * Set the default configuration for all clients with a `ClientId` of
+ * `ALL`. When the `ClientId` value is an app client ID, the
+ * settings you pass in this request apply to that app client and override the default
+ * `ALL` configuration.
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you must use IAM credentials to authorize requests, and you must
+ * grant yourself the corresponding IAM permission in a policy.
+ * 
+ * 
+ * **Learn more**
+ * 
+ * 
+ * 
+ * 
+ * - Signing Amazon Web Services API Requests
+ * 
+ * 
+ * 
+ * 
+ * - Using the Amazon Cognito user pools API and user pool endpoints
+ */export const setUICustomization = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.SetUICustomization" }, SetUICustomizationRequest, SetUICustomizationResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Instructs your user pool to stop a running job that's importing users from a CSV
+ * file that contains their usernames and attributes. For more information about importing
+ * users from a CSV file, see Importing users from a CSV file.
+ */export const stopUserImportJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.StopUserImportJob" }, StopUserImportJobRequest, StopUserImportJobResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, PreconditionNotMetException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Given the name of a user pool group, updates any of the properties for precedence,
+ * IAM role, or description. For more information about user pool groups, see Adding groups to a user pool.
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you must use IAM credentials to authorize requests, and you must
+ * grant yourself the corresponding IAM permission in a policy.
+ * 
+ * 
+ * **Learn more**
+ * 
+ * 
+ * 
+ * 
+ * - Signing Amazon Web Services API Requests
+ * 
+ * 
+ * 
+ * 
+ * - Using the Amazon Cognito user pools API and user pool endpoints
+ */export const updateGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.UpdateGroup" }, UpdateGroupRequest, UpdateGroupResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Modifies the configuration and trust relationship between a third-party identity
+ * provider (IdP) and a user pool. Amazon Cognito accepts sign-in with third-party identity
+ * providers through managed login and OIDC relying-party libraries. For more information,
+ * see Third-party IdP sign-in.
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you must use IAM credentials to authorize requests, and you must
+ * grant yourself the corresponding IAM permission in a policy.
+ * 
+ * 
+ * **Learn more**
+ * 
+ * 
+ * 
+ * 
+ * - Signing Amazon Web Services API Requests
+ * 
+ * 
+ * 
+ * 
+ * - Using the Amazon Cognito user pools API and user pool endpoints
+ */export const updateIdentityProvider = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.UpdateIdentityProvider" }, UpdateIdentityProviderRequest, UpdateIdentityProviderResponse, [ConcurrentModificationException, InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UnsupportedIdentityProviderException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Configures the branding settings for a user pool style. This operation is the
+ * programmatic option for the configuration of a style in the branding editor.
+ * 
+ * 
+ * Provides values for UI customization in a `Settings` JSON object and image
+ * files in an `Assets` array.
+ * 
+ * 
+ * This operation has a 2-megabyte request-size limit and include the CSS settings and
+ * image assets for your app client. Your branding settings might exceed 2MB in size. Amazon Cognito
+ * doesn't require that you pass all parameters in one request and preserves existing
+ * style settings that you don't specify. If your request is larger than 2MB, separate it
+ * into multiple requests, each with a size smaller than the limit.
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you must use IAM credentials to authorize requests, and you must
+ * grant yourself the corresponding IAM permission in a policy.
+ * 
+ * 
+ * **Learn more**
+ * 
+ * 
+ * 
+ * 
+ * - Signing Amazon Web Services API Requests
+ * 
+ * 
+ * 
+ * 
+ * - Using the Amazon Cognito user pools API and user pool endpoints
+ */export const updateManagedLoginBranding = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.UpdateManagedLoginBranding" }, UpdateManagedLoginBrandingRequest, UpdateManagedLoginBrandingResponse, [ConcurrentModificationException, InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates the name and scopes of a resource server. All other fields are read-only. For
+ * more information about resource servers, see Access control with resource servers.
+ * 
+ * 
+ * 
+ * 
+ * If you don't provide a value for an attribute, it is set to the default
+ * value.
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you must use IAM credentials to authorize requests, and you must
+ * grant yourself the corresponding IAM permission in a policy.
+ * 
+ * 
+ * **Learn more**
+ * 
+ * 
+ * 
+ * 
+ * - Signing Amazon Web Services API Requests
+ * 
+ * 
+ * 
+ * 
+ * - Using the Amazon Cognito user pools API and user pool endpoints
+ */export const updateResourceServer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.UpdateResourceServer" }, UpdateResourceServerRequest, UpdateResourceServerResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates the currently signed-in user's attributes. To delete an attribute from
+ * the user, submit the attribute in your API request with a blank value.
+ * 
+ * 
+ * For custom attributes, you must add a `custom:` prefix to the attribute
+ * name, for example `custom:department`.
+ * 
+ * 
+ * Authorize this action with a signed-in user's access token. It must include the scope `aws.cognito.signin.user.admin`.
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you can't use IAM credentials to authorize requests, and you can't
+ * grant IAM permissions in policies. For more information about authorization models in
+ * Amazon Cognito, see Using the Amazon Cognito user pools API and user pool endpoints.
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers
+ * require you to register an origination phone number before you can send SMS messages
+ * to US phone numbers. If you use SMS text messages in Amazon Cognito, you must register a
+ * phone number with Amazon Pinpoint.
+ * Amazon Cognito uses the registered number automatically. Otherwise, Amazon Cognito users who must
+ * receive SMS messages might not be able to sign up, activate their accounts, or sign
+ * in.
+ * 
+ * 
+ * If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Services service,
+ * Amazon Simple Notification Service might place your account in the SMS sandbox. In
+ * sandbox
+ * mode
+ * , you can send messages only to verified phone
+ * numbers. After you test your app while in the sandbox environment, you can move out
+ * of the sandbox and into production. For more information, see SMS message settings for Amazon Cognito user pools in the Amazon Cognito
+ * Developer Guide.
+ */export const updateUserAttributes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.UpdateUserAttributes" }, UpdateUserAttributesRequest, UpdateUserAttributesResponse, [AliasExistsException, CodeDeliveryFailureException, CodeMismatchException, ExpiredCodeException, ForbiddenException, InternalErrorException, InvalidEmailRoleAccessPolicyException, InvalidLambdaResponseException, InvalidParameterException, InvalidSmsRoleAccessPolicyException, InvalidSmsRoleTrustRelationshipException, NotAuthorizedException, PasswordResetRequiredException, ResourceNotFoundException, TooManyRequestsException, UnexpectedLambdaException, UserLambdaValidationException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * A user pool domain hosts managed login, an authorization server and web server for
+ * authentication in your application. This operation updates the branding version for user
+ * pool domains between `1` for hosted UI (classic) and `2` for
+ * managed login. It also updates the SSL certificate for user pool custom domains.
+ * 
+ * 
+ * Changes to the domain branding version take up to one minute to take effect for a
+ * prefix domain and up to five minutes for a custom domain.
+ * 
+ * 
+ * This operation doesn't change the name of your user pool domain. To change your
+ * domain, delete it with `DeleteUserPoolDomain` and create a new domain with
+ * `CreateUserPoolDomain`.
+ * 
+ * 
+ * You can pass the ARN of a new Certificate Manager certificate in this request. Typically, ACM
+ * certificates automatically renew and you user pool can continue to use the same ARN. But
+ * if you generate a new certificate for your custom domain name, replace the original
+ * configuration with the new ARN in this request.
+ * 
+ * 
+ * ACM certificates for custom domains must be in the US East (N. Virginia)
+ * Amazon Web Services Region. After you submit your request, Amazon Cognito requires up to 1 hour to distribute
+ * your new certificate to your custom domain.
+ * 
+ * 
+ * For more information about adding a custom domain to your user pool, see Configuring a user pool domain.
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you must use IAM credentials to authorize requests, and you must
+ * grant yourself the corresponding IAM permission in a policy.
+ * 
+ * 
+ * **Learn more**
+ * 
+ * 
+ * 
+ * 
+ * - Signing Amazon Web Services API Requests
+ * 
+ * 
+ * 
+ * 
+ * - Using the Amazon Cognito user pools API and user pool endpoints
+ */export const updateUserPoolDomain = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.UpdateUserPoolDomain" }, UpdateUserPoolDomainRequest, UpdateUserPoolDomainResponse, [ConcurrentModificationException, FeatureUnavailableInTierException, InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Submits a verification code for a signed-in user who has added or changed a value of
+ * an auto-verified attribute. When successful, the user's attribute becomes verified
+ * and the attribute `email_verified` or `phone_number_verified`
+ * becomes `true`.
+ * 
+ * 
+ * If your user pool requires verification before Amazon Cognito updates the attribute value,
+ * this operation updates the affected attribute to its pending value.
+ * 
+ * 
+ * Authorize this action with a signed-in user's access token. It must include the scope `aws.cognito.signin.user.admin`.
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you can't use IAM credentials to authorize requests, and you can't
+ * grant IAM permissions in policies. For more information about authorization models in
+ * Amazon Cognito, see Using the Amazon Cognito user pools API and user pool endpoints.
+ */export const verifyUserAttribute = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.VerifyUserAttribute" }, VerifyUserAttributeRequest, VerifyUserAttributeResponse, [AliasExistsException, CodeMismatchException, ExpiredCodeException, ForbiddenException, InternalErrorException, InvalidParameterException, LimitExceededException, NotAuthorizedException, PasswordResetRequiredException, ResourceNotFoundException, TooManyRequestsException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Adds additional user attributes to the user pool schema. Custom attributes can be
+ * mutable or immutable and have a `custom:` or `dev:` prefix. For
+ * more information, see Custom attributes.
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you must use IAM credentials to authorize requests, and you must
+ * grant yourself the corresponding IAM permission in a policy.
+ * 
+ * 
+ * **Learn more**
+ * 
+ * 
+ * 
+ * 
+ * - Signing Amazon Web Services API Requests
+ * 
+ * 
+ * 
+ * 
+ * - Using the Amazon Cognito user pools API and user pool endpoints
+ */export const addCustomAttributes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AddCustomAttributes" }, AddCustomAttributesRequest, AddCustomAttributesResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserImportInProgressException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Confirms user sign-up as an administrator.
+ * 
+ * 
+ * This request sets a user account active in a user pool that requires confirmation of new user accounts before they can sign in. You can
+ * configure your user pool to not send confirmation codes to new users and instead confirm
+ * them with this API operation on the back end.
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you must use IAM credentials to authorize requests, and you must
+ * grant yourself the corresponding IAM permission in a policy.
+ * 
+ * 
+ * **Learn more**
+ * 
+ * 
+ * 
+ * 
+ * - Signing Amazon Web Services API Requests
+ * 
+ * 
+ * 
+ * 
+ * - Using the Amazon Cognito user pools API and user pool endpoints
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * To configure your user pool to require administrative confirmation of users, set
+ * `AllowAdminCreateUserOnly` to `true` in a
+ * `CreateUserPool` or `UpdateUserPool` request.
+ */export const adminConfirmSignUp = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminConfirmSignUp" }, AdminConfirmSignUpRequest, AdminConfirmSignUpResponse, [InternalErrorException, InvalidLambdaResponseException, InvalidParameterException, LimitExceededException, NotAuthorizedException, ResourceNotFoundException, TooManyFailedAttemptsException, TooManyRequestsException, UnexpectedLambdaException, UserLambdaValidationException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Given the device key, returns details for a user's device. For more information,
+ * see Working with devices.
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you must use IAM credentials to authorize requests, and you must
+ * grant yourself the corresponding IAM permission in a policy.
+ * 
+ * 
+ * **Learn more**
+ * 
+ * 
+ * 
+ * 
+ * - Signing Amazon Web Services API Requests
+ * 
+ * 
+ * 
+ * 
+ * - Using the Amazon Cognito user pools API and user pool endpoints
+ */export const adminGetDevice = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminGetDevice" }, AdminGetDeviceRequest, AdminGetDeviceResponse, [InternalErrorException, InvalidParameterException, InvalidUserPoolConfigurationException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists the groups that a user belongs to. User pool groups are identifiers that you can
+ * reference from the contents of ID and access tokens, and set preferred IAM roles for
+ * identity-pool authentication. For more information, see Adding groups to a user pool.
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you must use IAM credentials to authorize requests, and you must
+ * grant yourself the corresponding IAM permission in a policy.
+ * 
+ * 
+ * **Learn more**
+ * 
+ * 
+ * 
+ * 
+ * - Signing Amazon Web Services API Requests
+ * 
+ * 
+ * 
+ * 
+ * - Using the Amazon Cognito user pools API and user pool endpoints
+ */export const adminListGroupsForUser = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminListGroupsForUser" }, AdminListGroupsForUserRequest, AdminListGroupsForUserResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Begins the password reset process. Sets the requested user’s account into a
+ * `RESET_REQUIRED` status, and sends them a password-reset code. Your user
+ * pool also sends the user a notification with a reset code and the information that their
+ * password has been reset. At sign-in, your application or the managed login session
+ * receives a challenge to complete the reset by confirming the code and setting a new
+ * password.
+ * 
+ * 
+ * To use this API operation, your user pool must have self-service account recovery
+ * configured.
+ * 
+ * 
+ * 
+ * 
+ * This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers
+ * require you to register an origination phone number before you can send SMS messages
+ * to US phone numbers. If you use SMS text messages in Amazon Cognito, you must register a
+ * phone number with Amazon Pinpoint.
+ * Amazon Cognito uses the registered number automatically. Otherwise, Amazon Cognito users who must
+ * receive SMS messages might not be able to sign up, activate their accounts, or sign
+ * in.
+ * 
+ * 
+ * If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Services service,
+ * Amazon Simple Notification Service might place your account in the SMS sandbox. In
+ * sandbox
+ * mode
+ * , you can send messages only to verified phone
+ * numbers. After you test your app while in the sandbox environment, you can move out
+ * of the sandbox and into production. For more information, see SMS message settings for Amazon Cognito user pools in the Amazon Cognito
+ * Developer Guide.
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you must use IAM credentials to authorize requests, and you must
+ * grant yourself the corresponding IAM permission in a policy.
+ * 
+ * 
+ * **Learn more**
+ * 
+ * 
+ * 
+ * 
+ * - Signing Amazon Web Services API Requests
+ * 
+ * 
+ * 
+ * 
+ * - Using the Amazon Cognito user pools API and user pool endpoints
+ */export const adminResetUserPassword = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminResetUserPassword" }, AdminResetUserPasswordRequest, AdminResetUserPasswordResponse, [InternalErrorException, InvalidEmailRoleAccessPolicyException, InvalidLambdaResponseException, InvalidParameterException, InvalidSmsRoleAccessPolicyException, InvalidSmsRoleTrustRelationshipException, LimitExceededException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UnexpectedLambdaException, UserLambdaValidationException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Some API operations in a user pool generate a challenge, like a prompt for an MFA
+ * code, for device authentication that bypasses MFA, or for a custom authentication
+ * challenge. An `AdminRespondToAuthChallenge` API request provides the answer
+ * to that challenge, like a code or a secure remote password (SRP). The parameters of a
+ * response to an authentication challenge vary with the type of challenge.
+ * 
+ * 
+ * For more information about custom authentication challenges, see Custom
+ * authentication challenge Lambda triggers.
+ * 
+ * 
+ * 
+ * 
+ * This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers
+ * require you to register an origination phone number before you can send SMS messages
+ * to US phone numbers. If you use SMS text messages in Amazon Cognito, you must register a
+ * phone number with Amazon Pinpoint.
+ * Amazon Cognito uses the registered number automatically. Otherwise, Amazon Cognito users who must
+ * receive SMS messages might not be able to sign up, activate their accounts, or sign
+ * in.
+ * 
+ * 
+ * If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Services service,
+ * Amazon Simple Notification Service might place your account in the SMS sandbox. In
+ * sandbox
+ * mode
+ * , you can send messages only to verified phone
+ * numbers. After you test your app while in the sandbox environment, you can move out
+ * of the sandbox and into production. For more information, see SMS message settings for Amazon Cognito user pools in the Amazon Cognito
+ * Developer Guide.
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you must use IAM credentials to authorize requests, and you must
+ * grant yourself the corresponding IAM permission in a policy.
+ * 
+ * 
+ * **Learn more**
+ * 
+ * 
+ * 
+ * 
+ * - Signing Amazon Web Services API Requests
+ * 
+ * 
+ * 
+ * 
+ * - Using the Amazon Cognito user pools API and user pool endpoints
+ */export const adminRespondToAuthChallenge = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminRespondToAuthChallenge" }, AdminRespondToAuthChallengeRequest, AdminRespondToAuthChallengeResponse, [AliasExistsException, CodeMismatchException, ExpiredCodeException, InternalErrorException, InvalidEmailRoleAccessPolicyException, InvalidLambdaResponseException, InvalidParameterException, InvalidPasswordException, InvalidSmsRoleAccessPolicyException, InvalidSmsRoleTrustRelationshipException, InvalidUserPoolConfigurationException, MFAMethodNotFoundException, NotAuthorizedException, PasswordHistoryPolicyViolationException, PasswordResetRequiredException, ResourceNotFoundException, SoftwareTokenMFANotFoundException, TooManyRequestsException, UnexpectedLambdaException, UserLambdaValidationException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Sets the specified user's password in a user pool. This operation administratively
+ * sets a temporary or permanent password for a user. With this operation, you can bypass
+ * self-service password changes and permit immediate sign-in with the password that you
+ * set. To do this, set `Permanent` to `true`.
+ * 
+ * 
+ * You can also set a new temporary password in this request, send it to a user, and
+ * require them to choose a new password on their next sign-in. To do this, set
+ * `Permanent` to `false`.
+ * 
+ * 
+ * If the password is temporary, the user's `Status` becomes
+ * `FORCE_CHANGE_PASSWORD`. When the user next tries to sign in, the
+ * `InitiateAuth` or `AdminInitiateAuth` response includes the
+ * `NEW_PASSWORD_REQUIRED` challenge. If the user doesn't sign in
+ * before the temporary password expires, they can no longer sign in and you must repeat
+ * this operation to set a temporary or permanent password for them.
+ * 
+ * 
+ * After the user sets a new password, or if you set a permanent password, their status
+ * becomes `Confirmed`.
+ * 
+ * 
+ * 
+ * `AdminSetUserPassword` can set a password for the user profile that Amazon Cognito
+ * creates for third-party federated users. When you set a password, the federated user's
+ * status changes from `EXTERNAL_PROVIDER` to `CONFIRMED`. A user in
+ * this state can sign in as a federated user, and initiate authentication flows in the API
+ * like a linked native user. They can also modify their password and attributes in
+ * token-authenticated API requests like `ChangePassword` and
+ * `UpdateUserAttributes`. As a best security practice and to keep users in
+ * sync with your external IdP, don't set passwords on federated user profiles. To set up a
+ * federated user for native sign-in with a linked native user, refer to Linking federated users to an existing user
+ * profile.
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you must use IAM credentials to authorize requests, and you must
+ * grant yourself the corresponding IAM permission in a policy.
+ * 
+ * 
+ * **Learn more**
+ * 
+ * 
+ * 
+ * 
+ * - Signing Amazon Web Services API Requests
+ * 
+ * 
+ * 
+ * 
+ * - Using the Amazon Cognito user pools API and user pool endpoints
+ */export const adminSetUserPassword = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminSetUserPassword" }, AdminSetUserPasswordRequest, AdminSetUserPasswordResponse, [InternalErrorException, InvalidParameterException, InvalidPasswordException, NotAuthorizedException, PasswordHistoryPolicyViolationException, ResourceNotFoundException, TooManyRequestsException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates the specified user's attributes. To delete an attribute from your user,
+ * submit the attribute in your API request with a blank value.
+ * 
+ * 
+ * For custom attributes, you must add a `custom:` prefix to the attribute
+ * name, for example `custom:department`.
+ * 
+ * 
+ * This operation can set a user's email address or phone number as verified and
+ * permit immediate sign-in in user pools that require verification of these attributes. To
+ * do this, set the `email_verified` or `phone_number_verified`
+ * attribute to `true`.
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you must use IAM credentials to authorize requests, and you must
+ * grant yourself the corresponding IAM permission in a policy.
+ * 
+ * 
+ * **Learn more**
+ * 
+ * 
+ * 
+ * 
+ * - Signing Amazon Web Services API Requests
+ * 
+ * 
+ * 
+ * 
+ * - Using the Amazon Cognito user pools API and user pool endpoints
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers
+ * require you to register an origination phone number before you can send SMS messages
+ * to US phone numbers. If you use SMS text messages in Amazon Cognito, you must register a
+ * phone number with Amazon Pinpoint.
+ * Amazon Cognito uses the registered number automatically. Otherwise, Amazon Cognito users who must
+ * receive SMS messages might not be able to sign up, activate their accounts, or sign
+ * in.
+ * 
+ * 
+ * If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Services service,
+ * Amazon Simple Notification Service might place your account in the SMS sandbox. In
+ * sandbox
+ * mode
+ * , you can send messages only to verified phone
+ * numbers. After you test your app while in the sandbox environment, you can move out
+ * of the sandbox and into production. For more information, see SMS message settings for Amazon Cognito user pools in the Amazon Cognito
+ * Developer Guide.
+ */export const adminUpdateUserAttributes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminUpdateUserAttributes" }, AdminUpdateUserAttributesRequest, AdminUpdateUserAttributesResponse, [AliasExistsException, InternalErrorException, InvalidEmailRoleAccessPolicyException, InvalidLambdaResponseException, InvalidParameterException, InvalidSmsRoleAccessPolicyException, InvalidSmsRoleTrustRelationshipException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UnexpectedLambdaException, UserLambdaValidationException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Begins setup of time-based one-time password (TOTP) multi-factor authentication (MFA)
+ * for a user, with a unique private key that Amazon Cognito generates and returns in the API
+ * response. You can authorize an `AssociateSoftwareToken` request with either
+ * the user's access token, or a session string from a challenge response that you received
+ * from Amazon Cognito.
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you can't use IAM credentials to authorize requests, and you can't
+ * grant IAM permissions in policies. For more information about authorization models in
+ * Amazon Cognito, see Using the Amazon Cognito user pools API and user pool endpoints.
+ * 
+ * 
+ * 
+ * 
+ * Authorize this action with a signed-in user's access token. It must include the scope `aws.cognito.signin.user.admin`.
+ */export const associateSoftwareToken = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AssociateSoftwareToken" }, AssociateSoftwareTokenRequest, AssociateSoftwareTokenResponse, [ConcurrentModificationException, ForbiddenException, InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, SoftwareTokenMFANotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * This public API operation accepts a confirmation code that Amazon Cognito sent to a user and
+ * accepts a new password for that user.
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you can't use IAM credentials to authorize requests, and you can't
+ * grant IAM permissions in policies. For more information about authorization models in
+ * Amazon Cognito, see Using the Amazon Cognito user pools API and user pool endpoints.
+ */export const confirmForgotPassword = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.ConfirmForgotPassword" }, ConfirmForgotPasswordRequest, ConfirmForgotPasswordResponse, [CodeMismatchException, ExpiredCodeException, ForbiddenException, InternalErrorException, InvalidLambdaResponseException, InvalidParameterException, InvalidPasswordException, LimitExceededException, NotAuthorizedException, PasswordHistoryPolicyViolationException, ResourceNotFoundException, TooManyFailedAttemptsException, TooManyRequestsException, UnexpectedLambdaException, UserLambdaValidationException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Confirms the account of a new user. This public API operation submits a code that
+ * Amazon Cognito sent to your user when they signed up in your user pool. After your user enters
+ * their code, they confirm ownership of the email address or phone number that they
+ * provided, and their user account becomes active. Depending on your user pool
+ * configuration, your users will receive their confirmation code in an email or SMS
+ * message.
+ * 
+ * 
+ * Local users who signed up in your user pool are the only type of user who can confirm
+ * sign-up with a code. Users who federate through an external identity provider (IdP) have
+ * already been confirmed by their IdP.
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you can't use IAM credentials to authorize requests, and you can't
+ * grant IAM permissions in policies. For more information about authorization models in
+ * Amazon Cognito, see Using the Amazon Cognito user pools API and user pool endpoints.
+ */export const confirmSignUp = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.ConfirmSignUp" }, ConfirmSignUpRequest, ConfirmSignUpResponse, [AliasExistsException, CodeMismatchException, ExpiredCodeException, ForbiddenException, InternalErrorException, InvalidLambdaResponseException, InvalidParameterException, LimitExceededException, NotAuthorizedException, ResourceNotFoundException, TooManyFailedAttemptsException, TooManyRequestsException, UnexpectedLambdaException, UserLambdaValidationException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a new group in the specified user pool. For more information about user pool
+ * groups, see Adding groups to a user pool.
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you must use IAM credentials to authorize requests, and you must
+ * grant yourself the corresponding IAM permission in a policy.
+ * 
+ * 
+ * **Learn more**
+ * 
+ * 
+ * 
+ * 
+ * - Signing Amazon Web Services API Requests
+ * 
+ * 
+ * 
+ * 
+ * - Using the Amazon Cognito user pools API and user pool endpoints
+ */export const createGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.CreateGroup" }, CreateGroupRequest, CreateGroupResponse, [GroupExistsException, InternalErrorException, InvalidParameterException, LimitExceededException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a new OAuth2.0 resource server and defines custom scopes within it. Resource
+ * servers are associated with custom scopes and machine-to-machine (M2M) authorization.
+ * For more information, see Access control with resource servers.
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you must use IAM credentials to authorize requests, and you must
+ * grant yourself the corresponding IAM permission in a policy.
+ * 
+ * 
+ * **Learn more**
+ * 
+ * 
+ * 
+ * 
+ * - Signing Amazon Web Services API Requests
+ * 
+ * 
+ * 
+ * 
+ * - Using the Amazon Cognito user pools API and user pool endpoints
+ */export const createResourceServer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.CreateResourceServer" }, CreateResourceServerRequest, CreateResourceServerResponse, [InternalErrorException, InvalidParameterException, LimitExceededException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates terms documents for the requested app client. When Terms and conditions and
+ * Privacy policy documents are configured, the app client displays links to them in the
+ * sign-up page of managed login for the app client.
+ * 
+ * 
+ * You can provide URLs for terms documents in the languages that are supported by managed login localization. Amazon Cognito directs users to the terms documents for
+ * their current language, with fallback to `default` if no document exists for
+ * the language.
+ * 
+ * 
+ * Each request accepts one type of terms document and a map of language-to-link for that
+ * document type. You must provide both types of terms documents in at least one language
+ * before Amazon Cognito displays your terms documents. Supply each type in separate
+ * requests.
+ * 
+ * 
+ * For more information, see Terms documents.
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you must use IAM credentials to authorize requests, and you must
+ * grant yourself the corresponding IAM permission in a policy.
+ * 
+ * 
+ * **Learn more**
+ * 
+ * 
+ * 
+ * 
+ * - Signing Amazon Web Services API Requests
+ * 
+ * 
+ * 
+ * 
+ * - Using the Amazon Cognito user pools API and user pool endpoints
+ */export const createTerms = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.CreateTerms" }, CreateTermsRequest, CreateTermsResponse, [ConcurrentModificationException, InternalErrorException, InvalidParameterException, LimitExceededException, NotAuthorizedException, ResourceNotFoundException, TermsExistsException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a user import job. You can import users into user pools from a comma-separated
+ * values (CSV) file without adding Amazon Cognito MAU costs to your Amazon Web Services bill.
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you must use IAM credentials to authorize requests, and you must
+ * grant yourself the corresponding IAM permission in a policy.
+ * 
+ * 
+ * **Learn more**
+ * 
+ * 
+ * 
+ * 
+ * - Signing Amazon Web Services API Requests
+ * 
+ * 
+ * 
+ * 
+ * - Using the Amazon Cognito user pools API and user pool endpoints
+ */export const createUserImportJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.CreateUserImportJob" }, CreateUserImportJobRequest, CreateUserImportJobResponse, [InternalErrorException, InvalidParameterException, LimitExceededException, NotAuthorizedException, PreconditionNotMetException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * A user pool domain hosts managed login, an authorization server and web server for
+ * authentication in your application. This operation creates a new user pool prefix domain
+ * or custom domain and sets the managed login branding version. Set the branding version
+ * to `1` for hosted UI (classic) or `2` for managed login. When you
+ * choose a custom domain, you must provide an SSL certificate in the US East (N. Virginia)
+ * Amazon Web Services Region in your request.
+ * 
+ * 
+ * Your prefix domain might take up to one minute to take effect. Your custom domain is
+ * online within five minutes, but it can take up to one hour to distribute your SSL
+ * certificate.
+ * 
+ * 
+ * For more information about adding a custom domain to your user pool, see Configuring a user pool domain.
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you must use IAM credentials to authorize requests, and you must
+ * grant yourself the corresponding IAM permission in a policy.
+ * 
+ * 
+ * **Learn more**
+ * 
+ * 
+ * 
+ * 
+ * - Signing Amazon Web Services API Requests
+ * 
+ * 
+ * 
+ * 
+ * - Using the Amazon Cognito user pools API and user pool endpoints
+ */export const createUserPoolDomain = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.CreateUserPoolDomain" }, CreateUserPoolDomainRequest, CreateUserPoolDomainResponse, [ConcurrentModificationException, FeatureUnavailableInTierException, InternalErrorException, InvalidParameterException, LimitExceededException, NotAuthorizedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes a user pool identity provider (IdP). After you delete an IdP, users can no
+ * longer sign in to your user pool through that IdP. For more information about user pool
+ * IdPs, see Third-party IdP sign-in.
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you must use IAM credentials to authorize requests, and you must
+ * grant yourself the corresponding IAM permission in a policy.
+ * 
+ * 
+ * **Learn more**
+ * 
+ * 
+ * 
+ * 
+ * - Signing Amazon Web Services API Requests
+ * 
+ * 
+ * 
+ * 
+ * - Using the Amazon Cognito user pools API and user pool endpoints
+ */export const deleteIdentityProvider = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DeleteIdentityProvider" }, DeleteIdentityProviderRequest, S.Struct({}), [ConcurrentModificationException, InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UnsupportedIdentityProviderException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Given a user pool ID and identity provider (IdP) name, returns details about the
+ * IdP.
+ */export const describeIdentityProvider = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DescribeIdentityProvider" }, DescribeIdentityProviderRequest, DescribeIdentityProviderResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Given the ID of a managed login branding style, returns detailed information about the
+ * style.
+ */export const describeManagedLoginBranding = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DescribeManagedLoginBranding" }, DescribeManagedLoginBrandingRequest, DescribeManagedLoginBrandingResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Describes a resource server. For more information about resource servers, see Access control with resource servers.
+ */export const describeResourceServer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DescribeResourceServer" }, DescribeResourceServerRequest, DescribeResourceServerResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Given an app client or user pool ID where threat protection is configured, describes
+ * the risk configuration. This operation returns details about adaptive authentication,
+ * compromised credentials, and IP-address allow- and denylists. For more information about
+ * threat protection, see Threat protection.
+ */export const describeRiskConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DescribeRiskConfiguration" }, DescribeRiskConfigurationRequest, DescribeRiskConfigurationResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserPoolAddOnNotEnabledException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns details for the requested terms documents ID. For more information, see Terms documents.
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you must use IAM credentials to authorize requests, and you must
+ * grant yourself the corresponding IAM permission in a policy.
+ * 
+ * 
+ * **Learn more**
+ * 
+ * 
+ * 
+ * 
+ * - Signing Amazon Web Services API Requests
+ * 
+ * 
+ * 
+ * 
+ * - Using the Amazon Cognito user pools API and user pool endpoints
+ */export const describeTerms = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DescribeTerms" }, DescribeTermsRequest, DescribeTermsResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Given an app client ID, returns configuration information. This operation is useful
+ * when you want to inspect an existing app client and programmatically replicate the
+ * configuration to another app client. For more information about app clients, see App clients.
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you must use IAM credentials to authorize requests, and you must
+ * grant yourself the corresponding IAM permission in a policy.
+ * 
+ * 
+ * **Learn more**
+ * 
+ * 
+ * 
+ * 
+ * - Signing Amazon Web Services API Requests
+ * 
+ * 
+ * 
+ * 
+ * - Using the Amazon Cognito user pools API and user pool endpoints
+ */export const describeUserPoolClient = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DescribeUserPoolClient" }, DescribeUserPoolClientRequest, DescribeUserPoolClientResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Given a user pool domain name, returns information about the domain
+ * configuration.
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you must use IAM credentials to authorize requests, and you must
+ * grant yourself the corresponding IAM permission in a policy.
+ * 
+ * 
+ * **Learn more**
+ * 
+ * 
+ * 
+ * 
+ * - Signing Amazon Web Services API Requests
+ * 
+ * 
+ * 
+ * 
+ * - Using the Amazon Cognito user pools API and user pool endpoints
+ */export const describeUserPoolDomain = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DescribeUserPoolDomain" }, DescribeUserPoolDomainRequest, DescribeUserPoolDomainResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Sends a password-reset confirmation code to the email address or phone number of the
+ * requested username. The message delivery method is determined by the user's
+ * available attributes and the `AccountRecoverySetting` configuration of the
+ * user pool.
+ * 
+ * 
+ * For the `Username` parameter, you can use the username or an email, phone,
+ * or preferred username alias.
+ * 
+ * 
+ * If neither a verified phone number nor a verified email exists, Amazon Cognito responds with an
+ * `InvalidParameterException` error . If your app client has a client
+ * secret and you don't provide a `SECRET_HASH` parameter, this API returns
+ * `NotAuthorizedException`.
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you can't use IAM credentials to authorize requests, and you can't
+ * grant IAM permissions in policies. For more information about authorization models in
+ * Amazon Cognito, see Using the Amazon Cognito user pools API and user pool endpoints.
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers
+ * require you to register an origination phone number before you can send SMS messages
+ * to US phone numbers. If you use SMS text messages in Amazon Cognito, you must register a
+ * phone number with Amazon Pinpoint.
+ * Amazon Cognito uses the registered number automatically. Otherwise, Amazon Cognito users who must
+ * receive SMS messages might not be able to sign up, activate their accounts, or sign
+ * in.
+ * 
+ * 
+ * If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Services service,
+ * Amazon Simple Notification Service might place your account in the SMS sandbox. In
+ * sandbox
+ * mode
+ * , you can send messages only to verified phone
+ * numbers. After you test your app while in the sandbox environment, you can move out
+ * of the sandbox and into production. For more information, see SMS message settings for Amazon Cognito user pools in the Amazon Cognito
+ * Developer Guide.
+ */export const forgotPassword = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.ForgotPassword" }, ForgotPasswordRequest, ForgotPasswordResponse, [CodeDeliveryFailureException, ForbiddenException, InternalErrorException, InvalidEmailRoleAccessPolicyException, InvalidLambdaResponseException, InvalidParameterException, InvalidSmsRoleAccessPolicyException, InvalidSmsRoleTrustRelationshipException, LimitExceededException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UnexpectedLambdaException, UserLambdaValidationException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Given a user pool ID, returns the logging configuration. User pools can export
+ * message-delivery error and threat-protection activity logs to external Amazon Web Services services. For more information, see Exporting user pool logs.
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you must use IAM credentials to authorize requests, and you must
+ * grant yourself the corresponding IAM permission in a policy.
+ * 
+ * 
+ * **Learn more**
+ * 
+ * 
+ * 
+ * 
+ * - Signing Amazon Web Services API Requests
+ * 
+ * 
+ * 
+ * 
+ * - Using the Amazon Cognito user pools API and user pool endpoints
+ */export const getLogDeliveryConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.GetLogDeliveryConfiguration" }, GetLogDeliveryConfigurationRequest, GetLogDeliveryConfigurationResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Given a user pool ID or app client, returns information about classic hosted UI
+ * branding that you applied, if any. Returns user-pool level branding information if no
+ * app client branding is applied, or if you don't specify an app client ID. Returns
+ * an empty object if you haven't applied hosted UI branding to either the client or
+ * the user pool. For more information, see Hosted UI (classic) branding.
+ */export const getUICustomization = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.GetUICustomization" }, GetUICustomizationRequest, GetUICustomizationResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Given an attribute name, sends a user attribute verification code for the specified
+ * attribute name to the currently signed-in user.
+ * 
+ * 
+ * Authorize this action with a signed-in user's access token. It must include the scope `aws.cognito.signin.user.admin`.
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you can't use IAM credentials to authorize requests, and you can't
+ * grant IAM permissions in policies. For more information about authorization models in
+ * Amazon Cognito, see Using the Amazon Cognito user pools API and user pool endpoints.
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers
+ * require you to register an origination phone number before you can send SMS messages
+ * to US phone numbers. If you use SMS text messages in Amazon Cognito, you must register a
+ * phone number with Amazon Pinpoint.
+ * Amazon Cognito uses the registered number automatically. Otherwise, Amazon Cognito users who must
+ * receive SMS messages might not be able to sign up, activate their accounts, or sign
+ * in.
+ * 
+ * 
+ * If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Services service,
+ * Amazon Simple Notification Service might place your account in the SMS sandbox. In
+ * sandbox
+ * mode
+ * , you can send messages only to verified phone
+ * numbers. After you test your app while in the sandbox environment, you can move out
+ * of the sandbox and into production. For more information, see SMS message settings for Amazon Cognito user pools in the Amazon Cognito
+ * Developer Guide.
+ */export const getUserAttributeVerificationCode = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.GetUserAttributeVerificationCode" }, GetUserAttributeVerificationCodeRequest, GetUserAttributeVerificationCodeResponse, [CodeDeliveryFailureException, ForbiddenException, InternalErrorException, InvalidEmailRoleAccessPolicyException, InvalidLambdaResponseException, InvalidParameterException, InvalidSmsRoleAccessPolicyException, InvalidSmsRoleTrustRelationshipException, LimitExceededException, NotAuthorizedException, PasswordResetRequiredException, ResourceNotFoundException, TooManyRequestsException, UnexpectedLambdaException, UserLambdaValidationException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Declares an authentication flow and initiates sign-in for a user in the Amazon Cognito user
+ * directory. Amazon Cognito might respond with an additional challenge or an
+ * `AuthenticationResult` that contains the outcome of a successful
+ * authentication. You can't sign in a user with a federated IdP with
+ * `InitiateAuth`. For more information, see Authentication.
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you can't use IAM credentials to authorize requests, and you can't
+ * grant IAM permissions in policies. For more information about authorization models in
+ * Amazon Cognito, see Using the Amazon Cognito user pools API and user pool endpoints.
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers
+ * require you to register an origination phone number before you can send SMS messages
+ * to US phone numbers. If you use SMS text messages in Amazon Cognito, you must register a
+ * phone number with Amazon Pinpoint.
+ * Amazon Cognito uses the registered number automatically. Otherwise, Amazon Cognito users who must
+ * receive SMS messages might not be able to sign up, activate their accounts, or sign
+ * in.
+ * 
+ * 
+ * If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Services service,
+ * Amazon Simple Notification Service might place your account in the SMS sandbox. In
+ * sandbox
+ * mode
+ * , you can send messages only to verified phone
+ * numbers. After you test your app while in the sandbox environment, you can move out
+ * of the sandbox and into production. For more information, see SMS message settings for Amazon Cognito user pools in the Amazon Cognito
+ * Developer Guide.
+ */export const initiateAuth = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.InitiateAuth" }, InitiateAuthRequest, InitiateAuthResponse, [ForbiddenException, InternalErrorException, InvalidEmailRoleAccessPolicyException, InvalidLambdaResponseException, InvalidParameterException, InvalidSmsRoleAccessPolicyException, InvalidSmsRoleTrustRelationshipException, InvalidUserPoolConfigurationException, NotAuthorizedException, PasswordResetRequiredException, ResourceNotFoundException, TooManyRequestsException, UnexpectedLambdaException, UnsupportedOperationException, UserLambdaValidationException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Given a user pool ID, returns information about configured identity providers (IdPs).
+ * For more information about IdPs, see Third-party IdP sign-in.
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you must use IAM credentials to authorize requests, and you must
+ * grant yourself the corresponding IAM permission in a policy.
+ * 
+ * 
+ * **Learn more**
+ * 
+ * 
+ * 
+ * 
+ * - Signing Amazon Web Services API Requests
+ * 
+ * 
+ * 
+ * 
+ * - Using the Amazon Cognito user pools API and user pool endpoints
+ */export const listIdentityProviders = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.ListIdentityProviders" }, ListIdentityProvidersRequest, ListIdentityProvidersResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns details about all terms documents for the requested user pool.
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you must use IAM credentials to authorize requests, and you must
+ * grant yourself the corresponding IAM permission in a policy.
+ * 
+ * 
+ * **Learn more**
+ * 
+ * 
+ * 
+ * 
+ * - Signing Amazon Web Services API Requests
+ * 
+ * 
+ * 
+ * 
+ * - Using the Amazon Cognito user pools API and user pool endpoints
+ */export const listTerms = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.ListTerms" }, ListTermsRequest, ListTermsResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Given a user pool ID, lists app clients. App clients are sets of rules for the access
+ * that you want a user pool to grant to one application. For more information, see App clients.
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you must use IAM credentials to authorize requests, and you must
+ * grant yourself the corresponding IAM permission in a policy.
+ * 
+ * 
+ * **Learn more**
+ * 
+ * 
+ * 
+ * 
+ * - Signing Amazon Web Services API Requests
+ * 
+ * 
+ * 
+ * 
+ * - Using the Amazon Cognito user pools API and user pool endpoints
+ */export const listUserPoolClients = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.ListUserPoolClients" }, ListUserPoolClientsRequest, ListUserPoolClientsResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists user pools and their details in the current Amazon Web Services account.
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you must use IAM credentials to authorize requests, and you must
+ * grant yourself the corresponding IAM permission in a policy.
+ * 
+ * 
+ * **Learn more**
+ * 
+ * 
+ * 
+ * 
+ * - Signing Amazon Web Services API Requests
+ * 
+ * 
+ * 
+ * 
+ * - Using the Amazon Cognito user pools API and user pool endpoints
+ */export const listUserPools = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.ListUserPools" }, ListUserPoolsRequest, ListUserPoolsResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Given a user pool ID, returns a list of users and their basic details in a user
+ * pool.
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you must use IAM credentials to authorize requests, and you must
+ * grant yourself the corresponding IAM permission in a policy.
+ * 
+ * 
+ * **Learn more**
+ * 
+ * 
+ * 
+ * 
+ * - Signing Amazon Web Services API Requests
+ * 
+ * 
+ * 
+ * 
+ * - Using the Amazon Cognito user pools API and user pool endpoints
+ */export const listUsers = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.ListUsers" }, ListUsersRequest, ListUsersResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Generates a list of the currently signed-in user's registered passkey, or
+ * WebAuthn, credentials.
+ * 
+ * 
+ * Authorize this action with a signed-in user's access token. It must include the scope `aws.cognito.signin.user.admin`.
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you can't use IAM credentials to authorize requests, and you can't
+ * grant IAM permissions in policies. For more information about authorization models in
+ * Amazon Cognito, see Using the Amazon Cognito user pools API and user pool endpoints.
+ */export const listWebAuthnCredentials = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.ListWebAuthnCredentials" }, ListWebAuthnCredentialsRequest, ListWebAuthnCredentialsResponse, [ForbiddenException, InternalErrorException, InvalidParameterException, LimitExceededException, NotAuthorizedException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Resends the code that confirms a new account for a user who has signed up in your user
+ * pool. Amazon Cognito sends confirmation codes to the user attribute in the
+ * `AutoVerifiedAttributes` property of your user pool. When you prompt new
+ * users for the confirmation code, include a "Resend code" option that generates a call to
+ * this API operation.
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you can't use IAM credentials to authorize requests, and you can't
+ * grant IAM permissions in policies. For more information about authorization models in
+ * Amazon Cognito, see Using the Amazon Cognito user pools API and user pool endpoints.
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers
+ * require you to register an origination phone number before you can send SMS messages
+ * to US phone numbers. If you use SMS text messages in Amazon Cognito, you must register a
+ * phone number with Amazon Pinpoint.
+ * Amazon Cognito uses the registered number automatically. Otherwise, Amazon Cognito users who must
+ * receive SMS messages might not be able to sign up, activate their accounts, or sign
+ * in.
+ * 
+ * 
+ * If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Services service,
+ * Amazon Simple Notification Service might place your account in the SMS sandbox. In
+ * sandbox
+ * mode
+ * , you can send messages only to verified phone
+ * numbers. After you test your app while in the sandbox environment, you can move out
+ * of the sandbox and into production. For more information, see SMS message settings for Amazon Cognito user pools in the Amazon Cognito
+ * Developer Guide.
+ */export const resendConfirmationCode = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.ResendConfirmationCode" }, ResendConfirmationCodeRequest, ResendConfirmationCodeResponse, [CodeDeliveryFailureException, ForbiddenException, InternalErrorException, InvalidEmailRoleAccessPolicyException, InvalidLambdaResponseException, InvalidParameterException, InvalidSmsRoleAccessPolicyException, InvalidSmsRoleTrustRelationshipException, LimitExceededException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UnexpectedLambdaException, UserLambdaValidationException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Some API operations in a user pool generate a challenge, like a prompt for an MFA
+ * code, for device authentication that bypasses MFA, or for a custom authentication
+ * challenge. A `RespondToAuthChallenge` API request provides the answer to that
+ * challenge, like a code or a secure remote password (SRP). The parameters of a response
+ * to an authentication challenge vary with the type of challenge.
+ * 
+ * 
+ * For more information about custom authentication challenges, see Custom
+ * authentication challenge Lambda triggers.
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you can't use IAM credentials to authorize requests, and you can't
+ * grant IAM permissions in policies. For more information about authorization models in
+ * Amazon Cognito, see Using the Amazon Cognito user pools API and user pool endpoints.
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers
+ * require you to register an origination phone number before you can send SMS messages
+ * to US phone numbers. If you use SMS text messages in Amazon Cognito, you must register a
+ * phone number with Amazon Pinpoint.
+ * Amazon Cognito uses the registered number automatically. Otherwise, Amazon Cognito users who must
+ * receive SMS messages might not be able to sign up, activate their accounts, or sign
+ * in.
+ * 
+ * 
+ * If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Services service,
+ * Amazon Simple Notification Service might place your account in the SMS sandbox. In
+ * sandbox
+ * mode
+ * , you can send messages only to verified phone
+ * numbers. After you test your app while in the sandbox environment, you can move out
+ * of the sandbox and into production. For more information, see SMS message settings for Amazon Cognito user pools in the Amazon Cognito
+ * Developer Guide.
+ */export const respondToAuthChallenge = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.RespondToAuthChallenge" }, RespondToAuthChallengeRequest, RespondToAuthChallengeResponse, [AliasExistsException, CodeMismatchException, ExpiredCodeException, ForbiddenException, InternalErrorException, InvalidEmailRoleAccessPolicyException, InvalidLambdaResponseException, InvalidParameterException, InvalidPasswordException, InvalidSmsRoleAccessPolicyException, InvalidSmsRoleTrustRelationshipException, InvalidUserPoolConfigurationException, MFAMethodNotFoundException, NotAuthorizedException, PasswordHistoryPolicyViolationException, PasswordResetRequiredException, ResourceNotFoundException, SoftwareTokenMFANotFoundException, TooManyRequestsException, UnexpectedLambdaException, UserLambdaValidationException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Sets user pool multi-factor authentication (MFA) and passkey configuration. For more
+ * information about user pool MFA, see Adding MFA. For more information about WebAuthn passkeys see Authentication flows.
+ * 
+ * 
+ * 
+ * 
+ * This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers
+ * require you to register an origination phone number before you can send SMS messages
+ * to US phone numbers. If you use SMS text messages in Amazon Cognito, you must register a
+ * phone number with Amazon Pinpoint.
+ * Amazon Cognito uses the registered number automatically. Otherwise, Amazon Cognito users who must
+ * receive SMS messages might not be able to sign up, activate their accounts, or sign
+ * in.
+ * 
+ * 
+ * If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Services service,
+ * Amazon Simple Notification Service might place your account in the SMS sandbox. In
+ * sandbox
+ * mode
+ * , you can send messages only to verified phone
+ * numbers. After you test your app while in the sandbox environment, you can move out
+ * of the sandbox and into production. For more information, see SMS message settings for Amazon Cognito user pools in the Amazon Cognito
+ * Developer Guide.
+ */export const setUserPoolMfaConfig = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.SetUserPoolMfaConfig" }, SetUserPoolMfaConfigRequest, SetUserPoolMfaConfigResponse, [ConcurrentModificationException, FeatureUnavailableInTierException, InternalErrorException, InvalidParameterException, InvalidSmsRoleAccessPolicyException, InvalidSmsRoleTrustRelationshipException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Registers a user with an app client and requests a user name, password, and user
+ * attributes in the user pool.
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you can't use IAM credentials to authorize requests, and you can't
+ * grant IAM permissions in policies. For more information about authorization models in
+ * Amazon Cognito, see Using the Amazon Cognito user pools API and user pool endpoints.
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers
+ * require you to register an origination phone number before you can send SMS messages
+ * to US phone numbers. If you use SMS text messages in Amazon Cognito, you must register a
+ * phone number with Amazon Pinpoint.
+ * Amazon Cognito uses the registered number automatically. Otherwise, Amazon Cognito users who must
+ * receive SMS messages might not be able to sign up, activate their accounts, or sign
+ * in.
+ * 
+ * 
+ * If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Services service,
+ * Amazon Simple Notification Service might place your account in the SMS sandbox. In
+ * sandbox
+ * mode
+ * , you can send messages only to verified phone
+ * numbers. After you test your app while in the sandbox environment, you can move out
+ * of the sandbox and into production. For more information, see SMS message settings for Amazon Cognito user pools in the Amazon Cognito
+ * Developer Guide.
+ * 
+ * 
+ * 
+ * 
+ * You might receive a `LimitExceeded` exception in response to this request
+ * if you have exceeded a rate quota for email or SMS messages, and if your user pool
+ * automatically verifies email addresses or phone numbers. When you get this exception in
+ * the response, the user is successfully created and is in an `UNCONFIRMED`
+ * state.
+ */export const signUp = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.SignUp" }, SignUpRequest, SignUpResponse, [CodeDeliveryFailureException, ForbiddenException, InternalErrorException, InvalidEmailRoleAccessPolicyException, InvalidLambdaResponseException, InvalidParameterException, InvalidPasswordException, InvalidSmsRoleAccessPolicyException, InvalidSmsRoleTrustRelationshipException, LimitExceededException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UnexpectedLambdaException, UserLambdaValidationException, UsernameExistsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Instructs your user pool to start importing users from a CSV file that contains their
+ * usernames and attributes. For more information about importing users from a CSV file,
+ * see Importing users from a CSV file.
+ */export const startUserImportJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.StartUserImportJob" }, StartUserImportJobRequest, StartUserImportJobResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, PreconditionNotMetException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Modifies existing terms documents for the requested app client. When Terms and
+ * conditions and Privacy policy documents are configured, the app client displays links to
+ * them in the sign-up page of managed login for the app client.
+ * 
+ * 
+ * You can provide URLs for terms documents in the languages that are supported by managed login localization. Amazon Cognito directs users to the terms documents for
+ * their current language, with fallback to `default` if no document exists for
+ * the language.
+ * 
+ * 
+ * Each request accepts one type of terms document and a map of language-to-link for that
+ * document type. You must provide both types of terms documents in at least one language
+ * before Amazon Cognito displays your terms documents. Supply each type in separate
+ * requests.
+ * 
+ * 
+ * For more information, see Terms documents.
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you must use IAM credentials to authorize requests, and you must
+ * grant yourself the corresponding IAM permission in a policy.
+ * 
+ * 
+ * **Learn more**
+ * 
+ * 
+ * 
+ * 
+ * - Signing Amazon Web Services API Requests
+ * 
+ * 
+ * 
+ * 
+ * - Using the Amazon Cognito user pools API and user pool endpoints
+ */export const updateTerms = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.UpdateTerms" }, UpdateTermsRequest, UpdateTermsResponse, [ConcurrentModificationException, InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TermsExistsException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates the configuration of a user pool. To avoid setting parameters to Amazon Cognito
+ * defaults, construct this API request to pass the existing configuration of your user
+ * pool, modified to include the changes that you want to make.
+ * 
+ * 
+ * 
+ * 
+ * If you don't provide a value for an attribute, Amazon Cognito sets it to its default value.
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers
+ * require you to register an origination phone number before you can send SMS messages
+ * to US phone numbers. If you use SMS text messages in Amazon Cognito, you must register a
+ * phone number with Amazon Pinpoint.
+ * Amazon Cognito uses the registered number automatically. Otherwise, Amazon Cognito users who must
+ * receive SMS messages might not be able to sign up, activate their accounts, or sign
+ * in.
+ * 
+ * 
+ * If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Services service,
+ * Amazon Simple Notification Service might place your account in the SMS sandbox. In
+ * sandbox
+ * mode
+ * , you can send messages only to verified phone
+ * numbers. After you test your app while in the sandbox environment, you can move out
+ * of the sandbox and into production. For more information, see SMS message settings for Amazon Cognito user pools in the Amazon Cognito
+ * Developer Guide.
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you must use IAM credentials to authorize requests, and you must
+ * grant yourself the corresponding IAM permission in a policy.
+ * 
+ * 
+ * **Learn more**
+ * 
+ * 
+ * 
+ * 
+ * - Signing Amazon Web Services API Requests
+ * 
+ * 
+ * 
+ * 
+ * - Using the Amazon Cognito user pools API and user pool endpoints
+ */export const updateUserPool = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.UpdateUserPool" }, UpdateUserPoolRequest, UpdateUserPoolResponse, [ConcurrentModificationException, FeatureUnavailableInTierException, InternalErrorException, InvalidEmailRoleAccessPolicyException, InvalidParameterException, InvalidSmsRoleAccessPolicyException, InvalidSmsRoleTrustRelationshipException, NotAuthorizedException, ResourceNotFoundException, TierChangeNotAllowedException, TooManyRequestsException, UserImportInProgressException, UserPoolTaggingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Given a user pool app client ID, updates the configuration. To avoid setting
+ * parameters to Amazon Cognito defaults, construct this API request to pass the existing
+ * configuration of your app client, modified to include the changes that you want to
+ * make.
+ * 
+ * 
+ * 
+ * 
+ * If you don't provide a value for an attribute, Amazon Cognito sets it to its default value.
+ * 
+ * 
+ * 
+ * 
+ * Unlike app clients created in the console, Amazon Cognito doesn't automatically assign a
+ * branding style to app clients that you configure with this API operation. Managed login and classic hosted UI pages aren't
+ * available for your client until after you apply a branding style.
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you must use IAM credentials to authorize requests, and you must
+ * grant yourself the corresponding IAM permission in a policy.
+ * 
+ * 
+ * **Learn more**
+ * 
+ * 
+ * 
+ * 
+ * - Signing Amazon Web Services API Requests
+ * 
+ * 
+ * 
+ * 
+ * - Using the Amazon Cognito user pools API and user pool endpoints
+ */export const updateUserPoolClient = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.UpdateUserPoolClient" }, UpdateUserPoolClientRequest, UpdateUserPoolClientResponse, [ConcurrentModificationException, FeatureUnavailableInTierException, InternalErrorException, InvalidOAuthFlowException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, ScopeDoesNotExistException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Registers the current user's time-based one-time password (TOTP) authenticator
+ * with a code generated in their authenticator app from a private key that's supplied
+ * by your user pool. Marks the user's software token MFA status as "verified" if
+ * successful. The request takes an access token or a session string, but not both.
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you can't use IAM credentials to authorize requests, and you can't
+ * grant IAM permissions in policies. For more information about authorization models in
+ * Amazon Cognito, see Using the Amazon Cognito user pools API and user pool endpoints.
+ */export const verifySoftwareToken = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.VerifySoftwareToken" }, VerifySoftwareTokenRequest, VerifySoftwareTokenResponse, [CodeMismatchException, EnableSoftwareTokenMFAException, ForbiddenException, InternalErrorException, InvalidParameterException, InvalidUserPoolConfigurationException, NotAuthorizedException, PasswordResetRequiredException, ResourceNotFoundException, SoftwareTokenMFANotFoundException, TooManyRequestsException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a new user in the specified user pool.
+ * 
+ * 
+ * If `MessageAction` isn't set, the default is to send a welcome message via
+ * email or phone (SMS).
+ * 
+ * 
+ * This message is based on a template that you configured in your call to create or
+ * update a user pool. This template includes your custom sign-up instructions and
+ * placeholders for user name and temporary password.
+ * 
+ * 
+ * Alternatively, you can call `AdminCreateUser` with `SUPPRESS`
+ * for the `MessageAction` parameter, and Amazon Cognito won't send any email.
+ * 
+ * 
+ * In either case, if the user has a password, they will be in the
+ * `FORCE_CHANGE_PASSWORD` state until they sign in and set their password.
+ * Your invitation message template must have the `{####}` password placeholder
+ * if your users have passwords. If your template doesn't have this placeholder, Amazon Cognito
+ * doesn't deliver the invitation message. In this case, you must update your message
+ * template and resend the password with a new `AdminCreateUser` request with a
+ * `MessageAction` value of `RESEND`.
+ * 
+ * 
+ * 
+ * 
+ * This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers
+ * require you to register an origination phone number before you can send SMS messages
+ * to US phone numbers. If you use SMS text messages in Amazon Cognito, you must register a
+ * phone number with Amazon Pinpoint.
+ * Amazon Cognito uses the registered number automatically. Otherwise, Amazon Cognito users who must
+ * receive SMS messages might not be able to sign up, activate their accounts, or sign
+ * in.
+ * 
+ * 
+ * If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Services service,
+ * Amazon Simple Notification Service might place your account in the SMS sandbox. In
+ * sandbox
+ * mode
+ * , you can send messages only to verified phone
+ * numbers. After you test your app while in the sandbox environment, you can move out
+ * of the sandbox and into production. For more information, see SMS message settings for Amazon Cognito user pools in the Amazon Cognito
+ * Developer Guide.
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you must use IAM credentials to authorize requests, and you must
+ * grant yourself the corresponding IAM permission in a policy.
+ * 
+ * 
+ * **Learn more**
+ * 
+ * 
+ * 
+ * 
+ * - Signing Amazon Web Services API Requests
+ * 
+ * 
+ * 
+ * 
+ * - Using the Amazon Cognito user pools API and user pool endpoints
+ */export const adminCreateUser = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminCreateUser" }, AdminCreateUserRequest, AdminCreateUserResponse, [CodeDeliveryFailureException, InternalErrorException, InvalidLambdaResponseException, InvalidParameterException, InvalidPasswordException, InvalidSmsRoleAccessPolicyException, InvalidSmsRoleTrustRelationshipException, NotAuthorizedException, PreconditionNotMetException, ResourceNotFoundException, TooManyRequestsException, UnexpectedLambdaException, UnsupportedUserStateException, UserLambdaValidationException, UsernameExistsException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Starts sign-in for applications with a server-side component, for example a
+ * traditional web application. This operation specifies the authentication flow that
+ * you'd like to begin. The authentication flow that you specify must be supported in
+ * your app client configuration. For more information about authentication flows, see
+ * Authentication flows.
+ * 
+ * 
+ * 
+ * 
+ * This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers
+ * require you to register an origination phone number before you can send SMS messages
+ * to US phone numbers. If you use SMS text messages in Amazon Cognito, you must register a
+ * phone number with Amazon Pinpoint.
+ * Amazon Cognito uses the registered number automatically. Otherwise, Amazon Cognito users who must
+ * receive SMS messages might not be able to sign up, activate their accounts, or sign
+ * in.
+ * 
+ * 
+ * If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Services service,
+ * Amazon Simple Notification Service might place your account in the SMS sandbox. In
+ * sandbox
+ * mode
+ * , you can send messages only to verified phone
+ * numbers. After you test your app while in the sandbox environment, you can move out
+ * of the sandbox and into production. For more information, see SMS message settings for Amazon Cognito user pools in the Amazon Cognito
+ * Developer Guide.
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you must use IAM credentials to authorize requests, and you must
+ * grant yourself the corresponding IAM permission in a policy.
+ * 
+ * 
+ * **Learn more**
+ * 
+ * 
+ * 
+ * 
+ * - Signing Amazon Web Services API Requests
+ * 
+ * 
+ * 
+ * 
+ * - Using the Amazon Cognito user pools API and user pool endpoints
+ */export const adminInitiateAuth = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminInitiateAuth" }, AdminInitiateAuthRequest, AdminInitiateAuthResponse, [InternalErrorException, InvalidEmailRoleAccessPolicyException, InvalidLambdaResponseException, InvalidParameterException, InvalidSmsRoleAccessPolicyException, InvalidSmsRoleTrustRelationshipException, InvalidUserPoolConfigurationException, MFAMethodNotFoundException, NotAuthorizedException, PasswordResetRequiredException, ResourceNotFoundException, TooManyRequestsException, UnexpectedLambdaException, UnsupportedOperationException, UserLambdaValidationException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Requests a history of user activity and any risks detected as part of Amazon Cognito threat
+ * protection. For more information, see Viewing user event history.
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you must use IAM credentials to authorize requests, and you must
+ * grant yourself the corresponding IAM permission in a policy.
+ * 
+ * 
+ * **Learn more**
+ * 
+ * 
+ * 
+ * 
+ * - Signing Amazon Web Services API Requests
+ * 
+ * 
+ * 
+ * 
+ * - Using the Amazon Cognito user pools API and user pool endpoints
+ */export const adminListUserAuthEvents = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.AdminListUserAuthEvents" }, AdminListUserAuthEventsRequest, AdminListUserAuthEventsResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserNotFoundException, UserPoolAddOnNotEnabledException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Confirms a device that a user wants to remember. A remembered device is a "Remember me
+ * on this device" option for user pools that perform authentication with the device key of
+ * a trusted device in the back end, instead of a user-provided MFA code. For more
+ * information about device authentication, see Working with user devices in your user pool.
+ * 
+ * 
+ * Authorize this action with a signed-in user's access token. It must include the scope `aws.cognito.signin.user.admin`.
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you can't use IAM credentials to authorize requests, and you can't
+ * grant IAM permissions in policies. For more information about authorization models in
+ * Amazon Cognito, see Using the Amazon Cognito user pools API and user pool endpoints.
+ */export const confirmDevice = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.ConfirmDevice" }, ConfirmDeviceRequest, ConfirmDeviceResponse, [DeviceKeyExistsException, ForbiddenException, InternalErrorException, InvalidLambdaResponseException, InvalidParameterException, InvalidPasswordException, InvalidUserPoolConfigurationException, NotAuthorizedException, PasswordResetRequiredException, ResourceNotFoundException, TooManyRequestsException, UsernameExistsException, UserNotConfirmedException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Adds a configuration and trust relationship between a third-party identity provider
+ * (IdP) and a user pool. Amazon Cognito accepts sign-in with third-party identity providers through
+ * managed login and OIDC relying-party libraries. For more information, see Third-party IdP sign-in.
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you must use IAM credentials to authorize requests, and you must
+ * grant yourself the corresponding IAM permission in a policy.
+ * 
+ * 
+ * **Learn more**
+ * 
+ * 
+ * 
+ * 
+ * - Signing Amazon Web Services API Requests
+ * 
+ * 
+ * 
+ * 
+ * - Using the Amazon Cognito user pools API and user pool endpoints
+ */export const createIdentityProvider = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.CreateIdentityProvider" }, CreateIdentityProviderRequest, CreateIdentityProviderResponse, [DuplicateProviderException, InternalErrorException, InvalidParameterException, LimitExceededException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a new set of branding settings for a user pool style and associates it with an
+ * app client. This operation is the programmatic option for the creation of a new style in
+ * the branding editor.
+ * 
+ * 
+ * Provides values for UI customization in a `Settings` JSON object and image
+ * files in an `Assets` array. To send the JSON object `Document`
+ * type parameter in `Settings`, you might need to update to the most recent
+ * version of your Amazon Web Services SDK. To create a new style with default settings, set
+ * `UseCognitoProvidedValues` to `true` and don't provide
+ * values for any other options.
+ * 
+ * 
+ * This operation has a 2-megabyte request-size limit and include the CSS settings and
+ * image assets for your app client. Your branding settings might exceed 2MB in size. Amazon Cognito
+ * doesn't require that you pass all parameters in one request and preserves existing
+ * style settings that you don't specify. If your request is larger than 2MB, separate it
+ * into multiple requests, each with a size smaller than the limit.
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you must use IAM credentials to authorize requests, and you must
+ * grant yourself the corresponding IAM permission in a policy.
+ * 
+ * 
+ * **Learn more**
+ * 
+ * 
+ * 
+ * 
+ * - Signing Amazon Web Services API Requests
+ * 
+ * 
+ * 
+ * 
+ * - Using the Amazon Cognito user pools API and user pool endpoints
+ */export const createManagedLoginBranding = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.CreateManagedLoginBranding" }, CreateManagedLoginBrandingRequest, CreateManagedLoginBrandingResponse, [ConcurrentModificationException, InternalErrorException, InvalidParameterException, LimitExceededException, ManagedLoginBrandingExistsException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a new Amazon Cognito user pool. This operation sets basic and advanced configuration
+ * options.
+ * 
+ * 
+ * 
+ * 
+ * If you don't provide a value for an attribute, Amazon Cognito sets it to its default value.
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers
+ * require you to register an origination phone number before you can send SMS messages
+ * to US phone numbers. If you use SMS text messages in Amazon Cognito, you must register a
+ * phone number with Amazon Pinpoint.
+ * Amazon Cognito uses the registered number automatically. Otherwise, Amazon Cognito users who must
+ * receive SMS messages might not be able to sign up, activate their accounts, or sign
+ * in.
+ * 
+ * 
+ * If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Services service,
+ * Amazon Simple Notification Service might place your account in the SMS sandbox. In
+ * sandbox
+ * mode
+ * , you can send messages only to verified phone
+ * numbers. After you test your app while in the sandbox environment, you can move out
+ * of the sandbox and into production. For more information, see SMS message settings for Amazon Cognito user pools in the Amazon Cognito
+ * Developer Guide.
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you must use IAM credentials to authorize requests, and you must
+ * grant yourself the corresponding IAM permission in a policy.
+ * 
+ * 
+ * **Learn more**
+ * 
+ * 
+ * 
+ * 
+ * - Signing Amazon Web Services API Requests
+ * 
+ * 
+ * 
+ * 
+ * - Using the Amazon Cognito user pools API and user pool endpoints
+ */export const createUserPool = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.CreateUserPool" }, CreateUserPoolRequest, CreateUserPoolResponse, [FeatureUnavailableInTierException, InternalErrorException, InvalidEmailRoleAccessPolicyException, InvalidParameterException, InvalidSmsRoleAccessPolicyException, InvalidSmsRoleTrustRelationshipException, LimitExceededException, NotAuthorizedException, TierChangeNotAllowedException, TooManyRequestsException, UserPoolTaggingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates an app client in a user pool. This operation sets basic and advanced
+ * configuration options.
+ * 
+ * 
+ * Unlike app clients created in the console, Amazon Cognito doesn't automatically assign a
+ * branding style to app clients that you configure with this API operation. Managed login and classic hosted UI pages aren't
+ * available for your client until after you apply a branding style.
+ * 
+ * 
+ * 
+ * 
+ * If you don't provide a value for an attribute, Amazon Cognito sets it to its default value.
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you must use IAM credentials to authorize requests, and you must
+ * grant yourself the corresponding IAM permission in a policy.
+ * 
+ * 
+ * **Learn more**
+ * 
+ * 
+ * 
+ * 
+ * - Signing Amazon Web Services API Requests
+ * 
+ * 
+ * 
+ * 
+ * - Using the Amazon Cognito user pools API and user pool endpoints
+ */export const createUserPoolClient = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.CreateUserPoolClient" }, CreateUserPoolClientRequest, CreateUserPoolClientResponse, [FeatureUnavailableInTierException, InternalErrorException, InvalidOAuthFlowException, InvalidParameterException, LimitExceededException, NotAuthorizedException, ResourceNotFoundException, ScopeDoesNotExistException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Given a user pool ID, returns configuration information. This operation is useful when
+ * you want to inspect an existing user pool and programmatically replicate the
+ * configuration to another user pool.
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you must use IAM credentials to authorize requests, and you must
+ * grant yourself the corresponding IAM permission in a policy.
+ * 
+ * 
+ * **Learn more**
+ * 
+ * 
+ * 
+ * 
+ * - Signing Amazon Web Services API Requests
+ * 
+ * 
+ * 
+ * 
+ * - Using the Amazon Cognito user pools API and user pool endpoints
+ */export const describeUserPool = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.DescribeUserPool" }, DescribeUserPoolRequest, DescribeUserPoolResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserPoolTaggingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Revokes all of the access tokens generated by, and at the same time as, the specified
+ * refresh token. After a token is revoked, you can't use the revoked token to access Amazon Cognito
+ * user APIs, or to authorize access to your resource server.
+ * 
+ * 
+ * 
+ * 
+ * Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
+ * this operation, you can't use IAM credentials to authorize requests, and you can't
+ * grant IAM permissions in policies. For more information about authorization models in
+ * Amazon Cognito, see Using the Amazon Cognito user pools API and user pool endpoints.
+ */export const revokeToken = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.RevokeToken" }, RevokeTokenRequest, RevokeTokenResponse, [ForbiddenException, InternalErrorException, InvalidParameterException, TooManyRequestsException, UnauthorizedException, UnsupportedOperationException, UnsupportedTokenTypeException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Sets up or modifies the logging configuration of a user pool. User pools can export
+ * user notification logs and, when threat protection is active, user-activity logs. For
+ * more information, see Exporting user
+ * pool logs.
+ */export const setLogDeliveryConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.SetLogDeliveryConfiguration" }, SetLogDeliveryConfigurationRequest, SetLogDeliveryConfigurationResponse, [FeatureUnavailableInTierException, InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Requests credential creation options from your user pool for the currently signed-in
+ * user. Returns information about the user pool, the user profile, and authentication
+ * requirements. Users must provide this information in their request to enroll your
+ * application with their passkey provider.
+ * 
+ * 
+ * Authorize this action with a signed-in user's access token. It must include the scope `aws.cognito.signin.user.admin`.
+ */export const startWebAuthnRegistration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.StartWebAuthnRegistration" }, StartWebAuthnRegistrationRequest, StartWebAuthnRegistrationResponse, [ForbiddenException, InternalErrorException, InvalidParameterException, LimitExceededException, NotAuthorizedException, TooManyRequestsException, WebAuthnConfigurationMissingException, WebAuthnNotEnabledException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Given a refresh token, issues new ID, access, and optionally refresh tokens for the
+ * user who owns the submitted token. This operation issues a new refresh token and
+ * invalidates the original refresh token after an optional grace period when refresh token
+ * rotation is enabled. If refresh token rotation is disabled, issues new ID and access
+ * tokens only.
+ */export const getTokensFromRefreshToken = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.GetTokensFromRefreshToken" }, GetTokensFromRefreshTokenRequest, GetTokensFromRefreshTokenResponse, [ForbiddenException, InternalErrorException, InvalidLambdaResponseException, InvalidParameterException, NotAuthorizedException, RefreshTokenReuseException, ResourceNotFoundException, TooManyRequestsException, UnexpectedLambdaException, UserLambdaValidationException, UserNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Configures threat protection for a user pool or app client. Sets configuration for the
+ * following.
+ * 
+ * 
+ * 
+ * - Responses to risks with adaptive authentication
+ * 
+ * 
+ * 
+ * - Responses to vulnerable passwords with compromised-credentials
+ * detection
+ * 
+ * 
+ * 
+ * - Notifications to users who have had risky activity detected
+ * 
+ * 
+ * 
+ * - IP-address denylist and allowlist
+ * 
+ * 
+ * 
+ * 
+ * 
+ * To set the risk configuration for the user pool to defaults, send this request with
+ * only the `UserPoolId` parameter. To reset the threat protection settings of
+ * an app client to be inherited from the user pool, send `UserPoolId` and
+ * `ClientId` parameters only. To change threat protection to audit-only or
+ * off, update the value of `UserPoolAddOns` in an `UpdateUserPool`
+ * request. To activate this setting, your user pool must be on the
+ * Plus tier.
+ */export const setRiskConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.SetRiskConfiguration" }, SetRiskConfigurationRequest, SetRiskConfigurationResponse, [CodeDeliveryFailureException, InternalErrorException, InvalidEmailRoleAccessPolicyException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException, UserPoolAddOnNotEnabledException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Completes registration of a passkey authenticator for the currently signed-in
+ * user.
+ * 
+ * 
+ * Authorize this action with a signed-in user's access token. It must include the scope `aws.cognito.signin.user.admin`.
+ */export const completeWebAuthnRegistration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-04-18", uri: "/", method: "POST", sdkId: "Cognito Identity Provider", sigV4ServiceName: "cognito-idp", name: "AWSCognitoIdentityProviderService.CompleteWebAuthnRegistration" }, CompleteWebAuthnRegistrationRequest, CompleteWebAuthnRegistrationResponse, [ForbiddenException, InternalErrorException, InvalidParameterException, LimitExceededException, NotAuthorizedException, TooManyRequestsException, WebAuthnChallengeNotFoundException, WebAuthnClientMismatchException, WebAuthnCredentialNotSupportedException, WebAuthnNotEnabledException, WebAuthnOriginNotAllowedException, WebAuthnRelyingPartyMismatchException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

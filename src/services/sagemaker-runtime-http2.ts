@@ -19,4 +19,19 @@ export class ModelStreamError extends S.TaggedError<ModelStreamError>()("ModelSt
 export class ServiceUnavailableError extends S.TaggedError<ServiceUnavailableError>()("ServiceUnavailableError", {Message: S.optional(S.String), ErrorCode: S.optional(S.String)}) {};
 
 //# Operations
-export const invokeEndpointWithBidirectionalStream = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2025-10-01", uri: "/endpoints/{EndpointName}/invocations-bidirectional-stream", method: "POST", sdkId: "SageMaker Runtime HTTP2", sigV4ServiceName: "sagemaker", name: "AmazonSageMakerRuntimeHttp2.InvokeEndpointWithBidirectionalStream" }, InvokeEndpointWithBidirectionalStreamInput, InvokeEndpointWithBidirectionalStreamOutput, [InputValidationError, InternalServerError, InternalStreamFailure, ModelError, ModelStreamError, ServiceUnavailableError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Invokes a model endpoint with bidirectional streaming capabilities. This operation establishes a persistent connection that allows you to send multiple requests and receive streaming responses from the model in real-time.
+ * 
+ * Bidirectional streaming is useful for interactive applications such as chatbots, real-time translation, or any scenario where you need to maintain a conversation-like interaction with the model. The connection remains open, allowing you to send additional input and receive responses without establishing a new connection for each request.
+ * 
+ * For an overview of Amazon SageMaker AI, see How It Works.
+ * 
+ * Amazon SageMaker AI strips all POST headers except those supported by the API. Amazon SageMaker AI might add additional headers. You should not rely on the behavior of headers outside those enumerated in the request syntax.
+ * 
+ * Calls to `InvokeEndpointWithBidirectionalStream` are authenticated by using Amazon Web Services Signature Version 4. For information, see Authenticating Requests (Amazon Web Services Signature Version 4) in the *Amazon S3 API Reference*.
+ * 
+ * The bidirectional stream maintains the connection until either the client closes it or the model indicates completion. Each request and response in the stream is sent as an event with optional headers for data type and completion state.
+ * 
+ * 
+ * Endpoints are scoped to an individual account, and are not public. The URL does not contain the account ID, but Amazon SageMaker AI determines the account ID from the authentication token that is supplied by the caller.
+ */export const invokeEndpointWithBidirectionalStream = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2025-10-01", uri: "/endpoints/{EndpointName}/invocations-bidirectional-stream", method: "POST", sdkId: "SageMaker Runtime HTTP2", sigV4ServiceName: "sagemaker", name: "AmazonSageMakerRuntimeHttp2.InvokeEndpointWithBidirectionalStream" }, InvokeEndpointWithBidirectionalStreamInput, InvokeEndpointWithBidirectionalStreamOutput, [InputValidationError, InternalServerError, InternalStreamFailure, ModelError, ModelStreamError, ServiceUnavailableError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

@@ -86,22 +86,132 @@ export class ServiceLimitExceededException extends S.TaggedError<ServiceLimitExc
 export class ThrottlingException extends S.TaggedError<ThrottlingException>()("ThrottlingException", {message: S.optional(S.String), code: S.optional(S.String)}) {};
 
 //# Operations
-export const listTagsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-25", uri: "/tags/{resourceArn}", method: "GET", sdkId: "signer", sigV4ServiceName: "signer", name: "WallabyService.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [BadRequestException, InternalServiceErrorException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const removeProfilePermission = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-25", uri: "/signing-profiles/{profileName}/permissions/{statementId}", method: "DELETE", sdkId: "signer", sigV4ServiceName: "signer", name: "WallabyService.RemoveProfilePermission" }, RemoveProfilePermissionRequest, RemoveProfilePermissionResponse, [AccessDeniedException, ConflictException, InternalServiceErrorException, ResourceNotFoundException, TooManyRequestsException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const revokeSignature = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-25", uri: "/signing-jobs/{jobId}/revoke", method: "PUT", sdkId: "signer", sigV4ServiceName: "signer", name: "WallabyService.RevokeSignature" }, RevokeSignatureRequest, S.Struct({}), [AccessDeniedException, InternalServiceErrorException, ResourceNotFoundException, TooManyRequestsException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const revokeSigningProfile = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-25", uri: "/signing-profiles/{profileName}/revoke", method: "PUT", sdkId: "signer", sigV4ServiceName: "signer", name: "WallabyService.RevokeSigningProfile" }, RevokeSigningProfileRequest, S.Struct({}), [AccessDeniedException, InternalServiceErrorException, ResourceNotFoundException, TooManyRequestsException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const tagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-25", uri: "/tags/{resourceArn}", method: "POST", sdkId: "signer", sigV4ServiceName: "signer", name: "WallabyService.TagResource" }, TagResourceRequest, TagResourceResponse, [BadRequestException, InternalServiceErrorException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const untagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-25", uri: "/tags/{resourceArn}", method: "DELETE", sdkId: "signer", sigV4ServiceName: "signer", name: "WallabyService.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [BadRequestException, InternalServiceErrorException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const cancelSigningProfile = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-25", uri: "/signing-profiles/{profileName}", method: "DELETE", sdkId: "signer", sigV4ServiceName: "signer", name: "WallabyService.CancelSigningProfile" }, CancelSigningProfileRequest, S.Struct({}), [AccessDeniedException, InternalServiceErrorException, ResourceNotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getRevocationStatus = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-25", uri: "/revocations", method: "GET", sdkId: "signer", sigV4ServiceName: "signer", name: "WallabyService.GetRevocationStatus" }, GetRevocationStatusRequest, GetRevocationStatusResponse, [AccessDeniedException, InternalServiceErrorException, TooManyRequestsException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getSigningProfile = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-25", uri: "/signing-profiles/{profileName}", method: "GET", sdkId: "signer", sigV4ServiceName: "signer", name: "WallabyService.GetSigningProfile" }, GetSigningProfileRequest, GetSigningProfileResponse, [AccessDeniedException, InternalServiceErrorException, ResourceNotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listProfilePermissions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-25", uri: "/signing-profiles/{profileName}/permissions", method: "GET", sdkId: "signer", sigV4ServiceName: "signer", name: "WallabyService.ListProfilePermissions" }, ListProfilePermissionsRequest, ListProfilePermissionsResponse, [AccessDeniedException, InternalServiceErrorException, ResourceNotFoundException, TooManyRequestsException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listSigningJobs = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-25", uri: "/signing-jobs", method: "GET", sdkId: "signer", sigV4ServiceName: "signer", name: "WallabyService.ListSigningJobs" }, ListSigningJobsRequest, ListSigningJobsResponse, [AccessDeniedException, InternalServiceErrorException, TooManyRequestsException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listSigningPlatforms = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-25", uri: "/signing-platforms", method: "GET", sdkId: "signer", sigV4ServiceName: "signer", name: "WallabyService.ListSigningPlatforms" }, ListSigningPlatformsRequest, ListSigningPlatformsResponse, [AccessDeniedException, InternalServiceErrorException, TooManyRequestsException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listSigningProfiles = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-25", uri: "/signing-profiles", method: "GET", sdkId: "signer", sigV4ServiceName: "signer", name: "WallabyService.ListSigningProfiles" }, ListSigningProfilesRequest, ListSigningProfilesResponse, [AccessDeniedException, InternalServiceErrorException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const signPayload = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-25", uri: "/signing-jobs/with-payload", method: "POST", sdkId: "signer", sigV4ServiceName: "signer", name: "WallabyService.SignPayload" }, SignPayloadRequest, SignPayloadResponse, [AccessDeniedException, InternalServiceErrorException, ResourceNotFoundException, TooManyRequestsException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const addProfilePermission = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-25", uri: "/signing-profiles/{profileName}/permissions", method: "POST", sdkId: "signer", sigV4ServiceName: "signer", name: "WallabyService.AddProfilePermission" }, AddProfilePermissionRequest, AddProfilePermissionResponse, [AccessDeniedException, ConflictException, InternalServiceErrorException, ResourceNotFoundException, ServiceLimitExceededException, TooManyRequestsException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeSigningJob = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-25", uri: "/signing-jobs/{jobId}", method: "GET", sdkId: "signer", sigV4ServiceName: "signer", name: "WallabyService.DescribeSigningJob" }, DescribeSigningJobRequest, DescribeSigningJobResponse, [AccessDeniedException, InternalServiceErrorException, ResourceNotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getSigningPlatform = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-25", uri: "/signing-platforms/{platformId}", method: "GET", sdkId: "signer", sigV4ServiceName: "signer", name: "WallabyService.GetSigningPlatform" }, GetSigningPlatformRequest, GetSigningPlatformResponse, [AccessDeniedException, InternalServiceErrorException, ResourceNotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const putSigningProfile = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-25", uri: "/signing-profiles/{profileName}", method: "PUT", sdkId: "signer", sigV4ServiceName: "signer", name: "WallabyService.PutSigningProfile" }, PutSigningProfileRequest, PutSigningProfileResponse, [AccessDeniedException, InternalServiceErrorException, ResourceNotFoundException, TooManyRequestsException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const startSigningJob = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-25", uri: "/signing-jobs", method: "POST", sdkId: "signer", sigV4ServiceName: "signer", name: "WallabyService.StartSigningJob" }, StartSigningJobRequest, StartSigningJobResponse, [AccessDeniedException, InternalServiceErrorException, ResourceNotFoundException, ThrottlingException, TooManyRequestsException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns a list of the tags associated with a signing profile resource.
+ */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-25", uri: "/tags/{resourceArn}", method: "GET", sdkId: "signer", sigV4ServiceName: "signer", name: "WallabyService.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [BadRequestException, InternalServiceErrorException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Removes cross-account permissions from a signing profile.
+ */export const removeProfilePermission = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-25", uri: "/signing-profiles/{profileName}/permissions/{statementId}", method: "DELETE", sdkId: "signer", sigV4ServiceName: "signer", name: "WallabyService.RemoveProfilePermission" }, RemoveProfilePermissionRequest, RemoveProfilePermissionResponse, [AccessDeniedException, ConflictException, InternalServiceErrorException, ResourceNotFoundException, TooManyRequestsException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Changes the state of a signing job to `REVOKED`. This indicates that the signature is no
+ * longer valid.
+ */export const revokeSignature = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-25", uri: "/signing-jobs/{jobId}/revoke", method: "PUT", sdkId: "signer", sigV4ServiceName: "signer", name: "WallabyService.RevokeSignature" }, RevokeSignatureRequest, S.Struct({}), [AccessDeniedException, InternalServiceErrorException, ResourceNotFoundException, TooManyRequestsException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Changes the state of a signing profile to `REVOKED`. This indicates that signatures
+ * generated using the signing profile after an effective start date are no longer
+ * valid. A revoked profile is still viewable with the `ListSigningProfiles`
+ * operation, but it cannot perform new signing jobs. See Data Retention
+ * for more information on scheduled deletion of a revoked signing profile.
+ */export const revokeSigningProfile = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-25", uri: "/signing-profiles/{profileName}/revoke", method: "PUT", sdkId: "signer", sigV4ServiceName: "signer", name: "WallabyService.RevokeSigningProfile" }, RevokeSigningProfileRequest, S.Struct({}), [AccessDeniedException, InternalServiceErrorException, ResourceNotFoundException, TooManyRequestsException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Adds one or more tags to a signing profile. Tags are labels that you can use to
+ * identify and organize your AWS resources. Each tag consists of a key and an optional
+ * value. To specify the signing profile, use its Amazon Resource Name (ARN). To specify
+ * the tag, use a key-value pair.
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-25", uri: "/tags/{resourceArn}", method: "POST", sdkId: "signer", sigV4ServiceName: "signer", name: "WallabyService.TagResource" }, TagResourceRequest, TagResourceResponse, [BadRequestException, InternalServiceErrorException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Removes one or more tags from a signing profile. To remove the tags, specify a list of
+ * tag keys.
+ */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-25", uri: "/tags/{resourceArn}", method: "DELETE", sdkId: "signer", sigV4ServiceName: "signer", name: "WallabyService.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [BadRequestException, InternalServiceErrorException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Changes the state of an `ACTIVE` signing profile to `CANCELED`.
+ * A canceled profile is still viewable with the `ListSigningProfiles`
+ * operation, but it cannot perform new signing jobs. See Data Retention for more information on scheduled deletion of a canceled signing profile.
+ */export const cancelSigningProfile = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-25", uri: "/signing-profiles/{profileName}", method: "DELETE", sdkId: "signer", sigV4ServiceName: "signer", name: "WallabyService.CancelSigningProfile" }, CancelSigningProfileRequest, S.Struct({}), [AccessDeniedException, InternalServiceErrorException, ResourceNotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves the revocation status of one or more of the signing profile, signing job,
+ * and signing certificate.
+ */export const getRevocationStatus = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-25", uri: "/revocations", method: "GET", sdkId: "signer", sigV4ServiceName: "signer", name: "WallabyService.GetRevocationStatus" }, GetRevocationStatusRequest, GetRevocationStatusResponse, [AccessDeniedException, InternalServiceErrorException, TooManyRequestsException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns information on a specific signing profile.
+ */export const getSigningProfile = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-25", uri: "/signing-profiles/{profileName}", method: "GET", sdkId: "signer", sigV4ServiceName: "signer", name: "WallabyService.GetSigningProfile" }, GetSigningProfileRequest, GetSigningProfileResponse, [AccessDeniedException, InternalServiceErrorException, ResourceNotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists the cross-account permissions associated with a signing profile.
+ */export const listProfilePermissions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-25", uri: "/signing-profiles/{profileName}/permissions", method: "GET", sdkId: "signer", sigV4ServiceName: "signer", name: "WallabyService.ListProfilePermissions" }, ListProfilePermissionsRequest, ListProfilePermissionsResponse, [AccessDeniedException, InternalServiceErrorException, ResourceNotFoundException, TooManyRequestsException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists all your signing jobs. You can use the `maxResults` parameter to limit the
+ * number of signing jobs that are returned in the response. If additional jobs remain to
+ * be listed, AWS Signer returns a `nextToken` value. Use this value in
+ * subsequent calls to `ListSigningJobs` to fetch the remaining values. You can
+ * continue calling `ListSigningJobs` with your `maxResults`
+ * parameter and with new values that Signer returns in the `nextToken`
+ * parameter until all of your signing jobs have been returned.
+ */export const listSigningJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-25", uri: "/signing-jobs", method: "GET", sdkId: "signer", sigV4ServiceName: "signer", name: "WallabyService.ListSigningJobs" }, ListSigningJobsRequest, ListSigningJobsResponse, [AccessDeniedException, InternalServiceErrorException, TooManyRequestsException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists all signing platforms available in AWS Signer that match the request parameters. If
+ * additional jobs remain to be listed, Signer returns a `nextToken` value.
+ * Use this value in subsequent calls to `ListSigningJobs` to fetch the
+ * remaining values. You can continue calling `ListSigningJobs` with your
+ * `maxResults` parameter and with new values that Signer returns in the
+ * `nextToken` parameter until all of your signing jobs have been
+ * returned.
+ */export const listSigningPlatforms = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-25", uri: "/signing-platforms", method: "GET", sdkId: "signer", sigV4ServiceName: "signer", name: "WallabyService.ListSigningPlatforms" }, ListSigningPlatformsRequest, ListSigningPlatformsResponse, [AccessDeniedException, InternalServiceErrorException, TooManyRequestsException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists all available signing profiles in your AWS account. Returns only profiles with an
+ * `ACTIVE` status unless the `includeCanceled` request field is
+ * set to `true`. If additional jobs remain to be listed, AWS Signer returns a
+ * `nextToken` value. Use this value in subsequent calls to
+ * `ListSigningJobs` to fetch the remaining values. You can continue calling
+ * `ListSigningJobs` with your `maxResults` parameter and with
+ * new values that Signer returns in the `nextToken` parameter until all of
+ * your signing jobs have been returned.
+ */export const listSigningProfiles = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-25", uri: "/signing-profiles", method: "GET", sdkId: "signer", sigV4ServiceName: "signer", name: "WallabyService.ListSigningProfiles" }, ListSigningProfilesRequest, ListSigningProfilesResponse, [AccessDeniedException, InternalServiceErrorException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Signs a binary payload and returns a signature envelope.
+ */export const signPayload = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-25", uri: "/signing-jobs/with-payload", method: "POST", sdkId: "signer", sigV4ServiceName: "signer", name: "WallabyService.SignPayload" }, SignPayloadRequest, SignPayloadResponse, [AccessDeniedException, InternalServiceErrorException, ResourceNotFoundException, TooManyRequestsException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Adds cross-account permissions to a signing profile.
+ */export const addProfilePermission = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-25", uri: "/signing-profiles/{profileName}/permissions", method: "POST", sdkId: "signer", sigV4ServiceName: "signer", name: "WallabyService.AddProfilePermission" }, AddProfilePermissionRequest, AddProfilePermissionResponse, [AccessDeniedException, ConflictException, InternalServiceErrorException, ResourceNotFoundException, ServiceLimitExceededException, TooManyRequestsException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns information about a specific code signing job. You specify the job by using the
+ * `jobId` value that is returned by the StartSigningJob
+ * operation.
+ */export const describeSigningJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-25", uri: "/signing-jobs/{jobId}", method: "GET", sdkId: "signer", sigV4ServiceName: "signer", name: "WallabyService.DescribeSigningJob" }, DescribeSigningJobRequest, DescribeSigningJobResponse, [AccessDeniedException, InternalServiceErrorException, ResourceNotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns information on a specific signing platform.
+ */export const getSigningPlatform = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-25", uri: "/signing-platforms/{platformId}", method: "GET", sdkId: "signer", sigV4ServiceName: "signer", name: "WallabyService.GetSigningPlatform" }, GetSigningPlatformRequest, GetSigningPlatformResponse, [AccessDeniedException, InternalServiceErrorException, ResourceNotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a signing profile. A signing profile is a code-signing template that can be used to
+ * carry out a pre-defined signing job.
+ */export const putSigningProfile = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-25", uri: "/signing-profiles/{profileName}", method: "PUT", sdkId: "signer", sigV4ServiceName: "signer", name: "WallabyService.PutSigningProfile" }, PutSigningProfileRequest, PutSigningProfileResponse, [AccessDeniedException, InternalServiceErrorException, ResourceNotFoundException, TooManyRequestsException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Initiates a signing job to be performed on the code provided. Signing jobs are
+ * viewable by the `ListSigningJobs` operation. Note the following requirements:
+ * 
+ * 
+ * 
+ * - You must create an Amazon S3 source bucket. For more information, see Creating a Bucket in the
+ * *Amazon S3 Getting Started Guide*.
+ * 
+ * 
+ * 
+ * - Your S3 source bucket must be version enabled.
+ * 
+ * 
+ * 
+ * - You must create an S3 destination bucket. AWS Signer uses your S3 destination bucket to
+ * write your signed code.
+ * 
+ * 
+ * 
+ * - You specify the name of the source and destination buckets when calling the
+ * `StartSigningJob` operation.
+ * 
+ * 
+ * 
+ * - You must ensure the S3 buckets are from the same Region as the signing profile. Cross-Region signing isn't supported.
+ * 
+ * 
+ * 
+ * - You must also specify a request token that identifies your request to Signer.
+ * 
+ * 
+ * 
+ * 
+ * 
+ * You can call the DescribeSigningJob and the ListSigningJobs actions after you call
+ * `StartSigningJob`.
+ * 
+ * 
+ * For a Java example that shows how to use this action, see StartSigningJob.
+ */export const startSigningJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-08-25", uri: "/signing-jobs", method: "POST", sdkId: "signer", sigV4ServiceName: "signer", name: "WallabyService.StartSigningJob" }, StartSigningJobRequest, StartSigningJobResponse, [AccessDeniedException, InternalServiceErrorException, ResourceNotFoundException, ThrottlingException, TooManyRequestsException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

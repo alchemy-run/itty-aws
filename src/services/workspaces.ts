@@ -374,94 +374,712 @@ export class InvalidParameterCombinationException extends S.TaggedError<InvalidP
 export class WorkspacesDefaultRoleNotFoundException extends S.TaggedError<WorkspacesDefaultRoleNotFoundException>()("WorkspacesDefaultRoleNotFoundException", {message: S.optional(S.String)}) {};
 
 //# Operations
-export const deleteConnectClientAddIn = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.DeleteConnectClientAddIn" }, DeleteConnectClientAddInRequest, DeleteConnectClientAddInResult, [AccessDeniedException, InvalidParameterValuesException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteTags = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.DeleteTags" }, DeleteTagsRequest, DeleteTagsResult, [InvalidParameterValuesException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteWorkspaceBundle = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.DeleteWorkspaceBundle" }, DeleteWorkspaceBundleRequest, DeleteWorkspaceBundleResult, [AccessDeniedException, InvalidParameterValuesException, ResourceAssociatedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteWorkspaceImage = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.DeleteWorkspaceImage" }, DeleteWorkspaceImageRequest, DeleteWorkspaceImageResult, [AccessDeniedException, InvalidResourceStateException, ResourceAssociatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeAccount = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.DescribeAccount" }, DescribeAccountRequest, DescribeAccountResult, [AccessDeniedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const disassociateConnectionAlias = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.DisassociateConnectionAlias" }, DisassociateConnectionAliasRequest, DisassociateConnectionAliasResult, [AccessDeniedException, InvalidParameterValuesException, InvalidResourceStateException, OperationNotSupportedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const disassociateIpGroups = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.DisassociateIpGroups" }, DisassociateIpGroupsRequest, DisassociateIpGroupsResult, [AccessDeniedException, InvalidParameterValuesException, InvalidResourceStateException, OperationNotSupportedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const modifyEndpointEncryptionMode = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.ModifyEndpointEncryptionMode" }, ModifyEndpointEncryptionModeRequest, ModifyEndpointEncryptionModeResponse, [AccessDeniedException, OperationNotSupportedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const modifyWorkspaceState = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.ModifyWorkspaceState" }, ModifyWorkspaceStateRequest, ModifyWorkspaceStateResult, [InvalidParameterValuesException, InvalidResourceStateException, OperationNotSupportedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const restoreWorkspace = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.RestoreWorkspace" }, RestoreWorkspaceRequest, RestoreWorkspaceResult, [AccessDeniedException, InvalidParameterValuesException, OperationNotSupportedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const revokeIpRules = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.RevokeIpRules" }, RevokeIpRulesRequest, RevokeIpRulesResult, [AccessDeniedException, InvalidParameterValuesException, InvalidResourceStateException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const stopWorkspacesPool = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.StopWorkspacesPool" }, StopWorkspacesPoolRequest, StopWorkspacesPoolResult, [AccessDeniedException, InvalidParameterValuesException, InvalidResourceStateException, OperationInProgressException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const terminateWorkspacesPool = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.TerminateWorkspacesPool" }, TerminateWorkspacesPoolRequest, TerminateWorkspacesPoolResult, [AccessDeniedException, InvalidParameterValuesException, InvalidResourceStateException, OperationInProgressException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const terminateWorkspacesPoolSession = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.TerminateWorkspacesPoolSession" }, TerminateWorkspacesPoolSessionRequest, TerminateWorkspacesPoolSessionResult, [AccessDeniedException, InvalidParameterValuesException, OperationInProgressException, OperationNotSupportedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateConnectClientAddIn = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.UpdateConnectClientAddIn" }, UpdateConnectClientAddInRequest, UpdateConnectClientAddInResult, [AccessDeniedException, InvalidParameterValuesException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateWorkspaceImagePermission = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.UpdateWorkspaceImagePermission" }, UpdateWorkspaceImagePermissionRequest, UpdateWorkspaceImagePermissionResult, [AccessDeniedException, InvalidParameterValuesException, OperationNotSupportedException, ResourceNotFoundException, ResourceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const associateConnectionAlias = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.AssociateConnectionAlias" }, AssociateConnectionAliasRequest, AssociateConnectionAliasResult, [AccessDeniedException, InvalidParameterValuesException, InvalidResourceStateException, OperationNotSupportedException, ResourceAssociatedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const associateIpGroups = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.AssociateIpGroups" }, AssociateIpGroupsRequest, AssociateIpGroupsResult, [AccessDeniedException, InvalidParameterValuesException, InvalidResourceStateException, OperationNotSupportedException, ResourceLimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const authorizeIpRules = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.AuthorizeIpRules" }, AuthorizeIpRulesRequest, AuthorizeIpRulesResult, [AccessDeniedException, InvalidParameterValuesException, InvalidResourceStateException, ResourceLimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const createConnectionAlias = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.CreateConnectionAlias" }, CreateConnectionAliasRequest, CreateConnectionAliasResult, [AccessDeniedException, InvalidParameterValuesException, InvalidResourceStateException, OperationNotSupportedException, ResourceAlreadyExistsException, ResourceLimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const createTags = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.CreateTags" }, CreateTagsRequest, CreateTagsResult, [InvalidParameterValuesException, ResourceLimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const createUpdatedWorkspaceImage = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.CreateUpdatedWorkspaceImage" }, CreateUpdatedWorkspaceImageRequest, CreateUpdatedWorkspaceImageResult, [AccessDeniedException, InvalidParameterValuesException, InvalidResourceStateException, OperationNotSupportedException, ResourceAlreadyExistsException, ResourceLimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteClientBranding = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.DeleteClientBranding" }, DeleteClientBrandingRequest, DeleteClientBrandingResult, [AccessDeniedException, InvalidParameterValuesException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteConnectionAlias = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.DeleteConnectionAlias" }, DeleteConnectionAliasRequest, DeleteConnectionAliasResult, [AccessDeniedException, InvalidParameterValuesException, InvalidResourceStateException, OperationNotSupportedException, ResourceAssociatedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteIpGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.DeleteIpGroup" }, DeleteIpGroupRequest, DeleteIpGroupResult, [AccessDeniedException, InvalidParameterValuesException, ResourceAssociatedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const deregisterWorkspaceDirectory = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.DeregisterWorkspaceDirectory" }, DeregisterWorkspaceDirectoryRequest, DeregisterWorkspaceDirectoryResult, [AccessDeniedException, InvalidParameterValuesException, InvalidResourceStateException, OperationNotSupportedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeConnectionAliasPermissions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.DescribeConnectionAliasPermissions" }, DescribeConnectionAliasPermissionsRequest, DescribeConnectionAliasPermissionsResult, [AccessDeniedException, InvalidParameterValuesException, OperationNotSupportedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeTags = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.DescribeTags" }, DescribeTagsRequest, DescribeTagsResult, [ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeWorkspaceAssociations = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.DescribeWorkspaceAssociations" }, DescribeWorkspaceAssociationsRequest, DescribeWorkspaceAssociationsResult, [AccessDeniedException, InvalidParameterValuesException, OperationNotSupportedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const importWorkspaceImage = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.ImportWorkspaceImage" }, ImportWorkspaceImageRequest, ImportWorkspaceImageResult, [AccessDeniedException, InvalidParameterValuesException, OperationNotSupportedException, ResourceAlreadyExistsException, ResourceLimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listAccountLinks = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.ListAccountLinks" }, ListAccountLinksRequest, ListAccountLinksResult, [AccessDeniedException, InternalServerException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listAvailableManagementCidrRanges = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.ListAvailableManagementCidrRanges" }, ListAvailableManagementCidrRangesRequest, ListAvailableManagementCidrRangesResult, [AccessDeniedException, InvalidParameterValuesException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const migrateWorkspace = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.MigrateWorkspace" }, MigrateWorkspaceRequest, MigrateWorkspaceResult, [AccessDeniedException, InvalidParameterValuesException, OperationInProgressException, OperationNotSupportedException, ResourceNotFoundException, ResourceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const modifyAccount = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.ModifyAccount" }, ModifyAccountRequest, ModifyAccountResult, [AccessDeniedException, InvalidParameterValuesException, InvalidResourceStateException, ResourceNotFoundException, ResourceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const modifyCertificateBasedAuthProperties = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.ModifyCertificateBasedAuthProperties" }, ModifyCertificateBasedAuthPropertiesRequest, ModifyCertificateBasedAuthPropertiesResult, [AccessDeniedException, InvalidParameterValuesException, OperationNotSupportedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const modifyClientProperties = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.ModifyClientProperties" }, ModifyClientPropertiesRequest, ModifyClientPropertiesResult, [AccessDeniedException, InvalidParameterValuesException, OperationNotSupportedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const modifySamlProperties = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.ModifySamlProperties" }, ModifySamlPropertiesRequest, ModifySamlPropertiesResult, [AccessDeniedException, InvalidParameterValuesException, OperationNotSupportedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const modifySelfservicePermissions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.ModifySelfservicePermissions" }, ModifySelfservicePermissionsRequest, ModifySelfservicePermissionsResult, [AccessDeniedException, InvalidParameterValuesException, OperationNotSupportedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const modifyWorkspaceCreationProperties = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.ModifyWorkspaceCreationProperties" }, ModifyWorkspaceCreationPropertiesRequest, ModifyWorkspaceCreationPropertiesResult, [AccessDeniedException, InvalidParameterValuesException, OperationNotSupportedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const rejectAccountLinkInvitation = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.RejectAccountLinkInvitation" }, RejectAccountLinkInvitationRequest, RejectAccountLinkInvitationResult, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const startWorkspacesPool = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.StartWorkspacesPool" }, StartWorkspacesPoolRequest, StartWorkspacesPoolResult, [AccessDeniedException, InvalidParameterValuesException, InvalidResourceStateException, OperationInProgressException, OperationNotSupportedException, ResourceLimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateConnectionAliasPermission = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.UpdateConnectionAliasPermission" }, UpdateConnectionAliasPermissionRequest, UpdateConnectionAliasPermissionResult, [AccessDeniedException, InvalidParameterValuesException, InvalidResourceStateException, OperationNotSupportedException, ResourceAssociatedException, ResourceLimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateRulesOfIpGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.UpdateRulesOfIpGroup" }, UpdateRulesOfIpGroupRequest, UpdateRulesOfIpGroupResult, [AccessDeniedException, InvalidParameterValuesException, InvalidResourceStateException, ResourceLimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateWorkspaceBundle = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.UpdateWorkspaceBundle" }, UpdateWorkspaceBundleRequest, UpdateWorkspaceBundleResult, [AccessDeniedException, InvalidParameterValuesException, OperationNotSupportedException, ResourceNotFoundException, ResourceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const acceptAccountLinkInvitation = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.AcceptAccountLinkInvitation" }, AcceptAccountLinkInvitationRequest, AcceptAccountLinkInvitationResult, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const copyWorkspaceImage = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.CopyWorkspaceImage" }, CopyWorkspaceImageRequest, CopyWorkspaceImageResult, [AccessDeniedException, InvalidParameterValuesException, OperationNotSupportedException, ResourceAlreadyExistsException, ResourceLimitExceededException, ResourceNotFoundException, ResourceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const createAccountLinkInvitation = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.CreateAccountLinkInvitation" }, CreateAccountLinkInvitationRequest, CreateAccountLinkInvitationResult, [AccessDeniedException, ConflictException, InternalServerException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const createConnectClientAddIn = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.CreateConnectClientAddIn" }, CreateConnectClientAddInRequest, CreateConnectClientAddInResult, [AccessDeniedException, InvalidParameterValuesException, ResourceAlreadyExistsException, ResourceCreationFailedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const createIpGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.CreateIpGroup" }, CreateIpGroupRequest, CreateIpGroupResult, [AccessDeniedException, InvalidParameterValuesException, ResourceAlreadyExistsException, ResourceCreationFailedException, ResourceLimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const createWorkspaceBundle = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.CreateWorkspaceBundle" }, CreateWorkspaceBundleRequest, CreateWorkspaceBundleResult, [AccessDeniedException, InvalidParameterValuesException, ResourceAlreadyExistsException, ResourceLimitExceededException, ResourceNotFoundException, ResourceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const createWorkspaceImage = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.CreateWorkspaceImage" }, CreateWorkspaceImageRequest, CreateWorkspaceImageResult, [AccessDeniedException, InvalidParameterValuesException, InvalidResourceStateException, OperationNotSupportedException, ResourceAlreadyExistsException, ResourceLimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const createWorkspacesPool = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.CreateWorkspacesPool" }, CreateWorkspacesPoolRequest, CreateWorkspacesPoolResult, [AccessDeniedException, InvalidParameterValuesException, OperationNotSupportedException, ResourceAlreadyExistsException, ResourceLimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteAccountLinkInvitation = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.DeleteAccountLinkInvitation" }, DeleteAccountLinkInvitationRequest, DeleteAccountLinkInvitationResult, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const deployWorkspaceApplications = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.DeployWorkspaceApplications" }, DeployWorkspaceApplicationsRequest, DeployWorkspaceApplicationsResult, [AccessDeniedException, IncompatibleApplicationsException, InvalidParameterValuesException, OperationNotSupportedException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeAccountModifications = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.DescribeAccountModifications" }, DescribeAccountModificationsRequest, DescribeAccountModificationsResult, [AccessDeniedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeApplicationAssociations = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.DescribeApplicationAssociations" }, DescribeApplicationAssociationsRequest, DescribeApplicationAssociationsResult, [AccessDeniedException, InvalidParameterValuesException, OperationNotSupportedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeApplications = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.DescribeApplications" }, DescribeApplicationsRequest, DescribeApplicationsResult, [AccessDeniedException, InvalidParameterValuesException, OperationNotSupportedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeBundleAssociations = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.DescribeBundleAssociations" }, DescribeBundleAssociationsRequest, DescribeBundleAssociationsResult, [AccessDeniedException, InvalidParameterValuesException, OperationNotSupportedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeClientBranding = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.DescribeClientBranding" }, DescribeClientBrandingRequest, DescribeClientBrandingResult, [AccessDeniedException, InvalidParameterValuesException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeClientProperties = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.DescribeClientProperties" }, DescribeClientPropertiesRequest, DescribeClientPropertiesResult, [AccessDeniedException, InvalidParameterValuesException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeConnectClientAddIns = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.DescribeConnectClientAddIns" }, DescribeConnectClientAddInsRequest, DescribeConnectClientAddInsResult, [AccessDeniedException, InvalidParameterValuesException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeCustomWorkspaceImageImport = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.DescribeCustomWorkspaceImageImport" }, DescribeCustomWorkspaceImageImportRequest, DescribeCustomWorkspaceImageImportResult, [AccessDeniedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeImageAssociations = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.DescribeImageAssociations" }, DescribeImageAssociationsRequest, DescribeImageAssociationsResult, [AccessDeniedException, InvalidParameterValuesException, OperationNotSupportedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeIpGroups = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.DescribeIpGroups" }, DescribeIpGroupsRequest, DescribeIpGroupsResult, [AccessDeniedException, InvalidParameterValuesException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeWorkspaceBundles = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.DescribeWorkspaceBundles" }, DescribeWorkspaceBundlesRequest, DescribeWorkspaceBundlesResult, [InvalidParameterValuesException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeWorkspaceImagePermissions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.DescribeWorkspaceImagePermissions" }, DescribeWorkspaceImagePermissionsRequest, DescribeWorkspaceImagePermissionsResult, [AccessDeniedException, InvalidParameterValuesException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeWorkspacesConnectionStatus = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.DescribeWorkspacesConnectionStatus" }, DescribeWorkspacesConnectionStatusRequest, DescribeWorkspacesConnectionStatusResult, [InvalidParameterValuesException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeWorkspaceSnapshots = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.DescribeWorkspaceSnapshots" }, DescribeWorkspaceSnapshotsRequest, DescribeWorkspaceSnapshotsResult, [AccessDeniedException, InvalidParameterValuesException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeWorkspacesPools = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.DescribeWorkspacesPools" }, DescribeWorkspacesPoolsRequest, DescribeWorkspacesPoolsResult, [AccessDeniedException, InvalidParameterValuesException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const disassociateWorkspaceApplication = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.DisassociateWorkspaceApplication" }, DisassociateWorkspaceApplicationRequest, DisassociateWorkspaceApplicationResult, [AccessDeniedException, InvalidParameterValuesException, OperationNotSupportedException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const getAccountLink = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.GetAccountLink" }, GetAccountLinkRequest, GetAccountLinkResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const importCustomWorkspaceImage = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.ImportCustomWorkspaceImage" }, ImportCustomWorkspaceImageRequest, ImportCustomWorkspaceImageResult, [AccessDeniedException, InvalidParameterValuesException, OperationNotSupportedException, ResourceAlreadyExistsException, ResourceLimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const modifyStreamingProperties = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.ModifyStreamingProperties" }, ModifyStreamingPropertiesRequest, ModifyStreamingPropertiesResult, [AccessDeniedException, InvalidParameterValuesException, OperationNotSupportedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const rebuildWorkspaces = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.RebuildWorkspaces" }, RebuildWorkspacesRequest, RebuildWorkspacesResult, [OperationNotSupportedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const startWorkspaces = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.StartWorkspaces" }, StartWorkspacesRequest, StartWorkspacesResult, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const stopWorkspaces = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.StopWorkspaces" }, StopWorkspacesRequest, StopWorkspacesResult, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const terminateWorkspaces = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.TerminateWorkspaces" }, TerminateWorkspacesRequest, TerminateWorkspacesResult, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const associateWorkspaceApplication = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.AssociateWorkspaceApplication" }, AssociateWorkspaceApplicationRequest, AssociateWorkspaceApplicationResult, [AccessDeniedException, ApplicationNotSupportedException, ComputeNotCompatibleException, IncompatibleApplicationsException, InvalidParameterValuesException, OperatingSystemNotCompatibleException, OperationNotSupportedException, ResourceAlreadyExistsException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const createStandbyWorkspaces = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.CreateStandbyWorkspaces" }, CreateStandbyWorkspacesRequest, CreateStandbyWorkspacesResult, [AccessDeniedException, InvalidParameterValuesException, OperationNotSupportedException, ResourceLimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const createWorkspaces = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.CreateWorkspaces" }, CreateWorkspacesRequest, CreateWorkspacesResult, [InvalidParameterValuesException, ResourceLimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeConnectionAliases = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.DescribeConnectionAliases" }, DescribeConnectionAliasesRequest, DescribeConnectionAliasesResult, [AccessDeniedException, InvalidParameterValuesException, OperationNotSupportedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeWorkspaceImages = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.DescribeWorkspaceImages" }, DescribeWorkspaceImagesRequest, DescribeWorkspaceImagesResult, [AccessDeniedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeWorkspaces = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.DescribeWorkspaces" }, DescribeWorkspacesRequest, DescribeWorkspacesResult, [InvalidParameterValuesException, ResourceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeWorkspacesPoolSessions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.DescribeWorkspacesPoolSessions" }, DescribeWorkspacesPoolSessionsRequest, DescribeWorkspacesPoolSessionsResult, [AccessDeniedException, InvalidParameterValuesException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const importClientBranding = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.ImportClientBranding" }, ImportClientBrandingRequest, ImportClientBrandingResult, [AccessDeniedException, InvalidParameterValuesException, ResourceLimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const modifyWorkspaceProperties = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.ModifyWorkspaceProperties" }, ModifyWorkspacePropertiesRequest, ModifyWorkspacePropertiesResult, [AccessDeniedException, InvalidParameterValuesException, InvalidResourceStateException, OperationInProgressException, ResourceNotFoundException, ResourceUnavailableException, UnsupportedWorkspaceConfigurationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const rebootWorkspaces = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.RebootWorkspaces" }, RebootWorkspacesRequest, RebootWorkspacesResult, [OperationNotSupportedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateWorkspacesPool = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.UpdateWorkspacesPool" }, UpdateWorkspacesPoolRequest, UpdateWorkspacesPoolResult, [AccessDeniedException, InvalidParameterValuesException, InvalidResourceStateException, OperationInProgressException, OperationNotSupportedException, ResourceLimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeWorkspaceDirectories = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.DescribeWorkspaceDirectories" }, DescribeWorkspaceDirectoriesRequest, DescribeWorkspaceDirectoriesResult, [InvalidParameterValuesException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const modifyWorkspaceAccessProperties = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.ModifyWorkspaceAccessProperties" }, ModifyWorkspaceAccessPropertiesRequest, ModifyWorkspaceAccessPropertiesResult, [AccessDeniedException, InvalidParameterCombinationException, InvalidParameterValuesException, OperationNotSupportedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const registerWorkspaceDirectory = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.RegisterWorkspaceDirectory" }, RegisterWorkspaceDirectoryRequest, RegisterWorkspaceDirectoryResult, [AccessDeniedException, InvalidParameterValuesException, InvalidResourceStateException, OperationNotSupportedException, ResourceAlreadyExistsException, ResourceLimitExceededException, ResourceNotFoundException, UnsupportedNetworkConfigurationException, WorkspacesDefaultRoleNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes a client-add-in for Amazon Connect that is configured within a
+ * directory.
+ */export const deleteConnectClientAddIn = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.DeleteConnectClientAddIn" }, DeleteConnectClientAddInRequest, DeleteConnectClientAddInResult, [AccessDeniedException, InvalidParameterValuesException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes the specified tags from the specified WorkSpaces resource.
+ */export const deleteTags = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.DeleteTags" }, DeleteTagsRequest, DeleteTagsResult, [InvalidParameterValuesException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes the specified WorkSpace bundle. For more information about deleting WorkSpace bundles, see
+ * 
+ * Delete a Custom WorkSpaces Bundle or Image.
+ */export const deleteWorkspaceBundle = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.DeleteWorkspaceBundle" }, DeleteWorkspaceBundleRequest, DeleteWorkspaceBundleResult, [AccessDeniedException, InvalidParameterValuesException, ResourceAssociatedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes the specified image from your account. To delete an image, you must first delete
+ * any bundles that are associated with the image and unshare the image if it is shared with
+ * other accounts.
+ */export const deleteWorkspaceImage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.DeleteWorkspaceImage" }, DeleteWorkspaceImageRequest, DeleteWorkspaceImageResult, [AccessDeniedException, InvalidResourceStateException, ResourceAssociatedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves a list that describes the configuration of Bring Your Own License (BYOL) for
+ * the specified account.
+ */export const describeAccount = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.DescribeAccount" }, DescribeAccountRequest, DescribeAccountResult, [AccessDeniedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Disassociates a connection alias from a directory. Disassociating a connection alias
+ * disables cross-Region redirection between two directories in different Regions. For more
+ * information, see Cross-Region
+ * Redirection for Amazon WorkSpaces.
+ * 
+ * 
+ * 
+ * 
+ * Before performing this operation, call
+ * DescribeConnectionAliases to make sure that the current state of the
+ * connection alias is `CREATED`.
+ */export const disassociateConnectionAlias = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.DisassociateConnectionAlias" }, DisassociateConnectionAliasRequest, DisassociateConnectionAliasResult, [AccessDeniedException, InvalidParameterValuesException, InvalidResourceStateException, OperationNotSupportedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Disassociates the specified IP access control group from the specified directory.
+ */export const disassociateIpGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.DisassociateIpGroups" }, DisassociateIpGroupsRequest, DisassociateIpGroupsResult, [AccessDeniedException, InvalidParameterValuesException, InvalidResourceStateException, OperationNotSupportedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Modifies the endpoint encryption mode that allows you to configure the specified
+ * directory between Standard TLS and FIPS 140-2 validated mode.
+ */export const modifyEndpointEncryptionMode = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.ModifyEndpointEncryptionMode" }, ModifyEndpointEncryptionModeRequest, ModifyEndpointEncryptionModeResponse, [AccessDeniedException, OperationNotSupportedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Sets the state of the specified WorkSpace.
+ * 
+ * 
+ * To maintain a WorkSpace without being interrupted, set the WorkSpace state to
+ * `ADMIN_MAINTENANCE`. WorkSpaces in this state do not respond to requests to
+ * reboot, stop, start, rebuild, or restore. An AutoStop WorkSpace in this state is not
+ * stopped. Users cannot log into a WorkSpace in the `ADMIN_MAINTENANCE`
+ * state.
+ */export const modifyWorkspaceState = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.ModifyWorkspaceState" }, ModifyWorkspaceStateRequest, ModifyWorkspaceStateResult, [InvalidParameterValuesException, InvalidResourceStateException, OperationNotSupportedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Restores the specified WorkSpace to its last known healthy state.
+ * 
+ * 
+ * You cannot restore a WorkSpace unless its state is ` AVAILABLE`,
+ * `ERROR`, `UNHEALTHY`, or `STOPPED`.
+ * 
+ * 
+ * Restoring a WorkSpace is a potentially destructive action that can result in the loss of
+ * data. For more information, see Restore a
+ * WorkSpace.
+ * 
+ * 
+ * This operation is asynchronous and returns before the WorkSpace is completely
+ * restored.
+ */export const restoreWorkspace = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.RestoreWorkspace" }, RestoreWorkspaceRequest, RestoreWorkspaceResult, [AccessDeniedException, InvalidParameterValuesException, OperationNotSupportedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Removes one or more rules from the specified IP access control group.
+ */export const revokeIpRules = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.RevokeIpRules" }, RevokeIpRulesRequest, RevokeIpRulesResult, [AccessDeniedException, InvalidParameterValuesException, InvalidResourceStateException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Stops the specified pool.
+ * 
+ * 
+ * You cannot stop a WorkSpace pool unless it has a running mode of `AutoStop`
+ * and a state of `AVAILABLE`, `IMPAIRED`, `UNHEALTHY`, or `ERROR`.
+ */export const stopWorkspacesPool = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.StopWorkspacesPool" }, StopWorkspacesPoolRequest, StopWorkspacesPoolResult, [AccessDeniedException, InvalidParameterValuesException, InvalidResourceStateException, OperationInProgressException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Terminates the specified pool.
+ */export const terminateWorkspacesPool = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.TerminateWorkspacesPool" }, TerminateWorkspacesPoolRequest, TerminateWorkspacesPoolResult, [AccessDeniedException, InvalidParameterValuesException, InvalidResourceStateException, OperationInProgressException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Terminates the pool session.
+ */export const terminateWorkspacesPoolSession = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.TerminateWorkspacesPoolSession" }, TerminateWorkspacesPoolSessionRequest, TerminateWorkspacesPoolSessionResult, [AccessDeniedException, InvalidParameterValuesException, OperationInProgressException, OperationNotSupportedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates a Amazon Connect client add-in. Use this action to update the name and
+ * endpoint URL of a Amazon Connect client add-in.
+ */export const updateConnectClientAddIn = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.UpdateConnectClientAddIn" }, UpdateConnectClientAddInRequest, UpdateConnectClientAddInResult, [AccessDeniedException, InvalidParameterValuesException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Shares or unshares an image with one account in the same Amazon Web Services Region by
+ * specifying whether that account has permission to copy the image. If the copy image
+ * permission is granted, the image is shared with that account. If the copy image permission
+ * is revoked, the image is unshared with the account.
+ * 
+ * 
+ * After an image has been shared, the recipient account can copy the image to other
+ * Regions as needed.
+ * 
+ * 
+ * In the China (Ningxia) Region, you can copy images only within the same Region.
+ * 
+ * 
+ * In Amazon Web Services GovCloud (US), to copy images to and from other Regions, contact Amazon Web ServicesSupport.
+ * 
+ * 
+ * For more information about sharing images, see Share or Unshare a Custom
+ * WorkSpaces Image.
+ * 
+ * 
+ * 
+ * 
+ * 
+ * - To delete an image that has been shared, you must unshare the image before you
+ * delete it.
+ * 
+ * 
+ * 
+ * - Sharing Bring Your Own License (BYOL) images across Amazon Web Services accounts
+ * isn't supported at this time in Amazon Web Services GovCloud (US). To share BYOL images
+ * across accounts in Amazon Web Services GovCloud (US), contact Amazon Web ServicesSupport.
+ */export const updateWorkspaceImagePermission = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.UpdateWorkspaceImagePermission" }, UpdateWorkspaceImagePermissionRequest, UpdateWorkspaceImagePermissionResult, [AccessDeniedException, InvalidParameterValuesException, OperationNotSupportedException, ResourceNotFoundException, ResourceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Associates the specified connection alias with the specified directory to enable
+ * cross-Region redirection. For more information, see Cross-Region
+ * Redirection for Amazon WorkSpaces.
+ * 
+ * 
+ * 
+ * 
+ * Before performing this operation, call
+ * DescribeConnectionAliases to make sure that the current state of the
+ * connection alias is `CREATED`.
+ */export const associateConnectionAlias = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.AssociateConnectionAlias" }, AssociateConnectionAliasRequest, AssociateConnectionAliasResult, [AccessDeniedException, InvalidParameterValuesException, InvalidResourceStateException, OperationNotSupportedException, ResourceAssociatedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Associates the specified IP access control group with the specified directory.
+ */export const associateIpGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.AssociateIpGroups" }, AssociateIpGroupsRequest, AssociateIpGroupsResult, [AccessDeniedException, InvalidParameterValuesException, InvalidResourceStateException, OperationNotSupportedException, ResourceLimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Adds one or more rules to the specified IP access control group.
+ * 
+ * 
+ * This action gives users permission to access their WorkSpaces from the CIDR address
+ * ranges specified in the rules.
+ */export const authorizeIpRules = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.AuthorizeIpRules" }, AuthorizeIpRulesRequest, AuthorizeIpRulesResult, [AccessDeniedException, InvalidParameterValuesException, InvalidResourceStateException, ResourceLimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates the specified connection alias for use with cross-Region redirection. For more
+ * information, see Cross-Region
+ * Redirection for Amazon WorkSpaces.
+ */export const createConnectionAlias = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.CreateConnectionAlias" }, CreateConnectionAliasRequest, CreateConnectionAliasResult, [AccessDeniedException, InvalidParameterValuesException, InvalidResourceStateException, OperationNotSupportedException, ResourceAlreadyExistsException, ResourceLimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates the specified tags for the specified WorkSpaces resource.
+ */export const createTags = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.CreateTags" }, CreateTagsRequest, CreateTagsResult, [InvalidParameterValuesException, ResourceLimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a new updated WorkSpace image based on the specified source image. The new
+ * updated WorkSpace image has the latest drivers and other updates required by the
+ * Amazon WorkSpaces components.
+ * 
+ * 
+ * To determine which WorkSpace images need to be updated with the latest Amazon WorkSpaces
+ * requirements, use
+ * DescribeWorkspaceImages.
+ * 
+ * 
+ * 
+ * 
+ * 
+ * - Only Windows 10, Windows Server 2016, and Windows Server 2019 WorkSpace images
+ * can be programmatically updated at this time.
+ * 
+ * 
+ * 
+ * - Microsoft Windows updates and other application updates are not included in the
+ * update process.
+ * 
+ * 
+ * 
+ * - The source WorkSpace image is not deleted. You can delete the source image
+ * after you've verified your new updated image and created a new bundle.
+ */export const createUpdatedWorkspaceImage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.CreateUpdatedWorkspaceImage" }, CreateUpdatedWorkspaceImageRequest, CreateUpdatedWorkspaceImageResult, [AccessDeniedException, InvalidParameterValuesException, InvalidResourceStateException, OperationNotSupportedException, ResourceAlreadyExistsException, ResourceLimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes customized client branding. Client branding allows you to customize your
+ * WorkSpace's client login portal. You can tailor your login portal company logo, the support
+ * email address, support link, link to reset password, and a custom message for users trying
+ * to sign in.
+ * 
+ * 
+ * After you delete your customized client branding, your login portal reverts to the
+ * default client branding.
+ */export const deleteClientBranding = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.DeleteClientBranding" }, DeleteClientBrandingRequest, DeleteClientBrandingResult, [AccessDeniedException, InvalidParameterValuesException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes the specified connection alias. For more information, see
+ * Cross-Region Redirection for Amazon WorkSpaces.
+ * 
+ * 
+ * 
+ * 
+ * 
+ * If you will no longer be using a fully qualified domain name
+ * (FQDN) as the registration code for your WorkSpaces users, you must take certain
+ * precautions to prevent potential security issues. For more information,
+ * see Security Considerations if You Stop Using Cross-Region Redirection.
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * To delete a connection alias that has been shared, the shared account must first
+ * disassociate the connection alias from any directories it has been associated with. Then
+ * you must unshare the connection alias from the account it has been shared with. You can
+ * delete a connection alias only after it is no longer shared with any accounts or
+ * associated with any directories.
+ */export const deleteConnectionAlias = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.DeleteConnectionAlias" }, DeleteConnectionAliasRequest, DeleteConnectionAliasResult, [AccessDeniedException, InvalidParameterValuesException, InvalidResourceStateException, OperationNotSupportedException, ResourceAssociatedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes the specified IP access control group.
+ * 
+ * 
+ * You cannot delete an IP access control group that is associated with a directory.
+ */export const deleteIpGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.DeleteIpGroup" }, DeleteIpGroupRequest, DeleteIpGroupResult, [AccessDeniedException, InvalidParameterValuesException, ResourceAssociatedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deregisters the specified directory. This operation is asynchronous and returns before
+ * the WorkSpace directory is deregistered. If any WorkSpaces are registered to this
+ * directory, you must remove them before you can deregister the directory.
+ * 
+ * 
+ * 
+ * 
+ * Simple AD and AD Connector are made available to you free of charge to use with
+ * WorkSpaces. If there are no WorkSpaces being used with your Simple AD or AD Connector
+ * directory for 30 consecutive days, this directory will be automatically deregistered for
+ * use with Amazon WorkSpaces, and you will be charged for this directory as per the Directory Service pricing
+ * terms.
+ * 
+ * 
+ * To delete empty directories, see Delete the
+ * Directory for Your WorkSpaces. If you delete your Simple AD or AD Connector
+ * directory, you can always create a new one when you want to start using WorkSpaces
+ * again.
+ */export const deregisterWorkspaceDirectory = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.DeregisterWorkspaceDirectory" }, DeregisterWorkspaceDirectoryRequest, DeregisterWorkspaceDirectoryResult, [AccessDeniedException, InvalidParameterValuesException, InvalidResourceStateException, OperationNotSupportedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Describes the permissions that the owner of a connection alias has granted to another
+ * Amazon Web Services account for the specified connection alias. For more information, see
+ * Cross-Region
+ * Redirection for Amazon WorkSpaces.
+ */export const describeConnectionAliasPermissions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.DescribeConnectionAliasPermissions" }, DescribeConnectionAliasPermissionsRequest, DescribeConnectionAliasPermissionsResult, [AccessDeniedException, InvalidParameterValuesException, OperationNotSupportedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Describes the specified tags for the specified WorkSpaces resource.
+ */export const describeTags = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.DescribeTags" }, DescribeTagsRequest, DescribeTagsResult, [ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Describes the associations betweens applications and the specified WorkSpace.
+ */export const describeWorkspaceAssociations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.DescribeWorkspaceAssociations" }, DescribeWorkspaceAssociationsRequest, DescribeWorkspaceAssociationsResult, [AccessDeniedException, InvalidParameterValuesException, OperationNotSupportedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Imports the specified Windows 10 or 11 Bring Your Own License (BYOL)
+ * image into Amazon WorkSpaces. The image must be an already licensed Amazon EC2 image that is
+ * in your Amazon Web Services account, and you must own the image. For more information about
+ * creating BYOL images, see Bring Your Own Windows
+ * Desktop Licenses.
+ */export const importWorkspaceImage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.ImportWorkspaceImage" }, ImportWorkspaceImageRequest, ImportWorkspaceImageResult, [AccessDeniedException, InvalidParameterValuesException, OperationNotSupportedException, ResourceAlreadyExistsException, ResourceLimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists all account links.
+ */export const listAccountLinks = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.ListAccountLinks" }, ListAccountLinksRequest, ListAccountLinksResult, [AccessDeniedException, InternalServerException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves a list of IP address ranges, specified as IPv4 CIDR blocks, that you can use
+ * for the network management interface when you enable Bring Your Own License (BYOL).
+ * 
+ * 
+ * This operation can be run only by Amazon Web Services accounts that are enabled for BYOL.
+ * If your account isn't enabled for BYOL, you'll receive an
+ * `AccessDeniedException` error.
+ * 
+ * 
+ * The management network interface is connected to a secure Amazon WorkSpaces management
+ * network. It is used for interactive streaming of the WorkSpace desktop to Amazon WorkSpaces
+ * clients, and to allow Amazon WorkSpaces to manage the WorkSpace.
+ */export const listAvailableManagementCidrRanges = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.ListAvailableManagementCidrRanges" }, ListAvailableManagementCidrRangesRequest, ListAvailableManagementCidrRangesResult, [AccessDeniedException, InvalidParameterValuesException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Migrates a WorkSpace from one operating system or bundle type to another, while
+ * retaining the data on the user volume.
+ * 
+ * 
+ * The migration process recreates the WorkSpace by using a new root volume from the target
+ * bundle image and the user volume from the last available snapshot of the original
+ * WorkSpace. During migration, the original `D:\Users\%USERNAME%` user profile
+ * folder is renamed to `D:\Users\%USERNAME%MMddyyTHHmmss%.NotMigrated`. A new
+ * `D:\Users\%USERNAME%\` folder is generated by the new OS. Certain files in
+ * the old user profile are moved to the new user profile.
+ * 
+ * 
+ * For available migration scenarios, details about what happens during migration, and best
+ * practices, see Migrate a
+ * WorkSpace.
+ */export const migrateWorkspace = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.MigrateWorkspace" }, MigrateWorkspaceRequest, MigrateWorkspaceResult, [AccessDeniedException, InvalidParameterValuesException, OperationInProgressException, OperationNotSupportedException, ResourceNotFoundException, ResourceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Modifies the configuration of Bring Your Own License (BYOL) for the specified
+ * account.
+ */export const modifyAccount = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.ModifyAccount" }, ModifyAccountRequest, ModifyAccountResult, [AccessDeniedException, InvalidParameterValuesException, InvalidResourceStateException, ResourceNotFoundException, ResourceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Modifies the properties of the certificate-based authentication you want
+ * to use with your WorkSpaces.
+ */export const modifyCertificateBasedAuthProperties = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.ModifyCertificateBasedAuthProperties" }, ModifyCertificateBasedAuthPropertiesRequest, ModifyCertificateBasedAuthPropertiesResult, [AccessDeniedException, InvalidParameterValuesException, OperationNotSupportedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Modifies the properties of the specified Amazon WorkSpaces clients.
+ */export const modifyClientProperties = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.ModifyClientProperties" }, ModifyClientPropertiesRequest, ModifyClientPropertiesResult, [AccessDeniedException, InvalidParameterValuesException, OperationNotSupportedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Modifies multiple properties related to SAML 2.0 authentication, including the enablement status,
+ * user access URL, and relay state parameter name that are used for configuring federation with an
+ * SAML 2.0 identity provider.
+ */export const modifySamlProperties = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.ModifySamlProperties" }, ModifySamlPropertiesRequest, ModifySamlPropertiesResult, [AccessDeniedException, InvalidParameterValuesException, OperationNotSupportedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Modifies the self-service WorkSpace management capabilities for your users. For more
+ * information, see Enable Self-Service WorkSpace Management Capabilities for Your Users.
+ */export const modifySelfservicePermissions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.ModifySelfservicePermissions" }, ModifySelfservicePermissionsRequest, ModifySelfservicePermissionsResult, [AccessDeniedException, InvalidParameterValuesException, OperationNotSupportedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Modify the default properties used to create WorkSpaces.
+ */export const modifyWorkspaceCreationProperties = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.ModifyWorkspaceCreationProperties" }, ModifyWorkspaceCreationPropertiesRequest, ModifyWorkspaceCreationPropertiesResult, [AccessDeniedException, InvalidParameterValuesException, OperationNotSupportedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Rejects the account link invitation.
+ */export const rejectAccountLinkInvitation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.RejectAccountLinkInvitation" }, RejectAccountLinkInvitationRequest, RejectAccountLinkInvitationResult, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Starts the specified pool.
+ * 
+ * 
+ * You cannot start a pool unless it has a running mode of
+ * `AutoStop` and a state of `STOPPED`.
+ */export const startWorkspacesPool = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.StartWorkspacesPool" }, StartWorkspacesPoolRequest, StartWorkspacesPoolResult, [AccessDeniedException, InvalidParameterValuesException, InvalidResourceStateException, OperationInProgressException, OperationNotSupportedException, ResourceLimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Shares or unshares a connection alias with one account by specifying whether that
+ * account has permission to associate the connection alias with a directory. If the
+ * association permission is granted, the connection alias is shared with that account. If the
+ * association permission is revoked, the connection alias is unshared with the account. For
+ * more information, see Cross-Region
+ * Redirection for Amazon WorkSpaces.
+ * 
+ * 
+ * 
+ * 
+ * 
+ * - Before performing this operation, call
+ * DescribeConnectionAliases to make sure that the current state of the
+ * connection alias is `CREATED`.
+ * 
+ * 
+ * 
+ * - To delete a connection alias that has been shared, the shared account must
+ * first disassociate the connection alias from any directories it has been
+ * associated with. Then you must unshare the connection alias from the account it
+ * has been shared with. You can delete a connection alias only after it is no longer
+ * shared with any accounts or associated with any directories.
+ */export const updateConnectionAliasPermission = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.UpdateConnectionAliasPermission" }, UpdateConnectionAliasPermissionRequest, UpdateConnectionAliasPermissionResult, [AccessDeniedException, InvalidParameterValuesException, InvalidResourceStateException, OperationNotSupportedException, ResourceAssociatedException, ResourceLimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Replaces the current rules of the specified IP access control group with the specified
+ * rules.
+ */export const updateRulesOfIpGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.UpdateRulesOfIpGroup" }, UpdateRulesOfIpGroupRequest, UpdateRulesOfIpGroupResult, [AccessDeniedException, InvalidParameterValuesException, InvalidResourceStateException, ResourceLimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates a WorkSpace bundle with a new image. For more information about updating WorkSpace bundles, see
+ * 
+ * Update a Custom WorkSpaces Bundle.
+ * 
+ * 
+ * 
+ * 
+ * Existing WorkSpaces aren't automatically updated when you update the bundle that they're
+ * based on. To update existing WorkSpaces that are based on a bundle that you've updated, you
+ * must either rebuild the WorkSpaces or delete and recreate them.
+ */export const updateWorkspaceBundle = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.UpdateWorkspaceBundle" }, UpdateWorkspaceBundleRequest, UpdateWorkspaceBundleResult, [AccessDeniedException, InvalidParameterValuesException, OperationNotSupportedException, ResourceNotFoundException, ResourceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Accepts the account link invitation.
+ * 
+ * 
+ * 
+ * 
+ * There's currently no unlinking capability after you accept the account linking invitation.
+ */export const acceptAccountLinkInvitation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.AcceptAccountLinkInvitation" }, AcceptAccountLinkInvitationRequest, AcceptAccountLinkInvitationResult, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Copies the specified image from the specified Region to the current Region. For more
+ * information about copying images, see Copy a Custom WorkSpaces
+ * Image.
+ * 
+ * 
+ * In the China (Ningxia) Region, you can copy images only within the same Region.
+ * 
+ * 
+ * In Amazon Web Services GovCloud (US), to copy images to and from other Regions, contact Amazon Web ServicesSupport.
+ * 
+ * 
+ * 
+ * 
+ * Before copying a shared image, be sure to verify that it has been shared from the
+ * correct Amazon Web Services account. To determine if an image has been shared and to see
+ * the ID of the Amazon Web Services account that owns an image, use the DescribeWorkSpaceImages and DescribeWorkspaceImagePermissions API operations.
+ */export const copyWorkspaceImage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.CopyWorkspaceImage" }, CopyWorkspaceImageRequest, CopyWorkspaceImageResult, [AccessDeniedException, InvalidParameterValuesException, OperationNotSupportedException, ResourceAlreadyExistsException, ResourceLimitExceededException, ResourceNotFoundException, ResourceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates the account link invitation.
+ */export const createAccountLinkInvitation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.CreateAccountLinkInvitation" }, CreateAccountLinkInvitationRequest, CreateAccountLinkInvitationResult, [AccessDeniedException, ConflictException, InternalServerException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a client-add-in for Amazon Connect within a directory. You can create only
+ * one Amazon Connect client add-in within a directory.
+ * 
+ * 
+ * This client add-in allows WorkSpaces users to seamlessly connect to Amazon Connect.
+ */export const createConnectClientAddIn = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.CreateConnectClientAddIn" }, CreateConnectClientAddInRequest, CreateConnectClientAddInResult, [AccessDeniedException, InvalidParameterValuesException, ResourceAlreadyExistsException, ResourceCreationFailedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates an IP access control group.
+ * 
+ * 
+ * An IP access control group provides you with the ability to control the IP addresses
+ * from which users are allowed to access their WorkSpaces. To specify the CIDR address
+ * ranges, add rules to your IP access control group and then associate the group with your
+ * directory. You can add rules when you create the group or at any time using AuthorizeIpRules.
+ * 
+ * 
+ * There is a default IP access control group associated with your directory. If you don't
+ * associate an IP access control group with your directory, the default group is used. The
+ * default group includes a default rule that allows users to access their WorkSpaces from
+ * anywhere. You cannot modify the default IP access control group for your directory.
+ */export const createIpGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.CreateIpGroup" }, CreateIpGroupRequest, CreateIpGroupResult, [AccessDeniedException, InvalidParameterValuesException, ResourceAlreadyExistsException, ResourceCreationFailedException, ResourceLimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates the specified WorkSpace bundle. For more information about creating WorkSpace bundles, see
+ * 
+ * Create a Custom WorkSpaces Image and Bundle.
+ */export const createWorkspaceBundle = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.CreateWorkspaceBundle" }, CreateWorkspaceBundleRequest, CreateWorkspaceBundleResult, [AccessDeniedException, InvalidParameterValuesException, ResourceAlreadyExistsException, ResourceLimitExceededException, ResourceNotFoundException, ResourceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a new WorkSpace image from an existing WorkSpace.
+ */export const createWorkspaceImage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.CreateWorkspaceImage" }, CreateWorkspaceImageRequest, CreateWorkspaceImageResult, [AccessDeniedException, InvalidParameterValuesException, InvalidResourceStateException, OperationNotSupportedException, ResourceAlreadyExistsException, ResourceLimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a pool of WorkSpaces.
+ */export const createWorkspacesPool = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.CreateWorkspacesPool" }, CreateWorkspacesPoolRequest, CreateWorkspacesPoolResult, [AccessDeniedException, InvalidParameterValuesException, OperationNotSupportedException, ResourceAlreadyExistsException, ResourceLimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes the account link invitation.
+ */export const deleteAccountLinkInvitation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.DeleteAccountLinkInvitation" }, DeleteAccountLinkInvitationRequest, DeleteAccountLinkInvitationResult, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deploys associated applications to the specified WorkSpace
+ */export const deployWorkspaceApplications = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.DeployWorkspaceApplications" }, DeployWorkspaceApplicationsRequest, DeployWorkspaceApplicationsResult, [AccessDeniedException, IncompatibleApplicationsException, InvalidParameterValuesException, OperationNotSupportedException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves a list that describes modifications to the configuration of Bring Your Own
+ * License (BYOL) for the specified account.
+ */export const describeAccountModifications = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.DescribeAccountModifications" }, DescribeAccountModificationsRequest, DescribeAccountModificationsResult, [AccessDeniedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Describes the associations between the application and the specified associated resources.
+ */export const describeApplicationAssociations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.DescribeApplicationAssociations" }, DescribeApplicationAssociationsRequest, DescribeApplicationAssociationsResult, [AccessDeniedException, InvalidParameterValuesException, OperationNotSupportedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Describes the specified applications by filtering based on their compute types, license availability, operating systems, and owners.
+ */export const describeApplications = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.DescribeApplications" }, DescribeApplicationsRequest, DescribeApplicationsResult, [AccessDeniedException, InvalidParameterValuesException, OperationNotSupportedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Describes the associations between the applications and the specified bundle.
+ */export const describeBundleAssociations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.DescribeBundleAssociations" }, DescribeBundleAssociationsRequest, DescribeBundleAssociationsResult, [AccessDeniedException, InvalidParameterValuesException, OperationNotSupportedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Describes the specified client branding. Client branding allows you to customize the log
+ * in page of various device types for your users. You can add your company logo, the support
+ * email address, support link, link to reset password, and a custom message for users trying
+ * to sign in.
+ * 
+ * 
+ * 
+ * 
+ * Only device types that have branding information configured will be shown in the
+ * response.
+ */export const describeClientBranding = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.DescribeClientBranding" }, DescribeClientBrandingRequest, DescribeClientBrandingResult, [AccessDeniedException, InvalidParameterValuesException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves a list that describes one or more specified Amazon WorkSpaces clients.
+ */export const describeClientProperties = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.DescribeClientProperties" }, DescribeClientPropertiesRequest, DescribeClientPropertiesResult, [AccessDeniedException, InvalidParameterValuesException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves a list of Amazon Connect client add-ins that have been created.
+ */export const describeConnectClientAddIns = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.DescribeConnectClientAddIns" }, DescribeConnectClientAddInsRequest, DescribeConnectClientAddInsResult, [AccessDeniedException, InvalidParameterValuesException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves information about a WorkSpace BYOL image being imported via ImportCustomWorkspaceImage.
+ */export const describeCustomWorkspaceImageImport = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.DescribeCustomWorkspaceImageImport" }, DescribeCustomWorkspaceImageImportRequest, DescribeCustomWorkspaceImageImportResult, [AccessDeniedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Describes the associations between the applications and the specified image.
+ */export const describeImageAssociations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.DescribeImageAssociations" }, DescribeImageAssociationsRequest, DescribeImageAssociationsResult, [AccessDeniedException, InvalidParameterValuesException, OperationNotSupportedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Describes one or more of your IP access control groups.
+ */export const describeIpGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.DescribeIpGroups" }, DescribeIpGroupsRequest, DescribeIpGroupsResult, [AccessDeniedException, InvalidParameterValuesException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves a list that describes the available WorkSpace bundles.
+ * 
+ * 
+ * You can filter the results using either bundle ID or owner, but not both.
+ */export const describeWorkspaceBundles = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.DescribeWorkspaceBundles" }, DescribeWorkspaceBundlesRequest, DescribeWorkspaceBundlesResult, [InvalidParameterValuesException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Describes the permissions that the owner of an image has granted to other Amazon Web Services accounts for an image.
+ */export const describeWorkspaceImagePermissions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.DescribeWorkspaceImagePermissions" }, DescribeWorkspaceImagePermissionsRequest, DescribeWorkspaceImagePermissionsResult, [AccessDeniedException, InvalidParameterValuesException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Describes the connection status of the specified WorkSpaces.
+ */export const describeWorkspacesConnectionStatus = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.DescribeWorkspacesConnectionStatus" }, DescribeWorkspacesConnectionStatusRequest, DescribeWorkspacesConnectionStatusResult, [InvalidParameterValuesException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Describes the snapshots for the specified WorkSpace.
+ */export const describeWorkspaceSnapshots = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.DescribeWorkspaceSnapshots" }, DescribeWorkspaceSnapshotsRequest, DescribeWorkspaceSnapshotsResult, [AccessDeniedException, InvalidParameterValuesException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Describes the specified WorkSpaces Pools.
+ */export const describeWorkspacesPools = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.DescribeWorkspacesPools" }, DescribeWorkspacesPoolsRequest, DescribeWorkspacesPoolsResult, [AccessDeniedException, InvalidParameterValuesException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Disassociates the specified application from a WorkSpace.
+ */export const disassociateWorkspaceApplication = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.DisassociateWorkspaceApplication" }, DisassociateWorkspaceApplicationRequest, DisassociateWorkspaceApplicationResult, [AccessDeniedException, InvalidParameterValuesException, OperationNotSupportedException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves account link information.
+ */export const getAccountLink = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.GetAccountLink" }, GetAccountLinkRequest, GetAccountLinkResult, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Imports the specified Windows 10 or 11 Bring Your Own License (BYOL)
+ * image into Amazon WorkSpaces using EC2 Image Builder. The image must be an already licensed image that is
+ * in your Amazon Web Services account, and you must own the image. For more information about
+ * creating BYOL images, see Bring Your Own Windows
+ * Desktop Licenses.
+ */export const importCustomWorkspaceImage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.ImportCustomWorkspaceImage" }, ImportCustomWorkspaceImageRequest, ImportCustomWorkspaceImageResult, [AccessDeniedException, InvalidParameterValuesException, OperationNotSupportedException, ResourceAlreadyExistsException, ResourceLimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Modifies the specified streaming properties.
+ */export const modifyStreamingProperties = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.ModifyStreamingProperties" }, ModifyStreamingPropertiesRequest, ModifyStreamingPropertiesResult, [AccessDeniedException, InvalidParameterValuesException, OperationNotSupportedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Rebuilds the specified WorkSpace.
+ * 
+ * 
+ * You cannot rebuild a WorkSpace unless its state is `AVAILABLE`,
+ * `ERROR`, `UNHEALTHY`, `STOPPED`, or
+ * `REBOOTING`.
+ * 
+ * 
+ * Rebuilding a WorkSpace is a potentially destructive action that can result in the loss
+ * of data. For more information, see Rebuild a
+ * WorkSpace.
+ * 
+ * 
+ * This operation is asynchronous and returns before the WorkSpaces have been completely
+ * rebuilt.
+ */export const rebuildWorkspaces = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.RebuildWorkspaces" }, RebuildWorkspacesRequest, RebuildWorkspacesResult, [OperationNotSupportedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Starts the specified WorkSpaces.
+ * 
+ * 
+ * You cannot start a WorkSpace unless it has a running mode of `AutoStop` or
+ * `Manual` and a state of `STOPPED`.
+ */export const startWorkspaces = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.StartWorkspaces" }, StartWorkspacesRequest, StartWorkspacesResult, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Stops the specified WorkSpaces.
+ * 
+ * 
+ * You cannot stop a WorkSpace unless it has a running mode of `AutoStop` or
+ * `Manual` and a state of `AVAILABLE`, `IMPAIRED`,
+ * `UNHEALTHY`, or `ERROR`.
+ */export const stopWorkspaces = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.StopWorkspaces" }, StopWorkspacesRequest, StopWorkspacesResult, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Terminates the specified WorkSpaces.
+ * 
+ * 
+ * 
+ * 
+ * Terminating a WorkSpace is a permanent action and cannot be undone. The user's data
+ * is destroyed. If you need to archive any user data, contact Amazon Web ServicesSupport before
+ * terminating the WorkSpace.
+ * 
+ * 
+ * 
+ * 
+ * You can terminate a WorkSpace that is in any state except `SUSPENDED`.
+ * 
+ * 
+ * This operation is asynchronous and returns before the WorkSpaces have been completely
+ * terminated. After a WorkSpace is terminated, the `TERMINATED` state is returned
+ * only briefly before the WorkSpace directory metadata is cleaned up, so this state is rarely
+ * returned. To confirm that a WorkSpace is terminated, check for the WorkSpace ID by using
+ * 
+ * DescribeWorkSpaces. If the WorkSpace ID isn't returned, then the WorkSpace has
+ * been successfully terminated.
+ * 
+ * 
+ * 
+ * 
+ * Simple AD and AD Connector are made available to you free of charge to use with
+ * WorkSpaces. If there are no WorkSpaces being used with your Simple AD or AD Connector
+ * directory for 30 consecutive days, this directory will be automatically deregistered for
+ * use with Amazon WorkSpaces, and you will be charged for this directory as per the Directory Service pricing
+ * terms.
+ * 
+ * 
+ * To delete empty directories, see Delete the
+ * Directory for Your WorkSpaces. If you delete your Simple AD or AD Connector
+ * directory, you can always create a new one when you want to start using WorkSpaces
+ * again.
+ */export const terminateWorkspaces = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.TerminateWorkspaces" }, TerminateWorkspacesRequest, TerminateWorkspacesResult, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Associates the specified application to the specified WorkSpace.
+ */export const associateWorkspaceApplication = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.AssociateWorkspaceApplication" }, AssociateWorkspaceApplicationRequest, AssociateWorkspaceApplicationResult, [AccessDeniedException, ApplicationNotSupportedException, ComputeNotCompatibleException, IncompatibleApplicationsException, InvalidParameterValuesException, OperatingSystemNotCompatibleException, OperationNotSupportedException, ResourceAlreadyExistsException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a standby WorkSpace in a secondary Region.
+ */export const createStandbyWorkspaces = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.CreateStandbyWorkspaces" }, CreateStandbyWorkspacesRequest, CreateStandbyWorkspacesResult, [AccessDeniedException, InvalidParameterValuesException, OperationNotSupportedException, ResourceLimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates one or more WorkSpaces.
+ * 
+ * 
+ * This operation is asynchronous and returns before the WorkSpaces are created.
+ * 
+ * 
+ * 
+ * 
+ * 
+ * - The `MANUAL` running mode value is only supported by Amazon WorkSpaces
+ * Core. Contact your account team to be allow-listed to use this value. For more
+ * information, see Amazon WorkSpaces
+ * Core.
+ * 
+ * 
+ * 
+ * - You don't need to specify the `PCOIP` protocol for Linux bundles
+ * because `DCV` (formerly WSP) is the default protocol for those bundles.
+ * 
+ * 
+ * 
+ * - User-decoupled WorkSpaces are only supported by Amazon WorkSpaces
+ * Core.
+ * 
+ * 
+ * 
+ * - Review your running mode to ensure you are using one that is optimal for your needs and budget.
+ * For more information on switching running modes, see
+ * 
+ * Can I switch between hourly and monthly billing?
+ */export const createWorkspaces = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.CreateWorkspaces" }, CreateWorkspacesRequest, CreateWorkspacesResult, [InvalidParameterValuesException, ResourceLimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves a list that describes the connection aliases used for cross-Region
+ * redirection. For more information, see Cross-Region
+ * Redirection for Amazon WorkSpaces.
+ */export const describeConnectionAliases = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.DescribeConnectionAliases" }, DescribeConnectionAliasesRequest, DescribeConnectionAliasesResult, [AccessDeniedException, InvalidParameterValuesException, OperationNotSupportedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves a list that describes one or more specified images, if the image identifiers
+ * are provided. Otherwise, all images in the account are described.
+ */export const describeWorkspaceImages = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.DescribeWorkspaceImages" }, DescribeWorkspaceImagesRequest, DescribeWorkspaceImagesResult, [AccessDeniedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Describes the specified WorkSpaces.
+ * 
+ * 
+ * You can filter the results by using the bundle identifier, directory identifier, or
+ * owner, but you can specify only one filter at a time.
+ */export const describeWorkspaces = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.DescribeWorkspaces" }, DescribeWorkspacesRequest, DescribeWorkspacesResult, [InvalidParameterValuesException, ResourceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves a list that describes the streaming sessions for a specified pool.
+ */export const describeWorkspacesPoolSessions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.DescribeWorkspacesPoolSessions" }, DescribeWorkspacesPoolSessionsRequest, DescribeWorkspacesPoolSessionsResult, [AccessDeniedException, InvalidParameterValuesException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Imports client branding. Client branding allows you to customize your WorkSpace's client
+ * login portal. You can tailor your login portal company logo, the support email address,
+ * support link, link to reset password, and a custom message for users trying to sign
+ * in.
+ * 
+ * 
+ * After you import client branding, the default branding experience for the specified
+ * platform type is replaced with the imported experience
+ * 
+ * 
+ * 
+ * 
+ * 
+ * - You must specify at least one platform type when importing client
+ * branding.
+ * 
+ * 
+ * 
+ * - You can import up to 6 MB of data with each request. If your request exceeds
+ * this limit, you can import client branding for different platform types using
+ * separate requests.
+ * 
+ * 
+ * 
+ * - In each platform type, the `SupportEmail` and
+ * `SupportLink` parameters are mutually exclusive. You can specify
+ * only one parameter for each platform type, but not both.
+ * 
+ * 
+ * 
+ * - Imported data can take up to a minute to appear in the WorkSpaces
+ * client.
+ */export const importClientBranding = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.ImportClientBranding" }, ImportClientBrandingRequest, ImportClientBrandingResult, [AccessDeniedException, InvalidParameterValuesException, ResourceLimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Modifies the specified WorkSpace properties. For important information about how to
+ * modify the size of the root and user volumes, see Modify a WorkSpace.
+ * 
+ * 
+ * 
+ * 
+ * 
+ * The `MANUAL` running mode value is only supported by Amazon WorkSpaces
+ * Core. Contact your account team to be allow-listed to use this value. For more
+ * information, see Amazon WorkSpaces
+ * Core.
+ */export const modifyWorkspaceProperties = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.ModifyWorkspaceProperties" }, ModifyWorkspacePropertiesRequest, ModifyWorkspacePropertiesResult, [AccessDeniedException, InvalidParameterValuesException, InvalidResourceStateException, OperationInProgressException, ResourceNotFoundException, ResourceUnavailableException, UnsupportedWorkspaceConfigurationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Reboots the specified WorkSpaces.
+ * 
+ * 
+ * You cannot reboot a WorkSpace unless its state is `AVAILABLE`,
+ * `UNHEALTHY`, or `REBOOTING`. Reboot a WorkSpace in the `REBOOTING`
+ * state only if your WorkSpace has been stuck in the `REBOOTING` state for over 20 minutes.
+ * 
+ * 
+ * This operation is asynchronous and returns before the WorkSpaces have rebooted.
+ */export const rebootWorkspaces = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.RebootWorkspaces" }, RebootWorkspacesRequest, RebootWorkspacesResult, [OperationNotSupportedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates the specified pool.
+ */export const updateWorkspacesPool = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.UpdateWorkspacesPool" }, UpdateWorkspacesPoolRequest, UpdateWorkspacesPoolResult, [AccessDeniedException, InvalidParameterValuesException, InvalidResourceStateException, OperationInProgressException, OperationNotSupportedException, ResourceLimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Describes the available directories that are registered with Amazon WorkSpaces.
+ */export const describeWorkspaceDirectories = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.DescribeWorkspaceDirectories" }, DescribeWorkspaceDirectoriesRequest, DescribeWorkspaceDirectoriesResult, [InvalidParameterValuesException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Specifies which devices and operating systems users can use to access their WorkSpaces.
+ * For more information, see
+ * Control Device Access.
+ */export const modifyWorkspaceAccessProperties = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.ModifyWorkspaceAccessProperties" }, ModifyWorkspaceAccessPropertiesRequest, ModifyWorkspaceAccessPropertiesResult, [AccessDeniedException, InvalidParameterCombinationException, InvalidParameterValuesException, OperationNotSupportedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Registers the specified directory. This operation is asynchronous and returns before the
+ * WorkSpace directory is registered. If this is the first time you are registering a
+ * directory, you will need to create the workspaces_DefaultRole role before you can register
+ * a directory. For more information, see
+ * Creating the workspaces_DefaultRole Role.
+ */export const registerWorkspaceDirectory = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.RegisterWorkspaceDirectory" }, RegisterWorkspaceDirectoryRequest, RegisterWorkspaceDirectoryResult, [AccessDeniedException, InvalidParameterValuesException, InvalidResourceStateException, OperationNotSupportedException, ResourceAlreadyExistsException, ResourceLimitExceededException, ResourceNotFoundException, UnsupportedNetworkConfigurationException, WorkspacesDefaultRoleNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

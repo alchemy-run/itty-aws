@@ -22,7 +22,8 @@ import {
   type ShapeTypeMap,
 } from "./model-schema.ts";
 import dedent from "dedent";
-import path from "pathe"
+//todo(pear): swap out for effect platform path
+import path from "pathe";
 
 class SdkFile extends Context.Tag("SdkFile")<
   SdkFile,
@@ -128,8 +129,8 @@ function findShape(
   return effect;
 }
 
-const aliasMappings: Record<string, string> = {
-};
+//todo(pear): move this to a ref
+const aliasMappings: Record<string, string> = {};
 
 function formatName(shapeId: string, lowercase = false) {
   let name = shapeId.split("#")[1] ?? "";
@@ -149,14 +150,22 @@ function schemaExprToTsType(
   allStructNames: Set<string>,
   cyclicSchemas: Set<string>,
 ): string {
+  //todo(pear): move this to an effect matcher
   switch (schemaExpr) {
-    case "S.String": return "string";
-    case "S.Boolean": return "boolean";
-    case "S.Number": return "number";
-    case "S.Date": return "Date";
-    case "S.Any": return "any";
-    case "H.StreamBody()": return "H.StreamBody";
-    case "S.Struct({})": return "Record<string, never>";
+    case "S.String":
+      return "string";
+    case "S.Boolean":
+      return "boolean";
+    case "S.Number":
+      return "number";
+    case "S.Date":
+      return "Date";
+    case "S.Any":
+      return "any";
+    case "H.StreamBody()":
+      return "H.StreamBody";
+    case "S.Struct({})":
+      return "Record<string, never>";
     default:
       // Named schemas:
       // - Structs (classes) can be used directly as types
@@ -180,6 +189,7 @@ function topologicalSortWithCycles(
   const result: Array<{ name: string; definition: string; deps: string[] }> =
     [];
 
+  //todo(pear): rewrite this as an effect
   function visit(name: string) {
     if (visited.has(name)) return;
     visited.add(name);
@@ -209,6 +219,7 @@ function topologicalSortWithCycles(
   return result;
 }
 
+//todo(pear): rewrite as effect
 // Collect all shape dependencies from the model to compute cycles before generation
 function collectShapeDependencies(
   model: SmithyModel,
@@ -247,10 +258,15 @@ function collectShapeDependencies(
   return shapeDeps;
 }
 
+//todo(pear): rewrite as effect
 // Find all schemas that are part of a cycle using the pre-collected dependencies
 function findCyclicSchemasFromDeps(
   shapeDeps: Map<string, { deps: string[]; type: string }>,
-): { cyclicSchemas: Set<string>; cyclicClasses: Set<string>; allStructNames: Set<string> } {
+): {
+  cyclicSchemas: Set<string>;
+  cyclicClasses: Set<string>;
+  allStructNames: Set<string>;
+} {
   const cyclicSchemas = new Set<string>();
 
   let index = 0;
@@ -277,7 +293,10 @@ function findCyclicSchemasFromDeps(
               Math.min(lowlinks.get(name)!, lowlinks.get(dep)!),
             );
           } else if (onStack.has(dep)) {
-            lowlinks.set(name, Math.min(lowlinks.get(name)!, indices.get(dep)!));
+            lowlinks.set(
+              name,
+              Math.min(lowlinks.get(name)!, indices.get(dep)!),
+            );
           }
         }
       }
@@ -329,10 +348,11 @@ function findCyclicSchemasFromDeps(
   return { cyclicSchemas, cyclicClasses, allStructNames };
 }
 
+//todo(pear): is this redundant over error in the file
 // Collect all error shape IDs from operation definitions
 function collectErrorShapeIds(model: SmithyModel): Set<string> {
   const errorShapeIds = new Set<string>();
-  
+
   for (const [shapeId, shape] of Object.entries(model.shapes)) {
     if (shape.type === "operation" && shape.errors) {
       for (const error of shape.errors) {
@@ -340,7 +360,7 @@ function collectErrorShapeIds(model: SmithyModel): Set<string> {
       }
     }
   }
-  
+
   return errorShapeIds;
 }
 
@@ -362,6 +382,7 @@ const convertShapeToSchema: (
     MutableHashMap.set(sdkFile.map, target, deferredValue);
   }
 
+  //todo(pear): this is stupid
   // Helper to get the schema name for this target
   const getSchemaName = () => formatName(target);
 
@@ -494,11 +515,14 @@ const convertShapeToSchema: (
               const memberName = formatName(s.member.target);
               const schemaName = getSchemaName();
               const isCyclic = sdkFile.cyclicSchemas.has(schemaName);
-              const isMemberErrorShape = sdkFile.errorShapeIds.has(s.member.target);
+              const isMemberErrorShape = sdkFile.errorShapeIds.has(
+                s.member.target,
+              );
               return addAlias(
                 convertShapeToSchema(s.member.target).pipe(
                   Effect.flatMap(Deferred.await),
                   Effect.map((type) => {
+                    //todo(pear): rewrite this in a more effectful way
                     // Wrap error shape references in S.suspend (they're defined after schemas)
                     let innerType = type;
                     if (isMemberErrorShape) {
@@ -507,17 +531,21 @@ const convertShapeToSchema: (
                     // Wrap cyclic references in S.suspend
                     else if (sdkFile.cyclicSchemas.has(memberName)) {
                       innerType = sdkFile.cyclicClasses.has(memberName)
-                      // TODO(sam): I had to add the any here because encoded type was creting circular errors. hopefully OK since we don't really need it
-                        ? `S.suspend((): S.Schema<${type}, any> => ${type})`
+                        ? // TODO(sam): I had to add the any here because encoded type was creting circular errors. hopefully OK since we don't really need it
+                          `S.suspend((): S.Schema<${type}, any> => ${type})`
                         : `S.suspend(() => ${type})`;
                     }
-                    
+
                     if (isCyclic) {
                       // For cyclic arrays, generate explicit type alias to help TypeScript inference
-                      const memberTsType = schemaExprToTsType(type, sdkFile.allStructNames, sdkFile.cyclicSchemas);
+                      const memberTsType = schemaExprToTsType(
+                        type,
+                        sdkFile.allStructNames,
+                        sdkFile.cyclicSchemas,
+                      );
                       return `export type ${schemaName} = ${memberTsType}[];\nexport const ${schemaName} = S.Array(${innerType}) as any as S.Schema<${schemaName}>;`;
                     }
-                    
+
                     return `export const ${schemaName} = S.Array(${innerType});`;
                   }),
                 ),
@@ -532,13 +560,16 @@ const convertShapeToSchema: (
                 formatName(m.target),
               );
               const currentSchemaName = getSchemaName();
-              const isCurrentCyclic = sdkFile.cyclicSchemas.has(currentSchemaName);
+              const isCurrentCyclic =
+                sdkFile.cyclicSchemas.has(currentSchemaName);
               const isErrorShape = sdkFile.errorShapeIds.has(target);
 
               const membersEffect = Effect.all(
                 Object.entries(s.members).map(([memberName, member]) => {
                   const memberTargetName = formatName(member.target);
-                  const isMemberErrorShape = sdkFile.errorShapeIds.has(member.target);
+                  const isMemberErrorShape = sdkFile.errorShapeIds.has(
+                    member.target,
+                  );
                   return convertShapeToSchema(member.target).pipe(
                     Effect.flatMap(Deferred.await),
                     Effect.map((baseSchema) => {
@@ -549,7 +580,10 @@ const convertShapeToSchema: (
                         schema = `S.suspend(() => ${schema})`;
                       }
                       // Wrap cyclic references in S.suspend (only if current schema is also cyclic)
-                      else if (isCurrentCyclic && sdkFile.cyclicSchemas.has(memberTargetName)) {
+                      else if (
+                        isCurrentCyclic &&
+                        sdkFile.cyclicSchemas.has(memberTargetName)
+                      ) {
                         if (sdkFile.cyclicClasses.has(memberTargetName)) {
                           // TODO(sam): I had to add the any here because encoded type was creting circular errors. hopefully OK since we don't really need it
                           schema = `S.suspend((): S.Schema<${schema}, any> => ${schema})`;
@@ -627,7 +661,9 @@ const convertShapeToSchema: (
                 Effect.all(
                   Object.entries(s.members).map(([_memberName, member]) => {
                     const memberTargetName = formatName(member.target);
-                    const isMemberErrorShape = sdkFile.errorShapeIds.has(member.target);
+                    const isMemberErrorShape = sdkFile.errorShapeIds.has(
+                      member.target,
+                    );
                     return convertShapeToSchema(member.target).pipe(
                       Effect.flatMap(Deferred.await),
                       Effect.map((schema) => {
@@ -638,7 +674,10 @@ const convertShapeToSchema: (
                           wrappedSchema = `S.suspend(() => ${schema})`;
                         }
                         // Wrap cyclic references in S.suspend
-                        else if (isCurrentCyclic && sdkFile.cyclicSchemas.has(memberTargetName)) {
+                        else if (
+                          isCurrentCyclic &&
+                          sdkFile.cyclicSchemas.has(memberTargetName)
+                        ) {
                           if (sdkFile.cyclicClasses.has(memberTargetName)) {
                             // TODO(sam): I had to add the any here because encoded type was creting circular errors. hopefully OK since we don't really need it
                             wrappedSchema = `S.suspend((): S.Schema<${schema}, any> => ${schema})`;
@@ -653,16 +692,26 @@ const convertShapeToSchema: (
                   { concurrency: "unbounded" },
                 ).pipe(
                   Effect.map((members) => {
-                    const wrappedMembers = members.map(m => m.wrapped);
-                    
+                    const wrappedMembers = members.map((m) => m.wrapped);
+
                     if (isCurrentCyclic) {
                       // For cyclic unions, generate explicit type alias to help TypeScript inference
                       // Deduplicate the TypeScript types for cleaner output
-                      const memberTsTypes = [...new Set(members.map(m => schemaExprToTsType(m.raw, sdkFile.allStructNames, sdkFile.cyclicSchemas)))];
+                      const memberTsTypes = [
+                        ...new Set(
+                          members.map((m) =>
+                            schemaExprToTsType(
+                              m.raw,
+                              sdkFile.allStructNames,
+                              sdkFile.cyclicSchemas,
+                            ),
+                          ),
+                        ),
+                      ];
                       const typeAlias = `export type ${schemaName} = ${memberTsTypes.join(" | ")};`;
                       return `${typeAlias}\nexport const ${schemaName} = S.Union(${wrappedMembers.join(", ")}) as any as S.Schema<${schemaName}>;`;
                     }
-                    
+
                     return `export const ${schemaName} = S.Union(${wrappedMembers.join(", ")});`;
                   }),
                 ),
@@ -678,7 +727,9 @@ const convertShapeToSchema: (
               const keyTargetName = formatName(s.key.target);
               const valueTargetName = formatName(s.value.target);
               const isKeyErrorShape = sdkFile.errorShapeIds.has(s.key.target);
-              const isValueErrorShape = sdkFile.errorShapeIds.has(s.value.target);
+              const isValueErrorShape = sdkFile.errorShapeIds.has(
+                s.value.target,
+              );
               return addAlias(
                 Effect.all(
                   [
@@ -695,7 +746,7 @@ const convertShapeToSchema: (
                     // Wrap error shape or cyclic references in S.suspend
                     let wrappedKey = keySchema;
                     let wrappedValue = valueSchema;
-                    
+
                     if (isKeyErrorShape) {
                       wrappedKey = `S.suspend(() => ${keySchema})`;
                     } else if (sdkFile.cyclicSchemas.has(keyTargetName)) {
@@ -703,7 +754,7 @@ const convertShapeToSchema: (
                         ? `S.suspend((): S.Schema<${keySchema}, any> => ${keySchema})`
                         : `S.suspend(() => ${keySchema})`;
                     }
-                    
+
                     if (isValueErrorShape) {
                       wrappedValue = `S.suspend(() => ${valueSchema})`;
                     } else if (sdkFile.cyclicSchemas.has(valueTargetName)) {
@@ -711,14 +762,22 @@ const convertShapeToSchema: (
                         ? `S.suspend((): S.Schema<${valueSchema}, any> => ${valueSchema})`
                         : `S.suspend(() => ${valueSchema})`;
                     }
-                    
+
                     if (isCyclic) {
                       // For cyclic maps, generate explicit type alias to help TypeScript inference
-                      const keyTsType = schemaExprToTsType(keySchema, sdkFile.allStructNames, sdkFile.cyclicSchemas);
-                      const valueTsType = schemaExprToTsType(valueSchema, sdkFile.allStructNames, sdkFile.cyclicSchemas);
+                      const keyTsType = schemaExprToTsType(
+                        keySchema,
+                        sdkFile.allStructNames,
+                        sdkFile.cyclicSchemas,
+                      );
+                      const valueTsType = schemaExprToTsType(
+                        valueSchema,
+                        sdkFile.allStructNames,
+                        sdkFile.cyclicSchemas,
+                      );
                       return `export type ${schemaName} = { [key: ${keyTsType}]: ${valueTsType} };\nexport const ${schemaName} = S.Record({key: ${wrappedKey}, value: ${wrappedValue}}) as any as S.Schema<${schemaName}>;`;
                     }
-                    
+
                     return `export const ${schemaName} = S.Record({key: ${wrappedKey}, value: ${wrappedValue}});`;
                   }),
                 ),
@@ -799,7 +858,11 @@ const generateClient = Effect.fn(function* (
           "operation",
         );
 
+        //todo(pear): we shouldn't default sigv4 to serviceName here, we should do that in client.ts so we don't take up as much space
         const operationName = `${serviceName}.${operationShapeName.split("#")[1]}`;
+        const operationComment = htmlToJsdoc(
+          operationShape["traits"]["smithy.api#documentation"] ?? "",
+        );
 
         const input = yield* convertShapeToSchema(
           operationShape.input.target,
@@ -891,7 +954,8 @@ const generateClient = Effect.fn(function* (
           Ref.update(
             (c) =>
               c +
-              `export const ${formatName(operationShapeName, true)} = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "${serviceShape.version}", uri: "${httpTrait["uri"]}", method: "${httpTrait["method"]}", sdkId: "${serviceShape.traits["aws.api#service"].sdkId}", sigV4ServiceName: ${serviceShape.traits["aws.auth#sigv4"]?.name == null ? `"${serviceName}"` : `"${serviceShape.traits["aws.auth#sigv4"]?.name}"`}, name: "${operationName}" }, ${input}, ${output}, ${operationErrors}), ${responseParser}, ${requestParser}, ${errorParser});\n`,
+              operationComment +
+              `export const ${formatName(operationShapeName, true)} = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "${serviceShape.version}", uri: "${httpTrait["uri"]}", method: "${httpTrait["method"]}", sdkId: "${serviceShape.traits["aws.api#service"].sdkId}", sigV4ServiceName: ${serviceShape.traits["aws.auth#sigv4"]?.name == null ? `"${serviceName}"` : `"${serviceShape.traits["aws.auth#sigv4"]?.name}"`}, name: "${operationName}" }, ${input}, ${output}, ${operationErrors}), ${responseParser}, ${requestParser}, ${errorParser});\n`,
           ),
         );
       }),
@@ -903,7 +967,10 @@ const generateClient = Effect.fn(function* (
     // Get schemas and sort them topologically
     // Cycles were already computed before generation, so just sort
     const schemas = yield* Ref.get(sdkFile.schemas);
-    const sortedSchemas = topologicalSortWithCycles(schemas, sdkFile.cyclicSchemas);
+    const sortedSchemas = topologicalSortWithCycles(
+      schemas,
+      sdkFile.cyclicSchemas,
+    );
     const schemaDefinitions = sortedSchemas.map((s) => s.definition).join("\n");
 
     const errors = yield* Ref.get(sdkFile.errors);
@@ -931,8 +998,9 @@ const generateClient = Effect.fn(function* (
 
   // Pre-compute cyclic schemas from the model before generation
   const shapeDeps = collectShapeDependencies(model);
-  const { cyclicSchemas, cyclicClasses, allStructNames } = findCyclicSchemasFromDeps(shapeDeps);
-  
+  const { cyclicSchemas, cyclicClasses, allStructNames } =
+    findCyclicSchemasFromDeps(shapeDeps);
+
   // Pre-collect error shape IDs so we can inline their fields in TaggedError
   const errorShapeIds = collectErrorShapeIds(model);
 
@@ -999,3 +1067,47 @@ BunRuntime.runMain(
     Effect.provide(BunContext.layer),
   ),
 );
+
+export function htmlToJsdoc(html: string): string {
+  let text = html
+    // Remove opening JSDoc comment if present
+    .replace(/^\/\*\*\s*/, "")
+    .replace(/\s*\*\/$/, "")
+    // Convert common HTML elements
+    .replace(/<\/?p>/gi, "\n")
+    .replace(/<br\s*\/?>/gi, "\n")
+    .replace(/<\/?note>/gi, "\n")
+    .replace(/<\/?important>/gi, "\n")
+    .replace(/<li>\s*/gi, "\n- ")
+    .replace(/<\/li>/gi, "")
+    .replace(/<\/ul>/gi, "\n")
+    .replace(/<ul>/gi, "")
+    .replace(/<dt>(.*?)<\/dt>/gi, "\n### $1\n")
+    .replace(/<dd>/gi, "")
+    .replace(/<\/dd>/gi, "\n")
+    .replace(/<dl>/gi, "")
+    .replace(/<\/dl>/gi, "")
+    // Handle code blocks
+    .replace(/<code>(.*?)<\/code>/gi, "`$1`")
+    // Handle links - extract text only
+    .replace(/<a[^>]*>(.*?)<\/a>/gi, "$1")
+    // Handle bold/emphasis
+    .replace(/<b>(.*?)<\/b>/gi, "**$1**")
+    .replace(/<i>(.*?)<\/i>/gi, "*$1*")
+    // Remove any remaining HTML tags
+    .replace(/<[^>]+>/g, "")
+    // Decode HTML entities
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/&amp;/g, "&")
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    // Clean up whitespace
+    .replace(/\n{3,}/g, "\n\n")
+    .replace(/[ \t]+/g, " ")
+    .trim();
+
+  // Format as JSDoc
+  const lines = text.split("\n").map((line) => ` * ${line.trim()}`);
+  return `/**\n${lines.join("\n")}\n */`;
+}

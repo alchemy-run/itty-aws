@@ -420,113 +420,849 @@ export class SendingPausedException extends S.TaggedError<SendingPausedException
 export class InternalServiceErrorException extends S.TaggedError<InternalServiceErrorException>()("InternalServiceErrorException", {message: S.optional(S.String)}) {};
 
 //# Operations
-export const deleteConfigurationSetEventDestination = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/configuration-sets/{ConfigurationSetName}/event-destinations/{EventDestinationName}", method: "DELETE", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.DeleteConfigurationSetEventDestination" }, DeleteConfigurationSetEventDestinationRequest, DeleteConfigurationSetEventDestinationResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteContact = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/contact-lists/{ContactListName}/contacts/{EmailAddress}", method: "DELETE", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.DeleteContact" }, DeleteContactRequest, DeleteContactResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteContactList = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/contact-lists/{ContactListName}", method: "DELETE", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.DeleteContactList" }, DeleteContactListRequest, DeleteContactListResponse, [BadRequestException, ConcurrentModificationException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteCustomVerificationEmailTemplate = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/custom-verification-email-templates/{TemplateName}", method: "DELETE", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.DeleteCustomVerificationEmailTemplate" }, DeleteCustomVerificationEmailTemplateRequest, DeleteCustomVerificationEmailTemplateResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteDedicatedIpPool = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/dedicated-ip-pools/{PoolName}", method: "DELETE", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.DeleteDedicatedIpPool" }, DeleteDedicatedIpPoolRequest, DeleteDedicatedIpPoolResponse, [BadRequestException, ConcurrentModificationException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteEmailIdentity = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/identities/{EmailIdentity}", method: "DELETE", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.DeleteEmailIdentity" }, DeleteEmailIdentityRequest, DeleteEmailIdentityResponse, [BadRequestException, ConcurrentModificationException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteEmailIdentityPolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/identities/{EmailIdentity}/policies/{PolicyName}", method: "DELETE", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.DeleteEmailIdentityPolicy" }, DeleteEmailIdentityPolicyRequest, DeleteEmailIdentityPolicyResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteEmailTemplate = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/templates/{TemplateName}", method: "DELETE", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.DeleteEmailTemplate" }, DeleteEmailTemplateRequest, DeleteEmailTemplateResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteSuppressedDestination = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/suppression/addresses/{EmailAddress}", method: "DELETE", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.DeleteSuppressedDestination" }, DeleteSuppressedDestinationRequest, DeleteSuppressedDestinationResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteTenant = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/tenants/delete", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.DeleteTenant" }, DeleteTenantRequest, DeleteTenantResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteTenantResourceAssociation = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/tenants/resources/delete", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.DeleteTenantResourceAssociation" }, DeleteTenantResourceAssociationRequest, DeleteTenantResourceAssociationResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const putAccountDedicatedIpWarmupAttributes = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/account/dedicated-ips/warmup", method: "PUT", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.PutAccountDedicatedIpWarmupAttributes" }, PutAccountDedicatedIpWarmupAttributesRequest, PutAccountDedicatedIpWarmupAttributesResponse, [BadRequestException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const putAccountSendingAttributes = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/account/sending", method: "PUT", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.PutAccountSendingAttributes" }, PutAccountSendingAttributesRequest, PutAccountSendingAttributesResponse, [BadRequestException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const putAccountVdmAttributes = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/account/vdm", method: "PUT", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.PutAccountVdmAttributes" }, PutAccountVdmAttributesRequest, PutAccountVdmAttributesResponse, [BadRequestException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const putConfigurationSetArchivingOptions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/configuration-sets/{ConfigurationSetName}/archiving-options", method: "PUT", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.PutConfigurationSetArchivingOptions" }, PutConfigurationSetArchivingOptionsRequest, PutConfigurationSetArchivingOptionsResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const putConfigurationSetDeliveryOptions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/configuration-sets/{ConfigurationSetName}/delivery-options", method: "PUT", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.PutConfigurationSetDeliveryOptions" }, PutConfigurationSetDeliveryOptionsRequest, PutConfigurationSetDeliveryOptionsResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const putConfigurationSetReputationOptions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/configuration-sets/{ConfigurationSetName}/reputation-options", method: "PUT", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.PutConfigurationSetReputationOptions" }, PutConfigurationSetReputationOptionsRequest, PutConfigurationSetReputationOptionsResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const putConfigurationSetSendingOptions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/configuration-sets/{ConfigurationSetName}/sending", method: "PUT", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.PutConfigurationSetSendingOptions" }, PutConfigurationSetSendingOptionsRequest, PutConfigurationSetSendingOptionsResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const putConfigurationSetTrackingOptions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/configuration-sets/{ConfigurationSetName}/tracking-options", method: "PUT", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.PutConfigurationSetTrackingOptions" }, PutConfigurationSetTrackingOptionsRequest, PutConfigurationSetTrackingOptionsResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const putConfigurationSetVdmOptions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/configuration-sets/{ConfigurationSetName}/vdm-options", method: "PUT", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.PutConfigurationSetVdmOptions" }, PutConfigurationSetVdmOptionsRequest, PutConfigurationSetVdmOptionsResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const putDedicatedIpInPool = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/dedicated-ips/{Ip}/pool", method: "PUT", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.PutDedicatedIpInPool" }, PutDedicatedIpInPoolRequest, PutDedicatedIpInPoolResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const putDedicatedIpPoolScalingAttributes = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/dedicated-ip-pools/{PoolName}/scaling", method: "PUT", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.PutDedicatedIpPoolScalingAttributes" }, PutDedicatedIpPoolScalingAttributesRequest, PutDedicatedIpPoolScalingAttributesResponse, [BadRequestException, ConcurrentModificationException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const putDedicatedIpWarmupAttributes = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/dedicated-ips/{Ip}/warmup", method: "PUT", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.PutDedicatedIpWarmupAttributes" }, PutDedicatedIpWarmupAttributesRequest, PutDedicatedIpWarmupAttributesResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const putDeliverabilityDashboardOption = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/deliverability-dashboard", method: "PUT", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.PutDeliverabilityDashboardOption" }, PutDeliverabilityDashboardOptionRequest, PutDeliverabilityDashboardOptionResponse, [AlreadyExistsException, BadRequestException, LimitExceededException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const putEmailIdentityConfigurationSetAttributes = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/identities/{EmailIdentity}/configuration-set", method: "PUT", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.PutEmailIdentityConfigurationSetAttributes" }, PutEmailIdentityConfigurationSetAttributesRequest, PutEmailIdentityConfigurationSetAttributesResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const putEmailIdentityDkimAttributes = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/identities/{EmailIdentity}/dkim", method: "PUT", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.PutEmailIdentityDkimAttributes" }, PutEmailIdentityDkimAttributesRequest, PutEmailIdentityDkimAttributesResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const putEmailIdentityFeedbackAttributes = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/identities/{EmailIdentity}/feedback", method: "PUT", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.PutEmailIdentityFeedbackAttributes" }, PutEmailIdentityFeedbackAttributesRequest, PutEmailIdentityFeedbackAttributesResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const putEmailIdentityMailFromAttributes = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/identities/{EmailIdentity}/mail-from", method: "PUT", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.PutEmailIdentityMailFromAttributes" }, PutEmailIdentityMailFromAttributesRequest, PutEmailIdentityMailFromAttributesResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const putSuppressedDestination = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/suppression/addresses", method: "PUT", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.PutSuppressedDestination" }, PutSuppressedDestinationRequest, PutSuppressedDestinationResponse, [BadRequestException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const tagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/tags", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.TagResource" }, TagResourceRequest, TagResourceResponse, [BadRequestException, ConcurrentModificationException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const untagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/tags", method: "DELETE", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [BadRequestException, ConcurrentModificationException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateConfigurationSetEventDestination = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/configuration-sets/{ConfigurationSetName}/event-destinations/{EventDestinationName}", method: "PUT", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.UpdateConfigurationSetEventDestination" }, UpdateConfigurationSetEventDestinationRequest, UpdateConfigurationSetEventDestinationResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateContact = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/contact-lists/{ContactListName}/contacts/{EmailAddress}", method: "PUT", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.UpdateContact" }, UpdateContactRequest, UpdateContactResponse, [BadRequestException, ConcurrentModificationException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateContactList = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/contact-lists/{ContactListName}", method: "PUT", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.UpdateContactList" }, UpdateContactListRequest, UpdateContactListResponse, [BadRequestException, ConcurrentModificationException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateCustomVerificationEmailTemplate = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/custom-verification-email-templates/{TemplateName}", method: "PUT", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.UpdateCustomVerificationEmailTemplate" }, UpdateCustomVerificationEmailTemplateRequest, UpdateCustomVerificationEmailTemplateResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateEmailIdentityPolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/identities/{EmailIdentity}/policies/{PolicyName}", method: "PUT", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.UpdateEmailIdentityPolicy" }, UpdateEmailIdentityPolicyRequest, UpdateEmailIdentityPolicyResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateEmailTemplate = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/templates/{TemplateName}", method: "PUT", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.UpdateEmailTemplate" }, UpdateEmailTemplateRequest, UpdateEmailTemplateResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateReputationEntityCustomerManagedStatus = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/reputation/entities/{ReputationEntityType}/{ReputationEntityReference}/customer-managed-status", method: "PUT", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.UpdateReputationEntityCustomerManagedStatus" }, UpdateReputationEntityCustomerManagedStatusRequest, UpdateReputationEntityCustomerManagedStatusResponse, [BadRequestException, ConflictException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateReputationEntityPolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/reputation/entities/{ReputationEntityType}/{ReputationEntityReference}/policy", method: "PUT", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.UpdateReputationEntityPolicy" }, UpdateReputationEntityPolicyRequest, UpdateReputationEntityPolicyResponse, [BadRequestException, ConflictException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const cancelExportJob = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/export-jobs/{JobId}/cancel", method: "PUT", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.CancelExportJob" }, CancelExportJobRequest, CancelExportJobResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const createContact = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/contact-lists/{ContactListName}/contacts", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.CreateContact" }, CreateContactRequest, CreateContactResponse, [AlreadyExistsException, BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const createContactList = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/contact-lists", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.CreateContactList" }, CreateContactListRequest, CreateContactListResponse, [AlreadyExistsException, BadRequestException, LimitExceededException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const createCustomVerificationEmailTemplate = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/custom-verification-email-templates", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.CreateCustomVerificationEmailTemplate" }, CreateCustomVerificationEmailTemplateRequest, CreateCustomVerificationEmailTemplateResponse, [AlreadyExistsException, BadRequestException, LimitExceededException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const createDedicatedIpPool = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/dedicated-ip-pools", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.CreateDedicatedIpPool" }, CreateDedicatedIpPoolRequest, CreateDedicatedIpPoolResponse, [AlreadyExistsException, BadRequestException, ConcurrentModificationException, LimitExceededException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const createEmailIdentityPolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/identities/{EmailIdentity}/policies/{PolicyName}", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.CreateEmailIdentityPolicy" }, CreateEmailIdentityPolicyRequest, CreateEmailIdentityPolicyResponse, [AlreadyExistsException, BadRequestException, LimitExceededException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const createEmailTemplate = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/templates", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.CreateEmailTemplate" }, CreateEmailTemplateRequest, CreateEmailTemplateResponse, [AlreadyExistsException, BadRequestException, LimitExceededException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const createTenant = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/tenants", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.CreateTenant" }, CreateTenantRequest, CreateTenantResponse, [AlreadyExistsException, BadRequestException, LimitExceededException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const createTenantResourceAssociation = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/tenants/resources", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.CreateTenantResourceAssociation" }, CreateTenantResourceAssociationRequest, CreateTenantResourceAssociationResponse, [AlreadyExistsException, BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteConfigurationSet = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/configuration-sets/{ConfigurationSetName}", method: "DELETE", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.DeleteConfigurationSet" }, DeleteConfigurationSetRequest, DeleteConfigurationSetResponse, [BadRequestException, ConcurrentModificationException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteMultiRegionEndpoint = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/multi-region-endpoints/{EndpointName}", method: "DELETE", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.DeleteMultiRegionEndpoint" }, DeleteMultiRegionEndpointRequest, DeleteMultiRegionEndpointResponse, [BadRequestException, ConcurrentModificationException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getConfigurationSet = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/configuration-sets/{ConfigurationSetName}", method: "GET", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.GetConfigurationSet" }, GetConfigurationSetRequest, GetConfigurationSetResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getContact = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/contact-lists/{ContactListName}/contacts/{EmailAddress}", method: "GET", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.GetContact" }, GetContactRequest, GetContactResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getContactList = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/contact-lists/{ContactListName}", method: "GET", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.GetContactList" }, GetContactListRequest, GetContactListResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getCustomVerificationEmailTemplate = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/custom-verification-email-templates/{TemplateName}", method: "GET", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.GetCustomVerificationEmailTemplate" }, GetCustomVerificationEmailTemplateRequest, GetCustomVerificationEmailTemplateResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getDedicatedIps = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/dedicated-ips", method: "GET", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.GetDedicatedIps" }, GetDedicatedIpsRequest, GetDedicatedIpsResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getEmailIdentityPolicies = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/identities/{EmailIdentity}/policies", method: "GET", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.GetEmailIdentityPolicies" }, GetEmailIdentityPoliciesRequest, GetEmailIdentityPoliciesResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getEmailTemplate = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/templates/{TemplateName}", method: "GET", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.GetEmailTemplate" }, GetEmailTemplateRequest, GetEmailTemplateResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getImportJob = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/import-jobs/{JobId}", method: "GET", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.GetImportJob" }, GetImportJobRequest, GetImportJobResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listConfigurationSets = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/configuration-sets", method: "GET", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.ListConfigurationSets" }, ListConfigurationSetsRequest, ListConfigurationSetsResponse, [BadRequestException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listDedicatedIpPools = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/dedicated-ip-pools", method: "GET", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.ListDedicatedIpPools" }, ListDedicatedIpPoolsRequest, ListDedicatedIpPoolsResponse, [BadRequestException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listDeliverabilityTestReports = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/deliverability-dashboard/test-reports", method: "GET", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.ListDeliverabilityTestReports" }, ListDeliverabilityTestReportsRequest, ListDeliverabilityTestReportsResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listDomainDeliverabilityCampaigns = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/deliverability-dashboard/domains/{SubscribedDomain}/campaigns", method: "GET", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.ListDomainDeliverabilityCampaigns" }, ListDomainDeliverabilityCampaignsRequest, ListDomainDeliverabilityCampaignsResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listTagsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/tags", method: "GET", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const putAccountDetails = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/account/details", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.PutAccountDetails" }, PutAccountDetailsRequest, PutAccountDetailsResponse, [BadRequestException, ConflictException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const putConfigurationSetSuppressionOptions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/configuration-sets/{ConfigurationSetName}/suppression-options", method: "PUT", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.PutConfigurationSetSuppressionOptions" }, PutConfigurationSetSuppressionOptionsRequest, PutConfigurationSetSuppressionOptionsResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const putEmailIdentityDkimSigningAttributes = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/identities/{EmailIdentity}/dkim/signing", method: "PUT", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.PutEmailIdentityDkimSigningAttributes" }, PutEmailIdentityDkimSigningAttributesRequest, PutEmailIdentityDkimSigningAttributesResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const testRenderEmailTemplate = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/templates/{TemplateName}/render", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.TestRenderEmailTemplate" }, TestRenderEmailTemplateRequest, TestRenderEmailTemplateResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const createConfigurationSet = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/configuration-sets", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.CreateConfigurationSet" }, CreateConfigurationSetRequest, CreateConfigurationSetResponse, [AlreadyExistsException, BadRequestException, ConcurrentModificationException, LimitExceededException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const createEmailIdentity = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/identities", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.CreateEmailIdentity" }, CreateEmailIdentityRequest, CreateEmailIdentityResponse, [AlreadyExistsException, BadRequestException, ConcurrentModificationException, LimitExceededException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getAccount = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/account", method: "GET", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.GetAccount" }, GetAccountRequest, GetAccountResponse, [BadRequestException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getConfigurationSetEventDestinations = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/configuration-sets/{ConfigurationSetName}/event-destinations", method: "GET", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.GetConfigurationSetEventDestinations" }, GetConfigurationSetEventDestinationsRequest, GetConfigurationSetEventDestinationsResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getDedicatedIp = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/dedicated-ips/{Ip}", method: "GET", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.GetDedicatedIp" }, GetDedicatedIpRequest, GetDedicatedIpResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getDedicatedIpPool = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/dedicated-ip-pools/{PoolName}", method: "GET", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.GetDedicatedIpPool" }, GetDedicatedIpPoolRequest, GetDedicatedIpPoolResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getDeliverabilityDashboardOptions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/deliverability-dashboard", method: "GET", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.GetDeliverabilityDashboardOptions" }, GetDeliverabilityDashboardOptionsRequest, GetDeliverabilityDashboardOptionsResponse, [BadRequestException, LimitExceededException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getDeliverabilityTestReport = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/deliverability-dashboard/test-reports/{ReportId}", method: "GET", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.GetDeliverabilityTestReport" }, GetDeliverabilityTestReportRequest, GetDeliverabilityTestReportResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getDomainDeliverabilityCampaign = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/deliverability-dashboard/campaigns/{CampaignId}", method: "GET", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.GetDomainDeliverabilityCampaign" }, GetDomainDeliverabilityCampaignRequest, GetDomainDeliverabilityCampaignResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getExportJob = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/export-jobs/{JobId}", method: "GET", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.GetExportJob" }, GetExportJobRequest, GetExportJobResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getMultiRegionEndpoint = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/multi-region-endpoints/{EndpointName}", method: "GET", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.GetMultiRegionEndpoint" }, GetMultiRegionEndpointRequest, GetMultiRegionEndpointResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getTenant = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/tenants/get", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.GetTenant" }, GetTenantRequest, GetTenantResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listContactLists = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/contact-lists", method: "GET", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.ListContactLists" }, ListContactListsRequest, ListContactListsResponse, [BadRequestException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listCustomVerificationEmailTemplates = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/custom-verification-email-templates", method: "GET", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.ListCustomVerificationEmailTemplates" }, ListCustomVerificationEmailTemplatesRequest, ListCustomVerificationEmailTemplatesResponse, [BadRequestException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listEmailIdentities = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/identities", method: "GET", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.ListEmailIdentities" }, ListEmailIdentitiesRequest, ListEmailIdentitiesResponse, [BadRequestException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listEmailTemplates = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/templates", method: "GET", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.ListEmailTemplates" }, ListEmailTemplatesRequest, ListEmailTemplatesResponse, [BadRequestException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listExportJobs = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/list-export-jobs", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.ListExportJobs" }, ListExportJobsRequest, ListExportJobsResponse, [BadRequestException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listImportJobs = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/import-jobs/list", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.ListImportJobs" }, ListImportJobsRequest, ListImportJobsResponse, [BadRequestException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listMultiRegionEndpoints = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/multi-region-endpoints", method: "GET", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.ListMultiRegionEndpoints" }, ListMultiRegionEndpointsRequest, ListMultiRegionEndpointsResponse, [BadRequestException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listReputationEntities = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/reputation/entities", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.ListReputationEntities" }, ListReputationEntitiesRequest, ListReputationEntitiesResponse, [BadRequestException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listResourceTenants = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/resources/tenants/list", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.ListResourceTenants" }, ListResourceTenantsRequest, ListResourceTenantsResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listTenants = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/tenants/list", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.ListTenants" }, ListTenantsRequest, ListTenantsResponse, [BadRequestException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const createConfigurationSetEventDestination = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/configuration-sets/{ConfigurationSetName}/event-destinations", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.CreateConfigurationSetEventDestination" }, CreateConfigurationSetEventDestinationRequest, CreateConfigurationSetEventDestinationResponse, [AlreadyExistsException, BadRequestException, LimitExceededException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const createImportJob = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/import-jobs", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.CreateImportJob" }, CreateImportJobRequest, CreateImportJobResponse, [BadRequestException, LimitExceededException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const createMultiRegionEndpoint = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/multi-region-endpoints", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.CreateMultiRegionEndpoint" }, CreateMultiRegionEndpointRequest, CreateMultiRegionEndpointResponse, [AlreadyExistsException, BadRequestException, LimitExceededException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getBlacklistReports = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/deliverability-dashboard/blacklist-report", method: "GET", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.GetBlacklistReports" }, GetBlacklistReportsRequest, GetBlacklistReportsResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getDomainStatisticsReport = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/deliverability-dashboard/statistics-report/{Domain}", method: "GET", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.GetDomainStatisticsReport" }, GetDomainStatisticsReportRequest, GetDomainStatisticsReportResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getEmailAddressInsights = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/email-address-insights", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.GetEmailAddressInsights" }, GetEmailAddressInsightsRequest, GetEmailAddressInsightsResponse, [BadRequestException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getEmailIdentity = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/identities/{EmailIdentity}", method: "GET", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.GetEmailIdentity" }, GetEmailIdentityRequest, GetEmailIdentityResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getReputationEntity = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/reputation/entities/{ReputationEntityType}/{ReputationEntityReference}", method: "GET", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.GetReputationEntity" }, GetReputationEntityRequest, GetReputationEntityResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getSuppressedDestination = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/suppression/addresses/{EmailAddress}", method: "GET", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.GetSuppressedDestination" }, GetSuppressedDestinationRequest, GetSuppressedDestinationResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listRecommendations = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/vdm/recommendations", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.ListRecommendations" }, ListRecommendationsRequest, ListRecommendationsResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listSuppressedDestinations = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/suppression/addresses", method: "GET", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.ListSuppressedDestinations" }, ListSuppressedDestinationsRequest, ListSuppressedDestinationsResponse, [BadRequestException, InvalidNextTokenException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listTenantResources = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/tenants/resources/list", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.ListTenantResources" }, ListTenantResourcesRequest, ListTenantResourcesResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const putAccountSuppressionAttributes = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/account/suppression", method: "PUT", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.PutAccountSuppressionAttributes" }, PutAccountSuppressionAttributesRequest, PutAccountSuppressionAttributesResponse, [BadRequestException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const sendEmail = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/outbound-emails", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.SendEmail" }, SendEmailRequest, SendEmailResponse, [AccountSuspendedException, BadRequestException, LimitExceededException, MailFromDomainNotVerifiedException, MessageRejected, NotFoundException, SendingPausedException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const createDeliverabilityTestReport = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/deliverability-dashboard/test", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.CreateDeliverabilityTestReport" }, CreateDeliverabilityTestReportRequest, CreateDeliverabilityTestReportResponse, [AccountSuspendedException, BadRequestException, ConcurrentModificationException, LimitExceededException, MailFromDomainNotVerifiedException, MessageRejected, NotFoundException, SendingPausedException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const createExportJob = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/export-jobs", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.CreateExportJob" }, CreateExportJobRequest, CreateExportJobResponse, [BadRequestException, LimitExceededException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listContacts = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/contact-lists/{ContactListName}/contacts/list", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.ListContacts" }, ListContactsRequest, ListContactsResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const sendCustomVerificationEmail = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/outbound-custom-verification-emails", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.SendCustomVerificationEmail" }, SendCustomVerificationEmailRequest, SendCustomVerificationEmailResponse, [BadRequestException, LimitExceededException, MailFromDomainNotVerifiedException, MessageRejected, NotFoundException, SendingPausedException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const batchGetMetricData = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/metrics/batch", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.BatchGetMetricData" }, BatchGetMetricDataRequest, BatchGetMetricDataResponse, [BadRequestException, InternalServiceErrorException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getMessageInsights = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/insights/{MessageId}", method: "GET", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.GetMessageInsights" }, GetMessageInsightsRequest, GetMessageInsightsResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const sendBulkEmail = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/outbound-bulk-emails", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.SendBulkEmail" }, SendBulkEmailRequest, SendBulkEmailResponse, [AccountSuspendedException, BadRequestException, LimitExceededException, MailFromDomainNotVerifiedException, MessageRejected, NotFoundException, SendingPausedException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Delete an event destination.
+ * 
+ * 
+ * 
+ * *Events* include message sends, deliveries, opens, clicks, bounces,
+ * and complaints. *Event destinations* are places that you can send
+ * information about these events to. For example, you can send event data to Amazon EventBridge and
+ * associate a rule to send the event to the specified target.
+ */export const deleteConfigurationSetEventDestination = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/configuration-sets/{ConfigurationSetName}/event-destinations/{EventDestinationName}", method: "DELETE", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.DeleteConfigurationSetEventDestination" }, DeleteConfigurationSetEventDestinationRequest, DeleteConfigurationSetEventDestinationResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Removes a contact from a contact list.
+ */export const deleteContact = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/contact-lists/{ContactListName}/contacts/{EmailAddress}", method: "DELETE", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.DeleteContact" }, DeleteContactRequest, DeleteContactResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes a contact list and all of the contacts on that list.
+ */export const deleteContactList = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/contact-lists/{ContactListName}", method: "DELETE", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.DeleteContactList" }, DeleteContactListRequest, DeleteContactListResponse, [BadRequestException, ConcurrentModificationException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes an existing custom verification email template.
+ * 
+ * 
+ * For more information about custom verification email templates, see Using
+ * custom verification email templates in the Amazon SES Developer
+ * Guide.
+ * 
+ * 
+ * You can execute this operation no more than once per second.
+ */export const deleteCustomVerificationEmailTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/custom-verification-email-templates/{TemplateName}", method: "DELETE", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.DeleteCustomVerificationEmailTemplate" }, DeleteCustomVerificationEmailTemplateRequest, DeleteCustomVerificationEmailTemplateResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Delete a dedicated IP pool.
+ */export const deleteDedicatedIpPool = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/dedicated-ip-pools/{PoolName}", method: "DELETE", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.DeleteDedicatedIpPool" }, DeleteDedicatedIpPoolRequest, DeleteDedicatedIpPoolResponse, [BadRequestException, ConcurrentModificationException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes an email identity. An identity can be either an email address or a domain
+ * name.
+ */export const deleteEmailIdentity = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/identities/{EmailIdentity}", method: "DELETE", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.DeleteEmailIdentity" }, DeleteEmailIdentityRequest, DeleteEmailIdentityResponse, [BadRequestException, ConcurrentModificationException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes the specified sending authorization policy for the given identity (an email
+ * address or a domain). This API returns successfully even if a policy with the specified
+ * name does not exist.
+ * 
+ * 
+ * 
+ * 
+ * This API is for the identity owner only. If you have not verified the identity,
+ * this API will return an error.
+ * 
+ * 
+ * 
+ * 
+ * Sending authorization is a feature that enables an identity owner to authorize other
+ * senders to use its identities. For information about using sending authorization, see
+ * the Amazon SES Developer
+ * Guide.
+ * 
+ * 
+ * You can execute this operation no more than once per second.
+ */export const deleteEmailIdentityPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/identities/{EmailIdentity}/policies/{PolicyName}", method: "DELETE", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.DeleteEmailIdentityPolicy" }, DeleteEmailIdentityPolicyRequest, DeleteEmailIdentityPolicyResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes an email template.
+ * 
+ * 
+ * You can execute this operation no more than once per second.
+ */export const deleteEmailTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/templates/{TemplateName}", method: "DELETE", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.DeleteEmailTemplate" }, DeleteEmailTemplateRequest, DeleteEmailTemplateResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Removes an email address from the suppression list for your account.
+ */export const deleteSuppressedDestination = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/suppression/addresses/{EmailAddress}", method: "DELETE", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.DeleteSuppressedDestination" }, DeleteSuppressedDestinationRequest, DeleteSuppressedDestinationResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Delete an existing tenant.
+ * 
+ * 
+ * When you delete a tenant, its associations with resources
+ * are removed, but the resources themselves are not deleted.
+ */export const deleteTenant = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/tenants/delete", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.DeleteTenant" }, DeleteTenantRequest, DeleteTenantResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Delete an association between a tenant and a resource.
+ * 
+ * 
+ * When you delete a tenant-resource association, the resource itself is not deleted,
+ * only its association with the specific tenant is removed. After removal, the resource
+ * will no longer be available for use with that tenant's email sending operations.
+ */export const deleteTenantResourceAssociation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/tenants/resources/delete", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.DeleteTenantResourceAssociation" }, DeleteTenantResourceAssociationRequest, DeleteTenantResourceAssociationResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Enable or disable the automatic warm-up feature for dedicated IP addresses.
+ */export const putAccountDedicatedIpWarmupAttributes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/account/dedicated-ips/warmup", method: "PUT", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.PutAccountDedicatedIpWarmupAttributes" }, PutAccountDedicatedIpWarmupAttributesRequest, PutAccountDedicatedIpWarmupAttributesResponse, [BadRequestException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Enable or disable the ability of your account to send email.
+ */export const putAccountSendingAttributes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/account/sending", method: "PUT", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.PutAccountSendingAttributes" }, PutAccountSendingAttributesRequest, PutAccountSendingAttributesResponse, [BadRequestException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Update your Amazon SES account VDM attributes.
+ * 
+ * 
+ * You can execute this operation no more than once per second.
+ */export const putAccountVdmAttributes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/account/vdm", method: "PUT", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.PutAccountVdmAttributes" }, PutAccountVdmAttributesRequest, PutAccountVdmAttributesResponse, [BadRequestException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Associate the configuration set with a MailManager archive. When you send email using the
+ * `SendEmail` or `SendBulkEmail` operations the message as it will be given
+ * to the receiving SMTP server will be archived, along with the recipient information.
+ */export const putConfigurationSetArchivingOptions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/configuration-sets/{ConfigurationSetName}/archiving-options", method: "PUT", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.PutConfigurationSetArchivingOptions" }, PutConfigurationSetArchivingOptionsRequest, PutConfigurationSetArchivingOptionsResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Associate a configuration set with a dedicated IP pool. You can use dedicated IP pools
+ * to create groups of dedicated IP addresses for sending specific types of email.
+ */export const putConfigurationSetDeliveryOptions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/configuration-sets/{ConfigurationSetName}/delivery-options", method: "PUT", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.PutConfigurationSetDeliveryOptions" }, PutConfigurationSetDeliveryOptionsRequest, PutConfigurationSetDeliveryOptionsResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Enable or disable collection of reputation metrics for emails that you send using a
+ * particular configuration set in a specific Amazon Web Services Region.
+ */export const putConfigurationSetReputationOptions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/configuration-sets/{ConfigurationSetName}/reputation-options", method: "PUT", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.PutConfigurationSetReputationOptions" }, PutConfigurationSetReputationOptionsRequest, PutConfigurationSetReputationOptionsResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Enable or disable email sending for messages that use a particular configuration set
+ * in a specific Amazon Web Services Region.
+ */export const putConfigurationSetSendingOptions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/configuration-sets/{ConfigurationSetName}/sending", method: "PUT", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.PutConfigurationSetSendingOptions" }, PutConfigurationSetSendingOptionsRequest, PutConfigurationSetSendingOptionsResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Specify a custom domain to use for open and click tracking elements in email that you
+ * send.
+ */export const putConfigurationSetTrackingOptions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/configuration-sets/{ConfigurationSetName}/tracking-options", method: "PUT", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.PutConfigurationSetTrackingOptions" }, PutConfigurationSetTrackingOptionsRequest, PutConfigurationSetTrackingOptionsResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Specify VDM preferences for email that you send using the configuration set.
+ * 
+ * 
+ * You can execute this operation no more than once per second.
+ */export const putConfigurationSetVdmOptions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/configuration-sets/{ConfigurationSetName}/vdm-options", method: "PUT", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.PutConfigurationSetVdmOptions" }, PutConfigurationSetVdmOptionsRequest, PutConfigurationSetVdmOptionsResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Move a dedicated IP address to an existing dedicated IP pool.
+ * 
+ * 
+ * 
+ * 
+ * The dedicated IP address that you specify must already exist, and must be
+ * associated with your Amazon Web Services account.
+ * 
+ * 
+ * 
+ * 
+ * The dedicated IP pool you specify must already exist. You can create a new pool by
+ * using the `CreateDedicatedIpPool` operation.
+ */export const putDedicatedIpInPool = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/dedicated-ips/{Ip}/pool", method: "PUT", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.PutDedicatedIpInPool" }, PutDedicatedIpInPoolRequest, PutDedicatedIpInPoolResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Used to convert a dedicated IP pool to a different scaling mode.
+ * 
+ * 
+ * 
+ * 
+ * 
+ * `MANAGED` pools cannot be converted to `STANDARD` scaling mode.
+ */export const putDedicatedIpPoolScalingAttributes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/dedicated-ip-pools/{PoolName}/scaling", method: "PUT", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.PutDedicatedIpPoolScalingAttributes" }, PutDedicatedIpPoolScalingAttributesRequest, PutDedicatedIpPoolScalingAttributesResponse, [BadRequestException, ConcurrentModificationException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * 
+ */export const putDedicatedIpWarmupAttributes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/dedicated-ips/{Ip}/warmup", method: "PUT", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.PutDedicatedIpWarmupAttributes" }, PutDedicatedIpWarmupAttributesRequest, PutDedicatedIpWarmupAttributesResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Enable or disable the Deliverability dashboard. When you enable the Deliverability dashboard, you gain
+ * access to reputation, deliverability, and other metrics for the domains that you use to
+ * send email. You also gain the ability to perform predictive inbox placement tests.
+ * 
+ * 
+ * When you use the Deliverability dashboard, you pay a monthly subscription charge, in addition
+ * to any other fees that you accrue by using Amazon SES and other Amazon Web Services services. For more
+ * information about the features and cost of a Deliverability dashboard subscription, see Amazon SES Pricing.
+ */export const putDeliverabilityDashboardOption = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/deliverability-dashboard", method: "PUT", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.PutDeliverabilityDashboardOption" }, PutDeliverabilityDashboardOptionRequest, PutDeliverabilityDashboardOptionResponse, [AlreadyExistsException, BadRequestException, LimitExceededException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Used to associate a configuration set with an email identity.
+ */export const putEmailIdentityConfigurationSetAttributes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/identities/{EmailIdentity}/configuration-set", method: "PUT", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.PutEmailIdentityConfigurationSetAttributes" }, PutEmailIdentityConfigurationSetAttributesRequest, PutEmailIdentityConfigurationSetAttributesResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Used to enable or disable DKIM authentication for an email identity.
+ */export const putEmailIdentityDkimAttributes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/identities/{EmailIdentity}/dkim", method: "PUT", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.PutEmailIdentityDkimAttributes" }, PutEmailIdentityDkimAttributesRequest, PutEmailIdentityDkimAttributesResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Used to enable or disable feedback forwarding for an identity. This setting determines
+ * what happens when an identity is used to send an email that results in a bounce or
+ * complaint event.
+ * 
+ * 
+ * If the value is `true`, you receive email notifications when bounce or
+ * complaint events occur. These notifications are sent to the address that you specified
+ * in the `Return-Path` header of the original email.
+ * 
+ * 
+ * You're required to have a method of tracking bounces and complaints. If you haven't
+ * set up another mechanism for receiving bounce or complaint notifications (for example,
+ * by setting up an event destination), you receive an email notification when these events
+ * occur (even if this setting is disabled).
+ */export const putEmailIdentityFeedbackAttributes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/identities/{EmailIdentity}/feedback", method: "PUT", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.PutEmailIdentityFeedbackAttributes" }, PutEmailIdentityFeedbackAttributesRequest, PutEmailIdentityFeedbackAttributesResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Used to enable or disable the custom Mail-From domain configuration for an email
+ * identity.
+ */export const putEmailIdentityMailFromAttributes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/identities/{EmailIdentity}/mail-from", method: "PUT", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.PutEmailIdentityMailFromAttributes" }, PutEmailIdentityMailFromAttributesRequest, PutEmailIdentityMailFromAttributesResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Adds an email address to the suppression list for your account.
+ */export const putSuppressedDestination = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/suppression/addresses", method: "PUT", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.PutSuppressedDestination" }, PutSuppressedDestinationRequest, PutSuppressedDestinationResponse, [BadRequestException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Add one or more tags (keys and values) to a specified resource. A
+ * *tag* is a label that you optionally define and associate with a
+ * resource. Tags can help you categorize and manage resources in different ways, such as
+ * by purpose, owner, environment, or other criteria. A resource can have as many as 50
+ * tags.
+ * 
+ * 
+ * Each tag consists of a required *tag key* and an
+ * associated *tag value*, both of which you define. A tag key is a
+ * general label that acts as a category for more specific tag values. A tag value acts as
+ * a descriptor within a tag key.
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/tags", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.TagResource" }, TagResourceRequest, TagResourceResponse, [BadRequestException, ConcurrentModificationException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Remove one or more tags (keys and values) from a specified resource.
+ */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/tags", method: "DELETE", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [BadRequestException, ConcurrentModificationException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Update the configuration of an event destination for a configuration set.
+ * 
+ * 
+ * 
+ * *Events* include message sends, deliveries, opens, clicks, bounces,
+ * and complaints. *Event destinations* are places that you can send
+ * information about these events to. For example, you can send event data to Amazon EventBridge and
+ * associate a rule to send the event to the specified target.
+ */export const updateConfigurationSetEventDestination = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/configuration-sets/{ConfigurationSetName}/event-destinations/{EventDestinationName}", method: "PUT", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.UpdateConfigurationSetEventDestination" }, UpdateConfigurationSetEventDestinationRequest, UpdateConfigurationSetEventDestinationResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates a contact's preferences for a list.
+ * 
+ * 
+ * 
+ * 
+ * You must specify all existing topic preferences in the
+ * `TopicPreferences` object, not just the ones that need updating;
+ * otherwise, all your existing preferences will be removed.
+ */export const updateContact = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/contact-lists/{ContactListName}/contacts/{EmailAddress}", method: "PUT", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.UpdateContact" }, UpdateContactRequest, UpdateContactResponse, [BadRequestException, ConcurrentModificationException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates contact list metadata. This operation does a complete replacement.
+ */export const updateContactList = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/contact-lists/{ContactListName}", method: "PUT", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.UpdateContactList" }, UpdateContactListRequest, UpdateContactListResponse, [BadRequestException, ConcurrentModificationException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates an existing custom verification email template.
+ * 
+ * 
+ * For more information about custom verification email templates, see Using
+ * custom verification email templates in the Amazon SES Developer
+ * Guide.
+ * 
+ * 
+ * You can execute this operation no more than once per second.
+ */export const updateCustomVerificationEmailTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/custom-verification-email-templates/{TemplateName}", method: "PUT", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.UpdateCustomVerificationEmailTemplate" }, UpdateCustomVerificationEmailTemplateRequest, UpdateCustomVerificationEmailTemplateResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates the specified sending authorization policy for the given identity (an email
+ * address or a domain). This API returns successfully even if a policy with the specified
+ * name does not exist.
+ * 
+ * 
+ * 
+ * 
+ * This API is for the identity owner only. If you have not verified the identity,
+ * this API will return an error.
+ * 
+ * 
+ * 
+ * 
+ * Sending authorization is a feature that enables an identity owner to authorize other
+ * senders to use its identities. For information about using sending authorization, see
+ * the Amazon SES Developer
+ * Guide.
+ * 
+ * 
+ * You can execute this operation no more than once per second.
+ */export const updateEmailIdentityPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/identities/{EmailIdentity}/policies/{PolicyName}", method: "PUT", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.UpdateEmailIdentityPolicy" }, UpdateEmailIdentityPolicyRequest, UpdateEmailIdentityPolicyResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates an email template. Email templates enable you to send personalized email to
+ * one or more destinations in a single API operation. For more information, see the Amazon SES Developer
+ * Guide.
+ * 
+ * 
+ * You can execute this operation no more than once per second.
+ */export const updateEmailTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/templates/{TemplateName}", method: "PUT", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.UpdateEmailTemplate" }, UpdateEmailTemplateRequest, UpdateEmailTemplateResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Update the customer-managed sending status for a reputation entity. This allows
+ * you to enable, disable, or reinstate sending for the entity.
+ * 
+ * 
+ * The customer-managed status works in conjunction with the Amazon Web Services Amazon SES-managed status
+ * to determine the overall sending capability. When you update the customer-managed status,
+ * the Amazon Web Services Amazon SES-managed status remains unchanged. If Amazon Web Services Amazon SES has disabled the entity,
+ * it will not be allowed to send regardless of the customer-managed status setting. When you
+ * reinstate an entity through the customer-managed status, it can continue sending only if
+ * the Amazon Web Services Amazon SES-managed status also permits sending, even if there are active reputation
+ * findings, until the findings are resolved or new violations occur.
+ */export const updateReputationEntityCustomerManagedStatus = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/reputation/entities/{ReputationEntityType}/{ReputationEntityReference}/customer-managed-status", method: "PUT", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.UpdateReputationEntityCustomerManagedStatus" }, UpdateReputationEntityCustomerManagedStatusRequest, UpdateReputationEntityCustomerManagedStatusResponse, [BadRequestException, ConflictException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Update the reputation management policy for a reputation entity. The policy
+ * determines how the entity responds to reputation findings, such as automatically
+ * pausing sending when certain thresholds are exceeded.
+ * 
+ * 
+ * Reputation management policies are Amazon Web Services Amazon SES-managed (predefined policies).
+ * You can select from none, standard, and strict policies.
+ */export const updateReputationEntityPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/reputation/entities/{ReputationEntityType}/{ReputationEntityReference}/policy", method: "PUT", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.UpdateReputationEntityPolicy" }, UpdateReputationEntityPolicyRequest, UpdateReputationEntityPolicyResponse, [BadRequestException, ConflictException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Cancels an export job.
+ */export const cancelExportJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/export-jobs/{JobId}/cancel", method: "PUT", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.CancelExportJob" }, CancelExportJobRequest, CancelExportJobResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a contact, which is an end-user who is receiving the email, and adds them to a
+ * contact list.
+ */export const createContact = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/contact-lists/{ContactListName}/contacts", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.CreateContact" }, CreateContactRequest, CreateContactResponse, [AlreadyExistsException, BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a contact list.
+ */export const createContactList = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/contact-lists", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.CreateContactList" }, CreateContactListRequest, CreateContactListResponse, [AlreadyExistsException, BadRequestException, LimitExceededException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a new custom verification email template.
+ * 
+ * 
+ * For more information about custom verification email templates, see Using
+ * custom verification email templates in the Amazon SES Developer
+ * Guide.
+ * 
+ * 
+ * You can execute this operation no more than once per second.
+ */export const createCustomVerificationEmailTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/custom-verification-email-templates", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.CreateCustomVerificationEmailTemplate" }, CreateCustomVerificationEmailTemplateRequest, CreateCustomVerificationEmailTemplateResponse, [AlreadyExistsException, BadRequestException, LimitExceededException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Create a new pool of dedicated IP addresses. A pool can include one or more dedicated
+ * IP addresses that are associated with your Amazon Web Services account. You can associate a pool with
+ * a configuration set. When you send an email that uses that configuration set, the
+ * message is sent from one of the addresses in the associated pool.
+ */export const createDedicatedIpPool = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/dedicated-ip-pools", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.CreateDedicatedIpPool" }, CreateDedicatedIpPoolRequest, CreateDedicatedIpPoolResponse, [AlreadyExistsException, BadRequestException, ConcurrentModificationException, LimitExceededException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates the specified sending authorization policy for the given identity (an email
+ * address or a domain).
+ * 
+ * 
+ * 
+ * 
+ * This API is for the identity owner only. If you have not verified the identity,
+ * this API will return an error.
+ * 
+ * 
+ * 
+ * 
+ * Sending authorization is a feature that enables an identity owner to authorize other
+ * senders to use its identities. For information about using sending authorization, see
+ * the Amazon SES Developer
+ * Guide.
+ * 
+ * 
+ * You can execute this operation no more than once per second.
+ */export const createEmailIdentityPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/identities/{EmailIdentity}/policies/{PolicyName}", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.CreateEmailIdentityPolicy" }, CreateEmailIdentityPolicyRequest, CreateEmailIdentityPolicyResponse, [AlreadyExistsException, BadRequestException, LimitExceededException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates an email template. Email templates enable you to send personalized email to
+ * one or more destinations in a single API operation. For more information, see the Amazon SES Developer
+ * Guide.
+ * 
+ * 
+ * You can execute this operation no more than once per second.
+ */export const createEmailTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/templates", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.CreateEmailTemplate" }, CreateEmailTemplateRequest, CreateEmailTemplateResponse, [AlreadyExistsException, BadRequestException, LimitExceededException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Create a tenant.
+ * 
+ * 
+ * 
+ * *Tenants* are logical containers that group related SES resources together.
+ * Each tenant can have its own set of resources like email identities, configuration sets,
+ * and templates, along with reputation metrics and sending status. This helps isolate and manage
+ * email sending for different customers or business units within your Amazon SES API v2 account.
+ */export const createTenant = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/tenants", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.CreateTenant" }, CreateTenantRequest, CreateTenantResponse, [AlreadyExistsException, BadRequestException, LimitExceededException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Associate a resource with a tenant.
+ * 
+ * 
+ * 
+ * *Resources* can be email identities, configuration sets, or email templates.
+ * When you associate a resource with a tenant, you can use that resource when sending emails
+ * on behalf of that tenant.
+ * 
+ * 
+ * A single resource can be associated with multiple tenants, allowing for resource sharing
+ * across different tenants while maintaining isolation in email sending operations.
+ */export const createTenantResourceAssociation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/tenants/resources", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.CreateTenantResourceAssociation" }, CreateTenantResourceAssociationRequest, CreateTenantResourceAssociationResponse, [AlreadyExistsException, BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Delete an existing configuration set.
+ * 
+ * 
+ * 
+ * *Configuration sets* are groups of rules that you can apply to the
+ * emails you send. You apply a configuration set to an email by including a reference to
+ * the configuration set in the headers of the email. When you apply a configuration set to
+ * an email, all of the rules in that configuration set are applied to the email.
+ */export const deleteConfigurationSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/configuration-sets/{ConfigurationSetName}", method: "DELETE", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.DeleteConfigurationSet" }, DeleteConfigurationSetRequest, DeleteConfigurationSetResponse, [BadRequestException, ConcurrentModificationException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes a multi-region endpoint (global-endpoint).
+ * 
+ * 
+ * Only multi-region endpoints (global-endpoints) whose primary region is the AWS-Region
+ * where operation is executed can be deleted.
+ */export const deleteMultiRegionEndpoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/multi-region-endpoints/{EndpointName}", method: "DELETE", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.DeleteMultiRegionEndpoint" }, DeleteMultiRegionEndpointRequest, DeleteMultiRegionEndpointResponse, [BadRequestException, ConcurrentModificationException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Get information about an existing configuration set, including the dedicated IP pool
+ * that it's associated with, whether or not it's enabled for sending email, and
+ * more.
+ * 
+ * 
+ * 
+ * *Configuration sets* are groups of rules that you can apply to the
+ * emails you send. You apply a configuration set to an email by including a reference to
+ * the configuration set in the headers of the email. When you apply a configuration set to
+ * an email, all of the rules in that configuration set are applied to the email.
+ */export const getConfigurationSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/configuration-sets/{ConfigurationSetName}", method: "GET", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.GetConfigurationSet" }, GetConfigurationSetRequest, GetConfigurationSetResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns a contact from a contact list.
+ */export const getContact = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/contact-lists/{ContactListName}/contacts/{EmailAddress}", method: "GET", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.GetContact" }, GetContactRequest, GetContactResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns contact list metadata. It does not return any information about the contacts
+ * present in the list.
+ */export const getContactList = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/contact-lists/{ContactListName}", method: "GET", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.GetContactList" }, GetContactListRequest, GetContactListResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns the custom email verification template for the template name you
+ * specify.
+ * 
+ * 
+ * For more information about custom verification email templates, see Using
+ * custom verification email templates in the Amazon SES Developer
+ * Guide.
+ * 
+ * 
+ * You can execute this operation no more than once per second.
+ */export const getCustomVerificationEmailTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/custom-verification-email-templates/{TemplateName}", method: "GET", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.GetCustomVerificationEmailTemplate" }, GetCustomVerificationEmailTemplateRequest, GetCustomVerificationEmailTemplateResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * List the dedicated IP addresses that are associated with your Amazon Web Services
+ * account.
+ */export const getDedicatedIps = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/dedicated-ips", method: "GET", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.GetDedicatedIps" }, GetDedicatedIpsRequest, GetDedicatedIpsResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns the requested sending authorization policies for the given identity (an email
+ * address or a domain). The policies are returned as a map of policy names to policy
+ * contents. You can retrieve a maximum of 20 policies at a time.
+ * 
+ * 
+ * 
+ * 
+ * This API is for the identity owner only. If you have not verified the identity,
+ * this API will return an error.
+ * 
+ * 
+ * 
+ * 
+ * Sending authorization is a feature that enables an identity owner to authorize other
+ * senders to use its identities. For information about using sending authorization, see
+ * the Amazon SES Developer
+ * Guide.
+ * 
+ * 
+ * You can execute this operation no more than once per second.
+ */export const getEmailIdentityPolicies = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/identities/{EmailIdentity}/policies", method: "GET", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.GetEmailIdentityPolicies" }, GetEmailIdentityPoliciesRequest, GetEmailIdentityPoliciesResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Displays the template object (which includes the subject line, HTML part and text
+ * part) for the template you specify.
+ * 
+ * 
+ * You can execute this operation no more than once per second.
+ */export const getEmailTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/templates/{TemplateName}", method: "GET", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.GetEmailTemplate" }, GetEmailTemplateRequest, GetEmailTemplateResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Provides information about an import job.
+ */export const getImportJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/import-jobs/{JobId}", method: "GET", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.GetImportJob" }, GetImportJobRequest, GetImportJobResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * List all of the configuration sets associated with your account in the current
+ * region.
+ * 
+ * 
+ * 
+ * *Configuration sets* are groups of rules that you can apply to the
+ * emails you send. You apply a configuration set to an email by including a reference to
+ * the configuration set in the headers of the email. When you apply a configuration set to
+ * an email, all of the rules in that configuration set are applied to the email.
+ */export const listConfigurationSets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/configuration-sets", method: "GET", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.ListConfigurationSets" }, ListConfigurationSetsRequest, ListConfigurationSetsResponse, [BadRequestException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * List all of the dedicated IP pools that exist in your Amazon Web Services account in the current
+ * Region.
+ */export const listDedicatedIpPools = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/dedicated-ip-pools", method: "GET", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.ListDedicatedIpPools" }, ListDedicatedIpPoolsRequest, ListDedicatedIpPoolsResponse, [BadRequestException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Show a list of the predictive inbox placement tests that you've performed, regardless of their statuses. For
+ * predictive inbox placement tests that are complete, you can use the `GetDeliverabilityTestReport`
+ * operation to view the results.
+ */export const listDeliverabilityTestReports = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/deliverability-dashboard/test-reports", method: "GET", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.ListDeliverabilityTestReports" }, ListDeliverabilityTestReportsRequest, ListDeliverabilityTestReportsResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieve deliverability data for all the campaigns that used a specific domain to send
+ * email during a specified time range. This data is available for a domain only if you
+ * enabled the Deliverability dashboard for the domain.
+ */export const listDomainDeliverabilityCampaigns = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/deliverability-dashboard/domains/{SubscribedDomain}/campaigns", method: "GET", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.ListDomainDeliverabilityCampaigns" }, ListDomainDeliverabilityCampaignsRequest, ListDomainDeliverabilityCampaignsResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieve a list of the tags (keys and values) that are associated with a specified
+ * resource. A *tag* is a label that you optionally define and associate
+ * with a resource. Each tag consists of a required *tag key* and an
+ * optional associated *tag value*. A tag key is a general label that
+ * acts as a category for more specific tag values. A tag value acts as a descriptor within
+ * a tag key.
+ */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/tags", method: "GET", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Update your Amazon SES account details.
+ */export const putAccountDetails = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/account/details", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.PutAccountDetails" }, PutAccountDetailsRequest, PutAccountDetailsResponse, [BadRequestException, ConflictException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Specify the account suppression list preferences for a configuration set.
+ */export const putConfigurationSetSuppressionOptions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/configuration-sets/{ConfigurationSetName}/suppression-options", method: "PUT", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.PutConfigurationSetSuppressionOptions" }, PutConfigurationSetSuppressionOptionsRequest, PutConfigurationSetSuppressionOptionsResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Used to configure or change the DKIM authentication settings for an email domain
+ * identity. You can use this operation to do any of the following:
+ * 
+ * 
+ * 
+ * - Update the signing attributes for an identity that uses Bring Your Own DKIM
+ * (BYODKIM).
+ * 
+ * 
+ * 
+ * - Update the key length that should be used for Easy DKIM.
+ * 
+ * 
+ * 
+ * - Change from using no DKIM authentication to using Easy DKIM.
+ * 
+ * 
+ * 
+ * - Change from using no DKIM authentication to using BYODKIM.
+ * 
+ * 
+ * 
+ * - Change from using Easy DKIM to using BYODKIM.
+ * 
+ * 
+ * 
+ * - Change from using BYODKIM to using Easy DKIM.
+ */export const putEmailIdentityDkimSigningAttributes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/identities/{EmailIdentity}/dkim/signing", method: "PUT", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.PutEmailIdentityDkimSigningAttributes" }, PutEmailIdentityDkimSigningAttributesRequest, PutEmailIdentityDkimSigningAttributesResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a preview of the MIME content of an email when provided with a template and a
+ * set of replacement data.
+ * 
+ * 
+ * You can execute this operation no more than once per second.
+ */export const testRenderEmailTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/templates/{TemplateName}/render", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.TestRenderEmailTemplate" }, TestRenderEmailTemplateRequest, TestRenderEmailTemplateResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Create a configuration set. *Configuration sets* are groups of
+ * rules that you can apply to the emails that you send. You apply a configuration set to
+ * an email by specifying the name of the configuration set when you call the Amazon SES API v2. When
+ * you apply a configuration set to an email, all of the rules in that configuration set
+ * are applied to the email.
+ */export const createConfigurationSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/configuration-sets", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.CreateConfigurationSet" }, CreateConfigurationSetRequest, CreateConfigurationSetResponse, [AlreadyExistsException, BadRequestException, ConcurrentModificationException, LimitExceededException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Starts the process of verifying an email identity. An *identity* is
+ * an email address or domain that you use when you send email. Before you can use an
+ * identity to send email, you first have to verify it. By verifying an identity, you
+ * demonstrate that you're the owner of the identity, and that you've given Amazon SES API v2
+ * permission to send email from the identity.
+ * 
+ * 
+ * When you verify an email address, Amazon SES sends an email to the address. Your email
+ * address is verified as soon as you follow the link in the verification email.
+ * 
+ * 
+ * 
+ * 
+ * When you verify a domain without specifying the `DkimSigningAttributes`
+ * object, this operation provides a set of DKIM tokens. You can convert these tokens into
+ * CNAME records, which you then add to the DNS configuration for your domain. Your domain
+ * is verified when Amazon SES detects these records in the DNS configuration for your domain.
+ * This verification method is known as Easy DKIM.
+ * 
+ * 
+ * Alternatively, you can perform the verification process by providing your own
+ * public-private key pair. This verification method is known as Bring Your Own DKIM
+ * (BYODKIM). To use BYODKIM, your call to the `CreateEmailIdentity` operation
+ * has to include the `DkimSigningAttributes` object. When you specify this
+ * object, you provide a selector (a component of the DNS record name that identifies the
+ * public key to use for DKIM authentication) and a private key.
+ * 
+ * 
+ * When you verify a domain, this operation provides a set of DKIM tokens, which you can
+ * convert into CNAME tokens. You add these CNAME tokens to the DNS configuration for your
+ * domain. Your domain is verified when Amazon SES detects these records in the DNS
+ * configuration for your domain. For some DNS providers, it can take 72 hours or more to
+ * complete the domain verification process.
+ * 
+ * 
+ * Additionally, you can associate an existing configuration set with the email identity that you're verifying.
+ */export const createEmailIdentity = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/identities", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.CreateEmailIdentity" }, CreateEmailIdentityRequest, CreateEmailIdentityResponse, [AlreadyExistsException, BadRequestException, ConcurrentModificationException, LimitExceededException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Obtain information about the email-sending status and capabilities of your Amazon SES
+ * account in the current Amazon Web Services Region.
+ */export const getAccount = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/account", method: "GET", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.GetAccount" }, GetAccountRequest, GetAccountResponse, [BadRequestException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieve a list of event destinations that are associated with a configuration
+ * set.
+ * 
+ * 
+ * 
+ * *Events* include message sends, deliveries, opens, clicks, bounces,
+ * and complaints. *Event destinations* are places that you can send
+ * information about these events to. For example, you can send event data to Amazon EventBridge and
+ * associate a rule to send the event to the specified target.
+ */export const getConfigurationSetEventDestinations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/configuration-sets/{ConfigurationSetName}/event-destinations", method: "GET", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.GetConfigurationSetEventDestinations" }, GetConfigurationSetEventDestinationsRequest, GetConfigurationSetEventDestinationsResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Get information about a dedicated IP address, including the name of the dedicated IP
+ * pool that it's associated with, as well information about the automatic warm-up process
+ * for the address.
+ */export const getDedicatedIp = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/dedicated-ips/{Ip}", method: "GET", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.GetDedicatedIp" }, GetDedicatedIpRequest, GetDedicatedIpResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieve information about the dedicated pool.
+ */export const getDedicatedIpPool = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/dedicated-ip-pools/{PoolName}", method: "GET", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.GetDedicatedIpPool" }, GetDedicatedIpPoolRequest, GetDedicatedIpPoolResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieve information about the status of the Deliverability dashboard for your account. When
+ * the Deliverability dashboard is enabled, you gain access to reputation, deliverability, and other
+ * metrics for the domains that you use to send email. You also gain the ability to perform
+ * predictive inbox placement tests.
+ * 
+ * 
+ * When you use the Deliverability dashboard, you pay a monthly subscription charge, in addition
+ * to any other fees that you accrue by using Amazon SES and other Amazon Web Services services. For more
+ * information about the features and cost of a Deliverability dashboard subscription, see Amazon SES Pricing.
+ */export const getDeliverabilityDashboardOptions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/deliverability-dashboard", method: "GET", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.GetDeliverabilityDashboardOptions" }, GetDeliverabilityDashboardOptionsRequest, GetDeliverabilityDashboardOptionsResponse, [BadRequestException, LimitExceededException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieve the results of a predictive inbox placement test.
+ */export const getDeliverabilityTestReport = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/deliverability-dashboard/test-reports/{ReportId}", method: "GET", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.GetDeliverabilityTestReport" }, GetDeliverabilityTestReportRequest, GetDeliverabilityTestReportResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieve all the deliverability data for a specific campaign. This data is available
+ * for a campaign only if the campaign sent email by using a domain that the
+ * Deliverability dashboard is enabled for.
+ */export const getDomainDeliverabilityCampaign = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/deliverability-dashboard/campaigns/{CampaignId}", method: "GET", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.GetDomainDeliverabilityCampaign" }, GetDomainDeliverabilityCampaignRequest, GetDomainDeliverabilityCampaignResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Provides information about an export job.
+ */export const getExportJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/export-jobs/{JobId}", method: "GET", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.GetExportJob" }, GetExportJobRequest, GetExportJobResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Displays the multi-region endpoint (global-endpoint) configuration.
+ * 
+ * 
+ * Only multi-region endpoints (global-endpoints) whose primary region is the AWS-Region
+ * where operation is executed can be displayed.
+ */export const getMultiRegionEndpoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/multi-region-endpoints/{EndpointName}", method: "GET", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.GetMultiRegionEndpoint" }, GetMultiRegionEndpointRequest, GetMultiRegionEndpointResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Get information about a specific tenant, including the tenant's name, ID, ARN,
+ * creation timestamp, tags, and sending status.
+ */export const getTenant = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/tenants/get", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.GetTenant" }, GetTenantRequest, GetTenantResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists all of the contact lists available.
+ * 
+ * 
+ * If your output includes a "NextToken" field with a string value, this indicates there may be additional
+ * contacts on the filtered list - regardless of the number of contacts returned.
+ */export const listContactLists = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/contact-lists", method: "GET", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.ListContactLists" }, ListContactListsRequest, ListContactListsResponse, [BadRequestException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists the existing custom verification email templates for your account in the current
+ * Amazon Web Services Region.
+ * 
+ * 
+ * For more information about custom verification email templates, see Using
+ * custom verification email templates in the Amazon SES Developer
+ * Guide.
+ * 
+ * 
+ * You can execute this operation no more than once per second.
+ */export const listCustomVerificationEmailTemplates = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/custom-verification-email-templates", method: "GET", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.ListCustomVerificationEmailTemplates" }, ListCustomVerificationEmailTemplatesRequest, ListCustomVerificationEmailTemplatesResponse, [BadRequestException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns a list of all of the email identities that are associated with your Amazon Web Services
+ * account. An identity can be either an email address or a domain. This operation returns
+ * identities that are verified as well as those that aren't. This operation returns
+ * identities that are associated with Amazon SES and Amazon Pinpoint.
+ */export const listEmailIdentities = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/identities", method: "GET", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.ListEmailIdentities" }, ListEmailIdentitiesRequest, ListEmailIdentitiesResponse, [BadRequestException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists the email templates present in your Amazon SES account in the current Amazon Web Services
+ * Region.
+ * 
+ * 
+ * You can execute this operation no more than once per second.
+ */export const listEmailTemplates = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/templates", method: "GET", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.ListEmailTemplates" }, ListEmailTemplatesRequest, ListEmailTemplatesResponse, [BadRequestException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists all of the export jobs.
+ */export const listExportJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/list-export-jobs", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.ListExportJobs" }, ListExportJobsRequest, ListExportJobsResponse, [BadRequestException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists all of the import jobs.
+ */export const listImportJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/import-jobs/list", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.ListImportJobs" }, ListImportJobsRequest, ListImportJobsResponse, [BadRequestException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * List the multi-region endpoints (global-endpoints).
+ * 
+ * 
+ * Only multi-region endpoints (global-endpoints) whose primary region is the AWS-Region
+ * where operation is executed will be listed.
+ */export const listMultiRegionEndpoints = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/multi-region-endpoints", method: "GET", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.ListMultiRegionEndpoints" }, ListMultiRegionEndpointsRequest, ListMultiRegionEndpointsResponse, [BadRequestException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * List reputation entities in your Amazon SES account in the current Amazon Web Services Region.
+ * You can filter the results by entity type, reputation impact, sending status,
+ * or entity reference prefix.
+ * 
+ * 
+ * 
+ * *Reputation entities* represent resources in your account that have reputation
+ * tracking and management capabilities. Use this operation to get an overview of
+ * all entities and their current reputation status.
+ */export const listReputationEntities = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/reputation/entities", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.ListReputationEntities" }, ListReputationEntitiesRequest, ListReputationEntitiesResponse, [BadRequestException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * List all tenants associated with a specific resource.
+ * 
+ * 
+ * This operation returns a list of tenants that are associated with the specified
+ * resource. This is useful for understanding which tenants are currently using a particular
+ * resource such as an email identity, configuration set, or email template.
+ */export const listResourceTenants = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/resources/tenants/list", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.ListResourceTenants" }, ListResourceTenantsRequest, ListResourceTenantsResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * List all tenants associated with your account in the current Amazon Web Services Region.
+ * 
+ * 
+ * This operation returns basic information about each tenant,
+ * such as tenant name, ID, ARN, and creation timestamp.
+ */export const listTenants = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/tenants/list", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.ListTenants" }, ListTenantsRequest, ListTenantsResponse, [BadRequestException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Create an event destination. *Events* include message sends,
+ * deliveries, opens, clicks, bounces, and complaints. Event
+ * destinations are places that you can send information about these events
+ * to. For example, you can send event data to Amazon EventBridge and associate a rule to send the event
+ * to the specified target.
+ * 
+ * 
+ * A single configuration set can include more than one event destination.
+ */export const createConfigurationSetEventDestination = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/configuration-sets/{ConfigurationSetName}/event-destinations", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.CreateConfigurationSetEventDestination" }, CreateConfigurationSetEventDestinationRequest, CreateConfigurationSetEventDestinationResponse, [AlreadyExistsException, BadRequestException, LimitExceededException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates an import job for a data destination.
+ */export const createImportJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/import-jobs", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.CreateImportJob" }, CreateImportJobRequest, CreateImportJobResponse, [BadRequestException, LimitExceededException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a multi-region endpoint (global-endpoint).
+ * 
+ * 
+ * The primary region is going to be the AWS-Region where the operation is executed.
+ * The secondary region has to be provided in request's parameters.
+ * From the data flow standpoint there is no difference between primary
+ * and secondary regions - sending traffic will be split equally between the two.
+ * The primary region is the region where the resource has been created and where it can be managed.
+ */export const createMultiRegionEndpoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/multi-region-endpoints", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.CreateMultiRegionEndpoint" }, CreateMultiRegionEndpointRequest, CreateMultiRegionEndpointResponse, [AlreadyExistsException, BadRequestException, LimitExceededException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieve a list of the blacklists that your dedicated IP addresses appear on.
+ */export const getBlacklistReports = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/deliverability-dashboard/blacklist-report", method: "GET", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.GetBlacklistReports" }, GetBlacklistReportsRequest, GetBlacklistReportsResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieve inbox placement and engagement rates for the domains that you use to send
+ * email.
+ */export const getDomainStatisticsReport = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/deliverability-dashboard/statistics-report/{Domain}", method: "GET", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.GetDomainStatisticsReport" }, GetDomainStatisticsReportRequest, GetDomainStatisticsReportResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Provides validation insights about a specific email address, including syntax validation, DNS record checks, mailbox existence, and other deliverability factors.
+ */export const getEmailAddressInsights = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/email-address-insights", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.GetEmailAddressInsights" }, GetEmailAddressInsightsRequest, GetEmailAddressInsightsResponse, [BadRequestException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Provides information about a specific identity, including the identity's verification
+ * status, sending authorization policies, its DKIM authentication status, and its custom
+ * Mail-From settings.
+ */export const getEmailIdentity = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/identities/{EmailIdentity}", method: "GET", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.GetEmailIdentity" }, GetEmailIdentityRequest, GetEmailIdentityResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieve information about a specific reputation entity, including its reputation
+ * management policy, customer-managed status, Amazon Web Services Amazon SES-managed status, and aggregate
+ * sending status.
+ * 
+ * 
+ * 
+ * *Reputation entities* represent resources in your Amazon SES account that have reputation
+ * tracking and management capabilities. The reputation impact reflects the highest
+ * impact reputation finding for the entity. Reputation findings can be retrieved
+ * using the `ListRecommendations` operation.
+ */export const getReputationEntity = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/reputation/entities/{ReputationEntityType}/{ReputationEntityReference}", method: "GET", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.GetReputationEntity" }, GetReputationEntityRequest, GetReputationEntityResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves information about a specific email address that's on the suppression list
+ * for your account.
+ */export const getSuppressedDestination = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/suppression/addresses/{EmailAddress}", method: "GET", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.GetSuppressedDestination" }, GetSuppressedDestinationRequest, GetSuppressedDestinationResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists the recommendations present in your Amazon SES account in the current Amazon Web Services Region.
+ * 
+ * 
+ * You can execute this operation no more than once per second.
+ */export const listRecommendations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/vdm/recommendations", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.ListRecommendations" }, ListRecommendationsRequest, ListRecommendationsResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves a list of email addresses that are on the suppression list for your
+ * account.
+ */export const listSuppressedDestinations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/suppression/addresses", method: "GET", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.ListSuppressedDestinations" }, ListSuppressedDestinationsRequest, ListSuppressedDestinationsResponse, [BadRequestException, InvalidNextTokenException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * List all resources associated with a specific tenant.
+ * 
+ * 
+ * This operation returns a list of resources (email identities, configuration sets,
+ * or email templates) that are associated with the specified tenant. You can optionally
+ * filter the results by resource type.
+ */export const listTenantResources = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/tenants/resources/list", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.ListTenantResources" }, ListTenantResourcesRequest, ListTenantResourcesResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Change the settings for the account-level suppression list.
+ */export const putAccountSuppressionAttributes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/account/suppression", method: "PUT", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.PutAccountSuppressionAttributes" }, PutAccountSuppressionAttributesRequest, PutAccountSuppressionAttributesResponse, [BadRequestException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Sends an email message. You can use the Amazon SES API v2 to send the following types of
+ * messages:
+ * 
+ * 
+ * 
+ * - **Simple** – A standard email message. When
+ * you create this type of message, you specify the sender, the recipient, and the
+ * message body, and Amazon SES assembles the message for you.
+ * 
+ * 
+ * 
+ * - **Raw** – A raw, MIME-formatted email
+ * message. When you send this type of email, you have to specify all of the
+ * message headers, as well as the message body. You can use this message type to
+ * send messages that contain attachments. The message that you specify has to be a
+ * valid MIME message.
+ * 
+ * 
+ * 
+ * - **Templated** – A message that contains
+ * personalization tags. When you send this type of email, Amazon SES API v2 automatically
+ * replaces the tags with values that you specify.
+ */export const sendEmail = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/outbound-emails", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.SendEmail" }, SendEmailRequest, SendEmailResponse, [AccountSuspendedException, BadRequestException, LimitExceededException, MailFromDomainNotVerifiedException, MessageRejected, NotFoundException, SendingPausedException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Create a new predictive inbox placement test. Predictive inbox placement tests can help you predict how your messages will be handled
+ * by various email providers around the world. When you perform a predictive inbox placement test, you provide a
+ * sample message that contains the content that you plan to send to your customers. Amazon SES
+ * then sends that message to special email addresses spread across several major email
+ * providers. After about 24 hours, the test is complete, and you can use the
+ * `GetDeliverabilityTestReport` operation to view the results of the
+ * test.
+ */export const createDeliverabilityTestReport = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/deliverability-dashboard/test", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.CreateDeliverabilityTestReport" }, CreateDeliverabilityTestReportRequest, CreateDeliverabilityTestReportResponse, [AccountSuspendedException, BadRequestException, ConcurrentModificationException, LimitExceededException, MailFromDomainNotVerifiedException, MessageRejected, NotFoundException, SendingPausedException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates an export job for a data source and destination.
+ * 
+ * 
+ * You can execute this operation no more than once per second.
+ */export const createExportJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/export-jobs", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.CreateExportJob" }, CreateExportJobRequest, CreateExportJobResponse, [BadRequestException, LimitExceededException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists the contacts present in a specific contact list.
+ */export const listContacts = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/contact-lists/{ContactListName}/contacts/list", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.ListContacts" }, ListContactsRequest, ListContactsResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Adds an email address to the list of identities for your Amazon SES account in the current
+ * Amazon Web Services Region and attempts to verify it. As a result of executing this
+ * operation, a customized verification email is sent to the specified address.
+ * 
+ * 
+ * To use this operation, you must first create a custom verification email template. For
+ * more information about creating and using custom verification email templates, see
+ * Using
+ * custom verification email templates in the Amazon SES Developer
+ * Guide.
+ * 
+ * 
+ * You can execute this operation no more than once per second.
+ */export const sendCustomVerificationEmail = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/outbound-custom-verification-emails", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.SendCustomVerificationEmail" }, SendCustomVerificationEmailRequest, SendCustomVerificationEmailResponse, [BadRequestException, LimitExceededException, MailFromDomainNotVerifiedException, MessageRejected, NotFoundException, SendingPausedException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Retrieves batches of metric data collected based on your sending activity.
+ * 
+ * 
+ * You can execute this operation no more than 16 times per second,
+ * and with at most 160 queries from the batches per second (cumulative).
+ */export const batchGetMetricData = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/metrics/batch", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.BatchGetMetricData" }, BatchGetMetricDataRequest, BatchGetMetricDataResponse, [BadRequestException, InternalServiceErrorException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Provides information about a specific message, including the from address, the
+ * subject, the recipient address, email tags, as well as events associated with the message.
+ * 
+ * 
+ * You can execute this operation no more than once per second.
+ */export const getMessageInsights = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/insights/{MessageId}", method: "GET", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.GetMessageInsights" }, GetMessageInsightsRequest, GetMessageInsightsResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Composes an email message to multiple destinations.
+ */export const sendBulkEmail = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/outbound-bulk-emails", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.SendBulkEmail" }, SendBulkEmailRequest, SendBulkEmailResponse, [AccountSuspendedException, BadRequestException, LimitExceededException, MailFromDomainNotVerifiedException, MessageRejected, NotFoundException, SendingPausedException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
