@@ -955,7 +955,7 @@ const generateClient = Effect.fn(function* (
             (c) =>
               c +
               operationComment +
-              `export const ${formatName(operationShapeName, true)} = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "${serviceShape.version}", uri: "${httpTrait["uri"]}", method: "${httpTrait["method"]}", sdkId: "${serviceShape.traits["aws.api#service"].sdkId}", sigV4ServiceName: ${serviceShape.traits["aws.auth#sigv4"]?.name == null ? `"${serviceName}"` : `"${serviceShape.traits["aws.auth#sigv4"]?.name}"`}, name: "${operationName}" }, ${input}, ${output}, ${operationErrors}), ${responseParser}, ${requestParser}, ${errorParser});\n`,
+              `export const ${formatName(operationShapeName, true)} = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "${serviceShape.version}", uri: "${httpTrait["uri"]}", method: "${httpTrait["method"]}", sdkId: "${serviceShape.traits["aws.api#service"].sdkId}", sigV4ServiceName: ${serviceShape.traits["aws.auth#sigv4"]?.name == null ? `"${serviceName}"` : `"${serviceShape.traits["aws.auth#sigv4"]?.name}"`}, name: "${operationName}" }, ${input}, ${output}, ${operationErrors}), ${responseParser}, ${requestParser}, ${errorParser});\n`,
           ),
         );
       }),
