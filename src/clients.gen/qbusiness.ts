@@ -64,7 +64,7 @@ export class UpdateUserRequest extends S.Class<UpdateUserRequest>("UpdateUserReq
 export const PermissionConditionValues = S.Array(S.String);
 export class EndOfInputEvent extends S.Class<EndOfInputEvent>("EndOfInputEvent")({}) {}
 export type AttributeFilters = AttributeFilter[];
-export const AttributeFilters = S.Array(S.suspend((): S.Schema<AttributeFilter> => AttributeFilter)) as any as S.Schema<AttributeFilters>;
+export const AttributeFilters = S.Array(S.suspend((): S.Schema<AttributeFilter, any> => AttributeFilter)) as any as S.Schema<AttributeFilters>;
 export const BlockedPhrases = S.Array(S.String);
 export const ExampleChatMessages = S.Array(S.String);
 export class PermissionCondition extends S.Class<PermissionCondition>("PermissionCondition")({conditionOperator: S.String, conditionKey: S.String, conditionValues: PermissionConditionValues}) {}
@@ -74,7 +74,7 @@ export const DeleteDocuments = S.Array(DeleteDocument);
 export const DocumentAttributeStringListValue = S.Array(S.String);
 export const DocumentAttributeValue = S.Union(S.String, DocumentAttributeStringListValue, S.Number, S.Date);
 export class DocumentAttribute extends S.Class<DocumentAttribute>("DocumentAttribute")({name: S.String, value: DocumentAttributeValue}) {}
-export class AttributeFilter extends S.Class<AttributeFilter>("AttributeFilter")({andAllFilters: S.optional(S.suspend(() => AttributeFilters)), orAllFilters: S.optional(S.suspend(() => AttributeFilters)), notFilter: S.optional(S.suspend((): S.Schema<AttributeFilter> => AttributeFilter)), equalsTo: S.optional(DocumentAttribute), containsAll: S.optional(DocumentAttribute), containsAny: S.optional(DocumentAttribute), greaterThan: S.optional(DocumentAttribute), greaterThanOrEquals: S.optional(DocumentAttribute), lessThan: S.optional(DocumentAttribute), lessThanOrEquals: S.optional(DocumentAttribute)}) {}
+export class AttributeFilter extends S.Class<AttributeFilter>("AttributeFilter")({andAllFilters: S.optional(S.suspend(() => AttributeFilters)), orAllFilters: S.optional(S.suspend(() => AttributeFilters)), notFilter: S.optional(S.suspend((): S.Schema<AttributeFilter, any> => AttributeFilter)), equalsTo: S.optional(DocumentAttribute), containsAll: S.optional(DocumentAttribute), containsAny: S.optional(DocumentAttribute), greaterThan: S.optional(DocumentAttribute), greaterThanOrEquals: S.optional(DocumentAttribute), lessThan: S.optional(DocumentAttribute), lessThanOrEquals: S.optional(DocumentAttribute)}) {}
 export const SubscriptionPrincipal = S.Union(S.String, S.String);
 export class ErrorDetail extends S.Class<ErrorDetail>("ErrorDetail")({errorMessage: S.optional(S.String), errorCode: S.optional(S.String)}) {}
 export class GroupStatusDetail extends S.Class<GroupStatusDetail>("GroupStatusDetail")({status: S.optional(S.String), lastUpdatedAt: S.optional(S.Date), errorDetail: S.optional(ErrorDetail)}) {}

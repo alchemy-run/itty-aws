@@ -46,7 +46,7 @@ export const MatchOptions = S.Array(S.String);
 export class ExpressionDimensionValues extends S.Class<ExpressionDimensionValues>("ExpressionDimensionValues")({Key: S.String, Values: Values, MatchOptions: S.optional(MatchOptions)}) {}
 export class TagValues extends S.Class<TagValues>("TagValues")({Key: S.optional(S.String), Values: S.optional(Values), MatchOptions: S.optional(MatchOptions)}) {}
 export class CostCategoryValues extends S.Class<CostCategoryValues>("CostCategoryValues")({Key: S.optional(S.String), Values: S.optional(Values), MatchOptions: S.optional(MatchOptions)}) {}
-export class Expression extends S.Class<Expression>("Expression")({Or: S.optional(S.suspend(() => Expressions)), And: S.optional(S.suspend(() => Expressions)), Not: S.optional(S.suspend((): S.Schema<Expression> => Expression)), Dimensions: S.optional(ExpressionDimensionValues), Tags: S.optional(TagValues), CostCategories: S.optional(CostCategoryValues)}) {}
+export class Expression extends S.Class<Expression>("Expression")({Or: S.optional(S.suspend(() => Expressions)), And: S.optional(S.suspend(() => Expressions)), Not: S.optional(S.suspend((): S.Schema<Expression, any> => Expression)), Dimensions: S.optional(ExpressionDimensionValues), Tags: S.optional(TagValues), CostCategories: S.optional(CostCategoryValues)}) {}
 export const Metrics = S.Array(S.String);
 export class HealthStatus extends S.Class<HealthStatus>("HealthStatus")({Status: S.optional(S.String), StatusReason: S.optional(S.String), LastUpdatedTime: S.optional(S.Date)}) {}
 export class Budget extends S.Class<Budget>("Budget")({BudgetName: S.String, BudgetLimit: S.optional(Spend), PlannedBudgetLimits: S.optional(PlannedBudgetLimits), CostFilters: S.optional(CostFilters), CostTypes: S.optional(CostTypes), TimeUnit: S.String, TimePeriod: S.optional(TimePeriod), CalculatedSpend: S.optional(CalculatedSpend), BudgetType: S.String, LastUpdatedTime: S.optional(S.Date), AutoAdjustData: S.optional(AutoAdjustData), FilterExpression: S.optional(Expression), Metrics: S.optional(Metrics), BillingViewArn: S.optional(S.String), HealthStatus: S.optional(HealthStatus)}) {}
@@ -75,7 +75,7 @@ export const Actions = S.Array(Action);
 export const Budgets = S.Array(Budget);
 export const Notifications = S.Array(Notification);
 export type Expressions = Expression[];
-export const Expressions = S.Array(S.suspend((): S.Schema<Expression> => Expression)) as any as S.Schema<Expressions>;
+export const Expressions = S.Array(S.suspend((): S.Schema<Expression, any> => Expression)) as any as S.Schema<Expressions>;
 export class CreateNotificationRequest extends S.Class<CreateNotificationRequest>("CreateNotificationRequest")({AccountId: S.String, BudgetName: S.String, Notification: Notification, Subscribers: Subscribers}) {}
 export class CreateNotificationResponse extends S.Class<CreateNotificationResponse>("CreateNotificationResponse")({}) {}
 export class AccessDeniedException extends S.Class<AccessDeniedException>("AccessDeniedException")({Message: S.optional(S.String)}) {}

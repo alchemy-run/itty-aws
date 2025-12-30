@@ -5,7 +5,7 @@ import * as H from "../schema-helpers.ts";
 //# Schemas
 export class DeleteSessionRequest extends S.Class<DeleteSessionRequest>("DeleteSessionRequest")({botId: S.String, botAliasId: S.String, localeId: S.String, sessionId: S.String}) {}
 export class GetSessionRequest extends S.Class<GetSessionRequest>("GetSessionRequest")({botId: S.String, botAliasId: S.String, localeId: S.String, sessionId: S.String}) {}
-export class ElicitSubSlot extends S.Class<ElicitSubSlot>("ElicitSubSlot")({name: S.String, subSlotToElicit: S.optional(S.suspend((): S.Schema<ElicitSubSlot> => ElicitSubSlot))}) {}
+export class ElicitSubSlot extends S.Class<ElicitSubSlot>("ElicitSubSlot")({name: S.String, subSlotToElicit: S.optional(S.suspend((): S.Schema<ElicitSubSlot, any> => ElicitSubSlot))}) {}
 export class DialogAction extends S.Class<DialogAction>("DialogAction")({type: S.String, slotToElicit: S.optional(S.String), slotElicitationStyle: S.optional(S.String), subSlotToElicit: S.optional(ElicitSubSlot)}) {}
 export const Slots = S.Record({key: S.String, value: Slot});
 export class Intent extends S.Class<Intent>("Intent")({name: S.String, slots: S.optional(Slots), state: S.optional(S.String), confirmationState: S.optional(S.String)}) {}
@@ -37,7 +37,7 @@ export class RecognizedBotMember extends S.Class<RecognizedBotMember>("Recognize
 export const StartConversationRequestEventStream = S.Union(ConfigurationEvent, AudioInputEvent, DTMFInputEvent, TextInputEvent, PlaybackCompletionEvent, DisconnectionEvent);
 export class AccessDeniedException extends S.Class<AccessDeniedException>("AccessDeniedException")({message: S.String}) {}
 export type Values = Slot[];
-export const Values = S.Array(S.suspend((): S.Schema<Slot> => Slot)) as any as S.Schema<Values>;
+export const Values = S.Array(S.suspend((): S.Schema<Slot, any> => Slot)) as any as S.Schema<Values>;
 export class ConfidenceScore extends S.Class<ConfidenceScore>("ConfidenceScore")({score: S.optional(S.Number)}) {}
 export class SentimentScore extends S.Class<SentimentScore>("SentimentScore")({positive: S.optional(S.Number), negative: S.optional(S.Number), neutral: S.optional(S.Number), mixed: S.optional(S.Number)}) {}
 export class SentimentResponse extends S.Class<SentimentResponse>("SentimentResponse")({sentiment: S.optional(S.String), sentimentScore: S.optional(SentimentScore)}) {}

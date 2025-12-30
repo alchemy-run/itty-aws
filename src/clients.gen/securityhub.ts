@@ -115,7 +115,7 @@ export class UpdateActionTargetRequest extends S.Class<UpdateActionTargetRequest
 export class UpdateActionTargetResponse extends S.Class<UpdateActionTargetResponse>("UpdateActionTargetResponse")({}) {}
 export class UpdateAggregatorV2Request extends S.Class<UpdateAggregatorV2Request>("UpdateAggregatorV2Request")({AggregatorV2Arn: S.String, RegionLinkingMode: S.String, LinkedRegions: S.optional(StringList)}) {}
 export type CompositeFilterList = CompositeFilter[];
-export const CompositeFilterList = S.Array(S.suspend((): S.Schema<CompositeFilter> => CompositeFilter)) as any as S.Schema<CompositeFilterList>;
+export const CompositeFilterList = S.Array(S.suspend((): S.Schema<CompositeFilter, any> => CompositeFilter)) as any as S.Schema<CompositeFilterList>;
 export class OcsfFindingFilters extends S.Class<OcsfFindingFilters>("OcsfFindingFilters")({CompositeFilters: S.optional(CompositeFilterList), CompositeOperator: S.optional(S.String)}) {}
 export const Criteria = S.Union(OcsfFindingFilters);
 export class AutomationRulesFindingFieldsUpdateV2 extends S.Class<AutomationRulesFindingFieldsUpdateV2>("AutomationRulesFindingFieldsUpdateV2")({SeverityId: S.optional(S.Number), Comment: S.optional(S.String), StatusId: S.optional(S.Number)}) {}
@@ -193,7 +193,7 @@ export const SortCriteria = S.Array(SortCriterion);
 export class GroupByRule extends S.Class<GroupByRule>("GroupByRule")({Filters: S.optional(OcsfFindingFilters), GroupByField: S.String}) {}
 export const GroupByRules = S.Array(GroupByRule);
 export type ResourcesCompositeFilterList = ResourcesCompositeFilter[];
-export const ResourcesCompositeFilterList = S.Array(S.suspend((): S.Schema<ResourcesCompositeFilter> => ResourcesCompositeFilter)) as any as S.Schema<ResourcesCompositeFilterList>;
+export const ResourcesCompositeFilterList = S.Array(S.suspend((): S.Schema<ResourcesCompositeFilter, any> => ResourcesCompositeFilter)) as any as S.Schema<ResourcesCompositeFilterList>;
 export class ResourcesFilters extends S.Class<ResourcesFilters>("ResourcesFilters")({CompositeFilters: S.optional(ResourcesCompositeFilterList), CompositeOperator: S.optional(S.String)}) {}
 export class ResourceGroupByRule extends S.Class<ResourceGroupByRule>("ResourceGroupByRule")({GroupByField: S.String, Filters: S.optional(ResourcesFilters)}) {}
 export const ResourceGroupByRules = S.Array(ResourceGroupByRule);
@@ -1193,13 +1193,13 @@ export class FindingHistoryUpdate extends S.Class<FindingHistoryUpdate>("Finding
 export const FindingHistoryUpdatesList = S.Array(FindingHistoryUpdate);
 export class FindingsTrendsCompositeFilter extends S.Class<FindingsTrendsCompositeFilter>("FindingsTrendsCompositeFilter")({StringFilters: S.optional(FindingsTrendsStringFilterList), NestedCompositeFilters: S.optional(S.suspend(() => FindingsTrendsCompositeFilterList)), Operator: S.optional(S.String)}) {}
 export type FindingsTrendsCompositeFilterList = FindingsTrendsCompositeFilter[];
-export const FindingsTrendsCompositeFilterList = S.Array(S.suspend((): S.Schema<FindingsTrendsCompositeFilter> => FindingsTrendsCompositeFilter)) as any as S.Schema<FindingsTrendsCompositeFilterList>;
+export const FindingsTrendsCompositeFilterList = S.Array(S.suspend((): S.Schema<FindingsTrendsCompositeFilter, any> => FindingsTrendsCompositeFilter)) as any as S.Schema<FindingsTrendsCompositeFilterList>;
 export class CompositeFilter extends S.Class<CompositeFilter>("CompositeFilter")({StringFilters: S.optional(OcsfStringFilterList), DateFilters: S.optional(OcsfDateFilterList), BooleanFilters: S.optional(OcsfBooleanFilterList), NumberFilters: S.optional(OcsfNumberFilterList), MapFilters: S.optional(OcsfMapFilterList), IpFilters: S.optional(OcsfIpFilterList), NestedCompositeFilters: S.optional(S.suspend(() => CompositeFilterList)), Operator: S.optional(S.String)}) {}
 export class InsightResultValue extends S.Class<InsightResultValue>("InsightResultValue")({GroupByAttributeValue: S.String, Count: S.Number}) {}
 export const InsightResultValueList = S.Array(InsightResultValue);
 export class ResourcesTrendsCompositeFilter extends S.Class<ResourcesTrendsCompositeFilter>("ResourcesTrendsCompositeFilter")({StringFilters: S.optional(ResourcesTrendsStringFilterList), NestedCompositeFilters: S.optional(S.suspend(() => ResourcesTrendsCompositeFilterList)), Operator: S.optional(S.String)}) {}
 export type ResourcesTrendsCompositeFilterList = ResourcesTrendsCompositeFilter[];
-export const ResourcesTrendsCompositeFilterList = S.Array(S.suspend((): S.Schema<ResourcesTrendsCompositeFilter> => ResourcesTrendsCompositeFilter)) as any as S.Schema<ResourcesTrendsCompositeFilterList>;
+export const ResourcesTrendsCompositeFilterList = S.Array(S.suspend((): S.Schema<ResourcesTrendsCompositeFilter, any> => ResourcesTrendsCompositeFilter)) as any as S.Schema<ResourcesTrendsCompositeFilterList>;
 export class ResourcesCompositeFilter extends S.Class<ResourcesCompositeFilter>("ResourcesCompositeFilter")({StringFilters: S.optional(ResourcesStringFilterList), DateFilters: S.optional(ResourcesDateFilterList), NumberFilters: S.optional(ResourcesNumberFilterList), MapFilters: S.optional(ResourcesMapFilterList), NestedCompositeFilters: S.optional(S.suspend(() => ResourcesCompositeFilterList)), Operator: S.optional(S.String)}) {}
 export class AutomationRulesActionTypeObjectV2 extends S.Class<AutomationRulesActionTypeObjectV2>("AutomationRulesActionTypeObjectV2")({Type: S.optional(S.String)}) {}
 export const AutomationRulesActionTypeListV2 = S.Array(AutomationRulesActionTypeObjectV2);

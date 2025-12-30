@@ -25,7 +25,7 @@ export const MatchOptions = S.Array(S.String);
 export class DimensionValues extends S.Class<DimensionValues>("DimensionValues")({key: S.String, values: StringList, matchOptions: S.optional(MatchOptions)}) {}
 export class TagValues extends S.Class<TagValues>("TagValues")({key: S.optional(S.String), values: S.optional(StringList), matchOptions: S.optional(MatchOptions)}) {}
 export class CostCategoryValues extends S.Class<CostCategoryValues>("CostCategoryValues")({key: S.optional(S.String), values: S.optional(StringList), matchOptions: S.optional(MatchOptions)}) {}
-export class Expression extends S.Class<Expression>("Expression")({or: S.optional(S.suspend(() => Expressions)), and: S.optional(S.suspend(() => Expressions)), not: S.optional(S.suspend((): S.Schema<Expression> => Expression)), dimensions: S.optional(DimensionValues), tags: S.optional(TagValues), costCategories: S.optional(CostCategoryValues)}) {}
+export class Expression extends S.Class<Expression>("Expression")({or: S.optional(S.suspend(() => Expressions)), and: S.optional(S.suspend(() => Expressions)), not: S.optional(S.suspend((): S.Schema<Expression, any> => Expression)), dimensions: S.optional(DimensionValues), tags: S.optional(TagValues), costCategories: S.optional(CostCategoryValues)}) {}
 export class CostAndUsageQuery extends S.Class<CostAndUsageQuery>("CostAndUsageQuery")({metrics: MetricNames, timeRange: DateTimeRange, granularity: S.String, groupBy: S.optional(GroupDefinitions), filter: S.optional(Expression)}) {}
 export class SavingsPlansCoverageQuery extends S.Class<SavingsPlansCoverageQuery>("SavingsPlansCoverageQuery")({timeRange: DateTimeRange, metrics: S.optional(MetricNames), granularity: S.optional(S.String), groupBy: S.optional(GroupDefinitions), filter: S.optional(Expression)}) {}
 export class SavingsPlansUtilizationQuery extends S.Class<SavingsPlansUtilizationQuery>("SavingsPlansUtilizationQuery")({timeRange: DateTimeRange, granularity: S.optional(S.String), filter: S.optional(Expression)}) {}
@@ -55,7 +55,7 @@ export class ThrottlingException extends S.Class<ThrottlingException>("Throttlin
 export class ValidationException extends S.Class<ValidationException>("ValidationException")({message: S.String}) {}
 export class ListDashboardsResponse extends S.Class<ListDashboardsResponse>("ListDashboardsResponse")({dashboards: DashboardReferenceList, nextToken: S.optional(S.String)}) {}
 export type Expressions = Expression[];
-export const Expressions = S.Array(S.suspend((): S.Schema<Expression> => Expression)) as any as S.Schema<Expressions>;
+export const Expressions = S.Array(S.suspend((): S.Schema<Expression, any> => Expression)) as any as S.Schema<Expressions>;
 export class CreateDashboardRequest extends S.Class<CreateDashboardRequest>("CreateDashboardRequest")({name: S.String, description: S.optional(S.String), widgets: WidgetList, resourceTags: S.optional(ResourceTagList)}) {}
 export class CreateDashboardResponse extends S.Class<CreateDashboardResponse>("CreateDashboardResponse")({arn: S.String}) {}
 export class ServiceQuotaExceededException extends S.Class<ServiceQuotaExceededException>("ServiceQuotaExceededException")({message: S.String}) {}

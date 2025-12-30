@@ -48,7 +48,7 @@ export class StructValue extends S.Class<StructValue>("StructValue")({attributes
 export class InvalidSecretException extends S.Class<InvalidSecretException>("InvalidSecretException")({message: S.optional(S.String)}) {}
 export class NotFoundException extends S.Class<NotFoundException>("NotFoundException")({message: S.optional(S.String)}) {}
 export type Value = boolean | number | string | H.StreamBody | ArrayValueList | StructValue;
-export const Value = S.Union(S.Boolean, S.Boolean, S.Number, S.Number, S.Number, S.Number, S.String, H.StreamBody(), S.suspend(() => ArrayValueList), S.suspend((): S.Schema<StructValue> => StructValue)) as any as S.Schema<Value>;
+export const Value = S.Union(S.Boolean, S.Boolean, S.Number, S.Number, S.Number, S.Number, S.String, H.StreamBody(), S.suspend(() => ArrayValueList), S.suspend((): S.Schema<StructValue, any> => StructValue)) as any as S.Schema<Value>;
 export const Row = S.Array(S.suspend(() => Value));
 export class UpdateResult extends S.Class<UpdateResult>("UpdateResult")({generatedFields: S.optional(FieldList)}) {}
 export const UpdateResults = S.Array(UpdateResult);

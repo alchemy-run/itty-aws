@@ -231,7 +231,7 @@ export class CreateFunctionResponse extends S.Class<CreateFunctionResponse>("Cre
 export class CreateGraphqlApiResponse extends S.Class<CreateGraphqlApiResponse>("CreateGraphqlApiResponse")({graphqlApi: S.optional(GraphqlApi)}) {}
 export class GetApiResponse extends S.Class<GetApiResponse>("GetApiResponse")({api: S.optional(Api)}) {}
 export const DataSourceIntrospectionModelFieldTypeValues = S.Array(S.String);
-export class DataSourceIntrospectionModelFieldType extends S.Class<DataSourceIntrospectionModelFieldType>("DataSourceIntrospectionModelFieldType")({kind: S.optional(S.String), name: S.optional(S.String), type: S.optional(S.suspend((): S.Schema<DataSourceIntrospectionModelFieldType> => DataSourceIntrospectionModelFieldType)), values: S.optional(DataSourceIntrospectionModelFieldTypeValues)}) {}
+export class DataSourceIntrospectionModelFieldType extends S.Class<DataSourceIntrospectionModelFieldType>("DataSourceIntrospectionModelFieldType")({kind: S.optional(S.String), name: S.optional(S.String), type: S.optional(S.suspend((): S.Schema<DataSourceIntrospectionModelFieldType, any> => DataSourceIntrospectionModelFieldType)), values: S.optional(DataSourceIntrospectionModelFieldTypeValues)}) {}
 export class BadRequestDetail extends S.Class<BadRequestDetail>("BadRequestDetail")({codeErrors: S.optional(CodeErrors)}) {}
 export class DataSourceIntrospectionModelField extends S.Class<DataSourceIntrospectionModelField>("DataSourceIntrospectionModelField")({name: S.optional(S.String), type: S.optional(DataSourceIntrospectionModelFieldType), length: S.optional(S.Number)}) {}
 export const DataSourceIntrospectionModelFields = S.Array(DataSourceIntrospectionModelField);

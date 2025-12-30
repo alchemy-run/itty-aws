@@ -1310,7 +1310,7 @@ export const VpcEndpointIdRestrictionRuleMap = S.Record({key: S.String, value: S
 export class RegisteredCustomerManagedKey extends S.Class<RegisteredCustomerManagedKey>("RegisteredCustomerManagedKey")({KeyArn: S.optional(S.String), DefaultKey: S.optional(S.Boolean)}) {}
 export const KeyRegistration = S.Array(RegisteredCustomerManagedKey);
 export type TopicVisuals = TopicVisual[];
-export const TopicVisuals = S.Array(S.suspend((): S.Schema<TopicVisual> => TopicVisual)) as any as S.Schema<TopicVisuals>;
+export const TopicVisuals = S.Array(S.suspend((): S.Schema<TopicVisual, any> => TopicVisual)) as any as S.Schema<TopicVisuals>;
 export const AnonymousUserDashboardEmbeddingConfigurationEnabledFeatures = S.Array(S.String);
 export const AnonymousUserDashboardEmbeddingConfigurationDisabledFeatures = S.Array(S.String);
 export const AssetBundleExportJobVPCConnectionPropertyToOverrideList = S.Array(S.String);

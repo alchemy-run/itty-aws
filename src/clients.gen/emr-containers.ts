@@ -34,7 +34,7 @@ export class TagResourceResponse extends S.Class<TagResourceResponse>("TagResour
 export class UntagResourceRequest extends S.Class<UntagResourceRequest>("UntagResourceRequest")({resourceArn: S.String, tagKeys: TagKeyList}) {}
 export class UntagResourceResponse extends S.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
 export type ConfigurationList = Configuration[];
-export const ConfigurationList = S.Array(S.suspend((): S.Schema<Configuration> => Configuration)) as any as S.Schema<ConfigurationList>;
+export const ConfigurationList = S.Array(S.suspend((): S.Schema<Configuration, any> => Configuration)) as any as S.Schema<ConfigurationList>;
 export class ManagedLogs extends S.Class<ManagedLogs>("ManagedLogs")({allowAWSToRetainLogs: S.optional(S.String), encryptionKeyArn: S.optional(S.String)}) {}
 export class CloudWatchMonitoringConfiguration extends S.Class<CloudWatchMonitoringConfiguration>("CloudWatchMonitoringConfiguration")({logGroupName: S.String, logStreamNamePrefix: S.optional(S.String)}) {}
 export class S3MonitoringConfiguration extends S.Class<S3MonitoringConfiguration>("S3MonitoringConfiguration")({logUri: S.String}) {}

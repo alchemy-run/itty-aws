@@ -483,7 +483,8 @@ const convertShapeToSchema: (
                     let innerType = type;
                     if (sdkFile.cyclicSchemas.has(memberName)) {
                       innerType = sdkFile.cyclicClasses.has(memberName)
-                        ? `S.suspend((): S.Schema<${type}> => ${type})`
+                      // TODO(sam): I had to add the any here because encoded type was creting circular errors. hopefully OK since we don't really need it
+                        ? `S.suspend((): S.Schema<${type}, any> => ${type})`
                         : `S.suspend(() => ${type})`;
                     }
                     
@@ -521,7 +522,8 @@ const convertShapeToSchema: (
                         // Wrap cyclic references in S.suspend (only if current schema is also cyclic)
                         if (isCurrentCyclic && sdkFile.cyclicSchemas.has(memberTargetName)) {
                           if (sdkFile.cyclicClasses.has(memberTargetName)) {
-                            schema = `S.suspend((): S.Schema<${schema}> => ${schema})`;
+                            // TODO(sam): I had to add the any here because encoded type was creting circular errors. hopefully OK since we don't really need it
+                            schema = `S.suspend((): S.Schema<${schema}, any> => ${schema})`;
                           } else {
                             schema = `S.suspend(() => ${schema})`;
                           }
@@ -585,7 +587,8 @@ const convertShapeToSchema: (
                         // Wrap cyclic references in S.suspend
                         if (isCurrentCyclic && sdkFile.cyclicSchemas.has(memberTargetName)) {
                           if (sdkFile.cyclicClasses.has(memberTargetName)) {
-                            wrappedSchema = `S.suspend((): S.Schema<${schema}> => ${schema})`;
+                            // TODO(sam): I had to add the any here because encoded type was creting circular errors. hopefully OK since we don't really need it
+                            wrappedSchema = `S.suspend((): S.Schema<${schema}, any> => ${schema})`;
                           } else {
                             wrappedSchema = `S.suspend(() => ${schema})`;
                           }

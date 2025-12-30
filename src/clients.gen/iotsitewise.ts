@@ -181,7 +181,7 @@ export const AssetModelCompositeModels = S.Array(AssetModelCompositeModel);
 export class Image extends S.Class<Image>("Image")({id: S.optional(S.String), file: S.optional(ImageFile)}) {}
 export class Parquet extends S.Class<Parquet>("Parquet")({}) {}
 export type BindingValueList = ComputationModelDataBindingValue[];
-export const BindingValueList = S.Array(S.suspend((): S.Schema<ComputationModelDataBindingValue> => ComputationModelDataBindingValue)) as any as S.Schema<BindingValueList>;
+export const BindingValueList = S.Array(S.suspend((): S.Schema<ComputationModelDataBindingValue, any> => ComputationModelDataBindingValue)) as any as S.Schema<BindingValueList>;
 export const PortalTools = S.Array(S.String);
 export class ConflictingOperationException extends S.Class<ConflictingOperationException>("ConflictingOperationException")({message: S.String, resourceId: S.String, resourceArn: S.String}) {}
 export class InternalFailureException extends S.Class<InternalFailureException>("InternalFailureException")({message: S.String}) {}
@@ -372,9 +372,9 @@ export class UpdatePortalResponse extends S.Class<UpdatePortalResponse>("UpdateP
 export class CompositionRelationshipItem extends S.Class<CompositionRelationshipItem>("CompositionRelationshipItem")({id: S.optional(S.String)}) {}
 export const CompositionRelationship = S.Array(CompositionRelationshipItem);
 export class ColumnType extends S.Class<ColumnType>("ColumnType")({scalarType: S.optional(S.String)}) {}
-export class Datum extends S.Class<Datum>("Datum")({scalarValue: S.optional(S.String), arrayValue: S.optional(S.suspend(() => DatumList)), rowValue: S.optional(S.suspend((): S.Schema<Row> => Row)), nullValue: S.optional(S.Boolean)}) {}
+export class Datum extends S.Class<Datum>("Datum")({scalarValue: S.optional(S.String), arrayValue: S.optional(S.suspend(() => DatumList)), rowValue: S.optional(S.suspend((): S.Schema<Row, any> => Row)), nullValue: S.optional(S.Boolean)}) {}
 export type DatumList = Datum[];
-export const DatumList = S.Array(S.suspend((): S.Schema<Datum> => Datum)) as any as S.Schema<DatumList>;
+export const DatumList = S.Array(S.suspend((): S.Schema<Datum, any> => Datum)) as any as S.Schema<DatumList>;
 export class Aggregates extends S.Class<Aggregates>("Aggregates")({average: S.optional(S.Number), count: S.optional(S.Number), maximum: S.optional(S.Number), minimum: S.optional(S.Number), sum: S.optional(S.Number), standardDeviation: S.optional(S.Number)}) {}
 export class Trace extends S.Class<Trace>("Trace")({text: S.optional(S.String)}) {}
 export class AccessDeniedException extends S.Class<AccessDeniedException>("AccessDeniedException")({message: S.optional(S.String)}) {}
@@ -399,7 +399,7 @@ export class CompositionDetails extends S.Class<CompositionDetails>("Composition
 export class ColumnInfo extends S.Class<ColumnInfo>("ColumnInfo")({name: S.optional(S.String), type: S.optional(ColumnType)}) {}
 export const ColumnsList = S.Array(ColumnInfo);
 export class Row extends S.Class<Row>("Row")({data: S.suspend(() => DatumList)}) {}
-export const Rows = S.Array(S.suspend((): S.Schema<Row> => Row));
+export const Rows = S.Array(S.suspend((): S.Schema<Row, any> => Row));
 export class AssetModelPropertySummary extends S.Class<AssetModelPropertySummary>("AssetModelPropertySummary")({id: S.optional(S.String), externalId: S.optional(S.String), name: S.String, dataType: S.String, dataTypeSpec: S.optional(S.String), unit: S.optional(S.String), type: PropertyType, assetModelCompositeModelId: S.optional(S.String), path: S.optional(AssetModelPropertyPath), interfaceSummaries: S.optional(InterfaceSummaries)}) {}
 export const AssetModelPropertySummaries = S.Array(AssetModelPropertySummary);
 export class AssetRelationshipSummary extends S.Class<AssetRelationshipSummary>("AssetRelationshipSummary")({hierarchyInfo: S.optional(AssetHierarchyInfo), relationshipType: S.String}) {}

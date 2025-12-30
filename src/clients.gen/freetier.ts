@@ -9,7 +9,7 @@ export class GetAccountActivityRequest extends S.Class<GetAccountActivityRequest
 export class ListAccountActivitiesRequest extends S.Class<ListAccountActivitiesRequest>("ListAccountActivitiesRequest")({filterActivityStatuses: S.optional(FilterActivityStatuses), nextToken: S.optional(S.String), maxResults: S.optional(S.Number), languageCode: S.optional(S.String)}) {}
 export class UpgradeAccountPlanRequest extends S.Class<UpgradeAccountPlanRequest>("UpgradeAccountPlanRequest")({accountPlanType: S.String}) {}
 export type Expressions = Expression[];
-export const Expressions = S.Array(S.suspend((): S.Schema<Expression> => Expression)) as any as S.Schema<Expressions>;
+export const Expressions = S.Array(S.suspend((): S.Schema<Expression, any> => Expression)) as any as S.Schema<Expressions>;
 export class MonetaryAmount extends S.Class<MonetaryAmount>("MonetaryAmount")({amount: S.Number, unit: S.String}) {}
 export const Values = S.Array(S.String);
 export const MatchOptions = S.Array(S.String);
@@ -17,7 +17,7 @@ export class GetAccountPlanStateResponse extends S.Class<GetAccountPlanStateResp
 export class UpgradeAccountPlanResponse extends S.Class<UpgradeAccountPlanResponse>("UpgradeAccountPlanResponse")({accountId: S.String, accountPlanType: S.String, accountPlanStatus: S.String}) {}
 export class DimensionValues extends S.Class<DimensionValues>("DimensionValues")({Key: S.String, Values: Values, MatchOptions: MatchOptions}) {}
 export const ActivityReward = S.Union(MonetaryAmount);
-export class Expression extends S.Class<Expression>("Expression")({Or: S.optional(S.suspend(() => Expressions)), And: S.optional(S.suspend(() => Expressions)), Not: S.optional(S.suspend((): S.Schema<Expression> => Expression)), Dimensions: S.optional(DimensionValues)}) {}
+export class Expression extends S.Class<Expression>("Expression")({Or: S.optional(S.suspend(() => Expressions)), And: S.optional(S.suspend(() => Expressions)), Not: S.optional(S.suspend((): S.Schema<Expression, any> => Expression)), Dimensions: S.optional(DimensionValues)}) {}
 export class ActivitySummary extends S.Class<ActivitySummary>("ActivitySummary")({activityId: S.String, title: S.String, reward: ActivityReward, status: S.String}) {}
 export const Activities = S.Array(ActivitySummary);
 export class GetAccountActivityResponse extends S.Class<GetAccountActivityResponse>("GetAccountActivityResponse")({activityId: S.String, title: S.String, description: S.String, status: S.String, instructionsUrl: S.String, reward: ActivityReward, estimatedTimeToCompleteInMinutes: S.optional(S.Number), expiresAt: S.optional(S.Date), startedAt: S.optional(S.Date), completedAt: S.optional(S.Date)}) {}

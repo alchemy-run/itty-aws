@@ -29,7 +29,7 @@ export const MatchOptions = S.Array(S.String);
 export class DimensionValues extends S.Class<DimensionValues>("DimensionValues")({Key: S.optional(S.String), Values: S.optional(Values), MatchOptions: S.optional(MatchOptions)}) {}
 export class TagValues extends S.Class<TagValues>("TagValues")({Key: S.optional(S.String), Values: S.optional(Values), MatchOptions: S.optional(MatchOptions)}) {}
 export class CostCategoryValues extends S.Class<CostCategoryValues>("CostCategoryValues")({Key: S.optional(S.String), Values: S.optional(Values), MatchOptions: S.optional(MatchOptions)}) {}
-export class Expression extends S.Class<Expression>("Expression")({Or: S.optional(S.suspend(() => Expressions)), And: S.optional(S.suspend(() => Expressions)), Not: S.optional(S.suspend((): S.Schema<Expression> => Expression)), Dimensions: S.optional(DimensionValues), Tags: S.optional(TagValues), CostCategories: S.optional(CostCategoryValues)}) {}
+export class Expression extends S.Class<Expression>("Expression")({Or: S.optional(S.suspend(() => Expressions)), And: S.optional(S.suspend(() => Expressions)), Not: S.optional(S.suspend((): S.Schema<Expression, any> => Expression)), Dimensions: S.optional(DimensionValues), Tags: S.optional(TagValues), CostCategories: S.optional(CostCategoryValues)}) {}
 export class GroupDefinition extends S.Class<GroupDefinition>("GroupDefinition")({Type: S.optional(S.String), Key: S.optional(S.String)}) {}
 export const GroupDefinitions = S.Array(GroupDefinition);
 export class GetCostAndUsageComparisonsRequest extends S.Class<GetCostAndUsageComparisonsRequest>("GetCostAndUsageComparisonsRequest")({BillingViewArn: S.optional(S.String), BaselineTimePeriod: DateInterval, ComparisonTimePeriod: DateInterval, MetricForComparison: S.String, Filter: S.optional(Expression), GroupBy: S.optional(GroupDefinitions), MaxResults: S.optional(S.Number), NextPageToken: S.optional(S.String)}) {}
@@ -76,7 +76,7 @@ export class CostCategorySplitChargeRule extends S.Class<CostCategorySplitCharge
 export const CostCategorySplitChargeRulesList = S.Array(CostCategorySplitChargeRule);
 export class UpdateCostCategoryDefinitionRequest extends S.Class<UpdateCostCategoryDefinitionRequest>("UpdateCostCategoryDefinitionRequest")({CostCategoryArn: S.String, EffectiveStart: S.optional(S.String), RuleVersion: S.String, Rules: CostCategoryRulesList, DefaultValue: S.optional(S.String), SplitChargeRules: S.optional(CostCategorySplitChargeRulesList)}) {}
 export type Expressions = Expression[];
-export const Expressions = S.Array(S.suspend((): S.Schema<Expression> => Expression)) as any as S.Schema<Expressions>;
+export const Expressions = S.Array(S.suspend((): S.Schema<Expression, any> => Expression)) as any as S.Schema<Expressions>;
 export class AnomalyMonitor extends S.Class<AnomalyMonitor>("AnomalyMonitor")({MonitorArn: S.optional(S.String), MonitorName: S.String, CreationDate: S.optional(S.String), LastUpdatedDate: S.optional(S.String), LastEvaluatedDate: S.optional(S.String), MonitorType: S.String, MonitorDimension: S.optional(S.String), MonitorSpecification: S.optional(Expression), DimensionalValueCount: S.optional(S.Number)}) {}
 export class Subscriber extends S.Class<Subscriber>("Subscriber")({Address: S.optional(S.String), Type: S.optional(S.String), Status: S.optional(S.String)}) {}
 export const Subscribers = S.Array(Subscriber);

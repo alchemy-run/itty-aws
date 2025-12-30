@@ -50,7 +50,7 @@ export class AccountSettingsNotificationConfiguration extends S.Class<AccountSet
 export class ProvisionedCapacityRequest extends S.Class<ProvisionedCapacityRequest>("ProvisionedCapacityRequest")({TargetQueryTCU: S.Number, NotificationConfiguration: S.optional(AccountSettingsNotificationConfiguration)}) {}
 export class NotificationConfiguration extends S.Class<NotificationConfiguration>("NotificationConfiguration")({SnsConfiguration: SnsConfiguration}) {}
 export class ErrorReportConfiguration extends S.Class<ErrorReportConfiguration>("ErrorReportConfiguration")({S3Configuration: S3Configuration}) {}
-export class Type extends S.Class<Type>("Type")({ScalarType: S.optional(S.String), ArrayColumnInfo: S.optional(S.suspend((): S.Schema<ColumnInfo> => ColumnInfo)), TimeSeriesMeasureValueColumnInfo: S.optional(S.suspend((): S.Schema<ColumnInfo> => ColumnInfo)), RowColumnInfo: S.optional(S.suspend(() => ColumnInfoList))}) {}
+export class Type extends S.Class<Type>("Type")({ScalarType: S.optional(S.String), ArrayColumnInfo: S.optional(S.suspend((): S.Schema<ColumnInfo, any> => ColumnInfo)), TimeSeriesMeasureValueColumnInfo: S.optional(S.suspend((): S.Schema<ColumnInfo, any> => ColumnInfo)), RowColumnInfo: S.optional(S.suspend(() => ColumnInfoList))}) {}
 export class ParameterMapping extends S.Class<ParameterMapping>("ParameterMapping")({Name: S.String, Type: Type}) {}
 export const ParameterMappingList = S.Array(ParameterMapping);
 export class QueryComputeRequest extends S.Class<QueryComputeRequest>("QueryComputeRequest")({ComputeMode: S.optional(S.String), ProvisionedCapacity: S.optional(ProvisionedCapacityRequest)}) {}
@@ -69,9 +69,9 @@ export class ProvisionedCapacityResponse extends S.Class<ProvisionedCapacityResp
 export class QueryComputeResponse extends S.Class<QueryComputeResponse>("QueryComputeResponse")({ComputeMode: S.optional(S.String), ProvisionedCapacity: S.optional(ProvisionedCapacityResponse)}) {}
 export class SelectColumn extends S.Class<SelectColumn>("SelectColumn")({Name: S.optional(S.String), Type: S.optional(Type), DatabaseName: S.optional(S.String), TableName: S.optional(S.String), Aliased: S.optional(S.Boolean)}) {}
 export const SelectColumnList = S.Array(SelectColumn);
-export class ColumnInfo extends S.Class<ColumnInfo>("ColumnInfo")({Name: S.optional(S.String), Type: S.suspend((): S.Schema<Type> => Type)}) {}
+export class ColumnInfo extends S.Class<ColumnInfo>("ColumnInfo")({Name: S.optional(S.String), Type: S.suspend((): S.Schema<Type, any> => Type)}) {}
 export type ColumnInfoList = ColumnInfo[];
-export const ColumnInfoList = S.Array(S.suspend((): S.Schema<ColumnInfo> => ColumnInfo)) as any as S.Schema<ColumnInfoList>;
+export const ColumnInfoList = S.Array(S.suspend((): S.Schema<ColumnInfo, any> => ColumnInfo)) as any as S.Schema<ColumnInfoList>;
 export class QueryStatus extends S.Class<QueryStatus>("QueryStatus")({ProgressPercentage: S.optional(S.Number), CumulativeBytesScanned: S.optional(S.Number), CumulativeBytesMetered: S.optional(S.Number)}) {}
 export class MultiMeasureMappings extends S.Class<MultiMeasureMappings>("MultiMeasureMappings")({TargetMultiMeasureName: S.optional(S.String), MultiMeasureAttributeMappings: MultiMeasureAttributeMappingList}) {}
 export class TimestreamDestination extends S.Class<TimestreamDestination>("TimestreamDestination")({DatabaseName: S.optional(S.String), TableName: S.optional(S.String)}) {}
@@ -83,17 +83,17 @@ export class TargetDestination extends S.Class<TargetDestination>("TargetDestina
 export class TargetConfiguration extends S.Class<TargetConfiguration>("TargetConfiguration")({TimestreamConfiguration: TimestreamConfiguration}) {}
 export class ScheduledQuery extends S.Class<ScheduledQuery>("ScheduledQuery")({Arn: S.String, Name: S.String, CreationTime: S.optional(S.Date), State: S.String, PreviousInvocationTime: S.optional(S.Date), NextInvocationTime: S.optional(S.Date), ErrorReportConfiguration: S.optional(ErrorReportConfiguration), TargetDestination: S.optional(TargetDestination), LastRunStatus: S.optional(S.String)}) {}
 export const ScheduledQueryList = S.Array(ScheduledQuery);
-export class TimeSeriesDataPoint extends S.Class<TimeSeriesDataPoint>("TimeSeriesDataPoint")({Time: S.String, Value: S.suspend((): S.Schema<Datum> => Datum)}) {}
+export class TimeSeriesDataPoint extends S.Class<TimeSeriesDataPoint>("TimeSeriesDataPoint")({Time: S.String, Value: S.suspend((): S.Schema<Datum, any> => Datum)}) {}
 export type TimeSeriesDataPointList = TimeSeriesDataPoint[];
-export const TimeSeriesDataPointList = S.Array(S.suspend((): S.Schema<TimeSeriesDataPoint> => TimeSeriesDataPoint)) as any as S.Schema<TimeSeriesDataPointList>;
+export const TimeSeriesDataPointList = S.Array(S.suspend((): S.Schema<TimeSeriesDataPoint, any> => TimeSeriesDataPoint)) as any as S.Schema<TimeSeriesDataPointList>;
 export class CreateScheduledQueryRequest extends S.Class<CreateScheduledQueryRequest>("CreateScheduledQueryRequest")({Name: S.String, QueryString: S.String, ScheduleConfiguration: ScheduleConfiguration, NotificationConfiguration: NotificationConfiguration, TargetConfiguration: S.optional(TargetConfiguration), ClientToken: S.optional(S.String), ScheduledQueryExecutionRoleArn: S.String, Tags: S.optional(TagList), KmsKeyId: S.optional(S.String), ErrorReportConfiguration: ErrorReportConfiguration}) {}
 export class ListScheduledQueriesResponse extends S.Class<ListScheduledQueriesResponse>("ListScheduledQueriesResponse")({ScheduledQueries: ScheduledQueryList, NextToken: S.optional(S.String)}) {}
-export class Datum extends S.Class<Datum>("Datum")({ScalarValue: S.optional(S.String), TimeSeriesValue: S.optional(S.suspend(() => TimeSeriesDataPointList)), ArrayValue: S.optional(S.suspend(() => DatumList)), RowValue: S.optional(S.suspend((): S.Schema<Row> => Row)), NullValue: S.optional(S.Boolean)}) {}
+export class Datum extends S.Class<Datum>("Datum")({ScalarValue: S.optional(S.String), TimeSeriesValue: S.optional(S.suspend(() => TimeSeriesDataPointList)), ArrayValue: S.optional(S.suspend(() => DatumList)), RowValue: S.optional(S.suspend((): S.Schema<Row, any> => Row)), NullValue: S.optional(S.Boolean)}) {}
 export type DatumList = Datum[];
-export const DatumList = S.Array(S.suspend((): S.Schema<Datum> => Datum)) as any as S.Schema<DatumList>;
+export const DatumList = S.Array(S.suspend((): S.Schema<Datum, any> => Datum)) as any as S.Schema<DatumList>;
 export class ScheduledQueryDescription extends S.Class<ScheduledQueryDescription>("ScheduledQueryDescription")({Arn: S.String, Name: S.String, QueryString: S.String, CreationTime: S.optional(S.Date), State: S.String, PreviousInvocationTime: S.optional(S.Date), NextInvocationTime: S.optional(S.Date), ScheduleConfiguration: ScheduleConfiguration, NotificationConfiguration: NotificationConfiguration, TargetConfiguration: S.optional(TargetConfiguration), ScheduledQueryExecutionRoleArn: S.optional(S.String), KmsKeyId: S.optional(S.String), ErrorReportConfiguration: S.optional(ErrorReportConfiguration), LastRunSummary: S.optional(ScheduledQueryRunSummary), RecentlyFailedRuns: S.optional(ScheduledQueryRunSummaryList)}) {}
 export class Row extends S.Class<Row>("Row")({Data: S.suspend(() => DatumList)}) {}
-export const RowList = S.Array(S.suspend((): S.Schema<Row> => Row));
+export const RowList = S.Array(S.suspend((): S.Schema<Row, any> => Row));
 export class QueryInsightsResponse extends S.Class<QueryInsightsResponse>("QueryInsightsResponse")({QuerySpatialCoverage: S.optional(QuerySpatialCoverage), QueryTemporalRange: S.optional(QueryTemporalRange), QueryTableCount: S.optional(S.Number), OutputRows: S.optional(S.Number), OutputBytes: S.optional(S.Number), UnloadPartitionCount: S.optional(S.Number), UnloadWrittenRows: S.optional(S.Number), UnloadWrittenBytes: S.optional(S.Number)}) {}
 export class CreateScheduledQueryResponse extends S.Class<CreateScheduledQueryResponse>("CreateScheduledQueryResponse")({Arn: S.String}) {}
 export class DescribeScheduledQueryResponse extends S.Class<DescribeScheduledQueryResponse>("DescribeScheduledQueryResponse")({ScheduledQuery: ScheduledQueryDescription}) {}

@@ -22,10 +22,10 @@ export class ResourceNotFoundException extends S.Class<ResourceNotFoundException
 export class KeyspacesRow extends S.Class<KeyspacesRow>("KeyspacesRow")({valueCells: S.optional(KeyspacesCells), staticCells: S.optional(KeyspacesCells), rowMetadata: S.optional(KeyspacesMetadata)}) {}
 export class SequenceNumberRange extends S.Class<SequenceNumberRange>("SequenceNumberRange")({startingSequenceNumber: S.optional(S.String), endingSequenceNumber: S.optional(S.String)}) {}
 export type KeyspacesCellList = KeyspacesCell[];
-export const KeyspacesCellList = S.Array(S.suspend((): S.Schema<KeyspacesCell> => KeyspacesCell)) as any as S.Schema<KeyspacesCellList>;
+export const KeyspacesCellList = S.Array(S.suspend((): S.Schema<KeyspacesCell, any> => KeyspacesCell)) as any as S.Schema<KeyspacesCellList>;
 export class KeyspacesCellMapDefinition extends S.Class<KeyspacesCellMapDefinition>("KeyspacesCellMapDefinition")({key: S.optional(S.suspend(() => KeyspacesCellValue)), value: S.optional(S.suspend(() => KeyspacesCellValue)), metadata: S.optional(KeyspacesMetadata)}) {}
 export type KeyspacesCellMap = KeyspacesCellMapDefinition[];
-export const KeyspacesCellMap = S.Array(S.suspend((): S.Schema<KeyspacesCellMapDefinition> => KeyspacesCellMapDefinition)) as any as S.Schema<KeyspacesCellMap>;
+export const KeyspacesCellMap = S.Array(S.suspend((): S.Schema<KeyspacesCellMapDefinition, any> => KeyspacesCellMapDefinition)) as any as S.Schema<KeyspacesCellMap>;
 export const KeyspacesUdtMap = S.Record({key: S.String, value: KeyspacesCell});
 export class Shard extends S.Class<Shard>("Shard")({shardId: S.optional(S.String), sequenceNumberRange: S.optional(SequenceNumberRange), parentShardIds: S.optional(ShardIdList)}) {}
 export const ShardDescriptionList = S.Array(Shard);

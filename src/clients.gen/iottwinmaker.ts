@@ -37,7 +37,7 @@ export class TagResourceResponse extends S.Class<TagResourceResponse>("TagResour
 export class UntagResourceRequest extends S.Class<UntagResourceRequest>("UntagResourceRequest")({resourceARN: S.String, tagKeys: TagKeyList}) {}
 export class UntagResourceResponse extends S.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
 export class Relationship extends S.Class<Relationship>("Relationship")({targetComponentTypeId: S.optional(S.String), relationshipType: S.optional(S.String)}) {}
-export class DataType extends S.Class<DataType>("DataType")({type: S.String, nestedType: S.optional(S.suspend((): S.Schema<DataType> => DataType)), allowedValues: S.optional(S.suspend(() => DataValueList)), unitOfMeasure: S.optional(S.String), relationship: S.optional(Relationship)}) {}
+export class DataType extends S.Class<DataType>("DataType")({type: S.String, nestedType: S.optional(S.suspend((): S.Schema<DataType, any> => DataType)), allowedValues: S.optional(S.suspend(() => DataValueList)), unitOfMeasure: S.optional(S.String), relationship: S.optional(Relationship)}) {}
 export class RelationshipValue extends S.Class<RelationshipValue>("RelationshipValue")({targetEntityId: S.optional(S.String), targetComponentName: S.optional(S.String)}) {}
 export class DataValue extends S.Class<DataValue>("DataValue")({booleanValue: S.optional(S.Boolean), doubleValue: S.optional(S.Number), integerValue: S.optional(S.Number), longValue: S.optional(S.Number), stringValue: S.optional(S.String), listValue: S.optional(S.suspend(() => DataValueList)), mapValue: S.optional(S.suspend(() => DataValueMap)), relationshipValue: S.optional(RelationshipValue), expression: S.optional(S.String)}) {}
 export const Configuration = S.Record({key: S.String, value: S.String});
@@ -70,7 +70,7 @@ export const SyncResourceFilter = S.Union(S.String, S.String, S.String, S.String
 export const SyncResourceFilters = S.Array(SyncResourceFilter);
 export class ParentEntityUpdateRequest extends S.Class<ParentEntityUpdateRequest>("ParentEntityUpdateRequest")({updateType: S.String, parentEntityId: S.optional(S.String)}) {}
 export type DataValueList = DataValue[];
-export const DataValueList = S.Array(S.suspend((): S.Schema<DataValue> => DataValue)) as any as S.Schema<DataValueList>;
+export const DataValueList = S.Array(S.suspend((): S.Schema<DataValue, any> => DataValue)) as any as S.Schema<DataValueList>;
 export class CreateSceneRequest extends S.Class<CreateSceneRequest>("CreateSceneRequest")({workspaceId: S.String, sceneId: S.String, contentLocation: S.String, description: S.optional(S.String), capabilities: S.optional(SceneCapabilities), tags: S.optional(TagMap), sceneMetadata: S.optional(SceneMetadataMap)}) {}
 export class CreateSyncJobResponse extends S.Class<CreateSyncJobResponse>("CreateSyncJobResponse")({arn: S.String, creationDateTime: S.Date, state: S.String}) {}
 export class CreateWorkspaceResponse extends S.Class<CreateWorkspaceResponse>("CreateWorkspaceResponse")({arn: S.String, creationDateTime: S.Date}) {}

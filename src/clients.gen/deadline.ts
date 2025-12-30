@@ -71,7 +71,7 @@ export class StartSessionsStatisticsAggregationResponse extends S.Class<StartSes
 export class ValidationException extends S.Class<ValidationException>("ValidationException")({message: S.String, reason: S.String, fieldList: S.optional(ValidationExceptionFieldList), context: S.optional(ExceptionContext)}) {}
 export class Stats extends S.Class<Stats>("Stats")({min: S.optional(S.Number), max: S.optional(S.Number), avg: S.optional(S.Number), sum: S.optional(S.Number)}) {}
 export type SearchFilterExpression = DateTimeFilterExpression | ParameterFilterExpression | SearchTermFilterExpression | StringFilterExpression | SearchGroupedFilterExpressions;
-export const SearchFilterExpression = S.Union(DateTimeFilterExpression, ParameterFilterExpression, SearchTermFilterExpression, StringFilterExpression, S.suspend((): S.Schema<SearchGroupedFilterExpressions> => SearchGroupedFilterExpressions)) as any as S.Schema<SearchFilterExpression>;
+export const SearchFilterExpression = S.Union(DateTimeFilterExpression, ParameterFilterExpression, SearchTermFilterExpression, StringFilterExpression, S.suspend((): S.Schema<SearchGroupedFilterExpressions, any> => SearchGroupedFilterExpressions)) as any as S.Schema<SearchFilterExpression>;
 export type SearchFilterExpressions = SearchFilterExpression[];
 export const SearchFilterExpressions = S.Array(S.suspend(() => SearchFilterExpression)) as any as S.Schema<SearchFilterExpressions>;
 export const TaskRunStatusCounts = S.Record({key: S.String, value: S.Number});
